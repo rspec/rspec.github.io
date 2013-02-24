@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby '1.8.7'
 
 gem 'webby', '~> 0.9.4'
 gem 'coderay', '~> 0.9.8'
