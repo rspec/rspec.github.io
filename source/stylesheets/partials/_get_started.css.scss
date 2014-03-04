@@ -1,9 +1,34 @@
+@import 'partials/buttons';
+
 section.get-started {
   @include outer-container;
 
   article {
+    margin-bottom: 80px;
+  }
+
+  article.steps {
     @include span-columns(8);
     @include shift(2);
+  }
+
+  article.docs {
+    @include clearfix;
+  }
+
+  article.book {
+    img {
+      @include span-columns(4);
+    }
+
+    div {
+      padding-left: 30px;
+      @include span-columns(6);
+    }
+
+    h2 {
+      text-align: left;
+    }
   }
 
   pre {

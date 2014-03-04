@@ -41,7 +41,7 @@ section.features
 hr
 
 section.get-started
-  article
+  article.steps
     h2 Let's get started!
 
     p To kick things off.
@@ -64,3 +64,18 @@ section.get-started
         it guide you to what you have to do next. And don’t forget to take time
         to refactor your code before it gets messy. You should keep your code
         clean at every step of the way.
+
+  article.docs
+    = link_to "View Documentation", "/docs", :class => "btn"
+
+  article.book
+    = image_tag 'rspec_book.png', :alt => "Behaviour Driven Development in Ruby with RSPec"
+    div
+      h2 The RSpec Book
+      p
+        | The RSpec Book will introduce you to RSpec, Cucumber, and a number of other tools that make up the Ruby BDD family. Replete with tutorials and practical examples, the RSpec Book will help you get your BDD on, taking you from executable requirements to working software that is clean, well tested, well documented, flexible and highly maintainable.
+      = link_to "Check out the book"
+
+footer
+  = link_to "Lovingly Crafted by Ninefold"
+
