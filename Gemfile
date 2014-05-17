@@ -10,3 +10,8 @@ gem "slim"
 # Live-reloading plugin
 gem "middleman-livereload", "~> 3.1.0"
 gem "middleman-syntax", :github => "middleman/middleman-syntax"
+
+group :production do
+  gem 'puma'
+  gem 'rack-contrib'
+end
