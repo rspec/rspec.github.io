@@ -29,10 +29,10 @@ html.no-js lang="en"
   body class=(page_classes)
     header
       nav
-        h1 RSpec
+        h1= link_to 'RSpec', '/'
         ul
-          li= link_to 'Documentation'
-          li= link_to 'About'
-          li= link_to 'Get Help'
-          li= link_to 'Contributing'
+          li= link_to 'Documentation', '/documentation'
+          li= link_to 'About', '/about'
+          li= link_to 'Get Help', '/help'
+          li= link_to 'Contributing', '/contributing'
     = yield
