@@ -1,0 +1,36 @@
+
+section.features {
+  @include outer-container;
+
+  .feature {
+    @include span-columns(4);
+
+    background-color: white;
+    border: 1px solid $light-gray;
+    border-radius: 3px;
+    height: 600px;
+
+    .example {
+      height: 220px;
+      width: 100%;
+      overflow: hidden;
+      border-top-left-radius: inherit;
+      border-top-right-radius: inherit;
+      pre {
+        padding: 6px;
+        margin: 0;
+        height: 100%;
+        width: 400px;
+        border-radius: inherit;
+      }
+    }
+
+    p {
+      margin: 0 20px 40px 20px
+    }
+
+    h3 {
+      margin: 40px 20px 20px 20px;
+    }
+  }
+}
