@@ -3,15 +3,15 @@
 section {
   @include outer-container;
   padding-top: 3em;
+  font-family: $verdana;
+  h2 {
+    font-size: 2.5em;
+    padding: 1em;
+    font-family: $verdana;
+  }
   article {
     @include span-columns(10);
     @include shift(1);
-
-    h2 {
-      font-size: 3em;
-      padding: 1em;
-      font-family: 'Open Sans', sans-serif;
-    }
 
     p {
       font-size: 1.1em;
@@ -25,59 +25,82 @@ div.people {
   text-align: center;
   padding: 50px 0;
 
-  .title {
+  .title, h4 {
     font-size: 2em;
+    font-family: $verdana;
     padding: 1em;
-    font-family: sans-serif;
     margin-bottom: 20px;
     color: #F55E3D;
   }
 
-  div {
-  &.info-list {
+  h4 {
+    font-size: 1.5em;
+    color: #FFBC00;
+  }
+
+  .team-list {
     display: inline-block;
     text-align: center;
     width: 1023px;
+    @include clearfix;
+    @include outer-container;
 
-    .title {
-      color: #E6AC3E;
-      font-size: 1em;
-      font-weight: bold;
+    .box {
+      @include span-columns(3);
+      @include border-top-radius(5px);
+      @include border-bottom-radius(5px);
+      background-color: #fff;
+      margin: 7px;
+      .desc {
+        color: #000;
+        div {
+          margin-bottom: 10px;
+        }
+      }
+      a img {
+        @include size(25px);
+        opacity: 0.4;
+        margin: 5px;
+      }
     }
   }
-  &.img {
-    border-radius: 5px;
-    margin: 5px;
-    padding: 0px;
-    border: 1px solid #182D40;
-    height: auto;
-    width: auto;
-    float: left;
+
+  .alumni-list {
+    display: inline-block;
     text-align: center;
-    background-color: #fff;
-    img {
-      display: inline;
-      margin: 0px;
-      border: 0px solid #182D40;
+    width: 1023px;
+    @include clearfix;
+    @include outer-container;
+
+    .box {
+      @include span-columns(3);
+      @include border-top-radius(5px);
+      @include border-bottom-radius(5px);
+      @include outer-container;
+      margin: 5px;
+
+      .pic {
+        @include size(60px);
+        @include span-columns(5);
+        display: inline-block;
+        img {
+          @include border-top-radius(5px);
+          @include border-bottom-radius(5px);
+          float: left;
+        }
+      }
+
+      .desc {
+        @include span-columns(7);
+        @include omega();
+        font-size: 0.9em;
+        color: #3EE5FD;
+
+        img {
+          @include size(20px);
+          margin: 15px 5px 0px 5px;
+        }
+      }
     }
   }
-  &.desc {
-    text-align: center;
-    font-weight: normal;
-    color: #000;
-    background-color: #fff;
-    margin: 0px;
-    display: block;
-    border-radius: 5px;
-    div {
-      margin-bottom: 5px;
-    }
-    a img {
-      border: 0px;
-      width: 25px;
-      margin-right: 15px;
-      opacity: 0.4;
-    }
-  }
-}
 }
