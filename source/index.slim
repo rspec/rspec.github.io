@@ -1,44 +1,11 @@
 section.hero
   article.hero-text
     = image_tag 'logo.png', :alt => "RSpec Logo"
-    div Behaviour Driven Development for Ruby.
+    div
+      | Behaviour Driven
+      br
+      | Development for Ruby.
     div Making TDD Productive and Fun.
-
-section.features
-  article.feature
-    .example
-      = partial "code_snippets/story"
-    h3 Syntax That Tells a Story
-    p
-      | Quis placeat eius magnam tenetur veniam suscipit temporibus sed
-        deleniti quia vitae est et est. distinctio perspiciatis rerum repellendus
-        consequatur dicta voluptatibus vel qui. quisquam nesciunt ipsa impedit
-        vel possimus eos est voluptates incidunt autem voluptates enim fugiat
-        nam.
-
-  article.feature
-    .example
-      = partial "code_snippets/doubles"
-    h3 Verifiable Doubles
-    p
-      | Sequi saepe fugiat ut et sit quis perferendis ab dolores nihil qui
-        molestias nesciunt consequatur. quisquam voluptatum placeat vitae neque.
-        laborum vel sed nostrum et beatae fuga ad architecto distinctio
-        recusandae quaerat voluptatem. earum sed sint eum quam non nam
-
-  article.feature
-    .example
-      = partial "code_snippets/matchers"
-    h3 Expressive Matchers
-    p
-      | Quos consequatur velit itaque odit molestiae error et nobis mollitia
-        deleniti ad magnam. laudantium excepturi necessitatibus atque quae
-        eveniet. voluptatem omnis eligendi est ut consequatur non ipsam. fugit
-        vitae qui vitae nesciunt laborum iusto quia qui perspiciatis. eaque
-        voluptas sunt sunt voluptatem voluptatem est eaque ipsam eligendi
-        repellat.
-
-hr
 
 section.get-started
   article.steps
@@ -66,7 +33,7 @@ section.get-started
         clean at every step of the way.
 
   article.docs
-    = link_to "View Documentation", "/docs", :class => "btn"
+    = link_to "View Documentation", "/documentation", :class => "btn"
 
   article.book
     = image_tag 'rspec_book.png', :alt => "Behaviour Driven Development in Ruby with RSpec"
@@ -78,4 +45,4 @@ section.get-started
 
 footer
   = image_tag 'brutus-half.png', :alt => "Brutus"
-  span Crafted by #{ link_to("Ninefold", "https://ninefold.com", target: '_blank') }
+  span Created with the assistance of #{ link_to("Ninefold", "https://ninefold.com", target: '_blank') }
