@@ -2,11 +2,47 @@ section
   article.help
     h2 Get Help
 
+    h4 Mailing List
     p
-      | Something about the mailing list.
+      | For general support and development enquirines we recomment joining
+        the rspec mailing list / google group. There are many experienced
+        rspec developers on this list who are normally only to happy to help
+        solve your development woes.
+    p
+      | See:
+      = link_to 'https://groups.google.com/forum/#!forum/rspec' do
+        |  https://groups.google.com/forum/#!forum/rspec
+      |  for more information.
 
-    p
-      | Something about the IRC channel.
+    hr
 
+    h4 IRC
     p
-      | Something about bugs and github.
+      | If you prefer, you can join the `#rspec` channel on freenode, there are
+        often people willing to help hanging around, although the core team do
+        not monitor this continuously they are often around to help out.
+
+    hr
+
+    h4 Github
+    p
+      | If you encounter a bug in rspec itself you are encouraged to open up
+        an issue on the appropriate repository on Github.
+      ul
+        li
+          | For bugs with rspec-rails:&nbsp;
+          = link_to 'https://github.com/rspec/rspec-rails', 'https://rspec/rspec-rails'
+        li
+          | For bugs with rspec-core:&nbsp;
+          = link_to 'https://github.com/rspec/rspec-core', 'https://rspec/rspec-core'
+          |  (runner, configuration, etc)
+        li
+          | For bugs with rspec-mocks:&nbsp;
+          = link_to 'https://github.com/rspec/rspec-mocks', 'https://rspec/rspec-mocks'
+          |  (doubles, spies, etc)
+        li
+          | For bugs with rspec-expectations:&nbsp;
+          = link_to 'https://github.com/rspec/rspec-expectations', 'https://rspec/rspec-expectations'
+          |  (matchers)
+    p
+      b Please note we prefer you don't open general support requests on Gitub.
