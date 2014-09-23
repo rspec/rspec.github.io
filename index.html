@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"><![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]<!--><html class="no-js" lang="en"><!--<![endif]--><head><meta charset="UTF-8" /><title>RSpec: Behaviour Driven Development for Ruby</title><link href="/stylesheets/application.css" media="screen" rel="stylesheet" type="text/css" />
+<link href="/stylesheets/normalize.css" media="screen" rel="stylesheet" type="text/css" /><link href="/stylesheets/pages/index.css" media="screen" rel="stylesheet" type="text/css" /><script src="//use.typekit.net/mwz2qwv.js" type="text/javascript"></script><script type="text/javascript">try{Typekit.load();}catch(e){}</script><script src="/javascripts/application.js" type="text/javascript"></script></head><body class="index"><header><nav><h1><a href="/">RSpec</a></h1><ul><li><a href="/documentation">Documentation</a></li><li><a href="/about">About</a></li><li><a href="/help">Get Help</a></li><li><a href="/contributing">Contributing</a></li></ul></nav></header><section class="hero"><article class="hero-text"><img alt="RSpec Logo" src="/images/logo.png" /><div>Behaviour Driven Development for Ruby.</div><div>Making TDD Productive and Fun.</div></article></section><section class="features"><article class="feature"><div class="example"><pre><code class="highlight ruby"><span class="n">describe</span> <span class="s2">"something"</span> <span class="k">do</span>
+  <span class="n">context</span> <span class="s2">"in one context"</span> <span class="k">do</span>
+    <span class="n">it</span> <span class="s2">"does one thing"</span> <span class="k">do</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+  <span class="n">context</span> <span class="s2">"in another context"</span> <span class="k">do</span>
+    <span class="n">it</span> <span class="s2">"does another thing"</span> <span class="k">do</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div><h3>Syntax That Tells a Story</h3><p>Quis placeat eius magnam tenetur veniam suscipit temporibus sed
+deleniti quia vitae est et est. distinctio perspiciatis rerum repellendus
+consequatur dicta voluptatibus vel qui. quisquam nesciunt ipsa impedit
+vel possimus eos est voluptates incidunt autem voluptates enim fugiat
+nam.</p></article><article class="feature"><div class="example"><pre><code class="highlight ruby">  <span class="n">notifier</span> <span class="o">=</span> <span class="n">instance_double</span><span class="p">(</span><span class="s2">"ConsoleNotifier"</span><span class="p">)</span>
+  <span class="n">expect</span><span class="p">(</span><span class="n">notifier</span><span class="p">).</span><span class="nf">to</span> <span class="n">receive</span><span class="p">(</span><span class="ss">:notify</span><span class="p">).</span><span class="nf">with</span><span class="p">(</span><span class="s2">"suspended as"</span><span class="p">)</span>
+</code></pre>
+</div><h3>Verifiable Doubles</h3><p>Sequi saepe fugiat ut et sit quis perferendis ab dolores nihil qui
+molestias nesciunt consequatur. quisquam voluptatum placeat vitae neque.
+laborum vel sed nostrum et beatae fuga ad architecto distinctio
+recusandae quaerat voluptatem. earum sed sint eum quam non nam</p></article><article class="feature"><div class="example"><pre><code class="highlight ruby"><span class="n">describe</span> <span class="mi">37</span> <span class="k">do</span>
+  <span class="n">it</span> <span class="s2">"is a prime number"</span> <span class="k">do</span>
+    <span class="n">expect</span><span class="p">(</span><span class="mi">37</span><span class="p">).</span><span class="nf">to</span> <span class="n">to_be_prime</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+</div><h3>Expressive Matchers</h3><p>Quos consequatur velit itaque odit molestiae error et nobis mollitia
+deleniti ad magnam. laudantium excepturi necessitatibus atque quae
+eveniet. voluptatem omnis eligendi est ut consequatur non ipsam. fugit
+vitae qui vitae nesciunt laborum iusto quia qui perspiciatis. eaque
+voluptas sunt sunt voluptatem voluptatem est eaque ipsam eligendi
+repellat.</p></article></section><hr /><section class="get-started"><article class="steps"><h2>Let's get started!</h2><p>To kick things off.</p><pre><code class="highlight plaintext">$ gem install rspec
+</code></pre>
+<p>Start with a very simple example that expresses some basic desired
+behaviour.</p><pre><code class="highlight ruby"><span class="c1"># bowling_spec.rb</span>
+<span class="nb">require</span> <span class="s1">'bowling'</span>
+<span class="n">describe</span> <span class="no">Bowling</span><span class="p">,</span> <span class="s2">"#score"</span> <span class="k">do</span>
+  <span class="n">it</span> <span class="s2">"returns 0 for all gutter game"</span> <span class="k">do</span>
+    <span class="n">bowling</span> <span class="o">=</span> <span class="no">Bowling</span><span class="p">.</span><span class="nf">new</span>
+    <span class="mi">20</span><span class="p">.</span><span class="nf">times</span> <span class="p">{</span> <span class="n">bowling</span><span class="p">.</span><span class="nf">hit</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="p">}</span>
+    <span class="n">expect</span><span class="p">(</span><span class="n">bowling</span><span class="p">.</span><span class="nf">score</span><span class="p">).</span><span class="nf">to</span> <span class="n">eq</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+<p>Run the example and watch it fail.</p><pre><code class="highlight plaintext">$ rspec bowling_spec.rb
+
+./bowling_spec.rb:4:
+  uninitialized constant Bowling
+</code></pre>
+<p>Run the example and bask in the joy that is green.</p><pre><code class="highlight plaintext">$ rspec bowling_spec.rb --format nested
+
+Bowling#score
+  returns 0 for all gutter game
+
+Finished in 0.007534 seconds
+
+1 example, 0 failures
+</code></pre>
+<h3>Take very small steps</h3><p>Don’t rush ahead with more code. Instead, add another example and let
+it guide you to what you have to do next. And don’t forget to take time
+to refactor your code before it gets messy. You should keep your code
+clean at every step of the way.</p></article><article class="docs"><a class="btn" href="/docs">View Documentation</a></article><article class="book"><img alt="Behaviour Driven Development in Ruby with RSpec" src="/images/rspec_book.png" /><div><h2>The RSpec Book</h2><p>The RSpec Book will introduce you to RSpec, Cucumber, and a number of other tools that make up the Ruby BDD family. Replete with tutorials and practical examples, the RSpec Book will help you get your BDD on, taking you from executable requirements to working software that is clean, well tested, well documented, flexible and highly maintainable.</p><a target="_blank" href="http://pragprog.com/book/achbd/the-rspec-book">Check out the book</a></div></article></section><footer><img alt="Brutus" src="/images/brutus-half.png" /><span>Crafted by <a target="_blank" href="https://ninefold.com">Ninefold</a></span></footer></body></html>
