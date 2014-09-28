@@ -1,0 +1,81 @@
+section.hero
+  article.hero-text
+    = image_tag 'logo.png', :alt => "RSpec Logo"
+    div Behaviour Driven Development for Ruby.
+    div Making TDD Productive and Fun.
+
+section.features
+  article.feature
+    .example
+      = partial "code_snippets/story"
+    h3 Syntax That Tells a Story
+    p
+      | Quis placeat eius magnam tenetur veniam suscipit temporibus sed
+        deleniti quia vitae est et est. distinctio perspiciatis rerum repellendus
+        consequatur dicta voluptatibus vel qui. quisquam nesciunt ipsa impedit
+        vel possimus eos est voluptates incidunt autem voluptates enim fugiat
+        nam.
+
+  article.feature
+    .example
+      = partial "code_snippets/doubles"
+    h3 Verifiable Doubles
+    p
+      | Sequi saepe fugiat ut et sit quis perferendis ab dolores nihil qui
+        molestias nesciunt consequatur. quisquam voluptatum placeat vitae neque.
+        laborum vel sed nostrum et beatae fuga ad architecto distinctio
+        recusandae quaerat voluptatem. earum sed sint eum quam non nam
+
+  article.feature
+    .example
+      = partial "code_snippets/matchers"
+    h3 Expressive Matchers
+    p
+      | Quos consequatur velit itaque odit molestiae error et nobis mollitia
+        deleniti ad magnam. laudantium excepturi necessitatibus atque quae
+        eveniet. voluptatem omnis eligendi est ut consequatur non ipsam. fugit
+        vitae qui vitae nesciunt laborum iusto quia qui perspiciatis. eaque
+        voluptas sunt sunt voluptatem voluptatem est eaque ipsam eligendi
+        repellat.
+
+hr
+
+section.get-started
+  article.steps
+    h2 Let's get started!
+
+    p To kick things off.
+    = partial "code_snippets/install"
+
+    p
+      | Start with a very simple example that expresses some basic desired
+        behaviour.
+    = partial "code_snippets/bowling_spec"
+
+    p Run the example and watch it fail.
+    = partial "code_snippets/fail"
+
+    p Run the example and bask in the joy that is green.
+    = partial "code_snippets/green"
+
+    h3 Take very small steps
+    p
+      | Don’t rush ahead with more code. Instead, add another example and let
+        it guide you to what you have to do next. And don’t forget to take time
+        to refactor your code before it gets messy. You should keep your code
+        clean at every step of the way.
+
+  article.docs
+    = link_to "View Documentation", "/docs", :class => "btn"
+
+  article.book
+    = image_tag 'rspec_book.png', :alt => "Behaviour Driven Development in Ruby with RSpec"
+    div
+      h2 The RSpec Book
+      p
+        | The RSpec Book will introduce you to RSpec, Cucumber, and a number of other tools that make up the Ruby BDD family. Replete with tutorials and practical examples, the RSpec Book will help you get your BDD on, taking you from executable requirements to working software that is clean, well tested, well documented, flexible and highly maintainable.
+      = link_to "Check out the book", "http://pragprog.com/book/achbd/the-rspec-book", target: '_blank'
+
+footer
+  = image_tag 'brutus-half.png', :alt => "Brutus"
+  span Crafted by #{ link_to("Ninefold", "https://ninefold.com", target: '_blank') }

@@ -1,0 +1,115 @@
+@import "application";
+@import "icons";
+
+section {
+  @include outer-container;
+  padding-top: 3em;
+  font-family: $verdana;
+  h2 {
+    font-size: 2.5em;
+    padding: 1em;
+    font-family: $verdana;
+  }
+  article {
+    @include span-columns(10);
+    @include shift(1);
+
+    p {
+      font-size: 1.1em;
+    }
+  }
+}
+
+div.people {
+  background-color: #182D40;
+  color: #E6AC3E;
+  text-align: center;
+  padding: 50px 0;
+
+  .title, h4 {
+    font-size: 2em;
+    font-family: $verdana;
+    padding: 1em;
+    margin-bottom: 20px;
+    color: #F55E3D;
+  }
+
+  h4 {
+    font-size: 1.5em;
+    color: #FFBC00;
+  }
+
+  .team-list {
+    display: inline-block;
+    text-align: center;
+    width: 1023px;
+    @include clearfix;
+    @include outer-container;
+
+    .box {
+      @include span-columns(3);
+      @include border-top-radius(5px);
+      @include border-bottom-radius(5px);
+      background-color: #fff;
+      margin: 7px;
+      .desc {
+        color: #000;
+        div {
+          margin-bottom: 5px;
+        }
+        a {
+          margin-right: 8px;
+        }
+        span {
+          color: tint(#000, 70%);
+        }
+      }
+    }
+  }
+
+  .alumni-list {
+    display: inline-block;
+    text-align: center;
+    width: 1023px;
+    @include clearfix;
+    @include outer-container;
+
+    .box {
+      @include span-columns(3);
+      @include border-top-radius(5px);
+      @include border-bottom-radius(5px);
+      @include outer-container;
+      margin: 5px;
+
+      .pic {
+        @include size(60px);
+        display: inline-block;
+        float: left;
+        img {
+          @include border-top-radius(5px);
+          @include border-bottom-radius(5px);
+          float: left;
+        }
+      }
+
+      .desc {
+        @include span-columns(8);
+        @include omega();
+        font-size: 1em;
+        color: #3EE5FD;
+
+        div {
+          margin-bottom: 10px;
+        }
+
+        a {
+          margin-right: 8px;
+        }
+
+        span {
+          color: tint(#000, 60%);
+        }
+      }
+    }
+  }
+}

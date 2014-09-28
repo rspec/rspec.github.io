@@ -1,0 +1,38 @@
+doctype html
+== "\n"
+/[if lt IE 7]
+  | <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en">
+== "\n"
+/[if IE 7]
+  | <html class="no-js lt-ie9 lt-ie8" lang="en">
+== "\n"
+/[if IE 8]
+  | <html class="no-js lt-ie9" lang="en">
+== "\n"
+| <!--[if gt IE 8]<!-->
+html.no-js lang="en"
+  | <!--<![endif]-->
+
+  head
+    meta charset="UTF-8"
+
+    title RSpec: Behaviour Driven Development for Ruby
+
+    == stylesheet_link_tag 'application', 'normalize'
+    - page_classes.split(" ").each do |page_class|
+      == stylesheet_link_tag "pages/#{page_class}"
+    script type="text/javascript" src="//use.typekit.net/mwz2qwv.js"
+    script type="text/javascript"
+      | try{Typekit.load();}catch(e){}
+    == javascript_include_tag 'application'
+
+  body class=(page_classes)
+    header
+      nav
+        h1= link_to 'RSpec', '/'
+        ul
+          li= link_to 'Documentation', '/documentation'
+          li= link_to 'About', '/about'
+          li= link_to 'Get Help', '/help'
+          li= link_to 'Contributing', '/contributing'
+    = yield

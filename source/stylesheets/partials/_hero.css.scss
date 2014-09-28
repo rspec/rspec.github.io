@@ -1,0 +1,21 @@
+.hero {
+  @include outer-container;
+
+  .hero-text {
+    padding: 100px 0 90px 0;
+    @include span-columns(12);
+    @include omega();
+    text-align: center;
+
+    img {
+      margin-bottom: 40px;
+    }
+
+    div {
+      color: $heading-color;
+      font-size: $base-font-size * 3.5;
+      line-height: 80px;
+      font-family: $header-font-family;
+    }
+  }
+}
