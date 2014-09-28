@@ -37,6 +37,23 @@ team:
     twitter: nkym37
     github:  yujinakayama
 
+alumni:
+  -
+    name:    David Chelimsky
+    pic:     david_c.png
+    twitter: dchelimsky
+    github:  dchelimsky
+  -
+    name:    Andy Lindeman
+    pic:     andy_l.png
+    web:     http://andylindeman.com
+    twitter: alindeman
+    github:  alindeman
+  -
+    name:    Bradley Schaefer
+    pic:     bradley_s.png
+    twitter: soulcutter
+    github:  soulcutter
 ---
 section
   article.history
@@ -79,37 +96,19 @@ div.people
   hr
   div.alumni-list
     h4 THE ALUMNI
-    div.box
-      = image_tag 'david_c.png', alt: "David Chelimsky", class: "media-object"
-      div.desc
-        div David Chelimsky
-        span.img-thumbnail
-          = link_to 'https://twitter.com/dchelimsky' do
-            = image_tag 'twitter-icon.png', alt: "twitter"
-        span.img-thumbnail
-          = link_to 'https://github.com/dchelimsky' do
-            = image_tag 'github-icon.png', alt: "github"
-    div.box
-      = image_tag 'bradley_s.png', alt: "Bradley Schaefer", class: "media-object"
-      div.desc
-        div Bradley Schaefer
-        span.img-thumbnail
-          = link_to 'https://twitter.com/soulcutter' do
-            = image_tag 'twitter-icon.png', alt: "twitter"
-        span.img-thumbnail
-          = link_to 'https://github.com/soulcutter' do
-            = image_tag 'github-icon.png', alt: "github"
-    div.box
-      = image_tag 'andy_l.png', alt: "Andy Lindeman", class: "media-object"
-      div.desc
-        div Andy Lindeman
-        span.img-thumbnail
-          = link_to 'http://andylindeman.com' do
-            = image_tag 'link.png', alt: "website"
-        span.img-thumbnail
-          = link_to '#' do
-          = link_to 'https://twitter.com/alindeman' do
-            = image_tag 'twitter-icon.png', alt: "twitter"
-        span.img-thumbnail
-          = link_to 'https://github.com/alindeman' do
-            = image_tag 'github-icon.png', alt: "github"
+    - for alum in current_page.data['alumni']
+      div.box
+        = image_tag alum.pic, alt: alum.name, class: "media-object"
+        div.desc
+          div= alum.name
+          - if alum.web
+            = link_to alum.web do
+              = image_tag 'link.png', alt: "website"
+          - if alum.twitter
+            span.img-thumbnail
+              = link_to "https://twitter.com/#{alum.twitter}" do
+                = image_tag 'twitter-icon.png', alt: "twitter"
+          - if alum.github
+            span.img-thumbnail
+              = link_to "https://github.com/#{alum.github}" do
+                = image_tag 'github-icon.png', alt: "github"
