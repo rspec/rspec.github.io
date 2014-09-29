@@ -45,7 +45,6 @@ div.people {
     @include clearfix;
     @include outer-container;
     .box {
-      @include span-columns(3);
       @include border-top-radius(5px);
       @include border-bottom-radius(5px);
       background-color: #fff;
@@ -67,6 +66,7 @@ div.people {
 
   .team-list {
     .box {
+      @include span-columns(3);
       &:nth-of-type(1)
       {
         @include shift(1.5);
@@ -75,6 +75,15 @@ div.people {
       {
         @include shift(1.5);
         clear: left;
+      }
+    }
+  }
+  .alumni-list {
+    .box {
+      @include span-columns(2);
+      &:nth-of-type(1), &:nth-of-type(5n+1)
+      {
+        @include shift(1);
       }
     }
   }
