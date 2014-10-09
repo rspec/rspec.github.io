@@ -141,6 +141,7 @@ div.people
   hr
   div.alumni-list
     h4 THE ALUMNI
+    p() (Listed alphabetically by surname)
     - for alum in current_page.data['alumni']
       div.box
         = image_tag alum.pic, alt: alum.name, class: "media-object"
