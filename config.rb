@@ -15,6 +15,7 @@ activate :directory_indexes
 set :css_dir,    'stylesheets'
 set :js_dir,     'javascripts'
 set :images_dir, 'images'
+set :frontmatter_extensions, %w(.html .slim)
 
 # necessary whilst testing
 set :relative_links, true

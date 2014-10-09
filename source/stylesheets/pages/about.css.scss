@@ -38,19 +38,18 @@ div.people {
     color: #FFBC00;
   }
 
-  .team-list {
+  .team-list, .alumni-list {
     display: inline-block;
     text-align: center;
     width: 1023px;
     @include clearfix;
     @include outer-container;
-
     .box {
-      @include span-columns(3);
       @include border-top-radius(5px);
       @include border-bottom-radius(5px);
       background-color: #fff;
       margin: 7px;
+
       .desc {
         color: #000;
         div {
@@ -65,41 +64,26 @@ div.people {
     }
   }
 
-  .alumni-list {
-    display: inline-block;
-    text-align: center;
-    width: 1023px;
-    @include clearfix;
-    @include outer-container;
-
+  .team-list {
     .box {
       @include span-columns(3);
-      @include border-top-radius(5px);
-      @include border-bottom-radius(5px);
-      @include outer-container;
-      margin: 5px;
-
-      .pic {
-        @include size(60px);
-        @include span-columns(5);
-        display: inline-block;
-        img {
-          @include border-top-radius(5px);
-          @include border-bottom-radius(5px);
-          float: left;
-        }
+      &:nth-of-type(1)
+      {
+        @include shift(1.5);
       }
-
-      .desc {
-        @include span-columns(7);
-        @include omega();
-        font-size: 0.9em;
-        color: #3EE5FD;
-
-        img {
-          @include size(20px);
-          margin: 15px 5px 0px 5px;
-        }
+      &:nth-of-type(4)
+      {
+        @include shift(1.5);
+        clear: left;
+      }
+    }
+  }
+  .alumni-list {
+    .box {
+      @include span-columns(2);
+      &:nth-of-type(1), &:nth-of-type(5n+1)
+      {
+        @include shift(1);
       }
     }
   }

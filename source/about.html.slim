@@ -1,3 +1,106 @@
+---
+team:
+  -
+    name:    Myron Marston
+    pic:     myron_m.png
+    web:     http://myronmars.to/n
+    twitter: myronmarston
+    github:  myronmarston
+  -
+    name:    Jon Rowe
+    pic:     jon_r.png
+    web:     http://jonrowe.co.uk
+    twitter: JonRowe
+    github:  JonRowe
+  -
+    name:    Sam Phippen
+    pic:     sam_p.png
+    web:     http://samphippen.com/
+    twitter: samphippen
+    github:  samphippen
+  -
+    name:    Xavier Shay
+    pic:     xavier_s.png
+    web:     http://xaviershay.com
+    twitter: xshay
+    github:  xaviershay
+  -
+    name:    Aaron Kromer
+    pic:     aaron_k.png
+    web:     http://aaronkromer.com/
+    twitter: cupakromer
+    github:  cupakromer
+  -
+    name:    Yuji Nakayama
+    pic:     yuji_n.png
+    web:     http://yujinakayama.me/
+    twitter: nkym37
+    github:  yujinakayama
+
+alumni:
+  -
+    name:    Dave Astels
+    pic:     dave_a.png
+    web:     http://blog.daveastels.com
+    twitter: dastels
+    github:  dastels
+  -
+    name:    Steven Baker
+    pic:     steven_b.png
+    twitter: srbaker
+    github:  srbaker
+  -
+    name:    David Chelimsky
+    pic:     david_c.png
+    twitter: dchelimsky
+    github:  dchelimsky
+  -
+    name:    Aslak Hellesøy
+    pic:     aslak_h.png
+    web:     http://aslakhellesoy.com/
+    twitter: aslak_hellesoy
+    github:  aslakhellesoy
+  -
+    name:    Chad Humphries
+    pic:     chad_h.png
+    web:     http://spicycode.com/
+    twitter: spicycode
+    github:  spicycode
+  -
+    name:    Justin Ko
+    pic:     justin_k.png
+    twitter: justinko
+    github:  justinko
+  -
+    name:    Andy Lindeman
+    pic:     andy_l.png
+    web:     http://andylindeman.com
+    twitter: alindeman
+    github:  alindeman
+  -
+    name:    Pat Maddox
+    pic:     pat_m.png
+    web:     http://patmaddox.com/
+    twitter: patmaddox
+    github:  patmaddox
+  -
+    name:    Luke Redpath
+    pic:     luke_r.png
+    web:     http://www.lukeredpath.co.uk/
+    twitter: lukeredpath
+    github:  lukeredpath
+  -
+    name:    Bradley Schaefer
+    pic:     bradley_s.png
+    twitter: soulcutter
+    github:  soulcutter
+  -
+    name:    Brian Takita
+    pic:     brian_t.png
+    web:     http://briantakita.com/
+    twitter: briantakita
+    github:  btakita
+---
 section
   article.history
     h2 History
@@ -20,93 +123,38 @@ div.people
 
   div.team-list
     h4 THE TEAM
-    div.box
-      = image_tag 'myron_m.png', alt: "Myron Marston", class: "media-object"
-      div.desc
-        div Myron Marston
-        span.img-thumbnail
-          = link_to 'http://myronmars.to/n' do
-            = image_tag 'link.png', alt: "website"
-        span.img-thumbnail
-          = link_to 'https://twitter.com/myronmarston' do
-            = image_tag 'twitter-icon.png', alt: "twitter"
-        span.img-thumbnail
-          = link_to 'https://github.com/myronmarston' do
-            = image_tag 'github-icon.png', alt: "github"
-    div.box
-      = image_tag 'jon_r.png', alt: "Jon Rowe", class: "media-object"
-      div.desc
-        div Jon Rowe
-        span.img-thumbnail
-          = link_to 'http://jonrowe.co.uk' do
-            = image_tag 'link.png', alt: "website"
-        span.img-thumbnail
-          = link_to 'https://twitter.com/JonRowe' do
-            = image_tag 'twitter-icon.png', alt: "twitter"
-        span.img-thumbnail
-          = link_to 'https://github.com/JonRowe' do
-            = image_tag 'github-icon.png', alt: "github"
-    div.box
-      = image_tag 'xavier_s.png', alt: "Xavier Shay", class: "media-object"
-      div.desc
-        div Xavier Shay
-        span.img-thumbnail
-          = link_to 'http://xaviershay.com' do
-            = image_tag 'link.png', alt: "website"
-        span.img-thumbnail
-          = link_to 'https://twitter.com/xshay' do
-            = image_tag 'twitter-icon.png', alt: "twitter"
-        span.img-thumbnail
-          = link_to 'https://github.com/xaviershay' do
-            = image_tag 'github-icon.png', alt: "github"
-    div.box
-      = image_tag 'sam_p.png', alt: "Sam Phippen", class: "media-object"
-      div.desc
-        div Sam Phippen
-        span.img-thumbnail
-          = link_to 'http://samphippen.com/' do
-            = image_tag 'link.png', alt: "website"
-        span.img-thumbnail
-          = link_to 'https://twitter.com/samphippen' do
-            = image_tag 'twitter-icon.png', alt: "twitter"
-        span.img-thumbnail
-          = link_to 'https://github.com/samphippen' do
-            = image_tag 'github-icon.png', alt: "github"
-
+    - for team in current_page.data['team']
+      div.box
+        = image_tag team.pic, alt: team.name, class: "media-object"
+        div.desc
+          div= team.name
+          - if team.web
+            = link_to team.web do
+              = image_tag 'link.png', alt: "website"
+          - if team.twitter
+            span.img-thumbnail
+              = link_to "https://twitter.com/#{team.twitter}" do
+                = image_tag 'twitter-icon.png', alt: "twitter"
+          - if team.github
+            span.img-thumbnail
+              = link_to "https://github.com/#{team.github}" do
+                = image_tag 'github-icon.png', alt: "github"
   hr
-  div.team-list
+  div.alumni-list
     h4 THE ALUMNI
-    div.box
-      = image_tag 'david_c.png', alt: "David Chelimsky", class: "media-object"
-      div.desc
-        div David Chelimsky
-        span.img-thumbnail
-          = link_to 'https://twitter.com/dchelimsky' do
-            = image_tag 'twitter-icon.png', alt: "twitter"
-        span.img-thumbnail
-          = link_to 'https://github.com/dchelimsky' do
-            = image_tag 'github-icon.png', alt: "github"
-    div.box
-      = image_tag 'bradley_s.png', alt: "Bradley Schaefer", class: "media-object"
-      div.desc
-        div Bradley Schaefer
-        span.img-thumbnail
-          = link_to 'https://twitter.com/soulcutter' do
-            = image_tag 'twitter-icon.png', alt: "twitter"
-        span.img-thumbnail
-          = link_to 'https://github.com/soulcutter' do
-            = image_tag 'github-icon.png', alt: "github"
-    div.box
-      = image_tag 'andy_l.png', alt: "Andy Lindeman", class: "media-object"
-      div.desc
-        div Andy Lindeman
-        span.img-thumbnail
-          = link_to 'http://andylindeman.com' do
-            = image_tag 'link.png', alt: "website"
-        span.img-thumbnail
-          = link_to '#' do
-          = link_to 'https://twitter.com/alindeman' do
-            = image_tag 'twitter-icon.png', alt: "twitter"
-        span.img-thumbnail
-          = link_to 'https://github.com/alindeman' do
-            = image_tag 'github-icon.png', alt: "github"
+    - for alum in current_page.data['alumni']
+      div.box
+        = image_tag alum.pic, alt: alum.name, class: "media-object"
+        div.desc
+          div= alum.name
+          - if alum.web
+            = link_to alum.web do
+              = image_tag 'link.png', alt: "website"
+          - if alum.twitter
+            span.img-thumbnail
+              = link_to "https://twitter.com/#{alum.twitter}" do
+                = image_tag 'twitter-icon.png', alt: "twitter"
+          - if alum.github
+            span.img-thumbnail
+              = link_to "https://github.com/#{alum.github}" do
+                = image_tag 'github-icon.png', alt: "github"
