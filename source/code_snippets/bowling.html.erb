@@ -1,18 +1,14 @@
 <% code 'ruby' do %>
 # bowling.rb
 class Bowling
+  attr_reader :score
 
   def initialize
     @score = 0
   end
 
-  def hit(pins)
-    @score += pins
+  def hit(pin_count)
+    @score += pin_count
   end
-
-  def score
-    @score
-  end
-
 end
 <% end %>
