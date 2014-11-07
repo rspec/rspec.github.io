@@ -12,6 +12,8 @@ activate :livereload
 activate :syntax
 activate :directory_indexes
 
+page "documentation/**/*.html", directory_index: false
+
 set :css_dir,    'stylesheets'
 set :js_dir,     'javascripts'
 set :images_dir, 'images'
