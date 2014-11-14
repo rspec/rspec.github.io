@@ -5,6 +5,7 @@ gem "middleman-livereload", "~> 3.3.4"
 gem "middleman-syntax", :github => "middleman/middleman-syntax"
 gem "middleman-favicon-maker"
 gem "middleman-deploy"
+gem "middleman-blog"
 
 gem "bourbon"
 gem "neat"
