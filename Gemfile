@@ -10,3 +10,6 @@ gem "middleman-blog"
 gem "bourbon"
 gem "neat"
 gem "slim"
+
+# For feed.xml.builder
+gem "builder", "~> 3.0"
