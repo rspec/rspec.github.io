@@ -55,3 +55,9 @@ activate :deploy do |deploy|
   deploy.build_before = true
   deploy.branch = 'master'
 end
+
+helpers do
+  def primary_page_class
+    page_classes.split(" ").first
+  end
+end

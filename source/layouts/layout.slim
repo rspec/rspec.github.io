@@ -19,14 +19,13 @@ html.no-js lang="en"
     title RSpec: Behaviour Driven Development for Ruby
 
     == stylesheet_link_tag 'application', 'normalize'
-    - page_classes.split(" ").each do |page_class|
-      == stylesheet_link_tag "pages/#{page_class}"
+    == stylesheet_link_tag "pages/#{primary_page_class}"
     link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'
     link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'
     link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'
     == javascript_include_tag 'application'
 
-  body class=(page_classes)
+  body class=(primary_page_class)
     header
       nav
         h1= link_to 'RSpec', '/'
