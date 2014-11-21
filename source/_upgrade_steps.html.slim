@@ -1,25 +1,25 @@
 ol
   li
     | Start with a green test suite on RSpec 2.x:
-    = asciinema_video(14083)
+    = asciinema_video 14083, speed: 2
 
   li
     | Install RSpec 2.99.
-    = asciinema_video(14084)
+    = asciinema_video 14084, speed: 3
 
   li
     | Check your test suite and ensure it's still green. (It should be, but
       we may have made a mistake -- if it breaks anything, please report
       a bug!). Now would be a good time to commit.
-    = asciinema_video(14085)
+    = asciinema_video 14085, speed: 2
 
   li
     | You'll notice a bunch of deprecation warnings printed off at the
       end of the spec run. These may be truncated since we don't to
       spam you with the same deprecation warning over and over again. To
       get the full list of deprecations, you can pipe them into a file
-      by passing the `--deprecation-out path/to/file` command line option.
-    = asciinema_video(14086)
+      by passing the <code>--deprecation-out path/to/file</code> command line option.
+    = asciinema_video 14086, speed: 2
 
   li
     | If you want to understand all of what is being deprecated, it's a good
@@ -34,28 +34,28 @@ ol
     | Install transpec, as it will save you a heap of time. (Note that this need
       not go into your <code>Gemfile</code>: you run <code>transpec</code> as a standalone executable
       outside the context of your bundle).
-    = asciinema_video(14087)
+    = asciinema_video 14087, speed: 6
 
   li
     | Run transpec on your project. Check <code>transpec --help</code> or 
       #{ link_to "the README", "https://github.com/yujinakayama/transpec#transpec" }
       for a full list of options.
-    = asciinema_video(14088)
+    = asciinema_video 14088, speed: 2
 
   li
     | Run the test suite (it should still be green but it's always good to
       check!) and commit.
-    = asciinema_video(14089)
+    = asciinema_video 14089, speed: 2
 
   li
     | If there are any remaining deprecation warnings (transpec doesn't quite
       handle all of the warnings you may get), deal with them.
-    = asciinema_video(14090)
+    = asciinema_video 14090, speed: 2
 
   li
     | Once you've got a deprecation-free test suite running against RSpec 2.99,
       you're ready to upgrade to RSpec 3. Install RSpec 3.
-    = asciinema_video(14091)
+    = asciinema_video 14091, speed: 3
 
   li
     | Run your test suite. It should still be green. If anything fails, please
@@ -64,11 +64,11 @@ ol
       2.99. This is normal -- there are a few things we couldn't easily deprecate in
       2.99 and remove in 3.0, so they trigger deprecations in 3.0 with the plan
       to remove them in RSpec 4.
-    = asciinema_video(14092)
+    = asciinema_video 14092, speed: 2
 
   li
     | We recommend running <code>transpec</code> a second time. There are some changes that
       transpec is only able to make when your project is on RSpec 3.
-    = asciinema_video(14093)
+    = asciinema_video 14093, speed: 2
 
   li Commit and enjoy using the latest RSpec release!
