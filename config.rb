@@ -60,4 +60,12 @@ helpers do
   def primary_page_class
     page_classes.split(" ").first
   end
+
+  def asciinema_video(id, speed: 1)
+    <<-HTML.gsub(/^ +\|/, '')
+      |<div class="asciinema-video">
+      |  <script type="text/javascript" src="https://asciinema.org/a/#{id}.js" id="asciicast-#{id}" data-size="small" data-speed="#{speed}", async></script>
+      |</div>
+    HTML
+  end
 end
