@@ -1,5 +1,6 @@
 ---
 title: RSpec 3.1 has been released!
+author: Myron Marston
 ---
 
 RSpec 3.1 has just been released! Given our commitment to

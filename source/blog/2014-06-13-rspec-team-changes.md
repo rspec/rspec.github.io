@@ -1,5 +1,6 @@
 ---
 title: RSpec Team Changes
+author: Myron Marston
 ---
 
 [Andy Lindeman](http://www.andylindeman.com/), who has been working on RSpec
