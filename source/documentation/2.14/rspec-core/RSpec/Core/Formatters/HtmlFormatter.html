@@ -1,0 +1,1268 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: RSpec::Core::Formatters::HtmlFormatter
+  
+    &mdash; Documentation by YARD 0.8.7.6
+  
+</title>
+
+  <link rel="stylesheet" href="../../../css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../../../css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '../../../';
+  framesUrl = "../../../frames.html#!RSpec/Core/Formatters/HtmlFormatter.html";
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../../../_index.html">Index (H)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../../../RSpec.html" title="RSpec (module)">RSpec</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../../Core.html" title="RSpec::Core (module)">Core</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Formatters.html" title="RSpec::Core::Formatters (module)">Formatters</a></span></span>
+     &raquo; 
+    <span class="title">HtmlFormatter</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../../../class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="../../../method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="../../../file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><h1>Class: RSpec::Core::Formatters::HtmlFormatter
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName"><span class='object_link'><a href="BaseTextFormatter.html" title="RSpec::Core::Formatters::BaseTextFormatter (class)">BaseTextFormatter</a></span></span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next"><span class='object_link'><a href="BaseFormatter.html" title="RSpec::Core::Formatters::BaseFormatter (class)">BaseFormatter</a></span></li>
+          
+            <li class="next"><span class='object_link'><a href="BaseTextFormatter.html" title="RSpec::Core::Formatters::BaseTextFormatter (class)">BaseTextFormatter</a></span></li>
+          
+            <li class="next">RSpec::Core::Formatters::HtmlFormatter</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/rspec/core/formatters/html_formatter.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<div id="subclasses">
+  <h2>Direct Known Subclasses</h2>
+  <p class="children"><span class='object_link'><a href="TextMateFormatter.html" title="RSpec::Core::Formatters::TextMateFormatter (class)">TextMateFormatter</a></span></p>
+</div>
+
+  <h2>Constant Summary</h2>
+  
+
+
+
+  <h2>Constant Summary</h2>
+  
+  <h3 class="inherited">Constants inherited
+     from <span class='object_link'><a href="BaseTextFormatter.html" title="RSpec::Core::Formatters::BaseTextFormatter (class)">BaseTextFormatter</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="BaseTextFormatter.html#VT100_COLORS-constant" title="RSpec::Core::Formatters::BaseTextFormatter::VT100_COLORS (constant)">BaseTextFormatter::VT100_COLORS</a></span>, <span class='object_link'><a href="BaseTextFormatter.html#VT100_COLOR_CODES-constant" title="RSpec::Core::Formatters::BaseTextFormatter::VT100_COLOR_CODES (constant)">BaseTextFormatter::VT100_COLOR_CODES</a></span></p>
+
+  
+  
+  <h3 class="inherited">Constants included
+     from <span class='object_link'><a href="Helpers.html" title="RSpec::Core::Formatters::Helpers (module)">Helpers</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="Helpers.html#DEFAULT_PRECISION-constant" title="RSpec::Core::Formatters::Helpers::DEFAULT_PRECISION (constant)">RSpec::Core::Formatters::Helpers::DEFAULT_PRECISION</a></span>, <span class='object_link'><a href="Helpers.html#SUB_SECOND_PRECISION-constant" title="RSpec::Core::Formatters::Helpers::SUB_SECOND_PRECISION (constant)">RSpec::Core::Formatters::Helpers::SUB_SECOND_PRECISION</a></span></p>
+
+
+
+
+  <h2>Instance Attribute Summary</h2>
+  
+  <h3 class="inherited">Attributes inherited from <span class='object_link'><a href="BaseFormatter.html" title="RSpec::Core::Formatters::BaseFormatter (class)">BaseFormatter</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="BaseFormatter.html#duration-instance_method" title="RSpec::Core::Formatters::BaseFormatter#duration (method)">#duration</a></span>, <span class='object_link'><a href="BaseFormatter.html#example_count-instance_method" title="RSpec::Core::Formatters::BaseFormatter#example_count (method)">#example_count</a></span>, <span class='object_link'><a href="BaseFormatter.html#example_group-instance_method" title="RSpec::Core::Formatters::BaseFormatter#example_group (method)">#example_group</a></span>, <span class='object_link'><a href="BaseFormatter.html#examples-instance_method" title="RSpec::Core::Formatters::BaseFormatter#examples (method)">#examples</a></span>, <span class='object_link'><a href="BaseFormatter.html#failed_examples-instance_method" title="RSpec::Core::Formatters::BaseFormatter#failed_examples (method)">#failed_examples</a></span>, <span class='object_link'><a href="BaseFormatter.html#failure_count-instance_method" title="RSpec::Core::Formatters::BaseFormatter#failure_count (method)">#failure_count</a></span>, <span class='object_link'><a href="BaseFormatter.html#output-instance_method" title="RSpec::Core::Formatters::BaseFormatter#output (method)">#output</a></span>, <span class='object_link'><a href="BaseFormatter.html#pending_count-instance_method" title="RSpec::Core::Formatters::BaseFormatter#pending_count (method)">#pending_count</a></span>, <span class='object_link'><a href="BaseFormatter.html#pending_examples-instance_method" title="RSpec::Core::Formatters::BaseFormatter#pending_examples (method)">#pending_examples</a></span></p>
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#dump_failures-instance_method" title="#dump_failures (instance method)">- (Object) <strong>dump_failures</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#dump_pending-instance_method" title="#dump_pending (instance method)">- (Object) <strong>dump_pending</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#dump_summary-instance_method" title="#dump_summary (instance method)">- (Object) <strong>dump_summary</strong>(duration, example_count, failure_count, pending_count) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#example_failed-instance_method" title="#example_failed (instance method)">- (Object) <strong>example_failed</strong>(example) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#example_group_number-instance_method" title="#example_group_number (instance method)">- (Object) <strong>example_group_number</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>The number of the currently running example_group.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#example_group_started-instance_method" title="#example_group_started (instance method)">- (Object) <strong>example_group_started</strong>(example_group) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#example_number-instance_method" title="#example_number (instance method)">- (Object) <strong>example_number</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>The number of the currently running example (a global counter).</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#example_passed-instance_method" title="#example_passed (instance method)">- (Object) <strong>example_passed</strong>(example) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#example_pending-instance_method" title="#example_pending (instance method)">- (Object) <strong>example_pending</strong>(example) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#example_started-instance_method" title="#example_started (instance method)">- (Object) <strong>example_started</strong>(example) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#extra_failure_content-instance_method" title="#extra_failure_content (instance method)">- (Object) <strong>extra_failure_content</strong>(exception) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Override this method if you wish to output extra HTML for a failed spec.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (HtmlFormatter) <strong>initialize</strong>(output) </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>A new instance of HtmlFormatter.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#message-instance_method" title="#message (instance method)">- (Object) <strong>message</strong>(message) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#percent_done-instance_method" title="#percent_done (instance method)">- (Object) <strong>percent_done</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#start-instance_method" title="#start (instance method)">- (Object) <strong>start</strong>(example_count) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#start_dump-instance_method" title="#start_dump (instance method)">- (Object) <strong>start_dump</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods inherited from <span class='object_link'><a href="BaseTextFormatter.html" title="RSpec::Core::Formatters::BaseTextFormatter (class)">BaseTextFormatter</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="BaseTextFormatter.html#close-instance_method" title="RSpec::Core::Formatters::BaseTextFormatter#close (method)">#close</a></span>, <span class='object_link'><a href="BaseTextFormatter.html#color_code_for-instance_method" title="RSpec::Core::Formatters::BaseTextFormatter#color_code_for (method)">#color_code_for</a></span>, <span class='object_link'><a href="BaseTextFormatter.html#colorise_summary-instance_method" title="RSpec::Core::Formatters::BaseTextFormatter#colorise_summary (method)">#colorise_summary</a></span>, <span class='object_link'><a href="BaseTextFormatter.html#colorize-instance_method" title="RSpec::Core::Formatters::BaseTextFormatter#colorize (method)">#colorize</a></span>, <span class='object_link'><a href="BaseTextFormatter.html#dump_commands_to_rerun_failed_examples-instance_method" title="RSpec::Core::Formatters::BaseTextFormatter#dump_commands_to_rerun_failed_examples (method)">#dump_commands_to_rerun_failed_examples</a></span>, <span class='object_link'><a href="BaseTextFormatter.html#dump_profile-instance_method" title="RSpec::Core::Formatters::BaseTextFormatter#dump_profile (method)">#dump_profile</a></span>, <span class='object_link'><a href="BaseTextFormatter.html#dump_profile_slowest_example_groups-instance_method" title="RSpec::Core::Formatters::BaseTextFormatter#dump_profile_slowest_example_groups (method)">#dump_profile_slowest_example_groups</a></span>, <span class='object_link'><a href="BaseTextFormatter.html#dump_profile_slowest_examples-instance_method" title="RSpec::Core::Formatters::BaseTextFormatter#dump_profile_slowest_examples (method)">#dump_profile_slowest_examples</a></span>, <span class='object_link'><a href="BaseTextFormatter.html#seed-instance_method" title="RSpec::Core::Formatters::BaseTextFormatter#seed (method)">#seed</a></span>, <span class='object_link'><a href="BaseTextFormatter.html#summary_line-instance_method" title="RSpec::Core::Formatters::BaseTextFormatter#summary_line (method)">#summary_line</a></span></p>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods inherited from <span class='object_link'><a href="BaseFormatter.html" title="RSpec::Core::Formatters::BaseFormatter (class)">BaseFormatter</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="BaseFormatter.html#close-instance_method" title="RSpec::Core::Formatters::BaseFormatter#close (method)">#close</a></span>, <span class='object_link'><a href="BaseFormatter.html#example_group_finished-instance_method" title="RSpec::Core::Formatters::BaseFormatter#example_group_finished (method)">#example_group_finished</a></span>, <span class='object_link'><a href="BaseFormatter.html#format_backtrace-instance_method" title="RSpec::Core::Formatters::BaseFormatter#format_backtrace (method)">#format_backtrace</a></span>, <span class='object_link'><a href="BaseFormatter.html#stop-instance_method" title="RSpec::Core::Formatters::BaseFormatter#stop (method)">#stop</a></span></p>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="Helpers.html" title="RSpec::Core::Formatters::Helpers (module)">Helpers</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="Helpers.html#format_duration-instance_method" title="RSpec::Core::Formatters::Helpers#format_duration (method)">#format_duration</a></span>, <span class='object_link'><a href="Helpers.html#format_seconds-instance_method" title="RSpec::Core::Formatters::Helpers#format_seconds (method)">#format_seconds</a></span>, <span class='object_link'><a href="Helpers.html#pluralize-instance_method" title="RSpec::Core::Formatters::Helpers#pluralize (method)">#pluralize</a></span>, <span class='object_link'><a href="Helpers.html#strip_trailing_zeroes-instance_method" title="RSpec::Core::Formatters::Helpers#strip_trailing_zeroes (method)">#strip_trailing_zeroes</a></span></p>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="../BacktraceFormatter.html" title="RSpec::Core::BacktraceFormatter (module)">BacktraceFormatter</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../BacktraceFormatter.html#format_backtrace-instance_method" title="RSpec::Core::BacktraceFormatter#format_backtrace (method)">#format_backtrace</a></span></p>
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <h3 class="signature first" id="initialize-instance_method">
+  
+    - (<tt><span class='object_link'><a href="" title="RSpec::Core::Formatters::HtmlFormatter (class)">HtmlFormatter</a></span></tt>) <strong>initialize</strong>(output) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns a new instance of HtmlFormatter</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+9
+10
+11
+12
+13
+14
+15</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/formatters/html_formatter.rb', line 9</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_output'>output</span><span class='rparen'>)</span>
+  <span class='kw'>super</span><span class='lparen'>(</span><span class='id identifier rubyid_output'>output</span><span class='rparen'>)</span>
+  <span class='ivar'>@example_group_number</span> <span class='op'>=</span> <span class='int'>0</span>
+  <span class='ivar'>@example_number</span> <span class='op'>=</span> <span class='int'>0</span>
+  <span class='ivar'>@header_red</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='ivar'>@printer</span> <span class='op'>=</span> <span class='const'>HtmlPrinter</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_output'>output</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+<div id="method_missing_details" class="method_details_list">
+  <h2>Dynamic Method Handling</h2>
+  <p class="notice this">
+    This class handles dynamic methods through the <tt>method_missing</tt> method
+    
+  </p>
+  
+    <div class="method_details first">
+  <h3 class="signature first" id="method_missing-instance_method">
+  
+    - (<tt>Object</tt>) <strong>method_missing</strong>(m, *a, &amp;b)  <span class="extras">(private)</span>
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+18
+19
+20</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/formatters/html_formatter.rb', line 18</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_method_missing'>method_missing</span><span class='lparen'>(</span><span class='id identifier rubyid_m'>m</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_a'>a</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_b'>b</span><span class='rparen'>)</span>
+  <span class='comment'># no-op
+</span><span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="dump_failures-instance_method">
+  
+    - (<tt>Object</tt>) <strong>dump_failures</strong> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+136
+137</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/formatters/html_formatter.rb', line 136</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_dump_failures'>dump_failures</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="dump_pending-instance_method">
+  
+    - (<tt>Object</tt>) <strong>dump_pending</strong> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+139
+140</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/formatters/html_formatter.rb', line 139</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_dump_pending'>dump_pending</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="dump_summary-instance_method">
+  
+    - (<tt>Object</tt>) <strong>dump_summary</strong>(duration, example_count, failure_count, pending_count) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/formatters/html_formatter.rb', line 142</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_dump_summary'>dump_summary</span><span class='lparen'>(</span><span class='id identifier rubyid_duration'>duration</span><span class='comma'>,</span> <span class='id identifier rubyid_example_count'>example_count</span><span class='comma'>,</span> <span class='id identifier rubyid_failure_count'>failure_count</span><span class='comma'>,</span> <span class='id identifier rubyid_pending_count'>pending_count</span><span class='rparen'>)</span>
+  <span class='ivar'>@printer</span><span class='period'>.</span><span class='id identifier rubyid_print_summary'>print_summary</span><span class='lparen'>(</span>
+    <span class='id identifier rubyid_dry_run?'>dry_run?</span><span class='comma'>,</span>
+    <span class='id identifier rubyid_duration'>duration</span><span class='comma'>,</span>
+    <span class='id identifier rubyid_example_count'>example_count</span><span class='comma'>,</span>
+    <span class='id identifier rubyid_failure_count'>failure_count</span><span class='comma'>,</span>
+    <span class='id identifier rubyid_pending_count'>pending_count</span>
+  <span class='rparen'>)</span>
+  <span class='ivar'>@printer</span><span class='period'>.</span><span class='id identifier rubyid_flush'>flush</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="example_failed-instance_method">
+  
+    - (<tt>Object</tt>) <strong>example_failed</strong>(example) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/formatters/html_formatter.rb', line 70</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_example_failed'>example_failed</span><span class='lparen'>(</span><span class='id identifier rubyid_example'>example</span><span class='rparen'>)</span>
+  <span class='kw'>super</span><span class='lparen'>(</span><span class='id identifier rubyid_example'>example</span><span class='rparen'>)</span>
+
+  <span class='kw'>unless</span> <span class='ivar'>@header_red</span>
+    <span class='ivar'>@header_red</span> <span class='op'>=</span> <span class='kw'>true</span>
+    <span class='ivar'>@printer</span><span class='period'>.</span><span class='id identifier rubyid_make_header_red'>make_header_red</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>unless</span> <span class='ivar'>@example_group_red</span>
+    <span class='ivar'>@example_group_red</span> <span class='op'>=</span> <span class='kw'>true</span>
+    <span class='ivar'>@printer</span><span class='period'>.</span><span class='id identifier rubyid_make_example_group_header_red'>make_example_group_header_red</span><span class='lparen'>(</span><span class='id identifier rubyid_example_group_number'>example_group_number</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+
+  <span class='ivar'>@printer</span><span class='period'>.</span><span class='id identifier rubyid_move_progress'>move_progress</span><span class='lparen'>(</span><span class='id identifier rubyid_percent_done'>percent_done</span><span class='rparen'>)</span>
+
+  <span class='id identifier rubyid_exception'>exception</span> <span class='op'>=</span> <span class='id identifier rubyid_example'>example</span><span class='period'>.</span><span class='id identifier rubyid_metadata'>metadata</span><span class='lbracket'>[</span><span class='symbol'>:execution_result</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='symbol'>:exception</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_exception_details'>exception_details</span> <span class='op'>=</span> <span class='kw'>if</span> <span class='id identifier rubyid_exception'>exception</span>
+    <span class='lbrace'>{</span>
+      <span class='symbol'>:message</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_exception'>exception</span><span class='period'>.</span><span class='id identifier rubyid_message'>message</span><span class='comma'>,</span>
+      <span class='symbol'>:backtrace</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_format_backtrace'>format_backtrace</span><span class='lparen'>(</span><span class='id identifier rubyid_exception'>exception</span><span class='period'>.</span><span class='id identifier rubyid_backtrace'>backtrace</span><span class='comma'>,</span> <span class='id identifier rubyid_example'>example</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='rbrace'>}</span>
+  <span class='kw'>else</span>
+    <span class='kw'>false</span>
+  <span class='kw'>end</span>
+  <span class='id identifier rubyid_extra'>extra</span> <span class='op'>=</span> <span class='id identifier rubyid_extra_failure_content'>extra_failure_content</span><span class='lparen'>(</span><span class='id identifier rubyid_exception'>exception</span><span class='rparen'>)</span>
+
+  <span class='ivar'>@printer</span><span class='period'>.</span><span class='id identifier rubyid_print_example_failed'>print_example_failed</span><span class='lparen'>(</span>
+    <span class='id identifier rubyid_example'>example</span><span class='period'>.</span><span class='id identifier rubyid_execution_result'>execution_result</span><span class='lbracket'>[</span><span class='symbol'>:pending_fixed</span><span class='rbracket'>]</span><span class='comma'>,</span>
+    <span class='id identifier rubyid_example'>example</span><span class='period'>.</span><span class='id identifier rubyid_description'>description</span><span class='comma'>,</span>
+    <span class='id identifier rubyid_example'>example</span><span class='period'>.</span><span class='id identifier rubyid_execution_result'>execution_result</span><span class='lbracket'>[</span><span class='symbol'>:run_time</span><span class='rbracket'>]</span><span class='comma'>,</span>
+    <span class='ivar'>@failed_examples</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span><span class='comma'>,</span>
+    <span class='id identifier rubyid_exception_details'>exception_details</span><span class='comma'>,</span>
+    <span class='lparen'>(</span><span class='id identifier rubyid_extra'>extra</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='op'>?</span> <span class='kw'>false</span> <span class='op'>:</span> <span class='id identifier rubyid_extra'>extra</span><span class='comma'>,</span>
+    <span class='kw'>true</span>
+  <span class='rparen'>)</span>
+  <span class='ivar'>@printer</span><span class='period'>.</span><span class='id identifier rubyid_flush'>flush</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="example_group_number-instance_method">
+  
+    - (<tt>Object</tt>) <strong>example_group_number</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>The number of the currently running example_group</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+27
+28
+29</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/formatters/html_formatter.rb', line 27</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_example_group_number'>example_group_number</span>
+  <span class='ivar'>@example_group_number</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="example_group_started-instance_method">
+  
+    - (<tt>Object</tt>) <strong>example_group_started</strong>(example_group) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/formatters/html_formatter.rb', line 42</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_example_group_started'>example_group_started</span><span class='lparen'>(</span><span class='id identifier rubyid_example_group'>example_group</span><span class='rparen'>)</span>
+  <span class='kw'>super</span><span class='lparen'>(</span><span class='id identifier rubyid_example_group'>example_group</span><span class='rparen'>)</span>
+  <span class='ivar'>@example_group_red</span> <span class='op'>=</span> <span class='kw'>false</span>
+  <span class='ivar'>@example_group_number</span> <span class='op'>+=</span> <span class='int'>1</span>
+
+  <span class='kw'>unless</span> <span class='id identifier rubyid_example_group_number'>example_group_number</span> <span class='op'>==</span> <span class='int'>1</span>
+    <span class='ivar'>@printer</span><span class='period'>.</span><span class='id identifier rubyid_print_example_group_end'>print_example_group_end</span>
+  <span class='kw'>end</span>
+  <span class='ivar'>@printer</span><span class='period'>.</span><span class='id identifier rubyid_print_example_group_start'>print_example_group_start</span><span class='lparen'>(</span> <span class='id identifier rubyid_example_group_number'>example_group_number</span><span class='comma'>,</span> <span class='id identifier rubyid_example_group'>example_group</span><span class='period'>.</span><span class='id identifier rubyid_description'>description</span><span class='comma'>,</span> <span class='id identifier rubyid_example_group'>example_group</span><span class='period'>.</span><span class='id identifier rubyid_parent_groups'>parent_groups</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span> <span class='rparen'>)</span>
+  <span class='ivar'>@printer</span><span class='period'>.</span><span class='id identifier rubyid_flush'>flush</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="example_number-instance_method">
+  
+    - (<tt>Object</tt>) <strong>example_number</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>The number of the currently running example (a global counter)</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+32
+33
+34</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/formatters/html_formatter.rb', line 32</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_example_number'>example_number</span>
+  <span class='ivar'>@example_number</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="example_passed-instance_method">
+  
+    - (<tt>Object</tt>) <strong>example_passed</strong>(example) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+64
+65
+66
+67
+68</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/formatters/html_formatter.rb', line 64</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_example_passed'>example_passed</span><span class='lparen'>(</span><span class='id identifier rubyid_example'>example</span><span class='rparen'>)</span>
+  <span class='ivar'>@printer</span><span class='period'>.</span><span class='id identifier rubyid_move_progress'>move_progress</span><span class='lparen'>(</span><span class='id identifier rubyid_percent_done'>percent_done</span><span class='rparen'>)</span>
+  <span class='ivar'>@printer</span><span class='period'>.</span><span class='id identifier rubyid_print_example_passed'>print_example_passed</span><span class='lparen'>(</span> <span class='id identifier rubyid_example'>example</span><span class='period'>.</span><span class='id identifier rubyid_description'>description</span><span class='comma'>,</span> <span class='id identifier rubyid_example'>example</span><span class='period'>.</span><span class='id identifier rubyid_execution_result'>execution_result</span><span class='lbracket'>[</span><span class='symbol'>:run_time</span><span class='rbracket'>]</span> <span class='rparen'>)</span>
+  <span class='ivar'>@printer</span><span class='period'>.</span><span class='id identifier rubyid_flush'>flush</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="example_pending-instance_method">
+  
+    - (<tt>Object</tt>) <strong>example_pending</strong>(example) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+108
+109
+110
+111
+112
+113
+114
+115</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/formatters/html_formatter.rb', line 108</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_example_pending'>example_pending</span><span class='lparen'>(</span><span class='id identifier rubyid_example'>example</span><span class='rparen'>)</span>
+
+  <span class='ivar'>@printer</span><span class='period'>.</span><span class='id identifier rubyid_make_header_yellow'>make_header_yellow</span> <span class='kw'>unless</span> <span class='ivar'>@header_red</span>
+  <span class='ivar'>@printer</span><span class='period'>.</span><span class='id identifier rubyid_make_example_group_header_yellow'>make_example_group_header_yellow</span><span class='lparen'>(</span><span class='id identifier rubyid_example_group_number'>example_group_number</span><span class='rparen'>)</span> <span class='kw'>unless</span> <span class='ivar'>@example_group_red</span>
+  <span class='ivar'>@printer</span><span class='period'>.</span><span class='id identifier rubyid_move_progress'>move_progress</span><span class='lparen'>(</span><span class='id identifier rubyid_percent_done'>percent_done</span><span class='rparen'>)</span>
+  <span class='ivar'>@printer</span><span class='period'>.</span><span class='id identifier rubyid_print_example_pending'>print_example_pending</span><span class='lparen'>(</span> <span class='id identifier rubyid_example'>example</span><span class='period'>.</span><span class='id identifier rubyid_description'>description</span><span class='comma'>,</span> <span class='id identifier rubyid_example'>example</span><span class='period'>.</span><span class='id identifier rubyid_metadata'>metadata</span><span class='lbracket'>[</span><span class='symbol'>:execution_result</span><span class='rbracket'>]</span><span class='lbracket'>[</span><span class='symbol'>:pending_message</span><span class='rbracket'>]</span> <span class='rparen'>)</span>
+  <span class='ivar'>@printer</span><span class='period'>.</span><span class='id identifier rubyid_flush'>flush</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="example_started-instance_method">
+  
+    - (<tt>Object</tt>) <strong>example_started</strong>(example) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+59
+60
+61
+62</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/formatters/html_formatter.rb', line 59</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_example_started'>example_started</span><span class='lparen'>(</span><span class='id identifier rubyid_example'>example</span><span class='rparen'>)</span>
+  <span class='kw'>super</span><span class='lparen'>(</span><span class='id identifier rubyid_example'>example</span><span class='rparen'>)</span>
+  <span class='ivar'>@example_number</span> <span class='op'>+=</span> <span class='int'>1</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="extra_failure_content-instance_method">
+  
+    - (<tt>Object</tt>) <strong>extra_failure_content</strong>(exception) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Override this method if you wish to output extra HTML for a failed spec. For example, you
+could output links to images or other files produced during the specs.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+120
+121
+122
+123
+124
+125
+126</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/formatters/html_formatter.rb', line 120</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_extra_failure_content'>extra_failure_content</span><span class='lparen'>(</span><span class='id identifier rubyid_exception'>exception</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>rspec/core/formatters/snippet_extractor</span><span class='tstring_end'>&#39;</span></span>
+  <span class='id identifier rubyid_backtrace'>backtrace</span> <span class='op'>=</span> <span class='id identifier rubyid_exception'>exception</span><span class='period'>.</span><span class='id identifier rubyid_backtrace'>backtrace</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_line'>line</span><span class='op'>|</span> <span class='id identifier rubyid_backtrace_line'>backtrace_line</span><span class='lparen'>(</span><span class='id identifier rubyid_line'>line</span><span class='rparen'>)</span><span class='rbrace'>}</span>
+  <span class='id identifier rubyid_backtrace'>backtrace</span><span class='period'>.</span><span class='id identifier rubyid_compact!'>compact!</span>
+  <span class='ivar'>@snippet_extractor</span> <span class='op'>||=</span> <span class='const'>SnippetExtractor</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>    &lt;pre class=\&quot;ruby\&quot;&gt;&lt;code&gt;</span><span class='embexpr_beg'>#{</span><span class='ivar'>@snippet_extractor</span><span class='period'>.</span><span class='id identifier rubyid_snippet'>snippet</span><span class='lparen'>(</span><span class='id identifier rubyid_backtrace'>backtrace</span><span class='rparen'>)</span><span class='embexpr_end'>}</span><span class='tstring_content'>&lt;/code&gt;&lt;/pre&gt;</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="message-instance_method">
+  
+    - (<tt>Object</tt>) <strong>message</strong>(message) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+23
+24</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/formatters/html_formatter.rb', line 23</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_message'>message</span><span class='lparen'>(</span><span class='id identifier rubyid_message'>message</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="percent_done-instance_method">
+  
+    - (<tt>Object</tt>) <strong>percent_done</strong> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+128
+129
+130
+131
+132
+133
+134</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/formatters/html_formatter.rb', line 128</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_percent_done'>percent_done</span>
+  <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='float'>100.0</span>
+  <span class='kw'>if</span> <span class='ivar'>@example_count</span> <span class='op'>&gt;</span> <span class='int'>0</span>
+    <span class='id identifier rubyid_result'>result</span> <span class='op'>=</span> <span class='lparen'>(</span><span class='lparen'>(</span><span class='lparen'>(</span><span class='id identifier rubyid_example_number'>example_number</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span> <span class='op'>/</span> <span class='ivar'>@example_count</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span> <span class='op'>*</span> <span class='int'>1000</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span> <span class='op'>/</span> <span class='float'>10.0</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span>
+  <span class='kw'>end</span>
+  <span class='id identifier rubyid_result'>result</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="start-instance_method">
+  
+    - (<tt>Object</tt>) <strong>start</strong>(example_count) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+36
+37
+38
+39
+40</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/formatters/html_formatter.rb', line 36</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_start'>start</span><span class='lparen'>(</span><span class='id identifier rubyid_example_count'>example_count</span><span class='rparen'>)</span>
+  <span class='kw'>super</span><span class='lparen'>(</span><span class='id identifier rubyid_example_count'>example_count</span><span class='rparen'>)</span>
+  <span class='ivar'>@printer</span><span class='period'>.</span><span class='id identifier rubyid_print_html_start'>print_html_start</span>
+  <span class='ivar'>@printer</span><span class='period'>.</span><span class='id identifier rubyid_flush'>flush</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="start_dump-instance_method">
+  
+    - (<tt>Object</tt>) <strong>start_dump</strong> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+54
+55
+56
+57</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/formatters/html_formatter.rb', line 54</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_start_dump'>start_dump</span>
+  <span class='ivar'>@printer</span><span class='period'>.</span><span class='id identifier rubyid_print_example_group_end'>print_example_group_end</span>
+  <span class='ivar'>@printer</span><span class='period'>.</span><span class='id identifier rubyid_flush'>flush</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+    <div id="footer">
+  Generated on Thu Dec 18 08:19:52 2014 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.6 (ruby-2.1.5).
+</div>
+
+  </body>
+</html>

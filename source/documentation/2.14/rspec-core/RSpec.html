@@ -1,0 +1,448 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Module: RSpec
+  
+    &mdash; Documentation by YARD 0.8.7.6
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '';
+  framesUrl = "frames.html#!RSpec.html";
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="_index.html">Index (R)</a> &raquo;
+    
+    
+    <span class="title">RSpec</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><h1>Module: RSpec
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+  
+    
+      <dt class="r1">Extended by:</dt>
+      <dd class="r1"><span class='object_link'><a href="RSpec/Core/Deprecation.html" title="RSpec::Core::Deprecation (module)">Core::Deprecation</a></span></dd>
+      
+    
+  
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/rspec/core.rb<span class="defines">,<br />
+  lib/rspec/core/dsl.rb,<br /> lib/rspec/core/hooks.rb,<br /> lib/rspec/core/world.rb,<br /> lib/rspec/core/runner.rb,<br /> lib/rspec/core/example.rb,<br /> lib/rspec/core/version.rb,<br /> lib/rspec/core/pending.rb,<br /> lib/rspec/core/metadata.rb,<br /> lib/rspec/core/rake_task.rb,<br /> lib/rspec/core/deprecation.rb,<br /> lib/rspec/core/ruby_project.rb,<br /> lib/rspec/core/command_line.rb,<br /> lib/rspec/core/configuration.rb,<br /> lib/rspec/core/example_group.rb,<br /> lib/rspec/core/filter_manager.rb,<br /> lib/rspec/core/shared_context.rb,<br /> lib/rspec/core/mocking/with_rr.rb,<br /> lib/rspec/core/memoized_helpers.rb,<br /> lib/rspec/core/drb_command_line.rb,<br /> lib/rspec/core/backtrace_cleaner.rb,<br /> lib/rspec/core/formatters/helpers.rb,<br /> lib/rspec/core/extensions/ordered.rb,<br /> lib/rspec/core/mocking/with_rspec.rb,<br /> lib/rspec/core/mocking/with_mocha.rb,<br /> lib/rspec/core/project_initializer.rb,<br /> lib/rspec/core/shared_example_group.rb,<br /> lib/rspec/core/configuration_options.rb,<br /> lib/rspec/core/mocking/with_flexmock.rb,<br /> lib/rspec/core/metadata_hash_builder.rb,<br /> lib/rspec/core/backward_compatibility.rb,<br /> lib/rspec/core/formatters/html_printer.rb,<br /> lib/rspec/core/formatters/html_formatter.rb,<br /> lib/rspec/core/formatters/base_formatter.rb,<br /> lib/rspec/core/formatters/json_formatter.rb,<br /> lib/rspec/core/formatters/snippet_extractor.rb,<br /> lib/rspec/core/formatters/progress_formatter.rb,<br /> lib/rspec/core/formatters/base_text_formatter.rb,<br /> lib/rspec/core/formatters/text_mate_formatter.rb,<br /> lib/rspec/core/mocking/with_absolutely_nothing.rb,<br /> lib/rspec/core/shared_example_group/collection.rb,<br /> lib/rspec/core/extensions/module_eval_with_args.rb,<br /> lib/rspec/core/formatters/deprecation_formatter.rb,<br /> lib/rspec/core/extensions/instance_eval_with_args.rb,<br /> lib/rspec/core/formatters/documentation_formatter.rb</span>
+</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Defined Under Namespace</h2>
+<p class="children">
+  
+    
+      <strong class="modules">Modules:</strong> <span class='object_link'><a href="RSpec/Core.html" title="RSpec::Core (module)">Core</a></span>, <span class='object_link'><a href="RSpec/Runner.html" title="RSpec::Runner (module)">Runner</a></span>
+    
+  
+    
+  
+</p>
+
+  <h2>Constant Summary</h2>
+  
+    <dl class="constants">
+      
+        <dt id="MODULES_TO_AUTOLOAD-constant" class="">MODULES_TO_AUTOLOAD =
+          
+        </dt>
+        <dd><pre class="code"><span class='lbrace'>{</span>
+  <span class='symbol'>:Matchers</span>     <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>rspec/expectations</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+  <span class='symbol'>:Expectations</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>rspec/expectations</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+  <span class='symbol'>:Mocks</span>        <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>rspec/mocks</span><span class='tstring_end'>&quot;</span></span>
+<span class='rbrace'>}</span></pre></dd>
+      
+        <dt id="SharedContext-constant" class="">SharedContext =
+          
+        </dt>
+        <dd><pre class="code"><span class='const'>Core</span><span class='op'>::</span><span class='const'>SharedContext</span></pre></dd>
+      
+    </dl>
+  
+
+
+
+
+
+
+
+  
+    <h2>
+      Class Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#configuration-class_method" title="configuration (class method)">+ (Object) <strong>configuration</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Returns the global <a href="RSpec/Core/Configuration">Configuration</a> object.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#configure-class_method" title="configure (class method)">+ (Object) <strong>configure</strong> {|Configuration| ... }</a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Yields the global configuration to a block.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#const_missing-class_method" title="const_missing (class method)">+ (Object) <strong>const_missing</strong>(name) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="configuration-class_method">
+  
+    + (<tt>Object</tt>) <strong>configuration</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns the global <a href="RSpec/Core/Configuration">Configuration</a> object. While you
+<em>can</em> use this method to access the configuration, the more common
+convention is to use <a href="RSpec#configure-class_method">RSpec.configure</a>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code><span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_configuration'>configuration</span><span class='period'>.</span><span class='id identifier rubyid_drb_port'>drb_port</span> <span class='op'>=</span> <span class='int'>1234</span></code></pre>
+    
+  </div>
+
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="#configure-class_method" title="RSpec.configure (method)">configure</a></span></li>
+    
+      <li><span class='object_link'><a href="RSpec/Core/Configuration.html" title="RSpec::Core::Configuration (class)">RSpec::Core::Configuration</a></span></li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core.rb', line 87</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_configuration'>configuration</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_block_given?'>block_given?</span>
+    <span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_warn_deprecation'>warn_deprecation</span> <span class='heredoc_beg'>&lt;&lt;-WARNING</span>
+<span class='tstring_content'>
+*****************************************************************
+DEPRECATION WARNING
+
+* RSpec.configuration with a block is deprecated and has no effect.
+* please use RSpec.configure with a block instead.
+
+Called from </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_caller'>caller</span><span class='lparen'>(</span><span class='int'>0</span><span class='rparen'>)</span><span class='lbracket'>[</span><span class='int'>1</span><span class='rbracket'>]</span><span class='embexpr_end'>}</span><span class='tstring_content'>
+*****************************************************************
+
+</span><span class='heredoc_end'>WARNING
+</span>  <span class='kw'>end</span>
+  <span class='ivar'>@configuration</span> <span class='op'>||=</span> <span class='const'>RSpec</span><span class='op'>::</span><span class='const'>Core</span><span class='op'>::</span><span class='const'>Configuration</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="configure-class_method">
+  
+    + (<tt>Object</tt>) <strong>configure</strong> {|Configuration| ... }
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Yields the global configuration to a block.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code><span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_configure'>configure</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_config'>config</span><span class='op'>|</span>
+  <span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_add_formatter'>add_formatter</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>documentation</span><span class='tstring_end'>&#39;</span></span>
+<span class='kw'>end</span></code></pre>
+    
+  </div>
+
+<p class="tag_title">Yields:</p>
+<ul class="yield">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Configuration</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>global configuration</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="RSpec/Core/Configuration.html" title="RSpec::Core::Configuration (class)">RSpec::Core::Configuration</a></span></li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+119
+120
+121</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core.rb', line 119</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_configure'>configure</span>
+  <span class='kw'>yield</span> <span class='id identifier rubyid_configuration'>configuration</span> <span class='kw'>if</span> <span class='id identifier rubyid_block_given?'>block_given?</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="const_missing-class_method">
+  
+    + (<tt>Object</tt>) <strong>const_missing</strong>(name) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core.rb', line 152</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_const_missing'>const_missing</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
+  <span class='comment'># Load rspec-expectations when RSpec::Matchers is referenced. This allows
+</span>  <span class='comment'># people to define custom matchers (using `RSpec::Matchers.define`) before
+</span>  <span class='comment'># rspec-core has loaded rspec-expectations (since it delays the loading of
+</span>  <span class='comment'># it to allow users to configure a different assertion/expectation
+</span>  <span class='comment'># framework). `autoload` can&#39;t be used since it works with ruby&#39;s built-in
+</span>  <span class='comment'># require (e.g. for files that are available relative to a load path dir),
+</span>  <span class='comment'># but not with rubygems&#39; extended require.
+</span>  <span class='comment'>#
+</span>  <span class='comment'># As of rspec 2.14.1, we no longer require `rspec/mocks` and
+</span>  <span class='comment'># `rspec/expectations` when `rspec` is required, so we want
+</span>  <span class='comment'># to make them available as an autoload. For more info, see:
+</span>  <span class='id identifier rubyid_require'>require</span> <span class='const'>MODULES_TO_AUTOLOAD</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='kw'>return</span> <span class='kw'>super</span> <span class='rbrace'>}</span>
+  <span class='op'>::</span><span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_const_get'>const_get</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+    <div id="footer">
+  Generated on Thu Dec 18 08:19:51 2014 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.6 (ruby-2.1.5).
+</div>
+
+  </body>
+</html>

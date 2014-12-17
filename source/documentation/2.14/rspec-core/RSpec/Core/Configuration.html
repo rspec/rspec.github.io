@@ -1,0 +1,4129 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: RSpec::Core::Configuration
+  
+    &mdash; Documentation by YARD 0.8.7.6
+  
+</title>
+
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '../../';
+  framesUrl = "../../frames.html#!RSpec/Core/Configuration.html";
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../../_index.html">Index (C)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../../RSpec.html" title="RSpec (module)">RSpec</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Core.html" title="RSpec::Core (module)">Core</a></span></span>
+     &raquo; 
+    <span class="title">Configuration</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../../class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="../../method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="../../file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><h1>Class: RSpec::Core::Configuration
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName">Object</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">RSpec::Core::Configuration</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+      <dt class="r2">Includes:</dt>
+      <dd class="r2"><span class='object_link'><a href="Hooks.html" title="RSpec::Core::Hooks (module)">Hooks</a></span></dd>
+      
+    
+  
+  
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">lib/rspec/core/configuration.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <p>Stores runtime configuration information.</p>
+
+<p>Configuration options are loaded from <code>~/.rspec</code>, <code>.rspec</code>,
+<code>.rspec-local</code>, command line switches, and the <code>SPEC_OPTS</code> environment
+variable (listed in lowest to highest precedence; for example, an option
+in <code>~/.rspec</code> can be overridden by an option in <code>.rspec-local</code>).</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+        <p class="example_title"><div class='inline'><p>Standard settings</p>
+</div></p>
+      
+      <pre class="example code"><code><span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_configure'>configure</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_c'>c</span><span class='op'>|</span>
+  <span class='id identifier rubyid_c'>c</span><span class='period'>.</span><span class='id identifier rubyid_drb'>drb</span>          <span class='op'>=</span> <span class='kw'>true</span>
+  <span class='id identifier rubyid_c'>c</span><span class='period'>.</span><span class='id identifier rubyid_drb_port'>drb_port</span>     <span class='op'>=</span> <span class='int'>1234</span>
+  <span class='id identifier rubyid_c'>c</span><span class='period'>.</span><span class='id identifier rubyid_default_path'>default_path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>behavior</span><span class='tstring_end'>&#39;</span></span>
+<span class='kw'>end</span></code></pre>
+    
+      
+        <p class="example_title"><div class='inline'><p>Hooks</p>
+</div></p>
+      
+      <pre class="example code"><code><span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_configure'>configure</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_c'>c</span><span class='op'>|</span>
+  <span class='id identifier rubyid_c'>c</span><span class='period'>.</span><span class='id identifier rubyid_before'>before</span><span class='lparen'>(</span><span class='symbol'>:suite</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_establish_connection'>establish_connection</span> <span class='rbrace'>}</span>
+  <span class='id identifier rubyid_c'>c</span><span class='period'>.</span><span class='id identifier rubyid_before'>before</span><span class='lparen'>(</span><span class='symbol'>:each</span><span class='rparen'>)</span>  <span class='lbrace'>{</span> <span class='id identifier rubyid_log_in_as'>log_in_as</span> <span class='symbol'>:authorized</span> <span class='rbrace'>}</span>
+  <span class='id identifier rubyid_c'>c</span><span class='period'>.</span><span class='id identifier rubyid_around'>around</span><span class='lparen'>(</span><span class='symbol'>:each</span><span class='rparen'>)</span>  <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_ex'>ex</span><span class='op'>|</span> <span class='const'>Database</span><span class='period'>.</span><span class='id identifier rubyid_transaction'>transaction</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_ex'>ex</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+<span class='kw'>end</span></code></pre>
+    
+  </div>
+
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="../../RSpec.html#configure-class_method" title="RSpec.configure (method)">RSpec.configure</a></span></li>
+    
+      <li><span class='object_link'><a href="Hooks.html" title="RSpec::Core::Hooks (module)">Hooks</a></span></li>
+    
+  </ul>
+
+</div><h2>Defined Under Namespace</h2>
+<p class="children">
+  
+    
+  
+    
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="Configuration/MustBeConfiguredBeforeExampleGroupsError.html" title="RSpec::Core::Configuration::MustBeConfiguredBeforeExampleGroupsError (class)">MustBeConfiguredBeforeExampleGroupsError</a></span>
+    
+  
+</p>
+
+  <h2>Constant Summary</h2>
+  
+
+
+
+
+  <h2>Instance Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#backtrace_cleaner-instance_method" title="#backtrace_cleaner (instance method)">- (Object) <strong>backtrace_cleaner</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Returns the value of attribute backtrace_cleaner.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#add_formatter-instance_method" title="#add_formatter (instance method)">- (Object) <strong>add_formatter</strong>(formatter) </a>
+    
+
+    
+      (also: #formatter=)
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Adds a formatter to the formatters collection.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#add_setting-instance_method" title="#add_setting (instance method)">- (Object) <strong>add_setting</strong>(name, opts = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Adds a custom setting to the RSpec.configuration object.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#alias_example_to-instance_method" title="#alias_example_to (instance method)">- (Object) <strong>alias_example_to</strong>(new_name, *args) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Creates a method that delegates to <code>example</code> including the submitted <code>args</code>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#alias_it_behaves_like_to-instance_method" title="#alias_it_behaves_like_to (instance method)">- (Object) <strong>alias_it_behaves_like_to</strong>(new_name, report_label = &#39;&#39;) </a>
+    
+
+    
+      (also: #alias_it_should_behave_like_to)
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Define an alias for it_should_behave_like that allows different language (like &quot;it_has_behavior&quot; or &quot;it_behaves_like&quot;) to be employed when including shared examples.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#backtrace_clean_patterns-instance_method" title="#backtrace_clean_patterns (instance method)">- (Object) <strong>backtrace_clean_patterns</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>The patterns to discard from backtraces.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#backtrace_clean_patterns%3D-instance_method" title="#backtrace_clean_patterns= (instance method)">- (Object) <strong>backtrace_clean_patterns=</strong>(patterns) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#backtrace_exclusion_patterns-instance_method" title="#backtrace_exclusion_patterns (instance method)">- (Object) <strong>backtrace_exclusion_patterns</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>The patterns to discard from backtraces.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#backtrace_exclusion_patterns%3D-instance_method" title="#backtrace_exclusion_patterns= (instance method)">- (Object) <strong>backtrace_exclusion_patterns=</strong>(patterns) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#backtrace_inclusion_patterns-instance_method" title="#backtrace_inclusion_patterns (instance method)">- (Object) <strong>backtrace_inclusion_patterns</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>The patterns to always include to backtraces.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#backtrace_inclusion_patterns%3D-instance_method" title="#backtrace_inclusion_patterns= (instance method)">- (Object) <strong>backtrace_inclusion_patterns=</strong>(patterns) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#color-instance_method" title="#color (instance method)">- (Object) <strong>color</strong>(output = output_stream) </a>
+    
+
+    
+      (also: #color_enabled)
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#color%3D-instance_method" title="#color= (instance method)">- (Object) <strong>color=</strong>(bool) </a>
+    
+
+    
+      (also: #color_enabled=)
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#debug%3D-instance_method" title="#debug= (instance method)">- (Object) <strong>debug=</strong>(bool) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#debug%3F-instance_method" title="#debug? (instance method)">- (Boolean) <strong>debug?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#exclusion_filter-instance_method" title="#exclusion_filter (instance method)">- (Object) <strong>exclusion_filter</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Returns the <code>exclusion_filter</code>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#exclusion_filter%3D-instance_method" title="#exclusion_filter= (instance method)">- (Object) <strong>exclusion_filter=</strong>(filter) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Clears and reassigns the <code>exclusion_filter</code>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#expect_with-instance_method" title="#expect_with (instance method)">- (Object) <strong>expect_with</strong>(*frameworks) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Sets the expectation framework module(s) to be included in each example group.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#expectation_framework%3D-instance_method" title="#expectation_framework= (instance method)">- (Object) <strong>expectation_framework=</strong>(framework) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Delegates to expect_with(framework).</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#expectation_frameworks-instance_method" title="#expectation_frameworks (instance method)">- (Object) <strong>expectation_frameworks</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Returns the configured expectation framework adapter module(s).</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#extend-instance_method" title="#extend (instance method)">- (Object) <strong>extend</strong>(mod, *filters) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Tells RSpec to extend example groups with <code>mod</code>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#filter_run_excluding-instance_method" title="#filter_run_excluding (instance method)">- (Object) <strong>filter_run_excluding</strong>(*args) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Adds key/value pairs to the <code>exclusion_filter</code>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#filter_run_including-instance_method" title="#filter_run_including (instance method)">- (Object) <strong>filter_run_including</strong>(*args) </a>
+    
+
+    
+      (also: #filter_run)
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Adds key/value pairs to the <code>inclusion_filter</code>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#format_docstrings-instance_method" title="#format_docstrings (instance method)">- (Object) <strong>format_docstrings</strong>(&amp;block) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Formats the docstring output using the block provided.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#formatters-instance_method" title="#formatters (instance method)">- (Object) <strong>formatters</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#full_backtrace%3D-instance_method" title="#full_backtrace= (instance method)">- (Object) <strong>full_backtrace=</strong>(true_or_false) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#full_backtrace%3F-instance_method" title="#full_backtrace? (instance method)">- (Boolean) <strong>full_backtrace?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#full_description-instance_method" title="#full_description (instance method)">- (Object) <strong>full_description</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#full_description%3D-instance_method" title="#full_description= (instance method)">- (Object) <strong>full_description=</strong>(description) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#include-instance_method" title="#include (instance method)">- (Object) <strong>include</strong>(mod, *filters) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Tells RSpec to include <code>mod</code> in example groups.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#inclusion_filter-instance_method" title="#inclusion_filter (instance method)">- (Object) <strong>inclusion_filter</strong> </a>
+    
+
+    
+      (also: #filter)
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Returns the <code>inclusion_filter</code>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#inclusion_filter%3D-instance_method" title="#inclusion_filter= (instance method)">- (Object) <strong>inclusion_filter=</strong>(filter) </a>
+    
+
+    
+      (also: #filter=)
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Clears and reassigns the <code>inclusion_filter</code>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (Configuration) <strong>initialize</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>A new instance of Configuration.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#libs%3D-instance_method" title="#libs= (instance method)">- (Object) <strong>libs=</strong>(libs) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#line_numbers-instance_method" title="#line_numbers (instance method)">- (Object) <strong>line_numbers</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#line_numbers%3D-instance_method" title="#line_numbers= (instance method)">- (Object) <strong>line_numbers=</strong>(line_numbers) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Run examples defined on <code>line_numbers</code> in all files to run.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#mock_framework-instance_method" title="#mock_framework (instance method)">- (Object) <strong>mock_framework</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Returns the configured mock framework adapter module.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#mock_framework%3D-instance_method" title="#mock_framework= (instance method)">- (Object) <strong>mock_framework=</strong>(framework) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Delegates to mock_framework=(framework).</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#mock_with-instance_method" title="#mock_with (instance method)">- (Object) <strong>mock_with</strong>(framework) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Sets the mock framework adapter module.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#order%3D-instance_method" title="#order= (instance method)">- (Object) <strong>order=</strong>(type) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Sets the order and, if order is <code>&#39;rand:&#39;</code>, also sets the seed.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#order_examples-instance_method" title="#order_examples (instance method)">- (Object) <strong>order_examples</strong>(&amp;block) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Sets a strategy by which to order examples.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#order_groups-instance_method" title="#order_groups (instance method)">- (Object) <strong>order_groups</strong>(&amp;block) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Sets a strategy by which to order groups.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#order_groups_and_examples-instance_method" title="#order_groups_and_examples (instance method)">- (Object) <strong>order_groups_and_examples</strong>(&amp;block) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Sets a strategy by which to order groups and examples.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#profile_examples-instance_method" title="#profile_examples (instance method)">- (Object) <strong>profile_examples</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  <span class="private note title">private</span>
+
+  
+    <span class="summary_desc"><div class='inline'><p>Defaults <code>profile_examples</code> to 10 examples when <code>@profile_examples</code> is <code>true</code>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#randomize%3F-instance_method" title="#randomize? (instance method)">- (Boolean) <strong>randomize?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#reporter-instance_method" title="#reporter (instance method)">- (Object) <strong>reporter</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#requires%3D-instance_method" title="#requires= (instance method)">- (Object) <strong>requires=</strong>(paths) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#safe_extend-instance_method" title="#safe_extend (instance method)">- (Object) <strong>safe_extend</strong>(mod, host) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#seed%3D-instance_method" title="#seed= (instance method)">- (Object) <strong>seed=</strong>(seed) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Sets the seed value and sets <code>order=&#39;rand&#39;</code>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#warnings-instance_method" title="#warnings (instance method)">- (Object) <strong>warnings</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#warnings%3D-instance_method" title="#warnings= (instance method)">- (Object) <strong>warnings=</strong>(value) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Set Ruby warnings on or off.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="Hooks.html" title="RSpec::Core::Hooks (module)">Hooks</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="Hooks.html#after-instance_method" title="RSpec::Core::Hooks#after (method)">#after</a></span>, <span class='object_link'><a href="Hooks.html#append_after-instance_method" title="RSpec::Core::Hooks#append_after (method)">#append_after</a></span>, <span class='object_link'><a href="Hooks.html#around-instance_method" title="RSpec::Core::Hooks#around (method)">#around</a></span>, <span class='object_link'><a href="Hooks.html#before-instance_method" title="RSpec::Core::Hooks#before (method)">#before</a></span>, <span class='object_link'><a href="Hooks.html#prepend_before-instance_method" title="RSpec::Core::Hooks#prepend_before (method)">#prepend_before</a></span></p>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <h3 class="signature first" id="initialize-instance_method">
+  
+    - (<tt><span class='object_link'><a href="" title="RSpec::Core::Configuration (class)">Configuration</a></span></tt>) <strong>initialize</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns a new instance of Configuration</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/configuration.rb', line 186</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span>
+  <span class='ivar'>@expectation_frameworks</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='ivar'>@include_or_extend_modules</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='ivar'>@mock_framework</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='ivar'>@files_to_run</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='ivar'>@formatters</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='ivar'>@color</span> <span class='op'>=</span> <span class='kw'>false</span>
+  <span class='ivar'>@pattern</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>**/*_spec.rb</span><span class='tstring_end'>&#39;</span></span>
+  <span class='ivar'>@failure_exit_code</span> <span class='op'>=</span> <span class='int'>1</span>
+
+  <span class='ivar'>@backtrace_cleaner</span> <span class='op'>=</span> <span class='const'>BacktraceCleaner</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
+
+  <span class='ivar'>@default_path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>spec</span><span class='tstring_end'>&#39;</span></span>
+  <span class='ivar'>@deprecation_stream</span> <span class='op'>=</span> <span class='gvar'>$stderr</span>
+  <span class='ivar'>@filter_manager</span> <span class='op'>=</span> <span class='const'>FilterManager</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
+  <span class='ivar'>@preferred_options</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span>
+  <span class='ivar'>@seed</span> <span class='op'>=</span> <span class='id identifier rubyid_srand'>srand</span> <span class='op'>%</span> <span class='int'>0xFFFF</span>
+  <span class='ivar'>@failure_color</span> <span class='op'>=</span> <span class='symbol'>:red</span>
+  <span class='ivar'>@success_color</span> <span class='op'>=</span> <span class='symbol'>:green</span>
+  <span class='ivar'>@pending_color</span> <span class='op'>=</span> <span class='symbol'>:yellow</span>
+  <span class='ivar'>@default_color</span> <span class='op'>=</span> <span class='symbol'>:white</span>
+  <span class='ivar'>@fixed_color</span> <span class='op'>=</span> <span class='symbol'>:blue</span>
+  <span class='ivar'>@detail_color</span> <span class='op'>=</span> <span class='symbol'>:cyan</span>
+  <span class='ivar'>@profile_examples</span> <span class='op'>=</span> <span class='kw'>false</span>
+  <span class='ivar'>@requires</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='ivar'>@libs</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id=""></span>
+      <div class="method_details first">
+  <h3 class="signature first" id="backtrace_cleaner-instance_method">
+  
+    - (<tt>Object</tt>) <strong>backtrace_cleaner</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns the value of attribute backtrace_cleaner</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+184
+185
+186</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/configuration.rb', line 184</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_backtrace_cleaner'>backtrace_cleaner</span>
+  <span class='ivar'>@backtrace_cleaner</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="add_formatter-instance_method">
+  
+    - (<tt>Object</tt>) <strong>add_formatter</strong>(formatter) 
+  
+
+  
+    <span class="aliases">Also known as:
+    <span class="names"><span id='formatter=-instance_method'>formatter=</span></span>
+    </span>
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Adds a formatter to the formatters collection. <code>formatter</code> can be a
+string representing any of the built-in formatters (see
+<code>built_in_formatter</code>), or a custom formatter class.</p>
+
+<h3>Note</h3>
+
+<p>For internal purposes, <code>add_formatter</code> also accepts the name of a class
+and paths to use for output streams, but you should consider that a
+private api that may change at any time without notice.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+571
+572
+573
+574
+575
+576
+577
+578
+579</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/configuration.rb', line 571</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_add_formatter'>add_formatter</span><span class='lparen'>(</span><span class='id identifier rubyid_formatter_to_use'>formatter_to_use</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_paths'>paths</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_formatter_class'>formatter_class</span> <span class='op'>=</span>
+    <span class='id identifier rubyid_built_in_formatter'>built_in_formatter</span><span class='lparen'>(</span><span class='id identifier rubyid_formatter_to_use'>formatter_to_use</span><span class='rparen'>)</span> <span class='op'>||</span>
+    <span class='id identifier rubyid_custom_formatter'>custom_formatter</span><span class='lparen'>(</span><span class='id identifier rubyid_formatter_to_use'>formatter_to_use</span><span class='rparen'>)</span> <span class='op'>||</span>
+    <span class='lparen'>(</span><span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Formatter &#39;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_formatter_to_use'>formatter_to_use</span><span class='embexpr_end'>}</span><span class='tstring_content'>&#39; unknown - maybe you meant &#39;documentation&#39; or &#39;progress&#39;?.</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+
+  <span class='id identifier rubyid_paths'>paths</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_output'>output</span> <span class='kw'>if</span> <span class='id identifier rubyid_paths'>paths</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
+  <span class='id identifier rubyid_formatters'>formatters</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_formatter_class'>formatter_class</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_paths'>paths</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_p'>p</span><span class='op'>|</span> <span class='const'>String</span> <span class='op'>===</span> <span class='id identifier rubyid_p'>p</span> <span class='op'>?</span> <span class='id identifier rubyid_file_at'>file_at</span><span class='lparen'>(</span><span class='id identifier rubyid_p'>p</span><span class='rparen'>)</span> <span class='op'>:</span> <span class='id identifier rubyid_p'>p</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="add_setting-instance_method">
+  
+    
+      <span class="overload">- (<tt>Object</tt>) <strong>add_setting</strong>(name) </span>
+    
+      <span class="overload">- (<tt>Object</tt>) <strong>add_setting</strong>(name, opts) </span>
+    
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Adds a custom setting to the RSpec.configuration object.</p>
+
+<pre class="code ruby"><code class="ruby"><span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_configuration'>configuration</span><span class='period'>.</span><span class='id identifier rubyid_add_setting'>add_setting</span> <span class='symbol'>:foo</span>
+</code></pre>
+
+<p>Used internally and by extension frameworks like rspec-rails, so they
+can add config settings that are domain specific. For example:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_configure'>configure</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_c'>c</span><span class='op'>|</span>
+  <span class='id identifier rubyid_c'>c</span><span class='period'>.</span><span class='id identifier rubyid_add_setting'>add_setting</span> <span class='symbol'>:use_transactional_fixtures</span><span class='comma'>,</span>
+    <span class='symbol'>:default</span> <span class='op'>=&gt;</span> <span class='kw'>true</span><span class='comma'>,</span>
+    <span class='symbol'>:alias_with</span> <span class='op'>=&gt;</span> <span class='symbol'>:use_transactional_examples</span>
+<span class='kw'>end</span>
+</code></pre>
+
+<p><code>add_setting</code> creates three methods on the configuration object, a
+setter, a getter, and a predicate:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_configuration'>configuration</span><span class='period'>.</span><span class='id identifier rubyid_foo'>foo</span><span class='op'>=</span><span class='lparen'>(</span><span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span>
+<span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_configuration'>configuration</span><span class='period'>.</span><span class='id identifier rubyid_foo'>foo</span>
+<span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_configuration'>configuration</span><span class='period'>.</span><span class='id identifier rubyid_foo?'>foo?</span> <span class='comment'># returns true if foo returns anything but nil or false
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>opts</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>a customizable set of options</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  
+    
+    
+    
+    
+    <p class="tag_title">Options Hash (<tt>opts</tt>):</p>
+    <ul class="option">
+      
+        <li>
+          <span class="name">:default</span>
+          <span class="type">(<tt>Symbol</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>set a default value for the generated getter and predicate methods:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_add_setting'>add_setting</span><span class='lparen'>(</span><span class='symbol'>:foo</span><span class='comma'>,</span> <span class='symbol'>:default</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>default value</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+</code></pre>
+</div>
+          
+        </li>
+      
+        <li>
+          <span class="name">:alias_with</span>
+          <span class="type">(<tt>Symbol</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'><p>Use <code>:alias_with</code> to alias the setter, getter, and predicate to another
+name, or names:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_add_setting'>add_setting</span><span class='lparen'>(</span><span class='symbol'>:foo</span><span class='comma'>,</span> <span class='symbol'>:alias_with</span> <span class='op'>=&gt;</span> <span class='symbol'>:bar</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_add_setting'>add_setting</span><span class='lparen'>(</span><span class='symbol'>:foo</span><span class='comma'>,</span> <span class='symbol'>:alias_with</span> <span class='op'>=&gt;</span> <span class='lbracket'>[</span><span class='symbol'>:bar</span><span class='comma'>,</span> <span class='symbol'>:baz</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+</code></pre>
+</div>
+          
+        </li>
+      
+    </ul>
+  
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+268
+269
+270
+271
+272
+273
+274</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/configuration.rb', line 268</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_add_setting'>add_setting</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_default'>default</span> <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='symbol'>:default</span><span class='rparen'>)</span>
+  <span class='lparen'>(</span><span class='kw'>class</span> <span class='op'>&lt;&lt;</span> <span class='kw'>self</span><span class='semicolon'>;</span> <span class='kw'>self</span><span class='semicolon'>;</span> <span class='kw'>end</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_class_eval'>class_eval</span> <span class='kw'>do</span>
+    <span class='id identifier rubyid_add_setting'>add_setting</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+  <span class='id identifier rubyid_send'>send</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_name'>name</span><span class='embexpr_end'>}</span><span class='tstring_content'>=</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_default'>default</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_default'>default</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="alias_example_to-instance_method">
+  
+    - (<tt>Object</tt>) <strong>alias_example_to</strong>(new_name, *args) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Creates a method that delegates to <code>example</code> including the submitted
+<code>args</code>. Used internally to add variants of <code>example</code> like <code>pending</code>:</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code><span class='id identifier rubyid_alias_example_to'>alias_example_to</span> <span class='symbol'>:pending</span><span class='comma'>,</span> <span class='symbol'>:pending</span> <span class='op'>=&gt;</span> <span class='kw'>true</span>
+
+<span class='comment'># This lets you do this:
+</span>
+<span class='id identifier rubyid_describe'>describe</span> <span class='const'>Thing</span> <span class='kw'>do</span>
+  <span class='id identifier rubyid_pending'>pending</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>does something</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+    <span class='id identifier rubyid_thing'>thing</span> <span class='op'>=</span> <span class='const'>Thing</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span>
+
+<span class='comment'># ... which is the equivalent of
+</span>
+<span class='id identifier rubyid_describe'>describe</span> <span class='const'>Thing</span> <span class='kw'>do</span>
+  <span class='id identifier rubyid_it'>it</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>does something</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:pending</span> <span class='op'>=&gt;</span> <span class='kw'>true</span> <span class='kw'>do</span>
+    <span class='id identifier rubyid_thing'>thing</span> <span class='op'>=</span> <span class='const'>Thing</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></code></pre>
+    
+  </div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+636
+637
+638
+639</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/configuration.rb', line 636</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_alias_example_to'>alias_example_to</span><span class='lparen'>(</span><span class='id identifier rubyid_new_name'>new_name</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_extra_options'>extra_options</span> <span class='op'>=</span> <span class='id identifier rubyid_build_metadata_hash_from'>build_metadata_hash_from</span><span class='lparen'>(</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
+  <span class='const'>RSpec</span><span class='op'>::</span><span class='const'>Core</span><span class='op'>::</span><span class='const'>ExampleGroup</span><span class='period'>.</span><span class='id identifier rubyid_alias_example_to'>alias_example_to</span><span class='lparen'>(</span><span class='id identifier rubyid_new_name'>new_name</span><span class='comma'>,</span> <span class='id identifier rubyid_extra_options'>extra_options</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="alias_it_behaves_like_to-instance_method">
+  
+    - (<tt>Object</tt>) <strong>alias_it_behaves_like_to</strong>(new_name, report_label = &#39;&#39;) 
+  
+
+  
+    <span class="aliases">Also known as:
+    <span class="names"><span id='alias_it_should_behave_like_to-instance_method'>alias_it_should_behave_like_to</span></span>
+    </span>
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Define an alias for it_should_behave_like that allows different
+language (like &quot;it_has_behavior&quot; or &quot;it_behaves_like&quot;) to be
+employed when including shared examples.</p>
+
+<p>Example:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_alias_it_behaves_like_to'>alias_it_behaves_like_to</span><span class='lparen'>(</span><span class='symbol'>:it_has_behavior</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>has behavior:</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+</code></pre>
+
+<p>allows the user to include a shared example group like:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_describe'>describe</span> <span class='const'>Entity</span> <span class='kw'>do</span>
+  <span class='id identifier rubyid_it_has_behavior'>it_has_behavior</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>sortability</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>do</span>
+    <span class='id identifier rubyid_let'>let</span><span class='lparen'>(</span><span class='symbol'>:sortable</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='const'>Entity</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span> <span class='rbrace'>}</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span>
+</code></pre>
+
+<p>which is reported in the output as:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='const'>Entity</span>
+  <span class='id identifier rubyid_has'>has</span> <span class='label'>behavior:</span> <span class='id identifier rubyid_sortability'>sortability</span>
+    <span class='comment'># sortability examples here
+</span></code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+662
+663
+664</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/configuration.rb', line 662</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_alias_it_behaves_like_to'>alias_it_behaves_like_to</span><span class='lparen'>(</span><span class='id identifier rubyid_new_name'>new_name</span><span class='comma'>,</span> <span class='id identifier rubyid_report_label'>report_label</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+  <span class='const'>RSpec</span><span class='op'>::</span><span class='const'>Core</span><span class='op'>::</span><span class='const'>ExampleGroup</span><span class='period'>.</span><span class='id identifier rubyid_alias_it_behaves_like_to'>alias_it_behaves_like_to</span><span class='lparen'>(</span><span class='id identifier rubyid_new_name'>new_name</span><span class='comma'>,</span> <span class='id identifier rubyid_report_label'>report_label</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="backtrace_clean_patterns-instance_method">
+  
+    - (<tt>Object</tt>) <strong>backtrace_clean_patterns</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>The patterns to discard from backtraces. Deprecated, use
+Configuration#backtrace_exclusion_patterns instead</p>
+
+<p>Defaults to RSpec::Core::BacktraceCleaner::DEFAULT_EXCLUSION_PATTERNS</p>
+
+<p>One can replace the list by using the setter or modify it through the
+getter</p>
+
+<p>To override this behaviour and display a full backtrace, use
+<code>--backtrace</code>on the command line, in a <code>.rspec</code> file, or in the
+<code>rspec_options</code> attribute of RSpec&#39;s rake task.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+298
+299
+300
+301
+302</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/configuration.rb', line 298</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_backtrace_clean_patterns'>backtrace_clean_patterns</span>
+  <span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_deprecate'>deprecate</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>RSpec::Core::Configuration#backtrace_clean_patterns</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+                  <span class='symbol'>:replacement</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>RSpec::Core::Configuration#backtrace_exclusion_patterns</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='ivar'>@backtrace_cleaner</span><span class='period'>.</span><span class='id identifier rubyid_exclusion_patterns'>exclusion_patterns</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="backtrace_clean_patterns=-instance_method">
+  
+    - (<tt>Object</tt>) <strong>backtrace_clean_patterns=</strong>(patterns) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+304
+305
+306
+307
+308</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/configuration.rb', line 304</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_backtrace_clean_patterns='>backtrace_clean_patterns=</span><span class='lparen'>(</span><span class='id identifier rubyid_patterns'>patterns</span><span class='rparen'>)</span>
+  <span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_deprecate'>deprecate</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>RSpec::Core::Configuration#backtrace_clean_patterns</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+                  <span class='symbol'>:replacement</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>RSpec::Core::Configuration#backtrace_exclusion_patterns</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='ivar'>@backtrace_cleaner</span><span class='period'>.</span><span class='id identifier rubyid_exclusion_patterns'>exclusion_patterns</span> <span class='op'>=</span> <span class='id identifier rubyid_patterns'>patterns</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="backtrace_exclusion_patterns-instance_method">
+  
+    - (<tt>Object</tt>) <strong>backtrace_exclusion_patterns</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>The patterns to discard from backtraces.</p>
+
+<p>Defaults to RSpec::Core::BacktraceCleaner::DEFAULT_EXCLUSION_PATTERNS</p>
+
+<p>One can replace the list by using the setter or modify it through the
+getter</p>
+
+<p>To override this behaviour and display a full backtrace, use
+<code>--backtrace</code>on the command line, in a <code>.rspec</code> file, or in the
+<code>rspec_options</code> attribute of RSpec&#39;s rake task.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+335
+336
+337</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/configuration.rb', line 335</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_backtrace_exclusion_patterns'>backtrace_exclusion_patterns</span>
+  <span class='ivar'>@backtrace_cleaner</span><span class='period'>.</span><span class='id identifier rubyid_exclusion_patterns'>exclusion_patterns</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="backtrace_exclusion_patterns=-instance_method">
+  
+    - (<tt>Object</tt>) <strong>backtrace_exclusion_patterns=</strong>(patterns) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+339
+340
+341</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/configuration.rb', line 339</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_backtrace_exclusion_patterns='>backtrace_exclusion_patterns=</span><span class='lparen'>(</span><span class='id identifier rubyid_patterns'>patterns</span><span class='rparen'>)</span>
+  <span class='ivar'>@backtrace_cleaner</span><span class='period'>.</span><span class='id identifier rubyid_exclusion_patterns'>exclusion_patterns</span> <span class='op'>=</span> <span class='id identifier rubyid_patterns'>patterns</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="backtrace_inclusion_patterns-instance_method">
+  
+    - (<tt>Object</tt>) <strong>backtrace_inclusion_patterns</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>The patterns to always include to backtraces.</p>
+
+<p>Defaults to [Regexp.new Dir.getwd] if the current working directory
+matches any of the exclusion patterns. Otherwise it defaults to empty.</p>
+
+<p>One can replace the list by using the setter or modify it through the
+getter</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+317
+318
+319</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/configuration.rb', line 317</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_backtrace_inclusion_patterns'>backtrace_inclusion_patterns</span>
+  <span class='ivar'>@backtrace_cleaner</span><span class='period'>.</span><span class='id identifier rubyid_inclusion_patterns'>inclusion_patterns</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="backtrace_inclusion_patterns=-instance_method">
+  
+    - (<tt>Object</tt>) <strong>backtrace_inclusion_patterns=</strong>(patterns) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+321
+322
+323</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/configuration.rb', line 321</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_backtrace_inclusion_patterns='>backtrace_inclusion_patterns=</span><span class='lparen'>(</span><span class='id identifier rubyid_patterns'>patterns</span><span class='rparen'>)</span>
+  <span class='ivar'>@backtrace_cleaner</span><span class='period'>.</span><span class='id identifier rubyid_inclusion_patterns'>inclusion_patterns</span> <span class='op'>=</span> <span class='id identifier rubyid_patterns'>patterns</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="color-instance_method">
+  
+    - (<tt>Object</tt>) <strong>color</strong>(output = output_stream) 
+  
+
+  
+    <span class="aliases">Also known as:
+    <span class="names"><span id='color_enabled-instance_method'>color_enabled</span></span>
+    </span>
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+479
+480
+481
+482
+483
+484
+485</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/configuration.rb', line 479</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_color'>color</span><span class='lparen'>(</span><span class='id identifier rubyid_output'>output</span><span class='op'>=</span><span class='id identifier rubyid_output_stream'>output_stream</span><span class='rparen'>)</span>
+  <span class='comment'># rspec&#39;s built-in formatters all call this with the output argument,
+</span>  <span class='comment'># but defaulting to output_stream for backward compatibility with
+</span>  <span class='comment'># formatters in extension libs
+</span>  <span class='kw'>return</span> <span class='kw'>false</span> <span class='kw'>unless</span> <span class='id identifier rubyid_output_to_tty?'>output_to_tty?</span><span class='lparen'>(</span><span class='id identifier rubyid_output'>output</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_value_for'>value_for</span><span class='lparen'>(</span><span class='symbol'>:color</span><span class='comma'>,</span> <span class='ivar'>@color</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="color=-instance_method">
+  
+    - (<tt>Object</tt>) <strong>color=</strong>(bool) 
+  
+
+  
+    <span class="aliases">Also known as:
+    <span class="names"><span id='color_enabled=-instance_method'>color_enabled=</span></span>
+    </span>
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+487
+488
+489
+490
+491
+492
+493
+494
+495
+496</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/configuration.rb', line 487</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_color='>color=</span><span class='lparen'>(</span><span class='id identifier rubyid_bool'>bool</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_bool'>bool</span>
+    <span class='kw'>if</span> <span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_windows_os?'>windows_os?</span> <span class='kw'>and</span> <span class='kw'>not</span> <span class='const'>ENV</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>ANSICON</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span>
+      <span class='id identifier rubyid_warn'>warn</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>You must use ANSICON 1.31 or later (http://adoxa.3eeweb.com/ansicon/) to use colour on Windows</span><span class='tstring_end'>&quot;</span></span>
+      <span class='ivar'>@color</span> <span class='op'>=</span> <span class='kw'>false</span>
+    <span class='kw'>else</span>
+      <span class='ivar'>@color</span> <span class='op'>=</span> <span class='kw'>true</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="debug=-instance_method">
+  
+    - (<tt>Object</tt>) <strong>debug=</strong>(bool) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+518
+519
+520
+521
+522
+523
+524
+525
+526
+527
+528
+529
+530
+531
+532
+533
+534
+535
+536
+537</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/configuration.rb', line 518</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_debug='>debug=</span><span class='lparen'>(</span><span class='id identifier rubyid_bool'>bool</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='kw'>unless</span> <span class='id identifier rubyid_bool'>bool</span>
+  <span class='kw'>begin</span>
+    <span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>ruby-debug</span><span class='tstring_end'>&#39;</span></span>
+    <span class='const'>Debugger</span><span class='period'>.</span><span class='id identifier rubyid_start'>start</span>
+  <span class='kw'>rescue</span> <span class='const'>LoadError</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_e'>e</span>
+    <span class='id identifier rubyid_raise'>raise</span> <span class='heredoc_beg'>&lt;&lt;-EOM</span>
+<span class='tstring_content'>
+</span><span class='embexpr_beg'>#{</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>*</span><span class='tstring_end'>&#39;</span></span><span class='op'>*</span><span class='int'>50</span><span class='embexpr_end'>}</span><span class='tstring_content'>
+</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_e'>e</span><span class='period'>.</span><span class='id identifier rubyid_message'>message</span><span class='embexpr_end'>}</span><span class='tstring_content'>
+
+If you have it installed as a ruby gem, then you need to either require
+&#39;rubygems&#39; or configure the RUBYOPT environment variable with the value
+&#39;rubygems&#39;.
+
+</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_e'>e</span><span class='period'>.</span><span class='id identifier rubyid_backtrace'>backtrace</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='embexpr_end'>}</span><span class='tstring_content'>
+</span><span class='embexpr_beg'>#{</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>*</span><span class='tstring_end'>&#39;</span></span><span class='op'>*</span><span class='int'>50</span><span class='embexpr_end'>}</span><span class='tstring_content'>
+</span><span class='heredoc_end'>EOM
+</span>  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="debug?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>debug?</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+539
+540
+541</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/configuration.rb', line 539</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_debug?'>debug?</span>
+  <span class='op'>!</span><span class='op'>!</span><span class='kw'>defined?</span><span class='lparen'>(</span><span class='const'>Debugger</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="exclusion_filter-instance_method">
+  
+    - (<tt>Object</tt>) <strong>exclusion_filter</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns the <code>exclusion_filter</code>. If none has been set, returns an empty
+hash.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+774
+775
+776</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/configuration.rb', line 774</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_exclusion_filter'>exclusion_filter</span>
+  <span class='id identifier rubyid_filter_manager'>filter_manager</span><span class='period'>.</span><span class='id identifier rubyid_exclusions'>exclusions</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="exclusion_filter=-instance_method">
+  
+    - (<tt>Object</tt>) <strong>exclusion_filter=</strong>(filter) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Clears and reassigns the <code>exclusion_filter</code>. Set to <code>nil</code> if you don&#39;t
+want any exclusion filter at all.</p>
+
+<h3>Warning</h3>
+
+<p>This overrides any exclusion filters/tags set on the command line or in
+configuration files.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+768
+769
+770</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/configuration.rb', line 768</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_exclusion_filter='>exclusion_filter=</span><span class='lparen'>(</span><span class='id identifier rubyid_filter'>filter</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_filter_manager'>filter_manager</span><span class='period'>.</span><span class='id identifier rubyid_exclude!'>exclude!</span> <span class='id identifier rubyid_build_metadata_hash_from'>build_metadata_hash_from</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='id identifier rubyid_filter'>filter</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="expect_with-instance_method">
+  
+    - (<tt>Object</tt>) <strong>expect_with</strong>(*frameworks) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Sets the expectation framework module(s) to be included in each example
+group.</p>
+
+<p><code>frameworks</code> can be <code>:rspec</code>, <code>:stdlib</code>, a custom module, or any
+combination thereof:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_expect_with'>expect_with</span> <span class='symbol'>:rspec</span>
+<span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_expect_with'>expect_with</span> <span class='symbol'>:stdlib</span>
+<span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_expect_with'>expect_with</span> <span class='symbol'>:rspec</span><span class='comma'>,</span> <span class='symbol'>:stdlib</span>
+<span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_expect_with'>expect_with</span> <span class='const'>OtherExpectationFramework</span>
+</code></pre>
+
+<p>RSpec will translate <code>:rspec</code> and <code>:stdlib</code> into the appropriate
+modules.</p>
+
+<h2>Configuration</h2>
+
+<p>If the module responds to <code>configuration</code>, <code>expect_with</code> will
+yield the <code>configuration</code> object if given a block:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_expect_with'>expect_with</span> <span class='const'>OtherExpectationFramework</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_custom_config'>custom_config</span><span class='op'>|</span>
+  <span class='id identifier rubyid_custom_config'>custom_config</span><span class='period'>.</span><span class='id identifier rubyid_custom_setting'>custom_setting</span> <span class='op'>=</span> <span class='kw'>true</span>
+<span class='kw'>end</span>
+</code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+441
+442
+443
+444
+445
+446
+447
+448
+449
+450
+451
+452
+453
+454
+455
+456
+457
+458
+459
+460
+461
+462
+463
+464
+465
+466
+467
+468
+469</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/configuration.rb', line 441</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_expect_with'>expect_with</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_frameworks'>frameworks</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_modules'>modules</span> <span class='op'>=</span> <span class='id identifier rubyid_frameworks'>frameworks</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_framework'>framework</span><span class='op'>|</span>
+    <span class='kw'>case</span> <span class='id identifier rubyid_framework'>framework</span>
+    <span class='kw'>when</span> <span class='const'>Module</span>
+      <span class='id identifier rubyid_framework'>framework</span>
+    <span class='kw'>when</span> <span class='symbol'>:rspec</span>
+      <span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>rspec/expectations</span><span class='tstring_end'>&#39;</span></span>
+      <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_expecting_with_rspec'>expecting_with_rspec</span> <span class='op'>=</span> <span class='kw'>true</span>
+      <span class='op'>::</span><span class='const'>RSpec</span><span class='op'>::</span><span class='const'>Matchers</span>
+    <span class='kw'>when</span> <span class='symbol'>:stdlib</span>
+      <span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>test/unit/assertions</span><span class='tstring_end'>&#39;</span></span>
+      <span class='op'>::</span><span class='const'>Test</span><span class='op'>::</span><span class='const'>Unit</span><span class='op'>::</span><span class='const'>Assertions</span>
+    <span class='kw'>else</span>
+      <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_framework'>framework</span><span class='period'>.</span><span class='id identifier rubyid_inspect'>inspect</span><span class='embexpr_end'>}</span><span class='tstring_content'> is not supported</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>if</span> <span class='lparen'>(</span><span class='id identifier rubyid_modules'>modules</span> <span class='op'>-</span> <span class='ivar'>@expectation_frameworks</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_any?'>any?</span>
+    <span class='id identifier rubyid_assert_no_example_groups_defined'>assert_no_example_groups_defined</span><span class='lparen'>(</span><span class='symbol'>:expect_with</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>if</span> <span class='id identifier rubyid_block_given?'>block_given?</span>
+    <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>expect_with only accepts a block with a single argument. Call expect_with </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_modules'>modules</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span><span class='embexpr_end'>}</span><span class='tstring_content'> times, once with each argument, instead.</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='id identifier rubyid_modules'>modules</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span> <span class='op'>&gt;</span> <span class='int'>1</span>
+    <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_modules'>modules</span><span class='period'>.</span><span class='id identifier rubyid_first'>first</span><span class='embexpr_end'>}</span><span class='tstring_content'> must respond to `configuration` so that expect_with can yield it.</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_modules'>modules</span><span class='period'>.</span><span class='id identifier rubyid_first'>first</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:configuration</span><span class='rparen'>)</span>
+    <span class='kw'>yield</span> <span class='id identifier rubyid_modules'>modules</span><span class='period'>.</span><span class='id identifier rubyid_first'>first</span><span class='period'>.</span><span class='id identifier rubyid_configuration'>configuration</span>
+  <span class='kw'>end</span>
+
+  <span class='ivar'>@expectation_frameworks</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_modules'>modules</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="expectation_framework=-instance_method">
+  
+    - (<tt>Object</tt>) <strong>expectation_framework=</strong>(framework) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Delegates to expect_with(framework)</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+415
+416
+417</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/configuration.rb', line 415</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_expectation_framework='>expectation_framework=</span><span class='lparen'>(</span><span class='id identifier rubyid_framework'>framework</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_expect_with'>expect_with</span><span class='lparen'>(</span><span class='id identifier rubyid_framework'>framework</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="expectation_frameworks-instance_method">
+  
+    - (<tt>Object</tt>) <strong>expectation_frameworks</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns the configured expectation framework adapter module(s)</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+409
+410
+411
+412</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/configuration.rb', line 409</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_expectation_frameworks'>expectation_frameworks</span>
+  <span class='id identifier rubyid_expect_with'>expect_with</span> <span class='symbol'>:rspec</span> <span class='kw'>if</span> <span class='ivar'>@expectation_frameworks</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
+  <span class='ivar'>@expectation_frameworks</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="extend-instance_method">
+  
+    - (<tt>Object</tt>) <strong>extend</strong>(mod, *filters) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Tells RSpec to extend example groups with <code>mod</code>.  Methods defined in
+<code>mod</code> are exposed to example groups (not examples).  Use <code>filters</code> to
+constrain the groups to extend.</p>
+
+<p>Similar to <code>include</code>, but behavior is added to example groups, which
+are classes, rather than the examples, which are instances of those
+classes.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code>
+<span class='kw'>module</span> <span class='const'>UiHelpers</span>
+  <span class='kw'>def</span> <span class='id identifier rubyid_run_in_browser'>run_in_browser</span>
+    <span class='comment'># ...
+</span>  <span class='kw'>end</span>
+<span class='kw'>end</span>
+
+<span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_configure'>configure</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_config'>config</span><span class='op'>|</span>
+  <span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_extend'>extend</span><span class='lparen'>(</span><span class='const'>UiHelpers</span><span class='comma'>,</span> <span class='symbol'>:type</span> <span class='op'>=&gt;</span> <span class='symbol'>:request</span><span class='rparen'>)</span>
+<span class='kw'>end</span>
+
+<span class='id identifier rubyid_describe'>describe</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>edit profile</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:type</span> <span class='op'>=&gt;</span> <span class='symbol'>:request</span> <span class='kw'>do</span>
+  <span class='id identifier rubyid_run_in_browser'>run_in_browser</span>
+
+  <span class='id identifier rubyid_it'>it</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>does stuff in the client</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+    <span class='comment'># ...
+</span>  <span class='kw'>end</span>
+<span class='kw'>end</span></code></pre>
+    
+  </div>
+
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="#include-instance_method" title="RSpec::Core::Configuration#include (method)">#include</a></span></li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+843
+844
+845</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/configuration.rb', line 843</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_extend'>extend</span><span class='lparen'>(</span><span class='id identifier rubyid_mod'>mod</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_filters'>filters</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_include_or_extend_modules'>include_or_extend_modules</span> <span class='op'>&lt;&lt;</span> <span class='lbracket'>[</span><span class='symbol'>:extend</span><span class='comma'>,</span> <span class='id identifier rubyid_mod'>mod</span><span class='comma'>,</span> <span class='id identifier rubyid_build_metadata_hash_from'>build_metadata_hash_from</span><span class='lparen'>(</span><span class='id identifier rubyid_filters'>filters</span><span class='rparen'>)</span><span class='rbracket'>]</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="filter_run_excluding-instance_method">
+  
+    - (<tt>Object</tt>) <strong>filter_run_excluding</strong>(*args) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Adds key/value pairs to the <code>exclusion_filter</code>. If the
+<code>treat_symbols_as_metadata_keys_with_true_values</code> config option is set
+to true and <code>args</code> excludes any symbols that are not part of a hash,
+each symbol is treated as a key in the hash with the value <code>true</code>.</p>
+
+<h3>Note</h3>
+
+<p>Filters set using this method can be overridden from the command line
+or config files (e.g. <code>.rspec</code>).</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code><span class='comment'># given this declaration
+</span><span class='id identifier rubyid_describe'>describe</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>something</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:foo</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>bar</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>do</span>
+  <span class='comment'># ...
+</span><span class='kw'>end</span>
+
+<span class='comment'># any of the following will exclude that group
+</span><span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_filter_run_excluding'>filter_run_excluding</span> <span class='symbol'>:foo</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>bar</span><span class='tstring_end'>&#39;</span></span>
+<span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_filter_run_excluding'>filter_run_excluding</span> <span class='symbol'>:foo</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^ba</span><span class='regexp_end'>/</span></span>
+<span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_filter_run_excluding'>filter_run_excluding</span> <span class='symbol'>:foo</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_lambda'>lambda</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_v'>v</span><span class='op'>|</span> <span class='id identifier rubyid_v'>v</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>bar</span><span class='tstring_end'>&#39;</span></span><span class='rbrace'>}</span>
+<span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_filter_run_excluding'>filter_run_excluding</span> <span class='symbol'>:foo</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_lambda'>lambda</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_v'>v</span><span class='comma'>,</span><span class='id identifier rubyid_m'>m</span><span class='op'>|</span> <span class='id identifier rubyid_m'>m</span><span class='lbracket'>[</span><span class='symbol'>:foo</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>bar</span><span class='tstring_end'>&#39;</span></span><span class='rbrace'>}</span>
+
+<span class='comment'># given a proc with an arity of 1, the lambda is passed the value related to the key, e.g.
+</span><span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_filter_run_excluding'>filter_run_excluding</span> <span class='symbol'>:foo</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_lambda'>lambda</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_v'>v</span><span class='op'>|</span> <span class='id identifier rubyid_v'>v</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>bar</span><span class='tstring_end'>&#39;</span></span><span class='rbrace'>}</span>
+
+<span class='comment'># given a proc with an arity of 2, the lambda is passed the value related to the key,
+</span><span class='comment'># and the metadata itself e.g.
+</span><span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_filter_run_excluding'>filter_run_excluding</span> <span class='symbol'>:foo</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_lambda'>lambda</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_v'>v</span><span class='comma'>,</span><span class='id identifier rubyid_m'>m</span><span class='op'>|</span> <span class='id identifier rubyid_m'>m</span><span class='lbracket'>[</span><span class='symbol'>:foo</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>bar</span><span class='tstring_end'>&#39;</span></span><span class='rbrace'>}</span>
+
+<span class='comment'># with treat_symbols_as_metadata_keys_with_true_values = true
+</span><span class='id identifier rubyid_filter_run_excluding'>filter_run_excluding</span> <span class='symbol'>:foo</span> <span class='comment'># same as filter_run_excluding :foo =&gt; true</span></code></pre>
+    
+  </div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+757
+758
+759</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/configuration.rb', line 757</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_filter_run_excluding'>filter_run_excluding</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_filter_manager'>filter_manager</span><span class='period'>.</span><span class='id identifier rubyid_exclude_with_low_priority'>exclude_with_low_priority</span> <span class='id identifier rubyid_build_metadata_hash_from'>build_metadata_hash_from</span><span class='lparen'>(</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="filter_run_including-instance_method">
+  
+    - (<tt>Object</tt>) <strong>filter_run_including</strong>(*args) 
+  
+
+  
+    <span class="aliases">Also known as:
+    <span class="names"><span id='filter_run-instance_method'>filter_run</span></span>
+    </span>
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Adds key/value pairs to the <code>inclusion_filter</code>. If the
+<code>treat_symbols_as_metadata_keys_with_true_values</code> config option is set
+to true and <code>args</code> includes any symbols that are not part of a hash,
+each symbol is treated as a key in the hash with the value <code>true</code>.</p>
+
+<h3>Note</h3>
+
+<p>Filters set using this method can be overridden from the command line
+or config files (e.g. <code>.rspec</code>).</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code><span class='comment'># given this declaration
+</span><span class='id identifier rubyid_describe'>describe</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>something</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:foo</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>bar</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>do</span>
+  <span class='comment'># ...
+</span><span class='kw'>end</span>
+
+<span class='comment'># any of the following will include that group
+</span><span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_filter_run_including'>filter_run_including</span> <span class='symbol'>:foo</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>bar</span><span class='tstring_end'>&#39;</span></span>
+<span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_filter_run_including'>filter_run_including</span> <span class='symbol'>:foo</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^ba</span><span class='regexp_end'>/</span></span>
+<span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_filter_run_including'>filter_run_including</span> <span class='symbol'>:foo</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_lambda'>lambda</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_v'>v</span><span class='op'>|</span> <span class='id identifier rubyid_v'>v</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>bar</span><span class='tstring_end'>&#39;</span></span><span class='rbrace'>}</span>
+<span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_filter_run_including'>filter_run_including</span> <span class='symbol'>:foo</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_lambda'>lambda</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_v'>v</span><span class='comma'>,</span><span class='id identifier rubyid_m'>m</span><span class='op'>|</span> <span class='id identifier rubyid_m'>m</span><span class='lbracket'>[</span><span class='symbol'>:foo</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>bar</span><span class='tstring_end'>&#39;</span></span><span class='rbrace'>}</span>
+
+<span class='comment'># given a proc with an arity of 1, the lambda is passed the value related to the key, e.g.
+</span><span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_filter_run_including'>filter_run_including</span> <span class='symbol'>:foo</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_lambda'>lambda</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_v'>v</span><span class='op'>|</span> <span class='id identifier rubyid_v'>v</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>bar</span><span class='tstring_end'>&#39;</span></span><span class='rbrace'>}</span>
+
+<span class='comment'># given a proc with an arity of 2, the lambda is passed the value related to the key,
+</span><span class='comment'># and the metadata itself e.g.
+</span><span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_filter_run_including'>filter_run_including</span> <span class='symbol'>:foo</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_lambda'>lambda</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_v'>v</span><span class='comma'>,</span><span class='id identifier rubyid_m'>m</span><span class='op'>|</span> <span class='id identifier rubyid_m'>m</span><span class='lbracket'>[</span><span class='symbol'>:foo</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>bar</span><span class='tstring_end'>&#39;</span></span><span class='rbrace'>}</span>
+
+<span class='comment'># with treat_symbols_as_metadata_keys_with_true_values = true
+</span><span class='id identifier rubyid_filter_run_including'>filter_run_including</span> <span class='symbol'>:foo</span> <span class='comment'># same as filter_run_including :foo =&gt; true</span></code></pre>
+    
+  </div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+699
+700
+701</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/configuration.rb', line 699</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_filter_run_including'>filter_run_including</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_filter_manager'>filter_manager</span><span class='period'>.</span><span class='id identifier rubyid_include_with_low_priority'>include_with_low_priority</span> <span class='id identifier rubyid_build_metadata_hash_from'>build_metadata_hash_from</span><span class='lparen'>(</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="format_docstrings-instance_method">
+  
+    - (<tt>Object</tt>) <strong>format_docstrings</strong>(&amp;block) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Formats the docstring output using the block provided.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code><span class='comment'># This will strip the descriptions of both examples and example groups.
+</span><span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_configure'>configure</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_config'>config</span><span class='op'>|</span>
+  <span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_format_docstrings'>format_docstrings</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_s'>s</span><span class='op'>|</span> <span class='id identifier rubyid_s'>s</span><span class='period'>.</span><span class='id identifier rubyid_strip'>strip</span> <span class='rbrace'>}</span>
+<span class='kw'>end</span></code></pre>
+    
+  </div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+910
+911
+912</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/configuration.rb', line 910</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_format_docstrings'>format_docstrings</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
+  <span class='ivar'>@format_docstrings_block</span> <span class='op'>=</span> <span class='id identifier rubyid_block_given?'>block_given?</span> <span class='op'>?</span> <span class='id identifier rubyid_block'>block</span> <span class='op'>:</span> <span class='const'>DEFAULT_FORMATTER</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="formatters-instance_method">
+  
+    - (<tt>Object</tt>) <strong>formatters</strong> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+583
+584
+585</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/configuration.rb', line 583</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_formatters'>formatters</span>
+  <span class='ivar'>@formatters</span> <span class='op'>||=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="full_backtrace=-instance_method">
+  
+    - (<tt>Object</tt>) <strong>full_backtrace=</strong>(true_or_false) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+475
+476
+477</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/configuration.rb', line 475</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_full_backtrace='>full_backtrace=</span><span class='lparen'>(</span><span class='id identifier rubyid_true_or_false'>true_or_false</span><span class='rparen'>)</span>
+  <span class='ivar'>@backtrace_cleaner</span><span class='period'>.</span><span class='id identifier rubyid_full_backtrace'>full_backtrace</span> <span class='op'>=</span> <span class='id identifier rubyid_true_or_false'>true_or_false</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="full_backtrace?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>full_backtrace?</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+471
+472
+473</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/configuration.rb', line 471</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_full_backtrace?'>full_backtrace?</span>
+  <span class='ivar'>@backtrace_cleaner</span><span class='period'>.</span><span class='id identifier rubyid_full_backtrace?'>full_backtrace?</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="full_description-instance_method">
+  
+    - (<tt>Object</tt>) <strong>full_description</strong> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+556
+557
+558</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/configuration.rb', line 556</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_full_description'>full_description</span>
+  <span class='id identifier rubyid_filter'>filter</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span> <span class='symbol'>:full_description</span><span class='comma'>,</span> <span class='kw'>nil</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="full_description=-instance_method">
+  
+    - (<tt>Object</tt>) <strong>full_description=</strong>(description) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+552
+553
+554</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/configuration.rb', line 552</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_full_description='>full_description=</span><span class='lparen'>(</span><span class='id identifier rubyid_description'>description</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_filter_run'>filter_run</span> <span class='symbol'>:full_description</span> <span class='op'>=&gt;</span> <span class='const'>Regexp</span><span class='period'>.</span><span class='id identifier rubyid_union'>union</span><span class='lparen'>(</span><span class='op'>*</span><span class='const'>Array</span><span class='lparen'>(</span><span class='id identifier rubyid_description'>description</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_d'>d</span><span class='op'>|</span> <span class='const'>Regexp</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_d'>d</span><span class='rparen'>)</span> <span class='rbrace'>}</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="include-instance_method">
+  
+    - (<tt>Object</tt>) <strong>include</strong>(mod, *filters) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Tells RSpec to include <code>mod</code> in example groups. Methods defined in
+<code>mod</code> are exposed to examples (not example groups).  Use <code>filters</code> to
+constrain the groups in which to include the module.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code>
+<span class='kw'>module</span> <span class='const'>AuthenticationHelpers</span>
+  <span class='kw'>def</span> <span class='id identifier rubyid_login_as'>login_as</span><span class='lparen'>(</span><span class='id identifier rubyid_user'>user</span><span class='rparen'>)</span>
+    <span class='comment'># ...
+</span>  <span class='kw'>end</span>
+<span class='kw'>end</span>
+
+<span class='kw'>module</span> <span class='const'>UserHelpers</span>
+  <span class='kw'>def</span> <span class='id identifier rubyid_users'>users</span><span class='lparen'>(</span><span class='id identifier rubyid_username'>username</span><span class='rparen'>)</span>
+    <span class='comment'># ...
+</span>  <span class='kw'>end</span>
+<span class='kw'>end</span>
+
+<span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_configure'>configure</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_config'>config</span><span class='op'>|</span>
+  <span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_include'>include</span><span class='lparen'>(</span><span class='const'>UserHelpers</span><span class='rparen'>)</span> <span class='comment'># included in all modules
+</span>  <span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_include'>include</span><span class='lparen'>(</span><span class='const'>AuthenticationHelpers</span><span class='comma'>,</span> <span class='symbol'>:type</span> <span class='op'>=&gt;</span> <span class='symbol'>:request</span><span class='rparen'>)</span>
+<span class='kw'>end</span>
+
+<span class='id identifier rubyid_describe'>describe</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>edit profile</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:type</span> <span class='op'>=&gt;</span> <span class='symbol'>:request</span> <span class='kw'>do</span>
+  <span class='id identifier rubyid_it'>it</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>can be viewed by owning user</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+    <span class='id identifier rubyid_login_as'>login_as</span> <span class='id identifier rubyid_users'>users</span><span class='lparen'>(</span><span class='symbol'>:jdoe</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_get'>get</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/profiles/jdoe</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id identifier rubyid_assert_select'>assert_select</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>.username</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:text</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>jdoe</span><span class='tstring_end'>&#39;</span></span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></code></pre>
+    
+  </div>
+
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="#extend-instance_method" title="RSpec::Core::Configuration#extend (method)">#extend</a></span></li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+810
+811
+812</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/configuration.rb', line 810</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_include'>include</span><span class='lparen'>(</span><span class='id identifier rubyid_mod'>mod</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_filters'>filters</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_include_or_extend_modules'>include_or_extend_modules</span> <span class='op'>&lt;&lt;</span> <span class='lbracket'>[</span><span class='symbol'>:include</span><span class='comma'>,</span> <span class='id identifier rubyid_mod'>mod</span><span class='comma'>,</span> <span class='id identifier rubyid_build_metadata_hash_from'>build_metadata_hash_from</span><span class='lparen'>(</span><span class='id identifier rubyid_filters'>filters</span><span class='rparen'>)</span><span class='rbracket'>]</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="inclusion_filter-instance_method">
+  
+    - (<tt>Object</tt>) <strong>inclusion_filter</strong> 
+  
+
+  
+    <span class="aliases">Also known as:
+    <span class="names"><span id='filter-instance_method'>filter</span></span>
+    </span>
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns the <code>inclusion_filter</code>. If none has been set, returns an empty
+hash.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+720
+721
+722</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/configuration.rb', line 720</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_inclusion_filter'>inclusion_filter</span>
+  <span class='id identifier rubyid_filter_manager'>filter_manager</span><span class='period'>.</span><span class='id identifier rubyid_inclusions'>inclusions</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="inclusion_filter=-instance_method">
+  
+    - (<tt>Object</tt>) <strong>inclusion_filter=</strong>(filter) 
+  
+
+  
+    <span class="aliases">Also known as:
+    <span class="names"><span id='filter=-instance_method'>filter=</span></span>
+    </span>
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Clears and reassigns the <code>inclusion_filter</code>. Set to <code>nil</code> if you don&#39;t
+want any inclusion filter at all.</p>
+
+<h3>Warning</h3>
+
+<p>This overrides any inclusion filters/tags set on the command line or in
+configuration files.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+712
+713
+714</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/configuration.rb', line 712</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_inclusion_filter='>inclusion_filter=</span><span class='lparen'>(</span><span class='id identifier rubyid_filter'>filter</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_filter_manager'>filter_manager</span><span class='period'>.</span><span class='id identifier rubyid_include!'>include!</span> <span class='id identifier rubyid_build_metadata_hash_from'>build_metadata_hash_from</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='id identifier rubyid_filter'>filter</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="libs=-instance_method">
+  
+    - (<tt>Object</tt>) <strong>libs=</strong>(libs) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+504
+505
+506
+507
+508
+509</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/configuration.rb', line 504</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_libs='>libs=</span><span class='lparen'>(</span><span class='id identifier rubyid_libs'>libs</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_libs'>libs</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_lib'>lib</span><span class='op'>|</span>
+    <span class='ivar'>@libs</span><span class='period'>.</span><span class='id identifier rubyid_unshift'>unshift</span> <span class='id identifier rubyid_lib'>lib</span>
+    <span class='gvar'>$LOAD_PATH</span><span class='period'>.</span><span class='id identifier rubyid_unshift'>unshift</span> <span class='id identifier rubyid_lib'>lib</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="line_numbers-instance_method">
+  
+    - (<tt>Object</tt>) <strong>line_numbers</strong> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+548
+549
+550</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/configuration.rb', line 548</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_line_numbers'>line_numbers</span>
+  <span class='id identifier rubyid_filter'>filter</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='symbol'>:line_numbers</span><span class='comma'>,</span><span class='lbracket'>[</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="line_numbers=-instance_method">
+  
+    - (<tt>Object</tt>) <strong>line_numbers=</strong>(line_numbers) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Run examples defined on <code>line_numbers</code> in all files to run.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+544
+545
+546</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/configuration.rb', line 544</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_line_numbers='>line_numbers=</span><span class='lparen'>(</span><span class='id identifier rubyid_line_numbers'>line_numbers</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_filter_run'>filter_run</span> <span class='symbol'>:line_numbers</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_line_numbers'>line_numbers</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span><span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_l'>l</span><span class='op'>|</span> <span class='id identifier rubyid_l'>l</span><span class='period'>.</span><span class='id identifier rubyid_to_i'>to_i</span><span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="mock_framework-instance_method">
+  
+    - (<tt>Object</tt>) <strong>mock_framework</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns the configured mock framework adapter module</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+277
+278
+279
+280</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/configuration.rb', line 277</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_mock_framework'>mock_framework</span>
+  <span class='id identifier rubyid_mock_with'>mock_with</span> <span class='symbol'>:rspec</span> <span class='kw'>unless</span> <span class='ivar'>@mock_framework</span>
+  <span class='ivar'>@mock_framework</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="mock_framework=-instance_method">
+  
+    - (<tt>Object</tt>) <strong>mock_framework=</strong>(framework) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Delegates to mock_framework=(framework)</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+283
+284
+285</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/configuration.rb', line 283</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_mock_framework='>mock_framework=</span><span class='lparen'>(</span><span class='id identifier rubyid_framework'>framework</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_mock_with'>mock_with</span> <span class='id identifier rubyid_framework'>framework</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="mock_with-instance_method">
+  
+    - (<tt>Object</tt>) <strong>mock_with</strong>(framework) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Sets the mock framework adapter module.</p>
+
+<p><code>framework</code> can be a Symbol or a Module.</p>
+
+<p>Given any of <code>:rspec</code>, <code>:mocha</code>, <code>:flexmock</code>, or <code>:rr</code>, configures the
+named framework.</p>
+
+<p>Given <code>:nothing</code>, configures no framework. Use this if you don&#39;t use
+any mocking framework to save a little bit of overhead.</p>
+
+<p>Given a Module, includes that module in every example group. The module
+should adhere to RSpec&#39;s mock framework adapter API:</p>
+
+<pre class="code ruby"><code class="ruby">setup_mocks_for_rspec
+  - called before each example
+
+verify_mocks_for_rspec
+  - called after each example. Framework should raise an exception
+    when expectations fail
+
+teardown_mocks_for_rspec
+  - called after verify_mocks_for_rspec (even if there are errors)
+</code></pre>
+
+<p>If the module responds to <code>configuration</code> and <code>mock_with</code> receives a block,
+it will yield the configuration object to the block e.g.</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_mock_with'>mock_with</span> <span class='const'>OtherMockFrameworkAdapter</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_mod_config'>mod_config</span><span class='op'>|</span>
+  <span class='id identifier rubyid_mod_config'>mod_config</span><span class='period'>.</span><span class='id identifier rubyid_custom_setting'>custom_setting</span> <span class='op'>=</span> <span class='kw'>true</span>
+<span class='kw'>end</span>
+</code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385
+386
+387
+388
+389
+390
+391
+392
+393
+394
+395
+396
+397
+398
+399
+400
+401
+402
+403
+404
+405
+406</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/configuration.rb', line 372</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_mock_with'>mock_with</span><span class='lparen'>(</span><span class='id identifier rubyid_framework'>framework</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_framework_module'>framework_module</span> <span class='op'>=</span> <span class='kw'>case</span> <span class='id identifier rubyid_framework'>framework</span>
+  <span class='kw'>when</span> <span class='const'>Module</span>
+    <span class='id identifier rubyid_framework'>framework</span>
+  <span class='kw'>when</span> <span class='const'>String</span><span class='comma'>,</span> <span class='const'>Symbol</span>
+    <span class='id identifier rubyid_require'>require</span> <span class='kw'>case</span> <span class='id identifier rubyid_framework'>framework</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span>
+            <span class='kw'>when</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>rspec</span><span class='regexp_end'>/i</span></span>
+              <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>rspec/core/mocking/with_rspec</span><span class='tstring_end'>&#39;</span></span>
+            <span class='kw'>when</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>mocha</span><span class='regexp_end'>/i</span></span>
+              <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>rspec/core/mocking/with_mocha</span><span class='tstring_end'>&#39;</span></span>
+            <span class='kw'>when</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>rr</span><span class='regexp_end'>/i</span></span>
+              <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>rspec/core/mocking/with_rr</span><span class='tstring_end'>&#39;</span></span>
+            <span class='kw'>when</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>flexmock</span><span class='regexp_end'>/i</span></span>
+              <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>rspec/core/mocking/with_flexmock</span><span class='tstring_end'>&#39;</span></span>
+            <span class='kw'>else</span>
+              <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>rspec/core/mocking/with_absolutely_nothing</span><span class='tstring_end'>&#39;</span></span>
+            <span class='kw'>end</span>
+    <span class='const'>RSpec</span><span class='op'>::</span><span class='const'>Core</span><span class='op'>::</span><span class='const'>MockFrameworkAdapter</span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_new_name'>new_name</span><span class='comma'>,</span> <span class='id identifier rubyid_old_name'>old_name</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='id identifier rubyid_framework_module'>framework_module</span><span class='comma'>,</span> <span class='ivar'>@mock_framework</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_mod'>mod</span><span class='op'>|</span>
+    <span class='id identifier rubyid_mod'>mod</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:framework_name</span><span class='rparen'>)</span> <span class='op'>?</span>  <span class='id identifier rubyid_mod'>mod</span><span class='period'>.</span><span class='id identifier rubyid_framework_name'>framework_name</span> <span class='op'>:</span> <span class='symbol'>:unnamed</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>unless</span> <span class='id identifier rubyid_new_name'>new_name</span> <span class='op'>==</span> <span class='id identifier rubyid_old_name'>old_name</span>
+    <span class='id identifier rubyid_assert_no_example_groups_defined'>assert_no_example_groups_defined</span><span class='lparen'>(</span><span class='symbol'>:mock_framework</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>if</span> <span class='id identifier rubyid_block_given?'>block_given?</span>
+    <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_framework_module'>framework_module</span><span class='embexpr_end'>}</span><span class='tstring_content'> must respond to `configuration` so that mock_with can yield it.</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_framework_module'>framework_module</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:configuration</span><span class='rparen'>)</span>
+    <span class='kw'>yield</span> <span class='id identifier rubyid_framework_module'>framework_module</span><span class='period'>.</span><span class='id identifier rubyid_configuration'>configuration</span>
+  <span class='kw'>end</span>
+
+  <span class='ivar'>@mock_framework</span> <span class='op'>=</span> <span class='id identifier rubyid_framework_module'>framework_module</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="order=-instance_method">
+  
+    - (<tt>Object</tt>) <strong>order=</strong>(type) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Sets the order and, if order is <code>&#39;rand:&lt;seed&gt;&#39;</code>, also sets the seed.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+929
+930
+931</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/configuration.rb', line 929</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_order='>order=</span><span class='lparen'>(</span><span class='id identifier rubyid_type'>type</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_order_and_seed_from_order'>order_and_seed_from_order</span><span class='lparen'>(</span><span class='id identifier rubyid_type'>type</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="order_examples-instance_method">
+  
+    - (<tt>Object</tt>) <strong>order_examples</strong>(&amp;block) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Sets a strategy by which to order examples.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code><span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_configure'>configure</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_config'>config</span><span class='op'>|</span>
+  <span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_order_examples'>order_examples</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_examples'>examples</span><span class='op'>|</span>
+    <span class='id identifier rubyid_examples'>examples</span><span class='period'>.</span><span class='id identifier rubyid_reverse'>reverse</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></code></pre>
+    
+  </div>
+
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="#order_groups-instance_method" title="RSpec::Core::Configuration#order_groups (method)">#order_groups</a></span></li>
+    
+      <li><span class='object_link'><a href="#order_groups_and_examples-instance_method" title="RSpec::Core::Configuration#order_groups_and_examples (method)">#order_groups_and_examples</a></span></li>
+    
+      <li><span class='object_link'><a href="#order%3D-instance_method" title="RSpec::Core::Configuration#order= (method)">#order=</a></span></li>
+    
+      <li><span class='object_link'><a href="#seed%3D-instance_method" title="RSpec::Core::Configuration#seed= (method)">#seed=</a></span></li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+961
+962
+963
+964</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/configuration.rb', line 961</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_order_examples'>order_examples</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
+  <span class='ivar'>@example_ordering_block</span> <span class='op'>=</span> <span class='id identifier rubyid_block'>block</span>
+  <span class='ivar'>@order</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>custom</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_built_in_orderer?'>built_in_orderer?</span><span class='lparen'>(</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="order_groups-instance_method">
+  
+    - (<tt>Object</tt>) <strong>order_groups</strong>(&amp;block) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Sets a strategy by which to order groups.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code><span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_configure'>configure</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_config'>config</span><span class='op'>|</span>
+  <span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_order_groups'>order_groups</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_groups'>groups</span><span class='op'>|</span>
+    <span class='id identifier rubyid_groups'>groups</span><span class='period'>.</span><span class='id identifier rubyid_reverse'>reverse</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></code></pre>
+    
+  </div>
+
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="#order_examples-instance_method" title="RSpec::Core::Configuration#order_examples (method)">#order_examples</a></span></li>
+    
+      <li><span class='object_link'><a href="#order_groups_and_examples-instance_method" title="RSpec::Core::Configuration#order_groups_and_examples (method)">#order_groups_and_examples</a></span></li>
+    
+      <li><span class='object_link'><a href="#order%3D-instance_method" title="RSpec::Core::Configuration#order= (method)">#order=</a></span></li>
+    
+      <li><span class='object_link'><a href="#seed%3D-instance_method" title="RSpec::Core::Configuration#seed= (method)">#seed=</a></span></li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+984
+985
+986
+987</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/configuration.rb', line 984</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_order_groups'>order_groups</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
+  <span class='ivar'>@group_ordering_block</span> <span class='op'>=</span> <span class='id identifier rubyid_block'>block</span>
+  <span class='ivar'>@order</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>custom</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_built_in_orderer?'>built_in_orderer?</span><span class='lparen'>(</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="order_groups_and_examples-instance_method">
+  
+    - (<tt>Object</tt>) <strong>order_groups_and_examples</strong>(&amp;block) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Sets a strategy by which to order groups and examples.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code><span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_configure'>configure</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_config'>config</span><span class='op'>|</span>
+  <span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_order_groups_and_examples'>order_groups_and_examples</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_groups_or_examples'>groups_or_examples</span><span class='op'>|</span>
+    <span class='id identifier rubyid_groups_or_examples'>groups_or_examples</span><span class='period'>.</span><span class='id identifier rubyid_reverse'>reverse</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></code></pre>
+    
+  </div>
+
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="#order_groups-instance_method" title="RSpec::Core::Configuration#order_groups (method)">#order_groups</a></span></li>
+    
+      <li><span class='object_link'><a href="#order_examples-instance_method" title="RSpec::Core::Configuration#order_examples (method)">#order_examples</a></span></li>
+    
+      <li><span class='object_link'><a href="#order%3D-instance_method" title="RSpec::Core::Configuration#order= (method)">#order=</a></span></li>
+    
+      <li><span class='object_link'><a href="#seed%3D-instance_method" title="RSpec::Core::Configuration#seed= (method)">#seed=</a></span></li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1007
+1008
+1009
+1010</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/configuration.rb', line 1007</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_order_groups_and_examples'>order_groups_and_examples</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_order_groups'>order_groups</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_order_examples'>order_examples</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="profile_examples-instance_method">
+  
+    - (<tt>Object</tt>) <strong>profile_examples</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p class="note private">
+  <strong>This method is part of a private API.</strong>
+  You should avoid using this method if possible, as it may be removed or be changed in the future.
+</p>
+<p>Defaults <code>profile_examples</code> to 10 examples when <code>@profile_examples</code> is <code>true</code>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+599
+600
+601
+602
+603
+604
+605
+606</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/configuration.rb', line 599</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_profile_examples'>profile_examples</span>
+  <span class='id identifier rubyid_profile'>profile</span> <span class='op'>=</span> <span class='id identifier rubyid_value_for'>value_for</span><span class='lparen'>(</span><span class='symbol'>:profile_examples</span><span class='comma'>,</span> <span class='ivar'>@profile_examples</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_profile'>profile</span> <span class='op'>&amp;&amp;</span> <span class='op'>!</span><span class='id identifier rubyid_profile'>profile</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='lparen'>(</span><span class='const'>Integer</span><span class='rparen'>)</span>
+    <span class='int'>10</span>
+  <span class='kw'>else</span>
+    <span class='id identifier rubyid_profile'>profile</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="randomize?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>randomize?</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+933
+934
+935</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/configuration.rb', line 933</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_randomize?'>randomize?</span>
+  <span class='id identifier rubyid_order'>order</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='period'>.</span><span class='id identifier rubyid_match'>match</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>rand</span><span class='regexp_end'>/</span></span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="reporter-instance_method">
+  
+    - (<tt>Object</tt>) <strong>reporter</strong> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+587
+588
+589
+590
+591
+592
+593</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/configuration.rb', line 587</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_reporter'>reporter</span>
+  <span class='ivar'>@reporter</span> <span class='op'>||=</span> <span class='kw'>begin</span>
+                  <span class='id identifier rubyid_add_formatter'>add_formatter</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>progress</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_formatters'>formatters</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
+                  <span class='id identifier rubyid_add_formatter'>add_formatter</span><span class='lparen'>(</span><span class='const'>RSpec</span><span class='op'>::</span><span class='const'>Core</span><span class='op'>::</span><span class='const'>Formatters</span><span class='op'>::</span><span class='const'>DeprecationFormatter</span><span class='comma'>,</span> <span class='id identifier rubyid_deprecation_stream'>deprecation_stream</span><span class='comma'>,</span> <span class='id identifier rubyid_output_stream'>output_stream</span><span class='rparen'>)</span>
+                  <span class='const'>Reporter</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_formatters'>formatters</span><span class='rparen'>)</span>
+                <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="requires=-instance_method">
+  
+    - (<tt>Object</tt>) <strong>requires=</strong>(paths) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+511
+512
+513
+514
+515
+516</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/configuration.rb', line 511</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_requires='>requires=</span><span class='lparen'>(</span><span class='id identifier rubyid_paths'>paths</span><span class='rparen'>)</span>
+  <span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_deprecate'>deprecate</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>RSpec::Core::Configuration#requires=(paths)</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+                  <span class='symbol'>:replacement</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>paths.each {|path| require path}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_paths'>paths</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_path'>path</span><span class='op'>|</span> <span class='id identifier rubyid_require'>require</span> <span class='id identifier rubyid_path'>path</span><span class='rbrace'>}</span>
+  <span class='ivar'>@requires</span> <span class='op'>+=</span> <span class='id identifier rubyid_paths'>paths</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="safe_extend-instance_method">
+  
+    - (<tt>Object</tt>) <strong>safe_extend</strong>(mod, host) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+873
+874
+875</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/configuration.rb', line 873</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_safe_extend'>safe_extend</span><span class='lparen'>(</span><span class='id identifier rubyid_mod'>mod</span><span class='comma'>,</span> <span class='id identifier rubyid_host'>host</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_host'>host</span><span class='period'>.</span><span class='id identifier rubyid_extend'>extend</span><span class='lparen'>(</span><span class='id identifier rubyid_mod'>mod</span><span class='rparen'>)</span> <span class='kw'>unless</span> <span class='lparen'>(</span><span class='kw'>class</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_host'>host</span><span class='semicolon'>;</span> <span class='kw'>self</span><span class='semicolon'>;</span> <span class='kw'>end</span><span class='rparen'>)</span> <span class='op'>&lt;</span> <span class='id identifier rubyid_mod'>mod</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="seed=-instance_method">
+  
+    - (<tt>Object</tt>) <strong>seed=</strong>(seed) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Sets the seed value and sets <code>order=&#39;rand&#39;</code></p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+922
+923
+924</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/configuration.rb', line 922</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_seed='>seed=</span><span class='lparen'>(</span><span class='id identifier rubyid_seed'>seed</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_order_and_seed_from_seed'>order_and_seed_from_seed</span><span class='lparen'>(</span><span class='id identifier rubyid_seed'>seed</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="warnings-instance_method">
+  
+    - (<tt>Object</tt>) <strong>warnings</strong> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1017
+1018
+1019</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/configuration.rb', line 1017</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_warnings'>warnings</span>
+  <span class='gvar'>$VERBOSE</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="warnings=-instance_method">
+  
+    - (<tt>Object</tt>) <strong>warnings=</strong>(value) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Set Ruby warnings on or off</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+1013
+1014
+1015</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/configuration.rb', line 1013</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_warnings='>warnings=</span> <span class='id identifier rubyid_value'>value</span>
+  <span class='gvar'>$VERBOSE</span> <span class='op'>=</span> <span class='op'>!</span><span class='op'>!</span><span class='id identifier rubyid_value'>value</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+    <div id="footer">
+  Generated on Thu Dec 18 08:19:52 2014 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.6 (ruby-2.1.5).
+</div>
+
+  </body>
+</html>
