@@ -17,10 +17,13 @@ section
     h2 API Documentation
 
     p
-      | You can find detailed API documentation on the Rubydoc.info site:
+      | You can find detailed API documentation for versions below
 
     ul
-      li= link_to 'http://rubydoc.info/gems/rspec-core', 'http://rubydoc.info/gems/rspec-core'
-      li= link_to 'http://rubydoc.info/gems/rspec-expectations', 'http://rubydoc.info/gems/rspec-expectations'
-      li= link_to 'http://rubydoc.info/gems/rspec-mocks', 'http://rubydoc.info/gems/rspec-mocks'
-      li= link_to 'http://rubydoc.info/gems/rspec-rails', 'http://rubydoc.info/gems/rspec-rails'
+      - rspec_documentation.each do |gem, versions|
+        li
+          b
+            | #{gem}:&nbsp;
+          - versions.sort.reverse.each do |version|
+            = link_to version, "/documentation/#{version}/#{gem}/"
+            | &nbsp;

@@ -70,4 +70,13 @@ helpers do
       |</div>
     HTML
   end
+
+  def rspec_documentation
+    hash = Hash.new { |h,k| h[k] = [] }
+    Dir["#{root}/source/documentation/*/*"].each do |dir|
+      version, gem = dir.scan(%r{/source/documentation/([^/]+)/([^/]+)}).first.flatten
+      hash[gem] << version
+    end
+    hash
+  end
 end
