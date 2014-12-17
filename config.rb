@@ -13,7 +13,7 @@ activate :blog do |blog|
   blog.prefix = "blog"
   blog.layout = "blog_post"
 
-  blog.permalink = "{year}/{month}/{title}"
+  blog.permalink = "/{year}/{month}/{title}"
   # Matcher for blog source files
   # blog.sources = "{year}-{month}-{day}-{title}.html"
   # blog.taglink = "tags/{tag}.html"
@@ -28,8 +28,8 @@ activate :blog do |blog|
   blog.calendar_template = "calendar.html"
 
   # Enable pagination
-  # blog.paginate = true
-  # blog.per_page = 10
+  blog.paginate = true
+  blog.per_page = 10
   # blog.page_link = "page/{num}"
 end
 
