@@ -1,0 +1,756 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: RSpec::Core::Formatters::DeprecationFormatter
+  
+    &mdash; Documentation by YARD 0.8.7.6
+  
+</title>
+
+  <link rel="stylesheet" href="../../../css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../../../css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '../../../';
+  framesUrl = "../../../frames.html#!RSpec/Core/Formatters/DeprecationFormatter.html";
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../../../_index.html">Index (D)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../../../RSpec.html" title="RSpec (module)">RSpec</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../../Core.html" title="RSpec::Core (module)">Core</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Formatters.html" title="RSpec::Core::Formatters (module)">Formatters</a></span></span>
+     &raquo; 
+    <span class="title">DeprecationFormatter</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../../../class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="../../../method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="../../../file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><h1>Class: RSpec::Core::Formatters::DeprecationFormatter
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName">Object</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">RSpec::Core::Formatters::DeprecationFormatter</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/rspec/core/formatters/deprecation_formatter.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Defined Under Namespace</h2>
+<p class="children">
+  
+    
+  
+    
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="DeprecationFormatter/DelayedPrinter.html" title="RSpec::Core::Formatters::DeprecationFormatter::DelayedPrinter (class)">DelayedPrinter</a></span>, <span class='object_link'><a href="DeprecationFormatter/FileStream.html" title="RSpec::Core::Formatters::DeprecationFormatter::FileStream (class)">FileStream</a></span>, <span class='object_link'><a href="DeprecationFormatter/GeneratedDeprecationMessage.html" title="RSpec::Core::Formatters::DeprecationFormatter::GeneratedDeprecationMessage (class)">GeneratedDeprecationMessage</a></span>, <span class='object_link'><a href="DeprecationFormatter/ImmediatePrinter.html" title="RSpec::Core::Formatters::DeprecationFormatter::ImmediatePrinter (class)">ImmediatePrinter</a></span>, <span class='object_link'><a href="DeprecationFormatter/RaiseErrorStream.html" title="RSpec::Core::Formatters::DeprecationFormatter::RaiseErrorStream (class)">RaiseErrorStream</a></span>, <span class='object_link'><a href="DeprecationFormatter/SpecifiedDeprecationMessage.html" title="RSpec::Core::Formatters::DeprecationFormatter::SpecifiedDeprecationMessage (class)">SpecifiedDeprecationMessage</a></span>
+    
+  
+</p>
+
+  <h2>Constant Summary</h2>
+  
+    <dl class="constants">
+      
+        <dt id="RAISE_ERROR_CONFIG_NOTICE-constant" class="">RAISE_ERROR_CONFIG_NOTICE =
+          
+        </dt>
+        <dd><pre class="code"><span class='heredoc_beg'>&lt;&lt;-EOS</span><span class='period'>.</span><span class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^\s+\|</span><span class='regexp_end'>/</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+<span class='tstring_content'>  |
+  |If you need more of the backtrace for any of these deprecations to
+  |identify where to make the necessary changes, you can configure
+  |`config.raise_errors_for_deprecations!`, and it will turn the
+  |deprecation warnings into errors, giving you the full backtrace.
+</span><span class='heredoc_end'>EOS</span></pre></dd>
+      
+        <dt id="DEPRECATION_STREAM_NOTICE-constant" class="">DEPRECATION_STREAM_NOTICE =
+          
+        </dt>
+        <dd><pre class="code"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Pass `--deprecation-out` or set </span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span>
+<span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>`config.deprecation_stream` to a file for full output.</span><span class='tstring_end'>&quot;</span></span></pre></dd>
+      
+    </dl>
+  
+
+
+
+
+  <h2>Instance Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#count-instance_method" title="#count (instance method)">- (Object) <strong>count</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Returns the value of attribute count.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#deprecation_stream-instance_method" title="#deprecation_stream (instance method)">- (Object) <strong>deprecation_stream</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Returns the value of attribute deprecation_stream.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#summary_stream-instance_method" title="#summary_stream (instance method)">- (Object) <strong>summary_stream</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Returns the value of attribute summary_stream.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#deprecation-instance_method" title="#deprecation (instance method)">- (Object) <strong>deprecation</strong>(data) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#deprecation_message_for-instance_method" title="#deprecation_message_for (instance method)">- (Object) <strong>deprecation_message_for</strong>(data) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#deprecation_summary-instance_method" title="#deprecation_summary (instance method)">- (Object) <strong>deprecation_summary</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (DeprecationFormatter) <strong>initialize</strong>(deprecation_stream, summary_stream) </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>A new instance of DeprecationFormatter.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#printer-instance_method" title="#printer (instance method)">- (Object) <strong>printer</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#start-instance_method" title="#start (instance method)">- (Object) <strong>start</strong>(example_count = nil) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <h3 class="signature first" id="initialize-instance_method">
+  
+    - (<tt><span class='object_link'><a href="" title="RSpec::Core::Formatters::DeprecationFormatter (class)">DeprecationFormatter</a></span></tt>) <strong>initialize</strong>(deprecation_stream, summary_stream) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns a new instance of DeprecationFormatter</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+10
+11
+12
+13
+14
+15</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/formatters/deprecation_formatter.rb', line 10</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_deprecation_stream'>deprecation_stream</span><span class='comma'>,</span> <span class='id identifier rubyid_summary_stream'>summary_stream</span><span class='rparen'>)</span>
+  <span class='ivar'>@deprecation_stream</span> <span class='op'>=</span> <span class='id identifier rubyid_deprecation_stream'>deprecation_stream</span>
+  <span class='ivar'>@summary_stream</span> <span class='op'>=</span> <span class='id identifier rubyid_summary_stream'>summary_stream</span>
+  <span class='ivar'>@seen_deprecations</span> <span class='op'>=</span> <span class='const'>Set</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
+  <span class='ivar'>@count</span> <span class='op'>=</span> <span class='int'>0</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id=""></span>
+      <div class="method_details first">
+  <h3 class="signature first" id="count-instance_method">
+  
+    - (<tt>Object</tt>) <strong>count</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns the value of attribute count</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+8
+9
+10</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/formatters/deprecation_formatter.rb', line 8</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_count'>count</span>
+  <span class='ivar'>@count</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="deprecation_stream-instance_method">
+  
+    - (<tt>Object</tt>) <strong>deprecation_stream</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns the value of attribute deprecation_stream</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+8
+9
+10</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/formatters/deprecation_formatter.rb', line 8</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_deprecation_stream'>deprecation_stream</span>
+  <span class='ivar'>@deprecation_stream</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="summary_stream-instance_method">
+  
+    - (<tt>Object</tt>) <strong>summary_stream</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns the value of attribute summary_stream</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+8
+9
+10</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/formatters/deprecation_formatter.rb', line 8</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_summary_stream'>summary_stream</span>
+  <span class='ivar'>@summary_stream</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="deprecation-instance_method">
+  
+    - (<tt>Object</tt>) <strong>deprecation</strong>(data) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+28
+29
+30
+31
+32
+33
+34</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/formatters/deprecation_formatter.rb', line 28</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_deprecation'>deprecation</span><span class='lparen'>(</span><span class='id identifier rubyid_data'>data</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='kw'>if</span> <span class='ivar'>@seen_deprecations</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_data'>data</span><span class='rparen'>)</span>
+
+  <span class='ivar'>@count</span> <span class='op'>+=</span> <span class='int'>1</span>
+  <span class='id identifier rubyid_printer'>printer</span><span class='period'>.</span><span class='id identifier rubyid_print_deprecation_message'>print_deprecation_message</span> <span class='id identifier rubyid_data'>data</span>
+  <span class='ivar'>@seen_deprecations</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_data'>data</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="deprecation_message_for-instance_method">
+  
+    - (<tt>Object</tt>) <strong>deprecation_message_for</strong>(data) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+44
+45
+46
+47
+48
+49
+50</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/formatters/deprecation_formatter.rb', line 44</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_deprecation_message_for'>deprecation_message_for</span><span class='lparen'>(</span><span class='id identifier rubyid_data'>data</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span class='symbol'>:message</span><span class='rbracket'>]</span>
+    <span class='const'>SpecifiedDeprecationMessage</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_data'>data</span><span class='rparen'>)</span>
+  <span class='kw'>else</span>
+    <span class='const'>GeneratedDeprecationMessage</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_data'>data</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="deprecation_summary-instance_method">
+  
+    - (<tt>Object</tt>) <strong>deprecation_summary</strong> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+36
+37
+38</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/formatters/deprecation_formatter.rb', line 36</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_deprecation_summary'>deprecation_summary</span>
+  <span class='id identifier rubyid_printer'>printer</span><span class='period'>.</span><span class='id identifier rubyid_deprecation_summary'>deprecation_summary</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="printer-instance_method">
+  
+    - (<tt>Object</tt>) <strong>printer</strong> 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/formatters/deprecation_formatter.rb', line 17</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_printer'>printer</span>
+  <span class='ivar'>@printer</span> <span class='op'>||=</span> <span class='kw'>case</span> <span class='id identifier rubyid_deprecation_stream'>deprecation_stream</span>
+               <span class='kw'>when</span> <span class='const'>File</span>
+                 <span class='const'>ImmediatePrinter</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='const'>FileStream</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_deprecation_stream'>deprecation_stream</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='id identifier rubyid_summary_stream'>summary_stream</span><span class='comma'>,</span> <span class='kw'>self</span><span class='rparen'>)</span>
+               <span class='kw'>when</span> <span class='const'>RaiseErrorStream</span>
+                 <span class='const'>ImmediatePrinter</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_deprecation_stream'>deprecation_stream</span><span class='comma'>,</span> <span class='id identifier rubyid_summary_stream'>summary_stream</span><span class='comma'>,</span> <span class='kw'>self</span><span class='rparen'>)</span>
+               <span class='kw'>else</span>
+                 <span class='const'>DelayedPrinter</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_deprecation_stream'>deprecation_stream</span><span class='comma'>,</span> <span class='id identifier rubyid_summary_stream'>summary_stream</span><span class='comma'>,</span> <span class='kw'>self</span><span class='rparen'>)</span>
+               <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="start-instance_method">
+  
+    - (<tt>Object</tt>) <strong>start</strong>(example_count = nil) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+40
+41
+42</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/formatters/deprecation_formatter.rb', line 40</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_start'>start</span><span class='lparen'>(</span><span class='id identifier rubyid_example_count'>example_count</span><span class='op'>=</span><span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='comment'>#no-op to fix #966
+</span><span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+    <div id="footer">
+  Generated on Thu Dec 18 08:14:27 2014 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.6 (ruby-2.1.5).
+</div>
+
+  </body>
+</html>
