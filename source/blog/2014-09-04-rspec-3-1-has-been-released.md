@@ -28,20 +28,22 @@ included backtraces, but lines from RSpec itself will continue to be
 excluded. Of course, if you want still gems to be excluded, you can easily
 add this pattern back yourself:
 
-{% codeblock spec/spec_helper.rb %}
+~~~ ruby
+# spec/spec_helper.rb
 RSpec.configure do |config|
   config.backtrace_exclusion_patterns << /gems/
 end
-{% endcodeblock %}
+~~~
 
 In addition, we've added a new API to make it easy to filter out one
 or more specific gems:
 
-{% codeblock spec/spec_helper.rb %}
+~~~ ruby
+# spec/spec_helper.rb
 RSpec.configure do |config|
   config.filter_gems_from_backtrace "rack", "rake"
 end
-{% endcodeblock %}
+~~~
 
 ### Core: New `--exclude-pattern` option
 
@@ -50,21 +52,22 @@ RSpec 3.1 has a new `--exclude-pattern` option that is the inverse of
 for example, you can load and run all spec files except those from
 a particular directory:
 
-{% codeblock %}
+~~~ ruby
 rspec --pattern "spec/**/*_spec.rb" --exclude-pattern "spec/acceptance/**/*_spec.rb"
-{% endcodeblock %}
+~~~
 
 The rake task definition API supports this option now, too, so it is
 easy to define tasks that run all specs but those from one directory:
 
-{% codeblock Rakefile lang:ruby %}
+~~~ ruby
+# Rakefile
 require 'rspec/core/rake_task'
 
 desc "Run all but the acceptance specs"
 RSpec::Core::RakeTask.new(:all_but_acceptance) do |t|
   t.exclude_pattern = "spec/acceptance/**/*_spec.rb"
 end
-{% endcodeblock %}
+~~~
 
 Thanks to John Gesimondo for suggesting and
 [implementing](https://github.com/rspec/rspec-core/pull/1651)
@@ -107,30 +110,30 @@ Thanks to Andrew Hooker for [making this change](https://github.com/rspec/rspec-
 
 This new matcher makes it easy to match an object based on its attributes:
 
-{% codeblock lang:ruby %}
+~~~ ruby
 Person = Struct.new(:name, :age)
 person = Person.new("Coen", 3)
 expect(person).to have_attributes(name: "Coen", age: 3)
-{% endcodeblock %}
+~~~
 
 It's also aliased to `an_object_having_attributes`, which is particularly
 useful in composed matcher expressions:
 
-{% codeblock lang:ruby %}
+~~~ ruby
 people = [Person.new("Coen", 3), Person.new("Daphne", 2)]
 expect(people).to match([
   an_object_having_attributes(name: "Coen",   age: 3),
   an_object_having_attributes(name: "Daphne", age: 2)
 ])
-{% endcodeblock %}
+~~~
 
 It can also be used as an argument matcher for a message expectation:
 
-{% codeblock lang:ruby %}
+~~~ ruby
 expect(email_gateway).to receive(:send_receipt).with(
   an_object_having_attributes(email: "foo@example.com")
 )
-{% endcodeblock %}
+~~~
 
 Thanks to Adam Farhi for
 [implementing](https://github.com/rspec/rspec-expectations/pull/571)
@@ -145,19 +148,19 @@ changes that needed to be made to ensure the block is only executed
 once as one would expect. We've addressed this in 3.1, which allows an
 expression like:
 
-{% codeblock lang:ruby %}
+~~~ ruby
 x = y = 0
 expect {
   x += 1
   y += 2
 }.to change { x }.to(1).and change { y }.to(2)
-{% endcodeblock %}
+~~~
 
 ### Expectations: New `define_negated_matcher` API
 
 This new API provides a means to define a negated version of an existing matcher:
 
-{% codeblock lang:ruby %}
+~~~ ruby
 # define a negated form of `include`...
 RSpec::Matchers.define_negated_matcher :exclude, :include
 
@@ -166,18 +169,18 @@ expect(odd_numbers).to exclude(14)
 
 # ...rather than:
 expect(odd_numbers).not_to include(14)
-{% endcodeblock %}
+~~~
 
 On its own, this doesn't buy you much. However, it really comes in handy
 when dealing with composed or compound matcher expressions:
 
-{% codeblock lang:ruby %}
+~~~ ruby
 adults = Town.find("Springfield").adults
 marge  = Character.find("Marge")
 bart   = Character.find("Bart")
 
 expect(adults).to include(marge).and exclude(bart)
-{% endcodeblock %}
+~~~
 
 Thanks to Adam Farhi for helping with the
 [implementation](https://github.com/rspec/rspec-expectations/pull/618)
@@ -188,7 +191,7 @@ of this feature.
 The custom matcher DSL allows you to define a fluent interface using
 `chain`:
 
-{% codeblock lang:ruby %}
+~~~ ruby
 RSpec::Matchers.define :be_smaller_than do |max|
   chain :and_bigger_than do |min|
     @min = min
@@ -201,31 +204,31 @@ end
 
 # usage:
 expect(10).to be_smaller_than(20).and_bigger_than(5)
-{% endcodeblock %}
+~~~
 
 In RSpec 2.x and 3.0, the chained part was not included in failure messages:
 
-{% codeblock %}
+~~~
 Failure/Error: expect(5).to be_smaller_than(10).and_bigger_than(7)
   expected 5 to be smaller than 10
-{% endcodeblock %}
+~~~
 
 RSpec 3.1 can include the chained part in the failure message:
 
-{% codeblock %}
+~~~
 Failure/Error: expect(5).to be_smaller_than(10).and_bigger_than(7)
   expected 5 to be smaller than 10 and bigger than 7
-{% endcodeblock %}
+~~~
 
 ...but only if you enable this behavior with a config option:
 
-{% codeblock lang:ruby %}
+~~~ ruby
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
   end
 end
-{% endcodeblock %}
+~~~
 
 This config option defaults to `false` for backwards compatibility.
 We plan to always enable it in RSpec 4.
@@ -239,11 +242,11 @@ this improvement!
 RSpec 2.14 added support for using test doubles as spies, which allow
 you to set an expectation that a message was received after the fact:
 
-{% codeblock lang:ruby %}
+~~~ ruby
 spy = double(:foo => nil)
 # do something with spy
 expect(spy).to have_received(:foo)
-{% endcodeblock %}
+~~~
 
 Note that we stubbed `foo` here. This is necessary because doubles are
 strict by default -- meaning that they will raise an error when they
@@ -254,21 +257,21 @@ once before and expecting it was received after).
 You can get around this by using `as_null_object` which makes a double
 "loose" rather than strict, allowing it to receive any message:
 
-{% codeblock lang:ruby %}
+~~~ ruby
 spy = double.as_null_object
 # do something with spy
 expect(spy).to have_received(:foo)
-{% endcodeblock %}
+~~~
 
 This pattern is useful enough that in RSpec 3.1, we've added new methods
 to declare spies:
 
-{% codeblock lang:ruby %}
+~~~ ruby
 spy(...)          # equivalent to double(...).as_null_object
 instance_spy(...) # equivalent to instance_double(...).as_null_object
 class_spy(...)    # equivalent to class_double(...).as_null_object
 object_spy(...)   # equivalent to object_double(...).as_null_object
-{% endcodeblock %}
+~~~
 
 Thanks to Justin Searls for [bringing
 up this issue](https://github.com/rspec/rspec-mocks/issues/636) and
@@ -283,11 +286,11 @@ particular object just for the duration of the current example. The
 original method is yielded to your block as the first argument (before
 the args of the actual method call).
 
-{% codeblock lang:ruby %}
+~~~ ruby
 allow(api_client).to receive(:fetch_users).and_wrap_original do |original_method, *args|
   original_method.call(*args).first(10) # truncate the response to the first 10 users
 end
-{% endcodeblock %}
+~~~
 
 Thanks to Jon Rowe for
 [implementing](https://github.com/rspec/rspec-mocks/pull/762) this
