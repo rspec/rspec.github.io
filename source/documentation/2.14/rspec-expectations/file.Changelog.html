@@ -1,0 +1,610 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>
+  File: Changelog
+  
+    &mdash; Documentation by YARD 0.8.7.4
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '';
+  framesUrl = "frames.html#!file.Changelog.html";
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="_index.html">Index</a> &raquo; 
+    <span class="title">File: Changelog</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><div id='filecontents'><h3>2.14.5 / 2014-02-01</h3>
+
+<p><a href="http://github.com/rspec/rspec-expectations/compare/v2.14.4...v2.14.5">full changelog</a></p>
+
+<p>Bug fixes</p>
+
+<ul>
+<li>Fix wrong matcher descriptions with falsey expected value (yujinakayama)</li>
+</ul>
+
+<h3>2.14.4 / 2013-11-06</h3>
+
+<p><a href="http://github.com/rspec/rspec-expectations/compare/v2.14.3...v2.14.4">full changelog</a></p>
+
+<p>Bug fixes</p>
+
+<ul>
+<li>Make the <code>match</code> matcher produce a diff output. (Jon Rowe, Ben Moss)</li>
+<li>Choose encoding for diff&#39;s more intelligently, and when all else fails fall
+back to default internal encoding with replacing characters. (Jon Rowe)</li>
+</ul>
+
+<h3>2.14.3 / 2013-09-22</h3>
+
+<p><a href="http://github.com/rspec/rspec-expectations/compare/v2.14.2...v2.14.3">full changelog</a></p>
+
+<p>Bug fixes</p>
+
+<ul>
+<li>Fix operator matchers (<code>should</code> syntax) when <code>method</code> is redefined on target.
+(Brandon Turner)</li>
+<li>Fix diffing of hashes with object based keys. (Jon Rowe)</li>
+<li>Fix operator matchers (<code>should</code> syntax) when operator is defined via
+<code>method_missing</code> (Jon Rowe)</li>
+</ul>
+
+<h3>2.14.2 / 2013-08-14</h3>
+
+<p><a href="http://github.com/rspec/rspec-expectations/compare/v2.14.1...v2.14.2">full changelog</a></p>
+
+<p>Bug fixes</p>
+
+<ul>
+<li>Fix <code>be_&lt;predicate&gt;</code> matcher to not support operator chaining like the
+<code>be</code> matcher does (e.g. <code>be == 5</code>). This led to some odd behaviors
+since <code>be_&lt;predicate&gt; == anything</code> returned a <code>BeComparedTo</code> matcher
+and was thus always truthy. This was a consequence of the implementation
+(e.g. subclassing the basic <code>Be</code> matcher) and was not intended behavior.
+(Myron Marston).</li>
+<li>Fix <code>change</code> matcher to compare using <code>==</code> in addition to <code>===</code>. This
+is important for an expression like:
+<code>expect {}.to change { a.class }.from(ClassA).to(ClassB)</code> because
+<code>SomeClass === SomeClass</code> returns false. (Myron Marston)</li>
+</ul>
+
+<h3>2.14.1 / 2013-08-08</h3>
+
+<p><a href="http://github.com/rspec/rspec-expectations/compare/v2.14.0...2.14.1">full changelog</a></p>
+
+<p>Bug fixes</p>
+
+<ul>
+<li>Ensure diff output uses the same encoding as the encoding of
+the string being diff&#39;d to prevent <code>Encoding::UndefinedConversionError</code>
+errors (Jon Rowe).</li>
+</ul>
+
+<h3>2.14.0 / 2013-07-06</h3>
+
+<p><a href="http://github.com/rspec/rspec-expectations/compare/v2.14.0.rc1...v2.14.0">full changelog</a></p>
+
+<p>Bug fixes</p>
+
+<ul>
+<li>Values that are not matchers use <code>#inspect</code>, rather than <code>#description</code> for
+documentation output (Andy Lindeman, Sam Phippen).</li>
+<li>Make <code>expect(a).to be_within(x).percent_of(y)</code> work with negative y
+(Katsuhiko Nishimra).</li>
+<li>Make the <code>be_predicate</code> matcher work as expected used with <code>expect{...}.to
+change...</code>  (Sam Phippen).</li>
+</ul>
+
+<h3>2.14.0.rc1 / 2013-05-27</h3>
+
+<p><a href="http://github.com/rspec/rspec-expectations/compare/v2.13.0...v2.14.0.rc1">full changelog</a></p>
+
+<p>Enhancements</p>
+
+<ul>
+<li>Enhance <code>yield_control</code> so that you can specify an exact or relative
+number of times: <code>expect { }.to yield_control.exactly(3).times</code>,
+<code>expect { }.to yield_control.at_least(2).times</code>, etc (Bartek
+Borkowski).</li>
+<li>Make the differ that is used when an expectation fails better handle arrays
+by splitting each element of the array onto its own line. (Sam Phippen)</li>
+<li>Accept duck-typed strings that respond to <code>:to_str</code> as expectation messages.
+(Toby Ovod-Everett)</li>
+</ul>
+
+<p>Bug fixes</p>
+
+<ul>
+<li>Fix differ to not raise errors when dealing with differently-encoded
+strings (Jon Rowe).</li>
+<li>Fix <code>expect(something).to be_within(x).percent_of(y)</code> where x and y are both
+integers (Sam Phippen).</li>
+<li>Fix <code>have</code> matcher to handle the fact that on ruby 2.0,
+<code>Enumerator#size</code> may return nil (Kenta Murata).</li>
+<li>Fix <code>expect { raise s }.to raise_error(s)</code> where s is an error instance
+on ruby 2.0 (Sam Phippen).</li>
+<li>Fix <code>expect(object).to raise_error</code> passing. This now warns the user and
+fails the spec (tomykaira).</li>
+</ul>
+
+<p>Deprecations</p>
+
+<ul>
+<li>Deprecate <code>expect { }.not_to raise_error(SpecificErrorClass)</code> or
+<code>expect { }.not_to raise_error(&quot;some specific message&quot;)</code>. Using
+these was prone to hiding failures as they would allow <em>any other
+error</em> to pass. (Sam Phippen and David Chelimsky)</li>
+</ul>
+
+<h3>2.13.0 / 2013-02-23</h3>
+
+<p><a href="http://github.com/rspec/rspec-expectations/compare/v2.12.1...v2.13.0">full changelog</a></p>
+
+<p>Enhancements</p>
+
+<ul>
+<li>Add support for percent deltas to <code>be_within</code> matcher:
+<code>expect(value).to be_within(10).percent_of(expected)</code>
+(Myron Marston).</li>
+<li>Add support to <code>include</code> matcher to allow it to be given a list
+of matchers as the expecteds to match against (Luke Redpath).</li>
+</ul>
+
+<p>Bug fixes</p>
+
+<ul>
+<li>Fix <code>change</code> matcher so that it dups strings in order to handle
+mutated strings (Myron Marston).</li>
+<li>Fix <code>should be =~ /some regex/</code> / <code>expect(...).to be =~ /some regex/</code>.
+Previously, these either failed with a confusing <code>undefined method
+matches?&#39; for false:FalseClass</code> error or were no-ops that didn&#39;t
+actually verify anything (Myron Marston).</li>
+<li>Add compatibility for diff-lcs 1.2 and relax the version
+constraint (Peter Goldstein).</li>
+<li>Fix DSL-generated matchers to allow multiple instances of the
+same matcher in the same example to have different description
+and failure messages based on the expected value (Myron Marston).</li>
+<li>Prevent <code>undefined method #split for Array</code> error when dumping
+the diff of an array of multiline strings (Myron Marston).</li>
+<li>Don&#39;t blow up when comparing strings that are in an encoding
+that is not ASCII compatible (Myron Marston).</li>
+<li>Remove confusing &quot;Check the implementation of #==&quot; message
+printed for empty diffs (Myron Marston).</li>
+</ul>
+
+<h3>2.12.1 / 2012-12-15</h3>
+
+<p><a href="http://github.com/rspec/rspec-expectations/compare/v2.12.0...v2.12.1">full changelog</a></p>
+
+<p>Bug fixes</p>
+
+<ul>
+<li>Improve the failure message for an expression like
+<code>{}.should =~ {}</code>. (Myron Marston and Andy Lindeman)</li>
+<li>Provide a <code>match_regex</code> alias so that custom matchers
+built using the matcher DSL can use it (since <code>match</code>
+is a different method in that context).
+(Steven Harman)</li>
+</ul>
+
+<h3>2.12.0 / 2012-11-12</h3>
+
+<p><a href="http://github.com/rspec/rspec-expectations/compare/v2.11.3...v2.12.0">full changelog</a></p>
+
+<p>Enhancements</p>
+
+<ul>
+<li>Colorize diffs if the <code>--color</code> option is configured. (Alex Coplan)</li>
+<li>Include backtraces in unexpected errors handled by <code>raise_error</code>
+matcher (Myron Marston)</li>
+<li>Print a warning when users accidentally pass a non-string argument
+as an expectation message (Sam Phippen)</li>
+<li><code>=~</code> and <code>match_array</code> matchers output a more useful error message when
+the actual value is not an array (or an object that responds to <code>#to_ary</code>)
+(Sam Phippen)</li>
+</ul>
+
+<p>Bug fixes</p>
+
+<ul>
+<li>Fix <code>include</code> matcher so that <code>expect({}).to include(:a =&gt; nil)</code>
+fails as it should (Sam Phippen).</li>
+<li>Fix <code>be_an_instance_of</code> matcher so that <code>Class#to_s</code> is used in the
+description rather than <code>Class#inspect</code>, since some classes (like
+<code>ActiveRecord::Base</code>) define a long, verbose <code>#inspect</code>.
+(Tom Stuart)</li>
+</ul>
+
+<h3>2.11.3 / 2012-09-04</h3>
+
+<p><a href="http://github.com/rspec/rspec-expectations/compare/v2.11.2...v2.11.3">full changelog</a></p>
+
+<p>Bug fixes</p>
+
+<ul>
+<li>Fix (and deprecate) <code>expect { }.should</code> syntax so that it works even
+though it was never a documented or intended syntax. It worked as a
+consequence of the implementation of <code>expect</code> in RSpec 2.10 and
+earlier. (Myron Marston)</li>
+<li><p>Ensure #== is defined on built in matchers so that they can be composed.
+For example:</p>
+
+<p>expect {
+  user.emailed!
+}.to change { user.last_emailed_at }.to be_within(1.second).of(Time.zone.now)</p></li>
+</ul>
+
+<h3>2.11.2 / 2012-07-25</h3>
+
+<p><a href="http://github.com/rspec/rspec-expectations/compare/v2.11.1...v2.11.2">full changelog</a></p>
+
+<p>Bug fixes</p>
+
+<ul>
+<li>Define <code>should</code> and <code>should_not</code> on <code>Object</code> rather than <code>BasicObject</code>
+on MacRuby. On MacRuby, <code>BasicObject</code> is defined but is not the root
+of the object hierarchy. (Gabriel Gilder)</li>
+</ul>
+
+<h3>2.11.1 / 2012-07-08</h3>
+
+<p><a href="http://github.com/rspec/rspec-expectations/compare/v2.11.0...v2.11.1">full changelog</a></p>
+
+<p>Bug fixes</p>
+
+<ul>
+<li>Constrain <code>actual</code> in <code>be_within</code> matcher to values that respond to <code>-</code> instead
+of requiring a specific type.
+
+<ul>
+<li><code>Time</code>, for example, is a legit alternative.</li>
+</ul></li>
+</ul>
+
+<h3>2.11.0 / 2012-07-07</h3>
+
+<p><a href="http://github.com/rspec/rspec-expectations/compare/v2.10.0...v2.11.0">full changelog</a></p>
+
+<p>Enhancements</p>
+
+<ul>
+<li>Expand <code>expect</code> syntax so that it supports expections on bare values
+in addition to blocks (Myron Marston).</li>
+<li>Add configuration options to control available expectation syntaxes
+(Myron Marston):
+
+<ul>
+<li><code>RSpec.configuration.expect_with(:rspec) { |c| c.syntax = :expect }</code></li>
+<li><code>RSpec.configuration.expect_with(:rspec) { |c| c.syntax = :should }</code></li>
+<li><code>RSpec.configuration.expect_with(:rspec) { |c| c.syntax = [:should, :expect] }</code></li>
+<li><code>RSpec.configuration.add_should_and_should_not_to Delegator</code></li>
+</ul></li>
+</ul>
+
+<p>Bug fixes</p>
+
+<ul>
+<li>Allow only <code>Numeric</code> values to be the &quot;actual&quot; in the <code>be_within</code> matcher.
+This prevents confusing error messages. (Su Zhang @zhangsu)</li>
+<li>Define <code>should</code> and <code>should_not</code> on <code>BasicObject</code> rather than <code>Kernel</code>
+on 1.9. This makes <code>should</code> and <code>should_not</code> work properly with
+<code>BasicObject</code>-subclassed proxy objects like <code>Delegator</code>. (Myron
+Marston)</li>
+</ul>
+
+<h3>2.10.0 / 2012-05-03</h3>
+
+<p><a href="http://github.com/rspec/rspec-expectations/compare/v2.9.1...v2.10.0">full changelog</a></p>
+
+<p>Enhancements</p>
+
+<ul>
+<li>Add new <code>start_with</code> and <code>end_with</code> matchers (Jeremy Wadsack)</li>
+<li>Add new matchers for specifying yields (Myron Marston):
+
+<ul>
+<li><code>expect {...}.to yield_control</code></li>
+<li><code>expect {...}.to yield_with_args(1, 2, 3)</code></li>
+<li><code>expect {...}.to yield_with_no_args</code></li>
+<li><code>expect {...}.to yield_successive_args(1, 2, 3)</code></li>
+</ul></li>
+<li><code>match_unless_raises</code> takes multiple exception args</li>
+</ul>
+
+<p>Bug fixes</p>
+
+<ul>
+<li>Fix <code>be_within</code> matcher to be inclusive of delta.</li>
+<li>Fix message-specific specs to pass on Rubinius (John Firebaugh)</li>
+</ul>
+
+<h3>2.9.1 / 2012-04-03</h3>
+
+<p><a href="http://github.com/rspec/rspec-expectations/compare/v2.9.0...v2.9.1">full changelog</a></p>
+
+<p>Bug fixes</p>
+
+<ul>
+<li>Provide a helpful message if the diff between two objects is empty.</li>
+<li>Fix bug diffing single strings with multiline strings.</li>
+<li>Fix for error with using custom matchers inside other custom matchers
+(mirasrael)</li>
+<li>Fix using execution context methods in nested DSL matchers (mirasrael)</li>
+</ul>
+
+<h3>2.9.0 / 2012-03-17</h3>
+
+<p><a href="http://github.com/rspec/rspec-expectations/compare/v2.8.0...v2.9.0">full changelog</a></p>
+
+<p>Enhancements</p>
+
+<ul>
+<li>Move built-in matcher classes to RSpec::Matchers::BuiltIn to reduce pollution
+of RSpec::Matchers (which is included in every example).</li>
+<li>Autoload files with matcher classes to improve load time.</li>
+</ul>
+
+<p>Bug fixes</p>
+
+<ul>
+<li>Align <code>respond_to?</code> and <code>method_missing</code> in DSL-defined matchers.</li>
+<li>Clear out user-defined instance variables between invocations of DSL-defined
+matchers.</li>
+<li>Dup the instance of a DSL generated matcher so its state is not changed by
+subsequent invocations.</li>
+<li>Treat expected args consistently across positive and negative expectations
+(thanks to Ralf Kistner for the heads up)</li>
+</ul>
+
+<h3>2.8.0 / 2012-01-04</h3>
+
+<p><a href="http://github.com/rspec/rspec-expectations/compare/v2.8.0.rc2...v2.8.0">full changelog</a></p>
+
+<p>Enhancements</p>
+
+<ul>
+<li>Better diff output for Hash (Philippe Creux)</li>
+<li>Eliminate Ruby warnings (Olek Janiszewski)</li>
+</ul>
+
+<h3>2.8.0.rc2 / 2011-12-19</h3>
+
+<p><a href="http://github.com/rspec/rspec-expectations/compare/v2.8.0.rc1...v2.8.0.rc2">full changelog</a></p>
+
+<p>No changes for this release. Just releasing with the other rspec gems.</p>
+
+<h3>2.8.0.rc1 / 2011-11-06</h3>
+
+<p><a href="http://github.com/rspec/rspec-expectations/compare/v2.7.0...v2.8.0.rc1">full changelog</a></p>
+
+<p>Enhancements</p>
+
+<ul>
+<li>Use classes for the built-in matchers (they&#39;re faster).</li>
+<li>Eliminate Ruby warnings (Matijs van Zuijlen)</li>
+</ul>
+
+<h3>2.7.0 / 2011-10-16</h3>
+
+<p><a href="http://github.com/rspec/rspec-expectations/compare/v2.6.0...v2.7.0">full changelog</a></p>
+
+<p>Enhancements</p>
+
+<ul>
+<li><code>HaveMatcher</code> converts argument using <code>to_i</code> (Alex Bepple &amp; Pat Maddox)</li>
+<li>Improved failure message for the <code>have_xxx</code> matcher (Myron Marston)</li>
+<li><code>HaveMatcher</code> supports <code>count</code> (Matthew Bellantoni)</li>
+<li>Change matcher dups <code>Enumerable</code> before the action, supporting custom
+<code>Enumerable</code> types like <code>CollectionProxy</code> in Rails (David Chelimsky)</li>
+</ul>
+
+<p>Bug fixes</p>
+
+<ul>
+<li>Fix typo in <code>have(n).xyz</code> documentation (Jean Boussier)</li>
+<li>fix <code>safe_sort</code> for ruby 1.9.2 (<code>Kernel</code> now defines <code>&lt;=&gt;</code> for Object) (Peter
+van Hardenberg)</li>
+</ul>
+
+<h3>2.6.0 / 2011-05-12</h3>
+
+<p><a href="http://github.com/rspec/rspec-expectations/compare/v2.5.0...v2.6.0">full changelog</a></p>
+
+<p>Enhancements</p>
+
+<ul>
+<li><code>change</code> matcher accepts regexps (Robert Davis)</li>
+<li>better descriptions for <code>have_xxx</code> matchers (Magnus Bergmark)</li>
+<li><code>range.should cover(*values)</code> (Anders Furseth)</li>
+</ul>
+
+<p>Bug fixes</p>
+
+<ul>
+<li>Removed non-ascii characters that were choking rcov (Geoffrey Byers)</li>
+<li>change matcher dups arrays and hashes so their before/after states can be
+compared correctly.</li>
+<li>Fix the order of inclusion of RSpec::Matchers in Test::Unit::TestCase and
+MiniTest::Unit::TestCase to prevent a SystemStackError (Myron Marston)</li>
+</ul>
+
+<h3>2.5.0 / 2011-02-05</h3>
+
+<p><a href="http://github.com/rspec/rspec-expectations/compare/v2.4.0...v2.5.0">full changelog</a></p>
+
+<p>Enhancements</p>
+
+<ul>
+<li><code>should exist</code> works with <code>exist?</code> or <code>exists?</code> (Myron Marston)</li>
+<li><code>expect { ... }.not_to do_something</code> (in addition to <code>to_not</code>)</li>
+</ul>
+
+<p>Documentation</p>
+
+<ul>
+<li>improved docs for raise_error matcher (James Almond)</li>
+</ul>
+
+<h3>2.4.0 / 2011-01-02</h3>
+
+<p><a href="http://github.com/rspec/rspec-expectations/compare/v2.3.0...v2.4.0">full changelog</a></p>
+
+<p>No functional changes in this release, which was made to align with the
+rspec-core-2.4.0 release.</p>
+
+<p>Enhancements</p>
+
+<ul>
+<li>improved RDoc for change matcher (Jo Liss)</li>
+</ul>
+
+<h3>2.3.0 / 2010-12-12</h3>
+
+<p><a href="http://github.com/rspec/rspec-expectations/compare/v2.2.1...v2.3.0">full changelog</a></p>
+
+<p>Enhancements</p>
+
+<ul>
+<li>diff strings when include matcher fails (Mike Sassak)</li>
+</ul>
+
+<h3>2.2.0 / 2010-11-28</h3>
+
+<p><a href="http://github.com/rspec/rspec-expectations/compare/v2.1.0...v2.2.0">full changelog</a></p>
+
+<h3>2.1.0 / 2010-11-07</h3>
+
+<p><a href="http://github.com/rspec/rspec-expectations/compare/v2.0.1...v2.1.0">full changelog</a></p>
+
+<p>Enhancements</p>
+
+<ul>
+<li><code>be_within(delta).of(expected)</code> matcher (Myron Marston)</li>
+<li>Lots of new Cucumber features (Myron Marston)</li>
+<li>Raise error if you try <code>should != expected</code> on Ruby-1.9 (Myron Marston)</li>
+<li>Improved failure messages from <code>throw_symbol</code> (Myron Marston)</li>
+</ul>
+
+<p>Bug fixes</p>
+
+<ul>
+<li>Eliminate hard dependency on <code>RSpec::Core</code> (Myron Marston)</li>
+<li><code>have_matcher</code> - use pluralize only when ActiveSupport inflections are indeed
+defined (Josep M Bach)</li>
+<li>throw_symbol matcher no longer swallows exceptions (Myron Marston)</li>
+<li>fix matcher chaining to avoid name collisions (Myron Marston)</li>
+</ul>
+
+<h3>2.0.0 / 2010-10-10</h3>
+
+<p><a href="http://github.com/rspec/rspec-expectations/compare/v2.0.0.rc...v2.0.0">full changelog</a></p>
+
+<p>Enhancements</p>
+
+<ul>
+<li>Add match_for_should_not method to matcher DSL (Myron Marston)</li>
+</ul>
+
+<p>Bug fixes</p>
+
+<ul>
+<li><code>respond_to</code> matcher works correctly with <code>should_not</code> with multiple methods
+(Myron Marston)</li>
+<li><code>include</code> matcher works correctly with <code>should_not</code> with multiple values
+(Myron Marston)</li>
+</ul>
+
+<h3>2.0.0.rc / 2010-10-05</h3>
+
+<p><a href="http://github.com/rspec/rspec-expectations/compare/v2.0.0.beta.22...v2.0.0.rc">full changelog</a></p>
+
+<p>Enhancements</p>
+
+<ul>
+<li><code>require &#39;rspec/expectations&#39;</code> in a T::U or MiniUnit suite (Josep M. Bach)</li>
+</ul>
+
+<p>Bug fixes</p>
+
+<ul>
+<li>change by 0 passes/fails correctly (Len Smith)</li>
+<li>Add description to satisfy matcher</li>
+</ul>
+
+<h3>2.0.0.beta.22 / 2010-09-12</h3>
+
+<p><a href="http://github.com/rspec/rspec-expectations/compare/v2.0.0.beta.20...v2.0.0.beta.22">full changelog</a></p>
+
+<p>Enhancements</p>
+
+<ul>
+<li>diffing improvements
+
+<ul>
+<li>diff multiline strings</li>
+<li>don&#39;t diff single line strings</li>
+<li>don&#39;t diff numbers (silly)</li>
+<li>diff regexp + multiline string</li>
+</ul></li>
+</ul>
+
+<p>Bug fixes
+    * <code>should[_not]</code> change now handles boolean values correctly</p>
+</div></div>
+
+    <div id="footer">
+  Generated on Thu Dec 18 08:30:12 2014 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.4 (ruby-2.1.5).
+</div>
+
+  </body>
+</html>
