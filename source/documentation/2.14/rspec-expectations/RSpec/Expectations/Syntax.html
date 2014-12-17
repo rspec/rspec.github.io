@@ -1,0 +1,1263 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Module: RSpec::Expectations::Syntax
+  
+    &mdash; Documentation by YARD 0.8.7.4
+  
+</title>
+
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '../../';
+  framesUrl = "../../frames.html#!RSpec/Expectations/Syntax.html";
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../../_index.html">Index (S)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../../RSpec.html" title="RSpec (module)">RSpec</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Expectations.html" title="RSpec::Expectations (module)">Expectations</a></span></span>
+     &raquo; 
+    <span class="title">Syntax</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../../class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="../../method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="../../file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><h1>Module: RSpec::Expectations::Syntax
+  
+  
+  <span class="private note title">Private</span>
+</h1>
+
+<dl class="box">
+  
+  
+    
+      <dt class="r1">Extended by:</dt>
+      <dd class="r1"><span class='object_link'><a href="" title="RSpec::Expectations::Syntax (module)">Syntax</a></span></dd>
+      
+    
+  
+    
+  
+  
+    <dt class="r2">Included in:</dt>
+    <dd class="r2"><span class='object_link'><a href="" title="RSpec::Expectations::Syntax (module)">Syntax</a></span></dd>
+    
+  
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">lib/rspec/expectations/syntax.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <p class="note private">
+  <strong>This module is part of a private API.</strong>
+  You should avoid using this module if possible, as it may be removed or be changed in the future.
+</p>
+<p>Provides methods for enabling and disabling the available
+syntaxes provided by rspec-expectations.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><h2>Defined Under Namespace</h2>
+<p class="children">
+  
+    
+      <strong class="modules">Modules:</strong> <span class='object_link'><a href="Syntax/ExpectExpressionGenerator.html" title="RSpec::Expectations::Syntax::ExpectExpressionGenerator (module)">ExpectExpressionGenerator</a></span>, <span class='object_link'><a href="Syntax/ShouldExpressionGenerator.html" title="RSpec::Expectations::Syntax::ShouldExpressionGenerator (module)">ShouldExpressionGenerator</a></span>
+    
+  
+    
+  
+</p>
+
+
+
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#default_should_host-instance_method" title="#default_should_host (instance method)">- (Object) <strong>default_should_host</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  <span class="private note title">private</span>
+
+  
+    <span class="summary_desc"><div class='inline'><p>Determines where we add <code>should</code> and <code>should_not</code>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#disable_expect-instance_method" title="#disable_expect (instance method)">- (Object) <strong>disable_expect</strong>(syntax_host = ::RSpec::Matchers) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  <span class="private note title">private</span>
+
+  
+    <span class="summary_desc"><div class='inline'><p>Disables the <code>expect</code> syntax.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#disable_should-instance_method" title="#disable_should (instance method)">- (Object) <strong>disable_should</strong>(syntax_host = default_should_host) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  <span class="private note title">private</span>
+
+  
+    <span class="summary_desc"><div class='inline'><p>Disables the <code>should</code> syntax.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#enable_expect-instance_method" title="#enable_expect (instance method)">- (Object) <strong>enable_expect</strong>(syntax_host = ::RSpec::Matchers) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  <span class="private note title">private</span>
+
+  
+    <span class="summary_desc"><div class='inline'><p>Enables the <code>expect</code> syntax.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#enable_should-instance_method" title="#enable_should (instance method)">- (Object) <strong>enable_should</strong>(syntax_host = default_should_host) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  <span class="private note title">private</span>
+
+  
+    <span class="summary_desc"><div class='inline'><p>Enables the <code>should</code> syntax.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#expect-instance_method" title="#expect (instance method)">- (ExpectationTarget) <strong>expect</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Supports <code>expect(actual).to matcher</code> syntax by wrapping <code>actual</code> in an <code>ExpectationTarget</code>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#expect_enabled%3F-instance_method" title="#expect_enabled? (instance method)">- (Boolean) <strong>expect_enabled?</strong>(syntax_host = ::RSpec::Matchers) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  <span class="private note title">private</span>
+
+  
+    <span class="summary_desc"><div class='inline'><p>Indicates whether or not the <code>expect</code> syntax is enabled.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#expression_generator-instance_method" title="#expression_generator (instance method)">- (Object) <strong>expression_generator</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  <span class="private note title">private</span>
+
+  
+    <span class="summary_desc"><div class='inline'><p>Selects which expression generator to use based on the configured syntax.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#negative_expression-instance_method" title="#negative_expression (instance method)">- (Object) <strong>negative_expression</strong>(target_expression, matcher_expression) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  <span class="private note title">private</span>
+
+  
+    <span class="summary_desc"><div class='inline'><p>Generates a negative expectation expression.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#positive_expression-instance_method" title="#positive_expression (instance method)">- (Object) <strong>positive_expression</strong>(target_expression, matcher_expression) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  <span class="private note title">private</span>
+
+  
+    <span class="summary_desc"><div class='inline'><p>Generates a positive expectation expression.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#should-instance_method" title="#should (instance method)">- (Boolean) <strong>should</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Passes if <code>matcher</code> returns true.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#should_enabled%3F-instance_method" title="#should_enabled? (instance method)">- (Boolean) <strong>should_enabled?</strong>(syntax_host = default_should_host) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  <span class="private note title">private</span>
+
+  
+    <span class="summary_desc"><div class='inline'><p>Indicates whether or not the <code>should</code> syntax is enabled.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#should_not-instance_method" title="#should_not (instance method)">- (Boolean) <strong>should_not</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Passes if <code>matcher</code> returns false.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="default_should_host-instance_method">
+  
+    - (<tt>Object</tt>) <strong>default_should_host</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p class="note private">
+  <strong>This method is part of a private API.</strong>
+  You should avoid using this method if possible, as it may be removed or be changed in the future.
+</p>
+<p>Determines where we add <code>should</code> and <code>should_not</code>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+42
+43
+44</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/expectations/syntax.rb', line 42</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_default_should_host'>default_should_host</span>
+  <span class='ivar'>@default_should_host</span> <span class='op'>||=</span> <span class='op'>::</span><span class='const'>Object</span><span class='period'>.</span><span class='id identifier rubyid_ancestors'>ancestors</span><span class='period'>.</span><span class='id identifier rubyid_last'>last</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="disable_expect-instance_method">
+  
+    - (<tt>Object</tt>) <strong>disable_expect</strong>(syntax_host = ::RSpec::Matchers) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p class="note private">
+  <strong>This method is part of a private API.</strong>
+  You should avoid using this method if possible, as it may be removed or be changed in the future.
+</p>
+<p>Disables the <code>expect</code> syntax.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+95
+96
+97
+98
+99
+100
+101
+102
+103</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/expectations/syntax.rb', line 95</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_disable_expect'>disable_expect</span><span class='lparen'>(</span><span class='id identifier rubyid_syntax_host'>syntax_host</span> <span class='op'>=</span> <span class='op'>::</span><span class='const'>RSpec</span><span class='op'>::</span><span class='const'>Matchers</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='kw'>unless</span> <span class='id identifier rubyid_expect_enabled?'>expect_enabled?</span><span class='lparen'>(</span><span class='id identifier rubyid_syntax_host'>syntax_host</span><span class='rparen'>)</span>
+
+  <span class='id identifier rubyid_syntax_host'>syntax_host</span><span class='period'>.</span><span class='id identifier rubyid_module_eval'>module_eval</span> <span class='kw'>do</span>
+    <span class='kw'>undef</span> <span class='id identifier rubyid_expect'>expect</span>
+  <span class='kw'>end</span>
+
+  <span class='op'>::</span><span class='const'>RSpec</span><span class='op'>::</span><span class='const'>Expectations</span><span class='op'>::</span><span class='const'>ExpectationTarget</span><span class='period'>.</span><span class='id identifier rubyid_disable_deprecated_should'>disable_deprecated_should</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="disable_should-instance_method">
+  
+    - (<tt>Object</tt>) <strong>disable_should</strong>(syntax_host = default_should_host) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p class="note private">
+  <strong>This method is part of a private API.</strong>
+  You should avoid using this method if possible, as it may be removed or be changed in the future.
+</p>
+<p>Disables the <code>should</code> syntax.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/expectations/syntax.rb', line 66</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_disable_should'>disable_should</span><span class='lparen'>(</span><span class='id identifier rubyid_syntax_host'>syntax_host</span> <span class='op'>=</span> <span class='id identifier rubyid_default_should_host'>default_should_host</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='kw'>unless</span> <span class='id identifier rubyid_should_enabled?'>should_enabled?</span><span class='lparen'>(</span><span class='id identifier rubyid_syntax_host'>syntax_host</span><span class='rparen'>)</span>
+
+  <span class='id identifier rubyid_syntax_host'>syntax_host</span><span class='period'>.</span><span class='id identifier rubyid_module_eval'>module_eval</span> <span class='kw'>do</span>
+    <span class='kw'>undef</span> <span class='id identifier rubyid_should'>should</span>
+    <span class='kw'>undef</span> <span class='id identifier rubyid_should_not'>should_not</span>
+  <span class='kw'>end</span>
+
+  <span class='op'>::</span><span class='const'>RSpec</span><span class='op'>::</span><span class='const'>Expectations</span><span class='op'>::</span><span class='const'>ExpectationTarget</span><span class='period'>.</span><span class='id identifier rubyid_disable_deprecated_should'>disable_deprecated_should</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="enable_expect-instance_method">
+  
+    - (<tt>Object</tt>) <strong>enable_expect</strong>(syntax_host = ::RSpec::Matchers) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p class="note private">
+  <strong>This method is part of a private API.</strong>
+  You should avoid using this method if possible, as it may be removed or be changed in the future.
+</p>
+<p>Enables the <code>expect</code> syntax.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/expectations/syntax.rb', line 79</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_enable_expect'>enable_expect</span><span class='lparen'>(</span><span class='id identifier rubyid_syntax_host'>syntax_host</span> <span class='op'>=</span> <span class='op'>::</span><span class='const'>RSpec</span><span class='op'>::</span><span class='const'>Matchers</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='kw'>if</span> <span class='id identifier rubyid_expect_enabled?'>expect_enabled?</span><span class='lparen'>(</span><span class='id identifier rubyid_syntax_host'>syntax_host</span><span class='rparen'>)</span>
+
+  <span class='id identifier rubyid_syntax_host'>syntax_host</span><span class='period'>.</span><span class='id identifier rubyid_module_eval'>module_eval</span> <span class='kw'>do</span>
+    <span class='kw'>def</span> <span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_target'>target</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_target_block'>target_block</span><span class='rparen'>)</span>
+      <span class='id identifier rubyid_target'>target</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_target_block'>target_block</span> <span class='kw'>if</span> <span class='id identifier rubyid_block_given?'>block_given?</span>
+      <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>You must pass an argument or a block to #expect but not both.</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='kw'>unless</span> <span class='id identifier rubyid_target'>target</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span> <span class='op'>==</span> <span class='int'>1</span>
+      <span class='op'>::</span><span class='const'>RSpec</span><span class='op'>::</span><span class='const'>Expectations</span><span class='op'>::</span><span class='const'>ExpectationTarget</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_target'>target</span><span class='period'>.</span><span class='id identifier rubyid_first'>first</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+
+  <span class='op'>::</span><span class='const'>RSpec</span><span class='op'>::</span><span class='const'>Expectations</span><span class='op'>::</span><span class='const'>ExpectationTarget</span><span class='period'>.</span><span class='id identifier rubyid_enable_deprecated_should'>enable_deprecated_should</span> <span class='kw'>if</span> <span class='id identifier rubyid_should_enabled?'>should_enabled?</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="enable_should-instance_method">
+  
+    - (<tt>Object</tt>) <strong>enable_should</strong>(syntax_host = default_should_host) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p class="note private">
+  <strong>This method is part of a private API.</strong>
+  You should avoid using this method if possible, as it may be removed or be changed in the future.
+</p>
+<p>Enables the <code>should</code> syntax.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/expectations/syntax.rb', line 48</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_enable_should'>enable_should</span><span class='lparen'>(</span><span class='id identifier rubyid_syntax_host'>syntax_host</span> <span class='op'>=</span> <span class='id identifier rubyid_default_should_host'>default_should_host</span><span class='rparen'>)</span>
+  <span class='kw'>return</span> <span class='kw'>if</span> <span class='id identifier rubyid_should_enabled?'>should_enabled?</span><span class='lparen'>(</span><span class='id identifier rubyid_syntax_host'>syntax_host</span><span class='rparen'>)</span>
+
+  <span class='id identifier rubyid_syntax_host'>syntax_host</span><span class='period'>.</span><span class='id identifier rubyid_module_eval'>module_eval</span> <span class='kw'>do</span>
+    <span class='kw'>def</span> <span class='id identifier rubyid_should'>should</span><span class='lparen'>(</span><span class='id identifier rubyid_matcher'>matcher</span><span class='op'>=</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='id identifier rubyid_message'>message</span><span class='op'>=</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
+      <span class='op'>::</span><span class='const'>RSpec</span><span class='op'>::</span><span class='const'>Expectations</span><span class='op'>::</span><span class='const'>PositiveExpectationHandler</span><span class='period'>.</span><span class='id identifier rubyid_handle_matcher'>handle_matcher</span><span class='lparen'>(</span><span class='kw'>self</span><span class='comma'>,</span> <span class='id identifier rubyid_matcher'>matcher</span><span class='comma'>,</span> <span class='id identifier rubyid_message'>message</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+
+    <span class='kw'>def</span> <span class='id identifier rubyid_should_not'>should_not</span><span class='lparen'>(</span><span class='id identifier rubyid_matcher'>matcher</span><span class='op'>=</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='id identifier rubyid_message'>message</span><span class='op'>=</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
+      <span class='op'>::</span><span class='const'>RSpec</span><span class='op'>::</span><span class='const'>Expectations</span><span class='op'>::</span><span class='const'>NegativeExpectationHandler</span><span class='period'>.</span><span class='id identifier rubyid_handle_matcher'>handle_matcher</span><span class='lparen'>(</span><span class='kw'>self</span><span class='comma'>,</span> <span class='id identifier rubyid_matcher'>matcher</span><span class='comma'>,</span> <span class='id identifier rubyid_message'>message</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+
+  <span class='op'>::</span><span class='const'>RSpec</span><span class='op'>::</span><span class='const'>Expectations</span><span class='op'>::</span><span class='const'>ExpectationTarget</span><span class='period'>.</span><span class='id identifier rubyid_enable_deprecated_should'>enable_deprecated_should</span> <span class='kw'>if</span> <span class='id identifier rubyid_expect_enabled?'>expect_enabled?</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="expect-instance_method">
+  
+    - (<tt><span class='object_link'><a href="ExpectationTarget.html" title="RSpec::Expectations::ExpectationTarget (class)">ExpectationTarget</a></span></tt>) <strong>expect</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Supports <code>expect(actual).to matcher</code> syntax by wrapping <code>actual</code> in an
+<code>ExpectationTarget</code>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_actual'>actual</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_eq'>eq</span><span class='lparen'>(</span><span class='id identifier rubyid_expected'>expected</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_actual'>actual</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_not_to'>not_to</span> <span class='id identifier rubyid_eq'>eq</span><span class='lparen'>(</span><span class='id identifier rubyid_expected'>expected</span><span class='rparen'>)</span></code></pre>
+    
+  </div>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="ExpectationTarget.html" title="RSpec::Expectations::ExpectationTarget (class)">ExpectationTarget</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="ExpectationTarget.html#to-instance_method" title="RSpec::Expectations::ExpectationTarget#to (method)">ExpectationTarget#to</a></span></li>
+    
+      <li><span class='object_link'><a href="ExpectationTarget.html#not_to-instance_method" title="RSpec::Expectations::ExpectationTarget#not_to (method)">ExpectationTarget#not_to</a></span></li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/expectations/syntax.rb', line 30</span>
+
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="expect_enabled?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>expect_enabled?</strong>(syntax_host = ::RSpec::Matchers) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p class="note private">
+  <strong>This method is part of a private API.</strong>
+  You should avoid using this method if possible, as it may be removed or be changed in the future.
+</p>
+<p>Indicates whether or not the <code>expect</code> syntax is enabled.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+113
+114
+115</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/expectations/syntax.rb', line 113</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_expect_enabled?'>expect_enabled?</span><span class='lparen'>(</span><span class='id identifier rubyid_syntax_host'>syntax_host</span> <span class='op'>=</span> <span class='op'>::</span><span class='const'>RSpec</span><span class='op'>::</span><span class='const'>Matchers</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_syntax_host'>syntax_host</span><span class='period'>.</span><span class='id identifier rubyid_method_defined?'>method_defined?</span><span class='lparen'>(</span><span class='symbol'>:expect</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="expression_generator-instance_method">
+  
+    - (<tt>Object</tt>) <strong>expression_generator</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p class="note private">
+  <strong>This method is part of a private API.</strong>
+  You should avoid using this method if possible, as it may be removed or be changed in the future.
+</p>
+<p>Selects which expression generator to use based on the configured syntax.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+131
+132
+133
+134
+135
+136
+137</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/expectations/syntax.rb', line 131</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_expression_generator'>expression_generator</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_expect_enabled?'>expect_enabled?</span>
+    <span class='const'>ExpectExpressionGenerator</span>
+  <span class='kw'>else</span>
+    <span class='const'>ShouldExpressionGenerator</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="negative_expression-instance_method">
+  
+    - (<tt>Object</tt>) <strong>negative_expression</strong>(target_expression, matcher_expression) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p class="note private">
+  <strong>This method is part of a private API.</strong>
+  You should avoid using this method if possible, as it may be removed or be changed in the future.
+</p>
+<p>Generates a negative expectation expression.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+125
+126
+127</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/expectations/syntax.rb', line 125</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_negative_expression'>negative_expression</span><span class='lparen'>(</span><span class='id identifier rubyid_target_expression'>target_expression</span><span class='comma'>,</span> <span class='id identifier rubyid_matcher_expression'>matcher_expression</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_expression_generator'>expression_generator</span><span class='period'>.</span><span class='id identifier rubyid_negative_expression'>negative_expression</span><span class='lparen'>(</span><span class='id identifier rubyid_target_expression'>target_expression</span><span class='comma'>,</span> <span class='id identifier rubyid_matcher_expression'>matcher_expression</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="positive_expression-instance_method">
+  
+    - (<tt>Object</tt>) <strong>positive_expression</strong>(target_expression, matcher_expression) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p class="note private">
+  <strong>This method is part of a private API.</strong>
+  You should avoid using this method if possible, as it may be removed or be changed in the future.
+</p>
+<p>Generates a positive expectation expression.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+119
+120
+121</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/expectations/syntax.rb', line 119</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_positive_expression'>positive_expression</span><span class='lparen'>(</span><span class='id identifier rubyid_target_expression'>target_expression</span><span class='comma'>,</span> <span class='id identifier rubyid_matcher_expression'>matcher_expression</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_expression_generator'>expression_generator</span><span class='period'>.</span><span class='id identifier rubyid_positive_expression'>positive_expression</span><span class='lparen'>(</span><span class='id identifier rubyid_target_expression'>target_expression</span><span class='comma'>,</span> <span class='id identifier rubyid_matcher_expression'>matcher_expression</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="should-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>should</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Passes if <code>matcher</code> returns true.  Available on every <code>Object</code>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code><span class='id identifier rubyid_actual'>actual</span><span class='period'>.</span><span class='id identifier rubyid_should'>should</span> <span class='id identifier rubyid_eq'>eq</span> <span class='id identifier rubyid_expected'>expected</span>
+<span class='id identifier rubyid_actual'>actual</span><span class='period'>.</span><span class='id identifier rubyid_should'>should</span> <span class='id identifier rubyid_match'>match</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>expression</span><span class='regexp_end'>/</span></span></code></pre>
+    
+  </div>
+<p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>matcher</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Matchers/DSL/Matcher.html" title="RSpec::Matchers::DSL::Matcher (class)">Matcher</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>message</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>optional message to display when the expectation fails</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>true if the expectation succeeds (else raises)</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="../Matchers.html" title="RSpec::Matchers (module)">Matchers</a></span></li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/expectations/syntax.rb', line 9</span>
+
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="should_enabled?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>should_enabled?</strong>(syntax_host = default_should_host) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p class="note private">
+  <strong>This method is part of a private API.</strong>
+  You should avoid using this method if possible, as it may be removed or be changed in the future.
+</p>
+<p>Indicates whether or not the <code>should</code> syntax is enabled.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+107
+108
+109</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/expectations/syntax.rb', line 107</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_should_enabled?'>should_enabled?</span><span class='lparen'>(</span><span class='id identifier rubyid_syntax_host'>syntax_host</span> <span class='op'>=</span> <span class='id identifier rubyid_default_should_host'>default_should_host</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_syntax_host'>syntax_host</span><span class='period'>.</span><span class='id identifier rubyid_method_defined?'>method_defined?</span><span class='lparen'>(</span><span class='symbol'>:should</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="should_not-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>should_not</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Passes if <code>matcher</code> returns false.  Available on every <code>Object</code>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code><span class='id identifier rubyid_actual'>actual</span><span class='period'>.</span><span class='id identifier rubyid_should_not'>should_not</span> <span class='id identifier rubyid_eq'>eq</span> <span class='id identifier rubyid_expected'>expected</span></code></pre>
+    
+  </div>
+<p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>matcher</span>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../Matchers/DSL/Matcher.html" title="RSpec::Matchers::DSL::Matcher (class)">Matcher</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>message</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>optional message to display when the expectation fails</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>false if the negative expectation succeeds (else raises)</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="../Matchers.html" title="RSpec::Matchers (module)">Matchers</a></span></li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/expectations/syntax.rb', line 20</span>
+
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+    <div id="footer">
+  Generated on Thu Dec 18 08:30:12 2014 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.4 (ruby-2.1.5).
+</div>
+
+  </body>
+</html>

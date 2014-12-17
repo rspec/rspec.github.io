@@ -1,0 +1,1228 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>
+  File: Changelog
+  
+    &mdash; Documentation by YARD 0.8.7.6
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '';
+  framesUrl = "frames.html#!file.Changelog.html";
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="_index.html">Index</a> &raquo; 
+    <span class="title">File: Changelog</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><div id='filecontents'><h3>2.14.9 Development</h3>
+
+<p><a href="http://github.com/rspec/rspec-core/compare/v2.14.8...2-14-maintenance">Full Changelog</a></p>
+
+<p>Bug fixes:</p>
+
+<ul>
+<li>Use <code>RSpec::Configuration#backtrace_exclusion_patterns</code> rather than the
+deprecated <code>RSpec::Configuration#backtrace_clean_patterns</code> when mocking
+with rr. (David Dollar)</li>
+</ul>
+
+<h3>2.14.8 / 2014-02-27</h3>
+
+<p><a href="http://github.com/rspec/rspec-core/compare/v2.14.7...v2.14.8">Full Changelog</a></p>
+
+<p>Bug fixes:</p>
+
+<ul>
+<li>Fix regression with the <code>TextMateFormatter</code> that prevented backtrace links
+from being clickable. (Stefan Daschek)</li>
+</ul>
+
+<h3>2.14.7 / 2013-10-29</h3>
+
+<p><a href="http://github.com/rspec/rspec-core/compare/v2.14.6...v2.14.7">full changelog</a></p>
+
+<p>Bug fixes:</p>
+
+<ul>
+<li>Fix regression in 2.14.6 that broke the Fivemat formatter.
+It depended upon either
+<code>example.execution_result[:exception].pending_fixed?</code> (which
+was removed in 2.14.6 to fix an issue with frozen error objects)
+or <code>RSpec::Core::PendingExampleFixedError</code> (which was renamed
+to <code>RSpec::Core::Pending::PendingExampleFixedError</code> in 2.8.
+This fix makes a constant alias for the old error name.
+(Myron Marston)</li>
+</ul>
+
+<h3>2.14.6 / 2013-10-15</h3>
+
+<p><a href="http://github.com/rspec/rspec-core/compare/v2.14.5...v2.14.6">full changelog</a></p>
+
+<p>Bug fixes:</p>
+
+<ul>
+<li>Format stringified numbers correctly when mathn library is loaded.
+(Jay Hayes)</li>
+<li>Fix an issue that prevented the use of frozen error objects. (Lars Gierth)</li>
+</ul>
+
+<h3>2.14.5 / 2013-08-13</h3>
+
+<p><a href="http://github.com/rspec/rspec-core/compare/v2.14.4...v2.14.5">full changelog</a></p>
+
+<p>Bug fixes:</p>
+
+<ul>
+<li>Fix a <code>NoMethodError</code> that was being raised when there were no shared
+examples or contexts declared and <code>RSpec.world.reset</code> is invoked.
+(thepoho, Jon Rowe, Myron Marston)</li>
+<li>Fix a deprecation warning that was being incorrectly displayed when
+<code>shared_examples</code> are declared at top level in a <code>module</code> scope.
+(Jon Rowe)</li>
+<li>Fix after(:all) hooks so consecutive (same context) scopes will run even if
+one raises an error. (Jon Rowe, Trejkaz)</li>
+<li>JsonFormatter no longer dies if <code>dump_profile</code> isn&#39;t defined (Alex / @MasterLambaster, Jon Rowe)</li>
+</ul>
+
+<h3>2.14.4 / 2013-07-21</h3>
+
+<p><a href="http://github.com/rspec/rspec-core/compare/v2.14.3...v2.14.4">full changelog</a></p>
+
+<p>Bug fixes</p>
+
+<ul>
+<li>Fix regression in 2.14: ensure configured requires (via <code>-r</code> option)
+are loaded before spec files are loaded. This allows the spec files
+to programatically change the file pattern (Jon Rowe).</li>
+<li>Autoload <code>RSpec::Mocks</code> and <code>RSpec::Expectations</code> when referenced if
+they are not already loaded (<code>RSpec::Matches</code> has been autoloaded
+for a while). In the <code>rspec</code> gem, we changed it recently to stop
+loading <code>rspec/mocks</code> and <code>rspec/expectations</code> by default, as some
+users reported problems where they were intending to use mocha,
+not rspec-mocks, but rspec-mocks was loaded and causing a conflict.
+rspec-core loads mocks and expectations at the appropriate time, so
+it seemed like a safe change -- but caused a problem for some authors
+of libraries that integrate with RSpec. This fixes that problem.
+(Myron Marston)</li>
+<li>Gracefully handle a command like <code>rspec --profile path/to/spec.rb</code>:
+the <code>path/to/spec.rb</code> arg was being wrongly treated as the <code>profile</code>
+integer arg, which got cast <code>0</code> using <code>to_i</code>, causing no profiled
+examples to be printed. (Jon Rowe)</li>
+</ul>
+
+<h3>2.14.3 / 2013-07-13</h3>
+
+<p><a href="http://github.com/rspec/rspec-core/compare/v2.14.2...v2.14.3">full changelog</a></p>
+
+<p>Bug fixes</p>
+
+<ul>
+<li>Fix deprecation notices issued from <code>RSpec::Core::RakeTask</code> so
+that they work properly when all of rspec-core is not loaded.
+(This was a regression in 2.14) (Jon Rowe)</li>
+</ul>
+
+<h3>2.14.2 / 2013-07-09</h3>
+
+<p><a href="http://github.com/rspec/rspec-core/compare/v2.14.1...v2.14.2">full changelog</a></p>
+
+<p>Bug fixes</p>
+
+<ul>
+<li>Fix regression caused by 2.14.1 release: formatters that
+report that they <code>respond_to?</code> a notification, but had
+no corresponding method would raise an error when registered.
+The new fix is to just implement <code>start</code> on the deprecation
+formatter to fix the original JRuby/ruby-debug issue.
+(Jon Rowe)</li>
+</ul>
+
+<h3>2.14.1 / 2013-07-08</h3>
+
+<p><a href="http://github.com/rspec/rspec-core/compare/v2.14.0...v2.14.1">full changelog</a></p>
+
+<p>Bug fixes</p>
+
+<ul>
+<li>Address deprecation formatter failure when using <code>ruby-debug</code> on
+JRuby: fix <code>RSpec::Core::Reporter</code> to not send a notification
+when the formatter&#39;s implementation of the notification method
+comes from <code>Kernel</code> (Alex Portnov, Jon Rowe).</li>
+</ul>
+
+<h3>2.14.0 / 2013-07-06</h3>
+
+<p><a href="http://github.com/rspec/rspec-core/compare/v2.14.0.rc1...v2.14.0">full changelog</a></p>
+
+<p>Enhancements</p>
+
+<ul>
+<li>Apply focus to examples defined with <code>fit</code> (equivalent of
+<code>it &quot;description&quot;, focus: true</code>) (Michael de Silva)</li>
+</ul>
+
+<p>Bug fixes</p>
+
+<ul>
+<li>Ensure methods defined by <code>let</code> take precedence over others
+when there is a name collision (e.g. from an included module).
+(Jon Rowe, Andy Lindeman and Myron Marston)</li>
+</ul>
+
+<h3>2.14.0.rc1 / 2013-05-27</h3>
+
+<p><a href="http://github.com/rspec/rspec-core/compare/v2.13.1...v2.14.0.rc1">full changelog</a></p>
+
+<p>Enhancements</p>
+
+<ul>
+<li>Improved Windows detection inside Git Bash, for better <code>--color</code> handling.</li>
+<li>Add profiling of the slowest example groups to <code>--profile</code> option.
+The output is sorted by the slowest average example groups.</li>
+<li>Don&#39;t show slow examples if there&#39;s a failure and both <code>--fail-fast</code>
+and <code>--profile</code> options are used (Paweł Gościcki).</li>
+<li>Rather than always adding <code>spec</code> to the load path, add the configured
+<code>--default-path</code> to the load path (which defaults to <code>spec</code>). This
+better supports folks who choose to put their specs in a different
+directory (John Feminella).</li>
+<li>Add some logic to test time duration precision. Make it a
+function of time, dropping precision as the time increases. (Aaron Kromer)</li>
+<li>Add new <code>backtrace_inclusion_patterns</code> config option. Backtrace lines
+that match one of these patterns will <em>always</em> be included in the
+backtrace, even if they match an exclusion pattern, too (Sam Phippen).</li>
+<li>Support ERB trim mode using the <code>-</code> when parsing <code>.rspec</code> as ERB
+(Gabor Garami).</li>
+<li>Give a better error message when let and subject are called without a block.
+(Sam Phippen).</li>
+<li>List the precedence of <code>.rspec-local</code> in the configuration documentation
+(Sam Phippen)</li>
+<li>Support <code>{a,b}</code> shell expansion syntax in <code>--pattern</code> option
+(Konstantin Haase).</li>
+<li>Add cucumber documentation for --require command line option
+(Bradley Schaefer)</li>
+<li>Expose configruation options via config:
+
+<ul>
+<li><code>config.libs</code> returns the libs configured to be added onto the load path</li>
+<li><code>full_backtrace?</code> returns the state of the backtrace cleaner</li>
+<li><code>debug?</code> returns true when the debugger is loaded</li>
+<li><code>line_numbers</code> returns the line numbers we are filtering by (if any)</li>
+<li><code>full_description</code> returns the RegExp used to filter descriptions
+(Jon Rowe)</li>
+</ul></li>
+<li>Add setters for RSpec.world and RSpec.configuration (Alex Soulim)</li>
+<li>Configure ruby&#39;s warning behaviour with <code>--warnings</code> (Jon Rowe)</li>
+<li>Fix an obscure issue on old versions of <code>1.8.7</code> where <code>Time.dup</code> wouldn&#39;t
+allow access to <code>Time.now</code> (Jon Rowe)</li>
+<li>Make <code>shared_examples_for</code> context aware, so that keys may be safely reused
+in multiple contexts without colliding. (Jon Rowe)</li>
+<li>Add a configurable <code>deprecation_stream</code> (Jon Rowe)</li>
+<li>Publish deprecations through a formatter (David Chelimsky)</li>
+</ul>
+
+<p>Bug fixes</p>
+
+<ul>
+<li>Make JSON formatter behave the same when it comes to <code>--profile</code> as
+the text formatter (Paweł Gościcki).</li>
+<li>Fix named subjects so that if an inner group defines a method that
+overrides the named method, <code>subject</code> still retains the originally
+declared value (Myron Marston).</li>
+<li>Fix random ordering so that it does not cause <code>rand</code> in examples in
+nested sibling contexts to return the same value (Max Shytikov).</li>
+<li>Use the new <code>backtrace_inclusion_patterns</code> config option to ensure
+that folks who develop code in a directory matching one of the default
+exclusion patterns (e.g. <code>gems</code>) still get the normal backtrace
+filtering (Sam Phippen).</li>
+<li>Fix ordering of <code>before</code> hooks so that <code>before</code> hooks declared in
+<code>RSpec.configure</code> run before <code>before</code> hooks declared in a shared
+context (Michi Huber and Tejas Dinkar).</li>
+<li>Fix <code>Example#full_description</code> so that it gets filled in by the last
+matcher description (as <code>Example#description</code> already did) when no
+doc string has been provided (David Chelimsky).</li>
+<li>Fix the memoized methods (<code>let</code> and <code>subject</code>) leaking <code>define_method</code>
+as a <code>public</code> method. (Thomas Holmes and Jon Rowe) (#873)</li>
+<li>Fix warnings coming from the test suite. (Pete Higgins)</li>
+</ul>
+
+<p>Deprecations</p>
+
+<ul>
+<li>Deprecate <code>Configuration#backtrace_clean_patterns</code> in favor of
+<code>Configuration#backtrace_exclusion_patterns</code> for greater consistency
+and symmetry with new <code>backtrace_inclusion_patterns</code> config option
+(Sam Phippen).</li>
+<li>Deprecate <code>Configuration#requires=</code> in favor of using ruby&#39;s
+<code>require</code>. Requires specified by the command line can still be
+accessed by the <code>Configuration#require</code> reader. (Bradley Schaefer)</li>
+<li>Deprecate calling <code>SharedExampleGroups</code> defined across sibling contexts
+(Jon Rowe)</li>
+</ul>
+
+<h3>2.13.1 / 2013-03-12</h3>
+
+<p><a href="http://github.com/rspec/rspec-core/compare/v2.13.0...v2.13.1">full changelog</a></p>
+
+<p>Bug fixes</p>
+
+<ul>
+<li>Use hook classes as proxies rather than extending hook blocks to support
+lambdas for before/after/around hooks. (David Chelimsky)</li>
+<li>Fix regression in 2.13.0 that caused confusing behavior when overriding
+a named subject with an unnamed subject in an inner group and then
+referencing the outer group subject&#39;s name. The fix for this required
+us to disallow using <code>super</code> in a named subject (which is confusing,
+anyway -- named subjects create 2 methods, so which method on the
+parent example group are you <code>super</code>ing to?) but <code>super</code> in an unnamed
+subject continues to work (Myron Marston).</li>
+<li>Do not allow a referenced <code>let</code> or <code>subject</code> in <code>before(:all)</code> to cause
+other <code>let</code> declarations to leak across examples (Myron Marston).</li>
+<li>Work around odd ruby 1.9 bug with <code>String#match</code> that was triggered
+by passing it a regex from a <code>let</code> declaration. For more info, see
+<a href="http://bugs.ruby-lang.org/issues/8059">http://bugs.ruby-lang.org/issues/8059</a> (Aaron Kromer).</li>
+<li>Add missing <code>require &#39;set&#39;</code> to <code>base_text_formatter.rb</code> (Tom
+Anderson).</li>
+</ul>
+
+<p>Deprecations</p>
+
+<ul>
+<li>Deprecate accessing <code>let</code> or <code>subject</code> declarations in <code>before(:all)</code>.
+These were not intended to be called in a <code>before(:all)</code> hook, as
+they exist to define state that is reset between each example, while
+<code>before(:all)</code> exists to define state that is shared across examples
+in an example group (Myron Marston).</li>
+</ul>
+
+<h3>2.13.0 / 2013-02-23</h3>
+
+<p><a href="http://github.com/rspec/rspec-core/compare/v2.12.2...v2.13.0">full changelog</a></p>
+
+<p>Enhancements</p>
+
+<ul>
+<li>Allow <code>--profile</code> option to take a count argument that
+determines the number of slow examples to dump
+(Greggory Rothmeier).</li>
+<li>Add <code>subject!</code> that is the analog to <code>let!</code>. It defines an
+explicit subject and sets a <code>before</code> hook that will invoke
+the subject (Zubin Henner).</li>
+<li>Fix <code>let</code> and <code>subject</code> declaration so that <code>super</code>
+and <code>return</code> can be used in them, just like in a normal
+method. (Myron Marston)</li>
+<li>Allow output colors to be configured individually.
+(Charlie Maffitt)</li>
+<li>Always dump slow examples when <code>--profile</code> option is given,
+even when an example failed (Myron Marston).</li>
+</ul>
+
+<p>Bug fixes</p>
+
+<ul>
+<li>Don&#39;t blow up when dumping error output for instances
+of anonymous error classes (Myron Marston).</li>
+<li>Fix default backtrace filters so lines from projects
+containing &quot;gems&quot; in the name are not filtered, but
+lines from installed gems still are (Myron Marston).</li>
+<li>Fix autotest command so that is uses double quotes
+rather than single quotes for windows compatibility
+(Jonas Tingeborn).</li>
+<li>Fix <code>its</code> so that uses of <code>subject</code> in a <code>before</code> or <code>let</code>
+declaration in the parent group continue to reference the
+parent group&#39;s subject. (Olek Janiszewski)</li>
+</ul>
+
+<h3>2.12.2 / 2012-12-13</h3>
+
+<p><a href="http://github.com/rspec/rspec-core/compare/v2.12.1...v2.12.2">full changelog</a></p>
+
+<p>Bug fixes</p>
+
+<ul>
+<li>Fix <code>RSpec::Core::RakeTask</code> so that it is compatible with rake 0.8.7
+on ruby 1.8.7. We had accidentally broke it in the 2.12 release
+(Myron Marston).</li>
+<li>Fix <code>RSpec::Core::RakeTask</code> so it is tolerant of the <code>Rspec</code> constant
+for backwards compatibility (Patrick Van Stee)</li>
+</ul>
+
+<h3>2.12.1 / 2012-12-01</h3>
+
+<p><a href="http://github.com/rspec/rspec-core/compare/v2.12.0...v2.12.1">full changelog</a></p>
+
+<p>Bug fixes</p>
+
+<ul>
+<li>Specs are run even if another at_exit hook calls <code>exit</code>. This allows
+Test::Unit and RSpec to run together. (Suraj N. Kurapati)</li>
+<li>Fix full doc string concatenation so that it handles the case of a
+method string (e.g. &quot;#foo&quot;) being nested under a context string
+(e.g. &quot;when it is tuesday&quot;), so that we get &quot;when it is tuesday #foo&quot;
+rather than &quot;when it is tuesday#foo&quot;. (Myron Marston)</li>
+<li>Restore public API I unintentionally broke in 2.12.0:
+<code>RSpec::Core::Formatters::BaseFormatter#format_backtrce(backtrace, example)</code>
+(Myron Marston).</li>
+</ul>
+
+<h3>2.12.0 / 2012-11-12</h3>
+
+<p><a href="http://github.com/rspec/rspec-core/compare/v2.11.1...v2.12.0">full changelog</a></p>
+
+<p>Enhancements</p>
+
+<ul>
+<li>Add support for custom ordering strategies for groups and examples.
+(Myron Marston)</li>
+<li>JSON Formatter (Alex Chaffee)</li>
+<li>Refactor rake task internals (Sam Phippen)</li>
+<li>Refactor HtmlFormatter (Pete Hodgson)</li>
+<li>Autotest supports a path to Ruby that contains spaces (dsisnero)</li>
+<li>Provide a helpful warning when a shared example group is redefined.
+(Mark Burns).</li>
+<li><code>--default_path</code> can be specified as <code>--default-line</code>. <code>--line_number</code> can be
+specified as <code>--line-number</code>. Hyphens are more idiomatic command line argument
+separators (Sam Phippen).</li>
+<li>A more useful error message is shown when an invalid command line option is
+used (Jordi Polo).</li>
+<li>Add <code>format_docstrings { |str| }</code> config option. It can be used to
+apply formatting rules to example group and example docstrings.
+(Alex Tan)</li>
+<li>Add support for an <code>.rspec-local</code> options file. This is intended to
+allow individual developers to set options in a git-ignored file that
+override the common project options in <code>.rspec</code>. (Sam Phippen)</li>
+<li>Support for mocha 0.13.0. (Andy Lindeman)</li>
+</ul>
+
+<p>Bug fixes</p>
+
+<ul>
+<li>Remove override of <code>ExampleGroup#ancestors</code>. This is a core ruby method that
+RSpec shouldn&#39;t override. Instead, define <code>ExampleGroup#parent_groups</code>. (Myron
+Marston)</li>
+<li>Limit monkey patching of shared example/context declaration methods
+(<code>shared_examples_for</code>, etc.) to just the objects that need it rather than
+every object in the system (Myron Marston).</li>
+<li>Fix Metadata#fetch to support computed values (Sam Goldman).</li>
+<li>Named subject can now be referred to from within subject block in a nested
+group (tomykaira).</li>
+<li>Fix <code>fail_fast</code> so that it properly exits when an error occurs in a
+<code>before(:all) hook</code> (Bradley Schaefer).</li>
+<li>Make the order spec files are loaded consistent, regardless of the
+order of the files returned by the OS or the order passed at
+the command line (Jo Liss and Sam Phippen).</li>
+<li>Ensure instance variables from <code>before(:all)</code> are always exposed
+from <code>after(:all)</code>, even if an error occurs in <code>before(:all)</code>
+(Sam Phippen).</li>
+<li><code>rspec --init</code> no longer generates an incorrect warning about <code>--configure</code>
+being deprecated (Sam Phippen).</li>
+<li>Fix pluralization of <code>1 seconds</code> (Odin Dutton)</li>
+<li>Fix ANSICON url (Jarmo Pertman)</li>
+<li>Use dup of Time so reporting isn&#39;t clobbered by examples that modify Time
+without properly restoring it. (David Chelimsky)</li>
+</ul>
+
+<p>Deprecations</p>
+
+<ul>
+<li><code>share_as</code> is no longer needed. <code>shared_context</code> and/or
+<code>RSpec::SharedContext</code> provide better mechanisms (Sam Phippen).</li>
+<li>Deprecate <code>RSpec.configuration</code> with a block (use <code>RSpec.configure</code>).</li>
+</ul>
+
+<h3>2.11.1 / 2012-07-18</h3>
+
+<p><a href="http://github.com/rspec/rspec-core/compare/v2.11.0...v2.11.1">full changelog</a></p>
+
+<p>Bug fixes</p>
+
+<ul>
+<li>Fix the way we autoload RSpec::Matchers so that custom matchers can be
+defined before rspec-core has been configured to definitely use
+rspec-expectations. (Myron Marston)</li>
+<li>Fix typo in --help message printed for -e option. (Jo Liss)</li>
+<li>Fix ruby warnings. (Myron Marston)</li>
+<li>Ignore mock expectation failures when the example has already failed.
+Mock expectation failures have always been ignored in this situation,
+but due to my changes in 27059bf1 it was printing a confusing message.
+(Myron Marston).</li>
+</ul>
+
+<h3>2.11.0 / 2012-07-07</h3>
+
+<p><a href="http://github.com/rspec/rspec-core/compare/v2.10.1...v2.11.0">full changelog</a></p>
+
+<p>Enhancements</p>
+
+<ul>
+<li>Support multiple <code>--example</code> options. (Daniel Doubrovkine @dblock)</li>
+<li>Named subject e.g. <code>subject(:article) { Article.new }</code>
+
+<ul>
+<li>see <a href="http://blog.davidchelimsky.net/2012/05/13/spec-smell-explicit-use-of-subject/">http://blog.davidchelimsky.net/2012/05/13/spec-smell-explicit-use-of-subject/</a>
+for background.</li>
+<li>thanks to Bradley Schaefer for suggesting it and Avdi Grimm for almost
+suggesting it.</li>
+</ul></li>
+<li><code>config.mock_with</code> and <code>config.expect_with</code> yield custom config object to a
+block if given
+
+<ul>
+<li>aids decoupling from rspec-core&#39;s configuation</li>
+</ul></li>
+<li><code>include_context</code> and <code>include_examples</code> support a block, which gets eval&#39;d
+in the current context (vs the nested context generated by <code>it_behaves_like</code>).</li>
+<li>Add <code>config.order = &#39;random&#39;</code> to the <code>spec_helper.rb</code> generated by <code>rspec
+--init</code>.</li>
+<li>Delay the loading of DRb (Myron Marston).</li>
+<li>Limit monkey patching of <code>describe</code> onto just the objects that need it rather
+than every object in the system (Myron Marston).</li>
+</ul>
+
+<p>Bug fixes</p>
+
+<ul>
+<li>Support alternative path separators. For example, on Windows, you can now do
+this: <code>rspec spec\subdir</code>. (Jarmo Pertman @jarmo)</li>
+<li>When an example raises an error and an after or around hook does as
+well, print out the hook error. Previously, the error was silenced and
+the user got no feedback about what happened. (Myron Marston)</li>
+<li><code>--require</code> and <code>-I</code> are merged among different configuration sources (Andy
+Lindeman)</li>
+<li>Delegate to mocha methods instead of aliasing them in mocha adapter.</li>
+</ul>
+
+<h3>2.10.1 / 2012-05-19</h3>
+
+<p><a href="http://github.com/rspec/rspec-core/compare/v2.10.0...v2.10.1">full changelog</a></p>
+
+<p>Bug fixes</p>
+
+<ul>
+<li><code>RSpec.reset</code> properly reinits configuration and world</li>
+<li>Call <code>to_s</code> before <code>split</code> on exception messages that might not always be
+Strings (slyphon)</li>
+</ul>
+
+<h3>2.10.0 / 2012-05-03</h3>
+
+<p><a href="http://github.com/rspec/rspec-core/compare/v2.9.0...v2.10.0">full changelog</a></p>
+
+<p>Enhancements</p>
+
+<ul>
+<li>Add <code>prepend_before</code> and <code>append_after</code> hooks (preethiramdev)
+
+<ul>
+<li>intended for extension libs</li>
+<li>restores rspec-1 behavior</li>
+</ul></li>
+<li>Reporting of profiled examples (moro)
+
+<ul>
+<li>Report the total amount of time taken for the top slowest examples.</li>
+<li>Report what percentage the slowest examples took from the total runtime.</li>
+</ul></li>
+</ul>
+
+<p>Bug fixes</p>
+
+<ul>
+<li>Properly parse <code>SPEC_OPTS</code> options.</li>
+<li><code>example.description</code> returns the location of the example if there is no
+explicit description or matcher-generated description.</li>
+<li>RDoc fixes (Grzegorz Świrski)</li>
+<li>Do not modify example ancestry when dumping errors (Michael Grosser)</li>
+</ul>
+
+<h3>2.9.0 / 2012-03-17</h3>
+
+<p><a href="http://github.com/rspec/rspec-core/compare/v2.8.0...v2.9.0">full changelog</a></p>
+
+<p>Enhancements</p>
+
+<ul>
+<li>Support for &quot;X minutes X seconds&quot; spec run duration in formatter. (uzzz)</li>
+<li>Strip whitespace from group and example names in doc formatter.</li>
+<li>Removed spork-0.9 shim. If you&#39;re using spork-0.8.x, you&#39;ll need to upgrade
+to 0.9.0.</li>
+</ul>
+
+<p>Bug fixes</p>
+
+<ul>
+<li>Restore <code>--full_backtrace</code> option</li>
+<li>Ensure that values passed to <code>config.filter_run</code> are respected when running
+over DRb (using spork).</li>
+<li>Ensure shared example groups are reset after a run (as example groups are).</li>
+<li>Remove <code>rescue false</code> from calls to filters represented as Procs</li>
+<li>Ensure <code>described_class</code> gets the closest constant (pyromaniac)</li>
+<li>In &quot;autorun&quot;, don&#39;t run the specs in the <code>at_exit</code> hook if there was an
+exception (most likely due to a SyntaxError). (sunaku)</li>
+<li>Don&#39;t extend groups with modules already used to extend ancestor groups.</li>
+<li><code>its</code> correctly memoizes nil or false values (Yamada Masaki)</li>
+</ul>
+
+<h3>2.8.0 / 2012-01-04</h3>
+
+<p><a href="http://github.com/rspec/rspec-core/compare/v2.8.0.rc2...v2.8.0">full changelog</a></p>
+
+<p>Bug fixes</p>
+
+<ul>
+<li>For metadata filtering, restore passing the entire array to the proc, rather
+than each item in the array (weidenfreak)</li>
+<li>Ensure each spec file is loaded only once
+
+<ul>
+<li>Fixes a bug that caused all the examples in a file to be run when
+referenced twice with line numbers in a command, e.g.
+
+<ul>
+<li><code>rspec path/to/file:37 path/to/file:42</code></li>
+</ul></li>
+</ul></li>
+</ul>
+
+<h3>2.8.0.rc2 / 2011-12-19</h3>
+
+<p><a href="http://github.com/rspec/rspec-core/compare/v2.8.0.rc1...v2.8.0.rc2">full changelog</a></p>
+
+<p>Enhancments</p>
+
+<ul>
+<li>new <code>--init</code> command (Peter Schröder)
+
+<ul>
+<li>generates <code>spec/spec_helper.rb</code></li>
+<li>deletes obsolete files (on confirmation)</li>
+<li>merged with and deprecates <code>--configure</code> command, which generated
+<code>.rspec</code></li>
+</ul></li>
+<li>use <code>require_relative</code> when available (Ian Leitch)</li>
+<li><code>include_context</code> and <code>include_examples</code> accept params (Calvin Bascom)</li>
+<li>print the time for every example in the html formatter (Richie Vos)</li>
+<li>several tasty refactoring niblets (Sasha)</li>
+<li>`it &quot;does something&quot;, :x =&gt; <a href="Ivan%20Neverov">:foo,&#39;bar&#39;,/baz/</a>
+
+<ul>
+<li>supports matching n command line tag values with an example or group</li>
+</ul></li>
+</ul>
+
+<h3>2.8.0.rc1 / 2011-11-06</h3>
+
+<p><a href="http://github.com/rspec/rspec-core/compare/v2.7.1...v2.8.0.rc1">full changelog</a></p>
+
+<p>Enhancements</p>
+
+<ul>
+<li><code>--order</code> (Justin Ko)
+
+<ul>
+<li>run examples in random order: <code>--order rand</code></li>
+<li>specify the seed: <code>--order rand:123</code></li>
+</ul></li>
+<li><code>--seed SEED</code>
+
+<ul>
+<li>equivalent of <code>--order rand:SEED</code></li>
+</ul></li>
+<li>SharedContext supports <code>let</code> (David Chelimsky)</li>
+<li>Filter improvements (David Chelimsky)
+
+<ul>
+<li>override opposing tags from the command line</li>
+<li>override RSpec.configure tags from the command line</li>
+<li><code>--line_number 37</code> overrides all other filters</li>
+<li><code>path/to/file.rb:37</code> overrides all other filters</li>
+<li>refactor: consolidate filter management in a FilterManger object</li>
+</ul></li>
+<li>Eliminate Ruby warnings (Matijs van Zuijlen)</li>
+<li>Make reporter.report an API (David Chelimsky)
+
+<ul>
+<li>supports extension tools like interative_rspec</li>
+</ul></li>
+</ul>
+
+<p>Changes</p>
+
+<ul>
+<li>change <code>config.color_enabled</code> (getter/setter/predicate) to <code>color</code> to align
+with <code>--[no]-color</code> CLI option.
+
+<ul>
+<li><code>color_enabled</code> is still supported for now, but will likley be deprecated
+in a 2.x release so we can remove it in 3.0.</li>
+</ul></li>
+</ul>
+
+<p>Bug fixes</p>
+
+<ul>
+<li>Make sure the <code>bar</code> in <code>--tag foo:bar</code> makes it to DRb (Aaron Gibralter)</li>
+<li>Fix bug where full descriptions of groups nested 3 deep  were repeated.</li>
+<li>Restore report of time to run to start after files are loaded.
+
+<ul>
+<li>fixes bug where run times were cumalitive in spork</li>
+<li>fixes compatibility with time-series metrics</li>
+</ul></li>
+<li><p>Don&#39;t error out when <code>config.mock_with</code> or <code>expect_with</code> is re-specifying the
+current config (Myron Marston)</p></li>
+<li><p>Deprecations</p>
+
+<ul>
+<li>:alias option on <code>configuration.add_setting</code>. Use <code>:alias_with</code> on the
+original setting declaration instead.</li>
+</ul></li>
+</ul>
+
+<h3>2.7.1 / 2011-10-20</h3>
+
+<p><a href="http://github.com/rspec/rspec-core/compare/v2.7.0...v2.7.1">full changelog</a></p>
+
+<p>Bug fixes</p>
+
+<ul>
+<li>tell autotest the correct place to find the rspec executable</li>
+</ul>
+
+<h3>2.7.0 / 2011-10-16</h3>
+
+<p><a href="http://github.com/rspec/rspec-core/compare/v2.6.4...v2.7.0">full changelog</a></p>
+
+<p>NOTE: RSpec&#39;s release policy dictates that there should not be any backward
+incompatible changes in minor releases, but we&#39;re making an exception to
+release a change to how RSpec interacts with other command line tools.</p>
+
+<p>As of 2.7.0, you must explicity <code>require &quot;rspec/autorun&quot;</code> unless you use the
+<code>rspec</code> command (which already does this for you).</p>
+
+<p>Enhancements</p>
+
+<ul>
+<li>Add <code>example.exception</code> (David Chelimsky)</li>
+<li><code>--default_path</code> command line option (Justin Ko)</li>
+<li>support multiple <code>--line_number</code> options (David J. Hamilton)
+
+<ul>
+<li>also supports <code>path/to/file.rb:5:9</code> (runs examples on lines 5 and 9)</li>
+</ul></li>
+<li>Allow classes/modules to be used as shared example group identifiers (Arthur
+Gunn)</li>
+<li>Friendly error message when shared context cannot be found (Sławosz
+Sławiński)</li>
+<li>Clear formatters when resetting config (John Bintz)</li>
+<li>Add <code>xspecify</code> and xexample as temp-pending methods (David Chelimsky)</li>
+<li>Add <code>--no-drb</code> option (Iain Hecker)</li>
+<li>Provide more accurate run time by registering start time before code is
+loaded (David Chelimsky)
+
+<ul>
+<li>reverted in 2.8.0</li>
+</ul></li>
+<li>Rake task default pattern finds specs in symlinked dirs (Kelly Felkins)</li>
+<li>Rake task no longer does anything to invoke bundler since Bundler already
+handles it for us. Thanks to Andre Arko for the tip.</li>
+<li>Add <code>--failure-exit-code</code> option (Chris Griego)</li>
+</ul>
+
+<p>Bug fixes</p>
+
+<ul>
+<li>Include <code>Rake::DSL</code> to remove deprecation warnings in Rake &gt; 0.8.7 (Pivotal
+Casebook)</li>
+<li>Only eval <code>let</code> block once even if it returns <code>nil</code> (Adam Meehan)</li>
+<li>Fix <code>--pattern</code> option (wasn&#39;t being recognized) (David Chelimsky)</li>
+<li>Only implicitly <code>require &quot;rspec/autorun&quot;</code> with the <code>rspec</code> command (David
+Chelimsky)</li>
+<li>Ensure that rspec&#39;s <code>at_exit</code> defines the exit code (Daniel Doubrovkine)</li>
+<li>Show the correct snippet in the HTML and TextMate formatters (Brian Faherty)</li>
+</ul>
+
+<h3>2.6.4 / 2011-06-06</h3>
+
+<p><a href="http://github.com/rspec/rspec-core/compare/v2.6.3...v2.6.4">full changelog</a></p>
+
+<p>NOTE: RSpec&#39;s release policy dictates that there should not be new
+functionality in patch releases, but this minor enhancement slipped in by
+accident.  As it doesn&#39;t add a new API, we decided to leave it in rather than
+roll back this release.</p>
+
+<p>Enhancements</p>
+
+<ul>
+<li>Add summary of commands to run individual failed examples.</li>
+</ul>
+
+<p>Bug fixes</p>
+
+<ul>
+<li>Support exclusion filters in DRb. (Yann Lugrin)</li>
+<li>Fix --example escaping when run over DRb. (Elliot Winkler)</li>
+<li>Use standard ANSI codes for color formatting so colors work in a wider set of
+color schemes.</li>
+</ul>
+
+<h3>2.6.3 / 2011-05-24</h3>
+
+<p><a href="http://github.com/rspec/rspec-core/compare/v2.6.2...v2.6.3">full changelog</a></p>
+
+<p>Bug fixes</p>
+
+<ul>
+<li>Explicitly convert exit code to integer, avoiding TypeError when return
+value of run is IO object proxied by <code>DRb::DRbObject</code> (Julian Scheid)</li>
+<li>Clarify behavior of <code>--example</code> command line option</li>
+<li>Build using a rubygems-1.6.2 to avoid downstream yaml parsing error</li>
+</ul>
+
+<h3>2.6.2 / 2011-05-21</h3>
+
+<p><a href="http://github.com/rspec/rspec-core/compare/v2.6.1...v2.6.2">full changelog</a></p>
+
+<p>Bug fixes</p>
+
+<ul>
+<li>Warn rather than raise when HOME env var is not defined</li>
+<li>Properly merge command-line exclusions with default :if and :unless (joshcooper)</li>
+</ul>
+
+<h3>2.6.1 / 2011-05-19</h3>
+
+<p><a href="http://github.com/rspec/rspec-core/compare/v2.6.0...v2.6.1">full changelog</a></p>
+
+<p>Bug fixes</p>
+
+<ul>
+<li>Don&#39;t extend nil when filters are nil</li>
+<li><code>require &#39;rspec/autorun&#39;</code> when running rcov.</li>
+</ul>
+
+<h3>2.6.0 / 2011-05-12</h3>
+
+<p><a href="http://github.com/rspec/rspec-core/compare/v2.5.1...v2.6.0">full changelog</a></p>
+
+<p>Enhancements</p>
+
+<ul>
+<li><code>shared_context</code> (Damian Nurzynski)
+
+<ul>
+<li>extend groups matching specific metadata with:
+
+<ul>
+<li>method definitions</li>
+<li>subject declarations</li>
+<li>let/let! declarations</li>
+<li>etc (anything you can do in a group)</li>
+</ul></li>
+</ul></li>
+<li><code>its([:key])</code> works for any subject with #[]. (Peter Jaros)</li>
+<li><code>treat_symbols_as_metadata_keys_with_true_values</code> (Myron Marston)</li>
+<li>Print a deprecation warning when you configure RSpec after defining an
+example.  All configuration should happen before any examples are defined.
+(Myron Marston)</li>
+<li>Pass the exit status of a DRb run to the invoking process. This causes specs
+run via DRb to not just return true or false. (Ilkka Laukkanen)</li>
+<li>Refactoring of <code>ConfigurationOptions#parse_options</code> (Rodrigo Rosenfeld Rosas)</li>
+<li>Report excluded filters in runner output (tip from andyl)</li>
+<li>Clean up messages for filters/tags.</li>
+<li>Restore --pattern/-P command line option from rspec-1</li>
+<li>Support false as well as true in config.full_backtrace= (Andreas Tolf
+Tolfsen)</li>
+</ul>
+
+<p>Bug fixes</p>
+
+<ul>
+<li>Don&#39;t stumble over an exception without a message (Hans Hasselberg)</li>
+<li>Remove non-ascii characters from comments that were choking rcov (Geoffrey
+Byers)</li>
+<li>Fixed backtrace so it doesn&#39;t include lines from before the autorun at_exit
+hook (Myron Marston)</li>
+<li>Include RSpec::Matchers when first example group is defined, rather than just
+before running the examples.  This works around an obscure bug in ruby 1.9
+that can cause infinite recursion. (Myron Marston)</li>
+<li>Don&#39;t send <code>example_group_[started|finished]</code> to formatters for empty groups.</li>
+<li>Get specs passing on jruby (Sidu Ponnappa)</li>
+<li>Fix bug where mixing nested groups and outer-level examples gave
+unpredictable :line_number behavior (Artur Małecki)</li>
+<li>Regexp.escape the argument to --example (tip from Elliot Winkler)</li>
+<li>Correctly pass/fail pending block with message expectations</li>
+<li>CommandLine returns exit status (0/1) instead of true/false</li>
+<li>Create path to formatter output file if it doesn&#39;t exist (marekj).</li>
+</ul>
+
+<h3>2.5.1 / 2011-02-06</h3>
+
+<p><a href="http://github.com/rspec/rspec-core/compare/v2.5.0...v2.5.1">full changelog</a></p>
+
+<p>NOTE: this release breaks compatibility with rspec/autotest/bundler
+integration, but does so in order to greatly simplify it.</p>
+
+<p>With this release, if you want the generated autotest command to include
+&#39;bundle exec&#39;, require Autotest&#39;s bundler plugin in a .autotest file in the
+project&#39;s root directory or in your home directory:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>autotest/bundler</span><span class='tstring_end'>&quot;</span></span>
+</code></pre>
+
+<p>Now you can just type &#39;autotest&#39; on the commmand line and it will work as you expect.</p>
+
+<p>If you don&#39;t want &#39;bundle exec&#39;, there is nothing you have to do.</p>
+
+<h3>2.5.0 / 2011-02-05</h3>
+
+<p><a href="http://github.com/rspec/rspec-core/compare/v2.4.0...v2.5.0">full changelog</a></p>
+
+<p>Enhancements</p>
+
+<ul>
+<li>Autotest::Rspec2 parses command line args passed to autotest after &#39;--&#39;</li>
+<li>--skip-bundler option for autotest command</li>
+<li>Autotest regexp fixes (Jon Rowe)</li>
+<li>Add filters to html and textmate formatters (Daniel Quimper)</li>
+<li>Explicit passing of block (need for JRuby 1.6) (John Firebaugh)</li>
+</ul>
+
+<p>Bug fixes</p>
+
+<ul>
+<li>fix dom IDs in HTML formatter (Brian Faherty)</li>
+<li>fix bug with --drb + formatters when not running in drb</li>
+<li>include --tag options in drb args (monocle)</li>
+<li>fix regression so now SPEC_OPTS take precedence over CLI options again (Roman
+Chernyatchik)</li>
+<li>only call its(:attribute) once (failing example from Brian Dunn)</li>
+<li>fix bizarre bug where rspec would hang after String.alias :to_int :to_i
+(Damian Nurzynski)</li>
+</ul>
+
+<p>Deprecations</p>
+
+<ul>
+<li>implicit inclusion of &#39;bundle exec&#39; when Gemfile present (use autotest&#39;s
+bundler plugin instead)</li>
+</ul>
+
+<h3>2.4.0 / 2011-01-02</h3>
+
+<p><a href="http://github.com/rspec/rspec-core/compare/v2.3.1...v2.4.0">full changelog</a></p>
+
+<p>Enhancements</p>
+
+<ul>
+<li>start the debugger on -d so the stack trace is visible when it stops
+(Clifford Heath)</li>
+<li>apply hook filtering to examples as well as groups (Myron Marston)</li>
+<li>support multiple formatters, each with their own output</li>
+<li>show exception classes in failure messages unless they come from RSpec
+matchers or message expectations</li>
+<li>before(:all) { pending } sets all examples to pending</li>
+</ul>
+
+<p>Bug fixes</p>
+
+<ul>
+<li>fix bug due to change in behavior of reject in Ruby 1.9.3-dev (Shota
+Fukumori)</li>
+<li>fix bug when running in jruby: be explicit about passing block to super (John
+Firebaugh)</li>
+<li>rake task doesn&#39;t choke on paths with quotes (Janmejay Singh)</li>
+<li>restore --options option from rspec-1</li>
+<li>require &#39;ostruct&#39; to fix bug with its([key]) (Kim Burgestrand)</li>
+<li>--configure option generates .rspec file instead of autotest/discover.rb</li>
+</ul>
+
+<h3>2.3.1 / 2010-12-16</h3>
+
+<p><a href="http://github.com/rspec/rspec-core/compare/v2.3.0...v2.3.1">full changelog</a></p>
+
+<p>Bug fixes</p>
+
+<ul>
+<li>send debugger warning message to $stdout if RSpec.configuration.error_stream
+has not been defined yet.</li>
+<li>HTML Formatter <em>finally</em> properly displays nested groups (Jarmo Pertman)</li>
+<li>eliminate some warnings when running RSpec&#39;s own suite (Jarmo Pertman)</li>
+</ul>
+
+<h3>2.3.0 / 2010-12-12</h3>
+
+<p><a href="http://github.com/rspec/rspec-core/compare/v2.2.1...v2.3.0">full changelog</a></p>
+
+<p>Enhancements</p>
+
+<ul>
+<li>tell autotest to use &quot;rspec2&quot; if it sees a .rspec file in the project&#39;s root
+directory
+
+<ul>
+<li>replaces the need for ./autotest/discover.rb, which will not work with
+all versions of ZenTest and/or autotest</li>
+</ul></li>
+<li>config.expect_with
+
+<ul>
+<li>:rspec          # =&gt; rspec/expectations</li>
+<li>:stdlib         # =&gt; test/unit/assertions</li>
+<li>:rspec, :stdlib # =&gt; both</li>
+</ul></li>
+</ul>
+
+<p>Bug fixes</p>
+
+<ul>
+<li>fix dev Gemfile to work on non-mac-os machines (Lake Denman)</li>
+<li>ensure explicit subject is only eval&#39;d once (Laszlo Bacsi)</li>
+</ul>
+
+<h3>2.2.1 / 2010-11-28</h3>
+
+<p><a href="http://github.com/rspec/rspec-core/compare/v2.2.0...v2.2.1">full changelog</a></p>
+
+<p>Bug fixes
+* alias_method instead of override Kernel#method_missing (John Wilger)
+* changed --autotest to --tty in generated command (MIKAMI Yoshiyuki)
+* revert change to debugger (had introduced conflict with Rails)
+    * also restored --debugger/-debug option</p>
+
+<h3>2.2.0 / 2010-11-28</h3>
+
+<p><a href="http://github.com/rspec/rspec-core/compare/v2.1.0...v2.2.0">full changelog</a></p>
+
+<p>Deprecations/changes</p>
+
+<ul>
+<li>--debug/-d on command line is deprecated and now has no effect</li>
+<li>win32console is now ignored; Windows users must use ANSICON for color support
+(Bosko Ivanisevic)</li>
+</ul>
+
+<p>Enhancements</p>
+
+<ul>
+<li>When developing locally rspec-core now works with the rspec-dev setup or your
+local gems</li>
+<li>Raise exception with helpful message when rspec-1 is loaded alongside rspec-2
+(Justin Ko)</li>
+<li>debugger statements <em>just work</em> as long as ruby-debug is installed
+
+<ul>
+<li>otherwise you get warned, but not fired</li>
+</ul></li>
+<li>Expose example.metadata in around hooks</li>
+<li>Performance improvments (much faster now)</li>
+</ul>
+
+<p>Bug fixes</p>
+
+<ul>
+<li>Make sure --fail-fast makes it across drb</li>
+<li>Pass -Ilib:spec to rcov</li>
+</ul>
+
+<h3>2.1.0 / 2010-11-07</h3>
+
+<p><a href="http://github.com/rspec/rspec-core/compare/v2.0.1...v2.1.0">full changelog</a></p>
+
+<p>Enhancments</p>
+
+<ul>
+<li>Add skip_bundler option to rake task to tell rake task to ignore the presence
+of a Gemfile (jfelchner)</li>
+<li>Add gemfile option to rake task to tell rake task what Gemfile to look for
+(defaults to &#39;Gemfile&#39;)</li>
+<li>Allow passing caller trace into Metadata to support extensions (Glenn
+Vanderburg)</li>
+<li>Add deprecation warning for Spec::Runner.configure to aid upgrade from
+RSpec-1</li>
+<li>Add deprecated Spec::Rake::SpecTask to aid upgrade from RSpec-1</li>
+<li>Add &#39;autospec&#39; command with helpful message to aid upgrade from RSpec-1</li>
+<li>Add support for filtering with tags on CLI (Lailson Bandeira)</li>
+<li>Add a helpful message about RUBYOPT when require fails in bin/rspec (slyphon)</li>
+<li>Add &quot;-Ilib&quot; to the default rcov options (Tianyi Cui)</li>
+<li>Make the expectation framework configurable (default rspec, of course)
+(Justin Ko)</li>
+<li>Add &#39;pending&#39; to be conditional (Myron Marston)</li>
+<li>Add explicit support for :if and :unless as metadata keys for conditional run
+of examples (Myron Marston)</li>
+<li>Add --fail-fast command line option (Jeff Kreeftmeijer)</li>
+</ul>
+
+<p>Bug fixes</p>
+
+<ul>
+<li>Eliminate stack overflow with &quot;subject { self }&quot;</li>
+<li>Require &#39;rspec/core&#39; in the Raketask (ensures it required when running rcov)</li>
+</ul>
+
+<h3>2.0.1 / 2010-10-18</h3>
+
+<p><a href="http://github.com/rspec/rspec-core/compare/v2.0.0...v2.0.1">full changelog</a></p>
+
+<p>Bug fixes</p>
+
+<ul>
+<li>Restore color when using spork + autotest</li>
+<li>Pending examples without docstrings render the correct message (Josep M.
+Bach)</li>
+<li>Fixed bug where a failure in a spec file ending in anything but _spec.rb
+would fail in a confusing way.</li>
+<li>Support backtrace lines from erb templates in html formatter (Alex Crichton)</li>
+</ul>
+
+<h3>2.0.0 / 2010-10-10</h3>
+
+<p><a href="http://github.com/rspec/rspec-core/compare/v2.0.0.rc...v2.0.0">full changelog</a></p>
+
+<p>RSpec-1 compatibility</p>
+
+<ul>
+<li>Rake task uses ENV[&quot;SPEC&quot;] as file list if present</li>
+</ul>
+
+<p>Bug fixes</p>
+
+<ul>
+<li>Bug Fix: optparse --out foo.txt (Leonardo Bessa)</li>
+<li>Suppress color codes for non-tty output (except autotest)</li>
+</ul>
+
+<h3>2.0.0.rc / 2010-10-05</h3>
+
+<p><a href="http://github.com/rspec/rspec-core/compare/v2.0.0.beta.22...v2.0.0.rc">full changelog</a></p>
+
+<p>Enhancements</p>
+
+<ul>
+<li>implicitly require unknown formatters so you don&#39;t have to require the file
+explicitly on the commmand line (Michael Grosser)</li>
+<li>add --out/-o option to assign output target</li>
+<li>added fail_fast configuration option to abort on first failure</li>
+<li>support a Hash subject (its([:key]) { should == value }) (Josep M. Bach)</li>
+</ul>
+
+<p>Bug fixes</p>
+
+<ul>
+<li>Explicitly require rspec version to fix broken rdoc task (Hans de Graaff)</li>
+<li>Ignore backtrace lines that come from other languages, like Java or
+Javascript (Charles Lowell)</li>
+<li>Rake task now does what is expected when setting (or not setting)
+fail_on_error and verbose</li>
+<li>Fix bug in which before/after(:all) hooks were running on excluded nested
+groups (Myron Marston)</li>
+<li>Fix before(:all) error handling so that it fails examples in nested groups,
+too (Myron Marston)</li>
+</ul>
+
+<h3>2.0.0.beta.22 / 2010-09-12</h3>
+
+<p><a href="http://github.com/rspec/rspec-core/compare/v2.0.0.beta.20...v2.0.0.beta.22">full changelog</a></p>
+
+<p>Enhancements</p>
+
+<ul>
+<li>removed at_exit hook</li>
+<li>CTRL-C stops the run (almost) immediately
+
+<ul>
+<li>first it cleans things up by running the appropriate after(:all) and
+after(:suite) hooks</li>
+<li>then it reports on any examples that have already run</li>
+</ul></li>
+<li>cleaned up rake task
+
+<ul>
+<li>generate correct task under variety of conditions</li>
+<li>options are more consistent</li>
+<li>deprecated redundant options</li>
+</ul></li>
+<li>run &#39;bundle exec autotest&#39; when Gemfile is present</li>
+<li>support ERB in .rspec options files (Justin Ko)</li>
+<li>depend on bundler for development tasks (Myron Marston)</li>
+<li>add example_group_finished to formatters and reporter (Roman Chernyatchik)</li>
+</ul>
+
+<p>Bug fixes</p>
+
+<ul>
+<li>support paths with spaces when using autotest (Andreas Neuhaus)</li>
+<li>fix module_exec with ruby 1.8.6 (Myron Marston)</li>
+<li>remove context method from top-level
+
+<ul>
+<li>was conflicting with irb, for example</li>
+</ul></li>
+<li>errors in before(:all) are now reported correctly (Chad Humphries)</li>
+</ul>
+
+<p>Removals</p>
+
+<ul>
+<li>removed -o --options-file command line option
+
+<ul>
+<li>use ./.rspec and ~/.rspec</li>
+</ul></li>
+</ul>
+</div></div>
+
+    <div id="footer">
+  Generated on Thu Dec 18 08:19:50 2014 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.6 (ruby-2.1.5).
+</div>
+
+  </body>
+</html>

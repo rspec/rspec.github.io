@@ -1,0 +1,1425 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: RSpec::Core::RakeTask
+  
+    &mdash; Documentation by YARD 0.8.7.6
+  
+</title>
+
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '../../';
+  framesUrl = "../../frames.html#!RSpec/Core/RakeTask.html";
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../../_index.html">Index (R)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../../RSpec.html" title="RSpec (module)">RSpec</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Core.html" title="RSpec::Core (module)">Core</a></span></span>
+     &raquo; 
+    <span class="title">RakeTask</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../../class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="../../method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="../../file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><h1>Class: RSpec::Core::RakeTask
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName">Rake::TaskLib</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">Rake::TaskLib</li>
+          
+            <li class="next">RSpec::Core::RakeTask</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+      <dt class="r2">Includes:</dt>
+      <dd class="r2">Rake::DSL</dd>
+      
+    
+  
+  
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">lib/rspec/core/rake_task.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+
+
+
+
+  <h2>Instance Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#fail_on_error-instance_method" title="#fail_on_error (instance method)">- (Object) <strong>fail_on_error</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Whether or not to fail Rake when an error occurs (typically when examples fail).</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#failure_message-instance_method" title="#failure_message (instance method)">- (Object) <strong>failure_message</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>A message to print to stderr when there are failures.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#name-instance_method" title="#name (instance method)">- (Object) <strong>name</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Name of task.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#pattern-instance_method" title="#pattern (instance method)">- (Object) <strong>pattern</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Glob pattern to match files.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#rcov-instance_method" title="#rcov (instance method)">- (Object) <strong>rcov</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Use rcov for code coverage?.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#rcov_opts-instance_method" title="#rcov_opts (instance method)">- (Object) <strong>rcov_opts</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Command line options to pass to rcov.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#rcov_path-instance_method" title="#rcov_path (instance method)">- (Object) <strong>rcov_path</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Path to rcov.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#rspec_opts-instance_method" title="#rspec_opts (instance method)">- (Object) <strong>rspec_opts</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Command line options to pass to rspec.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#rspec_path-instance_method" title="#rspec_path (instance method)">- (Object) <strong>rspec_path</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Path to rspec.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#ruby_opts-instance_method" title="#ruby_opts (instance method)">- (Object) <strong>ruby_opts</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Command line options to pass to ruby.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#verbose-instance_method" title="#verbose (instance method)">- (Object) <strong>verbose</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Use verbose output.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public deprecated">
+  <span class="summary_signature">
+    
+      <a href="#gemfile%3D-instance_method" title="#gemfile= (instance method)">- (Object) <strong>gemfile=</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  <span class="deprecated note title">deprecated</span>
+  
+
+  
+    <span class="summary_desc"><strong>Deprecated.</strong> <div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (RakeTask) <strong>initialize</strong>(*args, &amp;task_block) </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>A new instance of RakeTask.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#run_task-instance_method" title="#run_task (instance method)">- (Object) <strong>run_task</strong>(verbose) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#setup_ivars-instance_method" title="#setup_ivars (instance method)">- (Object) <strong>setup_ivars</strong>(args) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public deprecated">
+  <span class="summary_signature">
+    
+      <a href="#skip_bundler%3D-instance_method" title="#skip_bundler= (instance method)">- (Object) <strong>skip_bundler=</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  <span class="deprecated note title">deprecated</span>
+  
+
+  
+    <span class="summary_desc"><strong>Deprecated.</strong> <div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public deprecated">
+  <span class="summary_signature">
+    
+      <a href="#spec_opts%3D-instance_method" title="#spec_opts= (instance method)">- (Object) <strong>spec_opts=</strong>(opts) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  <span class="deprecated note title">deprecated</span>
+  
+
+  
+    <span class="summary_desc"><strong>Deprecated.</strong> <div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public deprecated">
+  <span class="summary_signature">
+    
+      <a href="#warning%3D-instance_method" title="#warning= (instance method)">- (Object) <strong>warning=</strong>(true_or_false) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  <span class="deprecated note title">deprecated</span>
+  
+
+  
+    <span class="summary_desc"><strong>Deprecated.</strong> <div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  <div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <h3 class="signature first" id="initialize-instance_method">
+  
+    - (<tt><span class='object_link'><a href="" title="RSpec::Core::RakeTask (class)">RakeTask</a></span></tt>) <strong>initialize</strong>(*args, &amp;task_block) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns a new instance of RakeTask</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/rake_task.rb', line 115</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_task_block'>task_block</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_setup_ivars'>setup_ivars</span><span class='lparen'>(</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
+
+  <span class='id identifier rubyid_desc'>desc</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Run RSpec code examples</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>unless</span> <span class='op'>::</span><span class='const'>Rake</span><span class='period'>.</span><span class='id identifier rubyid_application'>application</span><span class='period'>.</span><span class='id identifier rubyid_last_comment'>last_comment</span>
+
+  <span class='id identifier rubyid_task'>task</span> <span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid__'>_</span><span class='comma'>,</span> <span class='id identifier rubyid_task_args'>task_args</span><span class='op'>|</span>
+    <span class='const'>RakeFileUtils</span><span class='period'>.</span><span class='id identifier rubyid_send'>send</span><span class='lparen'>(</span><span class='symbol'>:verbose</span><span class='comma'>,</span> <span class='id identifier rubyid_verbose'>verbose</span><span class='rparen'>)</span> <span class='kw'>do</span>
+      <span class='id identifier rubyid_task_block'>task_block</span><span class='period'>.</span><span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='op'>*</span><span class='lbracket'>[</span><span class='kw'>self</span><span class='comma'>,</span> <span class='id identifier rubyid_task_args'>task_args</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_slice'>slice</span><span class='lparen'>(</span><span class='int'>0</span><span class='comma'>,</span> <span class='id identifier rubyid_task_block'>task_block</span><span class='period'>.</span><span class='id identifier rubyid_arity'>arity</span><span class='rparen'>)</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_task_block'>task_block</span>
+      <span class='id identifier rubyid_run_task'>run_task</span> <span class='id identifier rubyid_verbose'>verbose</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id="fail_on_error=-instance_method"></span>
+      <div class="method_details first">
+  <h3 class="signature first" id="fail_on_error-instance_method">
+  
+    - (<tt>Object</tt>) <strong>fail_on_error</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Whether or not to fail Rake when an error occurs (typically when examples fail).</p>
+
+<p>default:
+  true</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+52
+53
+54</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/rake_task.rb', line 52</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_fail_on_error'>fail_on_error</span>
+  <span class='ivar'>@fail_on_error</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="failure_message=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="failure_message-instance_method">
+  
+    - (<tt>Object</tt>) <strong>failure_message</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>A message to print to stderr when there are failures.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+55
+56
+57</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/rake_task.rb', line 55</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_failure_message'>failure_message</span>
+  <span class='ivar'>@failure_message</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="name=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="name-instance_method">
+  
+    - (<tt>Object</tt>) <strong>name</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Name of task.</p>
+
+<p>default:
+  :spec</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+15
+16
+17</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/rake_task.rb', line 15</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_name'>name</span>
+  <span class='ivar'>@name</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="pattern=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="pattern-instance_method">
+  
+    - (<tt>Object</tt>) <strong>pattern</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Glob pattern to match files.</p>
+
+<p>default:
+  &#39;spec/*<em>/</em>_spec.rb&#39;</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+21
+22
+23</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/rake_task.rb', line 21</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_pattern'>pattern</span>
+  <span class='ivar'>@pattern</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="rcov=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="rcov-instance_method">
+  
+    - (<tt>Object</tt>) <strong>rcov</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Use rcov for code coverage?</p>
+
+<p>Due to the many ways <code>rcov</code> can run, if this option is enabled, it is
+required that <code>require &#39;rspec/autorun&#39;</code> appears in <code>spec_helper</code>.rb</p>
+
+<p>default:
+  false</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+71
+72
+73</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/rake_task.rb', line 71</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_rcov'>rcov</span>
+  <span class='ivar'>@rcov</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="rcov_opts=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="rcov_opts-instance_method">
+  
+    - (<tt>Object</tt>) <strong>rcov_opts</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Command line options to pass to rcov.</p>
+
+<p>default:
+  nil</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+83
+84
+85</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/rake_task.rb', line 83</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_rcov_opts'>rcov_opts</span>
+  <span class='ivar'>@rcov_opts</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="rcov_path=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="rcov_path-instance_method">
+  
+    - (<tt>Object</tt>) <strong>rcov_path</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Path to rcov.</p>
+
+<p>default:
+  &#39;rcov&#39;</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+77
+78
+79</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/rake_task.rb', line 77</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_rcov_path'>rcov_path</span>
+  <span class='ivar'>@rcov_path</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="rspec_opts=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="rspec_opts-instance_method">
+  
+    - (<tt>Object</tt>) <strong>rspec_opts</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Command line options to pass to rspec.</p>
+
+<p>default:
+  nil</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+101
+102
+103</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/rake_task.rb', line 101</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_rspec_opts'>rspec_opts</span>
+  <span class='ivar'>@rspec_opts</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="rspec_path=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="rspec_path-instance_method">
+  
+    - (<tt>Object</tt>) <strong>rspec_path</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Path to rspec</p>
+
+<p>default:
+  &#39;rspec&#39;</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+95
+96
+97</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/rake_task.rb', line 95</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_rspec_path'>rspec_path</span>
+  <span class='ivar'>@rspec_path</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="ruby_opts=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="ruby_opts-instance_method">
+  
+    - (<tt>Object</tt>) <strong>ruby_opts</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Command line options to pass to ruby.</p>
+
+<p>default:
+  nil</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+89
+90
+91</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/rake_task.rb', line 89</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_ruby_opts'>ruby_opts</span>
+  <span class='ivar'>@ruby_opts</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id="verbose=-instance_method"></span>
+      <div class="method_details ">
+  <h3 class="signature " id="verbose-instance_method">
+  
+    - (<tt>Object</tt>) <strong>verbose</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Use verbose output. If this is set to true, the task will print the
+executed spec command to stdout.</p>
+
+<p>default:
+  true</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+62
+63
+64</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/rake_task.rb', line 62</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_verbose'>verbose</span>
+  <span class='ivar'>@verbose</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="gemfile=-instance_method">
+  
+    - (<tt>Object</tt>) <strong>gemfile=</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note deprecated"><strong>Deprecated.</strong> <div class='inline'></div></div>
+<p>Has no effect. The rake task now checks ENV[&#39;BUNDLE_GEMFILE&#39;] instead.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+31
+32
+33</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/rake_task.rb', line 31</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_gemfile='>gemfile=</span><span class='lparen'>(</span><span class='op'>*</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_deprecate'>deprecate</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>RSpec::Core::RakeTask#gemfile=</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:replacement</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>ENV[&quot;BUNDLE_GEMFILE&quot;]</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="run_task-instance_method">
+  
+    - (<tt>Object</tt>) <strong>run_task</strong>(verbose) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/rake_task.rb', line 139</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_run_task'>run_task</span><span class='lparen'>(</span><span class='id identifier rubyid_verbose'>verbose</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_command'>command</span> <span class='op'>=</span> <span class='id identifier rubyid_spec_command'>spec_command</span>
+
+  <span class='kw'>begin</span>
+    <span class='id identifier rubyid_puts'>puts</span> <span class='id identifier rubyid_command'>command</span> <span class='kw'>if</span> <span class='id identifier rubyid_verbose'>verbose</span>
+    <span class='id identifier rubyid_success'>success</span> <span class='op'>=</span> <span class='id identifier rubyid_system'>system</span><span class='lparen'>(</span><span class='id identifier rubyid_command'>command</span><span class='rparen'>)</span>
+  <span class='kw'>rescue</span>
+    <span class='id identifier rubyid_puts'>puts</span> <span class='id identifier rubyid_failure_message'>failure_message</span> <span class='kw'>if</span> <span class='id identifier rubyid_failure_message'>failure_message</span>
+  <span class='kw'>end</span>
+  <span class='id identifier rubyid_abort'>abort</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_command'>command</span><span class='embexpr_end'>}</span><span class='tstring_content'> failed</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_fail_on_error'>fail_on_error</span> <span class='kw'>unless</span> <span class='id identifier rubyid_success'>success</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="setup_ivars-instance_method">
+  
+    - (<tt>Object</tt>) <strong>setup_ivars</strong>(args) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/rake_task.rb', line 128</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_setup_ivars'>setup_ivars</span><span class='lparen'>(</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
+  <span class='ivar'>@name</span> <span class='op'>=</span> <span class='id identifier rubyid_args'>args</span><span class='period'>.</span><span class='id identifier rubyid_shift'>shift</span> <span class='op'>||</span> <span class='symbol'>:spec</span>
+  <span class='ivar'>@rcov_opts</span><span class='comma'>,</span> <span class='ivar'>@ruby_opts</span><span class='comma'>,</span> <span class='ivar'>@rspec_opts</span> <span class='op'>=</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='kw'>nil</span>
+  <span class='ivar'>@warning</span><span class='comma'>,</span> <span class='ivar'>@rcov</span> <span class='op'>=</span> <span class='kw'>false</span><span class='comma'>,</span> <span class='kw'>false</span>
+  <span class='ivar'>@verbose</span><span class='comma'>,</span> <span class='ivar'>@fail_on_error</span> <span class='op'>=</span> <span class='kw'>true</span><span class='comma'>,</span> <span class='kw'>true</span>
+
+  <span class='ivar'>@rcov_path</span>  <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>rcov</span><span class='tstring_end'>&#39;</span></span>
+  <span class='ivar'>@rspec_path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>rspec</span><span class='tstring_end'>&#39;</span></span>
+  <span class='ivar'>@pattern</span>    <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>./spec{,/*/**}/*_spec.rb</span><span class='tstring_end'>&#39;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="skip_bundler=-instance_method">
+  
+    - (<tt>Object</tt>) <strong>skip_bundler=</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note deprecated"><strong>Deprecated.</strong> <div class='inline'></div></div>
+<p>Has no effect. The rake task now checks ENV[&#39;BUNDLE_GEMFILE&#39;] instead.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+25
+26
+27</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/rake_task.rb', line 25</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_skip_bundler='>skip_bundler=</span><span class='lparen'>(</span><span class='op'>*</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_deprecate'>deprecate</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>RSpec::Core::RakeTask#skip_bundler=</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="spec_opts=-instance_method">
+  
+    - (<tt>Object</tt>) <strong>spec_opts=</strong>(opts) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note deprecated"><strong>Deprecated.</strong> <div class='inline'></div></div>
+<p>Use rspec_opts instead.</p>
+
+<p>Command line options to pass to rspec.</p>
+
+<p>default:
+  nil</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+110
+111
+112
+113</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/rake_task.rb', line 110</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_spec_opts='>spec_opts=</span><span class='lparen'>(</span><span class='id identifier rubyid_opts'>opts</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_deprecate'>deprecate</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>RSpec::Core::RakeTask#spec_opts=</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='symbol'>:replacement</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>rspec_opts=</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+  <span class='ivar'>@rspec_opts</span> <span class='op'>=</span> <span class='id identifier rubyid_opts'>opts</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="warning=-instance_method">
+  
+    - (<tt>Object</tt>) <strong>warning=</strong>(true_or_false) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note deprecated"><strong>Deprecated.</strong> <div class='inline'></div></div>
+<p>Use ruby_opts=&quot;-w&quot; instead.</p>
+
+<p>When true, requests that the specs be run with the warning flag set.
+e.g. &quot;ruby -w&quot;</p>
+
+<p>default:
+  false</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+43
+44
+45
+46</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/rake_task.rb', line 43</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_warning='>warning=</span><span class='lparen'>(</span><span class='id identifier rubyid_true_or_false'>true_or_false</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_deprecate'>deprecate</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>RSpec::Core::RakeTask#warning=</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:replacement</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>ruby_opts=&quot;-w&quot;</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+  <span class='ivar'>@warning</span> <span class='op'>=</span> <span class='id identifier rubyid_true_or_false'>true_or_false</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+    <div id="footer">
+  Generated on Thu Dec 18 08:19:51 2014 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.6 (ruby-2.1.5).
+</div>
+
+  </body>
+</html>

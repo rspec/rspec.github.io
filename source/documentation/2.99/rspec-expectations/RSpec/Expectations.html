@@ -1,0 +1,501 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Module: RSpec::Expectations
+  
+    &mdash; Documentation by YARD 0.8.7.4
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '../';
+  framesUrl = "../frames.html#!RSpec/Expectations.html";
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (E)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../RSpec.html" title="RSpec (module)">RSpec</a></span></span>
+     &raquo; 
+    <span class="title">Expectations</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="../method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="../file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><h1>Module: RSpec::Expectations
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">lib/rspec/expectations.rb<span class="defines">,<br />
+  lib/rspec/expectations/errors.rb,<br /> lib/rspec/expectations/differ.rb,<br /> lib/rspec/expectations/syntax.rb,<br /> lib/rspec/expectations/handler.rb,<br /> lib/rspec/expectations/version.rb,<br /> lib/rspec/expectations/fail_with.rb,<br /> lib/rspec/expectations/deprecation.rb,<br /> lib/rspec/expectations/configuration.rb,<br /> lib/rspec/expectations/extensions/object.rb,<br /> lib/rspec/expectations/expectation_target.rb</span>
+</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <p>RSpec::Expectations adds two instance methods to every object:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_should'>should</span><span class='lparen'>(</span><span class='id identifier rubyid_matcher'>matcher</span><span class='op'>=</span><span class='kw'>nil</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_should_not'>should_not</span><span class='lparen'>(</span><span class='id identifier rubyid_matcher'>matcher</span><span class='op'>=</span><span class='kw'>nil</span><span class='rparen'>)</span>
+</code></pre>
+
+<p>Both methods take an optional matcher object (See
+<a href="../RSpec/Matchers">RSpec::Matchers</a>).  When <code>should</code> is invoked with a
+matcher, it turns around and calls <code>matcher.matches?(self)</code>.  For example,
+in the expression:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_order'>order</span><span class='period'>.</span><span class='id identifier rubyid_total'>total</span><span class='period'>.</span><span class='id identifier rubyid_should'>should</span> <span class='id identifier rubyid_eq'>eq</span><span class='lparen'>(</span><span class='const'>Money</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='float'>5.55</span><span class='comma'>,</span> <span class='symbol'>:USD</span><span class='rparen'>)</span><span class='rparen'>)</span>
+</code></pre>
+
+<p>the <code>should</code> method invokes the equivalent of <code>eq.matches?(order.total)</code>. If
+<code>matches?</code> returns true, the expectation is met and execution continues. If
+<code>false</code>, then the spec fails with the message returned by
+<code>eq.failure_message_for_should</code>.</p>
+
+<p>Given the expression:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_order'>order</span><span class='period'>.</span><span class='id identifier rubyid_entries'>entries</span><span class='period'>.</span><span class='id identifier rubyid_should_not'>should_not</span> <span class='id identifier rubyid_include'>include</span><span class='lparen'>(</span><span class='id identifier rubyid_entry'>entry</span><span class='rparen'>)</span>
+</code></pre>
+
+<p>the <code>should_not</code> method invokes the equivalent of
+<code>include.matches?(order.entries)</code>, but it interprets <code>false</code> as success, and
+<code>true</code> as a failure, using the message generated by
+<code>eq.failure_message_for_should_not</code>.</p>
+
+<p>rspec-expectations ships with a standard set of useful matchers, and writing
+your own matchers is quite simple.</p>
+
+<p>See <a href="../RSpec/Matchers">RSpec::Matchers</a> for more information about the
+built-in matchers that ship with rspec-expectations, and how to write your
+own custom matchers.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><h2>Defined Under Namespace</h2>
+<p class="children">
+  
+    
+      <strong class="modules">Modules:</strong> <span class='object_link'><a href="Expectations/DeprecatedConstants.html" title="RSpec::Expectations::DeprecatedConstants (module)">DeprecatedConstants</a></span>, <span class='object_link'><a href="Expectations/Deprecation.html" title="RSpec::Expectations::Deprecation (module)">Deprecation</a></span>, <span class='object_link'><a href="Expectations/Syntax.html" title="RSpec::Expectations::Syntax (module)">Syntax</a></span>
+    
+  
+    
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="Expectations/Configuration.html" title="RSpec::Expectations::Configuration (class)">Configuration</a></span>, <span class='object_link'><a href="Expectations/Differ.html" title="RSpec::Expectations::Differ (class)">Differ</a></span>, <span class='object_link'><a href="Expectations/ExpectationHandler.html" title="RSpec::Expectations::ExpectationHandler (class)">ExpectationHandler</a></span>, <span class='object_link'><a href="Expectations/ExpectationNotMetError.html" title="RSpec::Expectations::ExpectationNotMetError (class)">ExpectationNotMetError</a></span>, <span class='object_link'><a href="Expectations/ExpectationTarget.html" title="RSpec::Expectations::ExpectationTarget (class)">ExpectationTarget</a></span>, <span class='object_link'><a href="Expectations/NegativeExpectationHandler.html" title="RSpec::Expectations::NegativeExpectationHandler (class)">NegativeExpectationHandler</a></span>, <span class='object_link'><a href="Expectations/PositiveExpectationHandler.html" title="RSpec::Expectations::PositiveExpectationHandler (class)">PositiveExpectationHandler</a></span>
+    
+  
+</p>
+
+  <h2>Constant Summary</h2>
+  
+    <dl class="constants">
+      
+        <dt id="KERNEL_METHOD_METHOD-constant" class="">KERNEL_METHOD_METHOD =
+          <div class="docstring">
+  <div class="discussion">
+    <p class="note private">
+  <strong>This constant is part of a private API.</strong>
+  You should avoid using this constant if possible, as it may be removed or be changed in the future.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='op'>::</span><span class='const'>Kernel</span><span class='period'>.</span><span class='id identifier rubyid_instance_method'>instance_method</span><span class='lparen'>(</span><span class='symbol'>:method</span><span class='rparen'>)</span></pre></dd>
+      
+    </dl>
+  
+
+
+
+
+
+
+
+  
+    <h2>
+      Class Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#fail_with-class_method" title="fail_with (class method)">+ (Object) <strong>fail_with</strong>(message, expected = nil, actual = nil) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Raises an RSpec::Expectations::ExpectationNotMetError with message.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#method_handle_for-class_method" title="method_handle_for (class method)">+ (Object) <strong>method_handle_for</strong>(object, method_name) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public deprecated">
+  <span class="summary_signature">
+    
+      <a href="#differ%3D-instance_method" title="#differ= (instance method)">- (Object) <strong>differ=</strong>(ignore) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  <span class="deprecated note title">deprecated</span>
+  
+
+  
+    <span class="summary_desc"><strong>Deprecated.</strong> <div class='inline'><p>(no replacement)</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="fail_with-class_method">
+  
+    + (<tt>Object</tt>) <strong>fail_with</strong>(message, expected = nil, actual = nil) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Raises an RSpec::Expectations::ExpectationNotMetError with message.
+Adds a diff to the failure message when <code>expected</code> and <code>actual</code> are
+both present.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>message</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>expected</span>
+      
+      
+        <span class='type'>(<tt>Object</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>actual</span>
+      
+      
+        <span class='type'>(<tt>Object</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Raises:</p>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Expectations/ExpectationNotMetError.html" title="RSpec::Expectations::ExpectationNotMetError (class)">RSpec::Expectations::ExpectationNotMetError</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/expectations/fail_with.rb', line 16</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_fail_with'>fail_with</span><span class='lparen'>(</span><span class='id identifier rubyid_message'>message</span><span class='comma'>,</span> <span class='id identifier rubyid_expected'>expected</span><span class='op'>=</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='id identifier rubyid_actual'>actual</span><span class='op'>=</span><span class='kw'>nil</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='op'>!</span><span class='id identifier rubyid_message'>message</span>
+    <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Failure message is nil. Does your matcher define the </span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span>
+                         <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>appropriate failure_message_for_* method to return a string?</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>if</span> <span class='id identifier rubyid_actual'>actual</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_expected'>expected</span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_all_strings?'>all_strings?</span><span class='lparen'>(</span><span class='id identifier rubyid_actual'>actual</span><span class='comma'>,</span> <span class='id identifier rubyid_expected'>expected</span><span class='rparen'>)</span>
+      <span class='kw'>if</span> <span class='id identifier rubyid_any_multiline_strings?'>any_multiline_strings?</span><span class='lparen'>(</span><span class='id identifier rubyid_actual'>actual</span><span class='comma'>,</span> <span class='id identifier rubyid_expected'>expected</span><span class='rparen'>)</span>
+        <span class='id identifier rubyid_message'>message</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\nDiff:</span><span class='tstring_end'>&quot;</span></span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_differ'>differ</span><span class='period'>.</span><span class='id identifier rubyid_diff_as_string'>diff_as_string</span><span class='lparen'>(</span><span class='id identifier rubyid_coerce_to_string'>coerce_to_string</span><span class='lparen'>(</span><span class='id identifier rubyid_actual'>actual</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='id identifier rubyid_coerce_to_string'>coerce_to_string</span><span class='lparen'>(</span><span class='id identifier rubyid_expected'>expected</span><span class='rparen'>)</span><span class='rparen'>)</span>
+      <span class='kw'>end</span>
+    <span class='kw'>elsif</span> <span class='id identifier rubyid_no_procs?'>no_procs?</span><span class='lparen'>(</span><span class='id identifier rubyid_actual'>actual</span><span class='comma'>,</span> <span class='id identifier rubyid_expected'>expected</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_no_numbers?'>no_numbers?</span><span class='lparen'>(</span><span class='id identifier rubyid_actual'>actual</span><span class='comma'>,</span> <span class='id identifier rubyid_expected'>expected</span><span class='rparen'>)</span>
+      <span class='id identifier rubyid_message'>message</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\nDiff:</span><span class='tstring_end'>&quot;</span></span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_differ'>differ</span><span class='period'>.</span><span class='id identifier rubyid_diff_as_object'>diff_as_object</span><span class='lparen'>(</span><span class='id identifier rubyid_actual'>actual</span><span class='comma'>,</span> <span class='id identifier rubyid_expected'>expected</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_raise'>raise</span><span class='lparen'>(</span><span class='const'>RSpec</span><span class='op'>::</span><span class='const'>Expectations</span><span class='op'>::</span><span class='const'>ExpectationNotMetError</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_message'>message</span><span class='rparen'>)</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="method_handle_for-class_method">
+  
+    + (<tt>Object</tt>) <strong>method_handle_for</strong>(object, method_name) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/expectations.rb', line 60</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_method_handle_for'>method_handle_for</span><span class='lparen'>(</span><span class='id identifier rubyid_object'>object</span><span class='comma'>,</span> <span class='id identifier rubyid_method_name'>method_name</span><span class='rparen'>)</span>
+  <span class='const'>KERNEL_METHOD_METHOD</span><span class='period'>.</span><span class='id identifier rubyid_bind'>bind</span><span class='lparen'>(</span><span class='id identifier rubyid_object'>object</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='id identifier rubyid_method_name'>method_name</span><span class='rparen'>)</span>
+<span class='kw'>rescue</span> <span class='const'>NameError</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_original'>original</span>
+  <span class='kw'>begin</span>
+    <span class='id identifier rubyid_handle'>handle</span> <span class='op'>=</span> <span class='id identifier rubyid_object'>object</span><span class='period'>.</span><span class='id identifier rubyid_method'>method</span><span class='lparen'>(</span><span class='id identifier rubyid_method_name'>method_name</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_raise'>raise</span> <span class='id identifier rubyid_original'>original</span> <span class='kw'>unless</span> <span class='id identifier rubyid_handle'>handle</span><span class='period'>.</span><span class='id identifier rubyid_is_a?'>is_a?</span> <span class='const'>Method</span>
+    <span class='id identifier rubyid_handle'>handle</span>
+  <span class='kw'>rescue</span> <span class='const'>Exception</span>
+    <span class='id identifier rubyid_raise'>raise</span> <span class='id identifier rubyid_original'>original</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="differ=-instance_method">
+  
+    - (<tt>Object</tt>) <strong>differ=</strong>(ignore) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note deprecated"><strong>Deprecated.</strong> <div class='inline'><p>(no replacement)</p>
+</div></div>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+23
+24
+25</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/expectations/extensions/object.rb', line 23</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_differ='>differ=</span><span class='lparen'>(</span><span class='id identifier rubyid_ignore'>ignore</span><span class='rparen'>)</span>
+  <span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_deprecate'>deprecate</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>RSpec::Expectations.differ=(differ)</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+    <div id="footer">
+  Generated on Thu Dec 18 08:27:10 2014 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.4 (ruby-2.1.5).
+</div>
+
+  </body>
+</html>

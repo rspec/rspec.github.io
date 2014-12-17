@@ -1,0 +1,479 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: RSpec::Mocks::ConstantMutator::BaseMutator
+  
+    &mdash; Documentation by YARD 0.8.7.6
+  
+</title>
+
+  <link rel="stylesheet" href="../../../css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../../../css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '../../../';
+  framesUrl = "../../../frames.html#!RSpec/Mocks/ConstantMutator/BaseMutator.html";
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../../../_index.html">Index (B)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../../../RSpec.html" title="RSpec (module)">RSpec</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../../Mocks.html" title="RSpec::Mocks (module)">Mocks</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../ConstantMutator.html" title="RSpec::Mocks::ConstantMutator (class)">ConstantMutator</a></span></span>
+     &raquo; 
+    <span class="title">BaseMutator</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../../../class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="../../../method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="../../../file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><h1>Class: RSpec::Mocks::ConstantMutator::BaseMutator
+  
+  
+  <span class="private note title">Private</span>
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName">Object</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">RSpec::Mocks::ConstantMutator::BaseMutator</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+      <dt class="r2">Includes:</dt>
+      <dd class="r2"><span class='object_link'><a href="../RecursiveConstMethods.html" title="RSpec::Mocks::RecursiveConstMethods (module)">RecursiveConstMethods</a></span></dd>
+      
+    
+  
+  
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">lib/rspec/mocks/mutate_const.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <p class="note private">
+  <strong>This class is part of a private API.</strong>
+  You should avoid using this class if possible, as it may be removed or be changed in the future.
+</p>
+
+<p>Contains common functionality used by all of the constant mutators.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><div id="subclasses">
+  <h2>Direct Known Subclasses</h2>
+  <p class="children"><span class='object_link'><a href="ConstantHider.html" title="RSpec::Mocks::ConstantMutator::ConstantHider (class)">ConstantHider</a></span>, <span class='object_link'><a href="DefinedConstantReplacer.html" title="RSpec::Mocks::ConstantMutator::DefinedConstantReplacer (class)">DefinedConstantReplacer</a></span>, <span class='object_link'><a href="UndefinedConstantSetter.html" title="RSpec::Mocks::ConstantMutator::UndefinedConstantSetter (class)">UndefinedConstantSetter</a></span></p>
+</div>
+
+
+
+
+  <h2>Instance Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#full_constant_name-instance_method" title="#full_constant_name (instance method)">- (Object) <strong>full_constant_name</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  <span class="private note title">private</span>
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#original_value-instance_method" title="#original_value (instance method)">- (Object) <strong>original_value</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  <span class="private note title">private</span>
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (BaseMutator) <strong>initialize</strong>(full_constant_name, mutated_value, transfer_nested_constants) </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  <span class="private note title">private</span>
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>A new instance of BaseMutator.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#to_constant-instance_method" title="#to_constant (instance method)">- (Object) <strong>to_constant</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  <span class="private note title">private</span>
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="../RecursiveConstMethods.html" title="RSpec::Mocks::RecursiveConstMethods (module)">RecursiveConstMethods</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../RecursiveConstMethods.html#const_defined_on%3F-instance_method" title="RSpec::Mocks::RecursiveConstMethods#const_defined_on? (method)">#const_defined_on?</a></span>, <span class='object_link'><a href="../RecursiveConstMethods.html#constants_defined_on-instance_method" title="RSpec::Mocks::RecursiveConstMethods#constants_defined_on (method)">#constants_defined_on</a></span>, <span class='object_link'><a href="../RecursiveConstMethods.html#get_const_defined_on-instance_method" title="RSpec::Mocks::RecursiveConstMethods#get_const_defined_on (method)">#get_const_defined_on</a></span>, <span class='object_link'><a href="../RecursiveConstMethods.html#normalize_const_name-instance_method" title="RSpec::Mocks::RecursiveConstMethods#normalize_const_name (method)">#normalize_const_name</a></span>, <span class='object_link'><a href="../RecursiveConstMethods.html#recursive_const_defined%3F-instance_method" title="RSpec::Mocks::RecursiveConstMethods#recursive_const_defined? (method)">#recursive_const_defined?</a></span>, <span class='object_link'><a href="../RecursiveConstMethods.html#recursive_const_get-instance_method" title="RSpec::Mocks::RecursiveConstMethods#recursive_const_get (method)">#recursive_const_get</a></span></p>
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <h3 class="signature first" id="initialize-instance_method">
+  
+    - (<tt><span class='object_link'><a href="" title="RSpec::Mocks::ConstantMutator::BaseMutator (class)">BaseMutator</a></span></tt>) <strong>initialize</strong>(full_constant_name, mutated_value, transfer_nested_constants) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p class="note private">
+  <strong>This method is part of a private API.</strong>
+  You should avoid using this method if possible, as it may be removed or be changed in the future.
+</p>
+
+<p>Returns a new instance of BaseMutator</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+210
+211
+212
+213
+214
+215
+216</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/mocks/mutate_const.rb', line 210</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_full_constant_name'>full_constant_name</span><span class='comma'>,</span> <span class='id identifier rubyid_mutated_value'>mutated_value</span><span class='comma'>,</span> <span class='id identifier rubyid_transfer_nested_constants'>transfer_nested_constants</span><span class='rparen'>)</span>
+  <span class='ivar'>@full_constant_name</span>        <span class='op'>=</span> <span class='id identifier rubyid_normalize_const_name'>normalize_const_name</span><span class='lparen'>(</span><span class='id identifier rubyid_full_constant_name'>full_constant_name</span><span class='rparen'>)</span>
+  <span class='ivar'>@mutated_value</span>             <span class='op'>=</span> <span class='id identifier rubyid_mutated_value'>mutated_value</span>
+  <span class='ivar'>@transfer_nested_constants</span> <span class='op'>=</span> <span class='id identifier rubyid_transfer_nested_constants'>transfer_nested_constants</span>
+  <span class='ivar'>@context_parts</span>             <span class='op'>=</span> <span class='ivar'>@full_constant_name</span><span class='period'>.</span><span class='id identifier rubyid_split'>split</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>::</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+  <span class='ivar'>@const_name</span>                <span class='op'>=</span> <span class='ivar'>@context_parts</span><span class='period'>.</span><span class='id identifier rubyid_pop'>pop</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id=""></span>
+      <div class="method_details first">
+  <h3 class="signature first" id="full_constant_name-instance_method">
+  
+    - (<tt>Object</tt>) <strong>full_constant_name</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p class="note private">
+  <strong>This method is part of a private API.</strong>
+  You should avoid using this method if possible, as it may be removed or be changed in the future.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+208
+209
+210</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/mocks/mutate_const.rb', line 208</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_full_constant_name'>full_constant_name</span>
+  <span class='ivar'>@full_constant_name</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="original_value-instance_method">
+  
+    - (<tt>Object</tt>) <strong>original_value</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p class="note private">
+  <strong>This method is part of a private API.</strong>
+  You should avoid using this method if possible, as it may be removed or be changed in the future.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+208
+209
+210</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/mocks/mutate_const.rb', line 208</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_original_value'>original_value</span>
+  <span class='ivar'>@original_value</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="to_constant-instance_method">
+  
+    - (<tt>Object</tt>) <strong>to_constant</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p class="note private">
+  <strong>This method is part of a private API.</strong>
+  You should avoid using this method if possible, as it may be removed or be changed in the future.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+218
+219
+220
+221
+222
+223</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/mocks/mutate_const.rb', line 218</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_to_constant'>to_constant</span>
+  <span class='id identifier rubyid_const'>const</span> <span class='op'>=</span> <span class='const'>Constant</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_full_constant_name'>full_constant_name</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_const'>const</span><span class='period'>.</span><span class='id identifier rubyid_original_value'>original_value</span> <span class='op'>=</span> <span class='id identifier rubyid_original_value'>original_value</span>
+
+  <span class='id identifier rubyid_const'>const</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+    <div id="footer">
+  Generated on Thu Dec 18 08:28:14 2014 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.6 (ruby-2.1.5).
+</div>
+
+  </body>
+</html>
