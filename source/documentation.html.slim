@@ -1,29 +1,57 @@
 ---
 title: RSpec documentation
+gems:
+  - name: rspec-core
+    description: >
+      The spec runner, providing a rich command line program, flexible and
+      customizable reporting, and an API to organize your code examples
+  - name: rspec-expectations
+    description: >
+      Provides a readable API to express expected outcomes of a code example
+  - name: rspec-mocks
+    description: >
+      Test double framework, providing multiple types of fake objects to allow you
+      to tightly control the environment in which your specs run
+  - name: rspec-rails
+    description: >
+      Supports using RSpec to test Ruby on Rails applications in place of Rails' built-in test framework.
 ---
 section
-  article.relish
-    h2 Relish
-
-    p
-      | RSpec is documented through executable examples on Relish. These examples
-        are executed via cucumber to ensure they it stays up-to-date with the current
-        code base.
-
-    ul
-      li= link_to 'http://relishapp.com/rspec', 'http://relishapp.com/rspec'
-
   article.rdoc
     h2 API Documentation
 
     p
-      | You can find detailed API documentation for versions below
+      | The API documentation contains details about all public APIs supported by RSpec.
+        We consider these the primary docs and will treat these APIs according to the
+        policies of #{link_to 'Semantic Versioning', 'http://semver.org/'}. We encourage you
+        to use only public APIs as private APIs may change in any release without warning.
+        If you have a use case not supported by the existing public APIs, #{link_to 'please ask', '/help'}
+        and we'll be glad to add an API for you or make an existing private API public.
 
+    p
+      | RSpec is composed of multiple libraries, which are designed to work together, or
+        can be used independently with other testing tools like #{link_to 'Cucumber', 'http://cukes.info/'}
+        or #{link_to 'Minitest', 'http://docs.seattlerb.org/minitest/'}. The parts of RSpec are:
     ul
-      - rspec_documentation.each do |gem, versions|
+      - current_page.data.fetch('gems').each do |gem|
         li
           b
-            | #{gem}:&nbsp;
-          - versions.sort.reverse.each do |version|
-            = link_to version, "/documentation/#{version}/#{gem}/"
-            | &nbsp;
+            | #{gem.name}:&nbsp;
+          | #{gem.description}
+            #{documentation_links_for(gem.name).join(' | ')}
+
+  article.relish
+    h2 Relish
+
+    p
+      | RSpec is also documented through executable examples on Relish. The examples
+        are written in an "end-to-end" style demonstrating the use of various RSpec
+        features in the context of executable spec files. It's a good resource for
+        getting a survey of what RSpec is capable of and seeing how the pieces can
+        be used together, but for detailed documentation about a partiular API or
+        feature, we recommend the API docs. The relish examples are executed via
+        Cucumber to ensure they are always up-to-date with the current code base.
+
+    ul
+      li= link_to 'http://relishapp.com/rspec', 'http://relishapp.com/rspec'
+
