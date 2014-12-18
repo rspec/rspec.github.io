@@ -1,0 +1,732 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: RSpec::Expectations::Configuration
+  
+    &mdash; Documentation by YARD 0.8.7.4
+  
+</title>
+
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '../../';
+  framesUrl = "../../frames.html#!RSpec/Expectations/Configuration.html";
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../../_index.html">Index (C)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../../RSpec.html" title="RSpec (module)">RSpec</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Expectations.html" title="RSpec::Expectations (module)">Expectations</a></span></span>
+     &raquo; 
+    <span class="title">Configuration</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../../class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="../../method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="../../file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><h1>Class: RSpec::Expectations::Configuration
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName">Object</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">RSpec::Expectations::Configuration</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/rspec/expectations/configuration.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <p>Provides configuration options for rspec-expectations.
+If you are using rspec-core, you can access this via a
+block passed to <code>RSpec::Core::Configuration#expect_with</code>.
+Otherwise, you can access it via RSpec::Expectations.configuration.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code><span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_configure'>configure</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_rspec'>rspec</span><span class='op'>|</span>
+  <span class='id identifier rubyid_rspec'>rspec</span><span class='period'>.</span><span class='id identifier rubyid_expect_with'>expect_with</span> <span class='symbol'>:rspec</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_c'>c</span><span class='op'>|</span>
+    <span class='comment'># c is the config object
+</span>  <span class='kw'>end</span>
+<span class='kw'>end</span>
+
+<span class='comment'># or
+</span>
+<span class='const'>RSpec</span><span class='op'>::</span><span class='const'>Expectations</span><span class='period'>.</span><span class='id identifier rubyid_configuration'>configuration</span></code></pre>
+    
+  </div>
+
+
+</div>
+  <h2>Constant Summary</h2>
+  
+    <dl class="constants">
+      
+        <dt id="NullBacktraceFormatter-constant" class="">NullBacktraceFormatter =
+          <div class="docstring">
+  <div class="discussion">
+    <p class="note private">
+  <strong>This constant is part of a private API.</strong>
+  You should avoid using this constant if possible, as it may be removed or be changed in the future.
+</p>
+<p>Null implementation of a backtrace formatter used by default
+when rspec-core is not loaded. Does no filtering.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='const'>Module</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span> <span class='kw'>do</span>
+  <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_format_backtrace'>format_backtrace</span><span class='lparen'>(</span><span class='id identifier rubyid_backtrace'>backtrace</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_backtrace'>backtrace</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre></dd>
+      
+    </dl>
+  
+
+
+
+
+  <h2>Instance Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#backtrace_formatter-instance_method" title="#backtrace_formatter (instance method)">- (Object) <strong>backtrace_formatter</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Sets or gets the backtrace formatter.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#color%3D-instance_method" title="#color= (instance method)">- (Object) <strong>color</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+      <span class="note title writeonly">writeonly</span>
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Indicates whether or not diffs should be colored.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#add_should_and_should_not_to-instance_method" title="#add_should_and_should_not_to (instance method)">- (Object) <strong>add_should_and_should_not_to</strong>(*modules) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Adds <code>should</code> and <code>should_not</code> to the given classes or modules.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#color%3F-instance_method" title="#color? (instance method)">- (Boolean) <strong>color?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Indicates whether or not diffs should be colored.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#syntax-instance_method" title="#syntax (instance method)">- (Array&lt;Symbol&gt;) <strong>syntax</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>The list of configured syntaxes.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#syntax%3D-instance_method" title="#syntax= (instance method)">- (Object) <strong>syntax=</strong>(values) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Configures the supported syntax.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id="backtrace_formatter=-instance_method"></span>
+      <div class="method_details first">
+  <h3 class="signature first" id="backtrace_formatter-instance_method">
+  
+    - (<tt>Object</tt>) <strong>backtrace_formatter</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Sets or gets the backtrace formatter. The backtrace formatter should
+implement <code>#format_backtrace(Array&lt;String&gt;)</code>. This is used
+to format backtraces of errors handled by the <code>raise_error</code>
+matcher.</p>
+
+<p>If you are using rspec-core, rspec-core&#39;s backtrace formatting
+will be used (including respecting the presence or absence of
+the <code>--backtrace</code> option).</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+101</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/expectations/configuration.rb', line 101</span>
+
+<span class='id identifier rubyid_attr_writer'>attr_writer</span> <span class='symbol'>:backtrace_formatter</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="color=-instance_method">
+  
+    - (<tt>Object</tt>) <strong>color=</strong>(value)  <span class="extras">(writeonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Indicates whether or not diffs should be colored.
+Delegates to rspec-core&#39;s color option if rspec-core
+is loaded; otherwise you can set it here.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+68
+69
+70</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/expectations/configuration.rb', line 68</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_color='>color=</span><span class='lparen'>(</span><span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span>
+  <span class='ivar'>@color</span> <span class='op'>=</span> <span class='id identifier rubyid_value'>value</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="add_should_and_should_not_to-instance_method">
+  
+    - (<tt>Object</tt>) <strong>add_should_and_should_not_to</strong>(*modules) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Adds <code>should</code> and <code>should_not</code> to the given classes
+or modules. This can be used to ensure <code>should</code> works
+properly on things like proxy objects (particular
+<code>Delegator</code>-subclassed objects on 1.8).</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>modules</span>
+      
+      
+        <span class='type'>(<tt>Array&lt;Module&gt;</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>the list of classes or modules
+to add <code>should</code> and <code>should_not</code> to.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+85
+86
+87
+88
+89</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/expectations/configuration.rb', line 85</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_add_should_and_should_not_to'>add_should_and_should_not_to</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_modules'>modules</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_modules'>modules</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_mod'>mod</span><span class='op'>|</span>
+    <span class='const'>Expectations</span><span class='op'>::</span><span class='const'>Syntax</span><span class='period'>.</span><span class='id identifier rubyid_enable_should'>enable_should</span><span class='lparen'>(</span><span class='id identifier rubyid_mod'>mod</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="color?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>color?</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Indicates whether or not diffs should be colored.
+Delegates to rspec-core&#39;s color option if rspec-core
+is loaded; otherwise you can set it here.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+73
+74
+75</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/expectations/configuration.rb', line 73</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_color?'>color?</span>
+  <span class='op'>::</span><span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_configuration'>configuration</span><span class='period'>.</span><span class='id identifier rubyid_color_enabled?'>color_enabled?</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="syntax-instance_method">
+  
+    - (<tt>Array&lt;Symbol&gt;</tt>) <strong>syntax</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>The list of configured syntaxes.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code><span class='kw'>unless</span> <span class='const'>RSpec</span><span class='op'>::</span><span class='const'>Matchers</span><span class='period'>.</span><span class='id identifier rubyid_configuration'>configuration</span><span class='period'>.</span><span class='id identifier rubyid_syntax'>syntax</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='symbol'>:expect</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>this RSpec extension gem requires the rspec-expectations `:expect` syntax</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></code></pre>
+    
+  </div>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array&lt;Symbol&gt;</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>the list of configured syntaxes.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+53
+54
+55
+56
+57
+58</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/expectations/configuration.rb', line 53</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_syntax'>syntax</span>
+  <span class='id identifier rubyid_syntaxes'>syntaxes</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_syntaxes'>syntaxes</span> <span class='op'>&lt;&lt;</span> <span class='symbol'>:should</span> <span class='kw'>if</span> <span class='const'>Expectations</span><span class='op'>::</span><span class='const'>Syntax</span><span class='period'>.</span><span class='id identifier rubyid_should_enabled?'>should_enabled?</span>
+  <span class='id identifier rubyid_syntaxes'>syntaxes</span> <span class='op'>&lt;&lt;</span> <span class='symbol'>:expect</span> <span class='kw'>if</span> <span class='const'>Expectations</span><span class='op'>::</span><span class='const'>Syntax</span><span class='period'>.</span><span class='id identifier rubyid_expect_enabled?'>expect_enabled?</span>
+  <span class='id identifier rubyid_syntaxes'>syntaxes</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="syntax=-instance_method">
+  
+    - (<tt>Object</tt>) <strong>syntax=</strong>(values) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Configures the supported syntax.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code><span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_configure'>configure</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_rspec'>rspec</span><span class='op'>|</span>
+  <span class='id identifier rubyid_rspec'>rspec</span><span class='period'>.</span><span class='id identifier rubyid_expect_with'>expect_with</span> <span class='symbol'>:rspec</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_c'>c</span><span class='op'>|</span>
+    <span class='id identifier rubyid_c'>c</span><span class='period'>.</span><span class='id identifier rubyid_syntax'>syntax</span> <span class='op'>=</span> <span class='symbol'>:should</span>
+    <span class='comment'># or
+</span>    <span class='id identifier rubyid_c'>c</span><span class='period'>.</span><span class='id identifier rubyid_syntax'>syntax</span> <span class='op'>=</span> <span class='symbol'>:expect</span>
+    <span class='comment'># or
+</span>    <span class='id identifier rubyid_c'>c</span><span class='period'>.</span><span class='id identifier rubyid_syntax'>syntax</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='symbol'>:should</span><span class='comma'>,</span> <span class='symbol'>:expect</span><span class='rbracket'>]</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></code></pre>
+    
+  </div>
+<p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>values</span>
+      
+      
+        <span class='type'>(<tt>Array&lt;Symbol&gt;</tt>, <tt>Symbol</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>the syntaxes to enable</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/expectations/configuration.rb', line 33</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_syntax='>syntax=</span><span class='lparen'>(</span><span class='id identifier rubyid_values'>values</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='const'>Array</span><span class='lparen'>(</span><span class='id identifier rubyid_values'>values</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='symbol'>:expect</span><span class='rparen'>)</span>
+    <span class='const'>Expectations</span><span class='op'>::</span><span class='const'>Syntax</span><span class='period'>.</span><span class='id identifier rubyid_enable_expect'>enable_expect</span>
+  <span class='kw'>else</span>
+    <span class='const'>Expectations</span><span class='op'>::</span><span class='const'>Syntax</span><span class='period'>.</span><span class='id identifier rubyid_disable_expect'>disable_expect</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>if</span> <span class='const'>Array</span><span class='lparen'>(</span><span class='id identifier rubyid_values'>values</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='symbol'>:should</span><span class='rparen'>)</span>
+    <span class='const'>Expectations</span><span class='op'>::</span><span class='const'>Syntax</span><span class='period'>.</span><span class='id identifier rubyid_enable_should'>enable_should</span>
+  <span class='kw'>else</span>
+    <span class='const'>Expectations</span><span class='op'>::</span><span class='const'>Syntax</span><span class='period'>.</span><span class='id identifier rubyid_disable_should'>disable_should</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+    <div id="footer">
+  Generated on Thu Dec 18 09:42:26 2014 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.4 (ruby-2.1.5).
+</div>
+
+  </body>
+</html>
