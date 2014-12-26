@@ -1,7 +1,7 @@
 ---
 pageable: true
 ---
-<section class='blog'>
+<section class='blog_post'>
   <h2>Blog</h2>
 <% if paginate && num_pages > 1 %>
   <p>Page <%= page_number %> of <%= num_pages %></p>
@@ -12,10 +12,14 @@ pageable: true
 <% end %>
 
 <% page_articles.each_with_index do |article, i| %>
-  <h3><%= link_to article.title, article %> <span><%= article.date.strftime('%b %e, %Y') %></span></h3>
+  <h3>
+    <%= link_to article.title, article %>
+    <small><%= article.date.strftime('%b %e, %Y') %></small>
+  </h3>
   <!-- use article.summary(250) if you have Nokogiri available to show just
        the first 250 characters -->
   <%= article.summary(500) %>
+  <hr>
 <% end %>
 
 <% if paginate %>

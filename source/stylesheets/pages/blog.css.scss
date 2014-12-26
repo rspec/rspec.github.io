@@ -1,22 +1,39 @@
 @import "partials/standard_article";
 
-pre {
-  padding: 1em;
-  padding-top: 0.5em;
-  padding-bottom: 0.5em;
-}
+.blog_post {
+  pre {
+    font-size: 90%;
+    line-height: 1.25em;
+    overflow: auto;
+    padding: 0.8em;
+    white-space: pre;
+    overflow-x: auto;
+    overflow-y: hidden;
+    word-wrap: normal;
+  }
 
-ul {
-  list-style-type: disc;
-  padding-bottom: 1em;
-  padding-top: 1em;
-}
+  pre code {
+    font-family: Menlo,Monaco,"Andale Mono","lucida console","Courier New",monospace!important;
+  }
 
-section article h2 {
-  padding: 0.5em
-}
+  ul {
+    list-style-position: outside;
+    list-style-type: disc;
+    padding-left: 1em;
+  }
 
-h3 {
-  text-transform: inherit;
-  font-size: 120%
+  h3+ul {
+    margin-top: -1em;
+  }
+
+  section article h2 {
+    margin: 1em 0;
+    padding: 0;
+  }
+
+  h3 {
+    text-transform: inherit;
+    font-size: 120%;
+    margin: 2.5em 0 1.5em 0;
+  }
 }
