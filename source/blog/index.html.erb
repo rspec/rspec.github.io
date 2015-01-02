@@ -13,7 +13,7 @@ pageable: true
 
 <% page_articles.each_with_index do |article, i| %>
   <h3>
-    <%= link_to article.title, article.url %>
+    <%= link_to article.title, article.url %> -- <%= article.data.author %>
     <small><%= article.date.strftime('%b %e, %Y') %></small>
   </h3>
   <!-- use article.summary(250) if you have Nokogiri available to show just

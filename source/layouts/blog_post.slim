@@ -2,5 +2,6 @@
   section
     article.blog_post
       h2 =current_page.data.title
+      h3.author =current_page.data.author
       = yield
       = partial "disqus"
