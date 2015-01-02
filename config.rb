@@ -79,4 +79,10 @@ helpers do
     end
     hash
   end
+
+  def documentation_links_for(gem_name)
+    rspec_documentation.fetch(gem_name) { [] }.sort.reverse.map do |version|
+      link_to version, "/documentation/#{version}/#{gem_name}/"
+    end
+  end
 end
