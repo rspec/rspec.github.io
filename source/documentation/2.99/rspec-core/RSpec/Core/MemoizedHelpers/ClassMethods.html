@@ -1,0 +1,831 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Module: RSpec::Core::MemoizedHelpers::ClassMethods
+  
+    &mdash; Documentation by YARD 0.8.7.6
+  
+</title>
+
+  <link rel="stylesheet" href="../../../css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../../../css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '../../../';
+  framesUrl = "../../../frames.html#!RSpec/Core/MemoizedHelpers/ClassMethods.html";
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../../../_index.html">Index (C)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../../../RSpec.html" title="RSpec (module)">RSpec</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../../Core.html" title="RSpec::Core (module)">Core</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../MemoizedHelpers.html" title="RSpec::Core::MemoizedHelpers (module)">MemoizedHelpers</a></span></span>
+     &raquo; 
+    <span class="title">ClassMethods</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../../../class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="../../../method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="../../../file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><h1>Module: RSpec::Core::MemoizedHelpers::ClassMethods
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">lib/rspec/core/memoized_helpers.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+
+
+
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#its-instance_method" title="#its (instance method)">- (Object) <strong>its</strong>(attribute, &amp;block) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Creates a nested example group named by the submitted <code>attribute</code>, and then generates an example using the submitted block.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#let-instance_method" title="#let (instance method)">- (Object) <strong>let</strong>(name, &amp;block) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Generates a method whose return value is memoized after the first call.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#let%21-instance_method" title="#let! (instance method)">- (Object) <strong>let!</strong>(name, &amp;block) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Just like <code>let</code>, except the block is invoked by an implicit <code>before</code> hook.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#subject-instance_method" title="#subject (instance method)">- (Object) <strong>subject</strong>(name = nil, &amp;block) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Declares a <code>subject</code> for an example group which can then be wrapped with <code>expect</code> using <code>is_expected</code> to make it the target of an expectation in a concise, one-line example.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#subject%21-instance_method" title="#subject! (instance method)">- (Object) <strong>subject!</strong>(name = nil, &amp;block) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Just like <code>subject</code>, except the block is invoked by an implicit <code>before</code> hook.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="its-instance_method">
+  
+    - (<tt>Object</tt>) <strong>its</strong>(attribute, &amp;block) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Creates a nested example group named by the submitted <code>attribute</code>,
+and then generates an example using the submitted block.</p>
+
+<p>The attribute can be a <code>Symbol</code> or a <code>String</code>. Given a <code>String</code>
+with dots, the result is as though you concatenated that <code>String</code>
+onto the subject in an expression.</p>
+
+<p>When the subject is a <code>Hash</code>, you can refer to the Hash keys by
+specifying a <code>Symbol</code> or <code>String</code> in an array.</p>
+
+<p>Note that this method does not modify <code>subject</code> in any way, so if you
+refer to <code>subject</code> in <code>let</code> or <code>before</code> blocks, you&#39;re still
+referring to the outer subject.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code>
+<span class='comment'># This ...
+</span><span class='id identifier rubyid_describe'>describe</span> <span class='const'>Array</span> <span class='kw'>do</span>
+  <span class='id identifier rubyid_its'>its</span><span class='lparen'>(</span><span class='symbol'>:size</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_should'>should</span> <span class='id identifier rubyid_eq'>eq</span><span class='lparen'>(</span><span class='int'>0</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+<span class='kw'>end</span>
+
+<span class='comment'># ... generates the same runtime structure as this:
+</span><span class='id identifier rubyid_describe'>describe</span> <span class='const'>Array</span> <span class='kw'>do</span>
+  <span class='id identifier rubyid_describe'>describe</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>size</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+    <span class='id identifier rubyid_it'>it</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>should eq(0)</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+      <span class='id identifier rubyid_subject'>subject</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span><span class='period'>.</span><span class='id identifier rubyid_should'>should</span> <span class='id identifier rubyid_eq'>eq</span><span class='lparen'>(</span><span class='int'>0</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></code></pre>
+    
+      
+      <pre class="example code"><code>
+<span class='id identifier rubyid_describe'>describe</span> <span class='const'>Person</span> <span class='kw'>do</span>
+  <span class='id identifier rubyid_subject'>subject</span> <span class='kw'>do</span>
+    <span class='const'>Person</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='period'>.</span><span class='id identifier rubyid_tap'>tap</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_person'>person</span><span class='op'>|</span>
+      <span class='id identifier rubyid_person'>person</span><span class='period'>.</span><span class='id identifier rubyid_phone_numbers'>phone_numbers</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>555-1212</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_its'>its</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>phone_numbers.first</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_should'>should</span> <span class='id identifier rubyid_eq'>eq</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>555-1212</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+<span class='kw'>end</span></code></pre>
+    
+      
+      <pre class="example code"><code>
+<span class='id identifier rubyid_describe'>describe</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>a configuration Hash</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+  <span class='id identifier rubyid_subject'>subject</span> <span class='kw'>do</span>
+    <span class='lbrace'>{</span> <span class='symbol'>:max_users</span> <span class='op'>=&gt;</span> <span class='int'>3</span><span class='comma'>,</span>
+      <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>admin</span><span class='tstring_end'>&#39;</span></span> <span class='op'>=&gt;</span> <span class='symbol'>:all_permissions</span> <span class='rbrace'>}</span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_its'>its</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='symbol'>:max_users</span><span class='rbracket'>]</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_should'>should</span> <span class='id identifier rubyid_eq'>eq</span><span class='lparen'>(</span><span class='int'>3</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+  <span class='id identifier rubyid_its'>its</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>admin</span><span class='tstring_end'>&#39;</span></span><span class='rbracket'>]</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_should'>should</span> <span class='id identifier rubyid_eq'>eq</span><span class='lparen'>(</span><span class='symbol'>:all_permissions</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+
+  <span class='comment'># You can still access to its regular methods this way:
+</span>  <span class='id identifier rubyid_its'>its</span><span class='lparen'>(</span><span class='symbol'>:keys</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_should'>should</span> <span class='id identifier rubyid_include'>include</span><span class='lparen'>(</span><span class='symbol'>:max_users</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+  <span class='id identifier rubyid_its'>its</span><span class='lparen'>(</span><span class='symbol'>:count</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_should'>should</span> <span class='id identifier rubyid_eq'>eq</span><span class='lparen'>(</span><span class='int'>2</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+<span class='kw'>end</span></code></pre>
+    
+      
+      <pre class="example code"><code>
+<span class='id identifier rubyid_describe'>describe</span> <span class='const'>Person</span> <span class='kw'>do</span>
+  <span class='id identifier rubyid_subject'>subject</span> <span class='lbrace'>{</span> <span class='const'>Person</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span> <span class='rbrace'>}</span>
+  <span class='id identifier rubyid_before'>before</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_subject'>subject</span><span class='period'>.</span><span class='id identifier rubyid_age'>age</span> <span class='op'>=</span> <span class='int'>25</span> <span class='rbrace'>}</span>
+  <span class='id identifier rubyid_its'>its</span><span class='lparen'>(</span><span class='symbol'>:age</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_should'>should</span> <span class='id identifier rubyid_eq'>eq</span><span class='lparen'>(</span><span class='int'>25</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+<span class='kw'>end</span></code></pre>
+    
+  </div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+491
+492
+493
+494
+495
+496
+497
+498
+499
+500
+501
+502
+503
+504
+505
+506
+507
+508
+509
+510
+511
+512
+513
+514
+515
+516</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/memoized_helpers.rb', line 491</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_its'>its</span><span class='lparen'>(</span><span class='id identifier rubyid_attribute'>attribute</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
+  <span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_deprecate'>deprecate</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Use of rspec-core&#39;s `its` method</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:replacement</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>the rspec-its gem</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+
+  <span class='id identifier rubyid_describe'>describe</span><span class='lparen'>(</span><span class='id identifier rubyid_attribute'>attribute</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='rparen'>)</span> <span class='kw'>do</span>
+    <span class='kw'>if</span> <span class='const'>Array</span> <span class='op'>===</span> <span class='id identifier rubyid_attribute'>attribute</span>
+      <span class='id identifier rubyid_let'>let</span><span class='lparen'>(</span><span class='symbol'>:__its_subject</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_subject'>subject</span><span class='lbracket'>[</span><span class='op'>*</span><span class='id identifier rubyid_attribute'>attribute</span><span class='rbracket'>]</span> <span class='rbrace'>}</span>
+    <span class='kw'>else</span>
+      <span class='id identifier rubyid_let'>let</span><span class='lparen'>(</span><span class='symbol'>:__its_subject</span><span class='rparen'>)</span> <span class='kw'>do</span>
+        <span class='id identifier rubyid_attribute_chain'>attribute_chain</span> <span class='op'>=</span> <span class='id identifier rubyid_attribute'>attribute</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span><span class='period'>.</span><span class='id identifier rubyid_split'>split</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>.</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+        <span class='id identifier rubyid_attribute_chain'>attribute_chain</span><span class='period'>.</span><span class='id identifier rubyid_inject'>inject</span><span class='lparen'>(</span><span class='id identifier rubyid_subject'>subject</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_inner_subject'>inner_subject</span><span class='comma'>,</span> <span class='id identifier rubyid_attr'>attr</span><span class='op'>|</span>
+          <span class='id identifier rubyid_inner_subject'>inner_subject</span><span class='period'>.</span><span class='id identifier rubyid_send'>send</span><span class='lparen'>(</span><span class='id identifier rubyid_attr'>attr</span><span class='rparen'>)</span>
+        <span class='kw'>end</span>
+      <span class='kw'>end</span>
+    <span class='kw'>end</span>
+
+    <span class='kw'>def</span> <span class='id identifier rubyid_should'>should</span><span class='lparen'>(</span><span class='id identifier rubyid_matcher'>matcher</span><span class='op'>=</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='id identifier rubyid_message'>message</span><span class='op'>=</span><span class='kw'>nil</span><span class='rparen'>)</span>
+      <span class='const'>RSpec</span><span class='op'>::</span><span class='const'>Expectations</span><span class='op'>::</span><span class='const'>PositiveExpectationHandler</span><span class='period'>.</span><span class='id identifier rubyid_handle_matcher'>handle_matcher</span><span class='lparen'>(</span><span class='id identifier rubyid___its_subject'>__its_subject</span><span class='comma'>,</span> <span class='id identifier rubyid_matcher'>matcher</span><span class='comma'>,</span> <span class='id identifier rubyid_message'>message</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+
+    <span class='kw'>def</span> <span class='id identifier rubyid_should_not'>should_not</span><span class='lparen'>(</span><span class='id identifier rubyid_matcher'>matcher</span><span class='op'>=</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='id identifier rubyid_message'>message</span><span class='op'>=</span><span class='kw'>nil</span><span class='rparen'>)</span>
+      <span class='const'>RSpec</span><span class='op'>::</span><span class='const'>Expectations</span><span class='op'>::</span><span class='const'>NegativeExpectationHandler</span><span class='period'>.</span><span class='id identifier rubyid_handle_matcher'>handle_matcher</span><span class='lparen'>(</span><span class='id identifier rubyid___its_subject'>__its_subject</span><span class='comma'>,</span> <span class='id identifier rubyid_matcher'>matcher</span><span class='comma'>,</span> <span class='id identifier rubyid_message'>message</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+
+    <span class='id identifier rubyid_example'>example</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="let-instance_method">
+  
+    - (<tt>Object</tt>) <strong>let</strong>(name, &amp;block) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+  <div class="note notetag">
+    <strong>Note:</strong>
+    <div class='inline'><p><code>let</code> <em>can</em> enhance readability when used sparingly (1,2, or
+maybe 3 declarations) in any given example group, but that can
+quickly degrade with overuse. YMMV.</p>
+</div>
+  </div>
+
+  <div class="note notetag">
+    <strong>Note:</strong>
+    <div class='inline'><p><code>let</code> uses an <code>||=</code> conditional that has the potential to
+behave in surprising ways in examples that spawn separate threads,
+though we have yet to see this in practice. You&#39;ve been warned.</p>
+</div>
+  </div>
+
+  <div class="note notetag">
+    <strong>Note:</strong>
+    <div class='inline'><p>Because <code>let</code> is designed to create state that is reset between
+each example, and <code>before(:all)</code> is designed to setup state that is
+shared across <em>all</em> examples in an example group, <code>let</code> is <em>not</em>
+intended to be used in a <code>before(:all)</code> hook. RSpec 2.13.1 prints
+a warning when you reference a <code>let</code> from <code>before(:all)</code> and we plan
+to have it raise an error in RSpec 3.</p>
+</div>
+  </div>
+
+<p>Generates a method whose return value is memoized after the first
+call. Useful for reducing duplication between examples that assign
+values to the same local variable.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code>
+<span class='id identifier rubyid_describe'>describe</span> <span class='const'>Thing</span> <span class='kw'>do</span>
+  <span class='id identifier rubyid_let'>let</span><span class='lparen'>(</span><span class='symbol'>:thing</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='const'>Thing</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span> <span class='rbrace'>}</span>
+
+  <span class='id identifier rubyid_it'>it</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>does something</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+    <span class='comment'># first invocation, executes block, memoizes and returns result
+</span>    <span class='id identifier rubyid_thing'>thing</span><span class='period'>.</span><span class='id identifier rubyid_do_something'>do_something</span>
+
+    <span class='comment'># second invocation, returns the memoized value
+</span>    <span class='id identifier rubyid_thing'>thing</span><span class='period'>.</span><span class='id identifier rubyid_should'>should</span> <span class='id identifier rubyid_be_something'>be_something</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></code></pre>
+    
+  </div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/memoized_helpers.rb', line 252</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_let'>let</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
+  <span class='comment'># We have to pass the block directly to `define_method` to
+</span>  <span class='comment'># allow it to use method constructs like `super` and `return`.
+</span>  <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>#let or #subject called without a block</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='id identifier rubyid_block'>block</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+  <span class='const'>MemoizedHelpers</span><span class='period'>.</span><span class='id identifier rubyid_module_for'>module_for</span><span class='lparen'>(</span><span class='kw'>self</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_send'>send</span><span class='lparen'>(</span><span class='symbol'>:define_method</span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
+
+  <span class='comment'># Apply the memoization. The method has been defined in an ancestor
+</span>  <span class='comment'># module so we can use `super` here to get the value.
+</span>  <span class='kw'>if</span> <span class='id identifier rubyid_block'>block</span><span class='period'>.</span><span class='id identifier rubyid_arity'>arity</span> <span class='op'>==</span> <span class='int'>1</span>
+    <span class='id identifier rubyid_define_method'>define_method</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='id identifier rubyid___memoized'>__memoized</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_k'>k</span><span class='op'>|</span> <span class='id identifier rubyid___memoized'>__memoized</span><span class='lbracket'>[</span><span class='id identifier rubyid_k'>k</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='kw'>super</span><span class='lparen'>(</span><span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_current_example'>current_example</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='kw'>nil</span><span class='rparen'>)</span> <span class='rbrace'>}</span> <span class='rbrace'>}</span>
+  <span class='kw'>else</span>
+    <span class='id identifier rubyid_define_method'>define_method</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='id identifier rubyid___memoized'>__memoized</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_k'>k</span><span class='op'>|</span> <span class='id identifier rubyid___memoized'>__memoized</span><span class='lbracket'>[</span><span class='id identifier rubyid_k'>k</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='kw'>super</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='kw'>nil</span><span class='rparen'>)</span> <span class='rbrace'>}</span> <span class='rbrace'>}</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="let!-instance_method">
+  
+    - (<tt>Object</tt>) <strong>let!</strong>(name, &amp;block) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Just like <code>let</code>, except the block is invoked by an implicit <code>before</code>
+hook. This serves a dual purpose of setting up state and providing a
+memoized reference to that state.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code>
+<span class='kw'>class</span> <span class='const'>Thing</span>
+  <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_count'>count</span>
+    <span class='ivar'>@count</span> <span class='op'>||=</span> <span class='int'>0</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_count='>count=</span><span class='lparen'>(</span><span class='id identifier rubyid_val'>val</span><span class='rparen'>)</span>
+    <span class='ivar'>@count</span> <span class='op'>+=</span> <span class='id identifier rubyid_val'>val</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_reset_count'>reset_count</span>
+    <span class='ivar'>@count</span> <span class='op'>=</span> <span class='int'>0</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span>
+    <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_count'>count</span> <span class='op'>+=</span> <span class='int'>1</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span>
+
+<span class='id identifier rubyid_describe'>describe</span> <span class='const'>Thing</span> <span class='kw'>do</span>
+  <span class='id identifier rubyid_after'>after</span><span class='lparen'>(</span><span class='symbol'>:each</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='const'>Thing</span><span class='period'>.</span><span class='id identifier rubyid_reset_count'>reset_count</span> <span class='rbrace'>}</span>
+
+  <span class='id identifier rubyid_context'>context</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>using let</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+    <span class='id identifier rubyid_let'>let</span><span class='lparen'>(</span><span class='symbol'>:thing</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='const'>Thing</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span> <span class='rbrace'>}</span>
+
+    <span class='id identifier rubyid_it'>it</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>is not invoked implicitly</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+      <span class='const'>Thing</span><span class='period'>.</span><span class='id identifier rubyid_count'>count</span><span class='period'>.</span><span class='id identifier rubyid_should'>should</span> <span class='id identifier rubyid_eq'>eq</span><span class='lparen'>(</span><span class='int'>0</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+
+    <span class='id identifier rubyid_it'>it</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>can be invoked explicitly</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+      <span class='id identifier rubyid_thing'>thing</span>
+      <span class='const'>Thing</span><span class='period'>.</span><span class='id identifier rubyid_count'>count</span><span class='period'>.</span><span class='id identifier rubyid_should'>should</span> <span class='id identifier rubyid_eq'>eq</span><span class='lparen'>(</span><span class='int'>1</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_context'>context</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>using let!</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+    <span class='id identifier rubyid_let!'>let!</span><span class='lparen'>(</span><span class='symbol'>:thing</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='const'>Thing</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span> <span class='rbrace'>}</span>
+
+    <span class='id identifier rubyid_it'>it</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>is invoked implicitly</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+      <span class='const'>Thing</span><span class='period'>.</span><span class='id identifier rubyid_count'>count</span><span class='period'>.</span><span class='id identifier rubyid_should'>should</span> <span class='id identifier rubyid_eq'>eq</span><span class='lparen'>(</span><span class='int'>1</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+
+    <span class='id identifier rubyid_it'>it</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>returns memoized version on first invocation</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+      <span class='id identifier rubyid_thing'>thing</span>
+      <span class='const'>Thing</span><span class='period'>.</span><span class='id identifier rubyid_count'>count</span><span class='period'>.</span><span class='id identifier rubyid_should'>should</span> <span class='id identifier rubyid_eq'>eq</span><span class='lparen'>(</span><span class='int'>1</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></code></pre>
+    
+  </div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+320
+321
+322
+323</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/memoized_helpers.rb', line 320</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_let!'>let!</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_let'>let</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_before'>before</span> <span class='lbrace'>{</span> <span class='id identifier rubyid___send__'>__send__</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="subject-instance_method">
+  
+    - (<tt>Object</tt>) <strong>subject</strong>(name = nil, &amp;block) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Declares a <code>subject</code> for an example group which can then be wrapped
+with <code>expect</code> using <code>is_expected</code> to make it the target of an expectation
+in a concise, one-line example.</p>
+
+<p>Given a <code>name</code>, defines a method with that name which returns the
+<code>subject</code>. This lets you declare the subject once and access it
+implicitly in one-liners and explicitly using an intention revealing
+name.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code>
+<span class='id identifier rubyid_describe'>describe</span> <span class='const'>CheckingAccount</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>with $50</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+  <span class='id identifier rubyid_subject'>subject</span> <span class='lbrace'>{</span> <span class='const'>CheckingAccount</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='const'>Money</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='int'>50</span><span class='comma'>,</span> <span class='symbol'>:USD</span><span class='rparen'>)</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+  <span class='id identifier rubyid_it'>it</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_is_expected'>is_expected</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_have_a_balance_of'>have_a_balance_of</span><span class='lparen'>(</span><span class='const'>Money</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='int'>50</span><span class='comma'>,</span> <span class='symbol'>:USD</span><span class='rparen'>)</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+  <span class='id identifier rubyid_it'>it</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_is_expected'>is_expected</span><span class='period'>.</span><span class='id identifier rubyid_not_to'>not_to</span> <span class='id identifier rubyid_be_overdrawn'>be_overdrawn</span> <span class='rbrace'>}</span>
+<span class='kw'>end</span>
+
+<span class='id identifier rubyid_describe'>describe</span> <span class='const'>CheckingAccount</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>with a non-zero starting balance</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+  <span class='id identifier rubyid_subject'>subject</span><span class='lparen'>(</span><span class='symbol'>:account</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='const'>CheckingAccount</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='const'>Money</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='int'>50</span><span class='comma'>,</span> <span class='symbol'>:USD</span><span class='rparen'>)</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+  <span class='id identifier rubyid_it'>it</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_is_expected'>is_expected</span><span class='period'>.</span><span class='id identifier rubyid_not_to'>not_to</span> <span class='id identifier rubyid_be_overdrawn'>be_overdrawn</span> <span class='rbrace'>}</span>
+  <span class='id identifier rubyid_it'>it</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>has a balance equal to the starting balance</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+    <span class='id identifier rubyid_account'>account</span><span class='period'>.</span><span class='id identifier rubyid_balance'>balance</span><span class='period'>.</span><span class='id identifier rubyid_should'>should</span> <span class='id identifier rubyid_eq'>eq</span><span class='lparen'>(</span><span class='const'>Money</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='int'>50</span><span class='comma'>,</span> <span class='symbol'>:USD</span><span class='rparen'>)</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></code></pre>
+    
+  </div>
+<p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>name</span>
+      
+      
+        <span class='type'>(<tt>String</tt>, <tt>Symbol</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>nil</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>used to define an accessor with an
+intention revealing name</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>block</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>defines the value to be returned by <code>subject</code> in examples</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="../MemoizedHelpers.html#should-instance_method" title="RSpec::Core::MemoizedHelpers#should (method)">RSpec::Core::MemoizedHelpers#should</a></span></li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+355
+356
+357
+358
+359
+360
+361
+362
+363
+364
+365
+366</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/memoized_helpers.rb', line 355</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_subject'>subject</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='op'>=</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_name'>name</span>
+    <span class='id identifier rubyid_let'>let</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_alias_method'>alias_method</span> <span class='symbol'>:subject</span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span>
+
+    <span class='kw'>self</span><span class='op'>::</span><span class='const'>NamedSubjectPreventSuper</span><span class='period'>.</span><span class='id identifier rubyid_send'>send</span><span class='lparen'>(</span><span class='symbol'>:define_method</span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span> <span class='kw'>do</span>
+      <span class='id identifier rubyid_raise'>raise</span> <span class='const'>NotImplementedError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>`super` in named subjects is not supported</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>end</span>
+  <span class='kw'>else</span>
+    <span class='id identifier rubyid_let'>let</span><span class='lparen'>(</span><span class='symbol'>:subject</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="subject!-instance_method">
+  
+    - (<tt>Object</tt>) <strong>subject!</strong>(name = nil, &amp;block) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Just like <code>subject</code>, except the block is invoked by an implicit <code>before</code>
+hook. This serves a dual purpose of setting up state and providing a
+memoized reference to that state.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code>
+<span class='kw'>class</span> <span class='const'>Thing</span>
+  <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_count'>count</span>
+    <span class='ivar'>@count</span> <span class='op'>||=</span> <span class='int'>0</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_count='>count=</span><span class='lparen'>(</span><span class='id identifier rubyid_val'>val</span><span class='rparen'>)</span>
+    <span class='ivar'>@count</span> <span class='op'>+=</span> <span class='id identifier rubyid_val'>val</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_reset_count'>reset_count</span>
+    <span class='ivar'>@count</span> <span class='op'>=</span> <span class='int'>0</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span>
+    <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_count'>count</span> <span class='op'>+=</span> <span class='int'>1</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span>
+
+<span class='id identifier rubyid_describe'>describe</span> <span class='const'>Thing</span> <span class='kw'>do</span>
+  <span class='id identifier rubyid_after'>after</span><span class='lparen'>(</span><span class='symbol'>:each</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='const'>Thing</span><span class='period'>.</span><span class='id identifier rubyid_reset_count'>reset_count</span> <span class='rbrace'>}</span>
+
+  <span class='id identifier rubyid_context'>context</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>using subject</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+    <span class='id identifier rubyid_subject'>subject</span> <span class='lbrace'>{</span> <span class='const'>Thing</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span> <span class='rbrace'>}</span>
+
+    <span class='id identifier rubyid_it'>it</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>is not invoked implicitly</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+      <span class='const'>Thing</span><span class='period'>.</span><span class='id identifier rubyid_count'>count</span><span class='period'>.</span><span class='id identifier rubyid_should'>should</span> <span class='id identifier rubyid_eq'>eq</span><span class='lparen'>(</span><span class='int'>0</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+
+    <span class='id identifier rubyid_it'>it</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>can be invoked explicitly</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+      <span class='id identifier rubyid_subject'>subject</span>
+      <span class='const'>Thing</span><span class='period'>.</span><span class='id identifier rubyid_count'>count</span><span class='period'>.</span><span class='id identifier rubyid_should'>should</span> <span class='id identifier rubyid_eq'>eq</span><span class='lparen'>(</span><span class='int'>1</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_context'>context</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>using subject!</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+    <span class='id identifier rubyid_subject!'>subject!</span><span class='lparen'>(</span><span class='symbol'>:thing</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='const'>Thing</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span> <span class='rbrace'>}</span>
+
+    <span class='id identifier rubyid_it'>it</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>is invoked implicitly</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+      <span class='const'>Thing</span><span class='period'>.</span><span class='id identifier rubyid_count'>count</span><span class='period'>.</span><span class='id identifier rubyid_should'>should</span> <span class='id identifier rubyid_eq'>eq</span><span class='lparen'>(</span><span class='int'>1</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+
+    <span class='id identifier rubyid_it'>it</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>returns memoized version on first invocation</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+      <span class='id identifier rubyid_subject'>subject</span>
+      <span class='const'>Thing</span><span class='period'>.</span><span class='id identifier rubyid_count'>count</span><span class='period'>.</span><span class='id identifier rubyid_should'>should</span> <span class='id identifier rubyid_eq'>eq</span><span class='lparen'>(</span><span class='int'>1</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></code></pre>
+    
+  </div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+421
+422
+423
+424</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/memoized_helpers.rb', line 421</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_subject!'>subject!</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='op'>=</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_subject'>subject</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_before'>before</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_subject'>subject</span> <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+    <div id="footer">
+  Generated on Thu Dec 18 08:14:25 2014 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.6 (ruby-2.1.5).
+</div>
+
+  </body>
+</html>

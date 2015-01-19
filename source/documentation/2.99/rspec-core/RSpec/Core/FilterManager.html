@@ -1,0 +1,1301 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: RSpec::Core::FilterManager
+  
+    &mdash; Documentation by YARD 0.8.7.6
+  
+</title>
+
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '../../';
+  framesUrl = "../../frames.html#!RSpec/Core/FilterManager.html";
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../../_index.html">Index (F)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../../RSpec.html" title="RSpec (module)">RSpec</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Core.html" title="RSpec::Core (module)">Core</a></span></span>
+     &raquo; 
+    <span class="title">FilterManager</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../../class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="../../method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="../../file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><h1>Class: RSpec::Core::FilterManager
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName">Object</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">RSpec::Core::FilterManager</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/rspec/core/filter_manager.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <p>Manages the filtering of examples and groups by matching tags declared on
+the command line or options files, or filters declared via
+<code>RSpec.configure</code>, with hash key/values submitted within example group
+and/or example declarations. For example, given this declaration:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_describe'>describe</span> <span class='const'>Thing</span><span class='comma'>,</span> <span class='symbol'>:awesome</span> <span class='op'>=&gt;</span> <span class='kw'>true</span> <span class='kw'>do</span>
+  <span class='id identifier rubyid_it'>it</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>does something</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+    <span class='comment'># ...
+</span>  <span class='kw'>end</span>
+<span class='kw'>end</span>
+</code></pre>
+
+<p>That group (or any other with <code>:awesome =&gt; true</code>) would be filtered in
+with any of the following commands:</p>
+
+<pre class="code ruby"><code class="ruby">rspec --tag awesome:true
+rspec --tag awesome
+rspec -t awesome:true
+rspec -t awesome
+</code></pre>
+
+<p>Prefixing the tag names with <code>~</code> negates the tags, thus excluding this group with
+any of:</p>
+
+<pre class="code ruby"><code class="ruby">rspec --tag ~awesome:true
+rspec --tag ~awesome
+rspec -t ~awesome:true
+rspec -t ~awesome
+</code></pre>
+
+<h2>Options files and command line overrides</h2>
+
+<p>Tag declarations can be stored in <code>.rspec</code>, <code>~/.rspec</code>, or a custom
+options file.  This is useful for storing defaults. For example, let&#39;s
+say you&#39;ve got some slow specs that you want to suppress most of the
+time. You can tag them like this:</p>
+
+<pre class="code ruby"><code class="ruby">describe Something, :slow =&gt; true do
+</code></pre>
+
+<p>And then store this in <code>.rspec</code>:</p>
+
+<pre class="code ruby"><code class="ruby">--tag ~slow:true
+</code></pre>
+
+<p>Now when you run <code>rspec</code>, that group will be excluded.</p>
+
+<h2>Overriding</h2>
+
+<p>Of course, you probably want to run them sometimes, so you can override
+this tag on the command line like this:</p>
+
+<pre class="code ruby"><code class="ruby">rspec --tag slow:true
+</code></pre>
+
+<h2>RSpec.configure</h2>
+
+<p>You can also store default tags with <code>RSpec.configure</code>. We use <code>tag</code> on
+the command line (and in options files like <code>.rspec</code>), but for historical
+reasons we use the term <code>filter</code> in `RSpec.configure:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_configure'>configure</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_c'>c</span><span class='op'>|</span>
+  <span class='id identifier rubyid_c'>c</span><span class='period'>.</span><span class='id identifier rubyid_filter_run_including'>filter_run_including</span> <span class='symbol'>:foo</span> <span class='op'>=&gt;</span> <span class='symbol'>:bar</span>
+  <span class='id identifier rubyid_c'>c</span><span class='period'>.</span><span class='id identifier rubyid_filter_run_excluding'>filter_run_excluding</span> <span class='symbol'>:foo</span> <span class='op'>=&gt;</span> <span class='symbol'>:bar</span>
+<span class='kw'>end</span>
+</code></pre>
+
+<p>These declarations can also be overridden from the command line.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="../../RSpec.html#configure-class_method" title="RSpec.configure (method)">RSpec.configure</a></span></li>
+    
+      <li><span class='object_link'><a href="Configuration.html#filter_run_including-instance_method" title="RSpec::Core::Configuration#filter_run_including (method)">Configuration#filter_run_including</a></span></li>
+    
+      <li><span class='object_link'><a href="Configuration.html#filter_run_excluding-instance_method" title="RSpec::Core::Configuration#filter_run_excluding (method)">Configuration#filter_run_excluding</a></span></li>
+    
+  </ul>
+
+</div><h2>Defined Under Namespace</h2>
+<p class="children">
+  
+    
+      <strong class="modules">Modules:</strong> <span class='object_link'><a href="FilterManager/BackwardCompatibility.html" title="RSpec::Core::FilterManager::BackwardCompatibility (module)">BackwardCompatibility</a></span>, <span class='object_link'><a href="FilterManager/Describable.html" title="RSpec::Core::FilterManager::Describable (module)">Describable</a></span>
+    
+  
+    
+  
+</p>
+
+
+
+
+  <h2>Instance Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#exclusions-instance_method" title="#exclusions (instance method)">- (Object) <strong>exclusions</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Returns the value of attribute exclusions.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#inclusions-instance_method" title="#inclusions (instance method)">- (Object) <strong>inclusions</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Returns the value of attribute inclusions.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+
+  
+    <h2>
+      Class Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#const_missing-class_method" title="const_missing (class method)">+ (Object) <strong>const_missing</strong>(name) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#add_location-instance_method" title="#add_location (instance method)">- (Object) <strong>add_location</strong>(file_path, line_numbers) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#empty%3F-instance_method" title="#empty? (instance method)">- (Boolean) <strong>empty?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#exclude-instance_method" title="#exclude (instance method)">- (Object) <strong>exclude</strong>(*args) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#exclude%21-instance_method" title="#exclude! (instance method)">- (Object) <strong>exclude!</strong>(*args) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#exclude%3F-instance_method" title="#exclude? (instance method)">- (Boolean) <strong>exclude?</strong>(example) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#exclude_only-instance_method" title="#exclude_only (instance method)">- (Object) <strong>exclude_only</strong>(*args) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#exclude_with_low_priority-instance_method" title="#exclude_with_low_priority (instance method)">- (Object) <strong>exclude_with_low_priority</strong>(*args) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#include-instance_method" title="#include (instance method)">- (Object) <strong>include</strong>(*args) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#include%21-instance_method" title="#include! (instance method)">- (Object) <strong>include!</strong>(*args) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#include%3F-instance_method" title="#include? (instance method)">- (Boolean) <strong>include?</strong>(example) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#include_only-instance_method" title="#include_only (instance method)">- (Object) <strong>include_only</strong>(*args) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#include_with_low_priority-instance_method" title="#include_with_low_priority (instance method)">- (Object) <strong>include_with_low_priority</strong>(*args) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (FilterManager) <strong>initialize</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>A new instance of FilterManager.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#prune-instance_method" title="#prune (instance method)">- (Object) <strong>prune</strong>(examples) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <h3 class="signature first" id="initialize-instance_method">
+  
+    - (<tt><span class='object_link'><a href="" title="RSpec::Core::FilterManager (class)">FilterManager</a></span></tt>) <strong>initialize</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns a new instance of FilterManager</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+145
+146
+147
+148
+149</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/filter_manager.rb', line 145</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span>
+  <span class='ivar'>@exclusions</span> <span class='op'>=</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_default_exclusions'>default_exclusions</span><span class='period'>.</span><span class='id identifier rubyid_dup'>dup</span><span class='period'>.</span><span class='id identifier rubyid_extend'>extend</span><span class='lparen'>(</span><span class='const'>Describable</span><span class='rparen'>)</span>
+  <span class='ivar'>@inclusions</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_extend'>extend</span><span class='lparen'>(</span><span class='const'>Describable</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_extend'>extend</span><span class='lparen'>(</span><span class='const'>BackwardCompatibility</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id=""></span>
+      <div class="method_details first">
+  <h3 class="signature first" id="exclusions-instance_method">
+  
+    - (<tt>Object</tt>) <strong>exclusions</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns the value of attribute exclusions</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+143
+144
+145</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/filter_manager.rb', line 143</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_exclusions'>exclusions</span>
+  <span class='ivar'>@exclusions</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="inclusions-instance_method">
+  
+    - (<tt>Object</tt>) <strong>inclusions</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns the value of attribute inclusions</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+143
+144
+145</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/filter_manager.rb', line 143</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_inclusions'>inclusions</span>
+  <span class='ivar'>@inclusions</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="const_missing-class_method">
+  
+    + (<tt>Object</tt>) <strong>const_missing</strong>(name) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/filter_manager.rb', line 70</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_const_missing'>const_missing</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
+  <span class='kw'>case</span> <span class='id identifier rubyid_name'>name</span>
+  <span class='kw'>when</span> <span class='symbol'>:DEFAULT_EXCLUSIONS</span>
+    <span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_deprecate'>deprecate</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>RSpec::Core::FilterManager::DEFAULT_EXCLUSIONS is deprecated</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_default_exclusions'>default_exclusions</span>
+  <span class='kw'>when</span> <span class='symbol'>:STANDALONE_FILTERS</span>
+    <span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_deprecate'>deprecate</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>RSpec::Core::FilterManager::STANDALONE_FILTERS is deprecated</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_standalone_filters'>standalone_filters</span>
+  <span class='kw'>else</span>
+    <span class='kw'>super</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="add_location-instance_method">
+  
+    - (<tt>Object</tt>) <strong>add_location</strong>(file_path, line_numbers) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+151
+152
+153
+154
+155
+156
+157
+158
+159</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/filter_manager.rb', line 151</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_add_location'>add_location</span><span class='lparen'>(</span><span class='id identifier rubyid_file_path'>file_path</span><span class='comma'>,</span> <span class='id identifier rubyid_line_numbers'>line_numbers</span><span class='rparen'>)</span>
+  <span class='comment'># locations is a hash of expanded paths to arrays of line
+</span>  <span class='comment'># numbers to match against. e.g.
+</span>  <span class='comment'>#   { &quot;path/to/file.rb&quot; =&gt; [37, 42] }
+</span>  <span class='id identifier rubyid_locations'>locations</span> <span class='op'>=</span> <span class='ivar'>@inclusions</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='symbol'>:locations</span><span class='rparen'>)</span> <span class='op'>||</span> <span class='const'>Hash</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_h'>h</span><span class='comma'>,</span><span class='id identifier rubyid_k'>k</span><span class='op'>|</span> <span class='id identifier rubyid_h'>h</span><span class='lbracket'>[</span><span class='id identifier rubyid_k'>k</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span><span class='rbrace'>}</span>
+  <span class='id identifier rubyid_locations'>locations</span><span class='lbracket'>[</span><span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_expand_path'>expand_path</span><span class='lparen'>(</span><span class='id identifier rubyid_file_path'>file_path</span><span class='rparen'>)</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_line_numbers'>line_numbers</span><span class='rparen'>)</span>
+  <span class='ivar'>@inclusions</span><span class='period'>.</span><span class='id identifier rubyid_replace'>replace</span><span class='lparen'>(</span><span class='symbol'>:locations</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_locations'>locations</span><span class='rparen'>)</span>
+  <span class='ivar'>@exclusions</span><span class='period'>.</span><span class='id identifier rubyid_clear'>clear</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="empty?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>empty?</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+161
+162
+163</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/filter_manager.rb', line 161</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_empty?'>empty?</span>
+  <span class='id identifier rubyid_inclusions'>inclusions</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_exclusions'>exclusions</span><span class='period'>.</span><span class='id identifier rubyid_rules_empty?'>rules_empty?</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="exclude-instance_method">
+  
+    - (<tt>Object</tt>) <strong>exclude</strong>(*args) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+169
+170
+171</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/filter_manager.rb', line 169</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_exclude'>exclude</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_merge'>merge</span><span class='lparen'>(</span><span class='ivar'>@exclusions</span><span class='comma'>,</span> <span class='ivar'>@inclusions</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="exclude!-instance_method">
+  
+    - (<tt>Object</tt>) <strong>exclude!</strong>(*args) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+173
+174
+175
+176</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/filter_manager.rb', line 173</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_exclude!'>exclude!</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
+  <span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_deprecate'>deprecate</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>FilterManager#exclude! is deprecated. Use FilterManager#exclude_only</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_exclude_only'>exclude_only</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="exclude?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>exclude?</strong>(example) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+186
+187
+188</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/filter_manager.rb', line 186</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_exclude?'>exclude?</span><span class='lparen'>(</span><span class='id identifier rubyid_example'>example</span><span class='rparen'>)</span>
+  <span class='ivar'>@exclusions</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span> <span class='op'>?</span> <span class='kw'>false</span> <span class='op'>:</span> <span class='id identifier rubyid_example'>example</span><span class='period'>.</span><span class='id identifier rubyid_any_apply?'>any_apply?</span><span class='lparen'>(</span><span class='ivar'>@exclusions</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="exclude_only-instance_method">
+  
+    - (<tt>Object</tt>) <strong>exclude_only</strong>(*args) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+178
+179
+180</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/filter_manager.rb', line 178</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_exclude_only'>exclude_only</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_replace'>replace</span><span class='lparen'>(</span><span class='ivar'>@exclusions</span><span class='comma'>,</span> <span class='ivar'>@inclusions</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="exclude_with_low_priority-instance_method">
+  
+    - (<tt>Object</tt>) <strong>exclude_with_low_priority</strong>(*args) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+182
+183
+184</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/filter_manager.rb', line 182</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_exclude_with_low_priority'>exclude_with_low_priority</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_reverse_merge'>reverse_merge</span><span class='lparen'>(</span><span class='ivar'>@exclusions</span><span class='comma'>,</span> <span class='ivar'>@inclusions</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="include-instance_method">
+  
+    - (<tt>Object</tt>) <strong>include</strong>(*args) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+190
+191
+192</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/filter_manager.rb', line 190</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_include'>include</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_unless_standalone'>unless_standalone</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_merge'>merge</span><span class='lparen'>(</span><span class='ivar'>@inclusions</span><span class='comma'>,</span> <span class='ivar'>@exclusions</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="include!-instance_method">
+  
+    - (<tt>Object</tt>) <strong>include!</strong>(*args) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+194
+195
+196
+197</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/filter_manager.rb', line 194</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_include!'>include!</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
+  <span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_deprecate'>deprecate</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>FilterManager#include! is deprecated. Use FilterManager#include_only</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_include_only'>include_only</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="include?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>include?</strong>(example) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+207
+208
+209</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/filter_manager.rb', line 207</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_example'>example</span><span class='rparen'>)</span>
+  <span class='ivar'>@inclusions</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span> <span class='op'>?</span> <span class='kw'>true</span> <span class='op'>:</span> <span class='id identifier rubyid_example'>example</span><span class='period'>.</span><span class='id identifier rubyid_any_apply?'>any_apply?</span><span class='lparen'>(</span><span class='ivar'>@inclusions</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="include_only-instance_method">
+  
+    - (<tt>Object</tt>) <strong>include_only</strong>(*args) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+199
+200
+201</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/filter_manager.rb', line 199</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_include_only'>include_only</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_unless_standalone'>unless_standalone</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_replace'>replace</span><span class='lparen'>(</span><span class='ivar'>@inclusions</span><span class='comma'>,</span> <span class='ivar'>@exclusions</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="include_with_low_priority-instance_method">
+  
+    - (<tt>Object</tt>) <strong>include_with_low_priority</strong>(*args) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+203
+204
+205</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/filter_manager.rb', line 203</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_include_with_low_priority'>include_with_low_priority</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_unless_standalone'>unless_standalone</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_reverse_merge'>reverse_merge</span><span class='lparen'>(</span><span class='ivar'>@inclusions</span><span class='comma'>,</span> <span class='ivar'>@exclusions</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="prune-instance_method">
+  
+    - (<tt>Object</tt>) <strong>prune</strong>(examples) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+165
+166
+167</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/filter_manager.rb', line 165</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_prune'>prune</span><span class='lparen'>(</span><span class='id identifier rubyid_examples'>examples</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_examples'>examples</span><span class='period'>.</span><span class='id identifier rubyid_select'>select</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_e'>e</span><span class='op'>|</span> <span class='op'>!</span><span class='id identifier rubyid_exclude?'>exclude?</span><span class='lparen'>(</span><span class='id identifier rubyid_e'>e</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_e'>e</span><span class='rparen'>)</span><span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+    <div id="footer">
+  Generated on Thu Dec 18 08:14:27 2014 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.6 (ruby-2.1.5).
+</div>
+
+  </body>
+</html>

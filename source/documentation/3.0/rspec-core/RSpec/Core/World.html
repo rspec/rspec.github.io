@@ -1,0 +1,983 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: RSpec::Core::World
+  
+    &mdash; Documentation by YARD 0.8.7.6
+  
+</title>
+
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '../../';
+  framesUrl = "../../frames.html#!RSpec/Core/World.html";
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../../_index.html">Index (W)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../../RSpec.html" title="RSpec (module)">RSpec</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Core.html" title="RSpec::Core (module)">Core</a></span></span>
+     &raquo; 
+    <span class="title">World</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../../class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="../../method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="../../file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><h1>Class: RSpec::Core::World
+  
+  
+  <span class="private note title">Private</span>
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName">Object</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">RSpec::Core::World</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+      <dt class="r2">Includes:</dt>
+      <dd class="r2"><span class='object_link'><a href="Hooks.html" title="RSpec::Core::Hooks (module)">Hooks</a></span></dd>
+      
+    
+  
+  
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">lib/rspec/core/world.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <p class="note private">
+  <strong>This class is part of a private API.</strong>
+  You should avoid using this class if possible, as it may be removed or be changed in the future.
+</p>
+
+<p>Internal container for global non-configuration data</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+  <h2>Constant Summary</h2>
+  
+
+
+
+
+  <h2>Instance Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#wants_to_quit-instance_method" title="#wants_to_quit (instance method)">- (void) <strong>wants_to_quit</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  <span class="private note title">private</span>
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Used internally to determine what to do when a SIGINT is received.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#announce_exclusion_filter-instance_method" title="#announce_exclusion_filter (instance method)">- (void) <strong>announce_exclusion_filter</strong>(announcements) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  <span class="private note title">private</span>
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Add exclusion filters to announcement message.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#announce_filters-instance_method" title="#announce_filters (instance method)">- (void) <strong>announce_filters</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  <span class="private note title">private</span>
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Notify reporter of filters.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#announce_inclusion_filter-instance_method" title="#announce_inclusion_filter (instance method)">- (void) <strong>announce_inclusion_filter</strong>(announcements) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  <span class="private note title">private</span>
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Add inclusion filters to announcement message.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#example_count-instance_method" title="#example_count (instance method)">- (void) <strong>example_count</strong>(groups = example_groups) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  <span class="private note title">private</span>
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Get count of examples to be run.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (World) <strong>initialize</strong>(configuration = RSpec.configuration) </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  <span class="private note title">private</span>
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>A new instance of World.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#ordered_example_groups-instance_method" title="#ordered_example_groups (instance method)">- (void) <strong>ordered_example_groups</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  <span class="private note title">private</span>
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Apply ordering strategy from configuration to example groups.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#preceding_declaration_line-instance_method" title="#preceding_declaration_line (instance method)">- (void) <strong>preceding_declaration_line</strong>(filter_line) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  <span class="private note title">private</span>
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Find line number of previous declaration.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#register-instance_method" title="#register (instance method)">- (void) <strong>register</strong>(example_group) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  <span class="private note title">private</span>
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Register an example group.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#reset-instance_method" title="#reset (instance method)">- (void) <strong>reset</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  <span class="private note title">private</span>
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Reset world to &#39;scratch&#39; before running suite.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="Hooks.html" title="RSpec::Core::Hooks (module)">Hooks</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="Hooks.html#after-instance_method" title="RSpec::Core::Hooks#after (method)">#after</a></span>, <span class='object_link'><a href="Hooks.html#append_after-instance_method" title="RSpec::Core::Hooks#append_after (method)">#append_after</a></span>, <span class='object_link'><a href="Hooks.html#around-instance_method" title="RSpec::Core::Hooks#around (method)">#around</a></span>, <span class='object_link'><a href="Hooks.html#before-instance_method" title="RSpec::Core::Hooks#before (method)">#before</a></span>, <span class='object_link'><a href="Hooks.html#prepend_before-instance_method" title="RSpec::Core::Hooks#prepend_before (method)">#prepend_before</a></span></p>
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <h3 class="signature first" id="initialize-instance_method">
+  
+    - (<tt><span class='object_link'><a href="" title="RSpec::Core::World (class)">World</a></span></tt>) <strong>initialize</strong>(configuration = RSpec.configuration) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p class="note private">
+  <strong>This method is part of a private API.</strong>
+  You should avoid using this method if possible, as it may be removed or be changed in the future.
+</p>
+
+<p>Returns a new instance of World</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/world.rb', line 16</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_configuration'>configuration</span><span class='op'>=</span><span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_configuration'>configuration</span><span class='rparen'>)</span>
+  <span class='ivar'>@configuration</span> <span class='op'>=</span> <span class='id identifier rubyid_configuration'>configuration</span>
+  <span class='ivar'>@example_groups</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='ivar'>@filtered_examples</span> <span class='op'>=</span> <span class='const'>Hash</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_hash'>hash</span><span class='comma'>,</span><span class='id identifier rubyid_group'>group</span><span class='op'>|</span>
+    <span class='id identifier rubyid_hash'>hash</span><span class='lbracket'>[</span><span class='id identifier rubyid_group'>group</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='kw'>begin</span>
+      <span class='id identifier rubyid_examples'>examples</span> <span class='op'>=</span> <span class='id identifier rubyid_group'>group</span><span class='period'>.</span><span class='id identifier rubyid_examples'>examples</span><span class='period'>.</span><span class='id identifier rubyid_dup'>dup</span>
+      <span class='id identifier rubyid_examples'>examples</span> <span class='op'>=</span> <span class='id identifier rubyid_filter_manager'>filter_manager</span><span class='period'>.</span><span class='id identifier rubyid_prune'>prune</span><span class='lparen'>(</span><span class='id identifier rubyid_examples'>examples</span><span class='rparen'>)</span>
+      <span class='id identifier rubyid_examples'>examples</span><span class='period'>.</span><span class='id identifier rubyid_uniq!'>uniq!</span>
+      <span class='id identifier rubyid_examples'>examples</span>
+    <span class='kw'>end</span>
+  <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id="wants_to_quit=-instance_method"></span>
+      <div class="method_details first">
+  <h3 class="signature first" id="wants_to_quit-instance_method">
+  
+    - (<tt>void</tt>) <strong>wants_to_quit</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p class="note private">
+  <strong>This method is part of a private API.</strong>
+  You should avoid using this method if possible, as it may be removed or be changed in the future.
+</p>
+
+<p>Used internally to determine what to do when a SIGINT is received</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+14
+15
+16</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/world.rb', line 14</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_wants_to_quit'>wants_to_quit</span>
+  <span class='ivar'>@wants_to_quit</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="announce_exclusion_filter-instance_method">
+  
+    - (<tt>void</tt>) <strong>announce_exclusion_filter</strong>(announcements) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p class="note private">
+  <strong>This method is part of a private API.</strong>
+  You should avoid using this method if possible, as it may be removed or be changed in the future.
+</p>
+
+<p>Add exclusion filters to announcement message</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+167
+168
+169
+170
+171</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/world.rb', line 167</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_announce_exclusion_filter'>announce_exclusion_filter</span><span class='lparen'>(</span><span class='id identifier rubyid_announcements'>announcements</span><span class='rparen'>)</span>
+  <span class='kw'>unless</span> <span class='id identifier rubyid_exclusion_filter'>exclusion_filter</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
+    <span class='id identifier rubyid_announcements'>announcements</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>exclude </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_exclusion_filter'>exclusion_filter</span><span class='period'>.</span><span class='id identifier rubyid_description'>description</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="announce_filters-instance_method">
+  
+    - (<tt>void</tt>) <strong>announce_filters</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p class="note private">
+  <strong>This method is part of a private API.</strong>
+  You should avoid using this method if possible, as it may be removed or be changed in the future.
+</p>
+
+<p>Notify reporter of filters</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/world.rb', line 114</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_announce_filters'>announce_filters</span>
+  <span class='id identifier rubyid_filter_announcements'>filter_announcements</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+
+  <span class='id identifier rubyid_announce_inclusion_filter'>announce_inclusion_filter</span> <span class='id identifier rubyid_filter_announcements'>filter_announcements</span>
+  <span class='id identifier rubyid_announce_exclusion_filter'>announce_exclusion_filter</span> <span class='id identifier rubyid_filter_announcements'>filter_announcements</span>
+
+  <span class='kw'>unless</span> <span class='id identifier rubyid_filter_manager'>filter_manager</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_filter_announcements'>filter_announcements</span><span class='period'>.</span><span class='id identifier rubyid_length'>length</span> <span class='op'>==</span> <span class='int'>1</span>
+      <span class='id identifier rubyid_reporter'>reporter</span><span class='period'>.</span><span class='id identifier rubyid_message'>message</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Run options: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_filter_announcements'>filter_announcements</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='kw'>else</span>
+      <span class='id identifier rubyid_reporter'>reporter</span><span class='period'>.</span><span class='id identifier rubyid_message'>message</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Run options:\n  </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_filter_announcements'>filter_announcements</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n  </span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>if</span> <span class='ivar'>@configuration</span><span class='period'>.</span><span class='id identifier rubyid_run_all_when_everything_filtered?'>run_all_when_everything_filtered?</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_example_count'>example_count</span><span class='period'>.</span><span class='id identifier rubyid_zero?'>zero?</span>
+    <span class='id identifier rubyid_reporter'>reporter</span><span class='period'>.</span><span class='id identifier rubyid_message'>message</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_everything_filtered_message'>everything_filtered_message</span><span class='embexpr_end'>}</span><span class='tstring_content'>; ignoring </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_inclusion_filter'>inclusion_filter</span><span class='period'>.</span><span class='id identifier rubyid_description'>description</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_filtered_examples'>filtered_examples</span><span class='period'>.</span><span class='id identifier rubyid_clear'>clear</span>
+    <span class='id identifier rubyid_inclusion_filter'>inclusion_filter</span><span class='period'>.</span><span class='id identifier rubyid_clear'>clear</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>if</span> <span class='id identifier rubyid_example_count'>example_count</span><span class='period'>.</span><span class='id identifier rubyid_zero?'>zero?</span>
+    <span class='id identifier rubyid_example_groups'>example_groups</span><span class='period'>.</span><span class='id identifier rubyid_clear'>clear</span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_filter_manager'>filter_manager</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
+      <span class='id identifier rubyid_reporter'>reporter</span><span class='period'>.</span><span class='id identifier rubyid_message'>message</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>No examples found.</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='kw'>elsif</span> <span class='id identifier rubyid_exclusion_filter'>exclusion_filter</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
+      <span class='id identifier rubyid_message'>message</span> <span class='op'>=</span> <span class='id identifier rubyid_everything_filtered_message'>everything_filtered_message</span>
+      <span class='kw'>if</span> <span class='ivar'>@configuration</span><span class='period'>.</span><span class='id identifier rubyid_run_all_when_everything_filtered?'>run_all_when_everything_filtered?</span>
+        <span class='id identifier rubyid_message'>message</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>; ignoring </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_inclusion_filter'>inclusion_filter</span><span class='period'>.</span><span class='id identifier rubyid_description'>description</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
+      <span class='kw'>end</span>
+      <span class='id identifier rubyid_reporter'>reporter</span><span class='period'>.</span><span class='id identifier rubyid_message'>message</span><span class='lparen'>(</span><span class='id identifier rubyid_message'>message</span><span class='rparen'>)</span>
+    <span class='kw'>elsif</span> <span class='id identifier rubyid_inclusion_filter'>inclusion_filter</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
+      <span class='id identifier rubyid_reporter'>reporter</span><span class='period'>.</span><span class='id identifier rubyid_message'>message</span><span class='lparen'>(</span><span class='id identifier rubyid_everything_filtered_message'>everything_filtered_message</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="announce_inclusion_filter-instance_method">
+  
+    - (<tt>void</tt>) <strong>announce_inclusion_filter</strong>(announcements) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p class="note private">
+  <strong>This method is part of a private API.</strong>
+  You should avoid using this method if possible, as it may be removed or be changed in the future.
+</p>
+
+<p>Add inclusion filters to announcement message</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+158
+159
+160
+161
+162</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/world.rb', line 158</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_announce_inclusion_filter'>announce_inclusion_filter</span><span class='lparen'>(</span><span class='id identifier rubyid_announcements'>announcements</span><span class='rparen'>)</span>
+  <span class='kw'>unless</span> <span class='id identifier rubyid_inclusion_filter'>inclusion_filter</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
+    <span class='id identifier rubyid_announcements'>announcements</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>include </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_inclusion_filter'>inclusion_filter</span><span class='period'>.</span><span class='id identifier rubyid_description'>description</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="example_count-instance_method">
+  
+    - (<tt>void</tt>) <strong>example_count</strong>(groups = example_groups) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p class="note private">
+  <strong>This method is part of a private API.</strong>
+  You should avoid using this method if possible, as it may be removed or be changed in the future.
+</p>
+
+<p>Get count of examples to be run</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+92
+93
+94
+95</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/world.rb', line 92</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_example_count'>example_count</span><span class='lparen'>(</span><span class='id identifier rubyid_groups'>groups</span><span class='op'>=</span><span class='id identifier rubyid_example_groups'>example_groups</span><span class='rparen'>)</span>
+  <span class='const'>FlatMap</span><span class='period'>.</span><span class='id identifier rubyid_flat_map'>flat_map</span><span class='lparen'>(</span><span class='id identifier rubyid_groups'>groups</span><span class='rparen'>)</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_g'>g</span><span class='op'>|</span> <span class='id identifier rubyid_g'>g</span><span class='period'>.</span><span class='id identifier rubyid_descendants'>descendants</span><span class='rbrace'>}</span><span class='period'>.</span>
+    <span class='id identifier rubyid_inject'>inject</span><span class='lparen'>(</span><span class='int'>0</span><span class='rparen'>)</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_sum'>sum</span><span class='comma'>,</span> <span class='id identifier rubyid_g'>g</span><span class='op'>|</span> <span class='id identifier rubyid_sum'>sum</span> <span class='op'>+</span> <span class='id identifier rubyid_g'>g</span><span class='period'>.</span><span class='id identifier rubyid_filtered_examples'>filtered_examples</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span><span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="ordered_example_groups-instance_method">
+  
+    - (<tt>void</tt>) <strong>ordered_example_groups</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p class="note private">
+  <strong>This method is part of a private API.</strong>
+  You should avoid using this method if possible, as it may be removed or be changed in the future.
+</p>
+
+<p>Apply ordering strategy from configuration to example groups</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+43
+44
+45
+46</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/world.rb', line 43</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_ordered_example_groups'>ordered_example_groups</span>
+  <span class='id identifier rubyid_ordering_strategy'>ordering_strategy</span> <span class='op'>=</span> <span class='ivar'>@configuration</span><span class='period'>.</span><span class='id identifier rubyid_ordering_registry'>ordering_registry</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='symbol'>:global</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_ordering_strategy'>ordering_strategy</span><span class='period'>.</span><span class='id identifier rubyid_order'>order</span><span class='lparen'>(</span><span class='ivar'>@example_groups</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="preceding_declaration_line-instance_method">
+  
+    - (<tt>void</tt>) <strong>preceding_declaration_line</strong>(filter_line) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p class="note private">
+  <strong>This method is part of a private API.</strong>
+  You should avoid using this method if possible, as it may be removed or be changed in the future.
+</p>
+
+<p>Find line number of previous declaration</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+100
+101
+102
+103
+104</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/world.rb', line 100</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_preceding_declaration_line'>preceding_declaration_line</span><span class='lparen'>(</span><span class='id identifier rubyid_filter_line'>filter_line</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_declaration_line_numbers'>declaration_line_numbers</span><span class='period'>.</span><span class='id identifier rubyid_sort'>sort</span><span class='period'>.</span><span class='id identifier rubyid_inject'>inject</span><span class='lparen'>(</span><span class='kw'>nil</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_highest_prior_declaration_line'>highest_prior_declaration_line</span><span class='comma'>,</span> <span class='id identifier rubyid_line'>line</span><span class='op'>|</span>
+    <span class='id identifier rubyid_line'>line</span> <span class='op'>&lt;=</span> <span class='id identifier rubyid_filter_line'>filter_line</span> <span class='op'>?</span> <span class='id identifier rubyid_line'>line</span> <span class='op'>:</span> <span class='id identifier rubyid_highest_prior_declaration_line'>highest_prior_declaration_line</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="register-instance_method">
+  
+    - (<tt>void</tt>) <strong>register</strong>(example_group) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p class="note private">
+  <strong>This method is part of a private API.</strong>
+  You should avoid using this method if possible, as it may be removed or be changed in the future.
+</p>
+
+<p>Register an example group</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+64
+65
+66
+67</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/world.rb', line 64</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_register'>register</span><span class='lparen'>(</span><span class='id identifier rubyid_example_group'>example_group</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_example_groups'>example_groups</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_example_group'>example_group</span>
+  <span class='id identifier rubyid_example_group'>example_group</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="reset-instance_method">
+  
+    - (<tt>void</tt>) <strong>reset</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p class="note private">
+  <strong>This method is part of a private API.</strong>
+  You should avoid using this method if possible, as it may be removed or be changed in the future.
+</p>
+
+<p>Reset world to &#39;scratch&#39; before running suite</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+51
+52
+53
+54</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/world.rb', line 51</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_reset'>reset</span>
+  <span class='id identifier rubyid_example_groups'>example_groups</span><span class='period'>.</span><span class='id identifier rubyid_clear'>clear</span>
+  <span class='ivar'>@shared_example_group_registry</span> <span class='op'>=</span> <span class='kw'>nil</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+    <div id="footer">
+  Generated on Thu Dec 18 09:22:24 2014 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.6 (ruby-2.1.5).
+</div>
+
+  </body>
+</html>

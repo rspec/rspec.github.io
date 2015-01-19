@@ -40,6 +40,8 @@ activate :syntax
 set :markdown_engine, :kramdown
 activate :directory_indexes
 
+page "documentation/**/*.html", directory_index: false
+
 set :css_dir,    'stylesheets'
 set :js_dir,     'javascripts'
 set :images_dir, 'images'
@@ -95,5 +97,20 @@ helpers do
       |  <script type="text/javascript" src="https://asciinema.org/a/#{id}.js" id="asciicast-#{id}" data-size="small" data-speed="#{speed}", async></script>
       |</div>
     HTML
+  end
+
+  def rspec_documentation
+    hash = Hash.new { |h,k| h[k] = [] }
+    Dir["#{root}/source/documentation/*/*"].each do |dir|
+      version, gem = dir.scan(%r{/source/documentation/([^/]+)/([^/]+)}).first.flatten
+      hash[gem] << version
+    end
+    hash
+  end
+
+  def documentation_links_for(gem_name)
+    rspec_documentation.fetch(gem_name) { [] }.sort.reverse.map do |version|
+      link_to version, "/documentation/#{version}/#{gem_name}/"
+    end
   end
 end

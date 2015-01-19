@@ -1,0 +1,3627 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: RSpec::Core::ExampleGroup
+  
+    &mdash; Documentation by YARD 0.8.7.6
+  
+</title>
+
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '../../';
+  framesUrl = "../../frames.html#!RSpec/Core/ExampleGroup.html";
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../../_index.html">Index (E)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../../RSpec.html" title="RSpec (module)">RSpec</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Core.html" title="RSpec::Core (module)">Core</a></span></span>
+     &raquo; 
+    <span class="title">ExampleGroup</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../../class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="../../method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="../../file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><h1>Class: RSpec::Core::ExampleGroup
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName">Object</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">RSpec::Core::ExampleGroup</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+      <dt class="r2">Extended by:</dt>
+      <dd class="r2"><span class='object_link'><a href="Hooks.html" title="RSpec::Core::Hooks (module)">Hooks</a></span>, <span class='object_link'><a href="MemoizedHelpers/ClassMethods.html" title="RSpec::Core::MemoizedHelpers::ClassMethods (module)">MemoizedHelpers::ClassMethods</a></span>, <span class='object_link'><a href="SharedExampleGroup.html" title="RSpec::Core::SharedExampleGroup (module)">SharedExampleGroup</a></span></dd>
+      
+    
+  
+    
+      <dt class="r1">Includes:</dt>
+      <dd class="r1"><span class='object_link'><a href="MemoizedHelpers.html" title="RSpec::Core::MemoizedHelpers (module)">MemoizedHelpers</a></span>, <span class='object_link'><a href="Pending.html" title="RSpec::Core::Pending (module)">Pending</a></span></dd>
+      
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/rspec/core/example_group.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>ExampleGroup and <span class='object_link'><a href="Example.html" title="RSpec::Core::Example (class)">Example</a></span> are the main structural elements of rspec-core.
+Consider this example:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_describe'>describe</span> <span class='const'>Thing</span> <span class='kw'>do</span>
+  <span class='id identifier rubyid_it'>it</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>does something</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></code></pre>
+
+<p>The object returned by <code>describe Thing</code> is a subclass of
+ExampleGroup. The object returned by <code>it &quot;does
+something&quot;</code> is an instance of Example, which serves as a wrapper
+for an instance of the ExampleGroup in which it is declared.</p>
+
+<p>Example group bodies (e.g. <code>describe</code> or <code>context</code>
+blocks) are evaluated in the context of a new subclass of ExampleGroup.
+Individual examples are evaluated in the context of an instance of the
+specific ExampleGroup subclass to which they belong.</p>
+
+<p>Besides the class methods defined here, there are other interesting macros
+defined in <span class='object_link'><a href="Hooks.html" title="RSpec::Core::Hooks (module)">Hooks</a></span>, <span class='object_link'><a href="MemoizedHelpers/ClassMethods.html" title="RSpec::Core::MemoizedHelpers::ClassMethods (module)">MemoizedHelpers::ClassMethods</a></span> and
+<span class='object_link'><a href="SharedExampleGroup.html" title="RSpec::Core::SharedExampleGroup (module)">SharedExampleGroup</a></span>. There are additional instance methods available to
+your examples defined in <span class='object_link'><a href="MemoizedHelpers.html" title="RSpec::Core::MemoizedHelpers (module)">MemoizedHelpers</a></span> and <span class='object_link'><a href="Pending.html" title="RSpec::Core::Pending (module)">Pending</a></span>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+  <h2>Constant Summary</h2>
+  
+
+
+
+
+
+
+
+  
+    <h2>
+      Metadata
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#description-class_method" title="description (class method)">+ (String) <strong>description</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The current example group description.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#metadata-class_method" title="metadata (class method)">+ (void) <strong>metadata</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>The <a href="Metadata">Metadata</a> object associated with this group.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#described_class-instance_method" title="#described_class (instance method)">- (void) <strong>described_class</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the class or module passed to the <code>describe</code> method (or
+alias).</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+    <h2>
+      Defining Examples
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#example-class_method" title="example (class method)">+ (void) <strong>example</strong> {|Example| ... }</a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Defines an example within a group.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#fexample-class_method" title="fexample (class method)">+ (void) <strong>fexample</strong> {|Example| ... }</a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Shortcut to define an example with <code>:focus =&gt; true</code>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#fit-class_method" title="fit (class method)">+ (void) <strong>fit</strong> {|Example| ... }</a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Shortcut to define an example with <code>:focus =&gt; true</code>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#focus-class_method" title="focus (class method)">+ (void) <strong>focus</strong> {|Example| ... }</a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Shortcut to define an example with <code>:focus =&gt; true</code>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#fspecify-class_method" title="fspecify (class method)">+ (void) <strong>fspecify</strong> {|Example| ... }</a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Shortcut to define an example with <code>:focus =&gt; true</code>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#it-class_method" title="it (class method)">+ (void) <strong>it</strong> {|Example| ... }</a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Defines an example within a group.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#pending-class_method" title="pending (class method)">+ (void) <strong>pending</strong> {|Example| ... }</a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Shortcut to define an example with <code>:pending =&gt; true</code>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#skip-class_method" title="skip (class method)">+ (void) <strong>skip</strong> {|Example| ... }</a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Shortcut to define an example with <code>:skip =&gt; true</code>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#specify-class_method" title="specify (class method)">+ (void) <strong>specify</strong> {|Example| ... }</a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Defines an example within a group.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#xexample-class_method" title="xexample (class method)">+ (void) <strong>xexample</strong> {|Example| ... }</a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Shortcut to define an example with <code>:skip =&gt; &#39;Temporarily
+skipped with xexample&#39;</code>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#xit-class_method" title="xit (class method)">+ (void) <strong>xit</strong> {|Example| ... }</a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Shortcut to define an example with <code>:skip =&gt; &#39;Temporarily
+skipped with xit&#39;</code>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#xspecify-class_method" title="xspecify (class method)">+ (void) <strong>xspecify</strong> {|Example| ... }</a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Shortcut to define an example with <code>:skip =&gt; &#39;Temporarily
+skipped with xspecify&#39;</code>.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+    <h2>
+      Defining Example Groups
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#context-class_method" title="context (class method)">+ (void) <strong>context</strong> { ... }</a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>An alias of <code>example_group</code>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#describe-class_method" title="describe (class method)">+ (void) <strong>describe</strong> { ... }</a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>An alias of <code>example_group</code>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#example_group-class_method" title="example_group (class method)">+ (void) <strong>example_group</strong> { ... }</a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Generates a subclass of this example group which inherits everything except
+the examples themselves.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#fcontext-class_method" title="fcontext (class method)">+ (void) <strong>fcontext</strong> { ... }</a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Shortcut to define an example group with <code>:focus =&gt; true</code>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#fdescribe-class_method" title="fdescribe (class method)">+ (void) <strong>fdescribe</strong> { ... }</a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Shortcut to define an example group with <code>:focus =&gt; true</code>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#xcontext-class_method" title="xcontext (class method)">+ (void) <strong>xcontext</strong> { ... }</a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Shortcut to temporarily make an example group skipped.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#xdescribe-class_method" title="xdescribe (class method)">+ (void) <strong>xdescribe</strong> { ... }</a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Shortcut to temporarily make an example group skipped.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+    <h2>
+      Including Shared Example Groups
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#include_context-class_method" title="include_context (class method)">+ (void) <strong>include_context</strong>(name, *args, &amp;block) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Includes shared content mapped to <code>name</code> directly in the group
+in which it is declared, as opposed to <code>it_behaves_like</code>, which
+creates a nested group.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#include_examples-class_method" title="include_examples (class method)">+ (void) <strong>include_examples</strong>(name, *args, &amp;block) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Includes shared content mapped to <code>name</code> directly in the group
+in which it is declared, as opposed to <code>it_behaves_like</code>, which
+creates a nested group.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#it_behaves_like-class_method" title="it_behaves_like (class method)">+ (void) <strong>it_behaves_like</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Generates a nested example group and includes the shared content mapped to
+<code>name</code> in the nested group.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#it_should_behave_like-class_method" title="it_should_behave_like (class method)">+ (void) <strong>it_should_behave_like</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Generates a nested example group and includes the shared content mapped to
+<code>name</code> in the nested group.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+    <h2>
+      Class Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#run-class_method" title="run (class method)">+ (void) <strong>run</strong>(reporter) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Runs all the examples in this group.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="SharedExampleGroup.html" title="RSpec::Core::SharedExampleGroup (module)">SharedExampleGroup</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="SharedExampleGroup.html#shared_examples-instance_method" title="RSpec::Core::SharedExampleGroup#shared_examples (method)">shared_examples</a></span></p>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="MemoizedHelpers/ClassMethods.html" title="RSpec::Core::MemoizedHelpers::ClassMethods (module)">MemoizedHelpers::ClassMethods</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="MemoizedHelpers/ClassMethods.html#let-instance_method" title="RSpec::Core::MemoizedHelpers::ClassMethods#let (method)">let</a></span>, <span class='object_link'><a href="MemoizedHelpers/ClassMethods.html#let%21-instance_method" title="RSpec::Core::MemoizedHelpers::ClassMethods#let! (method)">let!</a></span>, <span class='object_link'><a href="MemoizedHelpers/ClassMethods.html#subject-instance_method" title="RSpec::Core::MemoizedHelpers::ClassMethods#subject (method)">subject</a></span>, <span class='object_link'><a href="MemoizedHelpers/ClassMethods.html#subject%21-instance_method" title="RSpec::Core::MemoizedHelpers::ClassMethods#subject! (method)">subject!</a></span></p>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="Hooks.html" title="RSpec::Core::Hooks (module)">Hooks</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="Hooks.html#after-instance_method" title="RSpec::Core::Hooks#after (method)">after</a></span>, <span class='object_link'><a href="Hooks.html#append_after-instance_method" title="RSpec::Core::Hooks#append_after (method)">append_after</a></span>, <span class='object_link'><a href="Hooks.html#around-instance_method" title="RSpec::Core::Hooks#around (method)">around</a></span>, <span class='object_link'><a href="Hooks.html#before-instance_method" title="RSpec::Core::Hooks#before (method)">before</a></span>, <span class='object_link'><a href="Hooks.html#prepend_before-instance_method" title="RSpec::Core::Hooks#prepend_before (method)">prepend_before</a></span></p>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="Pending.html" title="RSpec::Core::Pending (module)">Pending</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="Pending.html#pending-instance_method" title="RSpec::Core::Pending#pending (method)">#pending</a></span>, <span class='object_link'><a href="Pending.html#skip-instance_method" title="RSpec::Core::Pending#skip (method)">#skip</a></span></p>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="MemoizedHelpers.html" title="RSpec::Core::MemoizedHelpers (module)">MemoizedHelpers</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="MemoizedHelpers.html#is_expected-instance_method" title="RSpec::Core::MemoizedHelpers#is_expected (method)">#is_expected</a></span>, <span class='object_link'><a href="MemoizedHelpers.html#should-instance_method" title="RSpec::Core::MemoizedHelpers#should (method)">#should</a></span>, <span class='object_link'><a href="MemoizedHelpers.html#should_not-instance_method" title="RSpec::Core::MemoizedHelpers#should_not (method)">#should_not</a></span>, <span class='object_link'><a href="MemoizedHelpers.html#subject-instance_method" title="RSpec::Core::MemoizedHelpers#subject (method)">#subject</a></span></p>
+
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="context-class_method">
+  
+    + (<tt>void</tt>) <strong>context</strong> { ... }
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>An alias of <code>example_group</code>. Generally used when grouping
+examples contextually (e.g. “with xyz”, “when xyz” or “if xyz”). Generates
+a subclass of this example group which inherits everything except the
+examples themselves.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code>
+<span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_describe'>describe</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>something</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span> <span class='comment'># &lt;&lt; This describe method is defined in
+</span>                              <span class='comment'># &lt;&lt; RSpec::Core::DSL, included in the
+</span>                              <span class='comment'># &lt;&lt; global namespace (optional)
+</span>  <span class='id identifier rubyid_before'>before</span> <span class='kw'>do</span>
+    <span class='id identifier rubyid_do_something_before'>do_something_before</span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_let'>let</span><span class='lparen'>(</span><span class='symbol'>:thing</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='const'>Thing</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span> <span class='rbrace'>}</span>
+
+  <span class='id identifier rubyid_context'>context</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>attribute (of something)</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+    <span class='comment'># examples in the group get the before hook
+</span>    <span class='comment'># declared above, and can access `thing`
+</span>  <span class='kw'>end</span>
+<span class='kw'>end</span></code></pre>
+    
+  </div>
+<p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>name</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The example group doc string</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>metadata</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Additional metadata to attach to the example group</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Yields:</p>
+<ul class="yield">
+  
+    <li>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        
+        <div class='inline'>
+<p>The example group definition</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="#example_group-class_method" title="RSpec::Core::ExampleGroup.example_group (method)">example_group</a></span></li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+241</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/example_group.rb', line 241</span>
+
+<span class='id identifier rubyid_define_example_group_method'>define_example_group_method</span> <span class='symbol'>:context</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="describe-class_method">
+  
+    + (<tt>void</tt>) <strong>describe</strong> { ... }
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>An alias of <code>example_group</code>. Generally used when grouping
+examples by a thing you are describing (e.g. an object, class or method).
+Generates a subclass of this example group which inherits everything except
+the examples themselves.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code>
+<span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_describe'>describe</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>something</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span> <span class='comment'># &lt;&lt; This describe method is defined in
+</span>                              <span class='comment'># &lt;&lt; RSpec::Core::DSL, included in the
+</span>                              <span class='comment'># &lt;&lt; global namespace (optional)
+</span>  <span class='id identifier rubyid_before'>before</span> <span class='kw'>do</span>
+    <span class='id identifier rubyid_do_something_before'>do_something_before</span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_let'>let</span><span class='lparen'>(</span><span class='symbol'>:thing</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='const'>Thing</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span> <span class='rbrace'>}</span>
+
+  <span class='id identifier rubyid_describe'>describe</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>attribute (of something)</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+    <span class='comment'># examples in the group get the before hook
+</span>    <span class='comment'># declared above, and can access `thing`
+</span>  <span class='kw'>end</span>
+<span class='kw'>end</span></code></pre>
+    
+  </div>
+<p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>name</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The example group doc string</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>metadata</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Additional metadata to attach to the example group</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Yields:</p>
+<ul class="yield">
+  
+    <li>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        
+        <div class='inline'>
+<p>The example group definition</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="#example_group-class_method" title="RSpec::Core::ExampleGroup.example_group (method)">example_group</a></span></li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+236</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/example_group.rb', line 236</span>
+
+<span class='id identifier rubyid_define_example_group_method'>define_example_group_method</span> <span class='symbol'>:describe</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="description-class_method">
+  
+    + (<tt>String</tt>) <strong>description</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the current example group description</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the current example group description</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+66
+67
+68
+69</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/example_group.rb', line 66</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_description'>description</span>
+  <span class='id identifier rubyid_description'>description</span> <span class='op'>=</span> <span class='id identifier rubyid_metadata'>metadata</span><span class='lbracket'>[</span><span class='symbol'>:description</span><span class='rbracket'>]</span>
+  <span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_configuration'>configuration</span><span class='period'>.</span><span class='id identifier rubyid_format_docstrings_block'>format_docstrings_block</span><span class='period'>.</span><span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='id identifier rubyid_description'>description</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="example-class_method">
+  
+    + (<tt>void</tt>) <strong>example</strong> {|Example| ... }
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Defines an example within a group.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code><span class='id identifier rubyid_example'>example</span> <span class='kw'>do</span>
+<span class='kw'>end</span>
+
+<span class='id identifier rubyid_example'>example</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>does something</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+<span class='kw'>end</span>
+
+<span class='id identifier rubyid_example'>example</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>does something</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:with</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>additional metadata</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>do</span>
+<span class='kw'>end</span>
+
+<span class='id identifier rubyid_example'>example</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>does something</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_ex'>ex</span><span class='op'>|</span>
+  <span class='comment'># ex is the Example object that contains metadata about the example
+</span><span class='kw'>end</span></code></pre>
+    
+  </div>
+<p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>name</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>extra_options</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>implementation</span>
+      
+      
+        <span class='type'>(<tt>Block</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Yields:</p>
+<ul class="yield">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Example.html" title="RSpec::Core::Example (class)">Example</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the example object</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+123</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/example_group.rb', line 123</span>
+
+<span class='id identifier rubyid_define_example_method'>define_example_method</span> <span class='symbol'>:example</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="example_group-class_method">
+  
+    + (<tt>void</tt>) <strong>example_group</strong> { ... }
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Generates a subclass of this example group which inherits everything except
+the examples themselves.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code>
+<span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_describe'>describe</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>something</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span> <span class='comment'># &lt;&lt; This describe method is defined in
+</span>                              <span class='comment'># &lt;&lt; RSpec::Core::DSL, included in the
+</span>                              <span class='comment'># &lt;&lt; global namespace (optional)
+</span>  <span class='id identifier rubyid_before'>before</span> <span class='kw'>do</span>
+    <span class='id identifier rubyid_do_something_before'>do_something_before</span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_let'>let</span><span class='lparen'>(</span><span class='symbol'>:thing</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='const'>Thing</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span> <span class='rbrace'>}</span>
+
+  <span class='id identifier rubyid_example_group'>example_group</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>attribute (of something)</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+    <span class='comment'># examples in the group get the before hook
+</span>    <span class='comment'># declared above, and can access `thing`
+</span>  <span class='kw'>end</span>
+<span class='kw'>end</span></code></pre>
+    
+  </div>
+<p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>name</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The example group doc string</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>metadata</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Additional metadata to attach to the example group</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Yields:</p>
+<ul class="yield">
+  
+    <li>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        
+        <div class='inline'>
+<p>The example group definition</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+231</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/example_group.rb', line 231</span>
+
+<span class='id identifier rubyid_define_example_group_method'>define_example_group_method</span> <span class='symbol'>:example_group</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="fcontext-class_method">
+  
+    + (<tt>void</tt>) <strong>fcontext</strong> { ... }
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Shortcut to define an example group with <code>:focus =&gt; true</code>.
+Generates a subclass of this example group which inherits everything except
+the examples themselves.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code>
+<span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_describe'>describe</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>something</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span> <span class='comment'># &lt;&lt; This describe method is defined in
+</span>                              <span class='comment'># &lt;&lt; RSpec::Core::DSL, included in the
+</span>                              <span class='comment'># &lt;&lt; global namespace (optional)
+</span>  <span class='id identifier rubyid_before'>before</span> <span class='kw'>do</span>
+    <span class='id identifier rubyid_do_something_before'>do_something_before</span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_let'>let</span><span class='lparen'>(</span><span class='symbol'>:thing</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='const'>Thing</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span> <span class='rbrace'>}</span>
+
+  <span class='id identifier rubyid_fcontext'>fcontext</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>attribute (of something)</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+    <span class='comment'># examples in the group get the before hook
+</span>    <span class='comment'># declared above, and can access `thing`
+</span>  <span class='kw'>end</span>
+<span class='kw'>end</span></code></pre>
+    
+  </div>
+<p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>name</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The example group doc string</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>metadata</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Additional metadata to attach to the example group</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Yields:</p>
+<ul class="yield">
+  
+    <li>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        
+        <div class='inline'>
+<p>The example group definition</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="#example_group-class_method" title="RSpec::Core::ExampleGroup.example_group (method)">example_group</a></span></li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+257</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/example_group.rb', line 257</span>
+
+<span class='id identifier rubyid_define_example_group_method'>define_example_group_method</span> <span class='symbol'>:fcontext</span><span class='comma'>,</span>  <span class='symbol'>:focus</span> <span class='op'>=&gt;</span> <span class='kw'>true</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="fdescribe-class_method">
+  
+    + (<tt>void</tt>) <strong>fdescribe</strong> { ... }
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Shortcut to define an example group with <code>:focus =&gt; true</code>.
+Generates a subclass of this example group which inherits everything except
+the examples themselves.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code>
+<span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_describe'>describe</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>something</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span> <span class='comment'># &lt;&lt; This describe method is defined in
+</span>                              <span class='comment'># &lt;&lt; RSpec::Core::DSL, included in the
+</span>                              <span class='comment'># &lt;&lt; global namespace (optional)
+</span>  <span class='id identifier rubyid_before'>before</span> <span class='kw'>do</span>
+    <span class='id identifier rubyid_do_something_before'>do_something_before</span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_let'>let</span><span class='lparen'>(</span><span class='symbol'>:thing</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='const'>Thing</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span> <span class='rbrace'>}</span>
+
+  <span class='id identifier rubyid_fdescribe'>fdescribe</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>attribute (of something)</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+    <span class='comment'># examples in the group get the before hook
+</span>    <span class='comment'># declared above, and can access `thing`
+</span>  <span class='kw'>end</span>
+<span class='kw'>end</span></code></pre>
+    
+  </div>
+<p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>name</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The example group doc string</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>metadata</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Additional metadata to attach to the example group</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Yields:</p>
+<ul class="yield">
+  
+    <li>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        
+        <div class='inline'>
+<p>The example group definition</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="#example_group-class_method" title="RSpec::Core::ExampleGroup.example_group (method)">example_group</a></span></li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+253</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/example_group.rb', line 253</span>
+
+<span class='id identifier rubyid_define_example_group_method'>define_example_group_method</span> <span class='symbol'>:fdescribe</span><span class='comma'>,</span> <span class='symbol'>:focus</span> <span class='op'>=&gt;</span> <span class='kw'>true</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="fexample-class_method">
+  
+    + (<tt>void</tt>) <strong>fexample</strong> {|Example| ... }
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Shortcut to define an example with <code>:focus =&gt; true</code></p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code><span class='id identifier rubyid_fexample'>fexample</span> <span class='kw'>do</span>
+<span class='kw'>end</span>
+
+<span class='id identifier rubyid_fexample'>fexample</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>does something</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+<span class='kw'>end</span>
+
+<span class='id identifier rubyid_fexample'>fexample</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>does something</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:with</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>additional metadata</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>do</span>
+<span class='kw'>end</span>
+
+<span class='id identifier rubyid_fexample'>fexample</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>does something</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_ex'>ex</span><span class='op'>|</span>
+  <span class='comment'># ex is the Example object that contains metadata about the example
+</span><span class='kw'>end</span></code></pre>
+    
+  </div>
+<p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>name</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>extra_options</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>implementation</span>
+      
+      
+        <span class='type'>(<tt>Block</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Yields:</p>
+<ul class="yield">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Example.html" title="RSpec::Core::Example (class)">Example</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the example object</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="#example-class_method" title="RSpec::Core::ExampleGroup.example (method)">example</a></span></li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+142</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/example_group.rb', line 142</span>
+
+<span class='id identifier rubyid_define_example_method'>define_example_method</span> <span class='symbol'>:fexample</span><span class='comma'>,</span> <span class='symbol'>:focus</span> <span class='op'>=&gt;</span> <span class='kw'>true</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="fit-class_method">
+  
+    + (<tt>void</tt>) <strong>fit</strong> {|Example| ... }
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Shortcut to define an example with <code>:focus =&gt; true</code></p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code><span class='id identifier rubyid_fit'>fit</span> <span class='kw'>do</span>
+<span class='kw'>end</span>
+
+<span class='id identifier rubyid_fit'>fit</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>does something</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+<span class='kw'>end</span>
+
+<span class='id identifier rubyid_fit'>fit</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>does something</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:with</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>additional metadata</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>do</span>
+<span class='kw'>end</span>
+
+<span class='id identifier rubyid_fit'>fit</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>does something</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_ex'>ex</span><span class='op'>|</span>
+  <span class='comment'># ex is the Example object that contains metadata about the example
+</span><span class='kw'>end</span></code></pre>
+    
+  </div>
+<p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>name</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>extra_options</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>implementation</span>
+      
+      
+        <span class='type'>(<tt>Block</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Yields:</p>
+<ul class="yield">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Example.html" title="RSpec::Core::Example (class)">Example</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the example object</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="#example-class_method" title="RSpec::Core::ExampleGroup.example (method)">example</a></span></li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+145</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/example_group.rb', line 145</span>
+
+<span class='id identifier rubyid_define_example_method'>define_example_method</span> <span class='symbol'>:fit</span><span class='comma'>,</span>      <span class='symbol'>:focus</span> <span class='op'>=&gt;</span> <span class='kw'>true</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="focus-class_method">
+  
+    + (<tt>void</tt>) <strong>focus</strong> {|Example| ... }
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Shortcut to define an example with <code>:focus =&gt; true</code></p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code><span class='id identifier rubyid_focus'>focus</span> <span class='kw'>do</span>
+<span class='kw'>end</span>
+
+<span class='id identifier rubyid_focus'>focus</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>does something</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+<span class='kw'>end</span>
+
+<span class='id identifier rubyid_focus'>focus</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>does something</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:with</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>additional metadata</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>do</span>
+<span class='kw'>end</span>
+
+<span class='id identifier rubyid_focus'>focus</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>does something</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_ex'>ex</span><span class='op'>|</span>
+  <span class='comment'># ex is the Example object that contains metadata about the example
+</span><span class='kw'>end</span></code></pre>
+    
+  </div>
+<p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>name</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>extra_options</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>implementation</span>
+      
+      
+        <span class='type'>(<tt>Block</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Yields:</p>
+<ul class="yield">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Example.html" title="RSpec::Core::Example (class)">Example</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the example object</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="#example-class_method" title="RSpec::Core::ExampleGroup.example (method)">example</a></span></li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+139</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/example_group.rb', line 139</span>
+
+<span class='id identifier rubyid_define_example_method'>define_example_method</span> <span class='symbol'>:focus</span><span class='comma'>,</span>    <span class='symbol'>:focus</span> <span class='op'>=&gt;</span> <span class='kw'>true</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="fspecify-class_method">
+  
+    + (<tt>void</tt>) <strong>fspecify</strong> {|Example| ... }
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Shortcut to define an example with <code>:focus =&gt; true</code></p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code><span class='id identifier rubyid_fspecify'>fspecify</span> <span class='kw'>do</span>
+<span class='kw'>end</span>
+
+<span class='id identifier rubyid_fspecify'>fspecify</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>does something</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+<span class='kw'>end</span>
+
+<span class='id identifier rubyid_fspecify'>fspecify</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>does something</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:with</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>additional metadata</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>do</span>
+<span class='kw'>end</span>
+
+<span class='id identifier rubyid_fspecify'>fspecify</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>does something</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_ex'>ex</span><span class='op'>|</span>
+  <span class='comment'># ex is the Example object that contains metadata about the example
+</span><span class='kw'>end</span></code></pre>
+    
+  </div>
+<p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>name</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>extra_options</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>implementation</span>
+      
+      
+        <span class='type'>(<tt>Block</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Yields:</p>
+<ul class="yield">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Example.html" title="RSpec::Core::Example (class)">Example</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the example object</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="#example-class_method" title="RSpec::Core::ExampleGroup.example (method)">example</a></span></li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+148</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/example_group.rb', line 148</span>
+
+<span class='id identifier rubyid_define_example_method'>define_example_method</span> <span class='symbol'>:fspecify</span><span class='comma'>,</span> <span class='symbol'>:focus</span> <span class='op'>=&gt;</span> <span class='kw'>true</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="include_context-class_method">
+  
+    + (<tt>void</tt>) <strong>include_context</strong>(name, *args, &amp;block) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Includes shared content mapped to <code>name</code> directly in the group
+in which it is declared, as opposed to <code>it_behaves_like</code>, which
+creates a nested group. If given a block, that block is also eval&#39;d in
+the current context.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="SharedExampleGroup.html" title="RSpec::Core::SharedExampleGroup (module)">SharedExampleGroup</a></span></li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+293
+294
+295</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/example_group.rb', line 293</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_include_context'>include_context</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_find_and_eval_shared'>find_and_eval_shared</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>context</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="include_examples-class_method">
+  
+    + (<tt>void</tt>) <strong>include_examples</strong>(name, *args, &amp;block) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Includes shared content mapped to <code>name</code> directly in the group
+in which it is declared, as opposed to <code>it_behaves_like</code>, which
+creates a nested group. If given a block, that block is also eval&#39;d in
+the current context.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="SharedExampleGroup.html" title="RSpec::Core::SharedExampleGroup (module)">SharedExampleGroup</a></span></li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+302
+303
+304</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/example_group.rb', line 302</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_include_examples'>include_examples</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_find_and_eval_shared'>find_and_eval_shared</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>examples</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="it-class_method">
+  
+    + (<tt>void</tt>) <strong>it</strong> {|Example| ... }
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Defines an example within a group. This is the primary API to define a code
+example.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code><span class='id identifier rubyid_it'>it</span> <span class='kw'>do</span>
+<span class='kw'>end</span>
+
+<span class='id identifier rubyid_it'>it</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>does something</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+<span class='kw'>end</span>
+
+<span class='id identifier rubyid_it'>it</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>does something</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:with</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>additional metadata</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>do</span>
+<span class='kw'>end</span>
+
+<span class='id identifier rubyid_it'>it</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>does something</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_ex'>ex</span><span class='op'>|</span>
+  <span class='comment'># ex is the Example object that contains metadata about the example
+</span><span class='kw'>end</span></code></pre>
+    
+  </div>
+<p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>name</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>extra_options</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>implementation</span>
+      
+      
+        <span class='type'>(<tt>Block</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Yields:</p>
+<ul class="yield">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Example.html" title="RSpec::Core::Example (class)">Example</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the example object</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+126</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/example_group.rb', line 126</span>
+
+<span class='id identifier rubyid_define_example_method'>define_example_method</span> <span class='symbol'>:it</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="it_behaves_like-class_method">
+  
+    + (<tt>void</tt>) <strong>it_behaves_like</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Generates a nested example group and includes the shared content mapped to
+<code>name</code> in the nested group.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="SharedExampleGroup.html" title="RSpec::Core::SharedExampleGroup (module)">SharedExampleGroup</a></span></li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+283</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/example_group.rb', line 283</span>
+
+<span class='id identifier rubyid_define_nested_shared_group_method'>define_nested_shared_group_method</span> <span class='symbol'>:it_behaves_like</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>behaves like</span><span class='tstring_end'>&quot;</span></span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="it_should_behave_like-class_method">
+  
+    + (<tt>void</tt>) <strong>it_should_behave_like</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Generates a nested example group and includes the shared content mapped to
+<code>name</code> in the nested group.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="SharedExampleGroup.html" title="RSpec::Core::SharedExampleGroup (module)">SharedExampleGroup</a></span></li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+286</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/example_group.rb', line 286</span>
+
+<span class='id identifier rubyid_define_nested_shared_group_method'>define_nested_shared_group_method</span> <span class='symbol'>:it_should_behave_like</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="metadata-class_method">
+  
+    + (<tt>void</tt>) <strong>metadata</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>The <a href="Metadata">Metadata</a> object associated with this group.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="Metadata.html" title="RSpec::Core::Metadata (module)">Metadata</a></span></li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+46
+47
+48</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/example_group.rb', line 46</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_metadata'>metadata</span>
+  <span class='ivar'>@metadata</span> <span class='kw'>if</span> <span class='kw'>defined?</span><span class='lparen'>(</span><span class='ivar'>@metadata</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="pending-class_method">
+  
+    + (<tt>void</tt>) <strong>pending</strong> {|Example| ... }
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Shortcut to define an example with <code>:pending =&gt; true</code></p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code><span class='id identifier rubyid_pending'>pending</span> <span class='kw'>do</span>
+<span class='kw'>end</span>
+
+<span class='id identifier rubyid_pending'>pending</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>does something</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+<span class='kw'>end</span>
+
+<span class='id identifier rubyid_pending'>pending</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>does something</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:with</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>additional metadata</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>do</span>
+<span class='kw'>end</span>
+
+<span class='id identifier rubyid_pending'>pending</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>does something</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_ex'>ex</span><span class='op'>|</span>
+  <span class='comment'># ex is the Example object that contains metadata about the example
+</span><span class='kw'>end</span></code></pre>
+    
+  </div>
+<p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>name</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>extra_options</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>implementation</span>
+      
+      
+        <span class='type'>(<tt>Block</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Yields:</p>
+<ul class="yield">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Example.html" title="RSpec::Core::Example (class)">Example</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the example object</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="#example-class_method" title="RSpec::Core::ExampleGroup.example (method)">example</a></span></li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+163</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/example_group.rb', line 163</span>
+
+<span class='id identifier rubyid_define_example_method'>define_example_method</span> <span class='symbol'>:pending</span><span class='comma'>,</span>  <span class='symbol'>:pending</span> <span class='op'>=&gt;</span> <span class='kw'>true</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="run-class_method">
+  
+    + (<tt>void</tt>) <strong>run</strong>(reporter) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Runs all the examples in this group</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+444
+445
+446
+447
+448
+449
+450
+451
+452
+453
+454
+455
+456
+457
+458
+459
+460
+461
+462
+463
+464
+465
+466</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/example_group.rb', line 444</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_run'>run</span><span class='lparen'>(</span><span class='id identifier rubyid_reporter'>reporter</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_world'>world</span><span class='period'>.</span><span class='id identifier rubyid_wants_to_quit'>wants_to_quit</span>
+    <span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_world'>world</span><span class='period'>.</span><span class='id identifier rubyid_clear_remaining_example_groups'>clear_remaining_example_groups</span> <span class='kw'>if</span> <span class='id identifier rubyid_top_level?'>top_level?</span>
+    <span class='kw'>return</span>
+  <span class='kw'>end</span>
+  <span class='id identifier rubyid_reporter'>reporter</span><span class='period'>.</span><span class='id identifier rubyid_example_group_started'>example_group_started</span><span class='lparen'>(</span><span class='kw'>self</span><span class='rparen'>)</span>
+
+  <span class='kw'>begin</span>
+    <span class='id identifier rubyid_run_before_context_hooks'>run_before_context_hooks</span><span class='lparen'>(</span><span class='id identifier rubyid_new'>new</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_result_for_this_group'>result_for_this_group</span> <span class='op'>=</span> <span class='id identifier rubyid_run_examples'>run_examples</span><span class='lparen'>(</span><span class='id identifier rubyid_reporter'>reporter</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_results_for_descendants'>results_for_descendants</span> <span class='op'>=</span> <span class='id identifier rubyid_ordering_strategy'>ordering_strategy</span><span class='period'>.</span><span class='id identifier rubyid_order'>order</span><span class='lparen'>(</span><span class='id identifier rubyid_children'>children</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_child'>child</span><span class='op'>|</span> <span class='id identifier rubyid_child'>child</span><span class='period'>.</span><span class='id identifier rubyid_run'>run</span><span class='lparen'>(</span><span class='id identifier rubyid_reporter'>reporter</span><span class='rparen'>)</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_all?'>all?</span>
+    <span class='id identifier rubyid_result_for_this_group'>result_for_this_group</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_results_for_descendants'>results_for_descendants</span>
+  <span class='kw'>rescue</span> <span class='const'>Pending</span><span class='op'>::</span><span class='const'>SkipDeclaredInExample</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_ex'>ex</span>
+    <span class='id identifier rubyid_for_filtered_examples'>for_filtered_examples</span><span class='lparen'>(</span><span class='id identifier rubyid_reporter'>reporter</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_example'>example</span><span class='op'>|</span> <span class='id identifier rubyid_example'>example</span><span class='period'>.</span><span class='id identifier rubyid_skip_with_exception'>skip_with_exception</span><span class='lparen'>(</span><span class='id identifier rubyid_reporter'>reporter</span><span class='comma'>,</span> <span class='id identifier rubyid_ex'>ex</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+  <span class='kw'>rescue</span> <span class='const'>Exception</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_ex'>ex</span>
+    <span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_world'>world</span><span class='period'>.</span><span class='id identifier rubyid_wants_to_quit'>wants_to_quit</span> <span class='op'>=</span> <span class='kw'>true</span> <span class='kw'>if</span> <span class='id identifier rubyid_fail_fast?'>fail_fast?</span>
+    <span class='id identifier rubyid_for_filtered_examples'>for_filtered_examples</span><span class='lparen'>(</span><span class='id identifier rubyid_reporter'>reporter</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_example'>example</span><span class='op'>|</span> <span class='id identifier rubyid_example'>example</span><span class='period'>.</span><span class='id identifier rubyid_fail_with_exception'>fail_with_exception</span><span class='lparen'>(</span><span class='id identifier rubyid_reporter'>reporter</span><span class='comma'>,</span> <span class='id identifier rubyid_ex'>ex</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+  <span class='kw'>ensure</span>
+    <span class='id identifier rubyid_run_after_context_hooks'>run_after_context_hooks</span><span class='lparen'>(</span><span class='id identifier rubyid_new'>new</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_before_context_ivars'>before_context_ivars</span><span class='period'>.</span><span class='id identifier rubyid_clear'>clear</span>
+    <span class='id identifier rubyid_reporter'>reporter</span><span class='period'>.</span><span class='id identifier rubyid_example_group_finished'>example_group_finished</span><span class='lparen'>(</span><span class='kw'>self</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="skip-class_method">
+  
+    + (<tt>void</tt>) <strong>skip</strong> {|Example| ... }
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Shortcut to define an example with <code>:skip =&gt; true</code></p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code><span class='id identifier rubyid_skip'>skip</span> <span class='kw'>do</span>
+<span class='kw'>end</span>
+
+<span class='id identifier rubyid_skip'>skip</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>does something</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+<span class='kw'>end</span>
+
+<span class='id identifier rubyid_skip'>skip</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>does something</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:with</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>additional metadata</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>do</span>
+<span class='kw'>end</span>
+
+<span class='id identifier rubyid_skip'>skip</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>does something</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_ex'>ex</span><span class='op'>|</span>
+  <span class='comment'># ex is the Example object that contains metadata about the example
+</span><span class='kw'>end</span></code></pre>
+    
+  </div>
+<p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>name</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>extra_options</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>implementation</span>
+      
+      
+        <span class='type'>(<tt>Block</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Yields:</p>
+<ul class="yield">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Example.html" title="RSpec::Core::Example (class)">Example</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the example object</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="#example-class_method" title="RSpec::Core::ExampleGroup.example (method)">example</a></span></li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+160</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/example_group.rb', line 160</span>
+
+<span class='id identifier rubyid_define_example_method'>define_example_method</span> <span class='symbol'>:skip</span><span class='comma'>,</span>     <span class='symbol'>:skip</span> <span class='op'>=&gt;</span> <span class='kw'>true</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="specify-class_method">
+  
+    + (<tt>void</tt>) <strong>specify</strong> {|Example| ... }
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Defines an example within a group. Useful for when your docstring does not
+read well off of <code>it</code>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code><span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_describe'>describe</span> <span class='const'>MyClass</span> <span class='kw'>do</span>
+  <span class='id identifier rubyid_specify'>specify</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>#do_something is deprecated</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+    <span class='comment'># ...
+</span>  <span class='kw'>end</span>
+<span class='kw'>end</span></code></pre>
+    
+      
+      <pre class="example code"><code><span class='id identifier rubyid_specify'>specify</span> <span class='kw'>do</span>
+<span class='kw'>end</span>
+
+<span class='id identifier rubyid_specify'>specify</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>does something</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+<span class='kw'>end</span>
+
+<span class='id identifier rubyid_specify'>specify</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>does something</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:with</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>additional metadata</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>do</span>
+<span class='kw'>end</span>
+
+<span class='id identifier rubyid_specify'>specify</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>does something</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_ex'>ex</span><span class='op'>|</span>
+  <span class='comment'># ex is the Example object that contains metadata about the example
+</span><span class='kw'>end</span></code></pre>
+    
+  </div>
+<p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>name</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>extra_options</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>implementation</span>
+      
+      
+        <span class='type'>(<tt>Block</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Yields:</p>
+<ul class="yield">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Example.html" title="RSpec::Core::Example (class)">Example</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the example object</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+135</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/example_group.rb', line 135</span>
+
+<span class='id identifier rubyid_define_example_method'>define_example_method</span> <span class='symbol'>:specify</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="xcontext-class_method">
+  
+    + (<tt>void</tt>) <strong>xcontext</strong> { ... }
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Shortcut to temporarily make an example group skipped. Generates a subclass
+of this example group which inherits everything except the examples
+themselves.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code>
+<span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_describe'>describe</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>something</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span> <span class='comment'># &lt;&lt; This describe method is defined in
+</span>                              <span class='comment'># &lt;&lt; RSpec::Core::DSL, included in the
+</span>                              <span class='comment'># &lt;&lt; global namespace (optional)
+</span>  <span class='id identifier rubyid_before'>before</span> <span class='kw'>do</span>
+    <span class='id identifier rubyid_do_something_before'>do_something_before</span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_let'>let</span><span class='lparen'>(</span><span class='symbol'>:thing</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='const'>Thing</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span> <span class='rbrace'>}</span>
+
+  <span class='id identifier rubyid_xcontext'>xcontext</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>attribute (of something)</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+    <span class='comment'># examples in the group get the before hook
+</span>    <span class='comment'># declared above, and can access `thing`
+</span>  <span class='kw'>end</span>
+<span class='kw'>end</span></code></pre>
+    
+  </div>
+<p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>name</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The example group doc string</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>metadata</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Additional metadata to attach to the example group</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Yields:</p>
+<ul class="yield">
+  
+    <li>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        
+        <div class='inline'>
+<p>The example group definition</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="#example_group-class_method" title="RSpec::Core::ExampleGroup.example_group (method)">example_group</a></span></li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+249</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/example_group.rb', line 249</span>
+
+<span class='id identifier rubyid_define_example_group_method'>define_example_group_method</span> <span class='symbol'>:xcontext</span><span class='comma'>,</span>  <span class='symbol'>:skip</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Temporarily skipped with xcontext</span><span class='tstring_end'>&quot;</span></span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="xdescribe-class_method">
+  
+    + (<tt>void</tt>) <strong>xdescribe</strong> { ... }
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Shortcut to temporarily make an example group skipped. Generates a subclass
+of this example group which inherits everything except the examples
+themselves.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code>
+<span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_describe'>describe</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>something</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span> <span class='comment'># &lt;&lt; This describe method is defined in
+</span>                              <span class='comment'># &lt;&lt; RSpec::Core::DSL, included in the
+</span>                              <span class='comment'># &lt;&lt; global namespace (optional)
+</span>  <span class='id identifier rubyid_before'>before</span> <span class='kw'>do</span>
+    <span class='id identifier rubyid_do_something_before'>do_something_before</span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_let'>let</span><span class='lparen'>(</span><span class='symbol'>:thing</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='const'>Thing</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span> <span class='rbrace'>}</span>
+
+  <span class='id identifier rubyid_xdescribe'>xdescribe</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>attribute (of something)</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+    <span class='comment'># examples in the group get the before hook
+</span>    <span class='comment'># declared above, and can access `thing`
+</span>  <span class='kw'>end</span>
+<span class='kw'>end</span></code></pre>
+    
+  </div>
+<p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>name</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The example group doc string</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>metadata</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Additional metadata to attach to the example group</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Yields:</p>
+<ul class="yield">
+  
+    <li>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        
+        <div class='inline'>
+<p>The example group definition</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="#example_group-class_method" title="RSpec::Core::ExampleGroup.example_group (method)">example_group</a></span></li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+245</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/example_group.rb', line 245</span>
+
+<span class='id identifier rubyid_define_example_group_method'>define_example_group_method</span> <span class='symbol'>:xdescribe</span><span class='comma'>,</span> <span class='symbol'>:skip</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Temporarily skipped with xdescribe</span><span class='tstring_end'>&quot;</span></span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="xexample-class_method">
+  
+    + (<tt>void</tt>) <strong>xexample</strong> {|Example| ... }
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Shortcut to define an example with <code>:skip =&gt; &#39;Temporarily
+skipped with xexample&#39;</code></p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code><span class='id identifier rubyid_xexample'>xexample</span> <span class='kw'>do</span>
+<span class='kw'>end</span>
+
+<span class='id identifier rubyid_xexample'>xexample</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>does something</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+<span class='kw'>end</span>
+
+<span class='id identifier rubyid_xexample'>xexample</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>does something</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:with</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>additional metadata</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>do</span>
+<span class='kw'>end</span>
+
+<span class='id identifier rubyid_xexample'>xexample</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>does something</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_ex'>ex</span><span class='op'>|</span>
+  <span class='comment'># ex is the Example object that contains metadata about the example
+</span><span class='kw'>end</span></code></pre>
+    
+  </div>
+<p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>name</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>extra_options</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>implementation</span>
+      
+      
+        <span class='type'>(<tt>Block</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Yields:</p>
+<ul class="yield">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Example.html" title="RSpec::Core::Example (class)">Example</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the example object</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="#example-class_method" title="RSpec::Core::ExampleGroup.example (method)">example</a></span></li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+151</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/example_group.rb', line 151</span>
+
+<span class='id identifier rubyid_define_example_method'>define_example_method</span> <span class='symbol'>:xexample</span><span class='comma'>,</span> <span class='symbol'>:skip</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Temporarily skipped with xexample</span><span class='tstring_end'>&#39;</span></span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="xit-class_method">
+  
+    + (<tt>void</tt>) <strong>xit</strong> {|Example| ... }
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Shortcut to define an example with <code>:skip =&gt; &#39;Temporarily
+skipped with xit&#39;</code></p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code><span class='id identifier rubyid_xit'>xit</span> <span class='kw'>do</span>
+<span class='kw'>end</span>
+
+<span class='id identifier rubyid_xit'>xit</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>does something</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+<span class='kw'>end</span>
+
+<span class='id identifier rubyid_xit'>xit</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>does something</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:with</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>additional metadata</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>do</span>
+<span class='kw'>end</span>
+
+<span class='id identifier rubyid_xit'>xit</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>does something</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_ex'>ex</span><span class='op'>|</span>
+  <span class='comment'># ex is the Example object that contains metadata about the example
+</span><span class='kw'>end</span></code></pre>
+    
+  </div>
+<p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>name</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>extra_options</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>implementation</span>
+      
+      
+        <span class='type'>(<tt>Block</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Yields:</p>
+<ul class="yield">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Example.html" title="RSpec::Core::Example (class)">Example</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the example object</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="#example-class_method" title="RSpec::Core::ExampleGroup.example (method)">example</a></span></li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+154</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/example_group.rb', line 154</span>
+
+<span class='id identifier rubyid_define_example_method'>define_example_method</span> <span class='symbol'>:xit</span><span class='comma'>,</span>      <span class='symbol'>:skip</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Temporarily skipped with xit</span><span class='tstring_end'>&#39;</span></span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="xspecify-class_method">
+  
+    + (<tt>void</tt>) <strong>xspecify</strong> {|Example| ... }
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Shortcut to define an example with <code>:skip =&gt; &#39;Temporarily
+skipped with xspecify&#39;</code></p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code><span class='id identifier rubyid_xspecify'>xspecify</span> <span class='kw'>do</span>
+<span class='kw'>end</span>
+
+<span class='id identifier rubyid_xspecify'>xspecify</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>does something</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+<span class='kw'>end</span>
+
+<span class='id identifier rubyid_xspecify'>xspecify</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>does something</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:with</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>additional metadata</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>do</span>
+<span class='kw'>end</span>
+
+<span class='id identifier rubyid_xspecify'>xspecify</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>does something</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_ex'>ex</span><span class='op'>|</span>
+  <span class='comment'># ex is the Example object that contains metadata about the example
+</span><span class='kw'>end</span></code></pre>
+    
+  </div>
+<p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>name</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>extra_options</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>implementation</span>
+      
+      
+        <span class='type'>(<tt>Block</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Yields:</p>
+<ul class="yield">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Example.html" title="RSpec::Core::Example (class)">Example</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the example object</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="#example-class_method" title="RSpec::Core::ExampleGroup.example (method)">example</a></span></li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+157</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/example_group.rb', line 157</span>
+
+<span class='id identifier rubyid_define_example_method'>define_example_method</span> <span class='symbol'>:xspecify</span><span class='comma'>,</span> <span class='symbol'>:skip</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Temporarily skipped with xspecify</span><span class='tstring_end'>&#39;</span></span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="described_class-instance_method">
+  
+    - (<tt>void</tt>) <strong>described_class</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns the class or module passed to the <code>describe</code> method (or
+alias). Returns nil if the subject is not a class or module.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code><span class='id identifier rubyid_describe'>describe</span> <span class='const'>Thing</span> <span class='kw'>do</span>
+  <span class='id identifier rubyid_it'>it</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>does something</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+    <span class='id identifier rubyid_described_class'>described_class</span> <span class='op'>==</span> <span class='const'>Thing</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></code></pre>
+    
+  </div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+81
+82
+83</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/example_group.rb', line 81</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_described_class'>described_class</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_described_class'>described_class</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+    <div id="footer">
+  Generated on Thu Dec 18 09:20:54 2014 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.6 (ruby-2.1.5).
+</div>
+
+  </body>
+</html>
