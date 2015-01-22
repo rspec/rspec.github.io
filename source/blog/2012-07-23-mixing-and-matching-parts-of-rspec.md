@@ -35,7 +35,8 @@ failure output provided by rspec-expectations, you can use the
 assertions from the standard library provided by
 [MiniTest](http://ruby-doc.org/stdlib-1.9.3/libdoc/minitest/unit/rdoc/MiniTest/Assertions.html):
 
-{% codeblock rspec_and_minitest_assertions.rb %}
+~~~ ruby
+# rspec_and_minitest_assertions.rb
 require 'set'
 
 RSpec.configure do |rspec|
@@ -55,11 +56,11 @@ describe Set do
     assert_include set, 5
   end
 end
-{% endcodeblock %}
+~~~
 
 The output:
 
-{% codeblock %}
+~~~
 $ rspec rspec_and_minitest_assertions.rb 
 .F
 
@@ -77,13 +78,14 @@ Finished in 0.00093 seconds
 Failed examples:
 
 rspec ./rspec_and_minitest_assertions.rb:14 # Set a failing example
-{% endcodeblock %}
+~~~
 
 [Wrong](https://github.com/sconover/wrong/) is an interesting
 alternative that uses a single method (`assert` with a block) to
 provide detailed failure output:
 
-{% codeblock rspec_and_wrong.rb %}
+~~~ ruby
+# rspec_and_wrong.rb
 require 'set'
 require 'wrong'
 
@@ -104,11 +106,11 @@ describe Set do
     assert { set.include?(5) }
   end
 end
-{% endcodeblock %}
+~~~
 
 The output:
 
-{% codeblock %}
+~~~
 $ rspec rspec_and_wrong.rb
 .F
 
@@ -127,7 +129,7 @@ Finished in 0.04012 seconds
 Failed examples:
 
 rspec ./rspec_and_wrong.rb:15 # Set a failing example
-{% endcodeblock %}
+~~~
 
 As demonstrated by these examples, you simply configure `expect_with` to
 use an alternate library. You can specify `:stdlib`, `:rspec` (to be
@@ -140,7 +142,8 @@ If you like running your tests with MiniTest but prefer
 the syntax and failure output of rspec-expectations, you
 can combine them:
 
-{% codeblock minitest_and_rspec_expectations.rb %}
+~~~ ruby
+# minitest_and_rspec_expectations.rb
 require 'minitest/autorun'
 require 'rspec/expectations'
 require 'set'
@@ -177,11 +180,11 @@ class TestSet < MiniTest::Unit::TestCase
     expect(set).to include(5)
   end
 end
-{% endcodeblock %}
+~~~
 
 The output:
 
-{% codeblock %}
+~~~
 $ ruby minitest_and_rspec_expectations.rb
 Run options: --seed 12759
 
@@ -197,7 +200,7 @@ test_failing_expectation(TestSet)
 expected #<Set: {3, 4}> to include 5
 
 2 tests, 2 assertions, 1 failures, 0 errors, 0 skips
-{% endcodeblock %}
+~~~
 
 Let's take the integration code bit-by-bit:
 
@@ -229,7 +232,8 @@ README](https://github.com/seattlerb/minitest/blob/master/lib/minitest/mock.rb),
 beautiful and tiny. However, rspec-mocks has many more features, and
 if you like those features, you can easily use it with MiniTest:
 
-{% codeblock minitest_and_rspec_mocks.rb %}
+~~~ ruby
+# minitest_and_rspec_mocks.rb
 require 'minitest/autorun'
 require 'rspec/mocks'
 
@@ -262,11 +266,11 @@ class TestSet < MiniTest::Unit::TestCase
     assert_equal "bar", Object.foo
   end
 end
-{% endcodeblock %}
+~~~
 
 The output:
 
-{% codeblock %}
+~~~
 $ ruby minitest_and_rspec_mocks.rb 
 Run options: --seed 27480
 
@@ -300,7 +304,7 @@ RSpec::Mocks::MockExpectationError: (Mock).bar(any args)
     minitest_and_rspec_mocks.rb:10:in `block in <main>'
 
 3 tests, 1 assertions, 0 failures, 1 errors, 0 skips
-{% endcodeblock %}
+~~~
 
 The integration here is a little more manual, but it's not bad:
 
@@ -321,7 +325,8 @@ In fact, many RSpec users prefer
 [Mocha](http://gofreerange.com/mocha/docs/) to rspec-mocks,
 and the two can integrate just fine:
 
-{% codeblock rspec_and_mocha.rb %}
+~~~ ruby
+# rspec_and_mocha.rb
 RSpec.configure do |rspec|
   rspec.mock_with :mocha
 end
@@ -344,11 +349,11 @@ describe "RSpec and Mocha" do
     expect(foo.bar).to eq(3)
   end
 end
-{% endcodeblock %}
+~~~
 
 The output:
 
-{% codeblock %}
+~~~
 rspec rspec_and_mocha.rb 
 .F.
 
@@ -368,7 +373,7 @@ Finished in 0.00388 seconds
 Failed examples:
 
 rspec ./rspec_and_mocha.rb:12 # RSpec and Mocha a failing mock
-{% endcodeblock %}
+~~~
 
 You can similarly configure `mock_with :flexmock` or
 `mock_with :rr` to use one of those mocking libraries.  I didn't

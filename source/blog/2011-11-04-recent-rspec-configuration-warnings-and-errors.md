@@ -38,7 +38,8 @@ but love the runner.
 
 RSpec 2 allows you to configure which you want to use:
 
-{% codeblock spec_helper.rb %}
+~~~ ruby
+# spec_helper.rb
 RSpec.configure do |config|
   config.expect_with :stdlib
 end
@@ -49,7 +50,7 @@ RSpec.configure do |config|
   # not strictly necessary; this is the default config anyway
   config.expect_with :rspec
 end
-{% endcodeblock %}
+~~~
 
 Both rspec-expectations and the standard library assertions are
 available as modules--`RSpec::Matchers` and `Test::Unit::Assertions`,
@@ -81,7 +82,8 @@ trying to figure out why `super` would infinitely recurse on itself.
 
 I eventually managed to boil the problem down to a simple rspec-less example:
 
-{% codeblock example.rb %}
+~~~ ruby
+# example.rb
 module MyModule
   def some_method; super; end
 end
@@ -98,7 +100,7 @@ end
 MyBaseClass.send(:include, MyModule)
 
 MySubClass.new.some_method
-{% endcodeblock %}
+~~~
 
 If you run this on ruby 1.8, you will (correctly) get a `NoMethodError`.
 On ruby 1.9, you get infinite recursion and a `SystemStackError`. Here's
@@ -250,15 +252,17 @@ need to create a secondary helper file for your isolated, fast specs.
 
 Here's one way to do it:
 
-{% codeblock spec/fast_spec_helper.rb %}
+~~~ ruby
+# spec/fast_spec_helper.rb
 require 'rspec'
 
 RSpec.configure do |c|
   c.mock_with :mocha
 end
-{% endcodeblock %}
+~~~
 
-{% codeblock spec/spec_helper.rb %}
+~~~ ruby
+# spec/spec_helper.rb
 require 'fast_spec_helper'
 
 # load rails or whatever to get your full app environment booted
@@ -266,21 +270,23 @@ require 'fast_spec_helper'
 RSpec.configure do |c|
   # other RSpec configuration
 end
-{% endcodeblock %}
+~~~
 
-{% codeblock spec/lib/my_class_spec.rb %}
+~~~ ruby
+# spec/lib/my_class_spec.rb
 require 'fast_spec_helper'
 
 describe MyClass do
 end
-{% endcodeblock %}
+~~~
 
-{% codeblock spec/controllers/my_controller_spec.rb %}
+~~~ ruby
+# spec/controllers/my_controller_spec.rb
 require 'spec_helper'
 
 describe MyController do
 end
-{% endcodeblock %}
+~~~
 
 I know this goes against the "don't load spec\_helper" approach a bit,
 but the important thing is that the rails/sinatra/whatever environment

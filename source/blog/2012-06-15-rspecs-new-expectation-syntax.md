@@ -6,17 +6,17 @@ author: Myron Marston
 RSpec has featured a readable english-like syntax for setting
 expectations for a long time:
 
-{% codeblock some_spec.rb %}
+~~~ ruby
 foo.should eq(bar)
 foo.should_not eq(bar)
-{% endcodeblock %}
+~~~
 
 RSpec 2.11 will include a new variant to this syntax:
 
-{% codeblock some_spec.rb %}
+~~~ ruby
 expect(foo).to eq(bar)
 expect(foo).not_to eq(bar)
-{% endcodeblock %}
+~~~
 
 There are a few things motivating this new syntax, and I wanted
 to blog about it to spread awareness.
@@ -31,7 +31,8 @@ delegate/proxy objects.
 
 Consider a simple proxy object that subclasses `BasicObject`:
 
-{% codeblock fuzzy_proxy.rb %}
+~~~ ruby
+# fuzzy_proxy.rb
 class FuzzyProxy < BasicObject
   def initialize(target)
     @target = target
@@ -45,25 +46,26 @@ class FuzzyProxy < BasicObject
     @target.__send__(*args, &block)
   end
 end
-{% endcodeblock %}
+~~~
 
 Simple enough; it defines a `#fuzzy?` predicate, and delegates all
 other method calls to the target object.
 
 Here's a simple spec to test its fuzziness:
 
-{% codeblock fuzzy_proxy_spec.rb %}
+~~~ ruby
+# fuzzy_proxy_spec.rb
 describe FuzzyProxy do
   it 'is fuzzy' do
     instance = FuzzyProxy.new(:some_object)
     instance.should be_fuzzy
   end
 end
-{% endcodeblock %}
+~~~
 
 Surprisingly, this fails:
 
-{% codeblock result %}
+~~~
   1) FuzzyProxy is a fuzzy proxy
      Failure/Error: instance.should be_fuzzy
      NoMethodError:
@@ -73,7 +75,7 @@ Surprisingly, this fails:
 
 Finished in 0.01152 seconds
 1 example, 1 failure
-{% endcodeblock %}
+~~~
 
 The problem is that rspec-expectations defines `should` on `Kernel`,
 and `BasicObject` does not include `Kernel`...so `instance.should`
@@ -99,14 +101,15 @@ syntax as well.
 
 The solution we came up with is the new `expect` syntax:
 
-{% codeblock fuzzy_proxy_spec.rb %}
+~~~ ruby
+# fuzzy_proxy_spec.rb
 describe FuzzyProxy do
   it 'is fuzzy' do
     instance = FuzzyProxy.new(:some_object)
     expect(instance).to be_fuzzy
   end
 end
-{% endcodeblock %}
+~~~
 
 This does not rely on any methods being present on all objects
 in the system, and thus avoids the underlying problem altogether.
@@ -122,13 +125,13 @@ All matchers are supported, with an important exception:
 the `expect` syntax does not directly support the operator
 matchers.
 
-{% codeblock eq_spec.rb %}
+~~~ ruby
 # rather than:
 foo.should == bar
 
 # ...use:
 expect(foo).to eq(bar)
-{% endcodeblock %}
+~~~
 
 While operator matchers are intuitive to use, they require
 special handling in RSpec for them to work right, due to Ruby's
@@ -143,7 +146,7 @@ we decided not to support operator matchers with
 the new syntax. Here's a listing of each of the old
 operator matchers (used with `should`), and their `expect` equivalent:
 
-{% codeblock expectations.rb %}
+~~~ ruby
 foo.should == bar
 expect(foo).to eq(bar)
 
@@ -152,7 +155,7 @@ expect("a string").not_to match(/a regex/)
 
 [1, 2, 3].should =~ [2, 1, 3]
 expect([1, 2, 3]).to match_array([2, 1, 3])
-{% endcodeblock %}
+~~~
 
 You may have noticed I didn't list the comparison matchers
 (e.g. `x.should < 10`)--that's because they work but have
@@ -160,7 +163,7 @@ never been recommended. Who says "x should less than 10"?
 They were always intended to be used with `be`, which
 both reads better and continues to work:
 
-{% codeblock comparison_matchers.rb %}
+~~~ ruby
 foo.should be < 10
 foo.should be <= 10
 foo.should be > 10
@@ -169,7 +172,7 @@ expect(foo).to be < 10
 expect(foo).to be <= 10
 expect(foo).to be > 10
 expect(foo).to be >= 10
-{% endcodeblock %}
+~~~
 
 ## Unification of Block vs. Value Syntaxes
 
@@ -177,13 +180,13 @@ expect(foo).to be >= 10
 time[^foot_3] in a limited form, as a more-readable alternative
 for block expectations:
 
-{% codeblock block_expectations.rb %}
+~~~ ruby
 # rather than:
 lambda { do_something }.should raise_error(SomeError)
 
 # ...you can do:
 expect { something }.to raise_error(SomeError)
-{% endcodeblock %}
+~~~
 
 Before RSpec 2.11, `expect` would not accept any normal arguments,
 and could not be used for value expectations. With the changes
@@ -196,7 +199,8 @@ By default, both the `should` and `expect` syntaxes are
 available. However, if you want to use only one syntax
 or the other, you can configure RSpec:
 
-{% codeblock spec_helper.rb %}
+~~~ ruby
+# spec_helper.rb
 RSpec.configure do |config|
   config.expect_with :rspec do |c|
     # Disable the `expect` sytax...
@@ -209,7 +213,7 @@ RSpec.configure do |config|
     c.syntax = [:should, :expect]
   end
 end
-{% endcodeblock %}
+~~~
 
 For example, if you're starting a new project, and you want
 to ensure only `expect` is used for consistency, you can disable
@@ -223,14 +227,8 @@ users plenty of time to get acquianted with it.
 
 Let us know what you think!
 
-[^foot_1]: As [Mislav reports](http://mislav.uniqpath.com/2011/06/ruby-verbose-mode/),
-  when warnings are turned on, you can get a "Useless use of == in void context" warning.
-[^foot_2]: On ruby 1.8, `x.should != y` is syntactic sugar for 
-  `!(x.should == y)` and RSpec has no way to distinguish
-  `should ==` from `should !=`. On 1.9, we can distinguish between
-   them (since `!=` can now be defined as a separate method),
-  but it would be confusing to support it on 1.9 but not on 1.8,
-  so we [decided to just raise an error
-  instead](https://github.com/rspec/rspec-expectations/issues/33).
-[^foot_3]: It was originally added [over 3 years
-  ago!](https://github.com/dchelimsky/rspec/commit/7e4f872b4becbd41588da95c0e5d954a6e770293)
+[^foot_1]: As [Mislav reports](http://mislav.uniqpath.com/2011/06/ruby-verbose-mode/), when warnings are turned on, you can get a "Useless use of == in void context" warning.
+
+[^foot_2]: On ruby 1.8, `x.should != y` is syntactic sugar for `!(x.should == y)` and RSpec has no way to distinguish `should ==` from `should !=`. On 1.9, we can distinguish between them (since `!=` can now be defined as a separate method), but it would be confusing to support it on 1.9 but not on 1.8, so we [decided to just raise an error instead](https://github.com/rspec/rspec-expectations/issues/33).
+
+[^foot_3]: It was originally added [over 3 years ago!](https://github.com/dchelimsky/rspec/commit/7e4f872b4becbd41588da95c0e5d954a6e770293)

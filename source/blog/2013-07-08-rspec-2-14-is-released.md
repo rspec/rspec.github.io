@@ -20,7 +20,7 @@ so that it prints the groups with the largest mean example time.
 For example, here's the output from using `--profile 5` on rspec-core's
 suite:
 
-{% codeblock %}
+~~~
 Top 5 slowest examples (0.38945 seconds, 10.8% of total time):
   RSpec::Core::Formatters::TextMateFormatter produces HTML identical to the one we designed manually
     0.10471 seconds ./spec/rspec/core/formatters/text_mate_formatter_spec.rb:64
@@ -44,7 +44,7 @@ Top 5 slowest example groups:
     0.02016 seconds average (0.16127 seconds / 8 examples) ./spec/rspec/core/drb_command_line_spec.rb:4
   RSpec::Core::Runner
     0.01822 seconds average (0.10931 seconds / 6 examples) ./spec/rspec/core/runner_spec.rb:5
-{% endcodeblock %}
+~~~
 
 ### Core: New `--warnings` flag to enable Ruby's warning mode
 
@@ -58,7 +58,7 @@ be defined in any context, and could be used from any context. In 2.14,
 this has changed: shared example groups are now scoped to the context
 they are defined in. That means you can now do this:
 
-{% codeblock my_sinatra_app_1_spec.rb %}
+~~~ ruby
 describe MySinatraApp1 do
   shared_examples_for "error handling" do
     # some examples would go here
@@ -72,9 +72,9 @@ describe MySinatraApp1 do
     include_examples "error handling"
   end
 end
-{% endcodeblock %}
+~~~
 
-{% codeblock my_sinatra_app_2_spec.rb %}
+~~~ ruby
 describe MySinatraApp2 do
   shared_examples_for "error handling" do
     # some different examples would go here
@@ -88,7 +88,7 @@ describe MySinatraApp2 do
     include_examples "error handling"
   end
 end
-{% endcodeblock %}
+~~~
 
 Here there are two different `"error handling"` shared example
 groups, each scoped to (and used from) a different example group.
@@ -107,22 +107,23 @@ removal in 3.0. To help reduce the noisiness of the increased
 number of deprecations, there's a new option that can direct
 deprecation warnings to a file:
 
-{% codeblock spec_helper.rb %}
+~~~ ruby
+# spec_helper.rb
 RSpec.configure do |rspec|
   rspec.deprecation_stream = 'log/deprecations.log'
   # or
   rspec.deprecation_stream = File.open("/path/to/file", "w")
 end
-{% endcodeblock %}
+~~~
 
 Normally, deprecation warnings get printed to `stderr`. When
 you configure this, it'll send deprecation warnings to the
 configured file instead, and at the end of the spec run
 it will print out a message like:
 
-{% codeblock %}
+~~~
 2 deprecations logged to log/deprecations.log
-{% endcodeblock %}
+~~~
 
 ### Mocks: New message expectation syntax
 
@@ -132,7 +133,7 @@ that removes a reliance on monkey-patching, avoiding certain
 kinds of problems related to proxy objects. In RSpec 2.14,
 we've extended that same syntax to rspec-mocks:
 
-{% codeblock new_syntax_spec.rb %}
+~~~ ruby
 mailer = double("Mailer")
 
 # old syntax:
@@ -142,7 +143,7 @@ mailer.should_receive(:deliver_welcome_email).with(an_instance_of(User))
 # new syntax
 allow(mailer).to receive(:deliver_welcome_email)
 expect(mailer).to receive(:deliver_welcome_email).with(an_instance_of(User))
-{% endcodeblock %}
+~~~
 
 For more details, read Sam Phippen's [announcement blog
 post](http://teaisaweso.me/blog/2013/05/27/rspecs-new-message-expectation-syntax/)
@@ -154,21 +155,21 @@ Joe Ferris from Thoughtbot implemented this new feature. Traditionally,
 rspec-mocks has required that you set a message expectation before
 the message is received:
 
-{% codeblock non_spy_spec.rb %}
+~~~ ruby
 mailer = double("Mailer")
 expect(mailer).to receive(:deliver_welcome_email).with(an_instance_of(User))
 UserCreationService.new(mailer).create_user(params)
-{% endcodeblock %}
+~~~
 
 In some situations, this ordering feels backwards (particularly if you
 try to organize your tests using an arrange/act/assert pattern). Spies
 allow you to assert that a message was received after the fact:
 
-{% codeblock spy_spec.rb %}
+~~~ ruby
 mailer = double("Mailer", deliver_welcome_email: nil)
 UserCreationService.new(mailer).create_user(params)
 expect(mailer).to have_received(:deliver_welcome_email).with(an_instance_of(User))
-{% endcodeblock %}
+~~~
 
 Note that you first have to stub the message you will later expect
 so that rspec-mocks can spy on it. (There's no feasible performant
@@ -177,11 +178,11 @@ Alternately, you can create your test double as a null object,
 (using `double().as_null_object`) which has the effect of
 auto-spying on all messages sent to that object:
 
-{% codeblock null_object_spy_spec.rb %}
+~~~ ruby
 mailer = double("Mailer").as_null_object
 UserCreationService.new(mailer).create_user(params)
 expect(mailer).to have_received(:deliver_welcome_email).with(an_instance_of(User))
-{% endcodeblock %}
+~~~
 
 ## Docs
 

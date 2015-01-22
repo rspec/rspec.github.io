@@ -97,11 +97,12 @@ provided alternatives for the remaining monkey patches.
 
 For convenience you can disable all of the monkey patches with one option:
 
-{% codeblock spec/spec_helper.rb %}
+~~~ ruby
+# spec/spec_helper.rb
 RSpec.configure do |c|
   c.disable_monkey_patching!
 end
-{% endcodeblock %}
+~~~
 
 Thanks to [Alexey Fedorov](https://github.com/waterlink) for
 [implementing](https://github.com/rspec/rspec-core/pull/1465) this config option.
@@ -116,30 +117,32 @@ For more info:
 
 RSpec 2.x had three different hook scopes:
 
-{% codeblock my_class_spec.rb %}
+~~~ ruby
 describe MyClass do
   before(:each) { } # runs before each example in this group
   before(:all)  { } # runs once before the first example in this group
 end
-{% endcodeblock %}
+~~~
 
-{% codeblock spec/spec_helper.rb %}
+~~~ ruby
+# spec/spec_helper.rb
 RSpec.configure do |c|
   c.before(:each)  { } # runs before each example in the entire test suite
   c.before(:all)   { } # runs before the first example of each top-level group
   c.before(:suite) { } # runs once after all spec files have been loaded, before the first spec runs
 end
-{% endcodeblock %}
+~~~
 
 At times, users have expressed confusion around what `:each` vs `:all`
 means, and `:all` in particular can be confusing when you use it in a
 config block:
 
-{% codeblock spec/spec_helper.rb %}
+~~~ ruby
+# spec/spec_helper.rb
 RSpec.configure do |c|
   c.before(:all) { }
 end
-{% endcodeblock %}
+~~~
 
 In this context, the term `:all` suggests that this hook will run once
 before all examples in the suite — but that is what `:suite` is for.
@@ -164,17 +167,17 @@ example: its description, location, metadata, execution result, etc.
 In RSpec 2.x the example was exposed via an `example` method that could
 be accessed from any hook or individual example:
 
-{% codeblock my_class_spec.rb %}
+~~~ ruby
 describe MyClass do
   before(:each) { puts example.metadata }
 end
-{% endcodeblock %}
+~~~
 
 In RSpec 3, we've removed the `example` method. Instead, the example
 instance is yielded to all example-scoped DSL methods as an explicit
 argument:
 
-{% codeblock my_class_spec.rb %}
+~~~ ruby
 describe MyClass do
   before(:example) { |ex| puts ex.metadata }
   let(:example_description) { |ex| ex.description }
@@ -183,7 +186,7 @@ describe MyClass do
     # use ex
   end
 end
-{% endcodeblock %}
+~~~
 
 Thanks to [David Chelimsky](https://github.com/dchelimsky) for coming up
 with the idea and
@@ -198,7 +201,7 @@ For more info:
 RSpec 2.x monkey patched `main` and `Module` to provide top level
 methods like `describe`, `shared_examples_for` and `shared_context`:
 
-{% codeblock my_gem_spec.rb %}
+~~~ ruby
 shared_examples_for "something" do
 end
 
@@ -207,12 +210,12 @@ module MyGem
     it_behaves_like "something"
   end
 end
-{% endcodeblock %}
+~~~
 
 In RSpec 3, these methods are now also available on the `RSpec` module
 (in addition to still being available as monkey patches):
 
-{% codeblock my_gem_spec.rb %}
+~~~ ruby
 RSpec.shared_examples_for "something" do
 end
 
@@ -221,17 +224,18 @@ module MyGem
     it_behaves_like "something"
   end
 end
-{% endcodeblock %}
+~~~
 
 You can completely remove rspec-core's monkey patching (which
 would make the first example above raise `NoMethodError`) by
 setting the new `expose_dsl_globally` config option to `false`:
 
-{% codeblock spec/spec_helper.rb %}
+~~~ ruby
+# spec/spec_helper.rb
 RSpec.configure do |config|
   config.expose_dsl_globally = false
 end
-{% endcodeblock %}
+~~~
 
 Thanks to [Jon Rowe](https://github.com/JonRowe) for
 [implementing](https://github.com/rspec/rspec-core/pull/1036) this.
@@ -246,19 +250,21 @@ In RSpec 2.x, we provided an API that allowed you to define `example`
 aliases with attached metadata. For example, this is used internally to
 define `fit` as an alias for `it` with `:focus => true` metadata:
 
-{% codeblock spec/spec_helper.rb %}
+~~~ ruby
+# spec/spec_helper.rb
 RSpec.configure do |config|
   config.alias_example_to :fit, :focus => true
 end
-{% endcodeblock %}
+~~~
 
 In RSpec 3, we've extended this feature to example groups:
 
-{% codeblock spec/spec_helper.rb %}
+~~~ ruby
+# spec/spec_helper.rb
 RSpec.configure do |config|
   config.alias_example_group_to :describe_model, :type => :model
 end
-{% endcodeblock %}
+~~~
 
 You could use this example in a project using rspec-rails and use
 `describe_model User` rather than `describe User, :type => :model`.
@@ -299,7 +305,7 @@ describe is implemented.
 To support the old "never run" behaviour, the `skip` method and metadata has
 been added. None of the following examples will ever be run:
 
-{% codeblock post_spec.rb %}
+~~~ ruby
 describe Post do
   skip 'not implemented yet' do
   end
@@ -318,7 +324,7 @@ describe Post do
     skip 'reason explanation'
   end
 end
-{% endcodeblock %}
+~~~
 
 With this change, passing a block to `pending` within an example no longer
 makes sense, so that behaviour has been removed.
@@ -335,11 +341,11 @@ For more info:
 
 RSpec has had a one-liner syntax for many years:
 
-{% codeblock post_spec.rb %}
+~~~ ruby
 describe Post do
   it { should allow_mass_assignment_of(:title) }
 end
-{% endcodeblock %}
+~~~
 
 In this context, `should` is _not_ the monkey-patched `should`
 that can be removed by configuring rspec-expectations to only
@@ -353,11 +359,11 @@ to be available in RSpec 3 (again, regardless of your syntax configuration),
 but we've also added an alternate API that is a bit more consistent with
 the `expect` syntax:
 
-{% codeblock post_spec.rb %}
+~~~ ruby
 describe Post do
   it { is_expected.to allow_mass_assignment_of(:title) }
 end
-{% endcodeblock %}
+~~~
 
 `is_expected` is defined very simply as `expect(subject)` and also
 supports negative expectations via `is_expected.not_to matcher`.
@@ -375,7 +381,7 @@ RSpec 3, it's no longer an all-or-nothing feature. You can control how
 individual example groups are ordered by tagging them with appropriate
 metadata:
 
-{% codeblock my_class_spec.rb %}
+~~~ ruby
 describe MyClass, :order => :defined do
   # examples in this group will always run in defined order,
   # regardless of any other ordering configuration.
@@ -385,7 +391,7 @@ describe MyClass, :order => :random do
   # examples in this group will always run in random order,
   # regardless of any other ordering configuration.
 end
-{% endcodeblock %}
+~~~
 
 This is particularly useful for migrating from defined to random
 ordering, as it allows you to deal with ordering dependencies one-by-one
@@ -413,30 +419,32 @@ In RSpec 3, we've overhauled the ordering strategy API. What used to be
 is now one method: `register_ordering`. Use it to define a named ordering
 strategy:
 
-{% codeblock spec/spec_helper.rb %}
+~~~ ruby
+# spec/spec_helper.rb
 RSpec.configure do |config|
   config.register_ordering(:description_length) do |list|
     list.sort_by { |item| item.description.length }
   end
 end
-{% endcodeblock %}
+~~~
 
-{% codeblock my_class_spec.rb %}
+~~~ ruby
 describe MyClass, :order => :description_length do
   # ...
 end
-{% endcodeblock %}
+~~~
 
 Or, you can use it to define the global ordering:
 
-{% codeblock spec/spec_helper.rb %}
+~~~ ruby
+# spec/spec_helper.rb
 RSpec.configure do |config|
   config.register_ordering(:global) do |list|
     # sort them alphabetically
     list.sort_by { |item| item.description }
   end
 end
-{% endcodeblock %}
+~~~
 
 The `:global` ordering is used to order the top-level example groups
 and to order all example groups that do not have `:order` metadata.
@@ -489,7 +497,7 @@ A completely new formatter API has been added that is much more flexible.
 
 A new formatters looks like this:
 
-{% codeblock custom_formatter.rb %}
+~~~ ruby
 class CustomFormatter
   RSpec::Core::Formatters.register self, :example_started
 
@@ -501,7 +509,7 @@ class CustomFormatter
     @output << "example: " << notification.example.description
   end
 end
-{% endcodeblock %}
+~~~
 
 The [rspec-legacy_formatters
 gem](https://github.com/rspec/rspec-legacy_formatters) is provided to continue
@@ -520,13 +528,14 @@ While most users use rspec-expectations, it's trivial to use something
 else and RSpec 2.x made the most common alternate easily available via
 a config option:
 
-{% codeblock spec/spec_helper.rb %}
+~~~ ruby
+# spec/spec_helper.rb
 RSpec.configure do |config|
   config.expect_with :stdlib
   # or, to use both:
   config.expect_with :stdlib, :rspec
 end
-{% endcodeblock %}
+~~~
 
 However, there's been confusion around `:stdlib`. On Ruby 1.8, the
 standard lib assertion module is `Test::Unit::Assertions`. On 1.9+ it's
@@ -538,7 +547,8 @@ minitest) and a minitest gem.
 For RSpec 3, we've removed `expect_with :stdlib` and instead opted
 for explicit `:test_unit` and `:minitest` options:
 
-{% codeblock spec/spec_helper.rb %}
+~~~ ruby
+# spec/spec_helper.rb
 RSpec.configure do |config|
   # for test-unit:
   config.expect_with :test_unit
@@ -546,7 +556,7 @@ RSpec.configure do |config|
   # for minitest:
   config.expect_with :minitest
 end
-{% endcodeblock %}
+~~~
 
 Thanks to [Aaron Kromer](http://aaronkromer.com/) for [implementing
 this](https://github.com/rspec/rspec-core/pull/1466).
@@ -562,13 +572,14 @@ dice your test suite in many ways. There's a new config API that allows
 you to define derived metadata. For example, to automatically tag all
 example groups in `spec/acceptance/js` with `:js => true`:
 
-{% codeblock spec/spec_helper.rb %}
+~~~ ruby
+# spec/spec_helper.rb
 RSpec.configure do |config|
   config.define_derived_metadata(:file_path => %r{/spec/acceptance/js/}) do |metadata|
     metadata[:js] = true
   end
 end
-{% endcodeblock %}
+~~~
 
 For more info:
 
@@ -634,7 +645,7 @@ For more info:
 
 In RSpec 3, you can chain multiple matchers together using `and` or `or`:
 
-{% codeblock compound_examples.rb %}
+~~~ ruby
 # these two expectations...
 expect(alphabet).to start_with("a")
 expect(alphabet).to end_with("z")
@@ -644,14 +655,14 @@ expect(alphabet).to start_with("a").and end_with("z")
 
 # You can also use `or`:
 expect(stoplight.color).to eq("red").or eq("green").or eq("yellow")
-{% endcodeblock %}
+~~~
 
 These are aliased to the `&` and `|` operators:
 
-{% codeblock compound_operator_examples.rb %}
+~~~ ruby
 expect(alphabet).to start_with("a") & end_with("z")
 expect(stoplight.color).to eq("red") | eq("green") | eq("yellow")
-{% endcodeblock %}
+~~~
 
 Thanks to [Eloy Espinaco](https://github.com/eloyesp) for [suggesting and
 implementing](https://github.com/rspec/rspec-expectations/pull/329)
@@ -668,7 +679,7 @@ For more info:
 RSpec 3 allows you to expressed detailed intent by passing matchers
 as arguments to other matchers:
 
-{% codeblock composed_matcher_examples.rb %}
+~~~ ruby
 s = "food"
 expect { s = "barn" }.to change { s }.
   from( a_string_matching(/foo/) ).
@@ -677,7 +688,7 @@ expect { s = "barn" }.to change { s }.
 expect { |probe|
   "food".tap(&probe)
 }.to yield_with_args( a_string_starting_with("f") )
-{% endcodeblock %}
+~~~
 
 For improved readability in both the code expression and failure
 messages, most matchers have aliases that read properly when
@@ -696,16 +707,16 @@ For more info:
 Before RSpec 3, the `match` matcher existed to perform string/regex
 matching using the `#match` method:
 
-{% codeblock match_examples.rb %}
+~~~ ruby
 expect("food").to match("foo")
 expect("food").to match(/foo/)
-{% endcodeblock %}
+~~~
 
 In RSpec 3, it additionally supports matching arbitrarily nested
 array/hash data structures. The expected value can be expressed
 using matchers at any level of nesting:
 
-{% codeblock match_data_structure_example.rb %}
+~~~ ruby
 hash = {
   :a => {
     :b => ["foo", 5],
@@ -722,7 +733,7 @@ expect(hash).to match(
     :c => { :d => (a_value < 3) }
   }
 )
-{% endcodeblock %}
+~~~
 
 For more info:
 
@@ -733,9 +744,9 @@ For more info:
 This matcher lets you specify that something is true of all items in a
 collection. Pass a matcher as an argument:
 
-{% codeblock all_example.rb %}
+~~~ ruby
 expect([1, 3, 5]).to all( be_odd )
-{% endcodeblock %}
+~~~
 
 Thanks to [Adam Farhi](https://github.com/yelled3) for
 [contributing](https://github.com/rspec/rspec-expectations/pull/491) this!
@@ -749,11 +760,11 @@ For more info:
 This matcher can be used to specify that a block writes to either stdout
 or stderr:
 
-{% codeblock output_examples.rb %}
+~~~ ruby
 expect { print "foo" }.to output("foo").to_stdout
 expect { print "foo" }.to output(/fo/).to_stdout
 expect { warn  "bar" }.to output(/bar/).to_stderr
-{% endcodeblock %}
+~~~
 
 Thanks to [Matthias Günther](https://github.com/matthias-guenther) for
 [suggesting](https://github.com/rspec/rspec-expectations/pull/399) this
@@ -778,7 +789,7 @@ gaining a first class `be_between` matcher that is better in a few ways:
   `<=`, `>`, `>=`) but do not implement `between?`.
 * It provides both `inclusive` and `exclusive` modes.
 
-{% codeblock be_between_examples.rb %}
+~~~ ruby
 # like `Comparable#between?`, it is inclusive by default
 expect(10).to be_between(5, 10)
 
@@ -787,7 +798,7 @@ expect(10).not_to be_between(5, 10).exclusive
 
 # ...or explicitly label it inclusive:
 expect(10).to be_between(5, 10).inclusive
-{% endcodeblock %}
+~~~
 
 Thanks to [Erik Michaels-Ober](https://github.com/sferik) for
 [contributing](https://github.com/rspec/rspec-expectations/pull/405) this and
@@ -824,18 +835,18 @@ RSpec has long had a matcher that allows you to match the contents of
 two arrays while disregarding any ordering differences. Originally,
 this was available using the `=~` operator with the old `should` syntax:
 
-{% codeblock match_array_operator_example.rb %}
+~~~ ruby
 [2, 1, 3].should =~ [1, 2, 3]
-{% endcodeblock %}
+~~~
 
 Later, when we [added the `expect`
 syntax](http://myronmars.to/n/dev-blog/2012/06/rspecs-new-expectation-syntax),
 we decided not to bring the operator matchers forward to the new syntax,
 and called the matcher `match_array`:
 
-{% codeblock match_array_example.rb %}
+~~~ ruby
 expect([2, 1, 3]).to match_array([1, 2, 3])
-{% endcodeblock %}
+~~~
 
 `match_array` was the best name we could think of at the time
 but we weren't super happy with it: "match" is an imprecise
@@ -843,9 +854,9 @@ term and the matcher is meant to work on other kinds of collections
 besides arrays. We came up with a much better name for it
 in RSpec 3:
 
-{% codeblock contain_exactly_example.rb %}
+~~~ ruby
 expect([2, 1, 3]).to contain_exactly(1, 2, 3)
-{% endcodeblock %}
+~~~
 
 Note that `match_array` is _not_ deprecated. The two methods behave identically,
 except that `contain_exactly` accepts the items splatted out individually,
@@ -869,7 +880,7 @@ been [extracted](https://github.com/rspec/rspec-expectations/pull/293) into the
 The general alternative is to set an expectation on the size of
 a collection:
 
-{% codeblock collection_matcher_examples.rb %}
+~~~ ruby
 expect(list).to have(3).items
 # ...can be written as:
 expect(list.size).to eq(3)
@@ -881,7 +892,7 @@ expect(list.size).to be >= 3
 expect(list).to have_at_most(3).items
 # ...can be written as:
 expect(list.size).to be <= 3
-{% endcodeblock %}
+~~~
 
 ### Improved integration with Minitest
 
@@ -922,7 +933,7 @@ wrongly use a value matcher in a block expectation expression. For
 example, before this change, passing a block to `expect` when using a
 matcher like `be_nil` could lead to false positives:
 
-{% codeblock block_expectation_gotcha.rb %}
+~~~ ruby
 expect { foo.bar }.not_to be_nil
 
 # ...is equivalent to:
@@ -932,7 +943,7 @@ expect(block).not_to be_nil
 # ...but the block is not nil (even though `foo.bar` might return nil),
 # so the expectation will pass even though the user probably meant:
 expect(foo.bar).not_to be_nil
-{% endcodeblock %}
+~~~
 
 Note that `supports_block_expectations?` is an optional part of the
 protocol. For matchers that are not intended to be used in block
@@ -967,7 +978,7 @@ new syntax, as released in 2.14, lacked. We've addressed that
 in RSpec 3 via a couple new APIs: `receive_messages` and
 `receive_message_chain`.
 
-{% codeblock examples.rb %}
+~~~ ruby
 # old syntax:
 object.stub(:foo => 1, :bar => 2)
 # new syntax:
@@ -977,7 +988,7 @@ allow(object).to receive_messages(:foo => 1, :bar => 2)
 object.stub_chain(:foo, :bar, :bazz).and_return(3)
 # new syntax:
 allow(object).to receive_message_chain(:foo, :bar, :bazz).and_return(3)
-{% endcodeblock %}
+~~~
 
 One nice benefit of these new APIs is that they work with `expect`, too,
 whereas there was no message expectation equivalent of `stub(hash)` or
@@ -1008,7 +1019,8 @@ Of course, while RSpec 3 no longer provides `mock` and `stub`
 aliases of `double`, it's easy to define these aliases on your
 own if you'd like to keep using them:
 
-{% codeblock spec/spec_helper.rb %}
+~~~ ruby
+# spec/spec_helper.rb
 module DoubleAliases
   def mock(*args, &block)
     double(*args, &block)
@@ -1019,7 +1031,7 @@ end
 RSpec.configure do |config|
   config.include DoubleAliases
 end
-{% endcodeblock %}
+~~~
 
 Thanks to [Sam Phippen](https://github.com/samphippen) for
 [implementation](https://github.com/rspec/rspec-mocks/pull/341)
@@ -1058,13 +1070,14 @@ doubles](https://relishapp.com/rspec/rspec-mocks/v/3-0/docs/verifying-doubles/pa
 (A partial double is when you mock or stub an existing object:
 `expect(MyClass).to receive(:some_message)`.)
 
-{% codeblock spec/spec_helper.rb %}
+~~~ ruby
+# spec/spec_helper.rb
 RSpec.configure do |config|
   config.mock_with :rspec do |mocks|
     mocks.verify_partial_doubles = true
   end
 end
-{% endcodeblock %}
+~~~
 
 We recommend you enable this option for all new code.
 
@@ -1088,7 +1101,7 @@ explicitly at runtime:
 We've also provided a new API that lets you create temporary scopes in
 arbitrary places (such as a `before(:context)` hook):
 
-{% codeblock my_web_crawler_spec.rb %}
+~~~ ruby
 describe MyWebCrawler do
   before(:context) do
     RSpec::Mocks.with_temporary_scope do
@@ -1099,7 +1112,7 @@ describe MyWebCrawler do
 
   # ...
 end
-{% endcodeblock %}
+~~~
 
 Thanks to [Sam Phippen](https://github.com/samphippen) for helping with
 [implementing](https://github.com/rspec/rspec-mocks/pull/449) these changes,
@@ -1120,7 +1133,7 @@ Unfortunately, there wasn't a simple way to do this when using
 as the first argument to an `any_instance` implementation block,
 making this easy:
 
-{% codeblock any_instance_example.rb %}
+~~~ ruby
 allow_any_instance_of(Employee).to receive(:salary) do |employee, currency|
   usd_amount = 50_000 + (10_000 * employee.years_worked)
   currency.from_usd(usd_amount)
@@ -1128,7 +1141,7 @@ end
 
 employee = Employee.find(23)
 salary = employee.salary(Currency.find(:CAD))
-{% endcodeblock %}
+~~~
 
 Thanks to [Sam Phippen](https://github.com/samphippen) for
 [implementing](https://github.com/rspec/rspec-mocks/pull/351) this.
@@ -1147,11 +1160,12 @@ users.
 
 In RSpec 3, this behavior must be explicitly enabled:
 
-{% codeblock spec/spec_helper.rb %}
+~~~ ruby
+# spec/spec_helper.rb
 RSpec.configure do |config|
   config.infer_spec_type_from_file_location!
 end
-{% endcodeblock %}
+~~~
 
 Since this assumed behavior is so prevalent in tutorials, the default generated
 configuration still enables this.
@@ -1159,11 +1173,11 @@ configuration still enables this.
 To explicitly tag specs without using automatic inference, set the `type`
 metadata:
 
-{% codeblock things_controller_spec.rb %}
+~~~ ruby
 RSpec.describe ThingsController, type: :controller do
   # Equivalent to being in spec/controllers
 end
-{% endcodeblock %}
+~~~
 
 The different available types are documented in each of the different spec
 types, for instance [documentation for controller

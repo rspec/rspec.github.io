@@ -19,9 +19,9 @@ to have it print more than 10 examples.
 
 To print off the 15 slowest examples, you could use:
 
-{% codeblock %}
+~~~
 rspec --profile 15
-{% endcodeblock %}
+~~~
 
 ### `let` and `subject` declarations can use `super`
 
@@ -29,7 +29,7 @@ Users have requested this for a while. This allows to override a `let` or `subje
 declaration in a nested group while delegating to the original definition from the
 parent group. Just use `super()`:
 
-{% codeblock array_spec.rb %}
+~~~ ruby
 describe Array do
   let(:numbers) { [1, 2, 3, 4] }
 
@@ -37,7 +37,7 @@ describe Array do
     let(:numbers) { super().reject(&:even?) }
   end
 end
-{% endcodeblock array_spec.rb %}
+~~~
 
 Note that to use this feature, you _must_ use explicit parens
 in the call to `super`; otherwise ruby will give you an ugly
@@ -48,20 +48,20 @@ define_method() is not supported` error.
 
 This is best illustrated by an example:
 
-{% codeblock account_spec.rb %}
+~~~ ruby
 # The existing `be_within` matcher (which still works):
 expect(account.balance).to be_within(10).of(500)
 
 # Now you can do this, too:
 expect(account.balance).to be_within(2).percent_of(500)
-{% endcodeblock account_spec.rb %}
+~~~
 
 ### `include` matcher can accept a list of matchers
 
 This is handy when you want to verify something about the
 items in a list rather that simply verifying the items' identity.
 
-{% codeblock user_spec.rb %}
+~~~ ruby
 RSpec::Matchers.define :a_user_named do |name|
   match do |user|
     user.name == name
@@ -69,7 +69,7 @@ RSpec::Matchers.define :a_user_named do |name|
 end
 
 expect(users).to include(a_user_named("Coen"), a_user_named("Daphne"))
-{% endcodeblock user_spec.rb %}
+~~~
 
 ## Docs
 

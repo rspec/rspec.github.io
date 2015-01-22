@@ -11,7 +11,8 @@ expectations, and opens up new possibilities.
 
 In RSpec 2.x, I've written code like this on many occassions:
 
-{% codeblock background_worker.rb %}
+~~~ ruby
+# background_worker.rb
 class BackgroundWorker
   attr_reader :queue
 
@@ -23,9 +24,10 @@ class BackgroundWorker
     queue << job_data.merge(:enqueued_at => Time.now)
   end
 end
-{% endcodeblock %}
+~~~
 
-{% codeblock background_worker_spec.rb %}
+~~~ ruby
+# background_worker_spec.rb
 describe BackgroundWorker do
   it 'puts enqueued jobs onto the queue in order' do
     worker = BackgroundWorker.new
@@ -37,13 +39,14 @@ describe BackgroundWorker do
     expect(worker.queue[1]).to include(:klass => "Class2", :id => 42)
   end
 end
-{% endcodeblock %}
+~~~
 
 In RSpec 3, composable matchers allow you to pass matchers as arguments
 (or nested within data structures passed as arguments) to other matchers
 allowing you to simplify specs like these:
 
-{% codeblock background_worker_spec.rb %}
+~~~ ruby
+# background_worker_spec.rb
 describe BackgroundWorker do
   it 'puts enqueued jobs onto the queue in order' do
     worker = BackgroundWorker.new
@@ -56,7 +59,7 @@ describe BackgroundWorker do
     ]
   end
 end
-{% endcodeblock %}
+~~~
 
 We've made sure the failure messages read well for cases like these,
 opting to use the `description` of the provided matcher rather than
@@ -64,7 +67,7 @@ the `inspect` output.  For example, if we "break" the implementation
 tested by this spec by commenting out the `queue << ...` line, it fails
 with:
 
-{% codeblock %}
+~~~
 1) BackgroundWorker puts enqueued jobs onto the queue in order
    Failure/Error: expect(worker.queue).to match [
      expected [] to match [(a hash including {:klass => "Class1", :id => 37}), (a hash including {:klass => "Class2", :id => 42})]
@@ -75,7 +78,7 @@ with:
      +[]
 
    # ./spec/background_worker_spec.rb:19:in `block (2 levels) in <top (required)>'
-{% endcodeblock %}
+~~~
 
 ## Matcher aliases
 
@@ -86,24 +89,24 @@ better failure message.
 
 For example, compare this expectation and failure message:
 
-{% codeblock example_spec.rb %}
+~~~
 x = "a"
 expect { }.to change { x }.from start_with("a")
-{% endcodeblock %}
-{% codeblock %}
+~~~
+~~~
 expected result to have changed from start with "a", but did not change
-{% endcodeblock %}
+~~~
 
 ...to:
 
-{% codeblock example_spec.rb %}
+~~~ ruby
 x = "a"
 expect { }.to change { x }.from a_string_starting_with("a")
-{% endcodeblock %}
-{% codeblock %}
+~~~
+~~~
 expected result to have changed from a string starting with "a",
 but did not change
-{% endcodeblock %}
+~~~
 
 While `a_string_starting_with` is more verbose than `start_with`, it
 produces a failure message that actually reads well, so you don't trip
@@ -118,9 +121,9 @@ There's also a public API that makes it trivial to define your own aliases
 the bit of code in rspec-expectations that provides the
 `a_string_starting_with` alias of `start_with`:
 
-{% codeblock alias_matcher.rb %}
+~~~ ruby
 RSpec::Matchers.alias_matcher :a_string_starting_with, :start_with
-{% endcodeblock %}
+~~~
 
 ## Compound Matcher Expressions
 
@@ -128,24 +131,24 @@ RSpec::Matchers.alias_matcher :a_string_starting_with, :start_with
 that provides another way of combining matchers: compound `and` and `or`
 matcher expressions. For example, rather than writing this:
 
-{% codeblock alphabet_spec.rb %}
+~~~ ruby
 expect(alphabet).to start_with("a")
 expect(alphabet).to end_with("z")
-{% endcodeblock %}
+~~~
 
 ...you can combine these into one expectation:
 
-{% codeblock alphabet_spec.rb %}
+~~~ ruby
 expect(alphabet).to start_with("a").and end_with("z")
-{% endcodeblock %}
+~~~
 
 You can do the same with `or`. While less common, this is useful
 for expressing one of a valid list of values (e.g. when the exact
 value is indeterminite):
 
-{% codeblock stoplight_spec.rb %}
+~~~ ruby
 expect(stoplight.color).to eq("red").or eq("green").or eq("yellow")
-{% endcodeblock %}
+~~~
 
 I think this could particularly come in handy for expressing invariants
 using Jim Weirich's [rspec-given](https://github.com/jimweirich/rspec-given#invariant).
@@ -153,11 +156,11 @@ using Jim Weirich's [rspec-given](https://github.com/jimweirich/rspec-given#inva
 Compound matcher expressions can also be passed as an argument to
 another matcher:
 
-{% codeblock composable_compound_matcher_spec.rb %}
+~~~ ruby
 expect(["food", "drink"]).to include(
   a_string_starting_with("f").and ending_with("d")
 )
-{% endcodeblock %}
+~~~
 
 Note: in this example, `ending_with` is another alias for the `end_with`
 matcher.
@@ -179,19 +182,19 @@ receiving matchers as arguments.
 
 The `by` method of the `change` matcher can receive a matcher:
 
-{% codeblock change_by_spec.rb %}
+~~~ ruby
 k = 0
 expect { k += 1.05 }.to change { k }.by( a_value_within(0.1).of(1.0) )
-{% endcodeblock %}
+~~~
 
 You can also pass matchers to `from` or `to`:
 
-{% codeblock change_from_to_spec.rb %}
+~~~ ruby
 s = "food"
 expect { s = "barn" }.to change { s }.
   from( a_string_matching(/foo/) ).
   to( a_string_matching(/bar/) )
-{% endcodeblock %}
+~~~
 
 ### contain_exactly
 
@@ -201,7 +204,7 @@ more clear than `match_array` (now that `match` can match arrays, too, but
 also allows you to pass the array elements as individual arguments rather
 than being forced to pass a single array argument like `match_array` expects.
 
-{% codeblock contain_exactly_spec.rb %}
+~~~ ruby
 expect(["barn", 2.45]).to contain_exactly(
   a_value_within(0.1).of(2.5),
   a_string_starting_with("bar")
@@ -213,14 +216,14 @@ expect(["barn", 2.45]).to match_array([
   a_value_within(0.1).of(2.5),
   a_string_starting_with("bar")
 ])
-{% endcodeblock %}
+~~~
 
 ### include
 
 `include` allows you to match against the elements of a collection,
 the keys of a hash, or against a subset of the key/value pairs in a hash:
 
-{% codeblock include_spec.rb %}
+~~~ ruby
 expect(["barn", 2.45]).to include( a_string_starting_with("bar") )
 
 expect(12 => "twelve", 3 => "three").to include( a_value_between(10, 15) )
@@ -228,7 +231,7 @@ expect(12 => "twelve", 3 => "three").to include( a_value_between(10, 15) )
 expect(:a => "food", :b => "good").to include(
   :a => a_string_matching(/foo/)
 )
-{% endcodeblock %}
+~~~
 
 ### match
 
@@ -236,7 +239,7 @@ In addition to matching a string against a regex or another string, `match`
 now works against arbitrary array/hash data structures, nested as deeply
 as you like. Matchers can be used at any level of that nesting:
 
-{% codeblock match_spec.rb %}
+~~~ ruby
 hash = {
   :a => {
     :b => ["foo", 5],
@@ -253,14 +256,14 @@ expect(hash).to match(
     :c => { :d => (a_value < 3) }
   }
 )
-{% endcodeblock %}
+~~~
 
 ### raise_error
 
 `raise_error` can accept a matcher for matching against the exception
 class or a matcher to match against the message, or both.
 
-{% codeblock raise_error_spec.rb %}
+~~~ ruby
 RSpec::Matchers.define :an_exception_caused_by do |cause|
   match do |exception|
     cause === exception.cause
@@ -278,13 +281,13 @@ expect {
 expect {
   raise ArgumentError, "missing :foo arg"
 }.to raise_error(ArgumentError, a_string_starting_with("missing"))
-{% endcodeblock %}
+~~~
 
 ### start_with and end_with
 
 These are pretty self-explanatory:
 
-{% codeblock start_and_end_with_spec.rb %}
+~~~ ruby
 expect(["barn", "food", 2.45]).to start_with(
   a_string_matching("bar"),
   a_string_matching("foo")
@@ -294,23 +297,23 @@ expect(["barn", "food", 2.45]).to end_with(
   a_string_matching("foo"),
   a_value < 3
 )
-{% endcodeblock %}
+~~~
 
 ### throw_symbol
 
 You can pass a matcher to `throw_symbol` to match against the accompanying argument:
 
-{% codeblock throw_symbol_spec.rb %}
+~~~ ruby
 expect {
   throw :pi, Math::PI
 }.to throw_symbol(:pi, a_value_within(0.01).of(3.14))
-{% endcodeblock %}
+~~~
 
 ### yield_with_args and yield_successive_args
 
 Matchers can be used to specify the yielded arguments for these matchers:
 
-{% codeblock yield_spec.rb %}
+~~~ ruby
 expect { |probe|
   "food".tap(&probe)
 }.to yield_with_args( a_string_starting_with("f") )
@@ -318,7 +321,7 @@ expect { |probe|
 expect { |probe|
   [1, 2, 3].each(&probe)
 }.to yield_successive_args( a_value < 2, 2, a_value > 2 )
-{% endcodeblock %}
+~~~
 
 ## Conclusion
 
@@ -327,8 +330,5 @@ you can see why. This should help make it easier to avoid writing brittle
 specs by enabling you to specify _exactly_ what you expect (and nothing
 more).
 
-[^foot_1]: You can, of course pass a matcher to `eq`, but it'll treat it
-  just like any other object: it'll compare it to `actual` using `==`,
-  and, if that returns true (i.e. if it's the same object), the
-  expectation will pass.
+[^foot_1]: You can, of course pass a matcher to `eq`, but it'll treat it just like any other object: it'll compare it to `actual` using `==`, and, if that returns true (i.e. if it's the same object), the expectation will pass.
 

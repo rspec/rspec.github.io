@@ -14,14 +14,14 @@ the use cases for it.
 
 The main API is `stub_const`:
 
-{% codeblock stub_const.rb %}
+~~~ ruby
 describe "stub_const" do
   it "changes the constant value for the duration of the example" do
     stub_const("Foo::SIZE", 10)
     expect(Foo::SIZE).to eq(10)
   end
 end
-{% endcodeblock %}
+~~~
 
 This works for both defined and undefined constants; you
 could stub `A::B::C::D::E::F` even if none of the intermediary
@@ -33,7 +33,7 @@ to their original values.
 Note that constant names must be fully qualified; the current
 module nesting is not considered:
 
-{% codeblock stub_const.rb %}
+~~~ ruby
 module MyGem
   class SomeClass; end
 end
@@ -53,17 +53,17 @@ module MyGem
     end
   end
 end
-{% endcodeblock %}
+~~~
 
 `stub_const` also supports a `:transfer_nested_constants` option.
 Consider a case where you have nested constants:
 
-{% codeblock card_deck.rb %}
+~~~ ruby
 class CardDeck
   SUITS = [:spades, :diamonds, :clubs, :hearts]
   NUM_CARDS = 52
 end
-{% endcodeblock %}
+~~~
 
 `stub_const("CardDeck", fake_class)` cuts off access to the
 nested constants (`CardDeck::SUITS` and `CardDeck::NUM_CARDS`),
@@ -71,7 +71,7 @@ unless you manually assign `fake_class::SUITS` and
 `fake_class::NUM_CARDS`. The `:transfer_nested_constants`
 option is provided to take care of this for you:
 
-{% codeblock transfer_nested_constants.rb %}
+~~~ ruby
 # Default behavior:
 fake_class = Class.new
 stub_const("CardDeck", fake_class)
@@ -88,7 +88,7 @@ CardDeck::NUM_CARDS # => 52
 stub_const("CardDeck", fake_class, :transfer_nested_constants => [:SUITS])
 CardDeck::SUITS # => [:spades, :diamonds, :clubs, :hearts]
 CardDeck::NUM_CARDS # => raises uninitialized constant error
-{% endcodeblock %}
+~~~
 
 ## Use Cases
 
@@ -113,9 +113,5 @@ I've found this useful in a few different situations:
 If you're curious how it all works, check out the [source on
 github](https://github.com/rspec/rspec-mocks/blob/master/lib/rspec/mocks/stub_const.rb).
 
-[^foot_1]: Actually, this has been available in
-  [rspec-fire](https://github.com/xaviershay/rspec-fire) for
-  a good four months or so. But it's not really a full
-  mocking library...it builds on top of rspec-mocks, and now
-  this functionality has been ported over to rspec-mocks.
+[^foot_1]: Actually, this has been available in [rspec-fire](https://github.com/xaviershay/rspec-fire) for a good four months or so. But it's not really a full mocking library...it builds on top of rspec-mocks, and now this functionality has been ported over to rspec-mocks.
 

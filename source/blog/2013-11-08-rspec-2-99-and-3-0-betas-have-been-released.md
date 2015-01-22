@@ -397,8 +397,5 @@ Breaking Changes:
 * Extracts `autotest` and `autotest-rails` support to `rspec-autotest` gem.
   (Andy Lindeman)
 
-[^foot_1]: There is one caveat to that, though: we only consider it a bug
-  to the extent that your test suite uses the RSpec APIs as they are
-  documented. The dynamic nature of Ruby makes it possible to use RSpec
-  in ways that we can't support.
+[^foot_1]: There is one caveat to that, though: we only consider it a bug to the extent that your test suite uses the RSpec APIs as they are documented. The dynamic nature of Ruby makes it possible to use RSpec in ways that we can't support.
 

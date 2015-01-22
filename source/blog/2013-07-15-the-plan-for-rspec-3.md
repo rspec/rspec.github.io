@@ -202,7 +202,7 @@ DSL methods (`describe`, `shared_examples_for`, etc) onto
 `main` and `Module`, instead requiring you to prefix these
 methods with `RSpec.`:
 
-{% codeblock my_class_spec.rb %}
+~~~ ruby
 RSpec.describe MyClass do
   # Within an example group you'll still be able to use
   # a bare `describe`:
@@ -216,7 +216,7 @@ end
 
 RSpec.shared_examples_for "some behavior" do
 end
-{% endcodeblock %}
+~~~
 
 The net result will be a set of config options (one for
 `rspec-expectations`, one for `rspec-mocks` and one for `rspec-core`), that
@@ -253,11 +253,11 @@ This kind of composability is quite useful and we plan to extend
 it to all matchers in RSpec 3. For example, you could use an expression
 like:
 
-{% codeblock my_spec.rb %}
+~~~ ruby
 expect { |b|
   some_object.do_something(&b)
 }.to yield_with_args(include(match(/foo/), match(/bar/)))
-{% endcodeblock %}
+~~~
 
 This expresses a detailed expectation: "I expect
 `some_object.do_something` to yield with a collection that
@@ -266,12 +266,12 @@ includes a string matching `/foo/` and a string matching `/bar/`".
 We're also considering adding matcher aliases that read better when
 composed in this fashion, so that you could write this as:
 
-{% codeblock my_spec.rb %}
+~~~ ruby
 expect { |b|
   some_object.do_something(&b)
 }.to yield_with_args(a_collection_including(a_string_matching(/foo/),
                                             a_string_matching(/bar/)))
-{% endcodeblock %}
+~~~
 
 For more details, or to weigh in on this issue, take a look at the
 [github issue](https://github.com/rspec/rspec-expectations/issues/280).
@@ -310,7 +310,7 @@ when users inadvertently define their own `example` method. In RSpec 3,
 we're removing the `example` method, opting to yield the example from
 each DSL method that runs in the context of an example:
 
-{% codeblock my_spec.rb %}
+~~~ ruby
 describe MyClass do
   before(:each) { |example| }
   subject       { |ex| }
@@ -322,7 +322,7 @@ describe MyClass do
     # do something with `example`
   end
 end
-{% endcodeblock %}
+~~~
 
 We're aware that this may cause upgrade headaches for users who
 rely on gems that use the `example` API (such as Capybara).
@@ -356,11 +356,11 @@ the block, there was no way to accomplish this.  In RSpec 3, we're
 correcting this oversight, and the receiver will be yielded as
 the first block argument:
 
-{% codeblock my_spec.rb %}
+~~~ ruby
 allow_any_instance_of(User).to receive(:age) do |user|
   ((Date.today - user.birthdate) / 365).floor
 end
-{% endcodeblock %}
+~~~
 
 For backwards compatibility, we'll be adding a config option to disable
 this behavior.
