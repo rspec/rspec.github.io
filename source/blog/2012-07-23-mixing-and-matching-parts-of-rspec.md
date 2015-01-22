@@ -1,8 +1,6 @@
 ---
-layout: dev_post
 title: Mixing and Matching Parts of RSpec
-section: dev-blog
-contents_class: medium-wide
+author: Myron Marston
 ---
 
 RSpec was split into three subprojects for the last major release

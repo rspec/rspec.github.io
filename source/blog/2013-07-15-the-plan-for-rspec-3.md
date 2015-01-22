@@ -1,8 +1,6 @@
 ---
-layout: dev_post
 title: The Plan for RSpec 3
-section: dev-blog
-contents_class: medium-wide
+author: Myron Marston
 ---
 
 Update: [There's a Japanese translation of

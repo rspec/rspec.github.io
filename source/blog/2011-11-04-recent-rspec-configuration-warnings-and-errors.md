@@ -1,8 +1,6 @@
 ---
-layout: dev_post
 title: Recent RSpec Configuration Warnings and Errors
-section: dev-blog
-contents_class: medium-wide
+author: Myron Marston
 ---
 
 RSpec 2.6 introduced a deprecation warning when using `RSpec.configure {

@@ -1,8 +1,6 @@
 ---
-layout: dev_post
 title: RSpec 2.99 and 3.0 betas have been released!
-section: dev-blog
-contents_class: medium-wide
+author: Myron Marston
 ---
 
 The RSpec team has just released RSpec 3.0.0.beta1 -- the first RSpec 3 pre-release!

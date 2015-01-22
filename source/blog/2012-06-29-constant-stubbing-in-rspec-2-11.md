@@ -1,8 +1,6 @@
 ---
-layout: dev_post
 title: Constant Stubbing in RSpec 2.11
-section: dev-blog
-contents_class: medium-wide
+author: Myron Marston
 ---
 
 In the 2.11 release, rspec-mocks is gaining a significant new

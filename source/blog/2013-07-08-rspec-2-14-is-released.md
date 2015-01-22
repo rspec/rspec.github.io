@@ -1,8 +1,6 @@
 ---
-layout: dev_post
 title: RSpec 2.14 is released!
-section: dev-blog
-contents_class: medium-wide
+author: Myron Marston
 ---
 
 We've just released RSpec 2.14. It will be the last 2.x feature release

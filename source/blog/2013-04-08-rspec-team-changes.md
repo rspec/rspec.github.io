@@ -1,8 +1,6 @@
 ---
-layout: dev_post
 title: RSpec Team Changes
-section: dev-blog
-contents_class: medium-wide
+author: Myron Marston
 ---
 
 The RSpec core team recently expanded to include three new members:

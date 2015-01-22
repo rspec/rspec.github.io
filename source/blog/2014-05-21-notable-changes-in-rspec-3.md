@@ -1,8 +1,6 @@
 ---
-layout: dev_post
 title: Notable Changes in RSpec 3
-section: dev-blog
-contents_class: medium-wide
+author: Myron Marston
 ---
 
 Update: there's a [Japanese

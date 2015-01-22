@@ -1,8 +1,6 @@
 ---
-layout: dev_post
 title: RSpec 2.13 is released!
-section: dev-blog
-contents_class: medium-wide
+author: Myron Marston
 ---
 
 I've just released RSpec 2.13. It's a minor release containing a few

@@ -1,8 +1,6 @@
 ---
-layout: dev_post
 title: "New in RSpec 3: Composable Matchers"
-section: dev-blog
-contents_class: medium-wide
+author: Myron Marston
 ---
 
 One of RSpec 3's big new features is shipping 3.0.0.beta2: composable

@@ -1,8 +1,6 @@
 ---
-layout: dev_post
 title: RSpec's New Expectation Syntax
-section: dev-blog
-contents_class: medium-wide
+author: Myron Marston
 ---
 
 RSpec has featured a readable english-like syntax for setting
