@@ -77,7 +77,7 @@ this new feature!
 
 RSpec got split up into separate gems (core, expecations and mocks) in RSpec 2.0,
 which allows users to [mix and
-match parts of RSpec](/n/dev-blog/2012/07/mixing-and-matching-parts-of-rspec)
+match parts of RSpec](/blog/2012/07/mixing-and-matching-parts-of-rspec)
 with other testing libraries like Minitest. Tom Stuart pointed out that it
 wasn't as easy to use just rspec-core as it could be--specifically, in RSpec 3.0 and
 before, if you didn't explicitly configure rspec-core to not use
@@ -142,7 +142,7 @@ this new matcher.
 ### Expectations: Block matchers can now be used in compound expressions
 
 RSpec 3.0 gained the ability to use [compound matcher
-expressions](/n/dev-blog/2014/01/new-in-rspec-3-composable-matchers#compound_matcher_expressions).
+expressions](/blog/2014/01/new-in-rspec-3-composable-matchers#compound_matcher_expressions).
 However, it didn't work with block expectations because we had internal
 changes that needed to be made to ensure the block is only executed
 once as one would expect. We've addressed this in 3.1, which allows an

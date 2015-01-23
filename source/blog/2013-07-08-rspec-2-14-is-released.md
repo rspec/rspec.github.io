@@ -128,7 +128,7 @@ it will print out a message like:
 ### Mocks: New message expectation syntax
 
 In RSpec 2.11, we added a [new syntax to
-rspec-expectations](http://myronmars.to/n/dev-blog/2012/06/rspecs-new-expectation-syntax)
+rspec-expectations](/blog/2012/06/rspecs-new-expectation-syntax)
 that removes a reliance on monkey-patching, avoiding certain
 kinds of problems related to proxy objects. In RSpec 2.14,
 we've extended that same syntax to rspec-mocks:

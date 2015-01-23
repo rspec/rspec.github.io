@@ -14,7 +14,7 @@ I'd like to thank all the contributors, and especially the core team
 
 I don't have the energy right now to write up a full "What's new in RSpec 3"
 blog post, but we've mostly been making changes according to what
-we [previously announced for RSpec 3](/n/dev-blog/2013/07/the-plan-for-rspec-3).
+we [previously announced for RSpec 3](/blog/2013/07/the-plan-for-rspec-3).
 The detailed release notes are below to fill you in on the details for
 these releases. We'll be following up with other blog posts in the
 future discussing the new features in depth.

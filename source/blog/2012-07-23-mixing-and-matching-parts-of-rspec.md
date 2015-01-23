@@ -206,7 +206,7 @@ Let's take the integration code bit-by-bit:
 
 * `RSpec::Matchers.configuration.syntax = :expect` configures the
   desired rspec-expectations syntax to just the [new expect
-  syntax](/n/dev-blog/2012/06/rspecs-new-expectation-syntax). By
+  syntax](/blog/2012/06/rspecs-new-expectation-syntax). By
   default, both the old `should` and the new `expect` syntaxes
   are available.
 * MiniTest treats `MiniTest::Assertion` exceptions differently

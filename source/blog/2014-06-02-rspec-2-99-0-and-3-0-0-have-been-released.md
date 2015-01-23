@@ -4,7 +4,7 @@ author: Myron Marston
 ---
 
 RSpec 2.99.0 and 3.0.0 have been released! RSpec 3 has tons of [great new
-features](/n/dev-blog/2014/05/notable-changes-in-rspec-3). RSpec 2.99 is
+features](/blog/2014/05/notable-changes-in-rspec-3). RSpec 2.99 is
 part of the [recommended upgrade path](https://relishapp.com/rspec/docs/upgrade)
 for projects currently on RSpec 2.x.
 

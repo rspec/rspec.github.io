@@ -8,7 +8,7 @@ translation](http://nilp.hatenablog.com/entry/2014/05/28/003335) of this
 available now.
 
 RSpec 3.0.0 RC1 was [released a couple days
-ago](http://myronmars.to/n/dev-blog/2014/05/rspec-2-99-and-3-0-rc-1-have-been-released),
+ago](/blog/2014/05/rspec-2-99-and-3-0-rc-1-have-been-released),
 and 3.0.0 final is just around the corner.  We've been using the betas for the
 last 6 months and we're excited to share them with you. Here's whats new:
 
@@ -622,7 +622,7 @@ entirely or extracted into an external gem:
 
 In RSpec 2.11 we started the move towards eliminating monkey patching
 from RSpec by [introducing a new expect-based
-syntax](http://myronmars.to/n/dev-blog/2012/06/rspecs-new-expectation-syntax).
+syntax](/blog/2012/06/rspecs-new-expectation-syntax).
 In RSpec 3, we've kept the `should` syntax, and it is available by
 default, but you will get a deprecation warning if you use it without
 explicitly enabling it. This will pave the way for it being disabled
@@ -671,7 +671,7 @@ it](https://github.com/rspec/rspec-expectations/pull/537) with the `&` and `|` o
 
 For more info:
 
-* [New in RSpec 3: Composable Matchers](http://myronmars.to/n/dev-blog/2014/01/new-in-rspec-3-composable-matchers#compound_matcher_expressions)
+* [New in RSpec 3: Composable Matchers](/blog/2014/01/new-in-rspec-3-composable-matchers#compound_matcher_expressions)
 * [Documentation](https://relishapp.com/rspec/rspec-expectations/v/3-0/docs/compound-expectations)
 
 ### Composable Matchers
@@ -696,7 +696,7 @@ passed as arguments in these sorts of expressions.
 
 For more info:
 
-* [New in RSpec 3: Composable Matchers](http://myronmars.to/n/dev-blog/2014/01/new-in-rspec-3-composable-matchers)
+* [New in RSpec 3: Composable Matchers](/blog/2014/01/new-in-rspec-3-composable-matchers)
 * [rspec-expectations #280 - original discussion](https://github.com/rspec/rspec-expectations/issues/280)
 * [rspec-expectations #393 - implementation](https://github.com/rspec/rspec-expectations/pull/393)
 * [API Documentation (including list of matcher aliases)](http://rubydoc.info/github/rspec/rspec-expectations/RSpec/Matchers)
@@ -737,7 +737,7 @@ expect(hash).to match(
 
 For more info:
 
-* [New in RSpec 3: Composable Matchers](http://myronmars.to/n/dev-blog/2014/01/new-in-rspec-3-composable-matchers#match)
+* [New in RSpec 3: Composable Matchers](/blog/2014/01/new-in-rspec-3-composable-matchers#match)
 
 ### New `all` matcher
 
@@ -840,7 +840,7 @@ this was available using the `=~` operator with the old `should` syntax:
 ~~~
 
 Later, when we [added the `expect`
-syntax](http://myronmars.to/n/dev-blog/2012/06/rspecs-new-expectation-syntax),
+syntax](/blog/2012/06/rspecs-new-expectation-syntax),
 we decided not to bring the operator matchers forward to the new syntax,
 and called the matcher `match_array`:
 

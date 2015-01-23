@@ -17,7 +17,7 @@ the upgrade process and have been using 3.0.0.beta1--your feedback
 has been invaluable.
 
 For more details on the upgrade process, see the [beta1
-annoucement](/n/dev-blog/2013/11/rspec-2-99-and-3-0-betas-have-been-released#the_upgrade_process)
+annoucement](/blog/2013/11/rspec-2-99-and-3-0-betas-have-been-released#the_upgrade_process)
 blog post.
 
 This will be the last 2.99/3.0 beta release. Next up are the release

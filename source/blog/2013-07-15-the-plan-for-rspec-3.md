@@ -13,7 +13,7 @@ make breaking changes, but we've reached a point where RSpec has a fair
 bit of cruft stemming from the need to retain backwards
 compatibility with older 2.x releases.
 
-[RSpec 2.14](/n/dev-blog/2013/07/rspec-2-14-is-released)
+[RSpec 2.14](/blog/2013/07/rspec-2-14-is-released)
 will be the last RSpec 2 feature release. (We may do some
 bug-fix patch releases, though). We're getting started on RSpec 3, and
 I'd like to share our thoughts on the direction RSpec will be going.
@@ -133,7 +133,7 @@ deprecated APIs and features.
 ### What about the old expectation/mock syntax?
 
 [RSpec 2.11
-introduced](http://myronmars.to/n/dev-blog/2012/06/rspecs-new-expectation-syntax)
+introduced](/blog/2012/06/rspecs-new-expectation-syntax)
 a new `expect`-based syntax for rspec-expectations.
 [In RSpec
 2.14](http://teaisaweso.me/blog/2013/05/27/rspecs-new-message-expectation-syntax/),
@@ -247,7 +247,7 @@ thoughts on that ticket!)
 ### Expectations: Fully composable matchers
 
 In RSpec 2.13, we [added
-support](/n/dev-blog/2013/02/rspec-2-13-is-released#_matcher_can_accept_a_list_of_matchers)
+support](/blog/2013/02/rspec-2-13-is-released#_matcher_can_accept_a_list_of_matchers)
 for the `include` matcher to accept a list of matchers to match against.
 This kind of composability is quite useful and we plan to extend
 it to all matchers in RSpec 3. For example, you could use an expression
