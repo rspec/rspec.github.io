@@ -1,6 +1,7 @@
 ---
 title: RSpec 3.2 has been released!
 author: Myron Marston
+published: false
 ---
 
 (TODO: consider writing a new intro.)

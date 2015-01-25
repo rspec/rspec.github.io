@@ -1,6 +1,7 @@
 ---
 title: New RSpec Gem signing certificate
 author: Sam Phippen
+published: false
 ---
 
 For the upcoming release of RSpec 3.2 we've created a new signing certificate
