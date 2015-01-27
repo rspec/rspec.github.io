@@ -1,0 +1,44 @@
+@import "partials/standard_article";
+
+.blog_post {
+  pre {
+    font-size: 90%;
+    line-height: 1.25em;
+    overflow: auto;
+    padding: 0.8em;
+    white-space: pre;
+    overflow-x: auto;
+    overflow-y: hidden;
+    word-wrap: normal;
+  }
+
+  pre code {
+    font-family: Menlo,Monaco,"Andale Mono","lucida console","Courier New",monospace!important;
+  }
+
+  ul {
+    list-style-position: outside;
+    list-style-type: disc;
+    padding-left: 1em;
+  }
+
+  h3+ul {
+    margin-top: -1em;
+  }
+
+  section article h2 {
+    margin: 1em 0;
+    padding: 0;
+  }
+
+  h3 {
+    text-transform: inherit;
+    font-size: 120%;
+    margin: 2.5em 0 1.5em 0;
+  }
+
+  h3.author {
+    margin-top: -1em;
+    text-align: right;
+  }
+}

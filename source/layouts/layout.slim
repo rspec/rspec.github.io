@@ -24,6 +24,8 @@ html.no-js lang="en"
     link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro' rel='stylesheet' type='text/css'
     link href='http://fonts.googleapis.com/css?family=Inconsolata' rel='stylesheet' type='text/css'
 
+    link href='/blog/feed.xml' rel='alternate' type='application/atom+xml'
+
   body class=(primary_page_class)
     header
       nav
@@ -31,6 +33,7 @@ html.no-js lang="en"
         ul
           li= link_to 'About', '/about'
           li= link_to 'Documentation', '/documentation'
+          li= link_to 'Blog', '/blog'
           li= link_to 'Upgrade', '/upgrading-from-rspec-2'
           li= link_to 'Get Help', '/help'
           li= link_to 'Contributing', '/contributing'
