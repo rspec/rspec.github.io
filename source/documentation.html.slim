@@ -41,8 +41,9 @@ section
         li
           b
             | #{gem.name}:&nbsp;
-          | #{gem.description}
-            #{documentation_links_for(gem.name).join(' | ')}
+          span
+            == gem.description
+          = documentation_links_for(gem.name)
 
   article.relish
     h2 Relish

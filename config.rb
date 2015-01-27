@@ -109,8 +109,19 @@ helpers do
   end
 
   def documentation_links_for(gem_name)
-    rspec_documentation.fetch(gem_name) { [] }.sort.reverse.map do |version|
-      link_to version, "/documentation/#{version}/#{gem_name}/"
+    versions = rspec_documentation.fetch(gem_name) { [] }.sort.reverse
+    unless versions.empty?
+      content_tag :div, 'class' => 'version-dropdown' do
+        list = content_tag :ul do
+          versions.map do |version|
+            content_tag :li do
+              link_to version, "/documentation/#{version}/#{gem_name}/"
+            end
+          end.join('')
+        end
+
+        link_to(versions.first, '#') + list
+      end
     end
   end
 end
