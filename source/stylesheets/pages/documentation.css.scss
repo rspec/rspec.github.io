@@ -1,1 +1,39 @@
 @import "partials/standard_article";
+
+%border-box {
+  background-color: white;
+  border: 1px solid #ccc;
+}
+
+.version-dropdown {
+  display: inline-block;
+  position: relative;
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  > a {
+    @extend %border-box;
+    padding: 4px 10px;
+  }
+
+  > ul {
+    @extend %border-box;
+    display: none;
+    left: 0;
+    padding: 0 10px;
+    position: absolute;
+    top: -18px;
+  }
+
+  &:hover {
+    ul {
+      display: block;
+    }
+
+    > a {
+      display: none;
+    }
+  }
+}
