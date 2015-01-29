@@ -107,7 +107,8 @@
   <strong>This class is part of a private API.</strong>
   You should avoid using this class if possible, as it may be removed or be changed in the future.
 </p>
-<p>Base class for <code>and</code> and <code>or</code> compound matchers.</p>
+<p>Base class for <code>and</code> and <code>or</code> compound matchers.
+rubocop:disable ClassLength</p>
 
 
   </div>
@@ -157,6 +158,50 @@
   <span class="summary_signature">
     
       <a href="#description-instance_method" title="#description (instance method)">- (String) <strong>description</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  <span class="private note title">private</span>
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#diffable%3F-instance_method" title="#diffable? (instance method)">- (Boolean) <strong>diffable?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  <span class="private note title">private</span>
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#expected-instance_method" title="#expected (instance method)">- (RSpec::Matchers::ExpectedsForMultipleDiffs) <strong>expected</strong> </a>
     
 
     
@@ -257,7 +302,7 @@
   
   
   <h3 class="inherited">Methods inherited from <span class='object_link'><a href="BaseMatcher.html" title="RSpec::Matchers::BuiltIn::BaseMatcher (class)">BaseMatcher</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="BaseMatcher.html#diffable%3F-instance_method" title="RSpec::Matchers::BuiltIn::BaseMatcher#diffable? (method)">#diffable?</a></span>, <span class='object_link'><a href="BaseMatcher.html#match_unless_raises-instance_method" title="RSpec::Matchers::BuiltIn::BaseMatcher#match_unless_raises (method)">#match_unless_raises</a></span>, <span class='object_link'><a href="BaseMatcher.html#matches%3F-instance_method" title="RSpec::Matchers::BuiltIn::BaseMatcher#matches? (method)">#matches?</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="BaseMatcher.html#match_unless_raises-instance_method" title="RSpec::Matchers::BuiltIn::BaseMatcher#match_unless_raises (method)">#match_unless_raises</a></span>, <span class='object_link'><a href="BaseMatcher.html#matches%3F-instance_method" title="RSpec::Matchers::BuiltIn::BaseMatcher#matches? (method)">#matches?</a></span></p>
 
   
   
@@ -323,13 +368,13 @@
       <pre class="lines">
 
 
-10
 11
 12
-13</pre>
+13
+14</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/matchers/built_in/compound.rb', line 10</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/matchers/built_in/compound.rb', line 11</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_matcher_1'>matcher_1</span><span class='comma'>,</span> <span class='id identifier rubyid_matcher_2'>matcher_2</span><span class='rparen'>)</span>
   <span class='ivar'>@matcher_1</span> <span class='op'>=</span> <span class='id identifier rubyid_matcher_1'>matcher_1</span>
@@ -388,15 +433,129 @@
       <pre class="lines">
 
 
-25
 26
-27</pre>
+27
+28</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/matchers/built_in/compound.rb', line 25</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/matchers/built_in/compound.rb', line 26</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_description'>description</span>
   <span class='id identifier rubyid_singleline_message'>singleline_message</span><span class='lparen'>(</span><span class='id identifier rubyid_matcher_1'>matcher_1</span><span class='period'>.</span><span class='id identifier rubyid_description'>description</span><span class='comma'>,</span> <span class='id identifier rubyid_matcher_2'>matcher_2</span><span class='period'>.</span><span class='id identifier rubyid_description'>description</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="diffable?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>diffable?</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p class="note private">
+  <strong>This method is part of a private API.</strong>
+  You should avoid using this method if possible, as it may be removed or be changed in the future.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+42
+43
+44</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/matchers/built_in/compound.rb', line 42</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_diffable?'>diffable?</span>
+  <span class='id identifier rubyid_matcher_is_diffable?'>matcher_is_diffable?</span><span class='lparen'>(</span><span class='id identifier rubyid_matcher_1'>matcher_1</span><span class='rparen'>)</span> <span class='op'>||</span> <span class='id identifier rubyid_matcher_is_diffable?'>matcher_is_diffable?</span><span class='lparen'>(</span><span class='id identifier rubyid_matcher_2'>matcher_2</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="expected-instance_method">
+  
+    - (<tt><span class='object_link'><a href="../ExpectedsForMultipleDiffs.html" title="RSpec::Matchers::ExpectedsForMultipleDiffs (class)">RSpec::Matchers::ExpectedsForMultipleDiffs</a></span></tt>) <strong>expected</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p class="note private">
+  <strong>This method is part of a private API.</strong>
+  You should avoid using this method if possible, as it may be removed or be changed in the future.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="../ExpectedsForMultipleDiffs.html" title="RSpec::Matchers::ExpectedsForMultipleDiffs (class)">RSpec::Matchers::ExpectedsForMultipleDiffs</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+48
+49
+50
+51</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/matchers/built_in/compound.rb', line 48</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_expected'>expected</span>
+  <span class='kw'>return</span> <span class='kw'>nil</span> <span class='kw'>unless</span> <span class='id identifier rubyid_evaluator'>evaluator</span>
+  <span class='op'>::</span><span class='const'>RSpec</span><span class='op'>::</span><span class='const'>Matchers</span><span class='op'>::</span><span class='const'>ExpectedsForMultipleDiffs</span><span class='period'>.</span><span class='id identifier rubyid_for_many_matchers'>for_many_matchers</span><span class='lparen'>(</span><span class='id identifier rubyid_diffable_matcher_list'>diffable_matcher_list</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -444,13 +603,13 @@
       <pre class="lines">
 
 
-34
 35
 36
-37</pre>
+37
+38</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/matchers/built_in/compound.rb', line 34</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/matchers/built_in/compound.rb', line 35</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_expects_call_stack_jump?'>expects_call_stack_jump?</span>
   <span class='const'>NestedEvaluator</span><span class='period'>.</span><span class='id identifier rubyid_matcher_expects_call_stack_jump?'>matcher_expects_call_stack_jump?</span><span class='lparen'>(</span><span class='id identifier rubyid_matcher_1'>matcher_1</span><span class='rparen'>)</span> <span class='op'>||</span>
@@ -502,13 +661,13 @@
       <pre class="lines">
 
 
-29
 30
 31
-32</pre>
+32
+33</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/matchers/built_in/compound.rb', line 29</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/matchers/built_in/compound.rb', line 30</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_supports_block_expectations?'>supports_block_expectations?</span>
   <span class='id identifier rubyid_matcher_supports_block_expectations?'>matcher_supports_block_expectations?</span><span class='lparen'>(</span><span class='id identifier rubyid_matcher_1'>matcher_1</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span>
@@ -524,7 +683,7 @@
 </div>
 
     <div id="footer">
-  Generated on Thu Dec 18 08:24:41 2014 by
+  Generated on Wed Jan 28 22:02:16 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.4 (ruby-2.1.5).
 </div>

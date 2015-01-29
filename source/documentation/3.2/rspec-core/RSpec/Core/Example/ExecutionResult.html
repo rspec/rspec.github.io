@@ -101,9 +101,8 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    
-<p>Represents the result of executing an example. Behaves like a hash for
-backwards compatibility.</p>
+    <p>Represents the result of executing an example.
+Behaves like a hash for backwards compatibility.</p>
 
 
   </div>
@@ -138,8 +137,7 @@ backwards compatibility.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>The failure, if there was one.</p>
+    <span class="summary_desc"><div class='inline'><p>The failure, if there was one.</p>
 </div></span>
   
 </li>
@@ -165,8 +163,7 @@ backwards compatibility.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>When the example finished.</p>
+    <span class="summary_desc"><div class='inline'><p>When the example finished.</p>
 </div></span>
   
 </li>
@@ -192,8 +189,7 @@ backwards compatibility.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>The exception triggered while executing the pending example.</p>
+    <span class="summary_desc"><div class='inline'><p>The exception triggered while executing the pending example.</p>
 </div></span>
   
 </li>
@@ -221,9 +217,7 @@ backwards compatibility.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>For examples tagged with <code>:pending</code>, this indicates whether or
-not it now passes.</p>
+    <span class="summary_desc"><div class='inline'><p>For examples tagged with <code>:pending</code>, this indicates whether or not it now passes.</p>
 </div></span>
   
 </li>
@@ -249,8 +243,7 @@ not it now passes.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>The reason the example was pending, or nil if the example was not pending.</p>
+    <span class="summary_desc"><div class='inline'><p>The reason the example was pending, or nil if the example was not pending.</p>
 </div></span>
   
 </li>
@@ -276,8 +269,7 @@ not it now passes.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>How long the example took in seconds.</p>
+    <span class="summary_desc"><div class='inline'><p>How long the example took in seconds.</p>
 </div></span>
   
 </li>
@@ -303,8 +295,7 @@ not it now passes.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>When the example started.</p>
+    <span class="summary_desc"><div class='inline'><p>When the example started.</p>
 </div></span>
   
 </li>
@@ -330,8 +321,7 @@ not it now passes.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p><code>:passed</code>, <code>:failed</code> or <code>:pending</code>.</p>
+    <span class="summary_desc"><div class='inline'><p><code>:passed</code>, <code>:failed</code> or <code>:pending</code>.</p>
 </div></span>
   
 </li>
@@ -353,6 +343,29 @@ not it now passes.</p>
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#example_skipped%3F-instance_method" title="#example_skipped? (instance method)">- (Boolean) <strong>example_skipped?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Indicates if the example was completely skipped (typically done via <code>:skip</code> metadata or the <code>skip</code> method).</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#record_finished-instance_method" title="#record_finished (instance method)">- (void) <strong>record_finished</strong>(status, finished_at) </a>
     
 
@@ -367,8 +380,7 @@ not it now passes.</p>
   <span class="private note title">private</span>
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Records the finished status of the example.</p>
+    <span class="summary_desc"><div class='inline'><p>Records the finished status of the example.</p>
 </div></span>
   
 </li>
@@ -400,8 +412,7 @@ not it now passes.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns The failure, if there was one.</p>
+    <p>Returns The failure, if there was one.</p>
 
 
   </div>
@@ -419,8 +430,7 @@ not it now passes.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>The failure, if there was one.</p>
+        <div class='inline'><p>The failure, if there was one.</p>
 </div>
       
     </li>
@@ -433,12 +443,12 @@ not it now passes.</p>
       <pre class="lines">
 
 
-441
-442
-443</pre>
+451
+452
+453</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/core/example.rb', line 441</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/example.rb', line 451</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_exception'>exception</span>
   <span class='ivar'>@exception</span>
@@ -461,8 +471,7 @@ not it now passes.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns When the example finished.</p>
+    <p>Returns When the example finished.</p>
 
 
   </div>
@@ -480,8 +489,7 @@ not it now passes.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>When the example finished.</p>
+        <div class='inline'><p>When the example finished.</p>
 </div>
       
     </li>
@@ -494,12 +502,12 @@ not it now passes.</p>
       <pre class="lines">
 
 
-447
-448
-449</pre>
+457
+458
+459</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/core/example.rb', line 447</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/example.rb', line 457</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_finished_at'>finished_at</span>
   <span class='ivar'>@finished_at</span>
@@ -522,10 +530,10 @@ not it now passes.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns The exception triggered while executing the pending example. If no
-exception was triggered it would no longer get a status of
-<code>:pending</code> unless it was tagged with <code>:skip</code>.</p>
+    <p>Returns The exception triggered while
+executing the pending example. If no exception was triggered
+it would no longer get a status of <code>:pending</code> unless it was
+tagged with <code>:skip</code>.</p>
 
 
   </div>
@@ -543,10 +551,10 @@ exception was triggered it would no longer get a status of
       
       
         &mdash;
-        <div class='inline'>
-<p>The exception triggered while executing the pending example. If no
-exception was triggered it would no longer get a status of
-<code>:pending</code> unless it was tagged with <code>:skip</code>.</p>
+        <div class='inline'><p>The exception triggered while
+executing the pending example. If no exception was triggered
+it would no longer get a status of <code>:pending</code> unless it was
+tagged with <code>:skip</code>.</p>
 </div>
       
     </li>
@@ -559,12 +567,12 @@ exception was triggered it would no longer get a status of
       <pre class="lines">
 
 
-460
-461
-462</pre>
+470
+471
+472</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/core/example.rb', line 460</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/example.rb', line 470</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_pending_exception'>pending_exception</span>
   <span class='ivar'>@pending_exception</span>
@@ -591,9 +599,8 @@ exception was triggered it would no longer get a status of
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns For examples tagged with <code>:pending</code>, this indicates
-whether or not it now passes.</p>
+    <p>Returns For examples tagged with <code>:pending</code>,
+this indicates whether or not it now passes.</p>
 
 
   </div>
@@ -611,9 +618,8 @@ whether or not it now passes.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>For examples tagged with <code>:pending</code>, this indicates whether or
-not it now passes.</p>
+        <div class='inline'><p>For examples tagged with <code>:pending</code>,
+this indicates whether or not it now passes.</p>
 </div>
       
     </li>
@@ -626,12 +632,12 @@ not it now passes.</p>
       <pre class="lines">
 
 
-464
-465
-466</pre>
+474
+475
+476</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/core/example.rb', line 464</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/example.rb', line 474</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_pending_fixed'>pending_fixed</span>
   <span class='ivar'>@pending_fixed</span>
@@ -654,9 +660,8 @@ not it now passes.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns The reason the example was pending, or nil if the example was not
-pending.</p>
+    <p>Returns The reason the example was pending,
+or nil if the example was not pending.</p>
 
 
   </div>
@@ -674,8 +679,8 @@ pending.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>The reason the example was pending, or nil if the example was not pending.</p>
+        <div class='inline'><p>The reason the example was pending,
+or nil if the example was not pending.</p>
 </div>
       
     </li>
@@ -688,12 +693,12 @@ pending.</p>
       <pre class="lines">
 
 
-454
-455
-456</pre>
+464
+465
+466</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/core/example.rb', line 454</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/example.rb', line 464</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_pending_message'>pending_message</span>
   <span class='ivar'>@pending_message</span>
@@ -716,8 +721,7 @@ pending.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns How long the example took in seconds.</p>
+    <p>Returns How long the example took in seconds.</p>
 
 
   </div>
@@ -735,8 +739,7 @@ pending.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>How long the example took in seconds.</p>
+        <div class='inline'><p>How long the example took in seconds.</p>
 </div>
       
     </li>
@@ -749,12 +752,12 @@ pending.</p>
       <pre class="lines">
 
 
-450
-451
-452</pre>
+460
+461
+462</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/core/example.rb', line 450</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/example.rb', line 460</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_run_time'>run_time</span>
   <span class='ivar'>@run_time</span>
@@ -777,8 +780,7 @@ pending.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns When the example started.</p>
+    <p>Returns When the example started.</p>
 
 
   </div>
@@ -796,8 +798,7 @@ pending.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>When the example started.</p>
+        <div class='inline'><p>When the example started.</p>
 </div>
       
     </li>
@@ -810,12 +811,12 @@ pending.</p>
       <pre class="lines">
 
 
-444
-445
-446</pre>
+454
+455
+456</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/core/example.rb', line 444</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/example.rb', line 454</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_started_at'>started_at</span>
   <span class='ivar'>@started_at</span>
@@ -838,9 +839,7 @@ pending.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns <code>:passed</code>, <code>:failed</code> or
-<code>:pending</code>.</p>
+    <p>Returns <code>:passed</code>, <code>:failed</code> or <code>:pending</code>.</p>
 
 
   </div>
@@ -858,8 +857,7 @@ pending.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p><code>:passed</code>, <code>:failed</code> or <code>:pending</code>.</p>
+        <div class='inline'><p><code>:passed</code>, <code>:failed</code> or <code>:pending</code>.</p>
 </div>
       
     </li>
@@ -872,12 +870,12 @@ pending.</p>
       <pre class="lines">
 
 
-438
-439
-440</pre>
+448
+449
+450</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/core/example.rb', line 438</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/example.rb', line 448</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_status'>status</span>
   <span class='ivar'>@status</span>
@@ -895,7 +893,72 @@ pending.</p>
 
     
       <div class="method_details first">
-  <h3 class="signature first" id="record_finished-instance_method">
+  <h3 class="signature first" id="example_skipped?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>example_skipped?</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns Indicates if the example was completely skipped
+(typically done via <code>:skip</code> metadata or the <code>skip</code> method). Skipped examples
+will have a <code>:pending</code> result. A <code>:pending</code> result can also come from examples
+that were marked as <code>:pending</code>, which causes them to be run, and produces a
+<code>:failed</code> result if the example passes.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>Indicates if the example was completely skipped
+(typically done via <code>:skip</code> metadata or the <code>skip</code> method). Skipped examples
+will have a <code>:pending</code> result. A <code>:pending</code> result can also come from examples
+that were marked as <code>:pending</code>, which causes them to be run, and produces a
+<code>:failed</code> result if the example passes.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+483
+484
+485</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/example.rb', line 483</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_example_skipped?'>example_skipped?</span>
+  <span class='id identifier rubyid_status'>status</span> <span class='op'>==</span> <span class='symbol'>:pending</span> <span class='op'>&amp;&amp;</span> <span class='op'>!</span><span class='id identifier rubyid_pending_exception'>pending_exception</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="record_finished-instance_method">
   
     - (<tt>void</tt>) <strong>record_finished</strong>(status, finished_at) 
   
@@ -909,7 +972,6 @@ pending.</p>
   <strong>This method is part of a private API.</strong>
   You should avoid using this method if possible, as it may be removed or be changed in the future.
 </p>
-
 <p>Records the finished status of the example.</p>
 
 
@@ -924,14 +986,14 @@ pending.</p>
       <pre class="lines">
 
 
-470
-471
-472
-473
-474</pre>
+489
+490
+491
+492
+493</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/core/example.rb', line 470</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/example.rb', line 489</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_record_finished'>record_finished</span><span class='lparen'>(</span><span class='id identifier rubyid_status'>status</span><span class='comma'>,</span> <span class='id identifier rubyid_finished_at'>finished_at</span><span class='rparen'>)</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_status'>status</span>      <span class='op'>=</span> <span class='id identifier rubyid_status'>status</span>
@@ -948,7 +1010,7 @@ pending.</p>
 </div>
 
     <div id="footer">
-  Generated on Wed Dec 17 10:38:37 2014 by
+  Generated on Wed Jan 28 22:02:07 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.1.5).
 </div>

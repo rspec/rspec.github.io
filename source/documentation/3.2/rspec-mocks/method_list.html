@@ -20,7 +20,11 @@
   </head>
   <body>
     <script type="text/javascript" charset="utf-8">
-      if (window.top.frames.main) {
+      var hasFrames = false;
+      try {
+        hasFrames = window.top.frames.main ? true : false;
+      } catch (e) { }
+      if (hasFrames) {
         document.getElementById('base_target').target = 'main';
         document.body.className = 'frames';
       }
@@ -138,80 +142,116 @@
   
 
   <li class="r2 ">
+    <span class='object_link'><a href="RSpec/Mocks/Proxy/ReceivedArgList.html#args-instance_method" title="RSpec::Mocks::Proxy::ReceivedArgList#args (method)">#args</a></span>
+    <small>RSpec::Mocks::Proxy::ReceivedArgList</small>
+  </li>
+  
+
+  <li class="r1 ">
     <span class='object_link'><a href="RSpec/Mocks/Proxy/SpecificMessage.html#args-instance_method" title="RSpec::Mocks::Proxy::SpecificMessage#args (method)">#args</a></span>
     <small>RSpec::Mocks::Proxy::SpecificMessage</small>
   </li>
   
 
-  <li class="r1 ">
+  <li class="r2 ">
     <span class='object_link'><a href="RSpec/Mocks/ArgumentListMatcher.html#args_match%3F-instance_method" title="RSpec::Mocks::ArgumentListMatcher#args_match? (method)">#args_match?</a></span>
     <small>RSpec::Mocks::ArgumentListMatcher</small>
   </li>
   
 
-  <li class="r2 ">
+  <li class="r1 ">
     <span class='object_link'><a href="RSpec/Mocks/ArgumentMatchers.html#array_including-instance_method" title="RSpec::Mocks::ArgumentMatchers#array_including (method)">#array_including</a></span>
     <small>RSpec::Mocks::ArgumentMatchers</small>
   </li>
   
 
-  <li class="r1 ">
+  <li class="r2 ">
     <span class='object_link'><a href="BasicObject.html#as_null_object-instance_method" title="BasicObject#as_null_object (method)">#as_null_object</a></span>
     <small>BasicObject</small>
   </li>
   
 
-  <li class="r2 ">
+  <li class="r1 ">
     <span class='object_link'><a href="RSpec/Mocks/TestDouble.html#as_null_object-instance_method" title="RSpec::Mocks::TestDouble#as_null_object (method)">#as_null_object</a></span>
     <small>RSpec::Mocks::TestDouble</small>
   </li>
   
 
-  <li class="r1 ">
+  <li class="r2 ">
     <span class='object_link'><a href="RSpec/Mocks/MessageExpectation.html#at_least-instance_method" title="RSpec::Mocks::MessageExpectation#at_least (method)">#at_least</a></span>
     <small>RSpec::Mocks::MessageExpectation</small>
   </li>
   
 
-  <li class="r2 ">
+  <li class="r1 ">
     <span class='object_link'><a href="RSpec/Mocks/MessageExpectation.html#at_most-instance_method" title="RSpec::Mocks::MessageExpectation#at_most (method)">#at_most</a></span>
     <small>RSpec::Mocks::MessageExpectation</small>
   </li>
   
 
-  <li class="r1 ">
+  <li class="r2 ">
     <span class='object_link'><a href="RSpec/Mocks/ArgumentMatchers.html#boolean-instance_method" title="RSpec::Mocks::ArgumentMatchers#boolean (method)">#boolean</a></span>
     <small>RSpec::Mocks::ArgumentMatchers</small>
   </li>
   
 
-  <li class="r2 ">
+  <li class="r1 ">
     <span class='object_link'><a href="RSpec/Mocks/ExampleMethods.html#class_double-instance_method" title="RSpec::Mocks::ExampleMethods#class_double (method)">#class_double</a></span>
     <small>RSpec::Mocks::ExampleMethods</small>
   </li>
   
 
-  <li class="r1 ">
+  <li class="r2 ">
     <span class='object_link'><a href="RSpec/Mocks/ExampleMethods.html#class_spy-instance_method" title="RSpec::Mocks::ExampleMethods#class_spy (method)">#class_spy</a></span>
     <small>RSpec::Mocks::ExampleMethods</small>
   </li>
   
 
-  <li class="r2 ">
+  <li class="r1 ">
     <span class='object_link'><a href="RSpec/Mocks/Configuration.html#color%3F-instance_method" title="RSpec::Mocks::Configuration#color? (method)">#color?</a></span>
     <small>RSpec::Mocks::Configuration</small>
   </li>
   
 
-  <li class="r1 ">
+  <li class="r2 ">
     <span class='object_link'><a href="RSpec/Mocks.html#configuration-class_method" title="RSpec::Mocks.configuration (method)">configuration</a></span>
     <small>RSpec::Mocks</small>
   </li>
   
 
+  <li class="r1 ">
+    <span class='object_link'><a href="RSpec/Mocks/DirectObjectReference.html#const_to_replace-instance_method" title="RSpec::Mocks::DirectObjectReference#const_to_replace (method)">#const_to_replace</a></span>
+    <small>RSpec::Mocks::DirectObjectReference</small>
+  </li>
+  
+
   <li class="r2 ">
+    <span class='object_link'><a href="RSpec/Mocks/NamedObjectReference.html#const_to_replace-instance_method" title="RSpec::Mocks::NamedObjectReference#const_to_replace (method)">#const_to_replace</a></span>
+    <small>RSpec::Mocks::NamedObjectReference</small>
+  </li>
+  
+
+  <li class="r1 ">
     <span class='object_link'><a href="RSpec/Mocks/Syntax.html#default_should_syntax_host-class_method" title="RSpec::Mocks::Syntax.default_should_syntax_host (method)">default_should_syntax_host</a></span>
     <small>RSpec::Mocks::Syntax</small>
+  </li>
+  
+
+  <li class="r2 ">
+    <span class='object_link'><a href="RSpec/Mocks/NamedObjectReference.html#defined%3F-instance_method" title="RSpec::Mocks::NamedObjectReference#defined? (method)">#defined?</a></span>
+    <small>RSpec::Mocks::NamedObjectReference</small>
+  </li>
+  
+
+  <li class="r1 ">
+    <span class='object_link'><a href="RSpec/Mocks/DirectObjectReference.html#defined%3F-instance_method" title="RSpec::Mocks::DirectObjectReference#defined? (method)">#defined?</a></span>
+    <small>RSpec::Mocks::DirectObjectReference</small>
+  </li>
+  
+
+  <li class="r2 ">
+    <span class='object_link'><a href="RSpec/Mocks/DirectObjectReference.html#description-instance_method" title="RSpec::Mocks::DirectObjectReference#description (method)">#description</a></span>
+    <small>RSpec::Mocks::DirectObjectReference</small>
   </li>
   
 
@@ -288,56 +328,44 @@
   
 
   <li class="r1 ">
+    <span class='object_link'><a href="RSpec/Mocks/Proxy/ReceivedArgList.html#has_mutations%3F-instance_method" title="RSpec::Mocks::Proxy::ReceivedArgList#has_mutations? (method)">#has_mutations?</a></span>
+    <small>RSpec::Mocks::Proxy::ReceivedArgList</small>
+  </li>
+  
+
+  <li class="r2 ">
     <span class='object_link'><a href="RSpec/Mocks/ArgumentMatchers.html#hash_excluding-instance_method" title="RSpec::Mocks::ArgumentMatchers#hash_excluding (method)">#hash_excluding</a></span>
     <small>RSpec::Mocks::ArgumentMatchers</small>
   </li>
   
 
-  <li class="r2 ">
+  <li class="r1 ">
     <span class='object_link'><a href="RSpec/Mocks/ArgumentMatchers.html#hash_including-instance_method" title="RSpec::Mocks::ArgumentMatchers#hash_including (method)">#hash_including</a></span>
     <small>RSpec::Mocks::ArgumentMatchers</small>
   </li>
   
 
-  <li class="r1 ">
+  <li class="r2 ">
     <span class='object_link'><a href="RSpec/Mocks/ExampleMethods.html#have_received-instance_method" title="RSpec::Mocks::ExampleMethods#have_received (method)">#have_received</a></span>
     <small>RSpec::Mocks::ExampleMethods</small>
   </li>
   
 
-  <li class="r2 ">
+  <li class="r1 ">
     <span class='object_link'><a href="RSpec/Mocks/Constant.html#hidden%3F-instance_method" title="RSpec::Mocks::Constant#hidden? (method)">#hidden?</a></span>
     <small>RSpec::Mocks::Constant</small>
   </li>
   
 
-  <li class="r1 ">
+  <li class="r2 ">
     <span class='object_link'><a href="RSpec/Mocks/ConstantMutator.html#hide-class_method" title="RSpec::Mocks::ConstantMutator.hide (method)">hide</a></span>
     <small>RSpec::Mocks::ConstantMutator</small>
   </li>
   
 
-  <li class="r2 ">
+  <li class="r1 ">
     <span class='object_link'><a href="RSpec/Mocks/ExampleMethods.html#hide_const-instance_method" title="RSpec::Mocks::ExampleMethods#hide_const (method)">#hide_const</a></span>
     <small>RSpec::Mocks::ExampleMethods</small>
-  </li>
-  
-
-  <li class="r1 ">
-    <span class='object_link'><a href="RSpec/Mocks/TestDouble.html#initialize-instance_method" title="RSpec::Mocks::TestDouble#initialize (method)">#initialize</a></span>
-    <small>RSpec::Mocks::TestDouble</small>
-  </li>
-  
-
-  <li class="r2 ">
-    <span class='object_link'><a href="RSpec/Mocks/AnyInstance/Recorder.html#initialize-instance_method" title="RSpec::Mocks::AnyInstance::Recorder#initialize (method)">#initialize</a></span>
-    <small>RSpec::Mocks::AnyInstance::Recorder</small>
-  </li>
-  
-
-  <li class="r1 ">
-    <span class='object_link'><a href="RSpec/Mocks/Constant.html#initialize-instance_method" title="RSpec::Mocks::Constant#initialize (method)">#initialize</a></span>
-    <small>RSpec::Mocks::Constant</small>
   </li>
   
 
@@ -348,14 +376,50 @@
   
 
   <li class="r1 ">
+    <span class='object_link'><a href="RSpec/Mocks/AnyInstance/Recorder.html#initialize-instance_method" title="RSpec::Mocks::AnyInstance::Recorder#initialize (method)">#initialize</a></span>
+    <small>RSpec::Mocks::AnyInstance::Recorder</small>
+  </li>
+  
+
+  <li class="r2 ">
+    <span class='object_link'><a href="RSpec/Mocks/Proxy/ReceivedArgList.html#initialize-instance_method" title="RSpec::Mocks::Proxy::ReceivedArgList#initialize (method)">#initialize</a></span>
+    <small>RSpec::Mocks::Proxy::ReceivedArgList</small>
+  </li>
+  
+
+  <li class="r1 ">
+    <span class='object_link'><a href="RSpec/Mocks/NamedObjectReference.html#initialize-instance_method" title="RSpec::Mocks::NamedObjectReference#initialize (method)">#initialize</a></span>
+    <small>RSpec::Mocks::NamedObjectReference</small>
+  </li>
+  
+
+  <li class="r2 ">
+    <span class='object_link'><a href="RSpec/Mocks/Constant.html#initialize-instance_method" title="RSpec::Mocks::Constant#initialize (method)">#initialize</a></span>
+    <small>RSpec::Mocks::Constant</small>
+  </li>
+  
+
+  <li class="r1 ">
     <span class='object_link'><a href="RSpec/Mocks/Configuration.html#initialize-instance_method" title="RSpec::Mocks::Configuration#initialize (method)">#initialize</a></span>
     <small>RSpec::Mocks::Configuration</small>
   </li>
   
 
   <li class="r2 ">
+    <span class='object_link'><a href="RSpec/Mocks/TestDouble.html#initialize-instance_method" title="RSpec::Mocks::TestDouble#initialize (method)">#initialize</a></span>
+    <small>RSpec::Mocks::TestDouble</small>
+  </li>
+  
+
+  <li class="r1 ">
     <span class='object_link'><a href="RSpec/Mocks/VerifyingMessageExpectation.html#initialize-instance_method" title="RSpec::Mocks::VerifyingMessageExpectation#initialize (method)">#initialize</a></span>
     <small>RSpec::Mocks::VerifyingMessageExpectation</small>
+  </li>
+  
+
+  <li class="r2 ">
+    <span class='object_link'><a href="RSpec/Mocks/DirectObjectReference.html#initialize-instance_method" title="RSpec::Mocks::DirectObjectReference#initialize (method)">#initialize</a></span>
+    <small>RSpec::Mocks::DirectObjectReference</small>
   </li>
   
 
@@ -420,14 +484,14 @@
   
 
   <li class="r1 ">
-    <span class='object_link'><a href="BasicObject.html#null_object%3F-instance_method" title="BasicObject#null_object? (method)">#null_object?</a></span>
-    <small>BasicObject</small>
+    <span class='object_link'><a href="RSpec/Mocks/TestDouble.html#null_object%3F-instance_method" title="RSpec::Mocks::TestDouble#null_object? (method)">#null_object?</a></span>
+    <small>RSpec::Mocks::TestDouble</small>
   </li>
   
 
   <li class="r2 ">
-    <span class='object_link'><a href="RSpec/Mocks/TestDouble.html#null_object%3F-instance_method" title="RSpec::Mocks::TestDouble#null_object? (method)">#null_object?</a></span>
-    <small>RSpec::Mocks::TestDouble</small>
+    <span class='object_link'><a href="BasicObject.html#null_object%3F-instance_method" title="BasicObject#null_object? (method)">#null_object?</a></span>
+    <small>BasicObject</small>
   </li>
   
 
@@ -540,14 +604,14 @@
   
 
   <li class="r1 ">
-    <span class='object_link'><a href="RSpec/Mocks/AnyInstance/Recorder.html#should_receive-instance_method" title="RSpec::Mocks::AnyInstance::Recorder#should_receive (method)">#should_receive</a></span>
-    <small>RSpec::Mocks::AnyInstance::Recorder</small>
+    <span class='object_link'><a href="BasicObject.html#should_receive-instance_method" title="BasicObject#should_receive (method)">#should_receive</a></span>
+    <small>BasicObject</small>
   </li>
   
 
   <li class="r2 ">
-    <span class='object_link'><a href="BasicObject.html#should_receive-instance_method" title="BasicObject#should_receive (method)">#should_receive</a></span>
-    <small>BasicObject</small>
+    <span class='object_link'><a href="RSpec/Mocks/AnyInstance/Recorder.html#should_receive-instance_method" title="RSpec::Mocks::AnyInstance::Recorder#should_receive (method)">#should_receive</a></span>
+    <small>RSpec::Mocks::AnyInstance::Recorder</small>
   </li>
   
 
@@ -558,20 +622,20 @@
   
 
   <li class="r2 ">
+    <span class='object_link'><a href="BasicObject.html#stub-instance_method" title="BasicObject#stub (method)">#stub</a></span>
+    <small>BasicObject</small>
+  </li>
+  
+
+  <li class="r1 ">
     <span class='object_link'><a href="RSpec/Mocks/ConstantMutator.html#stub-class_method" title="RSpec::Mocks::ConstantMutator.stub (method)">stub</a></span>
     <small>RSpec::Mocks::ConstantMutator</small>
   </li>
   
 
-  <li class="r1 ">
+  <li class="r2 ">
     <span class='object_link'><a href="RSpec/Mocks/AnyInstance/Recorder.html#stub-instance_method" title="RSpec::Mocks::AnyInstance::Recorder#stub (method)">#stub</a></span>
     <small>RSpec::Mocks::AnyInstance::Recorder</small>
-  </li>
-  
-
-  <li class="r2 ">
-    <span class='object_link'><a href="BasicObject.html#stub-instance_method" title="BasicObject#stub (method)">#stub</a></span>
-    <small>BasicObject</small>
   </li>
   
 
@@ -612,6 +676,18 @@
   
 
   <li class="r1 ">
+    <span class='object_link'><a href="RSpec/Mocks/NamedObjectReference.html#target-instance_method" title="RSpec::Mocks::NamedObjectReference#target (method)">#target</a></span>
+    <small>RSpec::Mocks::NamedObjectReference</small>
+  </li>
+  
+
+  <li class="r2 ">
+    <span class='object_link'><a href="RSpec/Mocks/DirectObjectReference.html#target-instance_method" title="RSpec::Mocks::DirectObjectReference#target (method)">#target</a></span>
+    <small>RSpec::Mocks::DirectObjectReference</small>
+  </li>
+  
+
+  <li class="r1 ">
     <span class='object_link'><a href="RSpec/Mocks.html#teardown-class_method" title="RSpec::Mocks.teardown (method)">teardown</a></span>
     <small>RSpec::Mocks</small>
   </li>
@@ -648,14 +724,14 @@
   
 
   <li class="r1 ">
-    <span class='object_link'><a href="BasicObject.html#unstub-instance_method" title="BasicObject#unstub (method)">#unstub</a></span>
-    <small>BasicObject</small>
+    <span class='object_link'><a href="RSpec/Mocks/AnyInstance/Recorder.html#unstub-instance_method" title="RSpec::Mocks::AnyInstance::Recorder#unstub (method)">#unstub</a></span>
+    <small>RSpec::Mocks::AnyInstance::Recorder</small>
   </li>
   
 
   <li class="r2 ">
-    <span class='object_link'><a href="RSpec/Mocks/AnyInstance/Recorder.html#unstub-instance_method" title="RSpec::Mocks::AnyInstance::Recorder#unstub (method)">#unstub</a></span>
-    <small>RSpec::Mocks::AnyInstance::Recorder</small>
+    <span class='object_link'><a href="BasicObject.html#unstub-instance_method" title="BasicObject#unstub (method)">#unstub</a></span>
+    <small>BasicObject</small>
   </li>
   
 
@@ -692,6 +768,30 @@
   <li class="r2 ">
     <span class='object_link'><a href="RSpec/Mocks/Configuration.html#verify_partial_doubles%3F-instance_method" title="RSpec::Mocks::Configuration#verify_partial_doubles? (method)">#verify_partial_doubles?</a></span>
     <small>RSpec::Mocks::Configuration</small>
+  </li>
+  
+
+  <li class="r1 ">
+    <span class='object_link'><a href="RSpec/Mocks/Configuration.html#verifying_double_declaration_callbacks-instance_method" title="RSpec::Mocks::Configuration#verifying_double_declaration_callbacks (method)">#verifying_double_declaration_callbacks</a></span>
+    <small>RSpec::Mocks::Configuration</small>
+  </li>
+  
+
+  <li class="r2 ">
+    <span class='object_link'><a href="RSpec/Mocks/Configuration.html#when_declaring_verifying_double-instance_method" title="RSpec::Mocks::Configuration#when_declaring_verifying_double (method)">#when_declaring_verifying_double</a></span>
+    <small>RSpec::Mocks::Configuration</small>
+  </li>
+  
+
+  <li class="r1 ">
+    <span class='object_link'><a href="RSpec/Mocks/DirectObjectReference.html#when_loaded-instance_method" title="RSpec::Mocks::DirectObjectReference#when_loaded (method)">#when_loaded</a></span>
+    <small>RSpec::Mocks::DirectObjectReference</small>
+  </li>
+  
+
+  <li class="r2 ">
+    <span class='object_link'><a href="RSpec/Mocks/NamedObjectReference.html#when_loaded-instance_method" title="RSpec::Mocks::NamedObjectReference#when_loaded (method)">#when_loaded</a></span>
+    <small>RSpec::Mocks::NamedObjectReference</small>
   </li>
   
 

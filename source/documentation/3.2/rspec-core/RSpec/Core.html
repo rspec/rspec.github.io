@@ -80,7 +80,7 @@
   
     <dt class="r1 last">Defined in:</dt>
     <dd class="r1 last">lib/rspec/core.rb<span class="defines">,<br />
-  lib/rspec/core/drb.rb,<br /> lib/rspec/core/dsl.rb,<br /> lib/rspec/core/world.rb,<br /> lib/rspec/core/hooks.rb,<br /> lib/rspec/core/runner.rb,<br /> lib/rspec/core/example.rb,<br /> lib/rspec/core/pending.rb,<br /> lib/rspec/core/version.rb,<br /> lib/rspec/core/reporter.rb,<br /> lib/rspec/core/warnings.rb,<br /> lib/rspec/core/ordering.rb,<br /> lib/rspec/core/flat_map.rb,<br /> lib/rspec/core/metadata.rb,<br /> lib/rspec/core/rake_task.rb,<br /> lib/rspec/core/ruby_project.rb,<br /> lib/rspec/core/option_parser.rb,<br /> lib/rspec/core/example_group.rb,<br /> lib/rspec/core/configuration.rb,<br /> lib/rspec/core/notifications.rb,<br /> lib/rspec/core/shared_context.rb,<br /> lib/rspec/core/filter_manager.rb,<br /> lib/rspec/core/backport_random.rb,<br /> lib/rspec/core/metadata_filter.rb,<br /> lib/rspec/core/memoized_helpers.rb,<br /> lib/rspec/core/formatters/helpers.rb,<br /> lib/rspec/core/backtrace_formatter.rb,<br /> lib/rspec/core/formatters/protocol.rb,<br /> lib/rspec/core/project_initializer.rb,<br /> lib/rspec/core/mocking_adapters/rr.rb,<br /> lib/rspec/core/shared_example_group.rb,<br /> lib/rspec/core/mocking_adapters/null.rb,<br /> lib/rspec/core/configuration_options.rb,<br /> lib/rspec/core/mocking_adapters/rspec.rb,<br /> lib/rspec/core/mocking_adapters/mocha.rb,<br /> lib/rspec/core/formatters/html_printer.rb,<br /> lib/rspec/core/formatters/console_codes.rb,<br /> lib/rspec/core/formatters/json_formatter.rb,<br /> lib/rspec/core/mocking_adapters/flexmock.rb,<br /> lib/rspec/core/formatters/html_formatter.rb,<br /> lib/rspec/core/formatters/base_formatter.rb,<br /> lib/rspec/core/minitest_assertions_adapter.rb,<br /> lib/rspec/core/test_unit_assertions_adapter.rb,<br /> lib/rspec/core/formatters/profile_formatter.rb,<br /> lib/rspec/core/formatters/snippet_extractor.rb,<br /> lib/rspec/core/formatters/progress_formatter.rb,<br /> lib/rspec/core/formatters/base_text_formatter.rb,<br /> lib/rspec/core/formatters/deprecation_formatter.rb,<br /> lib/rspec/core/formatters/documentation_formatter.rb</span>
+  lib/rspec/core/dsl.rb,<br /> lib/rspec/core/drb.rb,<br /> lib/rspec/core/hooks.rb,<br /> lib/rspec/core/world.rb,<br /> lib/rspec/core/runner.rb,<br /> lib/rspec/core/sandbox.rb,<br /> lib/rspec/core/pending.rb,<br /> lib/rspec/core/example.rb,<br /> lib/rspec/core/version.rb,<br /> lib/rspec/core/metadata.rb,<br /> lib/rspec/core/flat_map.rb,<br /> lib/rspec/core/ordering.rb,<br /> lib/rspec/core/warnings.rb,<br /> lib/rspec/core/reporter.rb,<br /> lib/rspec/core/rake_task.rb,<br /> lib/rspec/core/ruby_project.rb,<br /> lib/rspec/core/notifications.rb,<br /> lib/rspec/core/configuration.rb,<br /> lib/rspec/core/option_parser.rb,<br /> lib/rspec/core/example_group.rb,<br /> lib/rspec/core/shared_context.rb,<br /> lib/rspec/core/filter_manager.rb,<br /> lib/rspec/core/metadata_filter.rb,<br /> lib/rspec/core/backport_random.rb,<br /> lib/rspec/core/memoized_helpers.rb,<br /> lib/rspec/core/formatters/helpers.rb,<br /> lib/rspec/core/mocking_adapters/rr.rb,<br /> lib/rspec/core/backtrace_formatter.rb,<br /> lib/rspec/core/formatters/protocol.rb,<br /> lib/rspec/core/project_initializer.rb,<br /> lib/rspec/core/shared_example_group.rb,<br /> lib/rspec/core/configuration_options.rb,<br /> lib/rspec/core/mocking_adapters/null.rb,<br /> lib/rspec/core/mocking_adapters/rspec.rb,<br /> lib/rspec/core/mocking_adapters/mocha.rb,<br /> lib/rspec/core/formatters/html_printer.rb,<br /> lib/rspec/core/formatters/console_codes.rb,<br /> lib/rspec/core/mocking_adapters/flexmock.rb,<br /> lib/rspec/core/formatters/base_formatter.rb,<br /> lib/rspec/core/formatters/html_formatter.rb,<br /> lib/rspec/core/formatters/json_formatter.rb,<br /> lib/rspec/core/minitest_assertions_adapter.rb,<br /> lib/rspec/core/formatters/snippet_extractor.rb,<br /> lib/rspec/core/test_unit_assertions_adapter.rb,<br /> lib/rspec/core/formatters/profile_formatter.rb,<br /> lib/rspec/core/formatters/progress_formatter.rb,<br /> lib/rspec/core/formatters/base_text_formatter.rb,<br /> lib/rspec/core/formatters/deprecation_formatter.rb,<br /> lib/rspec/core/formatters/documentation_formatter.rb</span>
 </dd>
   
 </dl>
@@ -88,8 +88,7 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    
-<p>Namespace for the rspec-core code.</p>
+    <p>Namespace for the rspec-core code.</p>
 
 
   </div>
@@ -101,7 +100,7 @@
 <p class="children">
   
     
-      <strong class="modules">Modules:</strong> <span class='object_link'><a href="Core/DSL.html" title="RSpec::Core::DSL (module)">DSL</a></span>, <span class='object_link'><a href="Core/Formatters.html" title="RSpec::Core::Formatters (module)">Formatters</a></span>, <span class='object_link'><a href="Core/Hooks.html" title="RSpec::Core::Hooks (module)">Hooks</a></span>, <span class='object_link'><a href="Core/MemoizedHelpers.html" title="RSpec::Core::MemoizedHelpers (module)">MemoizedHelpers</a></span>, <span class='object_link'><a href="Core/Metadata.html" title="RSpec::Core::Metadata (module)">Metadata</a></span>, <span class='object_link'><a href="Core/MetadataFilter.html" title="RSpec::Core::MetadataFilter (module)">MetadataFilter</a></span>, <span class='object_link'><a href="Core/Notifications.html" title="RSpec::Core::Notifications (module)">Notifications</a></span>, <span class='object_link'><a href="Core/Pending.html" title="RSpec::Core::Pending (module)">Pending</a></span>, <span class='object_link'><a href="Core/SharedContext.html" title="RSpec::Core::SharedContext (module)">SharedContext</a></span>, <span class='object_link'><a href="Core/SharedExampleGroup.html" title="RSpec::Core::SharedExampleGroup (module)">SharedExampleGroup</a></span>, <span class='object_link'><a href="Core/Version.html" title="RSpec::Core::Version (module)">Version</a></span>
+      <strong class="modules">Modules:</strong> <span class='object_link'><a href="Core/DSL.html" title="RSpec::Core::DSL (module)">DSL</a></span>, <span class='object_link'><a href="Core/Formatters.html" title="RSpec::Core::Formatters (module)">Formatters</a></span>, <span class='object_link'><a href="Core/Hooks.html" title="RSpec::Core::Hooks (module)">Hooks</a></span>, <span class='object_link'><a href="Core/MemoizedHelpers.html" title="RSpec::Core::MemoizedHelpers (module)">MemoizedHelpers</a></span>, <span class='object_link'><a href="Core/Metadata.html" title="RSpec::Core::Metadata (module)">Metadata</a></span>, <span class='object_link'><a href="Core/MetadataFilter.html" title="RSpec::Core::MetadataFilter (module)">MetadataFilter</a></span>, <span class='object_link'><a href="Core/Notifications.html" title="RSpec::Core::Notifications (module)">Notifications</a></span>, <span class='object_link'><a href="Core/Pending.html" title="RSpec::Core::Pending (module)">Pending</a></span>, <span class='object_link'><a href="Core/Sandbox.html" title="RSpec::Core::Sandbox (module)">Sandbox</a></span>, <span class='object_link'><a href="Core/SharedContext.html" title="RSpec::Core::SharedContext (module)">SharedContext</a></span>, <span class='object_link'><a href="Core/SharedExampleGroup.html" title="RSpec::Core::SharedExampleGroup (module)">SharedExampleGroup</a></span>, <span class='object_link'><a href="Core/Version.html" title="RSpec::Core::Version (module)">Version</a></span>
     
   
     
@@ -117,8 +116,7 @@
         <dt id="DeprecationError-constant" class="">DeprecationError =
           <div class="docstring">
   <div class="discussion">
-    
-<p>Deprecation Error.</p>
+    <p>Deprecation Error.</p>
 
 
   </div>
@@ -144,7 +142,7 @@
 </div>
 
     <div id="footer">
-  Generated on Wed Dec 17 10:38:35 2014 by
+  Generated on Wed Jan 28 22:02:06 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.1.5).
 </div>

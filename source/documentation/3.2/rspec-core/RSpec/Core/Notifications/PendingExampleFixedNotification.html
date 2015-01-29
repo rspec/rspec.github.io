@@ -107,10 +107,8 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    
-<p>The <code>PendingExampleFixedNotification</code> extends
-<code>ExampleNotification</code> with things useful for specs that pass
-when they are expected to fail.</p>
+    <p>The <code>PendingExampleFixedNotification</code> extends <code>ExampleNotification</code> with
+things useful for specs that pass when they are expected to fail.</p>
 
 
   </div>
@@ -152,8 +150,7 @@ when they are expected to fail.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>the current example.</p>
+    <span class="summary_desc"><div class='inline'><p>the current example.</p>
 </div></span>
   
 </li>
@@ -175,7 +172,7 @@ when they are expected to fail.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#colorized_message_lines-instance_method" title="#colorized_message_lines (instance method)">- (Array(String)) <strong>colorized_message_lines</strong>(colorizer = ::RSpec::Core::Formatters::ConsoleCodes) </a>
+      <a href="#colorized_message_lines-instance_method" title="#colorized_message_lines (instance method)">- (Array&lt;String&gt;) <strong>colorized_message_lines</strong>(colorizer = ::RSpec::Core::Formatters::ConsoleCodes) </a>
     
 
     
@@ -189,8 +186,7 @@ when they are expected to fail.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Returns the message generated for this failure colorized line by line.</p>
+    <span class="summary_desc"><div class='inline'><p>Returns the message generated for this failure colorized line by line.</p>
 </div></span>
   
 </li>
@@ -213,8 +209,7 @@ when they are expected to fail.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Returns the examples description.</p>
+    <span class="summary_desc"><div class='inline'><p>Returns the examples description.</p>
 </div></span>
   
 </li>
@@ -223,7 +218,7 @@ when they are expected to fail.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#message_lines-instance_method" title="#message_lines (instance method)">- (Array(String)) <strong>message_lines</strong> </a>
+      <a href="#message_lines-instance_method" title="#message_lines (instance method)">- (Array&lt;String&gt;) <strong>message_lines</strong> </a>
     
 
     
@@ -237,8 +232,7 @@ when they are expected to fail.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Returns the message generated for this failure line by line.</p>
+    <span class="summary_desc"><div class='inline'><p>Returns the message generated for this failure line by line.</p>
 </div></span>
   
 </li>
@@ -282,8 +276,7 @@ when they are expected to fail.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>the current example</p>
+    <p>the current example</p>
 
 
   </div>
@@ -301,8 +294,7 @@ when they are expected to fail.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>the current value of example</p>
+        <div class='inline'><p>the current value of example</p>
 </div>
       
     </li>
@@ -315,12 +307,12 @@ when they are expected to fail.</p>
       <pre class="lines">
 
 
-275
-276
-277</pre>
+293
+294
+295</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/core/notifications.rb', line 275</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/notifications.rb', line 293</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_example'>example</span>
   <span class='ivar'>@example</span>
@@ -340,7 +332,7 @@ when they are expected to fail.</p>
       <div class="method_details first">
   <h3 class="signature first" id="colorized_message_lines-instance_method">
   
-    - (<tt>Array(String)</tt>) <strong>colorized_message_lines</strong>(colorizer = ::RSpec::Core::Formatters::ConsoleCodes) 
+    - (<tt>Array&lt;String&gt;</tt>) <strong>colorized_message_lines</strong>(colorizer = ::RSpec::Core::Formatters::ConsoleCodes) 
   
 
   
@@ -348,8 +340,7 @@ when they are expected to fail.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns the message generated for this failure colorized line by line.</p>
+    <p>Returns the message generated for this failure colorized line by line.</p>
 
 
   </div>
@@ -370,8 +361,7 @@ when they are expected to fail.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>An object to colorize the message_lines by</p>
+        <div class='inline'><p>An object to colorize the message_lines by</p>
 </div>
       
     </li>
@@ -384,13 +374,12 @@ when they are expected to fail.</p>
     <li>
       
       
-        <span class='type'>(<tt>Array(String)</tt>)</span>
+        <span class='type'>(<tt>Array&lt;String&gt;</tt>)</span>
       
       
       
         &mdash;
-        <div class='inline'>
-<p>The example failure message colorized</p>
+        <div class='inline'><p>The example failure message colorized</p>
 </div>
       
     </li>
@@ -403,12 +392,12 @@ when they are expected to fail.</p>
       <pre class="lines">
 
 
-296
-297
-298</pre>
+314
+315
+316</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/core/notifications.rb', line 296</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/notifications.rb', line 314</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_colorized_message_lines'>colorized_message_lines</span><span class='lparen'>(</span><span class='id identifier rubyid_colorizer'>colorizer</span><span class='op'>=</span><span class='op'>::</span><span class='const'>RSpec</span><span class='op'>::</span><span class='const'>Core</span><span class='op'>::</span><span class='const'>Formatters</span><span class='op'>::</span><span class='const'>ConsoleCodes</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_message_lines'>message_lines</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_line'>line</span><span class='op'>|</span> <span class='id identifier rubyid_colorizer'>colorizer</span><span class='period'>.</span><span class='id identifier rubyid_wrap'>wrap</span><span class='lparen'>(</span><span class='id identifier rubyid_line'>line</span><span class='comma'>,</span> <span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_configuration'>configuration</span><span class='period'>.</span><span class='id identifier rubyid_fixed_color'>fixed_color</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
@@ -429,8 +418,7 @@ when they are expected to fail.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns the examples description.</p>
+    <p>Returns the examples description.</p>
 
 
   </div>
@@ -448,8 +436,7 @@ when they are expected to fail.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>The example description</p>
+        <div class='inline'><p>The example description</p>
 </div>
       
     </li>
@@ -462,12 +449,12 @@ when they are expected to fail.</p>
       <pre class="lines">
 
 
-281
-282
-283</pre>
+299
+300
+301</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/core/notifications.rb', line 281</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/notifications.rb', line 299</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_description'>description</span>
   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_example'>example</span><span class='period'>.</span><span class='id identifier rubyid_full_description'>full_description</span><span class='embexpr_end'>}</span><span class='tstring_content'> FIXED</span><span class='tstring_end'>&quot;</span></span>
@@ -480,7 +467,7 @@ when they are expected to fail.</p>
       <div class="method_details ">
   <h3 class="signature " id="message_lines-instance_method">
   
-    - (<tt>Array(String)</tt>) <strong>message_lines</strong> 
+    - (<tt>Array&lt;String&gt;</tt>) <strong>message_lines</strong> 
   
 
   
@@ -488,8 +475,7 @@ when they are expected to fail.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns the message generated for this failure line by line.</p>
+    <p>Returns the message generated for this failure line by line.</p>
 
 
   </div>
@@ -502,13 +488,12 @@ when they are expected to fail.</p>
     <li>
       
       
-        <span class='type'>(<tt>Array(String)</tt>)</span>
+        <span class='type'>(<tt>Array&lt;String&gt;</tt>)</span>
       
       
       
         &mdash;
-        <div class='inline'>
-<p>The example failure message</p>
+        <div class='inline'><p>The example failure message</p>
 </div>
       
     </li>
@@ -521,12 +506,12 @@ when they are expected to fail.</p>
       <pre class="lines">
 
 
-288
-289
-290</pre>
+306
+307
+308</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/core/notifications.rb', line 288</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/notifications.rb', line 306</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_message_lines'>message_lines</span>
   <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Expected pending &#39;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_example'>example</span><span class='period'>.</span><span class='id identifier rubyid_execution_result'>execution_result</span><span class='period'>.</span><span class='id identifier rubyid_pending_message'>pending_message</span><span class='embexpr_end'>}</span><span class='tstring_content'>&#39; to fail. No Error was raised.</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span>
@@ -541,7 +526,7 @@ when they are expected to fail.</p>
 </div>
 
     <div id="footer">
-  Generated on Wed Dec 17 10:38:40 2014 by
+  Generated on Wed Jan 28 22:02:10 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.1.5).
 </div>

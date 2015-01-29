@@ -82,6 +82,13 @@ creates an <code>attr_reader</code> for <code>small_value</code> (Tom Stuart, #6
 (Jon Rowe,  #668)</li>
 <li>Make the <code>have_attributes</code> matcher diffable.
 (Jon Rowe, Alexey Fedorov, #668)</li>
+<li>Add <code>output(...).to_std(out|err)_from_any_process</code> as alternatives
+to <code>output(...).to_std(out|err)</code>. The latter doesn&#39;t work when a sub
+process writes to the named stream but is much faster.
+(Alex Genco, #700)</li>
+<li>Improve compound matchers (created by <code>and</code> and <code>or</code>) so that diffs
+are included in failures when one or more of their matchers
+are diffable. (Alexey Fedorov, #713)</li>
 </ul>
 
 <p>Bug Fixes:</p>
@@ -1126,7 +1133,7 @@ defined (Josep M Bach)</li>
 </div></div>
 
     <div id="footer">
-  Generated on Thu Dec 18 08:24:39 2014 by
+  Generated on Wed Jan 28 22:02:13 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.4 (ruby-2.1.5).
 </div>

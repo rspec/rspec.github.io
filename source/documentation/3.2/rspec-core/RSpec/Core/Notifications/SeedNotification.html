@@ -96,16 +96,17 @@
   
   
     <dt class="r2 last">Defined in:</dt>
-    <dd class="r2 last">lib/rspec/core/notifications.rb</dd>
+    <dd class="r2 last">lib/rspec/core/notifications.rb<span class="defines">,<br />
+  lib/rspec/core/notifications.rb</span>
+</dd>
   
 </dl>
 <div class="clear"></div>
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    
-<p>The <code>SeedNotification</code> holds the seed used to randomize examples
-and whether that seed has been used or not.</p>
+    <p>The <code>SeedNotification</code> holds the seed used to randomize examples and
+whether that seed has been used or not.</p>
 
 
   </div>
@@ -140,8 +141,7 @@ and whether that seed has been used or not.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>the seed used to randomize ordering.</p>
+    <span class="summary_desc"><div class='inline'><p>the seed used to randomize ordering.</p>
 </div></span>
   
 </li>
@@ -150,7 +150,7 @@ and whether that seed has been used or not.</p>
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#used-instance_method" title="#used (instance method)">- (Boolean) <strong>used</strong> </a>
+      <a href="#used%3D-instance_method" title="#used= (instance method)">- (Boolean) <strong>used</strong> </a>
     
 
     
@@ -160,6 +160,8 @@ and whether that seed has been used or not.</p>
   
     
     
+      <span class="note title writeonly">writeonly</span>
+    
   
   
   
@@ -167,8 +169,7 @@ and whether that seed has been used or not.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>whether the seed has been used or not.</p>
+    <span class="summary_desc"><div class='inline'><p>whether the seed has been used or not.</p>
 </div></span>
   
 </li>
@@ -178,6 +179,63 @@ and whether that seed has been used or not.</p>
 
 
 
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#fully_formatted-instance_method" title="#fully_formatted (instance method)">- (String) <strong>fully_formatted</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>The seed information fully formatted in the way that RSpec&#39;s built-in formatters emit.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#seed_used%3F-instance_method" title="#seed_used? (instance method)">- (Boolean) <strong>seed_used?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Has the seed been used?.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
 
 
   
@@ -197,8 +255,7 @@ and whether that seed has been used or not.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>the seed used to randomize ordering</p>
+    <p>the seed used to randomize ordering</p>
 
 
   </div>
@@ -216,8 +273,7 @@ and whether that seed has been used or not.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>the current value of seed</p>
+        <div class='inline'><p>the current value of seed</p>
 </div>
       
     </li>
@@ -230,12 +286,12 @@ and whether that seed has been used or not.</p>
       <pre class="lines">
 
 
-324
-325
-326</pre>
+396
+397
+398</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/core/notifications.rb', line 324</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/notifications.rb', line 396</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_seed'>seed</span>
   <span class='ivar'>@seed</span>
@@ -246,11 +302,11 @@ and whether that seed has been used or not.</p>
 </div>
     
       
-      <span id="used=-instance_method"></span>
+      <span id="used-instance_method"></span>
       <div class="method_details ">
-  <h3 class="signature " id="used-instance_method">
+  <h3 class="signature " id="used=-instance_method">
   
-    - (<tt>Boolean</tt>) <strong>used</strong> 
+    - (<tt>Boolean</tt>) <strong>used=</strong>(value) 
   
 
   
@@ -258,8 +314,149 @@ and whether that seed has been used or not.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
+    <p>whether the seed has been used or not</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>value</span>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>the value to set the attribute used to.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>the newly set value</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+396
+397
+398</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/notifications.rb', line 396</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_used='>used=</span><span class='lparen'>(</span><span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span>
+  <span class='ivar'>@used</span> <span class='op'>=</span> <span class='id identifier rubyid_value'>value</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
     
-<p>whether the seed has been used or not</p>
+  </div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="fully_formatted-instance_method">
+  
+    - (<tt>String</tt>) <strong>fully_formatted</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns The seed information fully formatted in the way that
+RSpec&#39;s built-in formatters emit.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>The seed information fully formatted in the way that
+RSpec&#39;s built-in formatters emit.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+407
+408
+409</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/notifications.rb', line 407</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_fully_formatted'>fully_formatted</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\nRandomized with seed </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_seed'>seed</span><span class='embexpr_end'>}</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="seed_used?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>seed_used?</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns has the seed been used?</p>
 
 
   </div>
@@ -277,8 +474,7 @@ and whether that seed has been used or not.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>the current value of used</p>
+        <div class='inline'><p>has the seed been used?</p>
 </div>
       
     </li>
@@ -291,15 +487,15 @@ and whether that seed has been used or not.</p>
       <pre class="lines">
 
 
-324
-325
-326</pre>
+400
+401
+402</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/core/notifications.rb', line 324</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/notifications.rb', line 400</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_used'>used</span>
-  <span class='ivar'>@used</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_seed_used?'>seed_used?</span>
+  <span class='op'>!</span><span class='op'>!</span><span class='id identifier rubyid_used'>used</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -308,11 +504,10 @@ and whether that seed has been used or not.</p>
     
   </div>
 
-
 </div>
 
     <div id="footer">
-  Generated on Wed Dec 17 10:38:40 2014 by
+  Generated on Wed Jan 28 22:02:10 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.1.5).
 </div>
