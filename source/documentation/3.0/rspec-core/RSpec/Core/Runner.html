@@ -101,8 +101,7 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    
-<p>Provides the main entry point to run a suite of RSpec examples.</p>
+    <p>Provides the main entry point to run a suite of RSpec examples.</p>
 
 
   </div>
@@ -142,9 +141,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Register an <code>at_exit</code> hook that runs the suite when the process
-exits.</p>
+    <span class="summary_desc"><div class='inline'><p>Register an <code>at_exit</code> hook that runs the suite when the process exits.</p>
 </div></span>
   
 </li>
@@ -167,9 +164,7 @@ exits.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Runs the suite of specs and exits the process with an appropriate exit
-code.</p>
+    <span class="summary_desc"><div class='inline'><p>Runs the suite of specs and exits the process with an appropriate exit code.</p>
 </div></span>
   
 </li>
@@ -192,8 +187,7 @@ code.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Run a suite of RSpec examples.</p>
+    <span class="summary_desc"><div class='inline'><p>Run a suite of RSpec examples.</p>
 </div></span>
   
 </li>
@@ -227,8 +221,7 @@ code.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>A new instance of Runner.</p>
+    <span class="summary_desc"><div class='inline'><p>A new instance of Runner.</p>
 </div></span>
   
 </li>
@@ -251,8 +244,7 @@ code.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Configures and runs a spec suite.</p>
+    <span class="summary_desc"><div class='inline'><p>Configures and runs a spec suite.</p>
 </div></span>
   
 </li>
@@ -275,8 +267,7 @@ code.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Runs the provided example groups.</p>
+    <span class="summary_desc"><div class='inline'><p>Runs the provided example groups.</p>
 </div></span>
   
 </li>
@@ -299,8 +290,7 @@ code.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Wires together the various configuration objects and state holders.</p>
+    <span class="summary_desc"><div class='inline'><p>Wires together the various configuration objects and state holders.</p>
 </div></span>
   
 </li>
@@ -323,8 +313,7 @@ code.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns a new instance of Runner</p>
+    <p>Returns a new instance of Runner</p>
 
 
   </div>
@@ -378,18 +367,15 @@ code.</p>
     
   <div class="note notetag">
     <strong>Note:</strong>
-    <div class='inline'>
-<p>This is not generally needed. The <code>rspec</code> command takes care of
-running examples for you without involving an <code>at_exit</code> hook.
-This is only needed if you are running specs using the <code>ruby</code>
-command, and even then, the normal way to invoke this is by requiring
-<code>rspec/autorun</code>.</p>
+    <div class='inline'><p>This is not generally needed. The <code>rspec</code> command takes care
+of running examples for you without involving an <code>at_exit</code>
+hook. This is only needed if you are running specs using
+the <code>ruby</code> command, and even then, the normal way to invoke
+this is by requiring <code>rspec/autorun</code>.</p>
 </div>
   </div>
 
-
-<p>Register an <code>at_exit</code> hook that runs the suite when the process
-exits.</p>
+<p>Register an <code>at_exit</code> hook that runs the suite when the process exits.</p>
 
 
   </div>
@@ -465,9 +451,7 @@ exits.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Runs the suite of specs and exits the process with an appropriate exit
-code.</p>
+    <p>Runs the suite of specs and exits the process with an appropriate exit code.</p>
 
 
   </div>
@@ -511,15 +495,14 @@ code.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Run a suite of RSpec examples. Does not exit.</p>
+    <p>Run a suite of RSpec examples. Does not exit.</p>
 
-<p>This is used internally by RSpec to run a suite, but is available for use
-by any other automation tool.</p>
+<p>This is used internally by RSpec to run a suite, but is available
+for use by any other automation tool.</p>
 
-<p>If you want to run this multiple times in the same process, and you want
-files like <code>spec_helper.rb</code> to be reloaded, be sure to load
-<code>load</code> instead of <code>require</code>.</p>
+<p>If you want to run this multiple times in the same process, and you
+want files like <code>spec_helper.rb</code> to be reloaded, be sure to load <code>load</code>
+instead of <code>require</code>.</p>
 
 
   </div>
@@ -538,8 +521,7 @@ files like <code>spec_helper.rb</code> to be reloaded, be sure to load
       
       
         &mdash;
-        <div class='inline'>
-<p>command-line-supported arguments</p>
+        <div class='inline'><p>command-line-supported arguments</p>
 </div>
       
     </li>
@@ -556,8 +538,7 @@ files like <code>spec_helper.rb</code> to be reloaded, be sure to load
       
       
         &mdash;
-        <div class='inline'>
-<p>error stream</p>
+        <div class='inline'><p>error stream</p>
 </div>
       
     </li>
@@ -574,8 +555,7 @@ files like <code>spec_helper.rb</code> to be reloaded, be sure to load
       
       
         &mdash;
-        <div class='inline'>
-<p>output stream</p>
+        <div class='inline'><p>output stream</p>
 </div>
       
     </li>
@@ -593,9 +573,9 @@ files like <code>spec_helper.rb</code> to be reloaded, be sure to load
       
       
         &mdash;
-        <div class='inline'>
-<p>exit status code. 0 if all specs passed, or the configured failure exit
-code (1 by default) if specs failed.</p>
+        <div class='inline'><p>exit status code. 0 if all specs passed,
+or the configured failure exit code (1 by default) if specs
+failed.</p>
 </div>
       
     </li>
@@ -666,8 +646,7 @@ code (1 by default) if specs failed.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Configures and runs a spec suite.</p>
+    <p>Configures and runs a spec suite.</p>
 
 
   </div>
@@ -686,8 +665,7 @@ code (1 by default) if specs failed.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>error stream</p>
+        <div class='inline'><p>error stream</p>
 </div>
       
     </li>
@@ -702,8 +680,7 @@ code (1 by default) if specs failed.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>output stream</p>
+        <div class='inline'><p>output stream</p>
 </div>
       
     </li>
@@ -745,8 +722,7 @@ code (1 by default) if specs failed.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Runs the provided example groups.</p>
+    <p>Runs the provided example groups.</p>
 
 
   </div>
@@ -765,8 +741,7 @@ code (1 by default) if specs failed.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>groups to run</p>
+        <div class='inline'><p>groups to run</p>
 </div>
       
     </li>
@@ -784,9 +759,9 @@ code (1 by default) if specs failed.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>exit status code. 0 if all specs passed, or the configured failure exit
-code (1 by default) if specs failed.</p>
+        <div class='inline'><p>exit status code. 0 if all specs passed,
+or the configured failure exit code (1 by default) if specs
+failed.</p>
 </div>
       
     </li>
@@ -841,8 +816,7 @@ code (1 by default) if specs failed.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Wires together the various configuration objects and state holders.</p>
+    <p>Wires together the various configuration objects and state holders.</p>
 
 
   </div>
@@ -861,8 +835,7 @@ code (1 by default) if specs failed.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>error stream</p>
+        <div class='inline'><p>error stream</p>
 </div>
       
     </li>
@@ -877,8 +850,7 @@ code (1 by default) if specs failed.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>output stream</p>
+        <div class='inline'><p>output stream</p>
 </div>
       
     </li>
@@ -920,7 +892,7 @@ code (1 by default) if specs failed.</p>
 </div>
 
     <div id="footer">
-  Generated on Thu Dec 18 09:22:24 2014 by
+  Generated on Wed Jan 28 22:07:20 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.1.5).
 </div>
