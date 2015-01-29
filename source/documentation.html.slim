@@ -4,14 +4,14 @@ gems:
   - name: rspec-core
     description: >
       The spec runner, providing a rich command line program, flexible and
-      customizable reporting, and an API to organize your code examples
+      customizable reporting, and an API to organize your code examples.
   - name: rspec-expectations
     description: >
-      Provides a readable API to express expected outcomes of a code example
+      Provides a readable API to express expected outcomes of a code example.
   - name: rspec-mocks
     description: >
       Test double framework, providing multiple types of fake objects to allow you
-      to tightly control the environment in which your specs run
+      to tightly control the environment in which your specs run.
   - name: rspec-rails
     description: >
       Supports using RSpec to test Ruby on Rails applications in place of Rails' built-in test framework.
@@ -38,8 +38,7 @@ section
           b
             | #{gem.name}:&nbsp;
           span
-            == gem.description
-          = documentation_links_for(gem.name)
+            | #{gem.description}&nbsp;Versions:&nbsp;#{documentation_links_for(gem.name)}
 
   article.relish
     h2 Relish
