@@ -6,7 +6,7 @@ after_configuration do
 end
 
 # dev mode addons
-activate :livereload
+activate :livereload if ENV['LIVERELOAD']
 
 activate :blog do |blog|
   # This will add a prefix to all links, template references and source paths
