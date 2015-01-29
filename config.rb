@@ -85,8 +85,8 @@ activate :deploy do |deploy|
   deploy.build_before = true
   deploy.branch = 'master'
 
-  case ENV['TARGET'].to_s.downcase
-  when 'production'
+  case ENV['TARGET'].to_s
+  when /prod/i
     deploy.remote = 'git@github.com:rspec/rspec.github.io.git'
   else
     deploy.remote = 'git@github.com:RSpec-Staging/rspec-staging.github.io.git'
