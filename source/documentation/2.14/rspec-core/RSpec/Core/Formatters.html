@@ -6,7 +6,7 @@
 <title>
   Module: RSpec::Core::Formatters
   
-    &mdash; Documentation by YARD 0.8.7.6
+    &mdash; Documentation by YARD 0.8.0
   
 </title>
 
@@ -17,7 +17,7 @@
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '../../';
-  framesUrl = "../../frames.html#!RSpec/Core/Formatters.html";
+  framesUrl = "../../frames.html#!" + escape(window.location.href);
 </script>
 
 
@@ -102,12 +102,12 @@
 the other formatters by passing with the <code>--format</code> (or <code>-f</code> for short)
 command-line option, e.g.</p>
 
-<pre class="code ruby"><code class="ruby">rspec --format documentation
+<pre class="code ruby"><code>rspec --format documentation
 </code></pre>
 
 <p>You can also send the output of multiple formatters to different streams, e.g.</p>
 
-<pre class="code ruby"><code class="ruby">rspec --format documentation --format html --out results.html
+<pre class="code ruby"><code>rspec --format documentation --format html --out results.html
 </code></pre>
 
 <p>This example sends the output of the documentation formatter to <code>$stdout</code>, and
@@ -117,9 +117,9 @@ the output of the html formatter to results.html.</p>
 
 <p>You can tell RSpec to use a custom formatter by passing its path and name to
 the <code>rspec</code> commmand. For example, if you define MyCustomFormatter in
-path/to/my_custom_formatter.rb, you would type this command:</p>
+path/to/my<em>custom</em>formatter.rb, you would type this command:</p>
 
-<pre class="code ruby"><code class="ruby">rspec --require path/to/my_custom_formatter.rb --format MyCustomFormatter
+<pre class="code ruby"><code>rspec --require path/to/my_custom_formatter.rb --format MyCustomFormatter
 </code></pre>
 
 <p>The reporter calls every formatter with this protocol:</p>
@@ -188,9 +188,9 @@ to enhance.</p>
 </div>
 
     <div id="footer">
-  Generated on Thu Dec 18 08:19:51 2014 by
+  Generated on Wed Jan 28 22:11:39 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.6 (ruby-2.1.5).
+  0.8.0 (ruby-2.1.5).
 </div>
 
   </body>

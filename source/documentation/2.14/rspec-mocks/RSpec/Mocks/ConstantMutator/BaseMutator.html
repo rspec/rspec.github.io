@@ -6,7 +6,7 @@
 <title>
   Class: RSpec::Mocks::ConstantMutator::BaseMutator
   
-    &mdash; Documentation by YARD 0.8.7.6
+    &mdash; Documentation by YARD 0.8.0
   
 </title>
 
@@ -17,7 +17,7 @@
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '../../../';
-  framesUrl = "../../../frames.html#!RSpec/Mocks/ConstantMutator/BaseMutator.html";
+  framesUrl = "../../../frames.html#!" + escape(window.location.href);
 </script>
 
 
@@ -109,7 +109,6 @@
   <strong>This class is part of a private API.</strong>
   You should avoid using this class if possible, as it may be removed or be changed in the future.
 </p>
-
 <p>Contains common functionality used by all of the constant mutators.</p>
 
 
@@ -215,8 +214,7 @@
   <span class="private note title">private</span>
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>A new instance of BaseMutator.</p>
+    <span class="summary_desc"><div class='inline'><p>A new instance of BaseMutator.</p>
 </div></span>
   
 </li>
@@ -276,8 +274,7 @@
   <strong>This method is part of a private API.</strong>
   You should avoid using this method if possible, as it may be removed or be changed in the future.
 </p>
-
-<p>Returns a new instance of BaseMutator</p>
+<p>A new instance of BaseMutator</p>
 
 
   </div>
@@ -291,16 +288,16 @@
       <pre class="lines">
 
 
-210
-211
-212
-213
-214
-215
-216</pre>
+204
+205
+206
+207
+208
+209
+210</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/mocks/mutate_const.rb', line 210</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/mocks/mutate_const.rb', line 204</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_full_constant_name'>full_constant_name</span><span class='comma'>,</span> <span class='id identifier rubyid_mutated_value'>mutated_value</span><span class='comma'>,</span> <span class='id identifier rubyid_transfer_nested_constants'>transfer_nested_constants</span><span class='rparen'>)</span>
   <span class='ivar'>@full_constant_name</span>        <span class='op'>=</span> <span class='id identifier rubyid_normalize_const_name'>normalize_const_name</span><span class='lparen'>(</span><span class='id identifier rubyid_full_constant_name'>full_constant_name</span><span class='rparen'>)</span>
@@ -321,6 +318,7 @@
     
       
       <span id=""></span>
+      <span id="full_constant_name-instance_method"></span>
       <div class="method_details first">
   <h3 class="signature first" id="full_constant_name-instance_method">
   
@@ -349,12 +347,12 @@
       <pre class="lines">
 
 
-208
-209
-210</pre>
+202
+203
+204</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/mocks/mutate_const.rb', line 208</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/mocks/mutate_const.rb', line 202</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_full_constant_name'>full_constant_name</span>
   <span class='ivar'>@full_constant_name</span>
@@ -366,6 +364,7 @@
     
       
       <span id=""></span>
+      <span id="original_value-instance_method"></span>
       <div class="method_details ">
   <h3 class="signature " id="original_value-instance_method">
   
@@ -394,12 +393,12 @@
       <pre class="lines">
 
 
-208
-209
-210</pre>
+202
+203
+204</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/mocks/mutate_const.rb', line 208</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/mocks/mutate_const.rb', line 202</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_original_value'>original_value</span>
   <span class='ivar'>@original_value</span>
@@ -444,15 +443,15 @@
       <pre class="lines">
 
 
-218
-219
-220
-221
-222
-223</pre>
+212
+213
+214
+215
+216
+217</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/mocks/mutate_const.rb', line 218</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/mocks/mutate_const.rb', line 212</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_to_constant'>to_constant</span>
   <span class='id identifier rubyid_const'>const</span> <span class='op'>=</span> <span class='const'>Constant</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_full_constant_name'>full_constant_name</span><span class='rparen'>)</span>
@@ -470,9 +469,9 @@
 </div>
 
     <div id="footer">
-  Generated on Thu Dec 18 08:30:24 2014 by
+  Generated on Wed Jan 28 22:11:55 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.6 (ruby-2.1.5).
+  0.8.0 (ruby-2.1.5).
 </div>
 
   </body>

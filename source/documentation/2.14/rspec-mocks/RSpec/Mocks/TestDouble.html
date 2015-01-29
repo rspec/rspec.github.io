@@ -6,7 +6,7 @@
 <title>
   Module: RSpec::Mocks::TestDouble
   
-    &mdash; Documentation by YARD 0.8.7.6
+    &mdash; Documentation by YARD 0.8.0
   
 </title>
 
@@ -17,7 +17,7 @@
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '../../';
-  framesUrl = "../../frames.html#!RSpec/Mocks/TestDouble.html";
+  framesUrl = "../../frames.html#!" + escape(window.location.href);
 </script>
 
 
@@ -78,7 +78,7 @@
   
   
     <dt class="r1">Included in:</dt>
-    <dd class="r1"><span class='object_link'><a href="Double.html" title="RSpec::Mocks::Double (class)">Double</a></span></dd>
+    <dd class="r1"><span class='object_link'><a href="Mock.html" title="RSpec::Mocks::Mock (class)">Mock</a></span></dd>
     
   
   
@@ -90,10 +90,9 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    
-<p>Implements the methods needed for a pure test double. RSpec::Mocks::Mock
-includes this module, and it is provided for cases where you want a pure
-test double without subclassing RSpec::Mocks::Mock.</p>
+    <p>Implements the methods needed for a pure test double.  RSpec::Mocks::Mock
+includes this module, and it is provided for cases where you want a
+pure test double without subclassing RSpec::Mocks::Mock.</p>
 
 
   </div>
@@ -133,9 +132,8 @@ test double without subclassing RSpec::Mocks::Mock.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Extends the TestDouble module onto the given object and initializes it as a
-test double.</p>
+    <span class="summary_desc"><div class='inline'><p>Extends the TestDouble module onto the given object and
+initializes it as a test double.</p>
 </div></span>
   
 </li>
@@ -167,32 +165,9 @@ test double.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>This allows for comparing the mock to other objects that proxy such as
+    <span class="summary_desc"><div class='inline'><p>This allows for comparing the mock to other objects that proxy such as
 ActiveRecords belongs_to proxy objects.</p>
 </div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#__warn_if_used_further%21-instance_method" title="#__warn_if_used_further! (instance method)">- (Object) <strong>__warn_if_used_further!</strong> </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -214,8 +189,7 @@ ActiveRecords belongs_to proxy objects.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Tells the object to respond to all messages.</p>
+    <span class="summary_desc"><div class='inline'><p>Tells the object to respond to all messages.</p>
 </div></span>
   
 </li>
@@ -224,7 +198,7 @@ ActiveRecords belongs_to proxy objects.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#freeze-instance_method" title="#freeze (instance method)">- (Object) <strong>freeze</strong> </a>
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (TestDouble) <strong>initialize</strong>(name = nil, stubs_and_options = {}) </a>
     
 
     
@@ -238,31 +212,8 @@ ActiveRecords belongs_to proxy objects.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'></div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#initialize-instance_method" title="#initialize (instance method)">- (Object) <strong>initialize</strong>(name = nil, stubs_and_options = {}) </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>Creates a new test double with a <code>name</code> (that will be used in
-error messages only).</p>
+    <span class="summary_desc"><div class='inline'><p>Creates a new test double with a <code>name</code> (that will be used in error
+messages only).</p>
 </div></span>
   
 </li>
@@ -285,8 +236,7 @@ error messages only).</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Returns true if this object has received <code>as_null_object</code>.</p>
+    <span class="summary_desc"><div class='inline'><p>Returns true if this object has received <code>as_null_object</code>.</p>
 </div></span>
   
 </li>
@@ -305,7 +255,7 @@ error messages only).</p>
     <div class="method_details first">
   <h3 class="signature first" id="method_missing-instance_method">
   
-    - (<tt>Object</tt>) <strong>method_missing</strong>(message, *args, &amp;block)  <span class="extras">(private)</span>
+    - (<tt>Object</tt>) <strong>method_missing</strong>(message, *args)  <span class="extras">(private)</span>
   
 
   
@@ -317,26 +267,26 @@ error messages only).</p>
       <pre class="lines">
 
 
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
 100
 101
-102
-103
-104
-105
-106
-107
-108
-109
-110
-111
-112
-113
-114
-115
-116</pre>
+102</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/mocks/test_double.rb', line 100</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/mocks/test_double.rb', line 86</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_method_missing'>method_missing</span><span class='lparen'>(</span><span class='id identifier rubyid_message'>message</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
   <span class='kw'>if</span> <span class='id identifier rubyid___mock_proxy'>__mock_proxy</span><span class='period'>.</span><span class='id identifier rubyid_null_object?'>null_object?</span>
@@ -378,9 +328,8 @@ error messages only).</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Extends the TestDouble module onto the given object and initializes it as a
-test double.</p>
+    <p>Extends the TestDouble module onto the given object and
+initializes it as a test double.</p>
 
 
   </div>
@@ -391,10 +340,10 @@ test double.</p>
     <p class="tag_title">Examples:</p>
     
       
-      <pre class="example code"><code>
+      <pre class="example code">
 module = Module.new
 RSpec::Mocks::TestDouble.extend_onto(module, &quot;MyMixin&quot;, :foo =&gt; &quot;bar&quot;)
-module.foo  #=&gt; &quot;bar&quot;</code></pre>
+module.foo  #=&gt; &quot;bar&quot;</pre>
     
   </div>
 
@@ -408,14 +357,12 @@ module.foo  #=&gt; &quot;bar&quot;</code></pre>
 15
 16
 17
-18
-19</pre>
+18</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/rspec/mocks/test_double.rb', line 15</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_extend_onto'>extend_onto</span><span class='lparen'>(</span><span class='id identifier rubyid_object'>object</span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span><span class='op'>=</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='id identifier rubyid_stubs_and_options'>stubs_and_options</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
-  <span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_deprecate'>deprecate</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>`RSpec::Mocks::TestDouble.extend_onto(...)`</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
   <span class='id identifier rubyid_object'>object</span><span class='period'>.</span><span class='id identifier rubyid_extend'>extend</span> <span class='kw'>self</span>
   <span class='id identifier rubyid_object'>object</span><span class='period'>.</span><span class='id identifier rubyid_send'>send</span><span class='lparen'>(</span><span class='symbol'>:__initialize_as_test_double</span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_stubs_and_options'>stubs_and_options</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
@@ -441,10 +388,10 @@ module.foo  #=&gt; &quot;bar&quot;</code></pre>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>This allows for comparing the mock to other objects that proxy such as
-ActiveRecords belongs_to proxy objects. By making the other object run the
-comparison, we&#39;re sure the call gets delegated to the proxy target.</p>
+    <p>This allows for comparing the mock to other objects that proxy such as
+ActiveRecords belongs_to proxy objects. By making the other object run
+the comparison, we&#39;re sure the call gets delegated to the proxy
+target.</p>
 
 
   </div>
@@ -458,45 +405,15 @@ comparison, we&#39;re sure the call gets delegated to the proxy target.</p>
       <pre class="lines">
 
 
-46
-47
-48</pre>
+43
+44
+45</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/mocks/test_double.rb', line 46</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/mocks/test_double.rb', line 43</span>
 
 <span class='kw'>def</span> <span class='op'>==</span><span class='lparen'>(</span><span class='id identifier rubyid_other'>other</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_other'>other</span> <span class='op'>==</span> <span class='id identifier rubyid___mock_proxy'>__mock_proxy</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="__warn_if_used_further!-instance_method">
-  
-    - (<tt>Object</tt>) <strong>__warn_if_used_further!</strong> 
-  
-
-  
-
-  
-</h3><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-80
-81
-82</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/mocks/test_double.rb', line 80</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid___warn_if_used_further!'>__warn_if_used_further!</span>
-  <span class='ivar'>@__unfrozen_attributes</span><span class='lbracket'>[</span><span class='symbol'>:expired</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='kw'>true</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -514,9 +431,9 @@ comparison, we&#39;re sure the call gets delegated to the proxy target.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Tells the object to respond to all messages. If specific stub values are
-declared, they&#39;ll work as expected. If not, the receiver is returned.</p>
+    <p>Tells the object to respond to all messages. If specific stub values
+are declared, they&#39;ll work as expected. If not, the receiver is
+returned.</p>
 
 
   </div>
@@ -530,51 +447,17 @@ declared, they&#39;ll work as expected. If not, the receiver is returned.</p>
       <pre class="lines">
 
 
+29
 30
 31
-32
-33
-34</pre>
+32</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/mocks/test_double.rb', line 30</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/mocks/test_double.rb', line 29</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_as_null_object'>as_null_object</span>
-  <span class='id identifier rubyid___mock_proxy'>__mock_proxy</span><span class='period'>.</span><span class='id identifier rubyid_as_null_object'>as_null_object</span>
   <span class='ivar'>@__null_object</span> <span class='op'>=</span> <span class='kw'>true</span>
-  <span class='kw'>self</span>
-<span class='kw'>end</span></pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="freeze-instance_method">
-  
-    - (<tt>Object</tt>) <strong>freeze</strong> 
-  
-
-  
-
-  
-</h3><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-67
-68
-69
-70</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/mocks/test_double.rb', line 67</span>
-
-<span class='kw'>def</span> <span class='id identifier rubyid_freeze'>freeze</span>
-  <span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_deprecate'>deprecate</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Freezing a test double</span><span class='tstring_end'>&#39;</span></span>
-  <span class='kw'>super</span>
+  <span class='id identifier rubyid___mock_proxy'>__mock_proxy</span><span class='period'>.</span><span class='id identifier rubyid_as_null_object'>as_null_object</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -584,7 +467,7 @@ declared, they&#39;ll work as expected. If not, the receiver is returned.</p>
       <div class="method_details ">
   <h3 class="signature " id="initialize-instance_method">
   
-    - (<tt>Object</tt>) <strong>initialize</strong>(name = nil, stubs_and_options = {}) 
+    - (<tt><span class='object_link'><a href="" title="RSpec::Mocks::TestDouble (module)">TestDouble</a></span></tt>) <strong>initialize</strong>(name = nil, stubs_and_options = {}) 
   
 
   
@@ -592,9 +475,8 @@ declared, they&#39;ll work as expected. If not, the receiver is returned.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Creates a new test double with a <code>name</code> (that will be used in
-error messages only)</p>
+    <p>Creates a new test double with a <code>name</code> (that will be used in error
+messages only)</p>
 
 
   </div>
@@ -608,12 +490,12 @@ error messages only)</p>
       <pre class="lines">
 
 
+22
 23
-24
-25</pre>
+24</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/mocks/test_double.rb', line 23</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/mocks/test_double.rb', line 22</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='op'>=</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='id identifier rubyid_stubs_and_options'>stubs_and_options</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid___initialize_as_test_double'>__initialize_as_test_double</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_stubs_and_options'>stubs_and_options</span><span class='rparen'>)</span>
@@ -634,8 +516,7 @@ error messages only)</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns true if this object has received <code>as_null_object</code></p>
+    <p>Returns true if this object has received <code>as_null_object</code></p>
 
 
   </div>
@@ -662,16 +543,14 @@ error messages only)</p>
       <pre class="lines">
 
 
-37
-38
-39
-40</pre>
+35
+36
+37</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/mocks/test_double.rb', line 37</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/mocks/test_double.rb', line 35</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_null_object?'>null_object?</span>
-  <span class='id identifier rubyid___warn_of_expired_use_if_expired'>__warn_of_expired_use_if_expired</span>
   <span class='ivar'>@__null_object</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -684,9 +563,9 @@ error messages only)</p>
 </div>
 
     <div id="footer">
-  Generated on Thu Dec 18 08:30:22 2014 by
+  Generated on Wed Jan 28 22:11:54 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.6 (ruby-2.1.5).
+  0.8.0 (ruby-2.1.5).
 </div>
 
   </body>

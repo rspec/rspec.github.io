@@ -6,7 +6,7 @@
 <title>
   Module: RSpec::Expectations::Syntax
   
-    &mdash; Documentation by YARD 0.8.7.4
+    &mdash; Documentation by YARD 0.8.0
   
 </title>
 
@@ -17,7 +17,7 @@
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '../../';
-  framesUrl = "../../frames.html#!RSpec/Expectations/Syntax.html";
+  framesUrl = "../../frames.html#!" + escape(window.location.href);
 </script>
 
 
@@ -264,7 +264,8 @@ syntaxes provided by rspec-expectations.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Supports <code>expect(actual).to matcher</code> syntax by wrapping <code>actual</code> in an <code>ExpectationTarget</code>.</p>
+    <span class="summary_desc"><div class='inline'><p>Supports <code>expect(actual).to matcher</code> syntax by wrapping <code>actual</code> in an
+<code>ExpectationTarget</code>.</p>
 </div></span>
   
 </li>
@@ -753,8 +754,8 @@ syntaxes provided by rspec-expectations.</p>
     <p class="tag_title">Examples:</p>
     
       
-      <pre class="example code"><code><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_actual'>actual</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_eq'>eq</span><span class='lparen'>(</span><span class='id identifier rubyid_expected'>expected</span><span class='rparen'>)</span>
-<span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_actual'>actual</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_not_to'>not_to</span> <span class='id identifier rubyid_eq'>eq</span><span class='lparen'>(</span><span class='id identifier rubyid_expected'>expected</span><span class='rparen'>)</span></code></pre>
+      <pre class="example code"><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_actual'>actual</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_eq'>eq</span><span class='lparen'>(</span><span class='id identifier rubyid_expected'>expected</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_actual'>actual</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_not_to'>not_to</span> <span class='id identifier rubyid_eq'>eq</span><span class='lparen'>(</span><span class='id identifier rubyid_expected'>expected</span><span class='rparen'>)</span></pre>
     
   </div>
 
@@ -1017,8 +1018,8 @@ syntaxes provided by rspec-expectations.</p>
     <p class="tag_title">Examples:</p>
     
       
-      <pre class="example code"><code><span class='id identifier rubyid_actual'>actual</span><span class='period'>.</span><span class='id identifier rubyid_should'>should</span> <span class='id identifier rubyid_eq'>eq</span> <span class='id identifier rubyid_expected'>expected</span>
-<span class='id identifier rubyid_actual'>actual</span><span class='period'>.</span><span class='id identifier rubyid_should'>should</span> <span class='id identifier rubyid_match'>match</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>expression</span><span class='regexp_end'>/</span></span></code></pre>
+      <pre class="example code"><span class='id identifier rubyid_actual'>actual</span><span class='period'>.</span><span class='id identifier rubyid_should'>should</span> <span class='id identifier rubyid_eq'>eq</span> <span class='id identifier rubyid_expected'>expected</span>
+<span class='id identifier rubyid_actual'>actual</span><span class='period'>.</span><span class='id identifier rubyid_should'>should</span> <span class='id identifier rubyid_match'>match</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>expression</span><span class='regexp_end'>/</span></span></pre>
     
   </div>
 <p class="tag_title">Parameters:</p>
@@ -1173,7 +1174,7 @@ syntaxes provided by rspec-expectations.</p>
     <p class="tag_title">Examples:</p>
     
       
-      <pre class="example code"><code><span class='id identifier rubyid_actual'>actual</span><span class='period'>.</span><span class='id identifier rubyid_should_not'>should_not</span> <span class='id identifier rubyid_eq'>eq</span> <span class='id identifier rubyid_expected'>expected</span></code></pre>
+      <pre class="example code"><span class='id identifier rubyid_actual'>actual</span><span class='period'>.</span><span class='id identifier rubyid_should_not'>should_not</span> <span class='id identifier rubyid_eq'>eq</span> <span class='id identifier rubyid_expected'>expected</span></pre>
     
   </div>
 <p class="tag_title">Parameters:</p>
@@ -1254,9 +1255,9 @@ syntaxes provided by rspec-expectations.</p>
 </div>
 
     <div id="footer">
-  Generated on Thu Dec 18 08:30:12 2014 by
+  Generated on Wed Jan 28 22:11:49 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.4 (ruby-2.1.5).
+  0.8.0 (ruby-2.1.5).
 </div>
 
   </body>

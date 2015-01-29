@@ -6,7 +6,7 @@
 <title>
   Class: RSpec::Core::Formatters::BaseFormatter
   
-    &mdash; Documentation by YARD 0.8.7.6
+    &mdash; Documentation by YARD 0.8.0
   
 </title>
 
@@ -17,7 +17,7 @@
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '../../../';
-  framesUrl = "../../../frames.html#!RSpec/Core/Formatters/BaseFormatter.html";
+  framesUrl = "../../../frames.html#!" + escape(window.location.href);
 </script>
 
 
@@ -424,7 +424,8 @@ as they are called from the reporter.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Invoked at the very end, <code>close</code> allows the formatter to clean up resources, e.g.</p>
+    <span class="summary_desc"><div class='inline'><p>Invoked at the very end, <code>close</code> allows the formatter to clean
+up resources, e.g.</p>
 </div></span>
   
 </li>
@@ -654,7 +655,8 @@ as they are called from the reporter.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Formats the given backtrace based on configuration and the metadata of the given example.</p>
+    <span class="summary_desc"><div class='inline'><p>Formats the given backtrace based on configuration and
+the metadata of the given example.</p>
 </div></span>
   
 </li>
@@ -725,7 +727,8 @@ as they are called from the reporter.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>This method is invoked before any examples are run, right after they have all been collected.</p>
+    <span class="summary_desc"><div class='inline'><p>This method is invoked before any examples are run, right after
+they have all been collected.</p>
 </div></span>
   
 </li>
@@ -811,7 +814,7 @@ as they are called from the reporter.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns a new instance of BaseFormatter</p>
+    <p>A new instance of BaseFormatter</p>
 
 
   </div>
@@ -872,6 +875,7 @@ as they are called from the reporter.</p>
     
       
       <span id=""></span>
+      <span id="duration-instance_method"></span>
       <div class="method_details first">
   <h3 class="signature first" id="duration-instance_method">
   
@@ -914,6 +918,7 @@ as they are called from the reporter.</p>
     
       
       <span id=""></span>
+      <span id="example_count-instance_method"></span>
       <div class="method_details ">
   <h3 class="signature " id="example_count-instance_method">
   
@@ -956,6 +961,7 @@ as they are called from the reporter.</p>
     
       
       <span id="example_group=-instance_method"></span>
+      <span id="example_group-instance_method"></span>
       <div class="method_details ">
   <h3 class="signature " id="example_group-instance_method">
   
@@ -998,6 +1004,7 @@ as they are called from the reporter.</p>
     
       
       <span id=""></span>
+      <span id="examples-instance_method"></span>
       <div class="method_details ">
   <h3 class="signature " id="examples-instance_method">
   
@@ -1040,6 +1047,7 @@ as they are called from the reporter.</p>
     
       
       <span id=""></span>
+      <span id="failed_examples-instance_method"></span>
       <div class="method_details ">
   <h3 class="signature " id="failed_examples-instance_method">
   
@@ -1082,6 +1090,7 @@ as they are called from the reporter.</p>
     
       
       <span id=""></span>
+      <span id="failure_count-instance_method"></span>
       <div class="method_details ">
   <h3 class="signature " id="failure_count-instance_method">
   
@@ -1124,6 +1133,7 @@ as they are called from the reporter.</p>
     
       
       <span id=""></span>
+      <span id="output-instance_method"></span>
       <div class="method_details ">
   <h3 class="signature " id="output-instance_method">
   
@@ -1166,6 +1176,7 @@ as they are called from the reporter.</p>
     
       
       <span id=""></span>
+      <span id="pending_count-instance_method"></span>
       <div class="method_details ">
   <h3 class="signature " id="pending_count-instance_method">
   
@@ -1208,6 +1219,7 @@ as they are called from the reporter.</p>
     
       
       <span id=""></span>
+      <span id="pending_examples-instance_method"></span>
       <div class="method_details ">
   <h3 class="signature " id="pending_examples-instance_method">
   
@@ -1636,8 +1648,8 @@ is assigned to a corresponding attribute.</p>
   <div class="discussion">
     <p>This method is invoked at the beginning of the execution of each example group.</p>
 
-<p>The next method to be invoked after this is <span class='object_link'><a href="#example_passed-instance_method" title="RSpec::Core::Formatters::BaseFormatter#example_passed (method)">#example_passed</a></span>,
-<span class='object_link'><a href="#example_pending-instance_method" title="RSpec::Core::Formatters::BaseFormatter#example_pending (method)">#example_pending</a></span>, or <span class='object_link'><a href="#example_group_finished-instance_method" title="RSpec::Core::Formatters::BaseFormatter#example_group_finished (method)">#example_group_finished</a></span>.</p>
+<p>The next method to be invoked after this is #example&lt;em&gt;passed,
+#example&lt;/em&gt;pending, or #example&lt;em&gt;group&lt;/em&gt;finished.</p>
 
 
   </div>
@@ -2007,7 +2019,7 @@ they have all been collected. This can be useful for special
 formatters that need to provide progress on feedback (graphical ones).</p>
 
 <p>This will only be invoked once, and the next one to be invoked
-is <span class='object_link'><a href="#example_group_started-instance_method" title="RSpec::Core::Formatters::BaseFormatter#example_group_started (method)">#example_group_started</a></span>.</p>
+is #example&lt;em&gt;group&lt;/em&gt;started.</p>
 
 
   </div>
@@ -2065,8 +2077,8 @@ is <span class='object_link'><a href="#example_group_started-instance_method" ti
 </h3><div class="docstring">
   <div class="discussion">
     <p>This method is invoked after all of the examples have executed. The next method
-to be invoked after this one is <span class='object_link'><a href="#dump_failures-instance_method" title="RSpec::Core::Formatters::BaseFormatter#dump_failures (method)">#dump_failures</a></span>
-(BaseTextFormatter then calls #dump_failure once for each failed example.)</p>
+to be invoked after this one is #dump&lt;em&gt;failures
+(BaseTextFormatter then calls #dump&lt;/em&gt;failure once for each failed example.)</p>
 
 
   </div>
@@ -2162,9 +2174,9 @@ to be invoked after this one is <span class='object_link'><a href="#dump_failure
 </div>
 
     <div id="footer">
-  Generated on Thu Dec 18 08:19:52 2014 by
+  Generated on Wed Jan 28 22:11:44 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.6 (ruby-2.1.5).
+  0.8.0 (ruby-2.1.5).
 </div>
 
   </body>

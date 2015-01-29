@@ -6,7 +6,7 @@
 <title>
   Class: RSpec::Mocks::TargetBase
   
-    &mdash; Documentation by YARD 0.8.7.6
+    &mdash; Documentation by YARD 0.8.0
   
 </title>
 
@@ -17,7 +17,7 @@
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '../../';
-  framesUrl = "../../frames.html#!RSpec/Mocks/TargetBase.html";
+  framesUrl = "../../frames.html#!" + escape(window.location.href);
 </script>
 
 
@@ -190,8 +190,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>A new instance of TargetBase.</p>
+    <span class="summary_desc"><div class='inline'><p>A new instance of TargetBase.</p>
 </div></span>
   
 </li>
@@ -214,8 +213,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns a new instance of TargetBase</p>
+    <p>A new instance of TargetBase</p>
 
 
   </div>
@@ -285,7 +283,7 @@
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_delegate_to'>delegate_to</span><span class='lparen'>(</span><span class='id identifier rubyid_matcher_method'>matcher_method</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_method_name'>method_name</span> <span class='op'>=</span> <span class='id identifier rubyid_options'>options</span><span class='period'>.</span><span class='id identifier rubyid_fetch'>fetch</span><span class='lparen'>(</span><span class='symbol'>:from</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='symbol'>:to</span> <span class='rbrace'>}</span>
-  <span class='id identifier rubyid_class_eval'>class_eval</span><span class='lparen'>(</span><span class='heredoc_beg'>&lt;&lt;-RUBY</span><span class='comma'>,</span> <span class='kw'>__FILE__</span><span class='comma'>,</span> <span class='kw'>__LINE__</span> <span class='op'>+</span> <span class='int'>1</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_class_eval'>class_eval</span><span class='lparen'>(</span><span class='heredoc_beg'>&lt;&lt;-RUBY</span><span class='rparen'>)</span>
 <span class='tstring_content'>  def </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_method_name'>method_name</span><span class='embexpr_end'>}</span><span class='tstring_content'>(matcher, &amp;block)
     unless Matchers::Receive === matcher
       raise UnsupportedMatcherError, &quot;only the `receive` matcher is supported &quot; +
@@ -344,9 +342,9 @@
 </div>
 
     <div id="footer">
-  Generated on Thu Dec 18 08:30:23 2014 by
+  Generated on Wed Jan 28 22:11:55 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.6 (ruby-2.1.5).
+  0.8.0 (ruby-2.1.5).
 </div>
 
   </body>

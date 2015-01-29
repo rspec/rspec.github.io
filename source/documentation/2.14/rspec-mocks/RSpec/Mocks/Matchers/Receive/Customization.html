@@ -6,7 +6,7 @@
 <title>
   Class: RSpec::Mocks::Matchers::Receive::Customization
   
-    &mdash; Documentation by YARD 0.8.7.6
+    &mdash; Documentation by YARD 0.8.0
   
 </title>
 
@@ -17,7 +17,7 @@
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '../../../../';
-  framesUrl = "../../../../frames.html#!RSpec/Mocks/Matchers/Receive/Customization.html";
+  framesUrl = "../../../../frames.html#!" + escape(window.location.href);
 </script>
 
 
@@ -133,8 +133,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>A new instance of Customization.</p>
+    <span class="summary_desc"><div class='inline'><p>A new instance of Customization.</p>
 </div></span>
   
 </li>
@@ -179,8 +178,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns a new instance of Customization</p>
+    <p>A new instance of Customization</p>
 
 
   </div>
@@ -194,14 +192,14 @@
       <pre class="lines">
 
 
-76
-77
-78
-79
-80</pre>
+83
+84
+85
+86
+87</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/mocks/matchers/receive.rb', line 76</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/mocks/matchers/receive.rb', line 83</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_method_name'>method_name</span><span class='comma'>,</span> <span class='id identifier rubyid_args'>args</span><span class='comma'>,</span> <span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
   <span class='ivar'>@method_name</span> <span class='op'>=</span> <span class='id identifier rubyid_method_name'>method_name</span>
@@ -235,12 +233,12 @@
       <pre class="lines">
 
 
-82
-83
-84</pre>
+89
+90
+91</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/mocks/matchers/receive.rb', line 82</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/mocks/matchers/receive.rb', line 89</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_playback_onto'>playback_onto</span><span class='lparen'>(</span><span class='id identifier rubyid_expectation'>expectation</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_expectation'>expectation</span><span class='period'>.</span><span class='id identifier rubyid___send__'>__send__</span><span class='lparen'>(</span><span class='ivar'>@method_name</span><span class='comma'>,</span> <span class='op'>*</span><span class='ivar'>@args</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='ivar'>@block</span><span class='rparen'>)</span>
@@ -255,9 +253,9 @@
 </div>
 
     <div id="footer">
-  Generated on Thu Dec 18 08:30:23 2014 by
+  Generated on Wed Jan 28 22:11:55 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.6 (ruby-2.1.5).
+  0.8.0 (ruby-2.1.5).
 </div>
 
   </body>

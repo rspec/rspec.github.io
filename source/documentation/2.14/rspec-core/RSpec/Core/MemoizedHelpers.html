@@ -6,7 +6,7 @@
 <title>
   Module: RSpec::Core::MemoizedHelpers
   
-    &mdash; Documentation by YARD 0.8.7.6
+    &mdash; Documentation by YARD 0.8.0
   
 </title>
 
@@ -17,7 +17,7 @@
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '../../';
-  framesUrl = "../../frames.html#!RSpec/Core/MemoizedHelpers.html";
+  framesUrl = "../../frames.html#!" + escape(window.location.href);
 </script>
 
 
@@ -107,6 +107,38 @@
 
   
     <h2>
+      Class Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#get_constant_or_yield-class_method" title="get_constant_or_yield (class method)">+ (Object) <strong>get_constant_or_yield</strong>(example_group, name) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  <span class="private note title">private</span>
+
+  
+    <span class="summary_desc"><div class='inline'><p>Gets the named constant or yields.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+    <h2>
       Instance Method Summary
       <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
     </h2>
@@ -130,7 +162,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>When <code>should</code> is called with no explicit receiver, the call is delegated to the object returned by <code>subject</code>.</p>
+    <span class="summary_desc"><div class='inline'><p>When <code>should</code> is called with no explicit receiver, the call is
+delegated to the object returned by <code>subject</code>.</p>
 </div></span>
   
 </li>
@@ -153,7 +186,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Just like <code>should</code>, <code>should_not</code> delegates to the subject (implicit or explicit) of the example group.</p>
+    <span class="summary_desc"><div class='inline'><p>Just like <code>should</code>, <code>should_not</code> delegates to the subject (implicit or
+explicit) of the example group.</p>
 </div></span>
   
 </li>
@@ -186,6 +220,69 @@
 
 
 
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="get_constant_or_yield-class_method">
+  
+    + (<tt>Object</tt>) <strong>get_constant_or_yield</strong>(example_group, name) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p class="note private">
+  <strong>This method is part of a private API.</strong>
+  You should avoid using this method if possible, as it may be removed or be changed in the future.
+</p>
+<p>Gets the named constant or yields.
+On 1.9, const<em>defined? / const</em>get take into account the
+the inheritance by default, and accept an argument to
+disable this behavior. It&#39;s important that we don&#39;t
+consider inheritance here; each example group level that
+uses a <code>let</code> should get its own <code>LetDefinitions</code> module.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+488
+489
+490
+491
+492
+493
+494</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/memoized_helpers.rb', line 488</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_get_constant_or_yield'>get_constant_or_yield</span><span class='lparen'>(</span><span class='id identifier rubyid_example_group'>example_group</span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_example_group'>example_group</span><span class='period'>.</span><span class='id identifier rubyid_const_defined?'>const_defined?</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_example_group'>example_group</span><span class='period'>.</span><span class='id identifier rubyid_const_get'>const_get</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
+  <span class='kw'>else</span>
+    <span class='kw'>yield</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
   <div id="instance_method_details" class="method_details_list">
     <h2>Instance Method Details</h2>
 
@@ -214,10 +311,10 @@ implicit subject this supports very concise expressions.</p>
     <p class="tag_title">Examples:</p>
     
       
-      <pre class="example code"><code>
+      <pre class="example code">
 <span class='id identifier rubyid_describe'>describe</span> <span class='const'>Person</span> <span class='kw'>do</span>
   <span class='id identifier rubyid_it'>it</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_should'>should</span> <span class='id identifier rubyid_be_eligible_to_vote'>be_eligible_to_vote</span> <span class='rbrace'>}</span>
-<span class='kw'>end</span></code></pre>
+<span class='kw'>end</span></pre>
     
   </div>
 
@@ -273,10 +370,10 @@ explicit) of the example group.</p>
     <p class="tag_title">Examples:</p>
     
       
-      <pre class="example code"><code>
+      <pre class="example code">
 <span class='id identifier rubyid_describe'>describe</span> <span class='const'>Person</span> <span class='kw'>do</span>
   <span class='id identifier rubyid_it'>it</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_should_not'>should_not</span> <span class='id identifier rubyid_be_eligible_to_vote'>be_eligible_to_vote</span> <span class='rbrace'>}</span>
-<span class='kw'>end</span></code></pre>
+<span class='kw'>end</span></pre>
     
   </div>
 
@@ -326,7 +423,7 @@ explicit) of the example group.</p>
     <div class='inline'><p><code>subject</code> was contributed by Joe Ferris to support the one-liner
 syntax embraced by shoulda matchers:</p>
 
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_describe'>describe</span> <span class='const'>Widget</span> <span class='kw'>do</span>
+<pre class="code ruby"><code><span class='id identifier rubyid_describe'>describe</span> <span class='const'>Widget</span> <span class='kw'>do</span>
   <span class='id identifier rubyid_it'>it</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_should'>should</span> <span class='id identifier rubyid_validate_presence_of'>validate_presence_of</span><span class='lparen'>(</span><span class='symbol'>:name</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
 <span class='kw'>end</span>
 </code></pre>
@@ -358,7 +455,7 @@ to have it raise an error in RSpec 3.</p>
     <p class="tag_title">Examples:</p>
     
       
-      <pre class="example code"><code>
+      <pre class="example code">
 <span class='comment'># explicit declaration of subject
 </span><span class='id identifier rubyid_describe'>describe</span> <span class='const'>Person</span> <span class='kw'>do</span>
   <span class='id identifier rubyid_subject'>subject</span> <span class='lbrace'>{</span> <span class='const'>Person</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='symbol'>:birthdate</span> <span class='op'>=&gt;</span> <span class='int'>19</span><span class='period'>.</span><span class='id identifier rubyid_years'>years</span><span class='period'>.</span><span class='id identifier rubyid_ago'>ago</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
@@ -379,7 +476,7 @@ to have it raise an error in RSpec 3.</p>
 <span class='comment'># one-liner syntax - should is invoked on subject
 </span><span class='id identifier rubyid_describe'>describe</span> <span class='const'>Person</span> <span class='kw'>do</span>
   <span class='id identifier rubyid_it'>it</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_should'>should</span> <span class='id identifier rubyid_be_eligible_to_vote'>be_eligible_to_vote</span> <span class='rbrace'>}</span>
-<span class='kw'>end</span></code></pre>
+<span class='kw'>end</span></pre>
     
   </div>
 
@@ -427,9 +524,9 @@ to have it raise an error in RSpec 3.</p>
 </div>
 
     <div id="footer">
-  Generated on Thu Dec 18 08:19:51 2014 by
+  Generated on Wed Jan 28 22:11:39 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.6 (ruby-2.1.5).
+  0.8.0 (ruby-2.1.5).
 </div>
 
   </body>

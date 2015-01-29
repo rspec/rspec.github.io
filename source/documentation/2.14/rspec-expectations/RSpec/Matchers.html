@@ -6,7 +6,7 @@
 <title>
   Module: RSpec::Matchers
   
-    &mdash; Documentation by YARD 0.8.7.4
+    &mdash; Documentation by YARD 0.8.0
   
 </title>
 
@@ -17,7 +17,7 @@
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '../';
-  framesUrl = "../frames.html#!RSpec/Matchers.html";
+  framesUrl = "../frames.html#!" + escape(window.location.href);
 </script>
 
 
@@ -95,13 +95,13 @@
     <p>RSpec::Matchers provides a number of useful matchers we use to define
 expectations. A matcher is any object that responds to the following:</p>
 
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_matches?'>matches?</span><span class='lparen'>(</span><span class='id identifier rubyid_actual'>actual</span><span class='rparen'>)</span>
+<pre class="code ruby"><code><span class='id identifier rubyid_matches?'>matches?</span><span class='lparen'>(</span><span class='id identifier rubyid_actual'>actual</span><span class='rparen'>)</span>
 <span class='id identifier rubyid_failure_message_for_should'>failure_message_for_should</span>
 </code></pre>
 
 <p>These methods are also part of the matcher protocol, but are optional:</p>
 
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_does_not_match?'>does_not_match?</span><span class='lparen'>(</span><span class='id identifier rubyid_actual'>actual</span><span class='rparen'>)</span>
+<pre class="code ruby"><code><span class='id identifier rubyid_does_not_match?'>does_not_match?</span><span class='lparen'>(</span><span class='id identifier rubyid_actual'>actual</span><span class='rparen'>)</span>
 <span class='id identifier rubyid_failure_message_for_should_not'>failure_message_for_should_not</span>
 <span class='id identifier rubyid_description'>description</span>
 </code></pre>
@@ -119,14 +119,14 @@ Common examples are <code>empty?</code>, <code>nil?</code>, and <code>instance_o
 without the question mark, and RSpec will figure it out from there.
 For example:</p>
 
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_be_empty'>be_empty</span>     <span class='comment'># =&gt; [].empty?() | passes
+<pre class="code ruby"><code><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_be_empty'>be_empty</span>     <span class='comment'># =&gt; [].empty?() | passes
 </span><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_not_to'>not_to</span> <span class='id identifier rubyid_be_empty'>be_empty</span> <span class='comment'># =&gt; [].empty?() | fails
 </span></code></pre>
 
-<p>In addtion to prefixing the predicate matchers with &quot;be<em>&quot;, you can also use &quot;be_a</em>&quot;
-and &quot;be<em>an</em>&quot;, making your specs read much more naturally:</p>
+<p>In addtion to prefixing the predicate matchers with &quot;be<em>&quot;, you can also use &quot;be</em>a<em>&quot;
+and &quot;be</em>an_&quot;, making your specs read much more naturally:</p>
 
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>a string</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_be_an_instance_of'>be_an_instance_of</span><span class='lparen'>(</span><span class='const'>String</span><span class='rparen'>)</span> <span class='comment'># =&gt;&quot;a string&quot;.instance_of?(String) # passes
+<pre class="code ruby"><code><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>a string</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_be_an_instance_of'>be_an_instance_of</span><span class='lparen'>(</span><span class='const'>String</span><span class='rparen'>)</span> <span class='comment'># =&gt;&quot;a string&quot;.instance_of?(String) # passes
 </span>
 <span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='int'>3</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_be_a_kind_of'>be_a_kind_of</span><span class='lparen'>(</span><span class='const'>Fixnum</span><span class='rparen'>)</span>        <span class='comment'># =&gt; 3.kind_of?(Numeric)     | passes
 </span><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='int'>3</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_be_a_kind_of'>be_a_kind_of</span><span class='lparen'>(</span><span class='const'>Numeric</span><span class='rparen'>)</span>       <span class='comment'># =&gt; 3.kind_of?(Numeric)     | passes
@@ -135,10 +135,10 @@ and &quot;be<em>an</em>&quot;, making your specs read much more naturally:</p>
 </span></code></pre>
 
 <p>RSpec will also create custom matchers for predicates like <code>has_key?</code>. To
-use this feature, just state that the object should have_key(:key) and RSpec will
-call has_key?(:key) on the target. For example:</p>
+use this feature, just state that the object should have<em>key(:key) and RSpec will
+call has</em>key?(:key) on the target. For example:</p>
 
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='symbol'>:a</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>A</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_have_key'>have_key</span><span class='lparen'>(</span><span class='symbol'>:a</span><span class='rparen'>)</span>
+<pre class="code ruby"><code><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='symbol'>:a</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>A</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_have_key'>have_key</span><span class='lparen'>(</span><span class='symbol'>:a</span><span class='rparen'>)</span>
 <span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='symbol'>:a</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>A</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_have_key'>have_key</span><span class='lparen'>(</span><span class='symbol'>:b</span><span class='rparen'>)</span> <span class='comment'># fails
 </span></code></pre>
 
@@ -157,33 +157,33 @@ or writing one from scratch.</p>
 zones on a virtual board. To specify that bob should be in zone 4, you
 could say:</p>
 
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_bob'>bob</span><span class='period'>.</span><span class='id identifier rubyid_current_zone'>current_zone</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_eql'>eql</span><span class='lparen'>(</span><span class='const'>Zone</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>4</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='rparen'>)</span>
+<pre class="code ruby"><code><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_bob'>bob</span><span class='period'>.</span><span class='id identifier rubyid_current_zone'>current_zone</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_eql'>eql</span><span class='lparen'>(</span><span class='const'>Zone</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>4</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='rparen'>)</span>
 </code></pre>
 
 <p>But you might find it more expressive to say:</p>
 
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_bob'>bob</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_be_in_zone'>be_in_zone</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>4</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<pre class="code ruby"><code><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_bob'>bob</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_be_in_zone'>be_in_zone</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>4</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
 </code></pre>
 
 <p>and/or</p>
 
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_bob'>bob</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_not_to'>not_to</span> <span class='id identifier rubyid_be_in_zone'>be_in_zone</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>3</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<pre class="code ruby"><code><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_bob'>bob</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_not_to'>not_to</span> <span class='id identifier rubyid_be_in_zone'>be_in_zone</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>3</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
 </code></pre>
 
 <p>You can create such a matcher like so:</p>
 
-<pre class="code ruby"><code class="ruby"><span class='const'>RSpec</span><span class='op'>::</span><span class='const'>Matchers</span><span class='period'>.</span><span class='id identifier rubyid_define'>define</span> <span class='symbol'>:be_in_zone</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_zone'>zone</span><span class='op'>|</span>
+<pre class="code ruby"><code><span class='const'>RSpec</span><span class='op'>::</span><span class='const'>Matchers</span><span class='period'>.</span><span class='id identifier rubyid_define'>define</span> <span class='symbol'>:be_in_zone</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_zone'>zone</span><span class='op'>|</span>
   <span class='id identifier rubyid_match'>match</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_player'>player</span><span class='op'>|</span>
     <span class='id identifier rubyid_player'>player</span><span class='period'>.</span><span class='id identifier rubyid_in_zone?'>in_zone?</span><span class='lparen'>(</span><span class='id identifier rubyid_zone'>zone</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
 <span class='kw'>end</span>
 </code></pre>
 
-<p>This will generate a <tt>be_in_zone</tt> method that returns a matcher
+<p>This will generate a <tt>be<em>in</em>zone</tt> method that returns a matcher
 with logical default messages for failures. You can override the failure
 messages and the generated description as follows:</p>
 
-<pre class="code ruby"><code class="ruby"><span class='const'>RSpec</span><span class='op'>::</span><span class='const'>Matchers</span><span class='period'>.</span><span class='id identifier rubyid_define'>define</span> <span class='symbol'>:be_in_zone</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_zone'>zone</span><span class='op'>|</span>
+<pre class="code ruby"><code><span class='const'>RSpec</span><span class='op'>::</span><span class='const'>Matchers</span><span class='period'>.</span><span class='id identifier rubyid_define'>define</span> <span class='symbol'>:be_in_zone</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_zone'>zone</span><span class='op'>|</span>
   <span class='id identifier rubyid_match'>match</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_player'>player</span><span class='op'>|</span>
     <span class='id identifier rubyid_player'>player</span><span class='period'>.</span><span class='id identifier rubyid_in_zone?'>in_zone?</span><span class='lparen'>(</span><span class='id identifier rubyid_zone'>zone</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
@@ -204,15 +204,15 @@ messages and the generated description as follows:</p>
 
 <p>Each of the message-generation methods has access to the block arguments
 passed to the <tt>create</tt> method (in this case, <tt>zone</tt>). The
-failure message methods (<tt>failure_message_for_should</tt> and
-<tt>failure_message_for_should_not</tt>) are passed the actual value (the
-receiver of <tt>expect(..)</tt> or <tt>expect(..).not_to</tt>).</p>
+failure message methods (<tt>failure<em>message</em>for<em>should</tt> and
+<tt>failure</em>message<em>for</em>should<em>not</tt>) are passed the actual value (the
+receiver of <tt>expect(..)</tt> or <tt>expect(..).not</em>to</tt>).</p>
 
 <h3>Custom Matcher from scratch</h3>
 
 <p>You could also write a custom matcher from scratch, as follows:</p>
 
-<pre class="code ruby"><code class="ruby"><span class='kw'>class</span> <span class='const'>BeInZone</span>
+<pre class="code ruby"><code><span class='kw'>class</span> <span class='const'>BeInZone</span>
   <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_expected'>expected</span><span class='rparen'>)</span>
     <span class='ivar'>@expected</span> <span class='op'>=</span> <span class='id identifier rubyid_expected'>expected</span>
   <span class='kw'>end</span>
@@ -234,7 +234,7 @@ receiver of <tt>expect(..)</tt> or <tt>expect(..).not_to</tt>).</p>
 
 <p>... and a method like this:</p>
 
-<pre class="code ruby"><code class="ruby"><span class='kw'>def</span> <span class='id identifier rubyid_be_in_zone'>be_in_zone</span><span class='lparen'>(</span><span class='id identifier rubyid_expected'>expected</span><span class='rparen'>)</span>
+<pre class="code ruby"><code><span class='kw'>def</span> <span class='id identifier rubyid_be_in_zone'>be_in_zone</span><span class='lparen'>(</span><span class='id identifier rubyid_expected'>expected</span><span class='rparen'>)</span>
   <span class='const'>BeInZone</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_expected'>expected</span><span class='rparen'>)</span>
 <span class='kw'>end</span>
 </code></pre>
@@ -243,7 +243,7 @@ receiver of <tt>expect(..)</tt> or <tt>expect(..).not_to</tt>).</p>
 by including the method and the class in a module, which is then
 included in your spec:</p>
 
-<pre class="code ruby"><code class="ruby"><span class='kw'>module</span> <span class='const'>CustomGameMatchers</span>
+<pre class="code ruby"><code><span class='kw'>module</span> <span class='const'>CustomGameMatchers</span>
   <span class='kw'>class</span> <span class='const'>BeInZone</span>
     <span class='comment'># ...
 </span>  <span class='kw'>end</span>
@@ -262,7 +262,7 @@ included in your spec:</p>
 <p>or you can include in globally in a spec_helper.rb file <tt>require</tt>d
 from your spec file(s):</p>
 
-<pre class="code ruby"><code class="ruby"><span class='const'>RSpec</span><span class='op'>::</span><span class='id identifier rubyid_configure'>configure</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_config'>config</span><span class='op'>|</span>
+<pre class="code ruby"><code><span class='const'>RSpec</span><span class='op'>::</span><span class='id identifier rubyid_configure'>configure</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_config'>config</span><span class='op'>|</span>
   <span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_include'>include</span><span class='lparen'>(</span><span class='const'>CustomGameMatchers</span><span class='rparen'>)</span>
 <span class='kw'>end</span>
 </code></pre>
@@ -472,7 +472,8 @@ from your spec file(s):</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Given true, false, or nil, will pass if actual value is true, false or nil (respectively).</p>
+    <span class="summary_desc"><div class='inline'><p>Given true, false, or nil, will pass if actual value is true, false or
+nil (respectively).</p>
 </div></span>
   
 </li>
@@ -671,7 +672,7 @@ from your spec file(s):</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#change-instance_method" title="#change (instance method)">- (Object) <strong>change</strong>(receiver = nil, message = nil, &amp;block) </a>
+      <a href="#change-instance_method" title="#change (instance method)">- (Object) <strong>change</strong>(receiver = nil, message = nil) </a>
     
 
     
@@ -685,7 +686,8 @@ from your spec file(s):</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Applied to a proc, specifies that its execution will cause some value to change.</p>
+    <span class="summary_desc"><div class='inline'><p>Applied to a proc, specifies that its execution will cause some value to
+change.</p>
 </div></span>
   
 </li>
@@ -753,7 +755,7 @@ from your spec file(s):</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Passes if actual == expected.</p>
+    <span class="summary_desc"><div class='inline'><p>Passes if <tt>actual == expected</tt>.</p>
 </div></span>
   
 </li>
@@ -799,7 +801,7 @@ from your spec file(s):</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Passes if actual.equal?(expected) (object identity).</p>
+    <span class="summary_desc"><div class='inline'><p>Passes if <tt>actual.equal?(expected)</tt> (object identity).</p>
 </div></span>
   
 </li>
@@ -847,7 +849,8 @@ from your spec file(s):</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Passes if receiver is a collection with the submitted number of items OR if the receiver OWNS a collection with the submitted number of items.</p>
+    <span class="summary_desc"><div class='inline'><p>Passes if receiver is a collection with the submitted number of items OR
+if the receiver OWNS a collection with the submitted number of items.</p>
 </div></span>
   
 </li>
@@ -973,7 +976,7 @@ from your spec file(s):</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#raise_error-instance_method" title="#raise_error (instance method)">- (Object) <strong>raise_error</strong>(error = Exception, message = nil, &amp;block) </a>
+      <a href="#raise_error-instance_method" title="#raise_error (instance method)">- (Object) <strong>raise_error</strong>(error = Exception, message = nil) </a>
     
 
     
@@ -1012,7 +1015,8 @@ from your spec file(s):</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Matches if the target object responds to all of the names provided.</p>
+    <span class="summary_desc"><div class='inline'><p>Matches if the target object responds to all of the names
+provided.</p>
 </div></span>
   
 </li>
@@ -1021,7 +1025,7 @@ from your spec file(s):</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#satisfy-instance_method" title="#satisfy (instance method)">- (Object) <strong>satisfy</strong>(&amp;block) </a>
+      <a href="#satisfy-instance_method" title="#satisfy (instance method)">- (Object) <strong>satisfy</strong> </a>
     
 
     
@@ -1104,7 +1108,8 @@ from your spec file(s):</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Passes if the method called in the expect block yields, regardless of whether or not arguments are yielded.</p>
+    <span class="summary_desc"><div class='inline'><p>Passes if the method called in the expect block yields, regardless
+of whether or not arguments are yielded.</p>
 </div></span>
   
 </li>
@@ -1127,7 +1132,8 @@ from your spec file(s):</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Designed for use with methods that repeatedly yield (such as iterators).</p>
+    <span class="summary_desc"><div class='inline'><p>Designed for use with methods that repeatedly yield (such as
+iterators).</p>
 </div></span>
   
 </li>
@@ -1150,7 +1156,9 @@ from your spec file(s):</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Given no arguments, matches if the method called in the expect block yields with arguments (regardless of what they are or how many there are).</p>
+    <span class="summary_desc"><div class='inline'><p>Given no arguments, matches if the method called in the expect
+block yields with arguments (regardless of what they are or how
+many there are).</p>
 </div></span>
   
 </li>
@@ -1173,7 +1181,8 @@ from your spec file(s):</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Passes if the method called in the expect block yields with no arguments.</p>
+    <span class="summary_desc"><div class='inline'><p>Passes if the method called in the expect block yields with
+no arguments.</p>
 </div></span>
   
 </li>
@@ -1192,7 +1201,7 @@ from your spec file(s):</p>
     <div class="method_details first">
   <h3 class="signature first" id="method_missing-instance_method">
   
-    - (<tt>Object</tt>) <strong>method_missing</strong>(method, *args, &amp;block)  <span class="extras">(private)</span>
+    - (<tt>Object</tt>) <strong>method_missing</strong>(method, *args)  <span class="extras">(private)</span>
   
 
   
@@ -1230,6 +1239,7 @@ from your spec file(s):</p>
     
       
       <span id="last_matcher=-class_method"></span>
+      <span id="last_matcher-class_method"></span>
       <div class="method_details first">
   <h3 class="signature first" id="last_matcher-class_method">
   
@@ -1272,6 +1282,7 @@ from your spec file(s):</p>
     
       
       <span id="last_should=-class_method"></span>
+      <span id="last_should-class_method"></span>
       <div class="method_details ">
   <h3 class="signature " id="last_should-class_method">
   
@@ -1530,7 +1541,7 @@ false.  Given be_ followed by arbitrary_predicate (without the &quot;?&quot;),
 RSpec will match convert that into a query against the target object.</p>
 
 <p>The arbitrary<em>predicate feature will handle any predicate prefixed with
-&quot;be_an</em>&quot; (e.g. be<em>an_instance_of), &quot;be_a</em>&quot; (e.g. be<em>a_kind_of) or &quot;be</em>&quot;
+&quot;be</em>an<em>&quot; (e.g. be</em>an<em>instance</em>of), &quot;be<em>a</em>&quot; (e.g. be<em>a</em>kind<em>of) or &quot;be</em>&quot;
 (e.g. be_empty), letting you choose the prefix that best suits the
 predicate.</p>
 
@@ -1543,12 +1554,12 @@ predicate.</p>
     <p class="tag_title">Examples:</p>
     
       
-      <pre class="example code"><code>expect(actual).to     be_true
+      <pre class="example code">expect(actual).to     be_true
 expect(actual).to     be_false
 expect(actual).to     be_nil
 expect(actual).to     be_[arbitrary_predicate](*args)
 expect(actual).not_to be_nil
-expect(actual).not_to be_[arbitrary_predicate](*args)</code></pre>
+expect(actual).not_to be_[arbitrary_predicate](*args)</pre>
     
   </div>
 
@@ -1646,10 +1657,10 @@ expect(actual).not_to be_[arbitrary_predicate](*args)</code></pre>
     <p class="tag_title">Examples:</p>
     
       
-      <pre class="example code"><code>
+      <pre class="example code">
 <span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='int'>5</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span>     <span class='id identifier rubyid_be_a_kind_of'>be_a_kind_of</span><span class='lparen'>(</span><span class='const'>Fixnum</span><span class='rparen'>)</span>
 <span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='int'>5</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span>     <span class='id identifier rubyid_be_a_kind_of'>be_a_kind_of</span><span class='lparen'>(</span><span class='const'>Numeric</span><span class='rparen'>)</span>
-<span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='int'>5</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_not_to'>not_to</span> <span class='id identifier rubyid_be_a_kind_of'>be_a_kind_of</span><span class='lparen'>(</span><span class='const'>Float</span><span class='rparen'>)</span></code></pre>
+<span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='int'>5</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_not_to'>not_to</span> <span class='id identifier rubyid_be_a_kind_of'>be_a_kind_of</span><span class='lparen'>(</span><span class='const'>Float</span><span class='rparen'>)</span></pre>
     
   </div>
 
@@ -1701,10 +1712,10 @@ expect(actual).not_to be_[arbitrary_predicate](*args)</code></pre>
     <p class="tag_title">Examples:</p>
     
       
-      <pre class="example code"><code>
+      <pre class="example code">
 <span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='int'>5</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span>     <span class='id identifier rubyid_be_an_instance_of'>be_an_instance_of</span><span class='lparen'>(</span><span class='const'>Fixnum</span><span class='rparen'>)</span>
 <span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='int'>5</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_not_to'>not_to</span> <span class='id identifier rubyid_be_an_instance_of'>be_an_instance_of</span><span class='lparen'>(</span><span class='const'>Numeric</span><span class='rparen'>)</span>
-<span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='int'>5</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_not_to'>not_to</span> <span class='id identifier rubyid_be_an_instance_of'>be_an_instance_of</span><span class='lparen'>(</span><span class='const'>Float</span><span class='rparen'>)</span></code></pre>
+<span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='int'>5</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_not_to'>not_to</span> <span class='id identifier rubyid_be_an_instance_of'>be_an_instance_of</span><span class='lparen'>(</span><span class='const'>Float</span><span class='rparen'>)</span></pre>
     
   </div>
 
@@ -1915,9 +1926,9 @@ expect(actual).not_to be_[arbitrary_predicate](*args)</code></pre>
     <p class="tag_title">Examples:</p>
     
       
-      <pre class="example code"><code>
+      <pre class="example code">
 <span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_result'>result</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span>     <span class='id identifier rubyid_be_within'>be_within</span><span class='lparen'>(</span><span class='float'>0.5</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_of'>of</span><span class='lparen'>(</span><span class='float'>3.0</span><span class='rparen'>)</span>
-<span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_result'>result</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_not_to'>not_to</span> <span class='id identifier rubyid_be_within'>be_within</span><span class='lparen'>(</span><span class='float'>0.5</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_of'>of</span><span class='lparen'>(</span><span class='float'>3.0</span><span class='rparen'>)</span></code></pre>
+<span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_result'>result</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_not_to'>not_to</span> <span class='id identifier rubyid_be_within'>be_within</span><span class='lparen'>(</span><span class='float'>0.5</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_of'>of</span><span class='lparen'>(</span><span class='float'>3.0</span><span class='rparen'>)</span></pre>
     
   </div>
 
@@ -1946,7 +1957,7 @@ expect(actual).not_to be_[arbitrary_predicate](*args)</code></pre>
       <div class="method_details ">
   <h3 class="signature " id="change-instance_method">
   
-    - (<tt>Object</tt>) <strong>change</strong>(receiver = nil, message = nil, &amp;block) 
+    - (<tt>Object</tt>) <strong>change</strong>(receiver = nil, message = nil) 
   
 
   
@@ -1969,8 +1980,8 @@ would errantly bind to the +expect(..)+ or +expect(..).not_to+ method.</p>
 <p>Evaluates <tt>receiver.message</tt> or <tt>block</tt> before and after it
 evaluates the block passed to <tt>expect</tt>.</p>
 
-<p><tt>expect( ... ).not_to change</tt> only supports the form with no subsequent
-calls to <tt>by</tt>, <tt>by_at_least</tt>, <tt>by_at_most</tt>,
+<p><tt>expect( ... ).not<em>to change</tt> only supports the form with no subsequent
+calls to <tt>by</tt>, <tt>by</em>at<em>least</tt>, <tt>by</em>at_most</tt>,
 <tt>to</tt> or <tt>from</tt>.</p>
 
 
@@ -1982,7 +1993,7 @@ calls to <tt>by</tt>, <tt>by_at_least</tt>, <tt>by_at_most</tt>,
     <p class="tag_title">Examples:</p>
     
       
-      <pre class="example code"><code>
+      <pre class="example code">
 <span class='id identifier rubyid_expect'>expect</span> <span class='lbrace'>{</span>
   <span class='id identifier rubyid_team'>team</span><span class='period'>.</span><span class='id identifier rubyid_add_player'>add_player</span><span class='lparen'>(</span><span class='id identifier rubyid_player'>player</span><span class='rparen'>)</span>
 <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_change'>change</span><span class='lparen'>(</span><span class='id identifier rubyid_roster'>roster</span><span class='comma'>,</span> <span class='symbol'>:count</span><span class='rparen'>)</span>
@@ -2024,7 +2035,7 @@ calls to <tt>by</tt>, <tt>by_at_least</tt>, <tt>by_at_most</tt>,
 <span class='id identifier rubyid_user'>user</span> <span class='op'>=</span> <span class='const'>User</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='symbol'>:type</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>admin</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
 <span class='id identifier rubyid_expect'>expect</span> <span class='lbrace'>{</span>
   <span class='id identifier rubyid_user'>user</span><span class='period'>.</span><span class='id identifier rubyid_symbolize_type'>symbolize_type</span>
-<span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_change'>change</span><span class='lparen'>(</span><span class='id identifier rubyid_user'>user</span><span class='comma'>,</span> <span class='symbol'>:type</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_from'>from</span><span class='lparen'>(</span><span class='const'>String</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span><span class='lparen'>(</span><span class='const'>Symbol</span><span class='rparen'>)</span></code></pre>
+<span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_change'>change</span><span class='lparen'>(</span><span class='id identifier rubyid_user'>user</span><span class='comma'>,</span> <span class='symbol'>:type</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_from'>from</span><span class='lparen'>(</span><span class='const'>String</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span><span class='lparen'>(</span><span class='const'>Symbol</span><span class='rparen'>)</span></pre>
     
   </div>
 <p class="tag_title">Parameters:</p>
@@ -2139,10 +2150,10 @@ actual string. In the case of an array, matches against the last
     <p class="tag_title">Examples:</p>
     
       
-      <pre class="example code"><code>
+      <pre class="example code">
 <span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>this string</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span>   <span class='id identifier rubyid_end_with'>end_with</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>string</span><span class='tstring_end'>&quot;</span></span>
 <span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='int'>0</span><span class='comma'>,</span> <span class='int'>1</span><span class='comma'>,</span> <span class='int'>2</span><span class='comma'>,</span> <span class='int'>3</span><span class='comma'>,</span> <span class='int'>4</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_end_with'>end_with</span> <span class='int'>4</span>
-<span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='int'>0</span><span class='comma'>,</span> <span class='int'>2</span><span class='comma'>,</span> <span class='int'>3</span><span class='comma'>,</span> <span class='int'>4</span><span class='comma'>,</span> <span class='int'>4</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_end_with'>end_with</span> <span class='int'>3</span><span class='comma'>,</span> <span class='int'>4</span></code></pre>
+<span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='int'>0</span><span class='comma'>,</span> <span class='int'>2</span><span class='comma'>,</span> <span class='int'>3</span><span class='comma'>,</span> <span class='int'>4</span><span class='comma'>,</span> <span class='int'>4</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_end_with'>end_with</span> <span class='int'>3</span><span class='comma'>,</span> <span class='int'>4</span></pre>
     
   </div>
 
@@ -2193,9 +2204,9 @@ information about equality in Ruby.</p>
     <p class="tag_title">Examples:</p>
     
       
-      <pre class="example code"><code>
+      <pre class="example code">
 <span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='int'>5</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span>     <span class='id identifier rubyid_eq'>eq</span><span class='lparen'>(</span><span class='int'>5</span><span class='rparen'>)</span>
-<span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='int'>5</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_not_to'>not_to</span> <span class='id identifier rubyid_eq'>eq</span><span class='lparen'>(</span><span class='int'>3</span><span class='rparen'>)</span></code></pre>
+<span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='int'>5</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_not_to'>not_to</span> <span class='id identifier rubyid_eq'>eq</span><span class='lparen'>(</span><span class='int'>3</span><span class='rparen'>)</span></pre>
     
   </div>
 
@@ -2246,9 +2257,9 @@ information about equality in Ruby.</p>
     <p class="tag_title">Examples:</p>
     
       
-      <pre class="example code"><code>
+      <pre class="example code">
 <span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='int'>5</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span>     <span class='id identifier rubyid_eql'>eql</span><span class='lparen'>(</span><span class='int'>5</span><span class='rparen'>)</span>
-<span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='int'>5</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_not_to'>not_to</span> <span class='id identifier rubyid_eql'>eql</span><span class='lparen'>(</span><span class='int'>3</span><span class='rparen'>)</span></code></pre>
+<span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='int'>5</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_not_to'>not_to</span> <span class='id identifier rubyid_eql'>eql</span><span class='lparen'>(</span><span class='int'>3</span><span class='rparen'>)</span></pre>
     
   </div>
 
@@ -2299,9 +2310,9 @@ information about equality in Ruby.</p>
     <p class="tag_title">Examples:</p>
     
       
-      <pre class="example code"><code>
+      <pre class="example code">
 <span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='int'>5</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span>       <span class='id identifier rubyid_equal'>equal</span><span class='lparen'>(</span><span class='int'>5</span><span class='rparen'>)</span>   <span class='comment'># Fixnums are equal
-</span><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>5</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_not_to'>not_to</span> <span class='id identifier rubyid_equal'>equal</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>5</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='comment'># Strings that look the same are not the same object</span></code></pre>
+</span><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>5</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_not_to'>not_to</span> <span class='id identifier rubyid_equal'>equal</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>5</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='comment'># Strings that look the same are not the same object</span></pre>
     
   </div>
 
@@ -2349,7 +2360,7 @@ information about equality in Ruby.</p>
     <p class="tag_title">Examples:</p>
     
       
-      <pre class="example code"><code><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='const'>File</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_exist'>exist</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>path/to/file</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span></code></pre>
+      <pre class="example code"><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='const'>File</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_exist'>exist</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>path/to/file</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span></pre>
     
   </div>
 
@@ -2414,7 +2425,7 @@ lengths.</p>
     <p class="tag_title">Examples:</p>
     
       
-      <pre class="example code"><code>
+      <pre class="example code">
 <span class='comment'># Passes if team.players.size == 11
 </span><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_team'>team</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_have'>have</span><span class='lparen'>(</span><span class='int'>11</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_players'>players</span>
 
@@ -2425,7 +2436,7 @@ lengths.</p>
 </span><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='int'>1</span><span class='comma'>,</span><span class='int'>2</span><span class='comma'>,</span><span class='int'>3</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_have'>have</span><span class='lparen'>(</span><span class='int'>3</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_items'>items</span> <span class='comment'>#&quot;items&quot; is pure sugar
 </span>
 <span class='comment'># Passes if &quot;this string&quot;.length == 11
-</span><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>this string</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_have'>have</span><span class='lparen'>(</span><span class='int'>11</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_characters'>characters</span> <span class='comment'>#&quot;characters&quot; is pure sugar</span></code></pre>
+</span><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>this string</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_have'>have</span><span class='lparen'>(</span><span class='int'>11</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_characters'>characters</span> <span class='comment'>#&quot;characters&quot; is pure sugar</span></pre>
     
   </div>
 
@@ -2477,7 +2488,7 @@ lengths.</p>
     <p class="tag_title">Examples:</p>
     
       
-      <pre class="example code"><code><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>this</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_have_at_least'>have_at_least</span><span class='lparen'>(</span><span class='int'>3</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_letters'>letters</span></code></pre>
+      <pre class="example code"><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>this</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_have_at_least'>have_at_least</span><span class='lparen'>(</span><span class='int'>3</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_letters'>letters</span></pre>
     
   </div>
 
@@ -2529,7 +2540,7 @@ lengths.</p>
     <p class="tag_title">Examples:</p>
     
       
-      <pre class="example code"><code><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>this</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_have_at_most'>have_at_most</span><span class='lparen'>(</span><span class='int'>4</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_letters'>letters</span></code></pre>
+      <pre class="example code"><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>this</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_have_at_most'>have_at_most</span><span class='lparen'>(</span><span class='int'>4</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_letters'>letters</span></pre>
     
   </div>
 
@@ -2579,13 +2590,13 @@ and it will only pass if all args are found in collection.</p>
     <p class="tag_title">Examples:</p>
     
       
-      <pre class="example code"><code>
+      <pre class="example code">
 <span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='int'>1</span><span class='comma'>,</span><span class='int'>2</span><span class='comma'>,</span><span class='int'>3</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span>      <span class='id identifier rubyid_include'>include</span><span class='lparen'>(</span><span class='int'>3</span><span class='rparen'>)</span>
 <span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='int'>1</span><span class='comma'>,</span><span class='int'>2</span><span class='comma'>,</span><span class='int'>3</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span>      <span class='id identifier rubyid_include'>include</span><span class='lparen'>(</span><span class='int'>2</span><span class='comma'>,</span><span class='int'>3</span><span class='rparen'>)</span>
 <span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='int'>1</span><span class='comma'>,</span><span class='int'>2</span><span class='comma'>,</span><span class='int'>3</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span>      <span class='id identifier rubyid_include'>include</span><span class='lparen'>(</span><span class='int'>2</span><span class='comma'>,</span><span class='int'>3</span><span class='comma'>,</span><span class='int'>4</span><span class='rparen'>)</span> <span class='comment'># fails
 </span><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='int'>1</span><span class='comma'>,</span><span class='int'>2</span><span class='comma'>,</span><span class='int'>3</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_not_to'>not_to</span>  <span class='id identifier rubyid_include'>include</span><span class='lparen'>(</span><span class='int'>4</span><span class='rparen'>)</span>
 <span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>spread</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span>     <span class='id identifier rubyid_include'>include</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>read</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
-<span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>spread</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_not_to'>not_to</span> <span class='id identifier rubyid_include'>include</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>red</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span></code></pre>
+<span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>spread</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_not_to'>not_to</span> <span class='id identifier rubyid_include'>include</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>red</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span></pre>
     
   </div>
 
@@ -2649,11 +2660,11 @@ method and raising an <code>ArgumentError</code>. Instead, use the aliased
     <p class="tag_title">Examples:</p>
     
       
-      <pre class="example code"><code>
+      <pre class="example code">
 <span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_email'>email</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span>   <span class='id identifier rubyid_match'>match</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^([^\s]+)((?:[-a-z0-9]+\.)+[a-z]{2,})$</span><span class='regexp_end'>/i</span></span><span class='rparen'>)</span>
 <span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_email'>email</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span>   <span class='id identifier rubyid_match'>match</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>@example.com</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
 <span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_zipcode'>zipcode</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_match_regex'>match_regex</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\A\d{5}(-\d{4})?\z</span><span class='regexp_end'>/</span></span><span class='rparen'>)</span>
-<span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_zipcode'>zipcode</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_match_regex'>match_regex</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>90210</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span></code></pre>
+<span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_zipcode'>zipcode</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_match_regex'>match_regex</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>90210</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span></pre>
     
   </div>
 
@@ -2701,7 +2712,7 @@ but <code>=~</code> is not supported with <code>expect</code>.</p>
   <div class="note notetag">
     <strong>Note:</strong>
     <div class='inline'><p>This matcher only supports positive expectations.
-expect(..).not_to match_array(other_array) is not supported.</p>
+expect(..).not<em>to match</em>array(other_array) is not supported.</p>
 </div>
   </div>
 
@@ -2718,9 +2729,9 @@ pass if all args are found in collection.</p>
     <p class="tag_title">Examples:</p>
     
       
-      <pre class="example code"><code>
+      <pre class="example code">
 <span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='int'>1</span><span class='comma'>,</span><span class='int'>2</span><span class='comma'>,</span><span class='int'>3</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_match_array'>match_array</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='int'>1</span><span class='comma'>,</span><span class='int'>2</span><span class='comma'>,</span><span class='int'>3</span><span class='rbracket'>]</span><span class='rparen'>)</span>
-<span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='int'>1</span><span class='comma'>,</span><span class='int'>2</span><span class='comma'>,</span><span class='int'>3</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_match_array'>match_array</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='int'>1</span><span class='comma'>,</span><span class='int'>3</span><span class='comma'>,</span><span class='int'>2</span><span class='rbracket'>]</span><span class='rparen'>)</span></code></pre>
+<span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='int'>1</span><span class='comma'>,</span><span class='int'>2</span><span class='comma'>,</span><span class='int'>3</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_match_array'>match_array</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='int'>1</span><span class='comma'>,</span><span class='int'>3</span><span class='comma'>,</span><span class='int'>2</span><span class='rbracket'>]</span><span class='rparen'>)</span></pre>
     
   </div>
 
@@ -2749,7 +2760,7 @@ pass if all args are found in collection.</p>
       <div class="method_details ">
   <h3 class="signature " id="raise_error-instance_method">
   
-    - (<tt>Object</tt>) <strong>raise_error</strong>(error = Exception, message = nil, &amp;block) 
+    - (<tt>Object</tt>) <strong>raise_error</strong>(error = Exception, message = nil) 
   
 
   
@@ -2776,14 +2787,14 @@ Pass an optional block to perform extra verifications on the exception matched</
     <p class="tag_title">Examples:</p>
     
       
-      <pre class="example code"><code>
+      <pre class="example code">
 <span class='id identifier rubyid_expect'>expect</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_do_something_risky'>do_something_risky</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_raise_error'>raise_error</span>
 <span class='id identifier rubyid_expect'>expect</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_do_something_risky'>do_something_risky</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_raise_error'>raise_error</span><span class='lparen'>(</span><span class='const'>PoorRiskDecisionError</span><span class='rparen'>)</span>
 <span class='id identifier rubyid_expect'>expect</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_do_something_risky'>do_something_risky</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_raise_error'>raise_error</span><span class='lparen'>(</span><span class='const'>PoorRiskDecisionError</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_error'>error</span><span class='op'>|</span> <span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_error'>error</span><span class='period'>.</span><span class='id identifier rubyid_data'>data</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_eq'>eq</span> <span class='int'>42</span> <span class='rbrace'>}</span>
 <span class='id identifier rubyid_expect'>expect</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_do_something_risky'>do_something_risky</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_raise_error'>raise_error</span><span class='lparen'>(</span><span class='const'>PoorRiskDecisionError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>that was too risky</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
 <span class='id identifier rubyid_expect'>expect</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_do_something_risky'>do_something_risky</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_raise_error'>raise_error</span><span class='lparen'>(</span><span class='const'>PoorRiskDecisionError</span><span class='comma'>,</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>oo ri</span><span class='regexp_end'>/</span></span><span class='rparen'>)</span>
 
-<span class='id identifier rubyid_expect'>expect</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_do_something_risky'>do_something_risky</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_not_to'>not_to</span> <span class='id identifier rubyid_raise_error'>raise_error</span></code></pre>
+<span class='id identifier rubyid_expect'>expect</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_do_something_risky'>do_something_risky</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_not_to'>not_to</span> <span class='id identifier rubyid_raise_error'>raise_error</span></pre>
     
   </div>
 
@@ -2855,7 +2866,7 @@ provided. Names can be Strings or Symbols.</p>
       <div class="method_details ">
   <h3 class="signature " id="satisfy-instance_method">
   
-    - (<tt>Object</tt>) <strong>satisfy</strong>(&amp;block) 
+    - (<tt>Object</tt>) <strong>satisfy</strong> 
   
 
   
@@ -2882,8 +2893,8 @@ a custom matcher, which would likely make your specs more expressive.</p>
     <p class="tag_title">Examples:</p>
     
       
-      <pre class="example code"><code>
-<span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='int'>5</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_satisfy'>satisfy</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_n'>n</span><span class='op'>|</span> <span class='id identifier rubyid_n'>n</span> <span class='op'>&gt;</span> <span class='int'>3</span> <span class='rbrace'>}</span></code></pre>
+      <pre class="example code">
+<span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='int'>5</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_satisfy'>satisfy</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_n'>n</span><span class='op'>|</span> <span class='id identifier rubyid_n'>n</span> <span class='op'>&gt;</span> <span class='int'>3</span> <span class='rbrace'>}</span></pre>
     
   </div>
 
@@ -2934,10 +2945,10 @@ of the actual string. In the case of an array, matches against the first
     <p class="tag_title">Examples:</p>
     
       
-      <pre class="example code"><code>
+      <pre class="example code">
 <span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>this string</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span>   <span class='id identifier rubyid_start_with'>start_with</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>this s</span><span class='tstring_end'>&quot;</span></span>
 <span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='int'>0</span><span class='comma'>,</span> <span class='int'>1</span><span class='comma'>,</span> <span class='int'>2</span><span class='comma'>,</span> <span class='int'>3</span><span class='comma'>,</span> <span class='int'>4</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_start_with'>start_with</span> <span class='int'>0</span>
-<span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='int'>0</span><span class='comma'>,</span> <span class='int'>2</span><span class='comma'>,</span> <span class='int'>3</span><span class='comma'>,</span> <span class='int'>4</span><span class='comma'>,</span> <span class='int'>4</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_start_with'>start_with</span> <span class='int'>0</span><span class='comma'>,</span> <span class='int'>1</span></code></pre>
+<span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='int'>0</span><span class='comma'>,</span> <span class='int'>2</span><span class='comma'>,</span> <span class='int'>3</span><span class='comma'>,</span> <span class='int'>4</span><span class='comma'>,</span> <span class='int'>4</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_start_with'>start_with</span> <span class='int'>0</span><span class='comma'>,</span> <span class='int'>1</span></pre>
     
   </div>
 
@@ -2990,14 +3001,14 @@ specified Symbol with the specified arg.</p>
     <p class="tag_title">Examples:</p>
     
       
-      <pre class="example code"><code>
+      <pre class="example code">
 <span class='id identifier rubyid_expect'>expect</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_do_something_risky'>do_something_risky</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_throw_symbol'>throw_symbol</span>
 <span class='id identifier rubyid_expect'>expect</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_do_something_risky'>do_something_risky</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_throw_symbol'>throw_symbol</span><span class='lparen'>(</span><span class='symbol'>:that_was_risky</span><span class='rparen'>)</span>
 <span class='id identifier rubyid_expect'>expect</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_do_something_risky'>do_something_risky</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_throw_symbol'>throw_symbol</span><span class='lparen'>(</span><span class='symbol'>:that_was_risky</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>culprit</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
 
 <span class='id identifier rubyid_expect'>expect</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_do_something_risky'>do_something_risky</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_not_to'>not_to</span> <span class='id identifier rubyid_throw_symbol'>throw_symbol</span>
 <span class='id identifier rubyid_expect'>expect</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_do_something_risky'>do_something_risky</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_not_to'>not_to</span> <span class='id identifier rubyid_throw_symbol'>throw_symbol</span><span class='lparen'>(</span><span class='symbol'>:that_was_risky</span><span class='rparen'>)</span>
-<span class='id identifier rubyid_expect'>expect</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_do_something_risky'>do_something_risky</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_not_to'>not_to</span> <span class='id identifier rubyid_throw_symbol'>throw_symbol</span><span class='lparen'>(</span><span class='symbol'>:that_was_risky</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>culprit</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span></code></pre>
+<span class='id identifier rubyid_expect'>expect</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_do_something_risky'>do_something_risky</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_not_to'>not_to</span> <span class='id identifier rubyid_throw_symbol'>throw_symbol</span><span class='lparen'>(</span><span class='symbol'>:that_was_risky</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>culprit</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span></pre>
     
   </div>
 
@@ -3061,9 +3072,9 @@ of whether or not arguments are yielded.</p>
     <p class="tag_title">Examples:</p>
     
       
-      <pre class="example code"><code>
+      <pre class="example code">
 <span class='id identifier rubyid_expect'>expect</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_b'>b</span><span class='op'>|</span> <span class='int'>5</span><span class='period'>.</span><span class='id identifier rubyid_tap'>tap</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_b'>b</span><span class='rparen'>)</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_yield_control'>yield_control</span>
-<span class='id identifier rubyid_expect'>expect</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_b'>b</span><span class='op'>|</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>a</span><span class='tstring_end'>&quot;</span></span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_b'>b</span><span class='rparen'>)</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_not_to'>not_to</span> <span class='id identifier rubyid_yield_control'>yield_control</span></code></pre>
+<span class='id identifier rubyid_expect'>expect</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_b'>b</span><span class='op'>|</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>a</span><span class='tstring_end'>&quot;</span></span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_b'>b</span><span class='rparen'>)</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_not_to'>not_to</span> <span class='id identifier rubyid_yield_control'>yield_control</span></pre>
     
   </div>
 
@@ -3125,10 +3136,10 @@ operator, the matcher will pass.</p>
     <p class="tag_title">Examples:</p>
     
       
-      <pre class="example code"><code>
+      <pre class="example code">
 <span class='id identifier rubyid_expect'>expect</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_b'>b</span><span class='op'>|</span> <span class='lbracket'>[</span><span class='int'>1</span><span class='comma'>,</span> <span class='int'>2</span><span class='comma'>,</span> <span class='int'>3</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_b'>b</span><span class='rparen'>)</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_yield_successive_args'>yield_successive_args</span><span class='lparen'>(</span><span class='int'>1</span><span class='comma'>,</span> <span class='int'>2</span><span class='comma'>,</span> <span class='int'>3</span><span class='rparen'>)</span>
 <span class='id identifier rubyid_expect'>expect</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_b'>b</span><span class='op'>|</span> <span class='lbrace'>{</span> <span class='symbol'>:a</span> <span class='op'>=&gt;</span> <span class='int'>1</span><span class='comma'>,</span> <span class='symbol'>:b</span> <span class='op'>=&gt;</span> <span class='int'>2</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_b'>b</span><span class='rparen'>)</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_yield_successive_args'>yield_successive_args</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='symbol'>:a</span><span class='comma'>,</span> <span class='int'>1</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='symbol'>:b</span><span class='comma'>,</span> <span class='int'>2</span><span class='rbracket'>]</span><span class='rparen'>)</span>
-<span class='id identifier rubyid_expect'>expect</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_b'>b</span><span class='op'>|</span> <span class='lbracket'>[</span><span class='int'>1</span><span class='comma'>,</span> <span class='int'>2</span><span class='comma'>,</span> <span class='int'>3</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_b'>b</span><span class='rparen'>)</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_not_to'>not_to</span> <span class='id identifier rubyid_yield_successive_args'>yield_successive_args</span><span class='lparen'>(</span><span class='int'>1</span><span class='comma'>,</span> <span class='int'>2</span><span class='rparen'>)</span></code></pre>
+<span class='id identifier rubyid_expect'>expect</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_b'>b</span><span class='op'>|</span> <span class='lbracket'>[</span><span class='int'>1</span><span class='comma'>,</span> <span class='int'>2</span><span class='comma'>,</span> <span class='int'>3</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_b'>b</span><span class='rparen'>)</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_not_to'>not_to</span> <span class='id identifier rubyid_yield_successive_args'>yield_successive_args</span><span class='lparen'>(</span><span class='int'>1</span><span class='comma'>,</span> <span class='int'>2</span><span class='rparen'>)</span></pre>
     
   </div>
 
@@ -3200,14 +3211,14 @@ operator, the matcher will pass.</p>
     <p class="tag_title">Examples:</p>
     
       
-      <pre class="example code"><code>
+      <pre class="example code">
 <span class='id identifier rubyid_expect'>expect</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_b'>b</span><span class='op'>|</span> <span class='int'>5</span><span class='period'>.</span><span class='id identifier rubyid_tap'>tap</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_b'>b</span><span class='rparen'>)</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_yield_with_args'>yield_with_args</span> <span class='comment'># because #tap yields an arg
 </span><span class='id identifier rubyid_expect'>expect</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_b'>b</span><span class='op'>|</span> <span class='int'>5</span><span class='period'>.</span><span class='id identifier rubyid_tap'>tap</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_b'>b</span><span class='rparen'>)</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_yield_with_args'>yield_with_args</span><span class='lparen'>(</span><span class='int'>5</span><span class='rparen'>)</span> <span class='comment'># because 5 == 5
 </span><span class='id identifier rubyid_expect'>expect</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_b'>b</span><span class='op'>|</span> <span class='int'>5</span><span class='period'>.</span><span class='id identifier rubyid_tap'>tap</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_b'>b</span><span class='rparen'>)</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_yield_with_args'>yield_with_args</span><span class='lparen'>(</span><span class='const'>Fixnum</span><span class='rparen'>)</span> <span class='comment'># because Fixnum === 5
 </span><span class='id identifier rubyid_expect'>expect</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_b'>b</span><span class='op'>|</span> <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_open'>open</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>f.txt</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_b'>b</span><span class='rparen'>)</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_yield_with_args'>yield_with_args</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>txt</span><span class='regexp_end'>/</span></span><span class='rparen'>)</span> <span class='comment'># because /txt/ === &quot;f.txt&quot;
 </span>
 <span class='id identifier rubyid_expect'>expect</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_b'>b</span><span class='op'>|</span> <span class='const'>User</span><span class='period'>.</span><span class='id identifier rubyid_transaction'>transaction</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_b'>b</span><span class='rparen'>)</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_not_to'>not_to</span> <span class='id identifier rubyid_yield_with_args'>yield_with_args</span> <span class='comment'># because it yields no args
-</span><span class='id identifier rubyid_expect'>expect</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_b'>b</span><span class='op'>|</span> <span class='int'>5</span><span class='period'>.</span><span class='id identifier rubyid_tap'>tap</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_b'>b</span><span class='rparen'>)</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_not_to'>not_to</span> <span class='id identifier rubyid_yield_with_args'>yield_with_args</span><span class='lparen'>(</span><span class='int'>1</span><span class='comma'>,</span> <span class='int'>2</span><span class='comma'>,</span> <span class='int'>3</span><span class='rparen'>)</span></code></pre>
+</span><span class='id identifier rubyid_expect'>expect</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_b'>b</span><span class='op'>|</span> <span class='int'>5</span><span class='period'>.</span><span class='id identifier rubyid_tap'>tap</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_b'>b</span><span class='rparen'>)</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_not_to'>not_to</span> <span class='id identifier rubyid_yield_with_args'>yield_with_args</span><span class='lparen'>(</span><span class='int'>1</span><span class='comma'>,</span> <span class='int'>2</span><span class='comma'>,</span> <span class='int'>3</span><span class='rparen'>)</span></pre>
     
   </div>
 
@@ -3271,10 +3282,10 @@ no arguments. Fails if it does not yield, or yields with arguments.</p>
     <p class="tag_title">Examples:</p>
     
       
-      <pre class="example code"><code>
+      <pre class="example code">
 <span class='id identifier rubyid_expect'>expect</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_b'>b</span><span class='op'>|</span> <span class='const'>User</span><span class='period'>.</span><span class='id identifier rubyid_transaction'>transaction</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_b'>b</span><span class='rparen'>)</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_yield_with_no_args'>yield_with_no_args</span>
 <span class='id identifier rubyid_expect'>expect</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_b'>b</span><span class='op'>|</span> <span class='int'>5</span><span class='period'>.</span><span class='id identifier rubyid_tap'>tap</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_b'>b</span><span class='rparen'>)</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_not_to'>not_to</span> <span class='id identifier rubyid_yield_with_no_args'>yield_with_no_args</span> <span class='comment'># because it yields with `5`
-</span><span class='id identifier rubyid_expect'>expect</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_b'>b</span><span class='op'>|</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>a</span><span class='tstring_end'>&quot;</span></span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_b'>b</span><span class='rparen'>)</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_not_to'>not_to</span> <span class='id identifier rubyid_yield_with_no_args'>yield_with_no_args</span> <span class='comment'># because it does not yield</span></code></pre>
+</span><span class='id identifier rubyid_expect'>expect</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_b'>b</span><span class='op'>|</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>a</span><span class='tstring_end'>&quot;</span></span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_b'>b</span><span class='rparen'>)</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_not_to'>not_to</span> <span class='id identifier rubyid_yield_with_no_args'>yield_with_no_args</span> <span class='comment'># because it does not yield</span></pre>
     
   </div>
 
@@ -3305,9 +3316,9 @@ no arguments. Fails if it does not yield, or yields with arguments.</p>
 </div>
 
     <div id="footer">
-  Generated on Thu Dec 18 08:30:12 2014 by
+  Generated on Wed Jan 28 22:11:48 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.4 (ruby-2.1.5).
+  0.8.0 (ruby-2.1.5).
 </div>
 
   </body>

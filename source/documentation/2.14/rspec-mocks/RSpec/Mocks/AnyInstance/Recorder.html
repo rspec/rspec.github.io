@@ -6,7 +6,7 @@
 <title>
   Class: RSpec::Mocks::AnyInstance::Recorder
   
-    &mdash; Documentation by YARD 0.8.7.6
+    &mdash; Documentation by YARD 0.8.0
   
 </title>
 
@@ -17,7 +17,7 @@
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '../../../';
-  framesUrl = "../../../frames.html#!RSpec/Mocks/AnyInstance/Recorder.html";
+  framesUrl = "../../../frames.html#!" + escape(window.location.href);
 </script>
 
 
@@ -101,10 +101,9 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    
-<p>Given a class <code>TheClass</code>, <code>TheClass.any_instance</code>
-returns a <code>Recorder</code>, which records stubs and message
-expectations for later playback on instances of <code>TheClass</code>.</p>
+    <p>Given a class <code>TheClass</code>, <code>TheClass.any_instance</code> returns a <code>Recorder</code>,
+which records stubs and message expectations for later playback on
+instances of <code>TheClass</code>.</p>
 
 <p>Further constraints are stored in instances of <a href="Chain">Chain</a>.</p>
 
@@ -201,8 +200,7 @@ expectations for later playback on instances of <code>TheClass</code>.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>A new instance of Recorder.</p>
+    <span class="summary_desc"><div class='inline'><p>A new instance of Recorder.</p>
 </div></span>
   
 </li>
@@ -211,7 +209,7 @@ expectations for later playback on instances of <code>TheClass</code>.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#should_not_receive-instance_method" title="#should_not_receive (instance method)">- (Object) <strong>should_not_receive</strong>(method_name, &amp;block) </a>
+      <a href="#should_not_receive-instance_method" title="#should_not_receive (instance method)">- (Object) <strong>should_not_receive</strong>(method_name) </a>
     
 
     
@@ -233,7 +231,7 @@ expectations for later playback on instances of <code>TheClass</code>.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#should_receive-instance_method" title="#should_receive (instance method)">- (Object) <strong>should_receive</strong>(method_name, &amp;block) </a>
+      <a href="#should_receive-instance_method" title="#should_receive (instance method)">- (Object) <strong>should_receive</strong>(method_name) </a>
     
 
     
@@ -247,9 +245,9 @@ expectations for later playback on instances of <code>TheClass</code>.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Initializes the recording a message expectation to be played back against
-any instance of this object that invokes the submitted method.</p>
+    <span class="summary_desc"><div class='inline'><p>Initializes the recording a message expectation to be played back
+against any instance of this object that invokes the submitted
+method.</p>
 </div></span>
   
 </li>
@@ -258,7 +256,7 @@ any instance of this object that invokes the submitted method.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#stub-instance_method" title="#stub (instance method)">- (Object) <strong>stub</strong>(method_name_or_method_map, &amp;block) </a>
+      <a href="#stub-instance_method" title="#stub (instance method)">- (Object) <strong>stub</strong>(method_name_or_method_map) </a>
     
 
     
@@ -272,9 +270,8 @@ any instance of this object that invokes the submitted method.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Initializes the recording a stub to be played back against any instance of
-this object that invokes the submitted method.</p>
+    <span class="summary_desc"><div class='inline'><p>Initializes the recording a stub to be played back against any
+instance of this object that invokes the submitted method.</p>
 </div></span>
   
 </li>
@@ -283,7 +280,7 @@ this object that invokes the submitted method.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#stub_chain-instance_method" title="#stub_chain (instance method)">- (Object) <strong>stub_chain</strong>(*method_names_and_optional_return_values, &amp;block) </a>
+      <a href="#stub_chain-instance_method" title="#stub_chain (instance method)">- (Object) <strong>stub_chain</strong>(*method_names_and_optional_return_values) </a>
     
 
     
@@ -297,8 +294,7 @@ this object that invokes the submitted method.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Initializes the recording a stub chain to be played back against any
+    <span class="summary_desc"><div class='inline'><p>Initializes the recording a stub chain to be played back against any
 instance of this object that invokes the method matching the first
 argument.</p>
 </div></span>
@@ -323,9 +319,8 @@ argument.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Removes any previously recorded stubs, stub_chains or message expectations
-that use <code>method_name</code>.</p>
+    <span class="summary_desc"><div class='inline'><p>Removes any previously recorded stubs, stub_chains or message
+expectations that use <code>method_name</code>.</p>
 </div></span>
   
 </li>
@@ -348,8 +343,8 @@ that use <code>method_name</code>.</p>
   <span class="private note title">private</span>
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Used internally to verify that message expectations have been fulfilled.</p>
+    <span class="summary_desc"><div class='inline'><p>Used internally to verify that message expectations have been
+fulfilled.</p>
 </div></span>
   
 </li>
@@ -372,8 +367,7 @@ that use <code>method_name</code>.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns a new instance of Recorder</p>
+    <p>A new instance of Recorder</p>
 
 
   </div>
@@ -504,7 +498,7 @@ that use <code>method_name</code>.</p>
       <div class="method_details ">
   <h3 class="signature " id="should_not_receive-instance_method">
   
-    - (<tt>Object</tt>) <strong>should_not_receive</strong>(method_name, &amp;block) 
+    - (<tt>Object</tt>) <strong>should_not_receive</strong>(method_name) 
   
 
   
@@ -534,7 +528,7 @@ that use <code>method_name</code>.</p>
       <div class="method_details ">
   <h3 class="signature " id="should_receive-instance_method">
   
-    - (<tt>Object</tt>) <strong>should_receive</strong>(method_name, &amp;block) 
+    - (<tt>Object</tt>) <strong>should_receive</strong>(method_name) 
   
 
   
@@ -542,9 +536,9 @@ that use <code>method_name</code>.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Initializes the recording a message expectation to be played back against
-any instance of this object that invokes the submitted method.</p>
+    <p>Initializes the recording a message expectation to be played back
+against any instance of this object that invokes the submitted
+method.</p>
 
 
   </div>
@@ -577,7 +571,7 @@ any instance of this object that invokes the submitted method.</p>
 <span class='kw'>def</span> <span class='id identifier rubyid_should_receive'>should_receive</span><span class='lparen'>(</span><span class='id identifier rubyid_method_name'>method_name</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
   <span class='ivar'>@expectation_set</span> <span class='op'>=</span> <span class='kw'>true</span>
   <span class='id identifier rubyid_observe!'>observe!</span><span class='lparen'>(</span><span class='id identifier rubyid_method_name'>method_name</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_message_chains'>message_chains</span><span class='period'>.</span><span class='id identifier rubyid_add'>add</span><span class='lparen'>(</span><span class='id identifier rubyid_method_name'>method_name</span><span class='comma'>,</span> <span class='const'>ExpectationChain</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='kw'>self</span><span class='comma'>,</span> <span class='id identifier rubyid_method_name'>method_name</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_message_chains'>message_chains</span><span class='period'>.</span><span class='id identifier rubyid_add'>add</span><span class='lparen'>(</span><span class='id identifier rubyid_method_name'>method_name</span><span class='comma'>,</span> <span class='const'>PositiveExpectationChain</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='kw'>self</span><span class='comma'>,</span> <span class='id identifier rubyid_method_name'>method_name</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -587,7 +581,7 @@ any instance of this object that invokes the submitted method.</p>
       <div class="method_details ">
   <h3 class="signature " id="stub-instance_method">
   
-    - (<tt>Object</tt>) <strong>stub</strong>(method_name_or_method_map, &amp;block) 
+    - (<tt>Object</tt>) <strong>stub</strong>(method_name_or_method_map) 
   
 
   
@@ -595,9 +589,8 @@ any instance of this object that invokes the submitted method.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Initializes the recording a stub to be played back against any instance of
-this object that invokes the submitted method.</p>
+    <p>Initializes the recording a stub to be played back against any
+instance of this object that invokes the submitted method.</p>
 
 
   </div>
@@ -650,7 +643,7 @@ this object that invokes the submitted method.</p>
       <div class="method_details ">
   <h3 class="signature " id="stub_chain-instance_method">
   
-    - (<tt>Object</tt>) <strong>stub_chain</strong>(*method_names_and_optional_return_values, &amp;block) 
+    - (<tt>Object</tt>) <strong>stub_chain</strong>(*method_names_and_optional_return_values) 
   
 
   
@@ -658,8 +651,7 @@ this object that invokes the submitted method.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Initializes the recording a stub chain to be played back against any
+    <p>Initializes the recording a stub chain to be played back against any
 instance of this object that invokes the method matching the first
 argument.</p>
 
@@ -714,9 +706,8 @@ argument.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Removes any previously recorded stubs, stub_chains or message expectations
-that use <code>method_name</code>.</p>
+    <p>Removes any previously recorded stubs, stub_chains or message
+expectations that use <code>method_name</code>.</p>
 
 
   </div>
@@ -783,8 +774,8 @@ that use <code>method_name</code>.</p>
   <strong>This method is part of a private API.</strong>
   You should avoid using this method if possible, as it may be removed or be changed in the future.
 </p>
-
-<p>Used internally to verify that message expectations have been fulfilled.</p>
+<p>Used internally to verify that message expectations have been
+fulfilled.</p>
 
 
   </div>
@@ -822,9 +813,9 @@ that use <code>method_name</code>.</p>
 </div>
 
     <div id="footer">
-  Generated on Thu Dec 18 08:30:24 2014 by
+  Generated on Wed Jan 28 22:11:56 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.6 (ruby-2.1.5).
+  0.8.0 (ruby-2.1.5).
 </div>
 
   </body>

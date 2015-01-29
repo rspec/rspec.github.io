@@ -1,0 +1,519 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Module: RSpec::Rails::Mocks
+  
+    &mdash; Documentation by YARD 0.8.7.3
+  
+</title>
+
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="../../css/rspec.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '../../';
+  framesUrl = "../../frames.html#!" + escape(window.location.href);
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../../_index.html">Index (M)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../../RSpec.html" title="RSpec (module)">RSpec</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Rails.html" title="RSpec::Rails (module)">Rails</a></span></span>
+     &raquo; 
+    <span class="title">Mocks</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../../class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="../../method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="../../file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><h1>Module: RSpec::Rails::Mocks
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">lib/rspec/rails/mocks.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Defined Under Namespace</h2>
+<p class="children">
+  
+    
+      <strong class="modules">Modules:</strong> <span class='object_link'><a href="Mocks/ActiveModelInstanceMethods.html" title="RSpec::Rails::Mocks::ActiveModelInstanceMethods (module)">ActiveModelInstanceMethods</a></span>, <span class='object_link'><a href="Mocks/ActiveModelStubExtensions.html" title="RSpec::Rails::Mocks::ActiveModelStubExtensions (module)">ActiveModelStubExtensions</a></span>, <span class='object_link'><a href="Mocks/ActiveRecordInstanceMethods.html" title="RSpec::Rails::Mocks::ActiveRecordInstanceMethods (module)">ActiveRecordInstanceMethods</a></span>, <span class='object_link'><a href="Mocks/ActiveRecordStubExtensions.html" title="RSpec::Rails::Mocks::ActiveRecordStubExtensions (module)">ActiveRecordStubExtensions</a></span>
+    
+  
+    
+  
+</p>
+
+
+
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#mock_model-instance_method" title="#mock_model (instance method)">- (Object) <strong>mock_model</strong>(string_or_model_class, stubs = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Creates a test double representing <code>string_or_model_class</code> with common ActiveModel methods stubbed out.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#stub_model-instance_method" title="#stub_model (instance method)">- (Object) <strong>stub_model</strong>(model_class, stubs = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Creates an instance of <code>Model</code> with <code>to_param</code> stubbed using a generated value that is unique to each object.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="mock_model-instance_method">
+  
+    - (<tt>Object</tt>) <strong>mock_model</strong>(string_or_model_class, stubs = {}) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Creates a test double representing <code>string_or_model_class</code> with common
+ActiveModel methods stubbed out. Additional methods may be easily
+stubbed (via add_stubs) if <code>stubs</code> is passed. This is most useful for
+impersonating models that don&#39;t exist yet.</p>
+
+<p>NOTE that only ActiveModel&#39;s methods, plus <tt>new_record?</tt>, are
+stubbed out implicitly.  <tt>new_record?</tt> returns the inverse of
+<tt>persisted?</tt>, and is present only for compatibility with
+extension frameworks that have yet to update themselves to the
+ActiveModel API (which declares <tt>persisted?</tt>, not
+<tt>new_record?</tt>).</p>
+
+<p><code>string_or_model_class</code> can be any of:</p>
+
+<ul>
+<li>A String representing a Class that does not exist</li>
+<li>A String representing a Class that extends ActiveModel::Naming</li>
+<li>A Class that extends ActiveModel::Naming</li>
+</ul>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/rails/mocks.rb', line 89</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_mock_model'>mock_model</span><span class='lparen'>(</span><span class='id identifier rubyid_string_or_model_class'>string_or_model_class</span><span class='comma'>,</span> <span class='id identifier rubyid_stubs'>stubs</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='const'>String</span> <span class='op'>===</span> <span class='id identifier rubyid_string_or_model_class'>string_or_model_class</span>
+    <span class='kw'>if</span> <span class='const'>Object</span><span class='period'>.</span><span class='id identifier rubyid_const_defined?'>const_defined?</span><span class='lparen'>(</span><span class='id identifier rubyid_string_or_model_class'>string_or_model_class</span><span class='rparen'>)</span>
+      <span class='id identifier rubyid_model_class'>model_class</span> <span class='op'>=</span> <span class='const'>Object</span><span class='period'>.</span><span class='id identifier rubyid_const_get'>const_get</span><span class='lparen'>(</span><span class='id identifier rubyid_string_or_model_class'>string_or_model_class</span><span class='rparen'>)</span>
+    <span class='kw'>else</span>
+      <span class='id identifier rubyid_model_class'>model_class</span> <span class='op'>=</span> <span class='const'>Object</span><span class='period'>.</span><span class='id identifier rubyid_const_set'>const_set</span><span class='lparen'>(</span><span class='id identifier rubyid_string_or_model_class'>string_or_model_class</span><span class='comma'>,</span> <span class='const'>Class</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span> <span class='kw'>do</span>
+        <span class='id identifier rubyid_extend'>extend</span> <span class='const'>ActiveModel</span><span class='op'>::</span><span class='const'>Naming</span>
+        <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_primary_key'>primary_key</span><span class='semicolon'>;</span> <span class='symbol'>:id</span><span class='semicolon'>;</span> <span class='kw'>end</span>
+      <span class='kw'>end</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+  <span class='kw'>else</span>
+    <span class='id identifier rubyid_model_class'>model_class</span> <span class='op'>=</span> <span class='id identifier rubyid_string_or_model_class'>string_or_model_class</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>unless</span> <span class='id identifier rubyid_model_class'>model_class</span><span class='period'>.</span><span class='id identifier rubyid_kind_of?'>kind_of?</span> <span class='const'>ActiveModel</span><span class='op'>::</span><span class='const'>Naming</span>
+    <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span> <span class='heredoc_beg'>&lt;&lt;-EOM</span>
+<span class='tstring_content'>The mock_model method can only accept as its first argument:
+  * A String representing a Class that does not exist
+  * A String representing a Class that extends ActiveModel::Naming
+  * A Class that extends ActiveModel::Naming
+
+It received </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_model_class'>model_class</span><span class='period'>.</span><span class='id identifier rubyid_inspect'>inspect</span><span class='embexpr_end'>}</span><span class='tstring_content'>
+</span><span class='heredoc_end'>EOM
+</span>  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_stubs'>stubs</span> <span class='op'>=</span> <span class='id identifier rubyid_stubs'>stubs</span><span class='period'>.</span><span class='id identifier rubyid_reverse_merge'>reverse_merge</span><span class='lparen'>(</span><span class='symbol'>:id</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_next_id'>next_id</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_stubs'>stubs</span> <span class='op'>=</span> <span class='id identifier rubyid_stubs'>stubs</span><span class='period'>.</span><span class='id identifier rubyid_reverse_merge'>reverse_merge</span><span class='lparen'>(</span><span class='symbol'>:persisted?</span> <span class='op'>=&gt;</span> <span class='op'>!</span><span class='op'>!</span><span class='id identifier rubyid_stubs'>stubs</span><span class='lbracket'>[</span><span class='symbol'>:id</span><span class='rbracket'>]</span><span class='comma'>,</span>
+                              <span class='symbol'>:destroyed?</span> <span class='op'>=&gt;</span> <span class='kw'>false</span><span class='comma'>,</span>
+                              <span class='symbol'>:marked_for_destruction?</span> <span class='op'>=&gt;</span> <span class='kw'>false</span><span class='comma'>,</span>
+                              <span class='symbol'>:valid?</span> <span class='op'>=&gt;</span> <span class='kw'>true</span><span class='comma'>,</span>
+                              <span class='symbol'>:blank?</span> <span class='op'>=&gt;</span> <span class='kw'>false</span><span class='rparen'>)</span>
+
+  <span class='id identifier rubyid_double'>double</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_model_class'>model_class</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='embexpr_end'>}</span><span class='tstring_content'>_</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_stubs'>stubs</span><span class='lbracket'>[</span><span class='symbol'>:id</span><span class='rbracket'>]</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_stubs'>stubs</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_tap'>tap</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_m'>m</span><span class='op'>|</span>
+    <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span class='id identifier rubyid_singleton_class'>singleton_class</span><span class='period'>.</span><span class='id identifier rubyid_class_eval'>class_eval</span> <span class='kw'>do</span>
+      <span class='id identifier rubyid_include'>include</span> <span class='const'>ActiveModelInstanceMethods</span>
+      <span class='id identifier rubyid_include'>include</span> <span class='const'>ActiveRecordInstanceMethods</span> <span class='kw'>if</span> <span class='kw'>defined?</span><span class='lparen'>(</span><span class='const'>ActiveRecord</span><span class='rparen'>)</span>
+      <span class='id identifier rubyid_include'>include</span> <span class='const'>ActiveModel</span><span class='op'>::</span><span class='const'>Conversion</span>
+      <span class='id identifier rubyid_include'>include</span> <span class='const'>ActiveModel</span><span class='op'>::</span><span class='const'>Validations</span>
+    <span class='kw'>end</span>
+    <span class='kw'>if</span> <span class='kw'>defined?</span><span class='lparen'>(</span><span class='const'>ActiveRecord</span><span class='rparen'>)</span>
+      <span class='lbracket'>[</span><span class='symbol'>:save</span><span class='comma'>,</span> <span class='symbol'>:update_attributes</span><span class='comma'>,</span> <span class='symbol'>:update</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_key'>key</span><span class='op'>|</span>
+        <span class='kw'>if</span> <span class='id identifier rubyid_stubs'>stubs</span><span class='lbracket'>[</span><span class='id identifier rubyid_key'>key</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='kw'>false</span>
+          <span class='const'>RSpec</span><span class='op'>::</span><span class='const'>Mocks</span><span class='period'>.</span><span class='id identifier rubyid_allow_message'>allow_message</span><span class='lparen'>(</span><span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span class='id identifier rubyid_errors'>errors</span><span class='comma'>,</span> <span class='symbol'>:empty?</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_and_return'>and_return</span><span class='lparen'>(</span><span class='kw'>false</span><span class='rparen'>)</span>
+        <span class='kw'>end</span>
+      <span class='kw'>end</span>
+    <span class='kw'>end</span>
+    <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span class='id identifier rubyid___send__'>__send__</span><span class='lparen'>(</span><span class='symbol'>:__mock_proxy</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_instance_eval'>instance_eval</span><span class='lparen'>(</span><span class='heredoc_beg'>&lt;&lt;-CODE</span><span class='comma'>,</span> <span class='kw'>__FILE__</span><span class='comma'>,</span> <span class='kw'>__LINE__</span><span class='rparen'>)</span>
+<span class='tstring_content'>      def @object.is_a?(other)
+        </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_model_class'>model_class</span><span class='embexpr_end'>}</span><span class='tstring_content'>.ancestors.include?(other)
+      end unless </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_stubs'>stubs</span><span class='period'>.</span><span class='id identifier rubyid_has_key?'>has_key?</span><span class='lparen'>(</span><span class='symbeg'>:</span><span class='id identifier rubyid_is_a?'>is_a?</span><span class='rparen'>)</span><span class='embexpr_end'>}</span><span class='tstring_content'>
+
+      def @object.kind_of?(other)
+        </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_model_class'>model_class</span><span class='embexpr_end'>}</span><span class='tstring_content'>.ancestors.include?(other)
+      end unless </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_stubs'>stubs</span><span class='period'>.</span><span class='id identifier rubyid_has_key?'>has_key?</span><span class='lparen'>(</span><span class='symbeg'>:</span><span class='id identifier rubyid_kind_of?'>kind_of?</span><span class='rparen'>)</span><span class='embexpr_end'>}</span><span class='tstring_content'>
+
+      def @object.instance_of?(other)
+        other == </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_model_class'>model_class</span><span class='embexpr_end'>}</span><span class='tstring_content'>
+      end unless </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_stubs'>stubs</span><span class='period'>.</span><span class='id identifier rubyid_has_key?'>has_key?</span><span class='lparen'>(</span><span class='symbeg'>:</span><span class='id identifier rubyid_instance_of?'>instance_of?</span><span class='rparen'>)</span><span class='embexpr_end'>}</span><span class='tstring_content'>
+
+      def @object.__model_class_has_column?(method_name)
+        </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_model_class'>model_class</span><span class='embexpr_end'>}</span><span class='tstring_content'>.respond_to?(:column_names) &amp;&amp; </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_model_class'>model_class</span><span class='embexpr_end'>}</span><span class='tstring_content'>.column_names.include?(method_name.to_s)
+      end
+
+      def @object.has_attribute?(attr_name)
+        __model_class_has_column?(attr_name)
+      end unless </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_stubs'>stubs</span><span class='period'>.</span><span class='id identifier rubyid_has_key?'>has_key?</span><span class='lparen'>(</span><span class='symbeg'>:</span><span class='id identifier rubyid_has_attribute?'>has_attribute?</span><span class='rparen'>)</span><span class='embexpr_end'>}</span><span class='tstring_content'>
+
+      def @object.respond_to?(method_name, include_private=false)
+        __model_class_has_column?(method_name) ? true : super
+      end unless </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_stubs'>stubs</span><span class='period'>.</span><span class='id identifier rubyid_has_key?'>has_key?</span><span class='lparen'>(</span><span class='symbeg'>:</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='rparen'>)</span><span class='embexpr_end'>}</span><span class='tstring_content'>
+
+      def @object.method_missing(m, *a, &amp;b)
+        respond_to?(m) ? null_object? ? self : nil : super
+      end
+
+      def @object.class
+        </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_model_class'>model_class</span><span class='embexpr_end'>}</span><span class='tstring_content'>
+      end unless </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_stubs'>stubs</span><span class='period'>.</span><span class='id identifier rubyid_has_key?'>has_key?</span><span class='lparen'>(</span><span class='symbeg'>:</span><span class='kw'>class</span><span class='rparen'>)</span><span class='embexpr_end'>}</span><span class='tstring_content'>
+
+      def @object.to_s
+        &quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_model_class'>model_class</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='embexpr_end'>}</span><span class='tstring_content'>_</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_to_param'>to_param</span><span class='embexpr_end'>}</span><span class='tstring_content'>&quot;
+      end unless </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_stubs'>stubs</span><span class='period'>.</span><span class='id identifier rubyid_has_key?'>has_key?</span><span class='lparen'>(</span><span class='symbeg'>:</span><span class='id identifier rubyid_to_s'>to_s</span><span class='rparen'>)</span><span class='embexpr_end'>}</span><span class='tstring_content'>
+</span><span class='heredoc_end'>    CODE
+</span>    <span class='kw'>yield</span> <span class='id identifier rubyid_m'>m</span> <span class='kw'>if</span> <span class='id identifier rubyid_block_given?'>block_given?</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="stub_model-instance_method">
+  
+    - (<tt>Object</tt>) <strong>stub_model</strong>(model_class, stubs = {}) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Creates an instance of <code>Model</code> with <code>to_param</code> stubbed using a
+generated value that is unique to each object. If <code>Model</code> is an
+<code>ActiveRecord</code> model, it is prohibited from accessing the database*.</p>
+
+<p>For each key in <code>stubs</code>, if the model has a matching attribute
+(determined by <code>respond_to?</code>) it is simply assigned the submitted values.
+If the model does not have a matching attribute, the key/value pair is
+assigned as a stub return value using RSpec&#39;s mocking/stubbing
+framework.</p>
+
+<p><tt>persisted?</tt> is overridden to return the result of !id.nil?
+This means that by default persisted? will return true. If  you want
+the object to behave as a new record, sending it <code>as_new_record</code> will
+set the id to nil. You can also explicitly set :id =&gt; nil, in which
+case persisted? will return false, but using <code>as_new_record</code> makes the
+example a bit more descriptive.</p>
+
+<p>While you can use stub_model in any example (model, view, controller,
+helper), it is especially useful in view examples, which are
+inherently more state-based than interaction-based.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code>
+<span class='id identifier rubyid_stub_model'>stub_model</span><span class='lparen'>(</span><span class='const'>Person</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_stub_model'>stub_model</span><span class='lparen'>(</span><span class='const'>Person</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_as_new_record'>as_new_record</span>
+<span class='id identifier rubyid_stub_model'>stub_model</span><span class='lparen'>(</span><span class='const'>Person</span><span class='comma'>,</span> <span class='symbol'>:to_param</span> <span class='op'>=&gt;</span> <span class='int'>37</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_stub_model'>stub_model</span><span class='lparen'>(</span><span class='const'>Person</span><span class='rparen'>)</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_person'>person</span><span class='op'>|</span> <span class='id identifier rubyid_person'>person</span><span class='period'>.</span><span class='id identifier rubyid_first_name'>first_name</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>David</span><span class='tstring_end'>&quot;</span></span><span class='rbrace'>}</span></code></pre>
+    
+  </div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245
+246
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/rails/mocks.rb', line 236</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_stub_model'>stub_model</span><span class='lparen'>(</span><span class='id identifier rubyid_model_class'>model_class</span><span class='comma'>,</span> <span class='id identifier rubyid_stubs'>stubs</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_model_class'>model_class</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='period'>.</span><span class='id identifier rubyid_tap'>tap</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_m'>m</span><span class='op'>|</span>
+    <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span class='id identifier rubyid_extend'>extend</span> <span class='const'>ActiveModelStubExtensions</span>
+    <span class='kw'>if</span> <span class='kw'>defined?</span><span class='lparen'>(</span><span class='const'>ActiveRecord</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_model_class'>model_class</span> <span class='op'>&lt;</span> <span class='const'>ActiveRecord</span><span class='op'>::</span><span class='const'>Base</span>
+      <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span class='id identifier rubyid_extend'>extend</span> <span class='const'>ActiveRecordStubExtensions</span>
+      <span class='id identifier rubyid_primary_key'>primary_key</span> <span class='op'>=</span> <span class='id identifier rubyid_model_class'>model_class</span><span class='period'>.</span><span class='id identifier rubyid_primary_key'>primary_key</span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span>
+      <span class='id identifier rubyid_stubs'>stubs</span> <span class='op'>=</span> <span class='id identifier rubyid_stubs'>stubs</span><span class='period'>.</span><span class='id identifier rubyid_reverse_merge'>reverse_merge</span><span class='lparen'>(</span><span class='id identifier rubyid_primary_key'>primary_key</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_next_id'>next_id</span><span class='rparen'>)</span>
+      <span class='id identifier rubyid_stubs'>stubs</span> <span class='op'>=</span> <span class='id identifier rubyid_stubs'>stubs</span><span class='period'>.</span><span class='id identifier rubyid_reverse_merge'>reverse_merge</span><span class='lparen'>(</span><span class='symbol'>:persisted?</span> <span class='op'>=&gt;</span> <span class='op'>!</span><span class='op'>!</span><span class='id identifier rubyid_stubs'>stubs</span><span class='lbracket'>[</span><span class='id identifier rubyid_primary_key'>primary_key</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+    <span class='kw'>else</span>
+      <span class='id identifier rubyid_stubs'>stubs</span> <span class='op'>=</span> <span class='id identifier rubyid_stubs'>stubs</span><span class='period'>.</span><span class='id identifier rubyid_reverse_merge'>reverse_merge</span><span class='lparen'>(</span><span class='symbol'>:id</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_next_id'>next_id</span><span class='rparen'>)</span>
+      <span class='id identifier rubyid_stubs'>stubs</span> <span class='op'>=</span> <span class='id identifier rubyid_stubs'>stubs</span><span class='period'>.</span><span class='id identifier rubyid_reverse_merge'>reverse_merge</span><span class='lparen'>(</span><span class='symbol'>:persisted?</span> <span class='op'>=&gt;</span> <span class='op'>!</span><span class='op'>!</span><span class='id identifier rubyid_stubs'>stubs</span><span class='lbracket'>[</span><span class='symbol'>:id</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+    <span class='id identifier rubyid_stubs'>stubs</span> <span class='op'>=</span> <span class='id identifier rubyid_stubs'>stubs</span><span class='period'>.</span><span class='id identifier rubyid_reverse_merge'>reverse_merge</span><span class='lparen'>(</span><span class='symbol'>:blank?</span> <span class='op'>=&gt;</span> <span class='kw'>false</span><span class='rparen'>)</span>
+
+    <span class='id identifier rubyid_stubs'>stubs</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_message'>message</span><span class='comma'>,</span> <span class='id identifier rubyid_return_value'>return_value</span><span class='op'>|</span>
+      <span class='kw'>if</span> <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_message'>message</span><span class='embexpr_end'>}</span><span class='tstring_content'>=</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+        <span class='id identifier rubyid_m'>m</span><span class='period'>.</span><span class='id identifier rubyid___send__'>__send__</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_message'>message</span><span class='embexpr_end'>}</span><span class='tstring_content'>=</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_return_value'>return_value</span><span class='rparen'>)</span>
+      <span class='kw'>else</span>
+        <span class='const'>RSpec</span><span class='op'>::</span><span class='const'>Mocks</span><span class='period'>.</span><span class='id identifier rubyid_allow_message'>allow_message</span><span class='lparen'>(</span><span class='id identifier rubyid_m'>m</span><span class='comma'>,</span> <span class='id identifier rubyid_message'>message</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_and_return'>and_return</span><span class='lparen'>(</span><span class='id identifier rubyid_return_value'>return_value</span><span class='rparen'>)</span>
+      <span class='kw'>end</span>
+    <span class='kw'>end</span>
+
+    <span class='kw'>yield</span> <span class='id identifier rubyid_m'>m</span> <span class='kw'>if</span> <span class='id identifier rubyid_block_given?'>block_given?</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+    <div id="footer">
+  Generated on Wed Jan 28 22:11:59 2015 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.3 (ruby-2.1.5).
+</div>
+
+  </body>
+</html>
