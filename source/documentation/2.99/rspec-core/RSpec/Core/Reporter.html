@@ -6,7 +6,7 @@
 <title>
   Class: RSpec::Core::Reporter
   
-    &mdash; Documentation by YARD 0.8.7.6
+    &mdash; Documentation by YARD 0.8.0
   
 </title>
 
@@ -17,7 +17,7 @@
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '../../';
-  framesUrl = "../../frames.html#!RSpec/Core/Reporter.html";
+  framesUrl = "../../frames.html#!" + escape(window.location.href);
 </script>
 
 
@@ -376,7 +376,7 @@ dump_failures dump_summary seed close stop deprecation deprecation_summary].map 
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#notify-instance_method" title="#notify (instance method)">- (Object) <strong>notify</strong>(event, *args, &amp;block) </a>
+      <a href="#notify-instance_method" title="#notify (instance method)">- (Object) <strong>notify</strong>(event, *args) </a>
     
 
     
@@ -524,7 +524,7 @@ dump_failures dump_summary seed close stop deprecation deprecation_summary].map 
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns a new instance of Reporter</p>
+    <p>A new instance of Reporter</p>
 
 
   </div>
@@ -901,7 +901,7 @@ dump_failures dump_summary seed close stop deprecation deprecation_summary].map 
       <div class="method_details ">
   <h3 class="signature " id="notify-instance_method">
   
-    - (<tt>Object</tt>) <strong>notify</strong>(event, *args, &amp;block) 
+    - (<tt>Object</tt>) <strong>notify</strong>(event, *args) 
   
 
   
@@ -1076,10 +1076,10 @@ supported in the future.</p>
     <p class="tag_title">Examples:</p>
     
       
-      <pre class="example code"><code>
+      <pre class="example code">
 <span class='id identifier rubyid_reporter'>reporter</span><span class='period'>.</span><span class='id identifier rubyid_report'>report</span><span class='lparen'>(</span><span class='id identifier rubyid_group'>group</span><span class='period'>.</span><span class='id identifier rubyid_examples'>examples</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_r'>r</span><span class='op'>|</span>
   <span class='id identifier rubyid_example_groups'>example_groups</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_g'>g</span><span class='op'>|</span> <span class='id identifier rubyid_g'>g</span><span class='period'>.</span><span class='id identifier rubyid_run'>run</span><span class='lparen'>(</span><span class='id identifier rubyid_r'>r</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
-<span class='kw'>end</span></code></pre>
+<span class='kw'>end</span></pre>
     
   </div>
 <p class="tag_title">Parameters:</p>
@@ -1235,9 +1235,9 @@ supported in the future.</p>
 </div>
 
     <div id="footer">
-  Generated on Thu Dec 18 08:14:26 2014 by
+  Generated on Wed Jan 28 22:10:23 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.6 (ruby-2.1.5).
+  0.8.0 (ruby-2.1.5).
 </div>
 
   </body>

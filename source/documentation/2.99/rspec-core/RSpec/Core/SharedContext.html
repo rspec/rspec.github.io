@@ -6,7 +6,7 @@
 <title>
   Module: RSpec::Core::SharedContext
   
-    &mdash; Documentation by YARD 0.8.7.6
+    &mdash; Documentation by YARD 0.8.0
   
 </title>
 
@@ -17,7 +17,7 @@
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '../../';
-  framesUrl = "../../frames.html#!RSpec/Core/SharedContext.html";
+  framesUrl = "../../frames.html#!" + escape(window.location.href);
 </script>
 
 
@@ -98,7 +98,7 @@ module in an <span class='object_link'><a href="ExampleGroup.html" title="RSpec:
     <p class="tag_title">Examples:</p>
     
       
-      <pre class="example code"><code>
+      <pre class="example code">
 <span class='kw'>module</span> <span class='const'>LoggedInAsAdmin</span>
   <span class='id identifier rubyid_extend'>extend</span> <span class='const'>RSpec</span><span class='op'>::</span><span class='const'>Core</span><span class='op'>::</span><span class='const'>SharedContext</span>
   <span class='id identifier rubyid_before'>before</span><span class='lparen'>(</span><span class='symbol'>:each</span><span class='rparen'>)</span> <span class='kw'>do</span>
@@ -109,7 +109,7 @@ module in an <span class='object_link'><a href="ExampleGroup.html" title="RSpec:
 <span class='id identifier rubyid_describe'>describe</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>admin section</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
   <span class='id identifier rubyid_include'>include</span> <span class='const'>LoggedInAsAdmin</span>
   <span class='comment'># ...
-</span><span class='kw'>end</span></code></pre>
+</span><span class='kw'>end</span></pre>
     
   </div>
 
@@ -379,9 +379,9 @@ module in an <span class='object_link'><a href="ExampleGroup.html" title="RSpec:
 </div>
 
     <div id="footer">
-  Generated on Thu Dec 18 08:14:25 2014 by
+  Generated on Wed Jan 28 22:10:23 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.6 (ruby-2.1.5).
+  0.8.0 (ruby-2.1.5).
 </div>
 
   </body>

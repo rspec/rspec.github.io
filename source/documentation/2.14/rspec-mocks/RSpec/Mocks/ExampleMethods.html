@@ -6,7 +6,7 @@
 <title>
   Module: RSpec::Mocks::ExampleMethods
   
-    &mdash; Documentation by YARD 0.8.7.6
+    &mdash; Documentation by YARD 0.8.0
   
 </title>
 
@@ -17,7 +17,7 @@
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '../../';
-  framesUrl = "../../frames.html#!RSpec/Mocks/ExampleMethods.html";
+  framesUrl = "../../frames.html#!" + escape(window.location.href);
 </script>
 
 
@@ -130,8 +130,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Disables warning messages about expectations being set on nil.</p>
+    <span class="summary_desc"><div class='inline'><p>Disables warning messages about expectations being set on nil.</p>
 </div></span>
   
 </li>
@@ -154,10 +153,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Constructs an instance of <a href="RSpec::Mocks::Mock">:Mocks::Mock</a>
-configured with an optional name, used for reporting in failure messages,
-and an optional hash of method/return-value pairs.</p>
+    <span class="summary_desc"><div class='inline'><p>Constructs an instance of <a href="RSpec::Mocks::Mock">RSpec::Mocks::Mock</a> configured
+with an optional name, used for reporting in failure messages, and an optional
+hash of method/return-value pairs.</p>
 </div></span>
   
 </li>
@@ -180,8 +178,7 @@ and an optional hash of method/return-value pairs.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Verifies that the given object received the expected message during the
+    <span class="summary_desc"><div class='inline'><p>Verifies that the given object received the expected message during the
 course of the test.</p>
 </div></span>
   
@@ -205,8 +202,7 @@ course of the test.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Hides the named constant with the given value.</p>
+    <span class="summary_desc"><div class='inline'><p>Hides the named constant with the given value.</p>
 </div></span>
   
 </li>
@@ -229,8 +225,7 @@ course of the test.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Deprecated: Use <a href="#double-instance_method">double</a>.</p>
+    <span class="summary_desc"><div class='inline'><p>Deprecated: Use <a href="#double-instance_method">double</a>.</p>
 </div></span>
   
 </li>
@@ -253,8 +248,7 @@ course of the test.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Deprecated: Use <a href="#double-instance_method">double</a>.</p>
+    <span class="summary_desc"><div class='inline'><p>Deprecated: Use <a href="#double-instance_method">double</a>.</p>
 </div></span>
   
 </li>
@@ -277,8 +271,7 @@ course of the test.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Stubs the named constant with the given value.</p>
+    <span class="summary_desc"><div class='inline'><p>Stubs the named constant with the given value.</p>
 </div></span>
   
 </li>
@@ -315,11 +308,11 @@ course of the test.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Disables warning messages about expectations being set on nil.</p>
+    <p>Disables warning messages about expectations being set on nil.</p>
 
-<p>By default warning messages are issued when expectations are set on nil.
-This is to prevent false-positives and to catch potential bugs early on.</p>
+<p>By default warning messages are issued when expectations are set on
+nil.  This is to prevent false-positives and to catch potential bugs
+early on.</p>
 
 
   </div>
@@ -352,13 +345,13 @@ This is to prevent false-positives and to catch potential bugs early on.</p>
   <h3 class="signature " id="double-instance_method">
   
     
-      <span class="overload">- (<tt>Mock</tt>) <strong>double</strong> </span>
+      <span class="overload">- (<tt><span class='object_link'><a href="Mock.html" title="RSpec::Mocks::Mock (class)">Mock</a></span></tt>) <strong>double</strong> </span>
     
-      <span class="overload">- (<tt>Mock</tt>) <strong>double</strong>(name) </span>
+      <span class="overload">- (<tt><span class='object_link'><a href="Mock.html" title="RSpec::Mocks::Mock (class)">Mock</a></span></tt>) <strong>double</strong>(name) </span>
     
-      <span class="overload">- (<tt>Mock</tt>) <strong>double</strong>(stubs) </span>
+      <span class="overload">- (<tt><span class='object_link'><a href="Mock.html" title="RSpec::Mocks::Mock (class)">Mock</a></span></tt>) <strong>double</strong>(stubs) </span>
     
-      <span class="overload">- (<tt>Mock</tt>) <strong>double</strong>(name, stubs) </span>
+      <span class="overload">- (<tt><span class='object_link'><a href="Mock.html" title="RSpec::Mocks::Mock (class)">Mock</a></span></tt>) <strong>double</strong>(name, stubs) </span>
     
   
 
@@ -367,10 +360,9 @@ This is to prevent false-positives and to catch potential bugs early on.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Constructs an instance of <a href="RSpec::Mocks::Mock">:Mocks::Mock</a>
-configured with an optional name, used for reporting in failure messages,
-and an optional hash of method/return-value pairs.</p>
+    <p>Constructs an instance of <a href="RSpec::Mocks::Mock">RSpec::Mocks::Mock</a> configured
+with an optional name, used for reporting in failure messages, and an optional
+hash of method/return-value pairs.</p>
 
 
   </div>
@@ -381,13 +373,13 @@ and an optional hash of method/return-value pairs.</p>
     <p class="tag_title">Examples:</p>
     
       
-      <pre class="example code"><code>
+      <pre class="example code">
 <span class='id identifier rubyid_book'>book</span> <span class='op'>=</span> <span class='id identifier rubyid_double'>double</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>book</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:title</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>The RSpec Book</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
 <span class='id identifier rubyid_book'>book</span><span class='period'>.</span><span class='id identifier rubyid_title'>title</span> <span class='comment'>#=&gt; &quot;The RSpec Book&quot;
 </span>
 <span class='id identifier rubyid_card'>card</span> <span class='op'>=</span> <span class='id identifier rubyid_double'>double</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>card</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:suit</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Spades</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:rank</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>A</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
 <span class='id identifier rubyid_card'>card</span><span class='period'>.</span><span class='id identifier rubyid_suit'>suit</span>  <span class='comment'>#=&gt; &quot;Spades&quot;
-</span><span class='id identifier rubyid_card'>card</span><span class='period'>.</span><span class='id identifier rubyid_rank'>rank</span>  <span class='comment'>#=&gt; &quot;A&quot;</span></code></pre>
+</span><span class='id identifier rubyid_card'>card</span><span class='period'>.</span><span class='id identifier rubyid_rank'>rank</span>  <span class='comment'>#=&gt; &quot;A&quot;</span></pre>
     
   </div>
 <p class="tag_title">Parameters:</p>
@@ -403,8 +395,8 @@ and an optional hash of method/return-value pairs.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>(optional) used in clarify intent</p>
+        <div class='inline'><p>(optional) used in
+clarify intent</p>
 </div>
       
     </li>
@@ -419,8 +411,7 @@ and an optional hash of method/return-value pairs.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>(optional) hash of method/return-value pairs</p>
+        <div class='inline'><p>(optional) hash of method/return-value pairs</p>
 </div>
       
     </li>
@@ -433,7 +424,7 @@ and an optional hash of method/return-value pairs.</p>
     <li>
       
       
-        <span class='type'>(<tt>Mock</tt>)</span>
+        <span class='type'>(<tt><span class='object_link'><a href="Mock.html" title="RSpec::Mocks::Mock (class)">Mock</a></span></tt>)</span>
       
       
       
@@ -482,13 +473,12 @@ and an optional hash of method/return-value pairs.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Verifies that the given object received the expected message during the
-course of the test. The method must have previously been stubbed in order
-for messages to be verified.</p>
+    <p>Verifies that the given object received the expected message during the
+course of the test. The method must have previously been stubbed in
+order for messages to be verified.</p>
 
-<p>Stubbing and verifying messages received in this way implements the Test
-Spy pattern.</p>
+<p>Stubbing and verifying messages received in this way implements the
+Test Spy pattern.</p>
 
 
   </div>
@@ -499,13 +489,13 @@ Spy pattern.</p>
     <p class="tag_title">Examples:</p>
     
       
-      <pre class="example code"><code>
+      <pre class="example code">
 <span class='id identifier rubyid_invitation'>invitation</span> <span class='op'>=</span> <span class='id identifier rubyid_double'>double</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>invitation</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>accept:</span> <span class='kw'>true</span><span class='rparen'>)</span>
 <span class='id identifier rubyid_user'>user</span><span class='period'>.</span><span class='id identifier rubyid_accept_invitation'>accept_invitation</span><span class='lparen'>(</span><span class='id identifier rubyid_invitation'>invitation</span><span class='rparen'>)</span>
 <span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_invitation'>invitation</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_have_received'>have_received</span><span class='lparen'>(</span><span class='symbol'>:accept</span><span class='rparen'>)</span>
 
 <span class='comment'># You can also use most message expectations:
-</span><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_invitation'>invitation</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_have_received'>have_received</span><span class='lparen'>(</span><span class='symbol'>:accept</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_with'>with</span><span class='lparen'>(</span><span class='id identifier rubyid_mailer'>mailer</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_once'>once</span></code></pre>
+</span><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_invitation'>invitation</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_have_received'>have_received</span><span class='lparen'>(</span><span class='symbol'>:accept</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_with'>with</span><span class='lparen'>(</span><span class='id identifier rubyid_mailer'>mailer</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_once'>once</span></pre>
     
   </div>
 <p class="tag_title">Parameters:</p>
@@ -521,8 +511,8 @@ Spy pattern.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>name of the method expected to have been called.</p>
+        <div class='inline'><p>name of the method expected to have been
+called.</p>
 </div>
       
     </li>
@@ -562,12 +552,11 @@ Spy pattern.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Hides the named constant with the given value. The constant will be
+    <p>Hides the named constant with the given value. The constant will be
 undefined for the duration of the test.</p>
 
-<p>Like method stubs, the constant will be restored to its original value when
-the example completes.</p>
+<p>Like method stubs, the constant will be restored to its original value
+when the example completes.</p>
 
 
   </div>
@@ -578,8 +567,8 @@ the example completes.</p>
     <p class="tag_title">Examples:</p>
     
       
-      <pre class="example code"><code>
-<span class='id identifier rubyid_hide_const'>hide_const</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>MyClass</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='comment'># =&gt; MyClass is now an undefined constant</span></code></pre>
+      <pre class="example code">
+<span class='id identifier rubyid_hide_const'>hide_const</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>MyClass</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='comment'># =&gt; MyClass is now an undefined constant</span></pre>
     
   </div>
 <p class="tag_title">Parameters:</p>
@@ -595,9 +584,8 @@ the example completes.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>The fully qualified name of the constant. The current constant scoping at
-the point of call is not considered.</p>
+        <div class='inline'><p>The fully qualified name of the constant.
+The current constant scoping at the point of call is not considered.</p>
 </div>
       
     </li>
@@ -637,8 +625,7 @@ the point of call is not considered.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Deprecated: Use <a href="#double-instance_method">double</a>.</p>
+    <p>Deprecated: Use <a href="#double-instance_method">double</a>.</p>
 
 
   </div>
@@ -680,8 +667,7 @@ the point of call is not considered.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Deprecated: Use <a href="#double-instance_method">double</a>.</p>
+    <p>Deprecated: Use <a href="#double-instance_method">double</a>.</p>
 
 
   </div>
@@ -723,9 +709,9 @@ the point of call is not considered.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Stubs the named constant with the given value. Like method stubs, the
-constant will be restored to its original value (or lack of one, if it was
+    <p>Stubs the named constant with the given value.
+Like method stubs, the constant will be restored
+to its original value (or lack of one, if it was
 undefined) when the example completes.</p>
 
 
@@ -737,7 +723,7 @@ undefined) when the example completes.</p>
     <p class="tag_title">Examples:</p>
     
       
-      <pre class="example code"><code>
+      <pre class="example code">
 <span class='id identifier rubyid_stub_const'>stub_const</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>MyClass</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='const'>Class</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='rparen'>)</span> <span class='comment'># =&gt; Replaces (or defines) MyClass with a new class object.
 </span><span class='id identifier rubyid_stub_const'>stub_const</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>SomeModel::PER_PAGE</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='int'>5</span><span class='rparen'>)</span> <span class='comment'># =&gt; Sets SomeModel::PER_PAGE to 5.
 </span>
@@ -756,7 +742,7 @@ undefined) when the example completes.</p>
 </span>
 <span class='id identifier rubyid_stub_const'>stub_const</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>CardDeck</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='const'>Class</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='comma'>,</span> <span class='symbol'>:transfer_nested_constants</span> <span class='op'>=&gt;</span> <span class='lbracket'>[</span><span class='symbol'>:SUITS</span><span class='rbracket'>]</span><span class='rparen'>)</span>
 <span class='const'>CardDeck</span><span class='op'>::</span><span class='const'>SUITS</span> <span class='comment'># =&gt; our suits array
-</span><span class='const'>CardDeck</span><span class='op'>::</span><span class='const'>NUM_CARDS</span> <span class='comment'># =&gt; uninitialized constant error</span></code></pre>
+</span><span class='const'>CardDeck</span><span class='op'>::</span><span class='const'>NUM_CARDS</span> <span class='comment'># =&gt; uninitialized constant error</span></pre>
     
   </div>
 <p class="tag_title">Parameters:</p>
@@ -772,9 +758,8 @@ undefined) when the example completes.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>The fully qualified name of the constant. The current constant scoping at
-the point of call is not considered.</p>
+        <div class='inline'><p>The fully qualified name of the constant. The current
+constant scoping at the point of call is not considered.</p>
 </div>
       
     </li>
@@ -789,9 +774,8 @@ the point of call is not considered.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>The value to make the constant refer to. When the example completes, the
-constant will be restored to its prior state.</p>
+        <div class='inline'><p>The value to make the constant refer to. When the
+example completes, the constant will be restored to its prior state.</p>
 </div>
       
     </li>
@@ -808,8 +792,7 @@ constant will be restored to its prior state.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>Stubbing options.</p>
+        <div class='inline'><p>Stubbing options.</p>
 </div>
       
     </li>
@@ -832,13 +815,11 @@ constant will be restored to its prior state.</p>
           <span class="default">
             
           </span>
-          
-            &mdash; <div class='inline'>
-<p>Determines what nested constants, if any, will be transferred from the
-original value of the constant to the new value of the constant. This only
-works if both the original and new values are modules (or classes).</p>
+          &mdash; <div class='inline'><p>Determines
+what nested constants, if any, will be transferred from the original value
+of the constant to the new value of the constant. This only works if both
+the original and new values are modules (or classes).</p>
 </div>
-          
         </li>
       
     </ul>
@@ -855,8 +836,7 @@ works if both the original and new values are modules (or classes).</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>the stubbed value of the constant</p>
+        <div class='inline'><p>the stubbed value of the constant</p>
 </div>
       
     </li>
@@ -889,9 +869,9 @@ works if both the original and new values are modules (or classes).</p>
 </div>
 
     <div id="footer">
-  Generated on Thu Dec 18 08:30:22 2014 by
+  Generated on Wed Jan 28 22:11:54 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.6 (ruby-2.1.5).
+  0.8.0 (ruby-2.1.5).
 </div>
 
   </body>

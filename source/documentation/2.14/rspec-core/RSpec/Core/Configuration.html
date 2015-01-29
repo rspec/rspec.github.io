@@ -6,7 +6,7 @@
 <title>
   Class: RSpec::Core::Configuration
   
-    &mdash; Documentation by YARD 0.8.7.6
+    &mdash; Documentation by YARD 0.8.0
   
 </title>
 
@@ -17,7 +17,7 @@
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '../../';
-  framesUrl = "../../frames.html#!RSpec/Core/Configuration.html";
+  framesUrl = "../../frames.html#!" + escape(window.location.href);
 </script>
 
 
@@ -124,21 +124,21 @@ in <code>~/.rspec</code> can be overridden by an option in <code>.rspec-local</c
         <p class="example_title"><div class='inline'><p>Standard settings</p>
 </div></p>
       
-      <pre class="example code"><code><span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_configure'>configure</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_c'>c</span><span class='op'>|</span>
+      <pre class="example code"><span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_configure'>configure</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_c'>c</span><span class='op'>|</span>
   <span class='id identifier rubyid_c'>c</span><span class='period'>.</span><span class='id identifier rubyid_drb'>drb</span>          <span class='op'>=</span> <span class='kw'>true</span>
   <span class='id identifier rubyid_c'>c</span><span class='period'>.</span><span class='id identifier rubyid_drb_port'>drb_port</span>     <span class='op'>=</span> <span class='int'>1234</span>
   <span class='id identifier rubyid_c'>c</span><span class='period'>.</span><span class='id identifier rubyid_default_path'>default_path</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>behavior</span><span class='tstring_end'>&#39;</span></span>
-<span class='kw'>end</span></code></pre>
+<span class='kw'>end</span></pre>
     
       
         <p class="example_title"><div class='inline'><p>Hooks</p>
 </div></p>
       
-      <pre class="example code"><code><span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_configure'>configure</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_c'>c</span><span class='op'>|</span>
+      <pre class="example code"><span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_configure'>configure</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_c'>c</span><span class='op'>|</span>
   <span class='id identifier rubyid_c'>c</span><span class='period'>.</span><span class='id identifier rubyid_before'>before</span><span class='lparen'>(</span><span class='symbol'>:suite</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_establish_connection'>establish_connection</span> <span class='rbrace'>}</span>
   <span class='id identifier rubyid_c'>c</span><span class='period'>.</span><span class='id identifier rubyid_before'>before</span><span class='lparen'>(</span><span class='symbol'>:each</span><span class='rparen'>)</span>  <span class='lbrace'>{</span> <span class='id identifier rubyid_log_in_as'>log_in_as</span> <span class='symbol'>:authorized</span> <span class='rbrace'>}</span>
   <span class='id identifier rubyid_c'>c</span><span class='period'>.</span><span class='id identifier rubyid_around'>around</span><span class='lparen'>(</span><span class='symbol'>:each</span><span class='rparen'>)</span>  <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_ex'>ex</span><span class='op'>|</span> <span class='const'>Database</span><span class='period'>.</span><span class='id identifier rubyid_transaction'>transaction</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_ex'>ex</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
-<span class='kw'>end</span></code></pre>
+<span class='kw'>end</span></pre>
     
   </div>
 
@@ -167,6 +167,12 @@ in <code>~/.rspec</code> can be overridden by an option in <code>.rspec-local</c
   
 
 
+
+  <h2>Constant Summary</h2>
+  
+  <h3 class="inherited">Constants included
+     from <span class='object_link'><a href="Hooks.html" title="RSpec::Core::Hooks (module)">Hooks</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="Hooks.html#HOOK_TYPES-constant" title="RSpec::Core::Hooks::HOOK_TYPES (constant)">Hooks::HOOK_TYPES</a></span>, <span class='object_link'><a href="Hooks.html#SCOPES-constant" title="RSpec::Core::Hooks::SCOPES (constant)">Hooks::SCOPES</a></span></p>
 
 
   <h2>Instance Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
@@ -278,7 +284,8 @@ in <code>~/.rspec</code> can be overridden by an option in <code>.rspec-local</c
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Creates a method that delegates to <code>example</code> including the submitted <code>args</code>.</p>
+    <span class="summary_desc"><div class='inline'><p>Creates a method that delegates to <code>example</code> including the submitted
+<code>args</code>.</p>
 </div></span>
   
 </li>
@@ -303,7 +310,9 @@ in <code>~/.rspec</code> can be overridden by an option in <code>.rspec-local</c
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Define an alias for it_should_behave_like that allows different language (like &quot;it_has_behavior&quot; or &quot;it_behaves_like&quot;) to be employed when including shared examples.</p>
+    <span class="summary_desc"><div class='inline'><p>Define an alias for it<em>should</em>behave<em>like that allows different
+language (like &quot;it</em>has<em>behavior&quot; or &quot;it</em>behaves_like&quot;) to be
+employed when including shared examples.</p>
 </div></span>
   
 </li>
@@ -599,7 +608,8 @@ in <code>~/.rspec</code> can be overridden by an option in <code>.rspec-local</c
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Sets the expectation framework module(s) to be included in each example group.</p>
+    <span class="summary_desc"><div class='inline'><p>Sets the expectation framework module(s) to be included in each example
+group.</p>
 </div></span>
   
 </li>
@@ -725,7 +735,7 @@ in <code>~/.rspec</code> can be overridden by an option in <code>.rspec-local</c
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#format_docstrings-instance_method" title="#format_docstrings (instance method)">- (Object) <strong>format_docstrings</strong>(&amp;block) </a>
+      <a href="#format_docstrings-instance_method" title="#format_docstrings (instance method)">- (Object) <strong>format_docstrings</strong> </a>
     
 
     
@@ -1106,7 +1116,7 @@ in <code>~/.rspec</code> can be overridden by an option in <code>.rspec-local</c
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Sets the order and, if order is <code>&#39;rand:&#39;</code>, also sets the seed.</p>
+    <span class="summary_desc"><div class='inline'><p>Sets the order and, if order is <code>&#39;rand:&lt;seed&gt;&#39;</code>, also sets the seed.</p>
 </div></span>
   
 </li>
@@ -1115,7 +1125,7 @@ in <code>~/.rspec</code> can be overridden by an option in <code>.rspec-local</c
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#order_examples-instance_method" title="#order_examples (instance method)">- (Object) <strong>order_examples</strong>(&amp;block) </a>
+      <a href="#order_examples-instance_method" title="#order_examples (instance method)">- (Object) <strong>order_examples</strong> </a>
     
 
     
@@ -1138,7 +1148,7 @@ in <code>~/.rspec</code> can be overridden by an option in <code>.rspec-local</c
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#order_groups-instance_method" title="#order_groups (instance method)">- (Object) <strong>order_groups</strong>(&amp;block) </a>
+      <a href="#order_groups-instance_method" title="#order_groups (instance method)">- (Object) <strong>order_groups</strong> </a>
     
 
     
@@ -1161,7 +1171,7 @@ in <code>~/.rspec</code> can be overridden by an option in <code>.rspec-local</c
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#order_groups_and_examples-instance_method" title="#order_groups_and_examples (instance method)">- (Object) <strong>order_groups_and_examples</strong>(&amp;block) </a>
+      <a href="#order_groups_and_examples-instance_method" title="#order_groups_and_examples (instance method)">- (Object) <strong>order_groups_and_examples</strong> </a>
     
 
     
@@ -1400,7 +1410,7 @@ in <code>~/.rspec</code> can be overridden by an option in <code>.rspec-local</c
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns a new instance of Configuration</p>
+    <p>A new instance of Configuration</p>
 
 
   </div>
@@ -1484,6 +1494,7 @@ in <code>~/.rspec</code> can be overridden by an option in <code>.rspec-local</c
     
       
       <span id=""></span>
+      <span id="backtrace_cleaner-instance_method"></span>
       <div class="method_details first">
   <h3 class="signature first" id="backtrace_cleaner-instance_method">
   
@@ -1614,13 +1625,13 @@ private api that may change at any time without notice.</p>
   <div class="discussion">
     <p>Adds a custom setting to the RSpec.configuration object.</p>
 
-<pre class="code ruby"><code class="ruby"><span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_configuration'>configuration</span><span class='period'>.</span><span class='id identifier rubyid_add_setting'>add_setting</span> <span class='symbol'>:foo</span>
+<pre class="code ruby"><code><span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_configuration'>configuration</span><span class='period'>.</span><span class='id identifier rubyid_add_setting'>add_setting</span> <span class='symbol'>:foo</span>
 </code></pre>
 
 <p>Used internally and by extension frameworks like rspec-rails, so they
 can add config settings that are domain specific. For example:</p>
 
-<pre class="code ruby"><code class="ruby"><span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_configure'>configure</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_c'>c</span><span class='op'>|</span>
+<pre class="code ruby"><code><span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_configure'>configure</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_c'>c</span><span class='op'>|</span>
   <span class='id identifier rubyid_c'>c</span><span class='period'>.</span><span class='id identifier rubyid_add_setting'>add_setting</span> <span class='symbol'>:use_transactional_fixtures</span><span class='comma'>,</span>
     <span class='symbol'>:default</span> <span class='op'>=&gt;</span> <span class='kw'>true</span><span class='comma'>,</span>
     <span class='symbol'>:alias_with</span> <span class='op'>=&gt;</span> <span class='symbol'>:use_transactional_examples</span>
@@ -1630,7 +1641,7 @@ can add config settings that are domain specific. For example:</p>
 <p><code>add_setting</code> creates three methods on the configuration object, a
 setter, a getter, and a predicate:</p>
 
-<pre class="code ruby"><code class="ruby"><span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_configuration'>configuration</span><span class='period'>.</span><span class='id identifier rubyid_foo'>foo</span><span class='op'>=</span><span class='lparen'>(</span><span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span>
+<pre class="code ruby"><code><span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_configuration'>configuration</span><span class='period'>.</span><span class='id identifier rubyid_foo'>foo</span><span class='op'>=</span><span class='lparen'>(</span><span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span>
 <span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_configuration'>configuration</span><span class='period'>.</span><span class='id identifier rubyid_foo'>foo</span>
 <span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_configuration'>configuration</span><span class='period'>.</span><span class='id identifier rubyid_foo?'>foo?</span> <span class='comment'># returns true if foo returns anything but nil or false
 </span></code></pre>
@@ -1675,13 +1686,11 @@ setter, a getter, and a predicate:</p>
           <span class="default">
             
           </span>
-          
-            &mdash; <div class='inline'><p>set a default value for the generated getter and predicate methods:</p>
+          &mdash; <div class='inline'><p>set a default value for the generated getter and predicate methods:</p>
 
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_add_setting'>add_setting</span><span class='lparen'>(</span><span class='symbol'>:foo</span><span class='comma'>,</span> <span class='symbol'>:default</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>default value</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<pre class="code ruby"><code><span class='id identifier rubyid_add_setting'>add_setting</span><span class='lparen'>(</span><span class='symbol'>:foo</span><span class='comma'>,</span> <span class='symbol'>:default</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>default value</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
 </code></pre>
 </div>
-          
         </li>
       
         <li>
@@ -1690,15 +1699,13 @@ setter, a getter, and a predicate:</p>
           <span class="default">
             
           </span>
-          
-            &mdash; <div class='inline'><p>Use <code>:alias_with</code> to alias the setter, getter, and predicate to another
+          &mdash; <div class='inline'><p>Use <code>:alias_with</code> to alias the setter, getter, and predicate to another
 name, or names:</p>
 
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_add_setting'>add_setting</span><span class='lparen'>(</span><span class='symbol'>:foo</span><span class='comma'>,</span> <span class='symbol'>:alias_with</span> <span class='op'>=&gt;</span> <span class='symbol'>:bar</span><span class='rparen'>)</span>
+<pre class="code ruby"><code><span class='id identifier rubyid_add_setting'>add_setting</span><span class='lparen'>(</span><span class='symbol'>:foo</span><span class='comma'>,</span> <span class='symbol'>:alias_with</span> <span class='op'>=&gt;</span> <span class='symbol'>:bar</span><span class='rparen'>)</span>
 <span class='id identifier rubyid_add_setting'>add_setting</span><span class='lparen'>(</span><span class='symbol'>:foo</span><span class='comma'>,</span> <span class='symbol'>:alias_with</span> <span class='op'>=&gt;</span> <span class='lbracket'>[</span><span class='symbol'>:bar</span><span class='comma'>,</span> <span class='symbol'>:baz</span><span class='rbracket'>]</span><span class='rparen'>)</span>
 </code></pre>
 </div>
-          
         </li>
       
     </ul>
@@ -1757,7 +1764,7 @@ name, or names:</p>
     <p class="tag_title">Examples:</p>
     
       
-      <pre class="example code"><code><span class='id identifier rubyid_alias_example_to'>alias_example_to</span> <span class='symbol'>:pending</span><span class='comma'>,</span> <span class='symbol'>:pending</span> <span class='op'>=&gt;</span> <span class='kw'>true</span>
+      <pre class="example code"><span class='id identifier rubyid_alias_example_to'>alias_example_to</span> <span class='symbol'>:pending</span><span class='comma'>,</span> <span class='symbol'>:pending</span> <span class='op'>=&gt;</span> <span class='kw'>true</span>
 
 <span class='comment'># This lets you do this:
 </span>
@@ -1773,7 +1780,7 @@ name, or names:</p>
   <span class='id identifier rubyid_it'>it</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>does something</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:pending</span> <span class='op'>=&gt;</span> <span class='kw'>true</span> <span class='kw'>do</span>
     <span class='id identifier rubyid_thing'>thing</span> <span class='op'>=</span> <span class='const'>Thing</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
   <span class='kw'>end</span>
-<span class='kw'>end</span></code></pre>
+<span class='kw'>end</span></pre>
     
   </div>
 
@@ -1816,18 +1823,18 @@ name, or names:</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Define an alias for it_should_behave_like that allows different
-language (like &quot;it_has_behavior&quot; or &quot;it_behaves_like&quot;) to be
+    <p>Define an alias for it<em>should</em>behave<em>like that allows different
+language (like &quot;it</em>has<em>behavior&quot; or &quot;it</em>behaves_like&quot;) to be
 employed when including shared examples.</p>
 
 <p>Example:</p>
 
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_alias_it_behaves_like_to'>alias_it_behaves_like_to</span><span class='lparen'>(</span><span class='symbol'>:it_has_behavior</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>has behavior:</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+<pre class="code ruby"><code><span class='id identifier rubyid_alias_it_behaves_like_to'>alias_it_behaves_like_to</span><span class='lparen'>(</span><span class='symbol'>:it_has_behavior</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>has behavior:</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
 </code></pre>
 
 <p>allows the user to include a shared example group like:</p>
 
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_describe'>describe</span> <span class='const'>Entity</span> <span class='kw'>do</span>
+<pre class="code ruby"><code><span class='id identifier rubyid_describe'>describe</span> <span class='const'>Entity</span> <span class='kw'>do</span>
   <span class='id identifier rubyid_it_has_behavior'>it_has_behavior</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>sortability</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>do</span>
     <span class='id identifier rubyid_let'>let</span><span class='lparen'>(</span><span class='symbol'>:sortable</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='const'>Entity</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span> <span class='rbrace'>}</span>
   <span class='kw'>end</span>
@@ -1836,7 +1843,7 @@ employed when including shared examples.</p>
 
 <p>which is reported in the output as:</p>
 
-<pre class="code ruby"><code class="ruby"><span class='const'>Entity</span>
+<pre class="code ruby"><code><span class='const'>Entity</span>
   <span class='id identifier rubyid_has'>has</span> <span class='label'>behavior:</span> <span class='id identifier rubyid_sortability'>sortability</span>
     <span class='comment'># sortability examples here
 </span></code></pre>
@@ -1880,9 +1887,9 @@ employed when including shared examples.</p>
 </h3><div class="docstring">
   <div class="discussion">
     <p>The patterns to discard from backtraces. Deprecated, use
-Configuration#backtrace_exclusion_patterns instead</p>
+Configuration#backtrace<em>exclusion</em>patterns instead</p>
 
-<p>Defaults to RSpec::Core::BacktraceCleaner::DEFAULT_EXCLUSION_PATTERNS</p>
+<p>Defaults to RSpec::Core::BacktraceCleaner::DEFAULT<em>EXCLUSION</em>PATTERNS</p>
 
 <p>One can replace the list by using the setter or modify it through the
 getter</p>
@@ -1969,7 +1976,7 @@ getter</p>
   <div class="discussion">
     <p>The patterns to discard from backtraces.</p>
 
-<p>Defaults to RSpec::Core::BacktraceCleaner::DEFAULT_EXCLUSION_PATTERNS</p>
+<p>Defaults to RSpec::Core::BacktraceCleaner::DEFAULT<em>EXCLUSION</em>PATTERNS</p>
 
 <p>One can replace the list by using the setter or modify it through the
 getter</p>
@@ -2421,7 +2428,7 @@ group.</p>
 <p><code>frameworks</code> can be <code>:rspec</code>, <code>:stdlib</code>, a custom module, or any
 combination thereof:</p>
 
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_expect_with'>expect_with</span> <span class='symbol'>:rspec</span>
+<pre class="code ruby"><code><span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_expect_with'>expect_with</span> <span class='symbol'>:rspec</span>
 <span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_expect_with'>expect_with</span> <span class='symbol'>:stdlib</span>
 <span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_expect_with'>expect_with</span> <span class='symbol'>:rspec</span><span class='comma'>,</span> <span class='symbol'>:stdlib</span>
 <span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_expect_with'>expect_with</span> <span class='const'>OtherExpectationFramework</span>
@@ -2435,7 +2442,7 @@ modules.</p>
 <p>If the module responds to <code>configuration</code>, <code>expect_with</code> will
 yield the <code>configuration</code> object if given a block:</p>
 
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_expect_with'>expect_with</span> <span class='const'>OtherExpectationFramework</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_custom_config'>custom_config</span><span class='op'>|</span>
+<pre class="code ruby"><code><span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_expect_with'>expect_with</span> <span class='const'>OtherExpectationFramework</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_custom_config'>custom_config</span><span class='op'>|</span>
   <span class='id identifier rubyid_custom_config'>custom_config</span><span class='period'>.</span><span class='id identifier rubyid_custom_setting'>custom_setting</span> <span class='op'>=</span> <span class='kw'>true</span>
 <span class='kw'>end</span>
 </code></pre>
@@ -2629,7 +2636,7 @@ classes.</p>
     <p class="tag_title">Examples:</p>
     
       
-      <pre class="example code"><code>
+      <pre class="example code">
 <span class='kw'>module</span> <span class='const'>UiHelpers</span>
   <span class='kw'>def</span> <span class='id identifier rubyid_run_in_browser'>run_in_browser</span>
     <span class='comment'># ...
@@ -2646,7 +2653,7 @@ classes.</p>
   <span class='id identifier rubyid_it'>it</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>does stuff in the client</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
     <span class='comment'># ...
 </span>  <span class='kw'>end</span>
-<span class='kw'>end</span></code></pre>
+<span class='kw'>end</span></pre>
     
   </div>
 
@@ -2709,7 +2716,7 @@ or config files (e.g. <code>.rspec</code>).</p>
     <p class="tag_title">Examples:</p>
     
       
-      <pre class="example code"><code><span class='comment'># given this declaration
+      <pre class="example code"><span class='comment'># given this declaration
 </span><span class='id identifier rubyid_describe'>describe</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>something</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:foo</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>bar</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>do</span>
   <span class='comment'># ...
 </span><span class='kw'>end</span>
@@ -2728,7 +2735,7 @@ or config files (e.g. <code>.rspec</code>).</p>
 </span><span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_filter_run_excluding'>filter_run_excluding</span> <span class='symbol'>:foo</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_lambda'>lambda</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_v'>v</span><span class='comma'>,</span><span class='id identifier rubyid_m'>m</span><span class='op'>|</span> <span class='id identifier rubyid_m'>m</span><span class='lbracket'>[</span><span class='symbol'>:foo</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>bar</span><span class='tstring_end'>&#39;</span></span><span class='rbrace'>}</span>
 
 <span class='comment'># with treat_symbols_as_metadata_keys_with_true_values = true
-</span><span class='id identifier rubyid_filter_run_excluding'>filter_run_excluding</span> <span class='symbol'>:foo</span> <span class='comment'># same as filter_run_excluding :foo =&gt; true</span></code></pre>
+</span><span class='id identifier rubyid_filter_run_excluding'>filter_run_excluding</span> <span class='symbol'>:foo</span> <span class='comment'># same as filter_run_excluding :foo =&gt; true</span></pre>
     
   </div>
 
@@ -2788,7 +2795,7 @@ or config files (e.g. <code>.rspec</code>).</p>
     <p class="tag_title">Examples:</p>
     
       
-      <pre class="example code"><code><span class='comment'># given this declaration
+      <pre class="example code"><span class='comment'># given this declaration
 </span><span class='id identifier rubyid_describe'>describe</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>something</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:foo</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>bar</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>do</span>
   <span class='comment'># ...
 </span><span class='kw'>end</span>
@@ -2807,7 +2814,7 @@ or config files (e.g. <code>.rspec</code>).</p>
 </span><span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_filter_run_including'>filter_run_including</span> <span class='symbol'>:foo</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_lambda'>lambda</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_v'>v</span><span class='comma'>,</span><span class='id identifier rubyid_m'>m</span><span class='op'>|</span> <span class='id identifier rubyid_m'>m</span><span class='lbracket'>[</span><span class='symbol'>:foo</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>bar</span><span class='tstring_end'>&#39;</span></span><span class='rbrace'>}</span>
 
 <span class='comment'># with treat_symbols_as_metadata_keys_with_true_values = true
-</span><span class='id identifier rubyid_filter_run_including'>filter_run_including</span> <span class='symbol'>:foo</span> <span class='comment'># same as filter_run_including :foo =&gt; true</span></code></pre>
+</span><span class='id identifier rubyid_filter_run_including'>filter_run_including</span> <span class='symbol'>:foo</span> <span class='comment'># same as filter_run_including :foo =&gt; true</span></pre>
     
   </div>
 
@@ -2836,7 +2843,7 @@ or config files (e.g. <code>.rspec</code>).</p>
       <div class="method_details ">
   <h3 class="signature " id="format_docstrings-instance_method">
   
-    - (<tt>Object</tt>) <strong>format_docstrings</strong>(&amp;block) 
+    - (<tt>Object</tt>) <strong>format_docstrings</strong> 
   
 
   
@@ -2855,10 +2862,10 @@ or config files (e.g. <code>.rspec</code>).</p>
     <p class="tag_title">Examples:</p>
     
       
-      <pre class="example code"><code><span class='comment'># This will strip the descriptions of both examples and example groups.
+      <pre class="example code"><span class='comment'># This will strip the descriptions of both examples and example groups.
 </span><span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_configure'>configure</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_config'>config</span><span class='op'>|</span>
   <span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_format_docstrings'>format_docstrings</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_s'>s</span><span class='op'>|</span> <span class='id identifier rubyid_s'>s</span><span class='period'>.</span><span class='id identifier rubyid_strip'>strip</span> <span class='rbrace'>}</span>
-<span class='kw'>end</span></code></pre>
+<span class='kw'>end</span></pre>
     
   </div>
 
@@ -3080,7 +3087,7 @@ constrain the groups in which to include the module.</p>
     <p class="tag_title">Examples:</p>
     
       
-      <pre class="example code"><code>
+      <pre class="example code">
 <span class='kw'>module</span> <span class='const'>AuthenticationHelpers</span>
   <span class='kw'>def</span> <span class='id identifier rubyid_login_as'>login_as</span><span class='lparen'>(</span><span class='id identifier rubyid_user'>user</span><span class='rparen'>)</span>
     <span class='comment'># ...
@@ -3104,7 +3111,7 @@ constrain the groups in which to include the module.</p>
     <span class='id identifier rubyid_get'>get</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/profiles/jdoe</span><span class='tstring_end'>&quot;</span></span>
     <span class='id identifier rubyid_assert_select'>assert_select</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>.username</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:text</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>jdoe</span><span class='tstring_end'>&#39;</span></span>
   <span class='kw'>end</span>
-<span class='kw'>end</span></code></pre>
+<span class='kw'>end</span></pre>
     
   </div>
 
@@ -3444,7 +3451,7 @@ any mocking framework to save a little bit of overhead.</p>
 <p>Given a Module, includes that module in every example group. The module
 should adhere to RSpec&#39;s mock framework adapter API:</p>
 
-<pre class="code ruby"><code class="ruby">setup_mocks_for_rspec
+<pre class="code ruby"><code>setup_mocks_for_rspec
   - called before each example
 
 verify_mocks_for_rspec
@@ -3458,7 +3465,7 @@ teardown_mocks_for_rspec
 <p>If the module responds to <code>configuration</code> and <code>mock_with</code> receives a block,
 it will yield the configuration object to the block e.g.</p>
 
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_mock_with'>mock_with</span> <span class='const'>OtherMockFrameworkAdapter</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_mod_config'>mod_config</span><span class='op'>|</span>
+<pre class="code ruby"><code><span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_mock_with'>mock_with</span> <span class='const'>OtherMockFrameworkAdapter</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_mod_config'>mod_config</span><span class='op'>|</span>
   <span class='id identifier rubyid_mod_config'>mod_config</span><span class='period'>.</span><span class='id identifier rubyid_custom_setting'>custom_setting</span> <span class='op'>=</span> <span class='kw'>true</span>
 <span class='kw'>end</span>
 </code></pre>
@@ -3597,7 +3604,7 @@ it will yield the configuration object to the block e.g.</p>
       <div class="method_details ">
   <h3 class="signature " id="order_examples-instance_method">
   
-    - (<tt>Object</tt>) <strong>order_examples</strong>(&amp;block) 
+    - (<tt>Object</tt>) <strong>order_examples</strong> 
   
 
   
@@ -3616,11 +3623,11 @@ it will yield the configuration object to the block e.g.</p>
     <p class="tag_title">Examples:</p>
     
       
-      <pre class="example code"><code><span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_configure'>configure</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_config'>config</span><span class='op'>|</span>
+      <pre class="example code"><span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_configure'>configure</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_config'>config</span><span class='op'>|</span>
   <span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_order_examples'>order_examples</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_examples'>examples</span><span class='op'>|</span>
     <span class='id identifier rubyid_examples'>examples</span><span class='period'>.</span><span class='id identifier rubyid_reverse'>reverse</span>
   <span class='kw'>end</span>
-<span class='kw'>end</span></code></pre>
+<span class='kw'>end</span></pre>
     
   </div>
 
@@ -3664,7 +3671,7 @@ it will yield the configuration object to the block e.g.</p>
       <div class="method_details ">
   <h3 class="signature " id="order_groups-instance_method">
   
-    - (<tt>Object</tt>) <strong>order_groups</strong>(&amp;block) 
+    - (<tt>Object</tt>) <strong>order_groups</strong> 
   
 
   
@@ -3683,11 +3690,11 @@ it will yield the configuration object to the block e.g.</p>
     <p class="tag_title">Examples:</p>
     
       
-      <pre class="example code"><code><span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_configure'>configure</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_config'>config</span><span class='op'>|</span>
+      <pre class="example code"><span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_configure'>configure</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_config'>config</span><span class='op'>|</span>
   <span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_order_groups'>order_groups</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_groups'>groups</span><span class='op'>|</span>
     <span class='id identifier rubyid_groups'>groups</span><span class='period'>.</span><span class='id identifier rubyid_reverse'>reverse</span>
   <span class='kw'>end</span>
-<span class='kw'>end</span></code></pre>
+<span class='kw'>end</span></pre>
     
   </div>
 
@@ -3731,7 +3738,7 @@ it will yield the configuration object to the block e.g.</p>
       <div class="method_details ">
   <h3 class="signature " id="order_groups_and_examples-instance_method">
   
-    - (<tt>Object</tt>) <strong>order_groups_and_examples</strong>(&amp;block) 
+    - (<tt>Object</tt>) <strong>order_groups_and_examples</strong> 
   
 
   
@@ -3750,11 +3757,11 @@ it will yield the configuration object to the block e.g.</p>
     <p class="tag_title">Examples:</p>
     
       
-      <pre class="example code"><code><span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_configure'>configure</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_config'>config</span><span class='op'>|</span>
+      <pre class="example code"><span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_configure'>configure</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_config'>config</span><span class='op'>|</span>
   <span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_order_groups_and_examples'>order_groups_and_examples</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_groups_or_examples'>groups_or_examples</span><span class='op'>|</span>
     <span class='id identifier rubyid_groups_or_examples'>groups_or_examples</span><span class='period'>.</span><span class='id identifier rubyid_reverse'>reverse</span>
   <span class='kw'>end</span>
-<span class='kw'>end</span></code></pre>
+<span class='kw'>end</span></pre>
     
   </div>
 
@@ -4120,9 +4127,9 @@ it will yield the configuration object to the block e.g.</p>
 </div>
 
     <div id="footer">
-  Generated on Thu Dec 18 08:19:52 2014 by
+  Generated on Wed Jan 28 22:11:42 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.6 (ruby-2.1.5).
+  0.8.0 (ruby-2.1.5).
 </div>
 
   </body>

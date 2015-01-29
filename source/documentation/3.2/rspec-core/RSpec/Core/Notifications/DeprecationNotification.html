@@ -96,17 +96,18 @@
   
   
     <dt class="r2 last">Defined in:</dt>
-    <dd class="r2 last">lib/rspec/core/notifications.rb</dd>
+    <dd class="r2 last">lib/rspec/core/notifications.rb<span class="defines">,<br />
+  lib/rspec/core/notifications.rb</span>
+</dd>
   
 </dl>
 <div class="clear"></div>
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    
-<p>The <code>DeprecationNotification</code> is issued by the reporter when a
-deprecated part of RSpec is encountered. It represents information about
-the deprecated call site.</p>
+    <p>The <code>DeprecationNotification</code> is issued by the reporter when a deprecated
+part of RSpec is encountered. It represents information about the
+deprecated call site.</p>
 
 
   </div>
@@ -141,8 +142,7 @@ the deprecated call site.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>An optional call site from which the deprecation was issued.</p>
+    <span class="summary_desc"><div class='inline'><p>An optional call site from which the deprecation was issued.</p>
 </div></span>
   
 </li>
@@ -168,8 +168,7 @@ the deprecated call site.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>A custom message about the deprecation (alias of message).</p>
+    <span class="summary_desc"><div class='inline'><p>A custom message about the deprecation (alias of message).</p>
 </div></span>
   
 </li>
@@ -195,8 +194,7 @@ the deprecated call site.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>A custom message about the deprecation.</p>
+    <span class="summary_desc"><div class='inline'><p>A custom message about the deprecation.</p>
 </div></span>
   
 </li>
@@ -222,8 +220,7 @@ the deprecated call site.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>An optional replacement for the deprecation.</p>
+    <span class="summary_desc"><div class='inline'><p>An optional replacement for the deprecation.</p>
 </div></span>
   
 </li>
@@ -233,6 +230,40 @@ the deprecated call site.</p>
 
 
 
+
+  
+    <h2>
+      Class Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#from_hash-class_method" title="from_hash (class method)">+ (void) <strong>from_hash</strong>(data) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Convenience way to initialize the notification.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
 
 
   
@@ -252,8 +283,8 @@ the deprecated call site.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>An optional call site from which the deprecation was issued</p>
+    <p>An optional call site from which the deprecation
+was issued</p>
 
 
   </div>
@@ -271,8 +302,7 @@ the deprecated call site.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>the current value of call_site</p>
+        <div class='inline'><p>the current value of call_site</p>
 </div>
       
     </li>
@@ -285,12 +315,12 @@ the deprecated call site.</p>
       <pre class="lines">
 
 
-514
-515
-516</pre>
+587
+588
+589</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/core/notifications.rb', line 514</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/notifications.rb', line 587</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_call_site'>call_site</span>
   <span class='ivar'>@call_site</span>
@@ -313,8 +343,8 @@ the deprecated call site.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>A custom message about the deprecation (alias of message)</p>
+    <p>A custom message about the deprecation (alias of
+message)</p>
 
 
   </div>
@@ -332,8 +362,7 @@ the deprecated call site.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>the current value of deprecated</p>
+        <div class='inline'><p>the current value of deprecated</p>
 </div>
       
     </li>
@@ -346,12 +375,12 @@ the deprecated call site.</p>
       <pre class="lines">
 
 
-514
-515
-516</pre>
+587
+588
+589</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/core/notifications.rb', line 514</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/notifications.rb', line 587</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_deprecated'>deprecated</span>
   <span class='ivar'>@deprecated</span>
@@ -374,8 +403,7 @@ the deprecated call site.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>A custom message about the deprecation</p>
+    <p>A custom message about the deprecation</p>
 
 
   </div>
@@ -393,8 +421,7 @@ the deprecated call site.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>the current value of message</p>
+        <div class='inline'><p>the current value of message</p>
 </div>
       
     </li>
@@ -407,12 +434,12 @@ the deprecated call site.</p>
       <pre class="lines">
 
 
-514
-515
-516</pre>
+587
+588
+589</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/core/notifications.rb', line 514</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/notifications.rb', line 587</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_message'>message</span>
   <span class='ivar'>@message</span>
@@ -435,8 +462,7 @@ the deprecated call site.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>An optional replacement for the deprecation</p>
+    <p>An optional replacement for the deprecation</p>
 
 
   </div>
@@ -454,8 +480,7 @@ the deprecated call site.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>the current value of replacement</p>
+        <div class='inline'><p>the current value of replacement</p>
 </div>
       
     </li>
@@ -468,12 +493,12 @@ the deprecated call site.</p>
       <pre class="lines">
 
 
-514
-515
-516</pre>
+587
+588
+589</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/core/notifications.rb', line 514</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/notifications.rb', line 587</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_replacement'>replacement</span>
   <span class='ivar'>@replacement</span>
@@ -486,10 +511,56 @@ the deprecated call site.</p>
   </div>
 
 
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="from_hash-class_method">
+  
+    + (<tt>void</tt>) <strong>from_hash</strong>(data) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Convenience way to initialize the notification</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+593
+594
+595</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/notifications.rb', line 593</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_from_hash'>from_hash</span><span class='lparen'>(</span><span class='id identifier rubyid_data'>data</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_new'>new</span> <span class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span class='symbol'>:deprecated</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span class='symbol'>:message</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span class='symbol'>:replacement</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='id identifier rubyid_data'>data</span><span class='lbracket'>[</span><span class='symbol'>:call_site</span><span class='rbracket'>]</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
 </div>
 
     <div id="footer">
-  Generated on Wed Dec 17 10:38:40 2014 by
+  Generated on Wed Jan 28 22:02:10 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.1.5).
 </div>

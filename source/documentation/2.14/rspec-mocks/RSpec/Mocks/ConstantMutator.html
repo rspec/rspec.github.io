@@ -6,7 +6,7 @@
 <title>
   Class: RSpec::Mocks::ConstantMutator
   
-    &mdash; Documentation by YARD 0.8.7.6
+    &mdash; Documentation by YARD 0.8.0
   
 </title>
 
@@ -17,7 +17,7 @@
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '../../';
-  framesUrl = "../../frames.html#!RSpec/Mocks/ConstantMutator.html";
+  framesUrl = "../../frames.html#!" + escape(window.location.href);
 </script>
 
 
@@ -105,8 +105,7 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    
-<p>Provides a means to stub constants.</p>
+    <p>Provides a means to stub constants.</p>
 
 
   </div>
@@ -178,8 +177,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Hides a constant.</p>
+    <span class="summary_desc"><div class='inline'><p>Hides a constant.</p>
 </div></span>
   
 </li>
@@ -202,8 +200,7 @@
   <span class="private note title">private</span>
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Uses the mutator to mutate (stub or hide) a constant.</p>
+    <span class="summary_desc"><div class='inline'><p>Uses the mutator to mutate (stub or hide) a constant.</p>
 </div></span>
   
 </li>
@@ -226,8 +223,8 @@
   <span class="private note title">private</span>
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>The list of constant mutators that have been used for the current example.</p>
+    <span class="summary_desc"><div class='inline'><p>The list of constant mutators that have been used for
+the current example.</p>
 </div></span>
   
 </li>
@@ -250,11 +247,10 @@
   <span class="private note title">private</span>
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Used internally by the constant stubbing to raise a helpful error when a
-constant like “A::B::C” is stubbed and A::B is not a module (and thus,
-it&#39;s impossible to define “A::B::C” since only modules can have nested
-constants).</p>
+    <span class="summary_desc"><div class='inline'><p>Used internally by the constant stubbing to raise a helpful
+error when a constant like &quot;A::B::C&quot; is stubbed and A::B is
+not a module (and thus, it&#39;s impossible to define &quot;A::B::C&quot;
+since only modules can have nested constants).</p>
 </div></span>
   
 </li>
@@ -299,8 +295,7 @@ constants).</p>
   <span class="private note title">private</span>
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Resets all stubbed constants.</p>
+    <span class="summary_desc"><div class='inline'><p>Resets all stubbed constants.</p>
 </div></span>
   
 </li>
@@ -323,8 +318,7 @@ constants).</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Stubs a constant.</p>
+    <span class="summary_desc"><div class='inline'><p>Stubs a constant.</p>
 </div></span>
   
 </li>
@@ -365,12 +359,12 @@ constants).</p>
       <pre class="lines">
 
 
-385
-386
-387</pre>
+379
+380
+381</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/mocks/mutate_const.rb', line 385</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/mocks/mutate_const.rb', line 379</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_find'>find</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_mutators'>mutators</span><span class='period'>.</span><span class='id identifier rubyid_find'>find</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_s'>s</span><span class='op'>|</span> <span class='id identifier rubyid_s'>s</span><span class='period'>.</span><span class='id identifier rubyid_full_constant_name'>full_constant_name</span> <span class='op'>==</span> <span class='id identifier rubyid_name'>name</span> <span class='rbrace'>}</span>
@@ -394,13 +388,12 @@ constants).</p>
     
   <div class="note notetag">
     <strong>Note:</strong>
-    <div class='inline'>
-<p>It&#39;s recommended that you use <code>hide_const</code> in your examples.
-This is an alternate public API that is provided so you can hide constants
-in other contexts (e.g. helper classes).</p>
+    <div class='inline'><p>It&#39;s recommended that you use <code>hide_const</code> in your
+examples. This is an alternate public API that is provided
+so you can hide constants in other contexts (e.g. helper
+classes).</p>
 </div>
   </div>
-
 
 <p>Hides a constant.</p>
 
@@ -421,9 +414,8 @@ in other contexts (e.g. helper classes).</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>The fully qualified name of the constant. The current constant scoping at
-the point of call is not considered.</p>
+        <div class='inline'><p>The fully qualified name of the constant.
+The current constant scoping at the point of call is not considered.</p>
 </div>
       
     </li>
@@ -444,23 +436,17 @@ the point of call is not considered.</p>
       <pre class="lines">
 
 
+189
+190
+191
 192
 193
-194
-195
-196
-197
-198
-199
-200</pre>
+194</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/mocks/mutate_const.rb', line 192</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/mocks/mutate_const.rb', line 189</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_hide'>hide</span><span class='lparen'>(</span><span class='id identifier rubyid_constant_name'>constant_name</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_space'>space</span> <span class='op'>=</span> <span class='const'>RSpec</span><span class='op'>::</span><span class='const'>Mocks</span><span class='period'>.</span><span class='id identifier rubyid_space'>space</span>
-  <span class='id identifier rubyid_space'>space</span><span class='period'>.</span><span class='id identifier rubyid_print_out_of_example_deprecation'>print_out_of_example_deprecation</span> <span class='kw'>if</span> <span class='id identifier rubyid_space'>space</span><span class='period'>.</span><span class='id identifier rubyid_outside_example'>outside_example</span>
-
   <span class='kw'>return</span> <span class='kw'>unless</span> <span class='id identifier rubyid_recursive_const_defined?'>recursive_const_defined?</span><span class='lparen'>(</span><span class='id identifier rubyid_constant_name'>constant_name</span><span class='rparen'>)</span>
 
   <span class='id identifier rubyid_mutate'>mutate</span><span class='lparen'>(</span><span class='const'>ConstantHider</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_constant_name'>constant_name</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='lbrace'>{</span> <span class='rbrace'>}</span><span class='rparen'>)</span><span class='rparen'>)</span>
@@ -486,10 +472,9 @@ the point of call is not considered.</p>
   <strong>This method is part of a private API.</strong>
   You should avoid using this method if possible, as it may be removed or be changed in the future.
 </p>
-
-<p>Uses the mutator to mutate (stub or hide) a constant. Ensures that the
-mutator is correctly registered so it can be backed out at the end of the
-test.</p>
+<p>Uses the mutator to mutate (stub or hide) a constant. Ensures that
+the mutator is correctly registered so it can be backed out at the end
+of the test.</p>
 
 
   </div>
@@ -503,13 +488,13 @@ test.</p>
       <pre class="lines">
 
 
-354
-355
-356
-357</pre>
+348
+349
+350
+351</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/mocks/mutate_const.rb', line 354</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/mocks/mutate_const.rb', line 348</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_mutate'>mutate</span><span class='lparen'>(</span><span class='id identifier rubyid_mutator'>mutator</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_register_mutator'>register_mutator</span><span class='lparen'>(</span><span class='id identifier rubyid_mutator'>mutator</span><span class='rparen'>)</span>
@@ -535,8 +520,8 @@ test.</p>
   <strong>This method is part of a private API.</strong>
   You should avoid using this method if possible, as it may be removed or be changed in the future.
 </p>
-
-<p>The list of constant mutators that have been used for the current example.</p>
+<p>The list of constant mutators that have been used for
+the current example.</p>
 
 
   </div>
@@ -550,12 +535,12 @@ test.</p>
       <pre class="lines">
 
 
-376
-377
-378</pre>
+370
+371
+372</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/mocks/mutate_const.rb', line 376</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/mocks/mutate_const.rb', line 370</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_mutators'>mutators</span>
   <span class='ivar'>@mutators</span> <span class='op'>||=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
@@ -580,11 +565,10 @@ test.</p>
   <strong>This method is part of a private API.</strong>
   You should avoid using this method if possible, as it may be removed or be changed in the future.
 </p>
-
-<p>Used internally by the constant stubbing to raise a helpful error when a
-constant like “A::B::C” is stubbed and A::B is not a module (and thus,
-it&#39;s impossible to define “A::B::C” since only modules can have nested
-constants).</p>
+<p>Used internally by the constant stubbing to raise a helpful
+error when a constant like &quot;A::B::C&quot; is stubbed and A::B is
+not a module (and thus, it&#39;s impossible to define &quot;A::B::C&quot;
+since only modules can have nested constants).</p>
 
 
   </div>
@@ -598,15 +582,15 @@ constants).</p>
       <pre class="lines">
 
 
-395
-396
-397
-398
-399
-400</pre>
+389
+390
+391
+392
+393
+394</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/mocks/mutate_const.rb', line 395</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/mocks/mutate_const.rb', line 389</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_raise_on_invalid_const'>raise_on_invalid_const</span>
   <span class='id identifier rubyid_lambda'>lambda</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_const_name'>const_name</span><span class='comma'>,</span> <span class='id identifier rubyid_failed_name'>failed_name</span><span class='op'>|</span>
@@ -647,12 +631,12 @@ constants).</p>
       <pre class="lines">
 
 
-381
-382
-383</pre>
+375
+376
+377</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/mocks/mutate_const.rb', line 381</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/mocks/mutate_const.rb', line 375</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_register_mutator'>register_mutator</span><span class='lparen'>(</span><span class='id identifier rubyid_mutator'>mutator</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_mutators'>mutators</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_mutator'>mutator</span>
@@ -677,9 +661,8 @@ constants).</p>
   <strong>This method is part of a private API.</strong>
   You should avoid using this method if possible, as it may be removed or be changed in the future.
 </p>
-
-<p>Resets all stubbed constants. This is called automatically by rspec-mocks
-when an example finishes.</p>
+<p>Resets all stubbed constants. This is called automatically
+by rspec-mocks when an example finishes.</p>
 
 
   </div>
@@ -693,17 +676,17 @@ when an example finishes.</p>
       <pre class="lines">
 
 
+357
+358
+359
+360
+361
+362
 363
-364
-365
-366
-367
-368
-369
-370</pre>
+364</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/mocks/mutate_const.rb', line 363</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/mocks/mutate_const.rb', line 357</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_reset_all'>reset_all</span>
   <span class='comment'># We use reverse order so that if the same constant
@@ -732,13 +715,12 @@ when an example finishes.</p>
     
   <div class="note notetag">
     <strong>Note:</strong>
-    <div class='inline'>
-<p>It&#39;s recommended that you use <code>stub_const</code> in your examples.
-This is an alternate public API that is provided so you can stub constants
-in other contexts (e.g. helper classes).</p>
+    <div class='inline'><p>It&#39;s recommended that you use <code>stub_const</code> in your
+examples. This is an alternate public API that is provided
+so you can stub constants in other contexts (e.g. helper
+classes).</p>
 </div>
   </div>
-
 
 <p>Stubs a constant.</p>
 
@@ -759,9 +741,8 @@ in other contexts (e.g. helper classes).</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>The fully qualified name of the constant. The current constant scoping at
-the point of call is not considered.</p>
+        <div class='inline'><p>The fully qualified name of the constant. The current
+constant scoping at the point of call is not considered.</p>
 </div>
       
     </li>
@@ -776,9 +757,8 @@ the point of call is not considered.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>The value to make the constant refer to. When the example completes, the
-constant will be restored to its prior state.</p>
+        <div class='inline'><p>The value to make the constant refer to. When the
+example completes, the constant will be restored to its prior state.</p>
 </div>
       
     </li>
@@ -795,8 +775,7 @@ constant will be restored to its prior state.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>Stubbing options.</p>
+        <div class='inline'><p>Stubbing options.</p>
 </div>
       
     </li>
@@ -819,13 +798,11 @@ constant will be restored to its prior state.</p>
           <span class="default">
             
           </span>
-          
-            &mdash; <div class='inline'>
-<p>Determines what nested constants, if any, will be transferred from the
-original value of the constant to the new value of the constant. This only
-works if both the original and new values are modules (or classes).</p>
+          &mdash; <div class='inline'><p>Determines
+what nested constants, if any, will be transferred from the original value
+of the constant to the new value of the constant. This only works if both
+the original and new values are modules (or classes).</p>
 </div>
-          
         </li>
       
     </ul>
@@ -842,8 +819,7 @@ works if both the original and new values are modules (or classes).</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>the stubbed value of the constant</p>
+        <div class='inline'><p>the stubbed value of the constant</p>
 </div>
       
     </li>
@@ -872,18 +848,12 @@ works if both the original and new values are modules (or classes).</p>
 175
 176
 177
-178
-179
-180
-181</pre>
+178</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/rspec/mocks/mutate_const.rb', line 169</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_stub'>stub</span><span class='lparen'>(</span><span class='id identifier rubyid_constant_name'>constant_name</span><span class='comma'>,</span> <span class='id identifier rubyid_value'>value</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
-  <span class='id identifier rubyid_space'>space</span> <span class='op'>=</span> <span class='const'>RSpec</span><span class='op'>::</span><span class='const'>Mocks</span><span class='period'>.</span><span class='id identifier rubyid_space'>space</span>
-  <span class='id identifier rubyid_space'>space</span><span class='period'>.</span><span class='id identifier rubyid_print_out_of_example_deprecation'>print_out_of_example_deprecation</span> <span class='kw'>if</span> <span class='id identifier rubyid_space'>space</span><span class='period'>.</span><span class='id identifier rubyid_outside_example'>outside_example</span>
-
   <span class='id identifier rubyid_mutator'>mutator</span> <span class='op'>=</span> <span class='kw'>if</span> <span class='id identifier rubyid_recursive_const_defined?'>recursive_const_defined?</span><span class='lparen'>(</span><span class='id identifier rubyid_constant_name'>constant_name</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_raise_on_invalid_const'>raise_on_invalid_const</span><span class='rparen'>)</span>
     <span class='const'>DefinedConstantReplacer</span>
   <span class='kw'>else</span>
@@ -903,9 +873,9 @@ works if both the original and new values are modules (or classes).</p>
 </div>
 
     <div id="footer">
-  Generated on Thu Dec 18 08:30:24 2014 by
+  Generated on Wed Jan 28 22:11:55 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.6 (ruby-2.1.5).
+  0.8.0 (ruby-2.1.5).
 </div>
 
   </body>

@@ -6,7 +6,7 @@
 <title>
   Module: RSpec::Core::SharedExampleGroup
   
-    &mdash; Documentation by YARD 0.8.7.6
+    &mdash; Documentation by YARD 0.8.0
   
 </title>
 
@@ -17,7 +17,7 @@
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '../../';
-  framesUrl = "../../frames.html#!RSpec/Core/SharedExampleGroup.html";
+  framesUrl = "../../frames.html#!" + escape(window.location.href);
 </script>
 
 
@@ -151,7 +151,7 @@
         <li class="public deprecated">
   <span class="summary_signature">
     
-      <a href="#share_as-instance_method" title="#share_as (instance method)">- (Object) <strong>share_as</strong>(name, &amp;block) </a>
+      <a href="#share_as-instance_method" title="#share_as (instance method)">- (Object) <strong>share_as</strong>(name) </a>
     
 
     
@@ -173,7 +173,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#share_examples_for-instance_method" title="#share_examples_for (instance method)">- (Object) <strong>share_examples_for</strong>(*args, &amp;block) </a>
+      <a href="#share_examples_for-instance_method" title="#share_examples_for (instance method)">- (Object) <strong>share_examples_for</strong>(*args) </a>
     
 
     
@@ -217,7 +217,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#shared_examples-instance_method" title="#shared_examples (instance method)">- (Object) <strong>shared_examples</strong>(*args, &amp;block) </a>
+      <a href="#shared_examples-instance_method" title="#shared_examples (instance method)">- (Object) <strong>shared_examples</strong>(*args) </a>
     
 
     
@@ -233,7 +233,9 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Wraps the <code>block</code> in a module which can then be included in example groups using <code>include_examples</code>, <code>include_context</code>, or <code>it_behaves_like</code>.</p>
+    <span class="summary_desc"><div class='inline'><p>Wraps the <code>block</code> in a module which can then be included in example
+groups using <code>include_examples</code>, <code>include_context</code>, or
+<code>it_behaves_like</code>.</p>
 </div></span>
   
 </li>
@@ -287,7 +289,7 @@
       <div class="method_details first">
   <h3 class="signature first" id="share_as-instance_method">
   
-    - (<tt>Object</tt>) <strong>share_as</strong>(name, &amp;block) 
+    - (<tt>Object</tt>) <strong>share_as</strong>(name) 
   
 
   
@@ -331,7 +333,7 @@
       <div class="method_details ">
   <h3 class="signature " id="share_examples_for-instance_method">
   
-    - (<tt>Object</tt>) <strong>share_examples_for</strong>(*args, &amp;block) 
+    - (<tt>Object</tt>) <strong>share_examples_for</strong>(*args) 
   
 
   
@@ -422,7 +424,7 @@ groups using <code>include_examples</code>, <code>include_context</code>, or
     <p class="tag_title">Examples:</p>
     
       
-      <pre class="example code"><code>
+      <pre class="example code">
 shared_examples &quot;auditable&quot; do
   it &quot;stores an audit record on save!&quot; do
     lambda { auditable.save! }.should change(Audit, :count).by(1)
@@ -433,7 +435,7 @@ class Account do
   it_behaves_like &quot;auditable&quot; do
     def auditable; Account.new; end
   end
-end</code></pre>
+end</pre>
     
   </div>
 <p class="tag_title">Parameters:</p>
@@ -509,9 +511,9 @@ end</code></pre>
 </div>
 
     <div id="footer">
-  Generated on Thu Dec 18 08:14:25 2014 by
+  Generated on Wed Jan 28 22:10:23 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.6 (ruby-2.1.5).
+  0.8.0 (ruby-2.1.5).
 </div>
 
   </body>

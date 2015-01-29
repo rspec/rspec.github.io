@@ -6,7 +6,7 @@
 <title>
   Class: RSpec::Core::ExampleGroup
   
-    &mdash; Documentation by YARD 0.8.7.6
+    &mdash; Documentation by YARD 0.8.0
   
 </title>
 
@@ -17,7 +17,7 @@
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '../../';
-  framesUrl = "../../frames.html#!RSpec/Core/ExampleGroup.html";
+  framesUrl = "../../frames.html#!" + escape(window.location.href);
 </script>
 
 
@@ -89,13 +89,13 @@
   
     
       <dt class="r2">Extended by:</dt>
-      <dd class="r2"><span class='object_link'><a href="Hooks.html" title="RSpec::Core::Hooks (module)">Hooks</a></span>, <span class='object_link'><a href="SharedExampleGroup.html" title="RSpec::Core::SharedExampleGroup (module)">SharedExampleGroup</a></span></dd>
+      <dd class="r2"><span class='object_link'><a href="Extensions/ModuleEvalWithArgs.html" title="RSpec::Core::Extensions::ModuleEvalWithArgs (module)">RSpec::Core::Extensions::ModuleEvalWithArgs</a></span>, <span class='object_link'><a href="Hooks.html" title="RSpec::Core::Hooks (module)">Hooks</a></span>, <span class='object_link'><a href="MetadataHashBuilder/WithDeprecationWarning.html" title="RSpec::Core::MetadataHashBuilder::WithDeprecationWarning (module)">MetadataHashBuilder::WithDeprecationWarning</a></span>, <span class='object_link'><a href="SharedExampleGroup.html" title="RSpec::Core::SharedExampleGroup (module)">SharedExampleGroup</a></span></dd>
       
     
   
     
       <dt class="r1">Includes:</dt>
-      <dd class="r1"><span class='object_link'><a href="MemoizedHelpers.html" title="RSpec::Core::MemoizedHelpers (module)">MemoizedHelpers</a></span>, <span class='object_link'><a href="Pending.html" title="RSpec::Core::Pending (module)">Pending</a></span>, <span class='object_link'><a href="SharedExampleGroup.html" title="RSpec::Core::SharedExampleGroup (module)">SharedExampleGroup</a></span></dd>
+      <dd class="r1"><span class='object_link'><a href="Extensions/InstanceEvalWithArgs.html" title="RSpec::Core::Extensions::InstanceEvalWithArgs (module)">RSpec::Core::Extensions::InstanceEvalWithArgs</a></span>, <span class='object_link'><a href="MemoizedHelpers.html" title="RSpec::Core::MemoizedHelpers (module)">MemoizedHelpers</a></span>, <span class='object_link'><a href="Pending.html" title="RSpec::Core::Pending (module)">Pending</a></span>, <span class='object_link'><a href="SharedExampleGroup.html" title="RSpec::Core::SharedExampleGroup (module)">SharedExampleGroup</a></span></dd>
       
     
   
@@ -112,7 +112,7 @@
     <p>ExampleGroup and <span class='object_link'><a href="Example.html" title="RSpec::Core::Example (class)">Example</a></span> are the main structural elements of
 rspec-core.  Consider this example:</p>
 
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_describe'>describe</span> <span class='const'>Thing</span> <span class='kw'>do</span>
+<pre class="code ruby"><code><span class='id identifier rubyid_describe'>describe</span> <span class='const'>Thing</span> <span class='kw'>do</span>
   <span class='id identifier rubyid_it'>it</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>does something</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
   <span class='kw'>end</span>
 <span class='kw'>end</span>
@@ -148,6 +148,12 @@ is declared.</p>
   <h2>Constant Summary</h2>
   
   <h3 class="inherited">Constants included
+     from <span class='object_link'><a href="Hooks.html" title="RSpec::Core::Hooks (module)">Hooks</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="Hooks.html#HOOK_TYPES-constant" title="RSpec::Core::Hooks::HOOK_TYPES (constant)">Hooks::HOOK_TYPES</a></span>, <span class='object_link'><a href="Hooks.html#SCOPES-constant" title="RSpec::Core::Hooks::SCOPES (constant)">Hooks::SCOPES</a></span></p>
+
+  
+  
+  <h3 class="inherited">Constants included
      from <span class='object_link'><a href="Pending.html" title="RSpec::Core::Pending (module)">Pending</a></span></h3>
   <p class="inherited"><span class='object_link'><a href="Pending.html#NOT_YET_IMPLEMENTED-constant" title="RSpec::Core::Pending::NOT_YET_IMPLEMENTED (constant)">Pending::NOT_YET_IMPLEMENTED</a></span>, <span class='object_link'><a href="Pending.html#NO_REASON_GIVEN-constant" title="RSpec::Core::Pending::NO_REASON_GIVEN (constant)">Pending::NO_REASON_GIVEN</a></span></p>
 
@@ -180,7 +186,8 @@ is declared.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Works like <code>alias_method :name, :example</code> with the added benefit of assigning default metadata to the generated example.</p>
+    <span class="summary_desc"><div class='inline'><p>Works like <code>alias_method :name, :example</code> with the added benefit of
+assigning default metadata to the generated example.</p>
 </div></span>
   
 </li>
@@ -189,7 +196,7 @@ is declared.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#alias_it_behaves_like_to-class_method" title="alias_it_behaves_like_to (class method)">+ (Object) <strong>alias_it_behaves_like_to</strong>(name, *args, &amp;block) </a>
+      <a href="#alias_it_behaves_like_to-class_method" title="alias_it_behaves_like_to (class method)">+ (Object) <strong>alias_it_behaves_like_to</strong>(name, *args) </a>
     
 
     
@@ -203,7 +210,8 @@ is declared.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Works like <code>alias_method :name, :it_behaves_like</code> with the added benefit of assigning default metadata to the generated example.</p>
+    <span class="summary_desc"><div class='inline'><p>Works like <code>alias_method :name, :it_behaves_like</code> with the added
+benefit of assigning default metadata to the generated example.</p>
 </div></span>
   
 </li>
@@ -212,7 +220,7 @@ is declared.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#describe-class_method" title="describe (class method)">+ (Object) <strong>describe</strong>(*args, &amp;example_group_block) </a>
+      <a href="#describe-class_method" title="describe (class method)">+ (Object) <strong>describe</strong>(*args) </a>
     
 
     
@@ -228,7 +236,8 @@ is declared.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Generates a subclass of this example group which inherits everything except the examples themselves.</p>
+    <span class="summary_desc"><div class='inline'><p>Generates a subclass of this example group which inherits
+everything except the examples themselves.</p>
 </div></span>
   
 </li>
@@ -259,7 +268,7 @@ is declared.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#focused-class_method" title="focused (class method)">+ (Object) <strong>focused</strong>(desc = nil, *args, &amp;block) </a>
+      <a href="#focused-class_method" title="focused (class method)">+ (Object) <strong>focused</strong>(desc = nil, *args) </a>
     
 
     
@@ -282,7 +291,7 @@ is declared.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#include_context-class_method" title="include_context (class method)">+ (Object) <strong>include_context</strong>(name, *args, &amp;block) </a>
+      <a href="#include_context-class_method" title="include_context (class method)">+ (Object) <strong>include_context</strong>(name, *args) </a>
     
 
     
@@ -296,7 +305,9 @@ is declared.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Includes shared content mapped to <code>name</code> directly in the group in which it is declared, as opposed to <code>it_behaves_like</code>, which creates a nested group.</p>
+    <span class="summary_desc"><div class='inline'><p>Includes shared content mapped to <code>name</code> directly in the group in which
+it is declared, as opposed to <code>it_behaves_like</code>, which creates a nested
+group.</p>
 </div></span>
   
 </li>
@@ -305,7 +316,7 @@ is declared.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#include_examples-class_method" title="include_examples (class method)">+ (Object) <strong>include_examples</strong>(name, *args, &amp;block) </a>
+      <a href="#include_examples-class_method" title="include_examples (class method)">+ (Object) <strong>include_examples</strong>(name, *args) </a>
     
 
     
@@ -319,7 +330,9 @@ is declared.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Includes shared content mapped to <code>name</code> directly in the group in which it is declared, as opposed to <code>it_behaves_like</code>, which creates a nested group.</p>
+    <span class="summary_desc"><div class='inline'><p>Includes shared content mapped to <code>name</code> directly in the group in which
+it is declared, as opposed to <code>it_behaves_like</code>, which creates a nested
+group.</p>
 </div></span>
   
 </li>
@@ -557,7 +570,8 @@ is declared.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Generates a nested example group and includes the shared content mapped to <code>name</code> in the nested group.</p>
+    <span class="summary_desc"><div class='inline'><p>Generates a nested example group and includes the shared content
+mapped to <code>name</code> in the nested group.</p>
 </div></span>
   
 </li>
@@ -580,7 +594,8 @@ is declared.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Generates a nested example group and includes the shared content mapped to <code>name</code> in the nested group.</p>
+    <span class="summary_desc"><div class='inline'><p>Generates a nested example group and includes the shared content
+mapped to <code>name</code> in the nested group.</p>
 </div></span>
   
 </li>
@@ -649,7 +664,8 @@ is declared.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Shortcut to define an example with :pending =&gt; true Backported from RSpec 3 to aid migration.</p>
+    <span class="summary_desc"><div class='inline'><p>Shortcut to define an example with :pending =&gt; true
+Backported from RSpec 3 to aid migration.</p>
 </div></span>
   
 </li>
@@ -845,7 +861,7 @@ is declared.</p>
   
   
   <h3 class="inherited">Methods included from <span class='object_link'><a href="MemoizedHelpers.html" title="RSpec::Core::MemoizedHelpers (module)">MemoizedHelpers</a></span></h3>
-  <p class="inherited"><span class='object_link'><a href="MemoizedHelpers.html#is_expected-instance_method" title="RSpec::Core::MemoizedHelpers#is_expected (method)">#is_expected</a></span>, <span class='object_link'><a href="MemoizedHelpers.html#should-instance_method" title="RSpec::Core::MemoizedHelpers#should (method)">#should</a></span>, <span class='object_link'><a href="MemoizedHelpers.html#should_not-instance_method" title="RSpec::Core::MemoizedHelpers#should_not (method)">#should_not</a></span>, <span class='object_link'><a href="MemoizedHelpers.html#subject-instance_method" title="RSpec::Core::MemoizedHelpers#subject (method)">#subject</a></span></p>
+  <p class="inherited"><span class='object_link'><a href="MemoizedHelpers.html#get_constant_or_yield-class_method" title="RSpec::Core::MemoizedHelpers.get_constant_or_yield (method)">get_constant_or_yield</a></span>, <span class='object_link'><a href="MemoizedHelpers.html#is_expected-instance_method" title="RSpec::Core::MemoizedHelpers#is_expected (method)">#is_expected</a></span>, <span class='object_link'><a href="MemoizedHelpers.html#should-instance_method" title="RSpec::Core::MemoizedHelpers#should (method)">#should</a></span>, <span class='object_link'><a href="MemoizedHelpers.html#should_not-instance_method" title="RSpec::Core::MemoizedHelpers#should_not (method)">#should_not</a></span>, <span class='object_link'><a href="MemoizedHelpers.html#subject-instance_method" title="RSpec::Core::MemoizedHelpers#subject (method)">#subject</a></span></p>
 
 
   <div id="class_method_details" class="method_details_list">
@@ -910,7 +926,7 @@ assigning default metadata to the generated example.</p>
       <div class="method_details ">
   <h3 class="signature " id="alias_it_behaves_like_to-class_method">
   
-    + (<tt>Object</tt>) <strong>alias_it_behaves_like_to</strong>(name, *args, &amp;block) 
+    + (<tt>Object</tt>) <strong>alias_it_behaves_like_to</strong>(name, *args) 
   
 
   
@@ -965,7 +981,7 @@ benefit of assigning default metadata to the generated example.</p>
       <div class="method_details ">
   <h3 class="signature " id="describe-class_method">
   
-    + (<tt>Object</tt>) <strong>describe</strong>(*args, &amp;example_group_block) 
+    + (<tt>Object</tt>) <strong>describe</strong>(*args) 
   
 
   
@@ -982,7 +998,7 @@ everything except the examples themselves.</p>
 
 <h2>Examples</h2>
 
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_describe'>describe</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>something</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span> <span class='comment'># &lt;&lt; This describe method is defined in
+<pre class="code ruby"><code><span class='id identifier rubyid_describe'>describe</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>something</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span> <span class='comment'># &lt;&lt; This describe method is defined in
 </span>                        <span class='comment'># &lt;&lt; RSpec::Core::DSL, included in the
 </span>                        <span class='comment'># &lt;&lt; global namespace
 </span>  <span class='id identifier rubyid_before'>before</span> <span class='kw'>do</span>
@@ -1109,7 +1125,7 @@ everything except the examples themselves.</p>
       <div class="method_details ">
   <h3 class="signature " id="focused-class_method">
   
-    + (<tt>Object</tt>) <strong>focused</strong>(desc = nil, *args, &amp;block) 
+    + (<tt>Object</tt>) <strong>focused</strong>(desc = nil, *args) 
   
 
   
@@ -1170,7 +1186,7 @@ everything except the examples themselves.</p>
       <div class="method_details ">
   <h3 class="signature " id="include_context-class_method">
   
-    + (<tt>Object</tt>) <strong>include_context</strong>(name, *args, &amp;block) 
+    + (<tt>Object</tt>) <strong>include_context</strong>(name, *args) 
   
 
   
@@ -1219,7 +1235,7 @@ group. If given a block, that block is also eval&#39;d in the current context.</
       <div class="method_details ">
   <h3 class="signature " id="include_examples-class_method">
   
-    + (<tt>Object</tt>) <strong>include_examples</strong>(name, *args, &amp;block) 
+    + (<tt>Object</tt>) <strong>include_examples</strong>(name, *args) 
   
 
   
@@ -1484,11 +1500,11 @@ Returns nil if the subject is not a class or module.</p>
     <p class="tag_title">Examples:</p>
     
       
-      <pre class="example code"><code><span class='id identifier rubyid_describe'>describe</span> <span class='const'>Thing</span> <span class='kw'>do</span>
+      <pre class="example code"><span class='id identifier rubyid_describe'>describe</span> <span class='const'>Thing</span> <span class='kw'>do</span>
   <span class='id identifier rubyid_it'>it</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>does something</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
     <span class='id identifier rubyid_described_class'>described_class</span> <span class='op'>==</span> <span class='const'>Thing</span>
   <span class='kw'>end</span>
-<span class='kw'>end</span></code></pre>
+<span class='kw'>end</span></pre>
     
   </div>
 
@@ -2646,9 +2662,9 @@ of RSpec which used <code>context</code> and <code>specify</code> instead of <co
 </div>
 
     <div id="footer">
-  Generated on Thu Dec 18 08:14:26 2014 by
+  Generated on Wed Jan 28 22:10:24 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.6 (ruby-2.1.5).
+  0.8.0 (ruby-2.1.5).
 </div>
 
   </body>

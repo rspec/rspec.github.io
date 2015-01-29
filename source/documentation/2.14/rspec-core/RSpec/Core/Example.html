@@ -6,7 +6,7 @@
 <title>
   Class: RSpec::Core::Example
   
-    &mdash; Documentation by YARD 0.8.7.6
+    &mdash; Documentation by YARD 0.8.0
   
 </title>
 
@@ -17,7 +17,7 @@
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '../../';
-  framesUrl = "../../frames.html#!RSpec/Core/Example.html";
+  framesUrl = "../../frames.html#!" + escape(window.location.href);
 </script>
 
 
@@ -118,7 +118,7 @@ on the state of an example&#39;s metadata.</p>
     <p class="tag_title">Examples:</p>
     
       
-      <pre class="example code"><code>
+      <pre class="example code">
 <span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_configure'>configure</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_config'>config</span><span class='op'>|</span>
   <span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_before'>before</span> <span class='kw'>do</span>
     <span class='id identifier rubyid_log'>log</span> <span class='id identifier rubyid_example'>example</span><span class='period'>.</span><span class='id identifier rubyid_description'>description</span>
@@ -139,7 +139,7 @@ on the state of an example&#39;s metadata.</p>
     <span class='id identifier rubyid_log'>log</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_example'>example</span><span class='period'>.</span><span class='id identifier rubyid_full_description'>full_description</span><span class='embexpr_end'>}</span><span class='tstring_content'>: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_auditable'>auditable</span><span class='period'>.</span><span class='id identifier rubyid_inspect'>inspect</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
     <span class='id identifier rubyid_auditable'>auditable</span><span class='period'>.</span><span class='id identifier rubyid_should'>should</span> <span class='id identifier rubyid_do_something'>do_something</span>
   <span class='kw'>end</span>
-<span class='kw'>end</span></code></pre>
+<span class='kw'>end</span></pre>
     
   </div>
 
@@ -190,7 +190,8 @@ on the state of an example&#39;s metadata.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Returns the first exception raised in the context of running this example (nil if no exception is raised).</p>
+    <span class="summary_desc"><div class='inline'><p>Returns the first exception raised in the context of running this
+example (nil if no exception is raised).</p>
 </div></span>
   
 </li>
@@ -240,7 +241,7 @@ on the state of an example&#39;s metadata.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#procsy-class_method" title="procsy (class method)">+ (Object) <strong>procsy</strong>(metadata, &amp;proc) </a>
+      <a href="#procsy-class_method" title="procsy (class method)">+ (Object) <strong>procsy</strong>(metadata) </a>
     
 
     
@@ -254,7 +255,8 @@ on the state of an example&#39;s metadata.</p>
   <span class="private note title">private</span>
 
   
-    <span class="summary_desc"><div class='inline'><p>Wraps the example block in a Proc so it can invoked using <code>run</code> or <code>call</code> in <a href="../Hooks#around-instance_method">around</a> hooks.</p>
+    <span class="summary_desc"><div class='inline'><p>Wraps the example block in a Proc so it can invoked using <code>run</code> or
+<code>call</code> in <a href="../Hooks#around-instance_method">around</a> hooks.</p>
 </div></span>
   
 </li>
@@ -286,7 +288,8 @@ on the state of an example&#39;s metadata.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Returns the string submitted to <code>example</code> or its aliases (e.g. <code>specify</code>, <code>it</code>, etc).</p>
+    <span class="summary_desc"><div class='inline'><p>Returns the string submitted to <code>example</code> or its aliases (e.g.
+<code>specify</code>, <code>it</code>, etc).</p>
 </div></span>
   
 </li>
@@ -309,7 +312,8 @@ on the state of an example&#39;s metadata.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Returns the example group class that provides the context for running this example.</p>
+    <span class="summary_desc"><div class='inline'><p>Returns the example group class that provides the context for running
+this example.</p>
 </div></span>
   
 </li>
@@ -380,7 +384,8 @@ on the state of an example&#39;s metadata.</p>
   <span class="private note title">private</span>
 
   
-    <span class="summary_desc"><div class='inline'><p>instance_evals the block passed to the constructor in the context of the instance of <span class='object_link'><a href="ExampleGroup.html" title="RSpec::Core::ExampleGroup (class)">ExampleGroup</a></span>.</p>
+    <span class="summary_desc"><div class='inline'><p>instance_evals the block passed to the constructor in the context of
+the instance of <span class='object_link'><a href="ExampleGroup.html" title="RSpec::Core::ExampleGroup (class)">ExampleGroup</a></span>.</p>
 </div></span>
   
 </li>
@@ -511,6 +516,7 @@ on the state of an example&#39;s metadata.</p>
     
       
       <span id=""></span>
+      <span id="exception-instance_method"></span>
       <div class="method_details first">
   <h3 class="signature first" id="exception-instance_method">
   
@@ -554,6 +560,7 @@ example (nil if no exception is raised)</p>
     
       
       <span id=""></span>
+      <span id="metadata-instance_method"></span>
       <div class="method_details ">
   <h3 class="signature " id="metadata-instance_method">
   
@@ -604,7 +611,7 @@ example (nil if no exception is raised)</p>
       <div class="method_details first">
   <h3 class="signature first" id="procsy-class_method">
   
-    + (<tt>Object</tt>) <strong>procsy</strong>(metadata, &amp;proc) 
+    + (<tt>Object</tt>) <strong>procsy</strong>(metadata) 
   
 
   
@@ -919,9 +926,9 @@ the instance of <span class='object_link'><a href="ExampleGroup.html" title="RSp
 </div>
 
     <div id="footer">
-  Generated on Thu Dec 18 08:19:51 2014 by
+  Generated on Wed Jan 28 22:11:41 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.6 (ruby-2.1.5).
+  0.8.0 (ruby-2.1.5).
 </div>
 
   </body>

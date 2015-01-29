@@ -6,7 +6,7 @@
 <title>
   Module: RSpec::Core::Formatters::Helpers
   
-    &mdash; Documentation by YARD 0.8.7.6
+    &mdash; Documentation by YARD 0.8.0
   
 </title>
 
@@ -17,7 +17,7 @@
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '../../../';
-  framesUrl = "../../../frames.html#!RSpec/Core/Formatters/Helpers.html";
+  framesUrl = "../../../frames.html#!" + escape(window.location.href);
 </script>
 
 
@@ -164,7 +164,8 @@
   <span class="private note title">private</span>
 
   
-    <span class="summary_desc"><div class='inline'><p>Formats seconds to have 5 digits of precision with trailing zeros removed if the number is less than 1 or with 2 digits of precision if the number is greater than zero.</p>
+    <span class="summary_desc"><div class='inline'><p>Formats seconds to have 5 digits of precision with trailing zeros removed if the number
+is less than 1 or with 2 digits of precision if the number is greater than zero.</p>
 </div></span>
   
 </li>
@@ -262,8 +263,8 @@
     <p class="tag_title">Examples:</p>
     
       
-      <pre class="example code"><code><span class='id identifier rubyid_format_duration'>format_duration</span><span class='lparen'>(</span><span class='int'>1</span><span class='rparen'>)</span> <span class='comment'>#=&gt;  &quot;1 minute 1 second&quot;
-</span><span class='id identifier rubyid_format_duration'>format_duration</span><span class='lparen'>(</span><span class='float'>135.14</span><span class='rparen'>)</span> <span class='comment'>#=&gt; &quot;2 minutes 15.14 seconds&quot;</span></code></pre>
+      <pre class="example code"><span class='id identifier rubyid_format_duration'>format_duration</span><span class='lparen'>(</span><span class='int'>1</span><span class='rparen'>)</span> <span class='comment'>#=&gt;  &quot;1 minute 1 second&quot;
+</span><span class='id identifier rubyid_format_duration'>format_duration</span><span class='lparen'>(</span><span class='float'>135.14</span><span class='rparen'>)</span> <span class='comment'>#=&gt; &quot;2 minutes 15.14 seconds&quot;</span></pre>
     
   </div>
 <p class="tag_title">Parameters:</p>
@@ -371,7 +372,7 @@
 <p>Formats seconds to have 5 digits of precision with trailing zeros removed if the number
 is less than 1 or with 2 digits of precision if the number is greater than zero.</p>
 
-<p>The precision used is set in <span class='object_link'><a href="#SUB_SECOND_PRECISION-constant" title="RSpec::Core::Formatters::Helpers::SUB_SECOND_PRECISION (constant)">SUB_SECOND_PRECISION</a></span> and <span class='object_link'><a href="#DEFAULT_PRECISION-constant" title="RSpec::Core::Formatters::Helpers::DEFAULT_PRECISION (constant)">DEFAULT_PRECISION</a></span>.</p>
+<p>The precision used is set in Helpers::SUB&lt;em&gt;SECOND&lt;/em&gt;PRECISION and <span class='object_link'><a href="#DEFAULT_PRECISION-constant" title="RSpec::Core::Formatters::Helpers::DEFAULT_PRECISION (constant)">DEFAULT_PRECISION</a></span>.</p>
 
 
   </div>
@@ -382,9 +383,9 @@ is less than 1 or with 2 digits of precision if the number is greater than zero.
     <p class="tag_title">Examples:</p>
     
       
-      <pre class="example code"><code><span class='id identifier rubyid_format_seconds'>format_seconds</span><span class='lparen'>(</span><span class='float'>0.000006</span><span class='rparen'>)</span> <span class='comment'>#=&gt; &quot;0.00001&quot;
+      <pre class="example code"><span class='id identifier rubyid_format_seconds'>format_seconds</span><span class='lparen'>(</span><span class='float'>0.000006</span><span class='rparen'>)</span> <span class='comment'>#=&gt; &quot;0.00001&quot;
 </span><span class='id identifier rubyid_format_seconds'>format_seconds</span><span class='lparen'>(</span><span class='float'>0.020000</span><span class='rparen'>)</span> <span class='comment'>#=&gt; &quot;0.02&quot;
-</span><span class='id identifier rubyid_format_seconds'>format_seconds</span><span class='lparen'>(</span><span class='float'>1.00000000001</span><span class='rparen'>)</span> <span class='comment'>#=&gt; &quot;1&quot;</span></code></pre>
+</span><span class='id identifier rubyid_format_seconds'>format_seconds</span><span class='lparen'>(</span><span class='float'>1.00000000001</span><span class='rparen'>)</span> <span class='comment'>#=&gt; &quot;1&quot;</span></pre>
     
   </div>
 <p class="tag_title">Parameters:</p>
@@ -635,9 +636,9 @@ is less than 1 or with 2 digits of precision if the number is greater than zero.
 </div>
 
     <div id="footer">
-  Generated on Thu Dec 18 08:14:25 2014 by
+  Generated on Wed Jan 28 22:10:23 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.6 (ruby-2.1.5).
+  0.8.0 (ruby-2.1.5).
 </div>
 
   </body>

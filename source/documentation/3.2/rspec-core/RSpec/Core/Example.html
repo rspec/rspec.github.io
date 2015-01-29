@@ -104,13 +104,10 @@
     
   <div class="note notetag">
     <strong>Note:</strong>
-    <div class='inline'>
-<p>Example blocks are evaluated in the context of an instance of an
-<code>ExampleGroup</code>, not in the context of an instance of
-<code>Example</code>.</p>
+    <div class='inline'><p>Example blocks are evaluated in the context of an instance
+of an <code>ExampleGroup</code>, not in the context of an instance of <code>Example</code>.</p>
 </div>
   </div>
-
 
 <p>Wrapper for an instance of a subclass of <span class='object_link'><a href="ExampleGroup.html" title="RSpec::Core::ExampleGroup (class)">ExampleGroup</a></span>. An instance of
 <code>RSpec::Core::Example</code> is returned by example definition methods
@@ -119,12 +116,12 @@ such as <span class='object_link'><a href="ExampleGroup.html#it-class_method" ti
 <span class='object_link'><a href="MemoizedHelpers/ClassMethods.html#let-instance_method" title="RSpec::Core::MemoizedHelpers::ClassMethods#let (method)">let</a></span> and
 <span class='object_link'><a href="MemoizedHelpers/ClassMethods.html#subject-instance_method" title="RSpec::Core::MemoizedHelpers::ClassMethods#subject (method)">subject</a></span> blocks.</p>
 
-<p>This allows us to provide rich metadata about each individual example
-without adding tons of methods directly to the ExampleGroup that users may
-inadvertantly redefine.</p>
+<p>This allows us to provide rich metadata about each individual
+example without adding tons of methods directly to the ExampleGroup
+that users may inadvertantly redefine.</p>
 
-<p>Useful for configuring logging and/or taking some action based on the state
-of an example&#39;s metadata.</p>
+<p>Useful for configuring logging and/or taking some action based
+on the state of an example&#39;s metadata.</p>
 
 
   </div>
@@ -207,9 +204,7 @@ of an example&#39;s metadata.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Returns the first exception raised in the context of running this example
-(nil if no exception is raised).</p>
+    <span class="summary_desc"><div class='inline'><p>Returns the first exception raised in the context of running this example (nil if no exception is raised).</p>
 </div></span>
   
 </li>
@@ -237,8 +232,7 @@ of an example&#39;s metadata.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Returns the metadata object associated with this example.</p>
+    <span class="summary_desc"><div class='inline'><p>Returns the metadata object associated with this example.</p>
 </div></span>
   
 </li>
@@ -274,9 +268,7 @@ of an example&#39;s metadata.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Returns the string submitted to <code>example</code> or its aliases (e.g.
-<code>specify</code>, <code>it</code>, etc).</p>
+    <span class="summary_desc"><div class='inline'><p>Returns the string submitted to <code>example</code> or its aliases (e.g. <code>specify</code>, <code>it</code>, etc).</p>
 </div></span>
   
 </li>
@@ -299,9 +291,7 @@ of an example&#39;s metadata.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Returns the example group class that provides the context for running this
-example.</p>
+    <span class="summary_desc"><div class='inline'><p>Returns the example group class that provides the context for running this example.</p>
 </div></span>
   
 </li>
@@ -324,8 +314,7 @@ example.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Represents the result of running this example.</p>
+    <span class="summary_desc"><div class='inline'><p>Represents the result of running this example.</p>
 </div></span>
   
 </li>
@@ -348,8 +337,7 @@ example.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>The relative path to the file where this example was defined.</p>
+    <span class="summary_desc"><div class='inline'><p>The relative path to the file where this example was defined.</p>
 </div></span>
   
 </li>
@@ -372,9 +360,7 @@ example.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>The full description (including the docstrings of all parent example
-groups).</p>
+    <span class="summary_desc"><div class='inline'><p>The full description (including the docstrings of all parent example groups).</p>
 </div></span>
   
 </li>
@@ -399,8 +385,7 @@ groups).</p>
   <span class="private note title">private</span>
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Creates a new instance of Example.</p>
+    <span class="summary_desc"><div class='inline'><p>Creates a new instance of Example.</p>
 </div></span>
   
 </li>
@@ -423,8 +408,7 @@ groups).</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Returns a description of the example that always includes the location.</p>
+    <span class="summary_desc"><div class='inline'><p>Returns a description of the example that always includes the location.</p>
 </div></span>
   
 </li>
@@ -447,9 +431,7 @@ groups).</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>The exact source location of this example in a form like
-<code>./path/to/spec.rb:17</code>.</p>
+    <span class="summary_desc"><div class='inline'><p>The exact source location of this example in a form like <code>./path/to/spec.rb:17</code>.</p>
 </div></span>
   
 </li>
@@ -474,8 +456,30 @@ groups).</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Flag that indicates that the example is not expected to pass.</p>
+    <span class="summary_desc"><div class='inline'><p>Flag that indicates that the example is not expected to pass.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#rerun_argument-instance_method" title="#rerun_argument (instance method)">- (void) <strong>rerun_argument</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Returns the argument that can be passed to the <code>rspec</code> command to rerun this example.</p>
 </div></span>
   
 </li>
@@ -498,9 +502,7 @@ groups).</p>
   <span class="private note title">private</span>
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>instance_execs the block passed to the constructor in the context of the
-instance of <span class='object_link'><a href="ExampleGroup.html" title="RSpec::Core::ExampleGroup (class)">ExampleGroup</a></span>.</p>
+    <span class="summary_desc"><div class='inline'><p>instance_execs the block passed to the constructor in the context of the instance of <span class='object_link'><a href="ExampleGroup.html" title="RSpec::Core::ExampleGroup (class)">ExampleGroup</a></span>.</p>
 </div></span>
   
 </li>
@@ -525,8 +527,7 @@ instance of <span class='object_link'><a href="ExampleGroup.html" title="RSpec::
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Flag that will cause the example to not run.</p>
+    <span class="summary_desc"><div class='inline'><p>Flag that will cause the example to not run.</p>
 </div></span>
   
 </li>
@@ -553,7 +554,6 @@ instance of <span class='object_link'><a href="ExampleGroup.html" title="RSpec::
   <strong>This method is part of a private API.</strong>
   You should avoid using this method if possible, as it may be removed or be changed in the future.
 </p>
-
 <p>Creates a new instance of Example.</p>
 
 
@@ -573,8 +573,8 @@ instance of <span class='object_link'><a href="ExampleGroup.html" title="RSpec::
       
       
         &mdash;
-        <div class='inline'>
-<p>the subclass of ExampleGroup in which this Example is declared</p>
+        <div class='inline'><p>the subclass of ExampleGroup in which
+this Example is declared</p>
 </div>
       
     </li>
@@ -589,8 +589,8 @@ instance of <span class='object_link'><a href="ExampleGroup.html" title="RSpec::
       
       
         &mdash;
-        <div class='inline'>
-<p>the String passed to the <code>it</code> method (or alias)</p>
+        <div class='inline'><p>the String passed to the <code>it</code> method (or
+alias)</p>
 </div>
       
     </li>
@@ -605,8 +605,8 @@ instance of <span class='object_link'><a href="ExampleGroup.html" title="RSpec::
       
       
         &mdash;
-        <div class='inline'>
-<p>additional args passed to <code>it</code> to be used as metadata</p>
+        <div class='inline'><p>additional args passed to <code>it</code> to be used as
+metadata</p>
 </div>
       
     </li>
@@ -623,8 +623,8 @@ instance of <span class='object_link'><a href="ExampleGroup.html" title="RSpec::
       
       
         &mdash;
-        <div class='inline'>
-<p>the block of code that represents the example</p>
+        <div class='inline'><p>the block of code that represents the
+example</p>
 </div>
       
     </li>
@@ -638,20 +638,20 @@ instance of <span class='object_link'><a href="ExampleGroup.html" title="RSpec::
       <pre class="lines">
 
 
-127
-128
-129
-130
-131
-132
-133
-134
-135
 136
-137</pre>
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/core/example.rb', line 127</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/example.rb', line 136</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_example_group_class'>example_group_class</span><span class='comma'>,</span> <span class='id identifier rubyid_description'>description</span><span class='comma'>,</span> <span class='id identifier rubyid_user_metadata'>user_metadata</span><span class='comma'>,</span> <span class='id identifier rubyid_example_block'>example_block</span><span class='op'>=</span><span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='ivar'>@example_group_class</span> <span class='op'>=</span> <span class='id identifier rubyid_example_group_class'>example_group_class</span>
@@ -687,9 +687,8 @@ instance of <span class='object_link'><a href="ExampleGroup.html" title="RSpec::
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns the first exception raised in the context of running this example
-(nil if no exception is raised).</p>
+    <p>Returns the first exception raised in the context of running this
+example (nil if no exception is raised).</p>
 
 
   </div>
@@ -703,12 +702,12 @@ instance of <span class='object_link'><a href="ExampleGroup.html" title="RSpec::
       <pre class="lines">
 
 
-99
-100
-101</pre>
+108
+109
+110</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/core/example.rb', line 99</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/example.rb', line 108</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_exception'>exception</span>
   <span class='ivar'>@exception</span>
@@ -731,8 +730,7 @@ instance of <span class='object_link'><a href="ExampleGroup.html" title="RSpec::
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns the metadata object associated with this example.</p>
+    <p>Returns the metadata object associated with this example.</p>
 
 
   </div>
@@ -746,12 +744,12 @@ instance of <span class='object_link'><a href="ExampleGroup.html" title="RSpec::
       <pre class="lines">
 
 
-104
-105
-106</pre>
+113
+114
+115</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/core/example.rb', line 104</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/example.rb', line 113</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_metadata'>metadata</span>
   <span class='ivar'>@metadata</span>
@@ -779,12 +777,11 @@ instance of <span class='object_link'><a href="ExampleGroup.html" title="RSpec::
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns the string submitted to <code>example</code> or its aliases (e.g.
-<code>specify</code>, <code>it</code>, etc). If no string is submitted
-(e.g. <code>it { is_expected.to do_something }</code>) it returns the
-message generated by the matcher if there is one, otherwise returns a
-message including the location of the example.</p>
+    <p>Returns the string submitted to <code>example</code> or its aliases (e.g.
+<code>specify</code>, <code>it</code>, etc). If no string is submitted (e.g.
+<code>it { is_expected.to do_something }</code>) it returns the message generated
+by the matcher if there is one, otherwise returns a message including
+the location of the example.</p>
 
 
   </div>
@@ -836,9 +833,8 @@ message including the location of the example.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns the example group class that provides the context for running this
-example.</p>
+    <p>Returns the example group class that provides the context for running
+this example.</p>
 
 
   </div>
@@ -852,12 +848,12 @@ example.</p>
       <pre class="lines">
 
 
-141
-142
-143</pre>
+150
+151
+152</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/core/example.rb', line 141</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/example.rb', line 150</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_example_group'>example_group</span>
   <span class='ivar'>@example_group_class</span>
@@ -878,8 +874,7 @@ example.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns represents the result of running this example.</p>
+    <p>Returns represents the result of running this example.</p>
 
 
   </div>
@@ -897,8 +892,7 @@ example.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>represents the result of running this example.</p>
+        <div class='inline'><p>represents the result of running this example.</p>
 </div>
       
     </li>
@@ -933,8 +927,8 @@ example.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns the relative path to the file where this example was defined.</p>
+    <p>Returns the relative path to the file where this example was
+defined.</p>
 
 
   </div>
@@ -952,8 +946,8 @@ example.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>the relative path to the file where this example was defined.</p>
+        <div class='inline'><p>the relative path to the file where this example was
+defined.</p>
 </div>
       
     </li>
@@ -988,9 +982,8 @@ example.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns the full description (including the docstrings of all parent
-example groups).</p>
+    <p>Returns the full description (including the docstrings of
+all parent example groups).</p>
 
 
   </div>
@@ -1008,9 +1001,8 @@ example groups).</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>the full description (including the docstrings of all parent example
-groups).</p>
+        <div class='inline'><p>the full description (including the docstrings of
+all parent example groups).</p>
 </div>
       
     </li>
@@ -1045,8 +1037,7 @@ groups).</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns a description of the example that always includes the location.</p>
+    <p>Returns a description of the example that always includes the location.</p>
 
 
   </div>
@@ -1094,9 +1085,8 @@ groups).</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns the exact source location of this example in a form like
-<code>./path/to/spec.rb:17</code></p>
+    <p>Returns the exact source location of this example in a form
+like <code>./path/to/spec.rb:17</code></p>
 
 
   </div>
@@ -1114,9 +1104,8 @@ groups).</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>the exact source location of this example in a form like
-<code>./path/to/spec.rb:17</code></p>
+        <div class='inline'><p>the exact source location of this example in a form
+like <code>./path/to/spec.rb:17</code></p>
 </div>
       
     </li>
@@ -1155,10 +1144,9 @@ groups).</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns flag that indicates that the example is not expected to pass. It
-will be run and will either have a pending result (if a failure occurs) or
-a failed result (if no failure occurs).</p>
+    <p>Returns flag that indicates that the example is not expected
+to pass. It will be run and will either have a pending result (if a
+failure occurs) or a failed result (if no failure occurs).</p>
 
 
   </div>
@@ -1176,10 +1164,9 @@ a failed result (if no failure occurs).</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>flag that indicates that the example is not expected to pass. It will be
-run and will either have a pending result (if a failure occurs) or a failed
-result (if no failure occurs).</p>
+        <div class='inline'><p>flag that indicates that the example is not expected
+to pass. It will be run and will either have a pending result (if a
+failure occurs) or a failed result (if no failure occurs).</p>
 </div>
       
     </li>
@@ -1204,6 +1191,54 @@ result (if no failure occurs).</p>
 </div>
     
       <div class="method_details ">
+  <h3 class="signature " id="rerun_argument-instance_method">
+  
+    - (<tt>void</tt>) <strong>rerun_argument</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns the argument that can be passed to the <code>rspec</code> command to rerun this example.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+96
+97
+98
+99
+100
+101
+102</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/example.rb', line 96</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_rerun_argument'>rerun_argument</span>
+  <span class='id identifier rubyid_loaded_spec_files'>loaded_spec_files</span> <span class='op'>=</span> <span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_configuration'>configuration</span><span class='period'>.</span><span class='id identifier rubyid_loaded_spec_files'>loaded_spec_files</span>
+
+  <span class='const'>Metadata</span><span class='period'>.</span><span class='id identifier rubyid_ascending'>ascending</span><span class='lparen'>(</span><span class='id identifier rubyid_metadata'>metadata</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_meta'>meta</span><span class='op'>|</span>
+    <span class='kw'>return</span> <span class='id identifier rubyid_meta'>meta</span><span class='lbracket'>[</span><span class='symbol'>:location</span><span class='rbracket'>]</span> <span class='kw'>if</span> <span class='id identifier rubyid_loaded_spec_files'>loaded_spec_files</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='id identifier rubyid_meta'>meta</span><span class='lbracket'>[</span><span class='symbol'>:absolute_file_path</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
   <h3 class="signature " id="run-instance_method">
   
     - (<tt>void</tt>) <strong>run</strong>(example_group_instance, reporter) 
@@ -1218,9 +1253,8 @@ result (if no failure occurs).</p>
   <strong>This method is part of a private API.</strong>
   You should avoid using this method if possible, as it may be removed or be changed in the future.
 </p>
-
-<p>instance_execs the block passed to the constructor in the context of the
-instance of <span class='object_link'><a href="ExampleGroup.html" title="RSpec::Core::ExampleGroup (class)">RSpec::Core::ExampleGroup</a></span>.</p>
+<p>instance_execs the block passed to the constructor in the context of
+the instance of <span class='object_link'><a href="ExampleGroup.html" title="RSpec::Core::ExampleGroup (class)">RSpec::Core::ExampleGroup</a></span>.</p>
 
 
   </div>
@@ -1239,8 +1273,7 @@ instance of <span class='object_link'><a href="ExampleGroup.html" title="RSpec::
       
       
         &mdash;
-        <div class='inline'>
-<p>the instance of an ExampleGroup subclass</p>
+        <div class='inline'><p>the instance of an ExampleGroup subclass</p>
 </div>
       
     </li>
@@ -1254,15 +1287,6 @@ instance of <span class='object_link'><a href="ExampleGroup.html" title="RSpec::
       <pre class="lines">
 
 
-152
-153
-154
-155
-156
-157
-158
-159
-160
 161
 162
 163
@@ -1299,13 +1323,26 @@ instance of <span class='object_link'><a href="ExampleGroup.html" title="RSpec::
 194
 195
 196
-197</pre>
+197
+198
+199
+200
+201
+202
+203
+204
+205
+206
+207
+208</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/core/example.rb', line 152</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/example.rb', line 161</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_run'>run</span><span class='lparen'>(</span><span class='id identifier rubyid_example_group_instance'>example_group_instance</span><span class='comma'>,</span> <span class='id identifier rubyid_reporter'>reporter</span><span class='rparen'>)</span>
   <span class='ivar'>@example_group_instance</span> <span class='op'>=</span> <span class='id identifier rubyid_example_group_instance'>example_group_instance</span>
+  <span class='id identifier rubyid_hooks'>hooks</span><span class='period'>.</span><span class='id identifier rubyid_register_global_singleton_context_hooks'>register_global_singleton_context_hooks</span><span class='lparen'>(</span><span class='kw'>self</span><span class='comma'>,</span> <span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_configuration'>configuration</span><span class='period'>.</span><span class='id identifier rubyid_hooks'>hooks</span><span class='rparen'>)</span>
+  <span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_configuration'>configuration</span><span class='period'>.</span><span class='id identifier rubyid_configure_example'>configure_example</span><span class='lparen'>(</span><span class='kw'>self</span><span class='rparen'>)</span>
   <span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_current_example'>current_example</span> <span class='op'>=</span> <span class='kw'>self</span>
 
   <span class='id identifier rubyid_start'>start</span><span class='lparen'>(</span><span class='id identifier rubyid_reporter'>reporter</span><span class='rparen'>)</span>
@@ -1315,7 +1352,7 @@ instance of <span class='object_link'><a href="ExampleGroup.html" title="RSpec::
     <span class='kw'>if</span> <span class='id identifier rubyid_skipped?'>skipped?</span>
       <span class='const'>Pending</span><span class='period'>.</span><span class='id identifier rubyid_mark_pending!'>mark_pending!</span> <span class='kw'>self</span><span class='comma'>,</span> <span class='id identifier rubyid_skip'>skip</span>
     <span class='kw'>elsif</span> <span class='op'>!</span><span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_configuration'>configuration</span><span class='period'>.</span><span class='id identifier rubyid_dry_run?'>dry_run?</span>
-      <span class='id identifier rubyid_with_around_example_hooks'>with_around_example_hooks</span> <span class='kw'>do</span>
+      <span class='id identifier rubyid_with_around_and_singleton_context_hooks'>with_around_and_singleton_context_hooks</span> <span class='kw'>do</span>
         <span class='kw'>begin</span>
           <span class='id identifier rubyid_run_before_example'>run_before_example</span>
           <span class='ivar'>@example_group_instance</span><span class='period'>.</span><span class='id identifier rubyid_instance_exec'>instance_exec</span><span class='lparen'>(</span><span class='kw'>self</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='ivar'>@example_block</span><span class='rparen'>)</span>
@@ -1340,7 +1377,7 @@ instance of <span class='object_link'><a href="ExampleGroup.html" title="RSpec::
   <span class='kw'>rescue</span> <span class='const'>Exception</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_e'>e</span>
     <span class='id identifier rubyid_set_exception'>set_exception</span><span class='lparen'>(</span><span class='id identifier rubyid_e'>e</span><span class='rparen'>)</span>
   <span class='kw'>ensure</span>
-    <span class='const'>ExampleGroup</span><span class='period'>.</span><span class='id identifier rubyid_instance_variables_for_example'>instance_variables_for_example</span><span class='lparen'>(</span><span class='ivar'>@example_group_instance</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_ivar'>ivar</span><span class='op'>|</span>
+    <span class='const'>ExampleGroup</span><span class='period'>.</span><span class='id identifier rubyid_each_instance_variable_for_example'>each_instance_variable_for_example</span><span class='lparen'>(</span><span class='ivar'>@example_group_instance</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_ivar'>ivar</span><span class='op'>|</span>
       <span class='ivar'>@example_group_instance</span><span class='period'>.</span><span class='id identifier rubyid_instance_variable_set'>instance_variable_set</span><span class='lparen'>(</span><span class='id identifier rubyid_ivar'>ivar</span><span class='comma'>,</span> <span class='kw'>nil</span><span class='rparen'>)</span>
     <span class='kw'>end</span>
     <span class='ivar'>@example_group_instance</span> <span class='op'>=</span> <span class='kw'>nil</span>
@@ -1370,9 +1407,8 @@ instance of <span class='object_link'><a href="ExampleGroup.html" title="RSpec::
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns flag that will cause the example to not run. The <span class='object_link'><a href="Example/ExecutionResult.html" title="RSpec::Core::Example::ExecutionResult (class)">ExecutionResult</a></span>
-status will be <code>:pending</code>.</p>
+    <p>Returns flag that will cause the example to not run.
+The <span class='object_link'><a href="Example/ExecutionResult.html" title="RSpec::Core::Example::ExecutionResult (class)">ExecutionResult</a></span> status will be <code>:pending</code>.</p>
 
 
   </div>
@@ -1390,9 +1426,8 @@ status will be <code>:pending</code>.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>flag that will cause the example to not run. The <span class='object_link'><a href="Example/ExecutionResult.html" title="RSpec::Core::Example::ExecutionResult (class)">ExecutionResult</a></span> status
-will be <code>:pending</code>.</p>
+        <div class='inline'><p>flag that will cause the example to not run.
+The <span class='object_link'><a href="Example/ExecutionResult.html" title="RSpec::Core::Example::ExecutionResult (class)">ExecutionResult</a></span> status will be <code>:pending</code>.</p>
 </div>
       
     </li>
@@ -1421,7 +1456,7 @@ will be <code>:pending</code>.</p>
 </div>
 
     <div id="footer">
-  Generated on Wed Dec 17 10:38:36 2014 by
+  Generated on Wed Jan 28 22:02:07 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.1.5).
 </div>

@@ -6,7 +6,7 @@
 <title>
   Module: RSpec::Core::Hooks
   
-    &mdash; Documentation by YARD 0.8.7.6
+    &mdash; Documentation by YARD 0.8.0
   
 </title>
 
@@ -17,7 +17,7 @@
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '../../';
-  framesUrl = "../../frames.html#!RSpec/Core/Hooks.html";
+  framesUrl = "../../frames.html#!" + escape(window.location.href);
 </script>
 
 
@@ -75,15 +75,19 @@
     
   
     
-  
-  
-    <dt class="r1">Included in:</dt>
-    <dd class="r1"><span class='object_link'><a href="Configuration.html" title="RSpec::Core::Configuration (class)">Configuration</a></span>, <span class='object_link'><a href="ExampleGroup.html" title="RSpec::Core::ExampleGroup (class)">ExampleGroup</a></span>, <span class='object_link'><a href="World.html" title="RSpec::Core::World (class)">World</a></span></dd>
+      <dt class="r1">Includes:</dt>
+      <dd class="r1"><span class='object_link'><a href="MetadataHashBuilder/WithConfigWarning.html" title="RSpec::Core::MetadataHashBuilder::WithConfigWarning (module)">MetadataHashBuilder::WithConfigWarning</a></span></dd>
+      
     
   
   
-    <dt class="r2 last">Defined in:</dt>
-    <dd class="r2 last">lib/rspec/core/hooks.rb</dd>
+    <dt class="r2">Included in:</dt>
+    <dd class="r2"><span class='object_link'><a href="Configuration.html" title="RSpec::Core::Configuration (class)">Configuration</a></span>, <span class='object_link'><a href="ExampleGroup.html" title="RSpec::Core::ExampleGroup (class)">ExampleGroup</a></span>, <span class='object_link'><a href="World.html" title="RSpec::Core::World (class)">World</a></span></dd>
+    
+  
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">lib/rspec/core/hooks.rb</dd>
   
 </dl>
 <div class="clear"></div>
@@ -103,6 +107,24 @@
 
   <h2>Constant Summary</h2>
   
+    <dl class="constants">
+      
+        <dt id="SCOPES-constant" class="">SCOPES =
+          
+        </dt>
+        <dd><pre class="code"><span class='lbracket'>[</span><span class='symbol'>:each</span><span class='comma'>,</span> <span class='symbol'>:all</span><span class='comma'>,</span> <span class='symbol'>:suite</span><span class='rbracket'>]</span></pre></dd>
+      
+        <dt id="HOOK_TYPES-constant" class="">HOOK_TYPES =
+          
+        </dt>
+        <dd><pre class="code"><span class='lbrace'>{</span>
+  <span class='symbol'>:before</span> <span class='op'>=&gt;</span> <span class='const'>Hash</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span> <span class='lbrace'>{</span> <span class='const'>BeforeHook</span> <span class='rbrace'>}</span><span class='comma'>,</span>
+  <span class='symbol'>:after</span>  <span class='op'>=&gt;</span> <span class='const'>Hash</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span> <span class='lbrace'>{</span> <span class='const'>AfterHook</span>  <span class='rbrace'>}</span><span class='comma'>,</span>
+  <span class='symbol'>:around</span> <span class='op'>=&gt;</span> <span class='const'>Hash</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span> <span class='lbrace'>{</span> <span class='const'>AroundHook</span> <span class='rbrace'>}</span>
+<span class='rbrace'>}</span></pre></dd>
+      
+    </dl>
+  
 
 
 
@@ -121,7 +143,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#after-instance_method" title="#after (instance method)">- (Object) <strong>after</strong>(*args, &amp;block) </a>
+      <a href="#after-instance_method" title="#after (instance method)">- (Object) <strong>after</strong>(*args) </a>
     
 
     
@@ -137,7 +159,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Declare a block of code to be run after each example (using <code>:each</code>) or once after all examples (using <code>:all</code>).</p>
+    <span class="summary_desc"><div class='inline'><p>Declare a block of code to be run after each example (using <code>:each</code>) or
+once after all examples (using <code>:all</code>).</p>
 </div></span>
   
 </li>
@@ -146,7 +169,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#append_after-instance_method" title="#append_after (instance method)">- (Object) <strong>append_after</strong>(*args, &amp;block) </a>
+      <a href="#append_after-instance_method" title="#append_after (instance method)">- (Object) <strong>append_after</strong>(*args) </a>
     
 
     
@@ -160,7 +183,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Adds <code>block</code> to the back of the list of <code>after</code> blocks in the same scope (<code>:each</code>, <code>:all</code>, or <code>:suite</code>).</p>
+    <span class="summary_desc"><div class='inline'><p>Adds <code>block</code> to the back of the list of <code>after</code> blocks in the same
+scope (<code>:each</code>, <code>:all</code>, or <code>:suite</code>).</p>
 </div></span>
   
 </li>
@@ -183,7 +207,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Declare a block of code, parts of which will be run before and parts after the example.</p>
+    <span class="summary_desc"><div class='inline'><p>Declare a block of code, parts of which will be run before and parts
+after the example.</p>
 </div></span>
   
 </li>
@@ -192,7 +217,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#before-instance_method" title="#before (instance method)">- (Object) <strong>before</strong>(*args, &amp;block) </a>
+      <a href="#before-instance_method" title="#before (instance method)">- (Object) <strong>before</strong>(*args) </a>
     
 
     
@@ -208,7 +233,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Declare a block of code to be run before each example (using <code>:each</code>) or once before any example (using <code>:all</code>).</p>
+    <span class="summary_desc"><div class='inline'><p>Declare a block of code to be run before each example (using <code>:each</code>)
+or once before any example (using <code>:all</code>).</p>
 </div></span>
   
 </li>
@@ -217,7 +243,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#prepend_before-instance_method" title="#prepend_before (instance method)">- (Object) <strong>prepend_before</strong>(*args, &amp;block) </a>
+      <a href="#prepend_before-instance_method" title="#prepend_before (instance method)">- (Object) <strong>prepend_before</strong>(*args) </a>
     
 
     
@@ -231,7 +257,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Adds <code>block</code> to the front of the list of <code>before</code> blocks in the same scope (<code>:each</code>, <code>:all</code>, or <code>:suite</code>).</p>
+    <span class="summary_desc"><div class='inline'><p>Adds <code>block</code> to the front of the list of <code>before</code> blocks in the same
+scope (<code>:each</code>, <code>:all</code>, or <code>:suite</code>).</p>
 </div></span>
   
 </li>
@@ -300,7 +327,7 @@ block, the exception is captured for later reporting, and subsequent
 different places: <code>RSpec.configure</code>, a parent group, the current group.
 They are run in the following order:</p>
 
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_after'>after</span><span class='lparen'>(</span><span class='symbol'>:each</span><span class='rparen'>)</span> <span class='comment'># declared in the current group
+<pre class="code ruby"><code><span class='id identifier rubyid_after'>after</span><span class='lparen'>(</span><span class='symbol'>:each</span><span class='rparen'>)</span> <span class='comment'># declared in the current group
 </span><span class='id identifier rubyid_after'>after</span><span class='lparen'>(</span><span class='symbol'>:each</span><span class='rparen'>)</span> <span class='comment'># declared in a parent group
 </span><span class='id identifier rubyid_after'>after</span><span class='lparen'>(</span><span class='symbol'>:each</span><span class='rparen'>)</span> <span class='comment'># declared in RSpec.configure
 </span><span class='id identifier rubyid_after'>after</span><span class='lparen'>(</span><span class='symbol'>:all</span><span class='rparen'>)</span>  <span class='comment'># declared in the current group
@@ -395,7 +422,7 @@ groups declared with <code>:ui =&gt; true</code>.</p>
       <div class="method_details ">
   <h3 class="signature " id="append_after-instance_method">
   
-    - (<tt>Object</tt>) <strong>append_after</strong>(*args, &amp;block) 
+    - (<tt>Object</tt>) <strong>append_after</strong>(*args) 
   
 
   
@@ -476,7 +503,7 @@ associated <code>before</code> and <code>after</code> hooks.</p>
 <p>Declare a block of code, parts of which will be run before and parts
 after the example. It is your responsibility to run the example:</p>
 
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_around'>around</span><span class='lparen'>(</span><span class='symbol'>:each</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_ex'>ex</span><span class='op'>|</span>
+<pre class="code ruby"><code><span class='id identifier rubyid_around'>around</span><span class='lparen'>(</span><span class='symbol'>:each</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_ex'>ex</span><span class='op'>|</span>
   <span class='comment'># do some stuff before
 </span>  <span class='id identifier rubyid_ex'>ex</span><span class='period'>.</span><span class='id identifier rubyid_run'>run</span>
   <span class='comment'># do some stuff after
@@ -488,7 +515,7 @@ like a <code>Proc</code>.  This is especially handy when working with libaries
 that manage their own setup and teardown using a block or proc syntax,
 e.g.</p>
 
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_around'>around</span><span class='lparen'>(</span><span class='symbol'>:each</span><span class='rparen'>)</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_ex'>ex</span><span class='op'>|</span> <span class='const'>Database</span><span class='period'>.</span><span class='id identifier rubyid_transaction'>transaction</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_ex'>ex</span><span class='rparen'>)</span><span class='rbrace'>}</span>
+<pre class="code ruby"><code><span class='id identifier rubyid_around'>around</span><span class='lparen'>(</span><span class='symbol'>:each</span><span class='rparen'>)</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_ex'>ex</span><span class='op'>|</span> <span class='const'>Database</span><span class='period'>.</span><span class='id identifier rubyid_transaction'>transaction</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_ex'>ex</span><span class='rparen'>)</span><span class='rbrace'>}</span>
 <span class='id identifier rubyid_around'>around</span><span class='lparen'>(</span><span class='symbol'>:each</span><span class='rparen'>)</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_ex'>ex</span><span class='op'>|</span> <span class='const'>FakeFS</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_ex'>ex</span><span class='rparen'>)</span><span class='rbrace'>}</span>
 </code></pre>
 
@@ -615,7 +642,7 @@ accessible within each example.</p>
 different places: <code>RSpec.configure</code>, a parent group, the current group.
 They are run in the following order:</p>
 
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_before'>before</span><span class='lparen'>(</span><span class='symbol'>:suite</span><span class='rparen'>)</span> <span class='comment'># declared in RSpec.configure
+<pre class="code ruby"><code><span class='id identifier rubyid_before'>before</span><span class='lparen'>(</span><span class='symbol'>:suite</span><span class='rparen'>)</span> <span class='comment'># declared in RSpec.configure
 </span><span class='id identifier rubyid_before'>before</span><span class='lparen'>(</span><span class='symbol'>:all</span><span class='rparen'>)</span>   <span class='comment'># declared in RSpec.configure
 </span><span class='id identifier rubyid_before'>before</span><span class='lparen'>(</span><span class='symbol'>:all</span><span class='rparen'>)</span>   <span class='comment'># declared in a parent group
 </span><span class='id identifier rubyid_before'>before</span><span class='lparen'>(</span><span class='symbol'>:all</span><span class='rparen'>)</span>   <span class='comment'># declared in the current group
@@ -633,7 +660,7 @@ in the order in which they are declared.</p>
 RSpec will only apply that hook to groups or examples that match the
 conditions. e.g.</p>
 
-<pre class="code ruby"><code class="ruby"><span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_configure'>configure</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_config'>config</span><span class='op'>|</span>
+<pre class="code ruby"><code><span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_configure'>configure</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_config'>config</span><span class='op'>|</span>
   <span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_before'>before</span><span class='lparen'>(</span><span class='symbol'>:each</span><span class='comma'>,</span> <span class='symbol'>:authorized</span> <span class='op'>=&gt;</span> <span class='kw'>true</span><span class='rparen'>)</span> <span class='kw'>do</span>
     <span class='id identifier rubyid_log_in_as'>log_in_as</span> <span class='symbol'>:authorized_user</span>
   <span class='kw'>end</span>
@@ -729,7 +756,7 @@ you are on your own to clean up in an <code>after(:all)</code> block.</p>
         <p class="example_title"><div class='inline'><p>before(:each) declared in an <span class='object_link'><a href="ExampleGroup.html" title="RSpec::Core::ExampleGroup (class)">ExampleGroup</a></span></p>
 </div></p>
       
-      <pre class="example code"><code>
+      <pre class="example code">
 <span class='id identifier rubyid_describe'>describe</span> <span class='const'>Thing</span> <span class='kw'>do</span>
   <span class='id identifier rubyid_before'>before</span><span class='lparen'>(</span><span class='symbol'>:each</span><span class='rparen'>)</span> <span class='kw'>do</span>
     <span class='ivar'>@thing</span> <span class='op'>=</span> <span class='const'>Thing</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
@@ -738,13 +765,13 @@ you are on your own to clean up in an <code>after(:all)</code> block.</p>
   <span class='id identifier rubyid_it'>it</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>does something</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
     <span class='comment'># here you can access @thing
 </span>  <span class='kw'>end</span>
-<span class='kw'>end</span></code></pre>
+<span class='kw'>end</span></pre>
     
       
         <p class="example_title"><div class='inline'><p>before(:all) declared in an <span class='object_link'><a href="ExampleGroup.html" title="RSpec::Core::ExampleGroup (class)">ExampleGroup</a></span></p>
 </div></p>
       
-      <pre class="example code"><code>
+      <pre class="example code">
 <span class='id identifier rubyid_describe'>describe</span> <span class='const'>Parser</span> <span class='kw'>do</span>
   <span class='id identifier rubyid_before'>before</span><span class='lparen'>(</span><span class='symbol'>:all</span><span class='rparen'>)</span> <span class='kw'>do</span>
     <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_open'>open</span><span class='lparen'>(</span><span class='id identifier rubyid_file_to_parse'>file_to_parse</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>w</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_f'>f</span><span class='op'>|</span>
@@ -761,7 +788,7 @@ you are on your own to clean up in an <code>after(:all)</code> block.</p>
   <span class='id identifier rubyid_after'>after</span><span class='lparen'>(</span><span class='symbol'>:all</span><span class='rparen'>)</span> <span class='kw'>do</span>
     <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_file_to_parse'>file_to_parse</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
-<span class='kw'>end</span></code></pre>
+<span class='kw'>end</span></pre>
     
   </div>
 <p class="tag_title">Parameters:</p>
@@ -843,7 +870,7 @@ groups declared with <code>:ui =&gt; true</code>.</p>
       <div class="method_details ">
   <h3 class="signature " id="prepend_before-instance_method">
   
-    - (<tt>Object</tt>) <strong>prepend_before</strong>(*args, &amp;block) 
+    - (<tt>Object</tt>) <strong>prepend_before</strong>(*args) 
   
 
   
@@ -888,9 +915,9 @@ scope (<code>:each</code>, <code>:all</code>, or <code>:suite</code>).</p>
 </div>
 
     <div id="footer">
-  Generated on Thu Dec 18 08:14:25 2014 by
+  Generated on Wed Jan 28 22:10:22 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.6 (ruby-2.1.5).
+  0.8.0 (ruby-2.1.5).
 </div>
 
   </body>

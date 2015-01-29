@@ -109,29 +109,29 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    
-<p>ExampleGroup and <span class='object_link'><a href="Example.html" title="RSpec::Core::Example (class)">Example</a></span> are the main structural elements of rspec-core.
-Consider this example:</p>
+    <p>ExampleGroup and <span class='object_link'><a href="Example.html" title="RSpec::Core::Example (class)">Example</a></span> are the main structural elements of
+rspec-core.  Consider this example:</p>
 
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_describe'>describe</span> <span class='const'>Thing</span> <span class='kw'>do</span>
   <span class='id identifier rubyid_it'>it</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>does something</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
   <span class='kw'>end</span>
-<span class='kw'>end</span></code></pre>
+<span class='kw'>end</span>
+</code></pre>
 
-<p>The object returned by <code>describe Thing</code> is a subclass of
-ExampleGroup. The object returned by <code>it &quot;does
-something&quot;</code> is an instance of Example, which serves as a wrapper
-for an instance of the ExampleGroup in which it is declared.</p>
+<p>The object returned by <code>describe Thing</code> is a subclass of ExampleGroup.
+The object returned by <code>it &quot;does something&quot;</code> is an instance of Example,
+which serves as a wrapper for an instance of the ExampleGroup in which it
+is declared.</p>
 
-<p>Example group bodies (e.g. <code>describe</code> or <code>context</code>
-blocks) are evaluated in the context of a new subclass of ExampleGroup.
-Individual examples are evalutaed in the context of an instance of the
-specific ExampleGroup subclass to which they belong.</p>
+<p>Example group bodies (e.g. <code>describe</code> or <code>context</code> blocks) are evaluated
+in the context of a new subclass of ExampleGroup. Individual examples are
+evalutaed in the context of an instance of the specific ExampleGroup subclass
+to which they belong.</p>
 
 <p>Besides the class methods defined here, there are other interesting macros
-defined in <span class='object_link'><a href="Hooks.html" title="RSpec::Core::Hooks (module)">Hooks</a></span>, <span class='object_link'><a href="MemoizedHelpers/ClassMethods.html" title="RSpec::Core::MemoizedHelpers::ClassMethods (module)">MemoizedHelpers::ClassMethods</a></span> and
-<span class='object_link'><a href="SharedExampleGroup.html" title="RSpec::Core::SharedExampleGroup (module)">SharedExampleGroup</a></span>. There are additional instance methods available to
-your examples defined in <span class='object_link'><a href="MemoizedHelpers.html" title="RSpec::Core::MemoizedHelpers (module)">MemoizedHelpers</a></span> and <span class='object_link'><a href="Pending.html" title="RSpec::Core::Pending (module)">Pending</a></span>.</p>
+defined in <span class='object_link'><a href="Hooks.html" title="RSpec::Core::Hooks (module)">Hooks</a></span>, <span class='object_link'><a href="MemoizedHelpers/ClassMethods.html" title="RSpec::Core::MemoizedHelpers::ClassMethods (module)">MemoizedHelpers::ClassMethods</a></span> and <span class='object_link'><a href="SharedExampleGroup.html" title="RSpec::Core::SharedExampleGroup (module)">SharedExampleGroup</a></span>.
+There are additional instance methods available to your examples defined in
+<span class='object_link'><a href="MemoizedHelpers.html" title="RSpec::Core::MemoizedHelpers (module)">MemoizedHelpers</a></span> and <span class='object_link'><a href="Pending.html" title="RSpec::Core::Pending (module)">Pending</a></span>.</p>
 
 
   </div>
@@ -174,8 +174,7 @@ your examples defined in <span class='object_link'><a href="MemoizedHelpers.html
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>The current example group description.</p>
+    <span class="summary_desc"><div class='inline'><p>The current example group description.</p>
 </div></span>
   
 </li>
@@ -198,8 +197,7 @@ your examples defined in <span class='object_link'><a href="MemoizedHelpers.html
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>The <a href="Metadata">Metadata</a> object associated with this group.</p>
+    <span class="summary_desc"><div class='inline'><p>The <a href="Metadata">Metadata</a> object associated with this group.</p>
 </div></span>
   
 </li>
@@ -222,9 +220,7 @@ your examples defined in <span class='object_link'><a href="MemoizedHelpers.html
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Returns the class or module passed to the <code>describe</code> method (or
-alias).</p>
+    <span class="summary_desc"><div class='inline'><p>Returns the class or module passed to the <code>describe</code> method (or alias).</p>
 </div></span>
   
 </li>
@@ -256,8 +252,7 @@ alias).</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Defines an example within a group.</p>
+    <span class="summary_desc"><div class='inline'><p>Defines an example within a group.</p>
 </div></span>
   
 </li>
@@ -280,8 +275,7 @@ alias).</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Shortcut to define an example with <code>:focus =&gt; true</code>.</p>
+    <span class="summary_desc"><div class='inline'><p>Shortcut to define an example with <code>:focus =&gt; true</code>.</p>
 </div></span>
   
 </li>
@@ -304,8 +298,7 @@ alias).</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Shortcut to define an example with <code>:focus =&gt; true</code>.</p>
+    <span class="summary_desc"><div class='inline'><p>Shortcut to define an example with <code>:focus =&gt; true</code>.</p>
 </div></span>
   
 </li>
@@ -328,8 +321,7 @@ alias).</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Shortcut to define an example with <code>:focus =&gt; true</code>.</p>
+    <span class="summary_desc"><div class='inline'><p>Shortcut to define an example with <code>:focus =&gt; true</code>.</p>
 </div></span>
   
 </li>
@@ -352,8 +344,7 @@ alias).</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Shortcut to define an example with <code>:focus =&gt; true</code>.</p>
+    <span class="summary_desc"><div class='inline'><p>Shortcut to define an example with <code>:focus =&gt; true</code>.</p>
 </div></span>
   
 </li>
@@ -376,8 +367,7 @@ alias).</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Defines an example within a group.</p>
+    <span class="summary_desc"><div class='inline'><p>Defines an example within a group.</p>
 </div></span>
   
 </li>
@@ -400,8 +390,7 @@ alias).</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Shortcut to define an example with <code>:pending =&gt; true</code>.</p>
+    <span class="summary_desc"><div class='inline'><p>Shortcut to define an example with <code>:pending =&gt; true</code>.</p>
 </div></span>
   
 </li>
@@ -424,8 +413,7 @@ alias).</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Shortcut to define an example with <code>:skip =&gt; true</code>.</p>
+    <span class="summary_desc"><div class='inline'><p>Shortcut to define an example with <code>:skip =&gt; true</code>.</p>
 </div></span>
   
 </li>
@@ -448,8 +436,7 @@ alias).</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Defines an example within a group.</p>
+    <span class="summary_desc"><div class='inline'><p>Defines an example within a group.</p>
 </div></span>
   
 </li>
@@ -472,9 +459,7 @@ alias).</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Shortcut to define an example with <code>:skip =&gt; &#39;Temporarily
-skipped with xexample&#39;</code>.</p>
+    <span class="summary_desc"><div class='inline'><p>Shortcut to define an example with <code>:skip =&gt; &#39;Temporarily skipped with xexample&#39;</code>.</p>
 </div></span>
   
 </li>
@@ -497,9 +482,7 @@ skipped with xexample&#39;</code>.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Shortcut to define an example with <code>:skip =&gt; &#39;Temporarily
-skipped with xit&#39;</code>.</p>
+    <span class="summary_desc"><div class='inline'><p>Shortcut to define an example with <code>:skip =&gt; &#39;Temporarily skipped with xit&#39;</code>.</p>
 </div></span>
   
 </li>
@@ -522,9 +505,7 @@ skipped with xit&#39;</code>.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Shortcut to define an example with <code>:skip =&gt; &#39;Temporarily
-skipped with xspecify&#39;</code>.</p>
+    <span class="summary_desc"><div class='inline'><p>Shortcut to define an example with <code>:skip =&gt; &#39;Temporarily skipped with xspecify&#39;</code>.</p>
 </div></span>
   
 </li>
@@ -556,8 +537,7 @@ skipped with xspecify&#39;</code>.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>An alias of <code>example_group</code>.</p>
+    <span class="summary_desc"><div class='inline'><p>An alias of <code>example_group</code>.</p>
 </div></span>
   
 </li>
@@ -580,8 +560,7 @@ skipped with xspecify&#39;</code>.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>An alias of <code>example_group</code>.</p>
+    <span class="summary_desc"><div class='inline'><p>An alias of <code>example_group</code>.</p>
 </div></span>
   
 </li>
@@ -604,9 +583,7 @@ skipped with xspecify&#39;</code>.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Generates a subclass of this example group which inherits everything except
-the examples themselves.</p>
+    <span class="summary_desc"><div class='inline'><p>Generates a subclass of this example group which inherits everything except the examples themselves.</p>
 </div></span>
   
 </li>
@@ -629,8 +606,7 @@ the examples themselves.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Shortcut to define an example group with <code>:focus =&gt; true</code>.</p>
+    <span class="summary_desc"><div class='inline'><p>Shortcut to define an example group with <code>:focus =&gt; true</code>.</p>
 </div></span>
   
 </li>
@@ -653,8 +629,7 @@ the examples themselves.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Shortcut to define an example group with <code>:focus =&gt; true</code>.</p>
+    <span class="summary_desc"><div class='inline'><p>Shortcut to define an example group with <code>:focus =&gt; true</code>.</p>
 </div></span>
   
 </li>
@@ -677,8 +652,7 @@ the examples themselves.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Shortcut to temporarily make an example group skipped.</p>
+    <span class="summary_desc"><div class='inline'><p>Shortcut to temporarily make an example group skipped.</p>
 </div></span>
   
 </li>
@@ -701,8 +675,7 @@ the examples themselves.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Shortcut to temporarily make an example group skipped.</p>
+    <span class="summary_desc"><div class='inline'><p>Shortcut to temporarily make an example group skipped.</p>
 </div></span>
   
 </li>
@@ -734,10 +707,7 @@ the examples themselves.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Includes shared content mapped to <code>name</code> directly in the group
-in which it is declared, as opposed to <code>it_behaves_like</code>, which
-creates a nested group.</p>
+    <span class="summary_desc"><div class='inline'><p>Includes shared content mapped to <code>name</code> directly in the group in which it is declared, as opposed to <code>it_behaves_like</code>, which creates a nested group.</p>
 </div></span>
   
 </li>
@@ -760,10 +730,7 @@ creates a nested group.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Includes shared content mapped to <code>name</code> directly in the group
-in which it is declared, as opposed to <code>it_behaves_like</code>, which
-creates a nested group.</p>
+    <span class="summary_desc"><div class='inline'><p>Includes shared content mapped to <code>name</code> directly in the group in which it is declared, as opposed to <code>it_behaves_like</code>, which creates a nested group.</p>
 </div></span>
   
 </li>
@@ -786,9 +753,7 @@ creates a nested group.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Generates a nested example group and includes the shared content mapped to
-<code>name</code> in the nested group.</p>
+    <span class="summary_desc"><div class='inline'><p>Generates a nested example group and includes the shared content mapped to <code>name</code> in the nested group.</p>
 </div></span>
   
 </li>
@@ -811,9 +776,7 @@ creates a nested group.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Generates a nested example group and includes the shared content mapped to
-<code>name</code> in the nested group.</p>
+    <span class="summary_desc"><div class='inline'><p>Generates a nested example group and includes the shared content mapped to <code>name</code> in the nested group.</p>
 </div></span>
   
 </li>
@@ -845,8 +808,7 @@ creates a nested group.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Runs all the examples in this group.</p>
+    <span class="summary_desc"><div class='inline'><p>Runs all the examples in this group.</p>
 </div></span>
   
 </li>
@@ -927,11 +889,10 @@ creates a nested group.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>An alias of <code>example_group</code>. Generally used when grouping
-examples contextually (e.g. “with xyz”, “when xyz” or “if xyz”). Generates
-a subclass of this example group which inherits everything except the
-examples themselves.</p>
+    <p>An alias of <code>example_group</code>. Generally used when grouping examples
+contextually (e.g. &quot;with xyz&quot;, &quot;when xyz&quot; or &quot;if xyz&quot;).
+Generates a subclass of this example group which inherits
+everything except the examples themselves.</p>
 
 
   </div>
@@ -972,8 +933,7 @@ examples themselves.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>The example group doc string</p>
+        <div class='inline'><p>The example group doc string</p>
 </div>
       
     </li>
@@ -988,8 +948,7 @@ examples themselves.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>Additional metadata to attach to the example group</p>
+        <div class='inline'><p>Additional metadata to attach to the example group</p>
 </div>
       
     </li>
@@ -1007,8 +966,7 @@ examples themselves.</p>
       
       
         
-        <div class='inline'>
-<p>The example group definition</p>
+        <div class='inline'><p>The example group definition</p>
 </div>
       
     </li>
@@ -1050,11 +1008,10 @@ examples themselves.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>An alias of <code>example_group</code>. Generally used when grouping
+    <p>An alias of <code>example_group</code>. Generally used when grouping
 examples by a thing you are describing (e.g. an object, class or method).
-Generates a subclass of this example group which inherits everything except
-the examples themselves.</p>
+Generates a subclass of this example group which inherits
+everything except the examples themselves.</p>
 
 
   </div>
@@ -1095,8 +1052,7 @@ the examples themselves.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>The example group doc string</p>
+        <div class='inline'><p>The example group doc string</p>
 </div>
       
     </li>
@@ -1111,8 +1067,7 @@ the examples themselves.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>Additional metadata to attach to the example group</p>
+        <div class='inline'><p>Additional metadata to attach to the example group</p>
 </div>
       
     </li>
@@ -1130,8 +1085,7 @@ the examples themselves.</p>
       
       
         
-        <div class='inline'>
-<p>The example group definition</p>
+        <div class='inline'><p>The example group definition</p>
 </div>
       
     </li>
@@ -1173,8 +1127,7 @@ the examples themselves.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns the current example group description</p>
+    <p>Returns the current example group description</p>
 
 
   </div>
@@ -1192,8 +1145,7 @@ the examples themselves.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>the current example group description</p>
+        <div class='inline'><p>the current example group description</p>
 </div>
       
     </li>
@@ -1234,8 +1186,7 @@ the examples themselves.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Defines an example within a group.</p>
+    <p>Defines an example within a group.</p>
 
 
   </div>
@@ -1309,8 +1260,7 @@ the examples themselves.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>the example object</p>
+        <div class='inline'><p>the example object</p>
 </div>
       
     </li>
@@ -1345,9 +1295,8 @@ the examples themselves.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Generates a subclass of this example group which inherits everything except
-the examples themselves.</p>
+    <p>Generates a subclass of this example group which inherits
+everything except the examples themselves.</p>
 
 
   </div>
@@ -1388,8 +1337,7 @@ the examples themselves.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>The example group doc string</p>
+        <div class='inline'><p>The example group doc string</p>
 </div>
       
     </li>
@@ -1404,8 +1352,7 @@ the examples themselves.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>Additional metadata to attach to the example group</p>
+        <div class='inline'><p>Additional metadata to attach to the example group</p>
 </div>
       
     </li>
@@ -1423,8 +1370,7 @@ the examples themselves.</p>
       
       
         
-        <div class='inline'>
-<p>The example group definition</p>
+        <div class='inline'><p>The example group definition</p>
 </div>
       
     </li>
@@ -1459,10 +1405,9 @@ the examples themselves.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Shortcut to define an example group with <code>:focus =&gt; true</code>.
-Generates a subclass of this example group which inherits everything except
-the examples themselves.</p>
+    <p>Shortcut to define an example group with <code>:focus =&gt; true</code>.
+Generates a subclass of this example group which inherits
+everything except the examples themselves.</p>
 
 
   </div>
@@ -1503,8 +1448,7 @@ the examples themselves.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>The example group doc string</p>
+        <div class='inline'><p>The example group doc string</p>
 </div>
       
     </li>
@@ -1519,8 +1463,7 @@ the examples themselves.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>Additional metadata to attach to the example group</p>
+        <div class='inline'><p>Additional metadata to attach to the example group</p>
 </div>
       
     </li>
@@ -1538,8 +1481,7 @@ the examples themselves.</p>
       
       
         
-        <div class='inline'>
-<p>The example group definition</p>
+        <div class='inline'><p>The example group definition</p>
 </div>
       
     </li>
@@ -1581,10 +1523,9 @@ the examples themselves.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Shortcut to define an example group with <code>:focus =&gt; true</code>.
-Generates a subclass of this example group which inherits everything except
-the examples themselves.</p>
+    <p>Shortcut to define an example group with <code>:focus =&gt; true</code>.
+Generates a subclass of this example group which inherits
+everything except the examples themselves.</p>
 
 
   </div>
@@ -1625,8 +1566,7 @@ the examples themselves.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>The example group doc string</p>
+        <div class='inline'><p>The example group doc string</p>
 </div>
       
     </li>
@@ -1641,8 +1581,7 @@ the examples themselves.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>Additional metadata to attach to the example group</p>
+        <div class='inline'><p>Additional metadata to attach to the example group</p>
 </div>
       
     </li>
@@ -1660,8 +1599,7 @@ the examples themselves.</p>
       
       
         
-        <div class='inline'>
-<p>The example group definition</p>
+        <div class='inline'><p>The example group definition</p>
 </div>
       
     </li>
@@ -1703,8 +1641,7 @@ the examples themselves.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Shortcut to define an example with <code>:focus =&gt; true</code></p>
+    <p>Shortcut to define an example with <code>:focus =&gt; true</code></p>
 
 
   </div>
@@ -1778,8 +1715,7 @@ the examples themselves.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>the example object</p>
+        <div class='inline'><p>the example object</p>
 </div>
       
     </li>
@@ -1821,8 +1757,7 @@ the examples themselves.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Shortcut to define an example with <code>:focus =&gt; true</code></p>
+    <p>Shortcut to define an example with <code>:focus =&gt; true</code></p>
 
 
   </div>
@@ -1896,8 +1831,7 @@ the examples themselves.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>the example object</p>
+        <div class='inline'><p>the example object</p>
 </div>
       
     </li>
@@ -1939,8 +1873,7 @@ the examples themselves.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Shortcut to define an example with <code>:focus =&gt; true</code></p>
+    <p>Shortcut to define an example with <code>:focus =&gt; true</code></p>
 
 
   </div>
@@ -2014,8 +1947,7 @@ the examples themselves.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>the example object</p>
+        <div class='inline'><p>the example object</p>
 </div>
       
     </li>
@@ -2057,8 +1989,7 @@ the examples themselves.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Shortcut to define an example with <code>:focus =&gt; true</code></p>
+    <p>Shortcut to define an example with <code>:focus =&gt; true</code></p>
 
 
   </div>
@@ -2132,8 +2063,7 @@ the examples themselves.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>the example object</p>
+        <div class='inline'><p>the example object</p>
 </div>
       
     </li>
@@ -2175,11 +2105,9 @@ the examples themselves.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Includes shared content mapped to <code>name</code> directly in the group
-in which it is declared, as opposed to <code>it_behaves_like</code>, which
-creates a nested group. If given a block, that block is also eval&#39;d in
-the current context.</p>
+    <p>Includes shared content mapped to <code>name</code> directly in the group in which
+it is declared, as opposed to <code>it_behaves_like</code>, which creates a nested
+group. If given a block, that block is also eval&#39;d in the current context.</p>
 
 
   </div>
@@ -2226,11 +2154,9 @@ the current context.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Includes shared content mapped to <code>name</code> directly in the group
-in which it is declared, as opposed to <code>it_behaves_like</code>, which
-creates a nested group. If given a block, that block is also eval&#39;d in
-the current context.</p>
+    <p>Includes shared content mapped to <code>name</code> directly in the group in which
+it is declared, as opposed to <code>it_behaves_like</code>, which creates a nested
+group. If given a block, that block is also eval&#39;d in the current context.</p>
 
 
   </div>
@@ -2277,9 +2203,8 @@ the current context.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Defines an example within a group. This is the primary API to define a code
-example.</p>
+    <p>Defines an example within a group.
+This is the primary API to define a code example.</p>
 
 
   </div>
@@ -2353,8 +2278,7 @@ example.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>the example object</p>
+        <div class='inline'><p>the example object</p>
 </div>
       
     </li>
@@ -2389,9 +2313,8 @@ example.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Generates a nested example group and includes the shared content mapped to
-<code>name</code> in the nested group.</p>
+    <p>Generates a nested example group and includes the shared content
+mapped to <code>name</code> in the nested group.</p>
 
 
   </div>
@@ -2434,9 +2357,8 @@ example.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Generates a nested example group and includes the shared content mapped to
-<code>name</code> in the nested group.</p>
+    <p>Generates a nested example group and includes the shared content
+mapped to <code>name</code> in the nested group.</p>
 
 
   </div>
@@ -2479,8 +2401,7 @@ example.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>The <a href="Metadata">Metadata</a> object associated with this group.</p>
+    <p>The <a href="Metadata">Metadata</a> object associated with this group.</p>
 
 
   </div>
@@ -2527,8 +2448,7 @@ example.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Shortcut to define an example with <code>:pending =&gt; true</code></p>
+    <p>Shortcut to define an example with <code>:pending =&gt; true</code></p>
 
 
   </div>
@@ -2602,8 +2522,7 @@ example.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>the example object</p>
+        <div class='inline'><p>the example object</p>
 </div>
       
     </li>
@@ -2645,8 +2564,7 @@ example.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Runs all the examples in this group</p>
+    <p>Runs all the examples in this group</p>
 
 
   </div>
@@ -2726,8 +2644,7 @@ example.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Shortcut to define an example with <code>:skip =&gt; true</code></p>
+    <p>Shortcut to define an example with <code>:skip =&gt; true</code></p>
 
 
   </div>
@@ -2801,8 +2718,7 @@ example.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>the example object</p>
+        <div class='inline'><p>the example object</p>
 </div>
       
     </li>
@@ -2844,9 +2760,8 @@ example.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Defines an example within a group. Useful for when your docstring does not
-read well off of <code>it</code>.</p>
+    <p>Defines an example within a group.
+Useful for when your docstring does not read well off of <code>it</code>.</p>
 
 
   </div>
@@ -2927,8 +2842,7 @@ read well off of <code>it</code>.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>the example object</p>
+        <div class='inline'><p>the example object</p>
 </div>
       
     </li>
@@ -2963,10 +2877,9 @@ read well off of <code>it</code>.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Shortcut to temporarily make an example group skipped. Generates a subclass
-of this example group which inherits everything except the examples
-themselves.</p>
+    <p>Shortcut to temporarily make an example group skipped.
+Generates a subclass of this example group which inherits
+everything except the examples themselves.</p>
 
 
   </div>
@@ -3007,8 +2920,7 @@ themselves.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>The example group doc string</p>
+        <div class='inline'><p>The example group doc string</p>
 </div>
       
     </li>
@@ -3023,8 +2935,7 @@ themselves.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>Additional metadata to attach to the example group</p>
+        <div class='inline'><p>Additional metadata to attach to the example group</p>
 </div>
       
     </li>
@@ -3042,8 +2953,7 @@ themselves.</p>
       
       
         
-        <div class='inline'>
-<p>The example group definition</p>
+        <div class='inline'><p>The example group definition</p>
 </div>
       
     </li>
@@ -3085,10 +2995,9 @@ themselves.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Shortcut to temporarily make an example group skipped. Generates a subclass
-of this example group which inherits everything except the examples
-themselves.</p>
+    <p>Shortcut to temporarily make an example group skipped.
+Generates a subclass of this example group which inherits
+everything except the examples themselves.</p>
 
 
   </div>
@@ -3129,8 +3038,7 @@ themselves.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>The example group doc string</p>
+        <div class='inline'><p>The example group doc string</p>
 </div>
       
     </li>
@@ -3145,8 +3053,7 @@ themselves.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>Additional metadata to attach to the example group</p>
+        <div class='inline'><p>Additional metadata to attach to the example group</p>
 </div>
       
     </li>
@@ -3164,8 +3071,7 @@ themselves.</p>
       
       
         
-        <div class='inline'>
-<p>The example group definition</p>
+        <div class='inline'><p>The example group definition</p>
 </div>
       
     </li>
@@ -3207,9 +3113,7 @@ themselves.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Shortcut to define an example with <code>:skip =&gt; &#39;Temporarily
-skipped with xexample&#39;</code></p>
+    <p>Shortcut to define an example with <code>:skip =&gt; &#39;Temporarily skipped with xexample&#39;</code></p>
 
 
   </div>
@@ -3283,8 +3187,7 @@ skipped with xexample&#39;</code></p>
       
       
         &mdash;
-        <div class='inline'>
-<p>the example object</p>
+        <div class='inline'><p>the example object</p>
 </div>
       
     </li>
@@ -3326,9 +3229,7 @@ skipped with xexample&#39;</code></p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Shortcut to define an example with <code>:skip =&gt; &#39;Temporarily
-skipped with xit&#39;</code></p>
+    <p>Shortcut to define an example with <code>:skip =&gt; &#39;Temporarily skipped with xit&#39;</code></p>
 
 
   </div>
@@ -3402,8 +3303,7 @@ skipped with xit&#39;</code></p>
       
       
         &mdash;
-        <div class='inline'>
-<p>the example object</p>
+        <div class='inline'><p>the example object</p>
 </div>
       
     </li>
@@ -3445,9 +3345,7 @@ skipped with xit&#39;</code></p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Shortcut to define an example with <code>:skip =&gt; &#39;Temporarily
-skipped with xspecify&#39;</code></p>
+    <p>Shortcut to define an example with <code>:skip =&gt; &#39;Temporarily skipped with xspecify&#39;</code></p>
 
 
   </div>
@@ -3521,8 +3419,7 @@ skipped with xspecify&#39;</code></p>
       
       
         &mdash;
-        <div class='inline'>
-<p>the example object</p>
+        <div class='inline'><p>the example object</p>
 </div>
       
     </li>
@@ -3570,9 +3467,8 @@ skipped with xspecify&#39;</code></p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns the class or module passed to the <code>describe</code> method (or
-alias). Returns nil if the subject is not a class or module.</p>
+    <p>Returns the class or module passed to the <code>describe</code> method (or alias).
+Returns nil if the subject is not a class or module.</p>
 
 
   </div>
@@ -3618,7 +3514,7 @@ alias). Returns nil if the subject is not a class or module.</p>
 </div>
 
     <div id="footer">
-  Generated on Thu Dec 18 09:22:28 2014 by
+  Generated on Wed Jan 28 22:07:21 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.1.5).
 </div>

@@ -96,17 +96,18 @@
   
   
     <dt class="r2 last">Defined in:</dt>
-    <dd class="r2 last">lib/rspec/core/notifications.rb</dd>
+    <dd class="r2 last">lib/rspec/core/notifications.rb<span class="defines">,<br />
+  lib/rspec/core/notifications.rb</span>
+</dd>
   
 </dl>
 <div class="clear"></div>
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    
-<p>The <code>SummaryNotification</code> holds information about the results of
-running a test suite. It is used by formatters to provide information at
-the end of the test run.</p>
+    <p>The <code>SummaryNotification</code> holds information about the results of running
+a test suite. It is used by formatters to provide information at the end
+of the test run.</p>
 
 
   </div>
@@ -141,8 +142,7 @@ the end of the test run.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>the time taken (in seconds) to run the suite.</p>
+    <span class="summary_desc"><div class='inline'><p>the time taken (in seconds) to run the suite.</p>
 </div></span>
   
 </li>
@@ -151,7 +151,7 @@ the end of the test run.</p>
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#examples-instance_method" title="#examples (instance method)">- (Array(RSpec::Core::Example)) <strong>examples</strong> </a>
+      <a href="#examples-instance_method" title="#examples (instance method)">- (Array&lt;RSpec::Core::Example&gt;) <strong>examples</strong> </a>
     
 
     
@@ -168,8 +168,7 @@ the end of the test run.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>the examples run.</p>
+    <span class="summary_desc"><div class='inline'><p>the examples run.</p>
 </div></span>
   
 </li>
@@ -178,7 +177,7 @@ the end of the test run.</p>
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#failed_examples-instance_method" title="#failed_examples (instance method)">- (Array(RSpec::Core::Example)) <strong>failed_examples</strong> </a>
+      <a href="#failed_examples-instance_method" title="#failed_examples (instance method)">- (Array&lt;RSpec::Core::Example&gt;) <strong>failed_examples</strong> </a>
     
 
     
@@ -195,8 +194,7 @@ the end of the test run.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>the failed examples.</p>
+    <span class="summary_desc"><div class='inline'><p>the failed examples.</p>
 </div></span>
   
 </li>
@@ -222,8 +220,7 @@ the end of the test run.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>the number of seconds taken to boot RSpec and load the spec files.</p>
+    <span class="summary_desc"><div class='inline'><p>the number of seconds taken to boot RSpec and load the spec files.</p>
 </div></span>
   
 </li>
@@ -232,7 +229,7 @@ the end of the test run.</p>
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#pending_examples-instance_method" title="#pending_examples (instance method)">- (Array(RSpec::Core::Example)) <strong>pending_examples</strong> </a>
+      <a href="#pending_examples-instance_method" title="#pending_examples (instance method)">- (Array&lt;RSpec::Core::Example&gt;) <strong>pending_examples</strong> </a>
     
 
     
@@ -249,8 +246,7 @@ the end of the test run.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>the pending examples.</p>
+    <span class="summary_desc"><div class='inline'><p>the pending examples.</p>
 </div></span>
   
 </li>
@@ -260,6 +256,224 @@ the end of the test run.</p>
 
 
 
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#colorized_rerun_commands-instance_method" title="#colorized_rerun_commands (instance method)">- (String) <strong>colorized_rerun_commands</strong>(colorizer = ::RSpec::Core::Formatters::ConsoleCodes) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Formats failures into a rerunable command format.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#colorized_totals_line-instance_method" title="#colorized_totals_line (instance method)">- (String) <strong>colorized_totals_line</strong>(colorizer = ::RSpec::Core::Formatters::ConsoleCodes) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Wraps the results line with colors based on the configured colors for failure, pending, and success.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#example_count-instance_method" title="#example_count (instance method)">- (Fixnum) <strong>example_count</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>The number of examples run.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#failure_count-instance_method" title="#failure_count (instance method)">- (Fixnum) <strong>failure_count</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>The number of failed examples.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#formatted_duration-instance_method" title="#formatted_duration (instance method)">- (String) <strong>formatted_duration</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>A formatted version of the time it took to run the suite.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#formatted_load_time-instance_method" title="#formatted_load_time (instance method)">- (String) <strong>formatted_load_time</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>A formatted version of the time it took to boot RSpec and load the spec files.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#fully_formatted-instance_method" title="#fully_formatted (instance method)">- (String) <strong>fully_formatted</strong>(colorizer = ::RSpec::Core::Formatters::ConsoleCodes) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>The summary information fully formatted in the way that RSpec&#39;s built-in formatters emit.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#pending_count-instance_method" title="#pending_count (instance method)">- (Fixnum) <strong>pending_count</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>The number of pending examples.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#totals_line-instance_method" title="#totals_line (instance method)">- (String) <strong>totals_line</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>A line summarising the result totals of the spec run.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
 
 
   
@@ -279,8 +493,7 @@ the end of the test run.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>the time taken (in seconds) to run the suite</p>
+    <p>the time taken (in seconds) to run the suite</p>
 
 
   </div>
@@ -298,8 +511,7 @@ the end of the test run.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>the current value of duration</p>
+        <div class='inline'><p>the current value of duration</p>
 </div>
       
     </li>
@@ -312,12 +524,12 @@ the end of the test run.</p>
       <pre class="lines">
 
 
-349
-350
-351</pre>
+422
+423
+424</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/core/notifications.rb', line 349</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/notifications.rb', line 422</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_duration'>duration</span>
   <span class='ivar'>@duration</span>
@@ -332,7 +544,7 @@ the end of the test run.</p>
       <div class="method_details ">
   <h3 class="signature " id="examples-instance_method">
   
-    - (<tt>Array(<span class='object_link'><a href="../Example.html" title="RSpec::Core::Example (class)">RSpec::Core::Example</a></span>)</tt>) <strong>examples</strong> 
+    - (<tt>Array&lt;<span class='object_link'><a href="../Example.html" title="RSpec::Core::Example (class)">RSpec::Core::Example</a></span>&gt;</tt>) <strong>examples</strong> 
   
 
   
@@ -340,8 +552,7 @@ the end of the test run.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>the examples run</p>
+    <p>the examples run</p>
 
 
   </div>
@@ -354,13 +565,12 @@ the end of the test run.</p>
     <li>
       
       
-        <span class='type'>(<tt>Array(<span class='object_link'><a href="../Example.html" title="RSpec::Core::Example (class)">RSpec::Core::Example</a></span>)</tt>)</span>
+        <span class='type'>(<tt>Array&lt;<span class='object_link'><a href="../Example.html" title="RSpec::Core::Example (class)">RSpec::Core::Example</a></span>&gt;</tt>)</span>
       
       
       
         &mdash;
-        <div class='inline'>
-<p>the current value of examples</p>
+        <div class='inline'><p>the current value of examples</p>
 </div>
       
     </li>
@@ -373,12 +583,12 @@ the end of the test run.</p>
       <pre class="lines">
 
 
-349
-350
-351</pre>
+422
+423
+424</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/core/notifications.rb', line 349</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/notifications.rb', line 422</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_examples'>examples</span>
   <span class='ivar'>@examples</span>
@@ -393,7 +603,7 @@ the end of the test run.</p>
       <div class="method_details ">
   <h3 class="signature " id="failed_examples-instance_method">
   
-    - (<tt>Array(<span class='object_link'><a href="../Example.html" title="RSpec::Core::Example (class)">RSpec::Core::Example</a></span>)</tt>) <strong>failed_examples</strong> 
+    - (<tt>Array&lt;<span class='object_link'><a href="../Example.html" title="RSpec::Core::Example (class)">RSpec::Core::Example</a></span>&gt;</tt>) <strong>failed_examples</strong> 
   
 
   
@@ -401,8 +611,7 @@ the end of the test run.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>the failed examples</p>
+    <p>the failed examples</p>
 
 
   </div>
@@ -415,13 +624,12 @@ the end of the test run.</p>
     <li>
       
       
-        <span class='type'>(<tt>Array(<span class='object_link'><a href="../Example.html" title="RSpec::Core::Example (class)">RSpec::Core::Example</a></span>)</tt>)</span>
+        <span class='type'>(<tt>Array&lt;<span class='object_link'><a href="../Example.html" title="RSpec::Core::Example (class)">RSpec::Core::Example</a></span>&gt;</tt>)</span>
       
       
       
         &mdash;
-        <div class='inline'>
-<p>the current value of failed_examples</p>
+        <div class='inline'><p>the current value of failed_examples</p>
 </div>
       
     </li>
@@ -434,12 +642,12 @@ the end of the test run.</p>
       <pre class="lines">
 
 
-349
-350
-351</pre>
+422
+423
+424</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/core/notifications.rb', line 349</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/notifications.rb', line 422</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_failed_examples'>failed_examples</span>
   <span class='ivar'>@failed_examples</span>
@@ -462,8 +670,8 @@ the end of the test run.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>the number of seconds taken to boot RSpec and load the spec files</p>
+    <p>the number of seconds taken to boot RSpec
+and load the spec files</p>
 
 
   </div>
@@ -481,8 +689,7 @@ the end of the test run.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>the current value of load_time</p>
+        <div class='inline'><p>the current value of load_time</p>
 </div>
       
     </li>
@@ -495,12 +702,12 @@ the end of the test run.</p>
       <pre class="lines">
 
 
-349
-350
-351</pre>
+422
+423
+424</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/core/notifications.rb', line 349</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/notifications.rb', line 422</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_load_time'>load_time</span>
   <span class='ivar'>@load_time</span>
@@ -515,7 +722,7 @@ the end of the test run.</p>
       <div class="method_details ">
   <h3 class="signature " id="pending_examples-instance_method">
   
-    - (<tt>Array(<span class='object_link'><a href="../Example.html" title="RSpec::Core::Example (class)">RSpec::Core::Example</a></span>)</tt>) <strong>pending_examples</strong> 
+    - (<tt>Array&lt;<span class='object_link'><a href="../Example.html" title="RSpec::Core::Example (class)">RSpec::Core::Example</a></span>&gt;</tt>) <strong>pending_examples</strong> 
   
 
   
@@ -523,8 +730,7 @@ the end of the test run.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>the pending examples</p>
+    <p>the pending examples</p>
 
 
   </div>
@@ -537,13 +743,12 @@ the end of the test run.</p>
     <li>
       
       
-        <span class='type'>(<tt>Array(<span class='object_link'><a href="../Example.html" title="RSpec::Core::Example (class)">RSpec::Core::Example</a></span>)</tt>)</span>
+        <span class='type'>(<tt>Array&lt;<span class='object_link'><a href="../Example.html" title="RSpec::Core::Example (class)">RSpec::Core::Example</a></span>&gt;</tt>)</span>
       
       
       
         &mdash;
-        <div class='inline'>
-<p>the current value of pending_examples</p>
+        <div class='inline'><p>the current value of pending_examples</p>
 </div>
       
     </li>
@@ -556,12 +761,12 @@ the end of the test run.</p>
       <pre class="lines">
 
 
-349
-350
-351</pre>
+422
+423
+424</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/core/notifications.rb', line 349</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/notifications.rb', line 422</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_pending_examples'>pending_examples</span>
   <span class='ivar'>@pending_examples</span>
@@ -574,10 +779,623 @@ the end of the test run.</p>
   </div>
 
 
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="colorized_rerun_commands-instance_method">
+  
+    - (<tt>String</tt>) <strong>colorized_rerun_commands</strong>(colorizer = ::RSpec::Core::Formatters::ConsoleCodes) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Formats failures into a rerunable command format.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>colorizer</span>
+      
+      
+        <span class='type'>(<tt>#wrap</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>::RSpec::Core::Formatters::ConsoleCodes</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>An object which supports wrapping text with
+specific colors.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>A colorized summary line.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+477
+478
+479
+480
+481
+482
+483</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/notifications.rb', line 477</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_colorized_rerun_commands'>colorized_rerun_commands</span><span class='lparen'>(</span><span class='id identifier rubyid_colorizer'>colorizer</span><span class='op'>=</span><span class='op'>::</span><span class='const'>RSpec</span><span class='op'>::</span><span class='const'>Core</span><span class='op'>::</span><span class='const'>Formatters</span><span class='op'>::</span><span class='const'>ConsoleCodes</span><span class='rparen'>)</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\nFailed examples:\n\n</span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span>
+  <span class='id identifier rubyid_failed_examples'>failed_examples</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_example'>example</span><span class='op'>|</span>
+    <span class='id identifier rubyid_colorizer'>colorizer</span><span class='period'>.</span><span class='id identifier rubyid_wrap'>wrap</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>rspec </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_example'>example</span><span class='period'>.</span><span class='id identifier rubyid_rerun_argument'>rerun_argument</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_configuration'>configuration</span><span class='period'>.</span><span class='id identifier rubyid_failure_color'>failure_color</span><span class='rparen'>)</span> <span class='op'>+</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'> </span><span class='tstring_end'>&quot;</span></span> <span class='op'>+</span>
+    <span class='id identifier rubyid_colorizer'>colorizer</span><span class='period'>.</span><span class='id identifier rubyid_wrap'>wrap</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'># </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_example'>example</span><span class='period'>.</span><span class='id identifier rubyid_full_description'>full_description</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>   <span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_configuration'>configuration</span><span class='period'>.</span><span class='id identifier rubyid_detail_color'>detail_color</span><span class='rparen'>)</span>
+  <span class='kw'>end</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="colorized_totals_line-instance_method">
+  
+    - (<tt>String</tt>) <strong>colorized_totals_line</strong>(colorizer = ::RSpec::Core::Formatters::ConsoleCodes) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Wraps the results line with colors based on the configured
+colors for failure, pending, and success. Defaults to red,
+yellow, green accordingly.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>colorizer</span>
+      
+      
+        <span class='type'>(<tt>#wrap</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>::RSpec::Core::Formatters::ConsoleCodes</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'><p>An object which supports wrapping text with
+specific colors.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>A colorized results line.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+460
+461
+462
+463
+464
+465
+466
+467
+468</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/notifications.rb', line 460</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_colorized_totals_line'>colorized_totals_line</span><span class='lparen'>(</span><span class='id identifier rubyid_colorizer'>colorizer</span><span class='op'>=</span><span class='op'>::</span><span class='const'>RSpec</span><span class='op'>::</span><span class='const'>Core</span><span class='op'>::</span><span class='const'>Formatters</span><span class='op'>::</span><span class='const'>ConsoleCodes</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_failure_count'>failure_count</span> <span class='op'>&gt;</span> <span class='int'>0</span>
+    <span class='id identifier rubyid_colorizer'>colorizer</span><span class='period'>.</span><span class='id identifier rubyid_wrap'>wrap</span><span class='lparen'>(</span><span class='id identifier rubyid_totals_line'>totals_line</span><span class='comma'>,</span> <span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_configuration'>configuration</span><span class='period'>.</span><span class='id identifier rubyid_failure_color'>failure_color</span><span class='rparen'>)</span>
+  <span class='kw'>elsif</span> <span class='id identifier rubyid_pending_count'>pending_count</span> <span class='op'>&gt;</span> <span class='int'>0</span>
+    <span class='id identifier rubyid_colorizer'>colorizer</span><span class='period'>.</span><span class='id identifier rubyid_wrap'>wrap</span><span class='lparen'>(</span><span class='id identifier rubyid_totals_line'>totals_line</span><span class='comma'>,</span> <span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_configuration'>configuration</span><span class='period'>.</span><span class='id identifier rubyid_pending_color'>pending_color</span><span class='rparen'>)</span>
+  <span class='kw'>else</span>
+    <span class='id identifier rubyid_colorizer'>colorizer</span><span class='period'>.</span><span class='id identifier rubyid_wrap'>wrap</span><span class='lparen'>(</span><span class='id identifier rubyid_totals_line'>totals_line</span><span class='comma'>,</span> <span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_configuration'>configuration</span><span class='period'>.</span><span class='id identifier rubyid_success_color'>success_color</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="example_count-instance_method">
+  
+    - (<tt>Fixnum</tt>) <strong>example_count</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns the number of examples run</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Fixnum</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>the number of examples run</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+426
+427
+428</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/notifications.rb', line 426</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_example_count'>example_count</span>
+  <span class='ivar'>@example_count</span> <span class='op'>||=</span> <span class='id identifier rubyid_examples'>examples</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="failure_count-instance_method">
+  
+    - (<tt>Fixnum</tt>) <strong>failure_count</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns the number of failed examples</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Fixnum</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>the number of failed examples</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+432
+433
+434</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/notifications.rb', line 432</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_failure_count'>failure_count</span>
+  <span class='ivar'>@failure_count</span> <span class='op'>||=</span> <span class='id identifier rubyid_failed_examples'>failed_examples</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="formatted_duration-instance_method">
+  
+    - (<tt>String</tt>) <strong>formatted_duration</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns a formatted version of the time it took to run the
+suite</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>a formatted version of the time it took to run the
+suite</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+487
+488
+489</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/notifications.rb', line 487</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_formatted_duration'>formatted_duration</span>
+  <span class='const'>Formatters</span><span class='op'>::</span><span class='const'>Helpers</span><span class='period'>.</span><span class='id identifier rubyid_format_duration'>format_duration</span><span class='lparen'>(</span><span class='id identifier rubyid_duration'>duration</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="formatted_load_time-instance_method">
+  
+    - (<tt>String</tt>) <strong>formatted_load_time</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns a formatted version of the time it took to boot RSpec
+and load the spec files</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>a formatted version of the time it took to boot RSpec
+and load the spec files</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+493
+494
+495</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/notifications.rb', line 493</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_formatted_load_time'>formatted_load_time</span>
+  <span class='const'>Formatters</span><span class='op'>::</span><span class='const'>Helpers</span><span class='period'>.</span><span class='id identifier rubyid_format_duration'>format_duration</span><span class='lparen'>(</span><span class='id identifier rubyid_load_time'>load_time</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="fully_formatted-instance_method">
+  
+    - (<tt>String</tt>) <strong>fully_formatted</strong>(colorizer = ::RSpec::Core::Formatters::ConsoleCodes) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns The summary information fully formatted in the way that
+RSpec&#39;s built-in formatters emit.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>The summary information fully formatted in the way that
+RSpec&#39;s built-in formatters emit.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+499
+500
+501
+502
+503
+504
+505
+506
+507
+508
+509</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/notifications.rb', line 499</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_fully_formatted'>fully_formatted</span><span class='lparen'>(</span><span class='id identifier rubyid_colorizer'>colorizer</span><span class='op'>=</span><span class='op'>::</span><span class='const'>RSpec</span><span class='op'>::</span><span class='const'>Core</span><span class='op'>::</span><span class='const'>Formatters</span><span class='op'>::</span><span class='const'>ConsoleCodes</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_formatted'>formatted</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\nFinished in </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_formatted_duration'>formatted_duration</span><span class='embexpr_end'>}</span><span class='tstring_content'> </span><span class='tstring_end'>&quot;</span></span> \
+              <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>(files took </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_formatted_load_time'>formatted_load_time</span><span class='embexpr_end'>}</span><span class='tstring_content'> to load)\n</span><span class='tstring_end'>&quot;</span></span> \
+              <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_colorized_totals_line'>colorized_totals_line</span><span class='lparen'>(</span><span class='id identifier rubyid_colorizer'>colorizer</span><span class='rparen'>)</span><span class='embexpr_end'>}</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span>
+
+  <span class='kw'>unless</span> <span class='id identifier rubyid_failed_examples'>failed_examples</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
+    <span class='id identifier rubyid_formatted'>formatted</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_colorized_rerun_commands'>colorized_rerun_commands</span><span class='lparen'>(</span><span class='id identifier rubyid_colorizer'>colorizer</span><span class='rparen'>)</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_formatted'>formatted</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="pending_count-instance_method">
+  
+    - (<tt>Fixnum</tt>) <strong>pending_count</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns the number of pending examples</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Fixnum</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>the number of pending examples</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+438
+439
+440</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/notifications.rb', line 438</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_pending_count'>pending_count</span>
+  <span class='ivar'>@pending_count</span> <span class='op'>||=</span> <span class='id identifier rubyid_pending_examples'>pending_examples</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="totals_line-instance_method">
+  
+    - (<tt>String</tt>) <strong>totals_line</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns A line summarising the result totals of the spec run.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>A line summarising the result totals of the spec run.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+444
+445
+446
+447
+448
+449</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/notifications.rb', line 444</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_totals_line'>totals_line</span>
+  <span class='id identifier rubyid_summary'>summary</span> <span class='op'>=</span> <span class='const'>Formatters</span><span class='op'>::</span><span class='const'>Helpers</span><span class='period'>.</span><span class='id identifier rubyid_pluralize'>pluralize</span><span class='lparen'>(</span><span class='id identifier rubyid_example_count'>example_count</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>example</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_summary'>summary</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>, </span><span class='tstring_end'>&quot;</span></span> <span class='op'>&lt;&lt;</span> <span class='const'>Formatters</span><span class='op'>::</span><span class='const'>Helpers</span><span class='period'>.</span><span class='id identifier rubyid_pluralize'>pluralize</span><span class='lparen'>(</span><span class='id identifier rubyid_failure_count'>failure_count</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>failure</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_summary'>summary</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>, </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_pending_count'>pending_count</span><span class='embexpr_end'>}</span><span class='tstring_content'> pending</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='id identifier rubyid_pending_count'>pending_count</span> <span class='op'>&gt;</span> <span class='int'>0</span>
+  <span class='id identifier rubyid_summary'>summary</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
 </div>
 
     <div id="footer">
-  Generated on Wed Dec 17 10:38:40 2014 by
+  Generated on Wed Jan 28 22:02:10 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.1.5).
 </div>

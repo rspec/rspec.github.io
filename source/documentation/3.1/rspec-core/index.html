@@ -61,26 +61,26 @@
 
     <iframe id="search_frame"></iframe>
 
-    <div id="content"><div id='filecontents'>
-<h1 id="label-rspec-core+rdoc-image%3Ahttps%3A%2F%2Fsecure.travis-ci.org%2Frspec%2Frspec-core.png%3Fbranch%3Dmaster+rdoc-image%3Ahttps%3A%2F%2Fcodeclimate.com%2Fgithub%2Frspec%2Frspec-core.png">rspec-core <a href="http://travis-ci.org/rspec/rspec-core"><img src="https://secure.travis-ci.org/rspec/rspec-core.png?branch=master"></a> <a href="https://codeclimate.com/github/rspec/rspec-core"><img src="https://codeclimate.com/github/rspec/rspec-core.png"></a></h1>
+    <div id="content"><div id='filecontents'><h1>rspec-core <a href="http://travis-ci.org/rspec/rspec-core"><img src="https://secure.travis-ci.org/rspec/rspec-core.png?branch=master" alt="Build Status"></a> <a href="https://codeclimate.com/github/rspec/rspec-core"><img src="https://codeclimate.com/github/rspec/rspec-core.png" alt="Code Climate"></a></h1>
 
-<p>rspec-core provides the structure for writing executable examples of how
-your code should behave, and an <code>rspec</code> command with tools to
-constrain which examples get run and tailor the output.</p>
+<p>rspec-core provides the structure for writing executable examples of how your
+code should behave, and an <code>rspec</code> command with tools to constrain which
+examples get run and tailor the output.</p>
 
-<h2 id="label-install">install</h2>
+<h2>install</h2>
 
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_gem'>gem</span> <span class='id identifier rubyid_install'>install</span> <span class='id identifier rubyid_rspec'>rspec</span>      <span class='comment'># for rspec-core, rspec-expectations, rspec-mocks
 </span><span class='id identifier rubyid_gem'>gem</span> <span class='id identifier rubyid_install'>install</span> <span class='id identifier rubyid_rspec'>rspec</span><span class='op'>-</span><span class='id identifier rubyid_core'>core</span> <span class='comment'># for rspec-core only
-</span><span class='id identifier rubyid_rspec'>rspec</span> <span class='op'>-</span><span class='op'>-</span><span class='id identifier rubyid_help'>help</span></code></pre>
+</span><span class='id identifier rubyid_rspec'>rspec</span> <span class='op'>-</span><span class='op'>-</span><span class='id identifier rubyid_help'>help</span>
+</code></pre>
 
-<h2 id="label-basic+structure">basic structure</h2>
+<h2>basic structure</h2>
 
-<p>RSpec uses the words “describe” and “it” so we can express concepts like a
-conversation:</p>
+<p>RSpec uses the words &quot;describe&quot; and &quot;it&quot; so we can express concepts like a conversation:</p>
 
 <pre class="code ruby"><code class="ruby"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Describe an order.</span><span class='tstring_end'>&quot;</span></span>
-<span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>It sums the prices of its line items.</span><span class='tstring_end'>&quot;</span></span></code></pre>
+<span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>It sums the prices of its line items.</span><span class='tstring_end'>&quot;</span></span>
+</code></pre>
 
 <pre class="code ruby"><code class="ruby"><span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_describe'>describe</span> <span class='const'>Order</span> <span class='kw'>do</span>
   <span class='id identifier rubyid_it'>it</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>sums the prices of its line items</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
@@ -97,19 +97,17 @@ conversation:</p>
 <span class='kw'>end</span>
 </code></pre>
 
-<p>The <code>describe</code> method creates an <a
-href="http://rubydoc.info/gems/rspec-core/RSpec/Core/ExampleGroup">ExampleGroup</a>.
-Within the block passed to <code>describe</code> you can declare examples
-using the <code>it</code> method.</p>
+<p>The <code>describe</code> method creates an <a href="http://rubydoc.info/gems/rspec-core/RSpec/Core/ExampleGroup">ExampleGroup</a>.  Within the
+block passed to <code>describe</code> you can declare examples using the <code>it</code> method.</p>
 
 <p>Under the hood, an example group is a class in which the block passed to
-<code>describe</code> is evaluated. The blocks passed to <code>it</code>
-are evaluated in the context of an <em>instance</em> of that class.</p>
+<code>describe</code> is evaluated. The blocks passed to <code>it</code> are evaluated in the
+context of an <em>instance</em> of that class.</p>
 
-<h2 id="label-nested+groups">nested groups</h2>
+<h2>nested groups</h2>
 
-<p>You can also declare nested nested groups using the <code>describe</code>
-or <code>context</code> methods:</p>
+<p>You can also declare nested nested groups using the <code>describe</code> or <code>context</code>
+methods:</p>
 
 <pre class="code ruby"><code class="ruby"><span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_describe'>describe</span> <span class='const'>Order</span> <span class='kw'>do</span>
   <span class='id identifier rubyid_context'>context</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>with no items</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
@@ -126,22 +124,21 @@ or <code>context</code> methods:</p>
 <span class='kw'>end</span>
 </code></pre>
 
-<h2 id="label-aliases">aliases</h2>
+<h2>aliases</h2>
 
-<p>You can declare example groups using either <code>describe</code> or
-<code>context</code>. For a top level example group, <code>describe</code>
-and <code>context</code> are available off of <code>RSpec</code>. For
-backwards compatibility, they are also available off of the
-<code>main</code> object and <code>Module</code> unless you disable monkey
+<p>You can declare example groups using either <code>describe</code> or <code>context</code>.
+For a top level example group, <code>describe</code> and <code>context</code> are available
+off of <code>RSpec</code>. For backwards compatibility, they are also available
+off of the <code>main</code> object and <code>Module</code> unless you disable monkey
 patching.</p>
 
-<p>You can declare examples within a group using any of <code>it</code>,
-<code>specify</code>, or <code>example</code>.</p>
+<p>You can declare examples within a group using any of <code>it</code>, <code>specify</code>, or
+<code>example</code>.</p>
 
-<h2 id="label-shared+examples+and+contexts">shared examples and contexts</h2>
+<h2>shared examples and contexts</h2>
 
-<p>Declare a shared example group using <code>shared_examples</code>, and then
-include it in any group using <code>include_examples</code>.</p>
+<p>Declare a shared example group using <code>shared_examples</code>, and then include it
+in any group using <code>include_examples</code>.</p>
 
 <pre class="code ruby"><code class="ruby"><span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_shared_examples'>shared_examples</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>collections</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_collection_class'>collection_class</span><span class='op'>|</span>
   <span class='id identifier rubyid_it'>it</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>is empty when first created</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
@@ -158,24 +155,22 @@ include it in any group using <code>include_examples</code>.</p>
 <span class='kw'>end</span>
 </code></pre>
 
-<p>Nearly anything that can be declared within an example group can be
-declared within a shared example group. This includes <code>before</code>,
-<code>after</code>, and <code>around</code> hooks, <code>let</code>
-declarations, and nested groups/contexts.</p>
+<p>Nearly anything that can be declared within an example group can be declared
+within a shared example group. This includes <code>before</code>, <code>after</code>, and <code>around</code>
+hooks, <code>let</code> declarations, and nested groups/contexts.</p>
 
-<p>You can also use the names <code>shared_context</code> and
-<code>include_context</code>. These are pretty much the same as
-<code>shared_examples</code> and <code>include_examples</code>, providing
-more accurate naming when you share hooks, <code>let</code> declarations,
-helper methods, etc, but no examples.</p>
+<p>You can also use the names <code>shared_context</code> and <code>include_context</code>. These are
+pretty much the same as <code>shared_examples</code> and <code>include_examples</code>, providing
+more accurate naming when you share hooks, <code>let</code> declarations, helper methods,
+etc, but no examples.</p>
 
-<h2 id="label-metadata">metadata</h2>
+<h2>metadata</h2>
 
 <p>rspec-core stores a metadata hash with every example and group, which
-contains their descriptions, the locations at which they were declared,
-etc, etc. This hash powers many of rspec-core&#39;s features, including
-output formatters (which access descriptions and locations), and filtering
-before and after hooks.</p>
+contains their descriptions, the locations at which they were
+declared, etc, etc. This hash powers many of rspec-core&#39;s features,
+including output formatters (which access descriptions and locations),
+and filtering before and after hooks.</p>
 
 <p>Although you probably won&#39;t ever need this unless you are writing an
 extension, you can access it from an example like this:</p>
@@ -185,11 +180,11 @@ extension, you can access it from an example like this:</p>
 <span class='kw'>end</span>
 </code></pre>
 
-<h3 id="label-described_class"><code>described_class</code></h3>
+<h3><code>described_class</code></h3>
 
-<p>When a class is passed to <code>describe</code>, you can access it from an
-example using the <code>described_class</code> method, which is a wrapper
-for <code>example.metadata[:described_class]</code>.</p>
+<p>When a class is passed to <code>describe</code>, you can access it from an example
+using the <code>described_class</code> method, which is a wrapper for
+<code>example.metadata[:described_class]</code>.</p>
 
 <pre class="code ruby"><code class="ruby"><span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_describe'>describe</span> <span class='const'>Widget</span> <span class='kw'>do</span>
   <span class='id identifier rubyid_example'>example</span> <span class='kw'>do</span>
@@ -199,8 +194,8 @@ for <code>example.metadata[:described_class]</code>.</p>
 </code></pre>
 
 <p>This is useful in extensions or shared example groups in which the specific
-class is unknown. Taking the collections shared example group from above,
-we can clean it up a bit using <code>described_class</code>:</p>
+class is unknown. Taking the collections shared example group from above, we can
+clean it up a bit using <code>described_class</code>:</p>
 
 <pre class="code ruby"><code class="ruby"><span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_shared_examples'>shared_examples</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>collections</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
   <span class='id identifier rubyid_it'>it</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>is empty when first created</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
@@ -217,28 +212,26 @@ we can clean it up a bit using <code>described_class</code>:</p>
 <span class='kw'>end</span>
 </code></pre>
 
-<h2 id="label-the+rspec+command">the <code>rspec</code> command</h2>
+<h2>the <code>rspec</code> command</h2>
 
-<p>When you install the rspec-core gem, it installs the <code>rspec</code>
-executable, which you&#39;ll use to run rspec. The <code>rspec</code>
-command comes with many useful options. Run <code>rspec --help</code> to
-see the complete list.</p>
+<p>When you install the rspec-core gem, it installs the <code>rspec</code> executable,
+which you&#39;ll use to run rspec. The <code>rspec</code> command comes with many useful
+options.
+Run <code>rspec --help</code> to see the complete list.</p>
 
-<h2 id="label-store+command+line+options+.rspec">store command line options <code>.rspec</code></h2>
+<h2>store command line options <code>.rspec</code></h2>
 
-<p>You can store command line options in a <code>.rspec</code> file in the
-project&#39;s root directory, and the <code>rspec</code> command will read
-them as though you typed them on the command line.</p>
+<p>You can store command line options in a <code>.rspec</code> file in the project&#39;s root
+directory, and the <code>rspec</code> command will read them as though you typed them on
+the command line.</p>
 
-<h2 id="label-autotest+integration">autotest integration</h2>
+<h2>autotest integration</h2>
 
-<p>rspec-core no longer ships with an Autotest extension, if you require
-Autotest integration, please use the <code>rspec-autotest</code> gem and
-see <a
-href="https://github.com/rspec/rspec-autotest">rspec/rspec-autotest</a> for
-details</p>
+<p>rspec-core no longer ships with an Autotest extension, if you require Autotest
+integration, please use the <code>rspec-autotest</code> gem and see <a href="https://github.com/rspec/rspec-autotest">rspec/rspec-autotest</a>
+for details</p>
 
-<h2 id="label-get+started">get started</h2>
+<h2>get started</h2>
 
 <p>Start with a simple example of behavior you expect from your system. Do
 this before you write any implementation code:</p>
@@ -256,7 +249,8 @@ this before you write any implementation code:</p>
 <p>Run this with the rspec command, and watch it fail:</p>
 
 <pre class="code ruby"><code class="ruby">$ rspec spec/calculator_spec.rb
-./spec/calculator_spec.rb:1: uninitialized constant Calculator</code></pre>
+./spec/calculator_spec.rb:1: uninitialized constant Calculator
+</code></pre>
 
 <p>Implement the simplest solution:</p>
 
@@ -281,7 +275,8 @@ this before you write any implementation code:</p>
 .
 
 Finished in 0.000315 seconds
-1 example, 0 failures</code></pre>
+1 example, 0 failures
+</code></pre>
 
 <p>Use the <code>documentation</code> formatter to see the resulting spec:</p>
 
@@ -291,22 +286,20 @@ Calculator
     returns the sum of its arguments
 
 Finished in 0.000379 seconds
-1 example, 0 failures</code></pre>
+1 example, 0 failures
+</code></pre>
 
-<h2 id="label-Also+see">Also see</h2>
-<ul><li>
-<p><a href="http://github.com/rspec/rspec">github.com/rspec/rspec</a></p>
-</li><li>
-<p><a
-href="http://github.com/rspec/rspec-expectations">github.com/rspec/rspec-expectations</a></p>
-</li><li>
-<p><a
-href="http://github.com/rspec/rspec-mocks">github.com/rspec/rspec-mocks</a></p>
-</li></ul>
+<h2>Also see</h2>
+
+<ul>
+<li><a href="http://github.com/rspec/rspec">http://github.com/rspec/rspec</a></li>
+<li><a href="http://github.com/rspec/rspec-expectations">http://github.com/rspec/rspec-expectations</a></li>
+<li><a href="http://github.com/rspec/rspec-mocks">http://github.com/rspec/rspec-mocks</a></li>
+</ul>
 </div></div>
 
     <div id="footer">
-  Generated on Thu Dec 18 09:20:36 2014 by
+  Generated on Wed Jan 28 22:04:48 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.1.5).
 </div>

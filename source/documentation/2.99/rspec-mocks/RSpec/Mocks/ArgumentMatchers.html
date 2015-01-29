@@ -6,7 +6,7 @@
 <title>
   Module: RSpec::Mocks::ArgumentMatchers
   
-    &mdash; Documentation by YARD 0.8.7.6
+    &mdash; Documentation by YARD 0.8.0
   
 </title>
 
@@ -17,7 +17,7 @@
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '../../';
-  framesUrl = "../../frames.html#!RSpec/Mocks/ArgumentMatchers.html";
+  framesUrl = "../../frames.html#!" + escape(window.location.href);
 </script>
 
 
@@ -90,13 +90,12 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    
-<p>ArgumentMatchers are placeholders that you can include in message
+    <p>ArgumentMatchers are placeholders that you can include in message
 expectations to match arguments against a broader check than simple
 equality.</p>
 
-<p>With the exception of <code>any_args</code> and <code>no_args</code>, they
-all match against the arg in same position in the argument list.</p>
+<p>With the exception of <code>any_args</code> and <code>no_args</code>, they all match against
+the arg in same position in the argument list.</p>
 
 
   </div>
@@ -153,8 +152,7 @@ all match against the arg in same position in the argument list.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Matches any args at all.</p>
+    <span class="summary_desc"><div class='inline'><p>Matches any args at all.</p>
 </div></span>
   
 </li>
@@ -177,8 +175,7 @@ all match against the arg in same position in the argument list.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Matches any argument at all.</p>
+    <span class="summary_desc"><div class='inline'><p>Matches any argument at all.</p>
 </div></span>
   
 </li>
@@ -201,8 +198,7 @@ all match against the arg in same position in the argument list.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Matches a boolean value.</p>
+    <span class="summary_desc"><div class='inline'><p>Matches a boolean value.</p>
 </div></span>
   
 </li>
@@ -225,8 +221,7 @@ all match against the arg in same position in the argument list.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Matches if the actual argument responds to the specified messages.</p>
+    <span class="summary_desc"><div class='inline'><p>Matches if the actual argument responds to the specified messages.</p>
 </div></span>
   
 </li>
@@ -251,8 +246,7 @@ all match against the arg in same position in the argument list.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Matches a hash that doesn&#39;t include the specified key(s) or key/value.</p>
+    <span class="summary_desc"><div class='inline'><p>Matches a hash that doesn&#39;t include the specified key(s) or key/value.</p>
 </div></span>
   
 </li>
@@ -275,8 +269,7 @@ all match against the arg in same position in the argument list.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Matches a hash that includes the specified key(s) or key/value pairs.</p>
+    <span class="summary_desc"><div class='inline'><p>Matches a hash that includes the specified key(s) or key/value pairs.</p>
 </div></span>
   
 </li>
@@ -301,8 +294,7 @@ all match against the arg in same position in the argument list.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Matches if <code>arg.instance_of?(klass)</code>.</p>
+    <span class="summary_desc"><div class='inline'><p>Matches if <code>arg.instance_of?(klass)</code>.</p>
 </div></span>
   
 </li>
@@ -327,8 +319,7 @@ all match against the arg in same position in the argument list.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Matches if <code>arg.kind_of?(klass)</code>.</p>
+    <span class="summary_desc"><div class='inline'><p>Matches if <code>arg.kind_of?(klass)</code>.</p>
 </div></span>
   
 </li>
@@ -351,8 +342,7 @@ all match against the arg in same position in the argument list.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Matches no arguments.</p>
+    <span class="summary_desc"><div class='inline'><p>Matches no arguments.</p>
 </div></span>
   
 </li>
@@ -378,8 +368,7 @@ all match against the arg in same position in the argument list.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Matches any args at all. Supports a more explicit variation of
+    <p>Matches any args at all. Supports a more explicit variation of
 <code>object.should_receive(:message)</code></p>
 
 
@@ -391,8 +380,8 @@ all match against the arg in same position in the argument list.</p>
     <p class="tag_title">Examples:</p>
     
       
-      <pre class="example code"><code>
-<span class='id identifier rubyid_object'>object</span><span class='period'>.</span><span class='id identifier rubyid_should_receive'>should_receive</span><span class='lparen'>(</span><span class='symbol'>:message</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_with'>with</span><span class='lparen'>(</span><span class='id identifier rubyid_any_args'>any_args</span><span class='rparen'>)</span></code></pre>
+      <pre class="example code">
+<span class='id identifier rubyid_object'>object</span><span class='period'>.</span><span class='id identifier rubyid_should_receive'>should_receive</span><span class='lparen'>(</span><span class='symbol'>:message</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_with'>with</span><span class='lparen'>(</span><span class='id identifier rubyid_any_args'>any_args</span><span class='rparen'>)</span></pre>
     
   </div>
 
@@ -429,8 +418,7 @@ all match against the arg in same position in the argument list.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Matches any argument at all.</p>
+    <p>Matches any argument at all.</p>
 
 
   </div>
@@ -441,8 +429,8 @@ all match against the arg in same position in the argument list.</p>
     <p class="tag_title">Examples:</p>
     
       
-      <pre class="example code"><code>
-<span class='id identifier rubyid_object'>object</span><span class='period'>.</span><span class='id identifier rubyid_should_receive'>should_receive</span><span class='lparen'>(</span><span class='symbol'>:message</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_with'>with</span><span class='lparen'>(</span><span class='id identifier rubyid_anything'>anything</span><span class='rparen'>)</span></code></pre>
+      <pre class="example code">
+<span class='id identifier rubyid_object'>object</span><span class='period'>.</span><span class='id identifier rubyid_should_receive'>should_receive</span><span class='lparen'>(</span><span class='symbol'>:message</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_with'>with</span><span class='lparen'>(</span><span class='id identifier rubyid_anything'>anything</span><span class='rparen'>)</span></pre>
     
   </div>
 
@@ -479,8 +467,7 @@ all match against the arg in same position in the argument list.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Matches a boolean value.</p>
+    <p>Matches a boolean value.</p>
 
 
   </div>
@@ -491,8 +478,8 @@ all match against the arg in same position in the argument list.</p>
     <p class="tag_title">Examples:</p>
     
       
-      <pre class="example code"><code>
-<span class='id identifier rubyid_object'>object</span><span class='period'>.</span><span class='id identifier rubyid_should_receive'>should_receive</span><span class='lparen'>(</span><span class='symbol'>:message</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_with'>with</span><span class='lparen'>(</span><span class='id identifier rubyid_boolean'>boolean</span><span class='lparen'>(</span><span class='rparen'>)</span><span class='rparen'>)</span></code></pre>
+      <pre class="example code">
+<span class='id identifier rubyid_object'>object</span><span class='period'>.</span><span class='id identifier rubyid_should_receive'>should_receive</span><span class='lparen'>(</span><span class='symbol'>:message</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_with'>with</span><span class='lparen'>(</span><span class='id identifier rubyid_boolean'>boolean</span><span class='lparen'>(</span><span class='rparen'>)</span><span class='rparen'>)</span></pre>
     
   </div>
 
@@ -529,8 +516,7 @@ all match against the arg in same position in the argument list.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Matches if the actual argument responds to the specified messages.</p>
+    <p>Matches if the actual argument responds to the specified messages.</p>
 
 
   </div>
@@ -541,9 +527,9 @@ all match against the arg in same position in the argument list.</p>
     <p class="tag_title">Examples:</p>
     
       
-      <pre class="example code"><code>
+      <pre class="example code">
 <span class='id identifier rubyid_object'>object</span><span class='period'>.</span><span class='id identifier rubyid_should_receive'>should_receive</span><span class='lparen'>(</span><span class='symbol'>:message</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_with'>with</span><span class='lparen'>(</span><span class='id identifier rubyid_duck_type'>duck_type</span><span class='lparen'>(</span><span class='symbol'>:hello</span><span class='rparen'>)</span><span class='rparen'>)</span>
-<span class='id identifier rubyid_object'>object</span><span class='period'>.</span><span class='id identifier rubyid_should_receive'>should_receive</span><span class='lparen'>(</span><span class='symbol'>:message</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_with'>with</span><span class='lparen'>(</span><span class='id identifier rubyid_duck_type'>duck_type</span><span class='lparen'>(</span><span class='symbol'>:hello</span><span class='comma'>,</span> <span class='symbol'>:goodbye</span><span class='rparen'>)</span><span class='rparen'>)</span></code></pre>
+<span class='id identifier rubyid_object'>object</span><span class='period'>.</span><span class='id identifier rubyid_should_receive'>should_receive</span><span class='lparen'>(</span><span class='symbol'>:message</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_with'>with</span><span class='lparen'>(</span><span class='id identifier rubyid_duck_type'>duck_type</span><span class='lparen'>(</span><span class='symbol'>:hello</span><span class='comma'>,</span> <span class='symbol'>:goodbye</span><span class='rparen'>)</span><span class='rparen'>)</span></pre>
     
   </div>
 
@@ -584,8 +570,7 @@ all match against the arg in same position in the argument list.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Matches a hash that doesn&#39;t include the specified key(s) or key/value.</p>
+    <p>Matches a hash that doesn&#39;t include the specified key(s) or key/value.</p>
 
 
   </div>
@@ -596,10 +581,10 @@ all match against the arg in same position in the argument list.</p>
     <p class="tag_title">Examples:</p>
     
       
-      <pre class="example code"><code>
+      <pre class="example code">
 <span class='id identifier rubyid_object'>object</span><span class='period'>.</span><span class='id identifier rubyid_should_receive'>should_receive</span><span class='lparen'>(</span><span class='symbol'>:message</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_with'>with</span><span class='lparen'>(</span><span class='id identifier rubyid_hash_excluding'>hash_excluding</span><span class='lparen'>(</span><span class='symbol'>:key</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_val'>val</span><span class='rparen'>)</span><span class='rparen'>)</span>
 <span class='id identifier rubyid_object'>object</span><span class='period'>.</span><span class='id identifier rubyid_should_receive'>should_receive</span><span class='lparen'>(</span><span class='symbol'>:message</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_with'>with</span><span class='lparen'>(</span><span class='id identifier rubyid_hash_excluding'>hash_excluding</span><span class='lparen'>(</span><span class='symbol'>:key</span><span class='rparen'>)</span><span class='rparen'>)</span>
-<span class='id identifier rubyid_object'>object</span><span class='period'>.</span><span class='id identifier rubyid_should_receive'>should_receive</span><span class='lparen'>(</span><span class='symbol'>:message</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_with'>with</span><span class='lparen'>(</span><span class='id identifier rubyid_hash_excluding'>hash_excluding</span><span class='lparen'>(</span><span class='symbol'>:key</span><span class='comma'>,</span> <span class='symbol'>:key2</span> <span class='op'>=&gt;</span> <span class='symbol'>:val2</span><span class='rparen'>)</span><span class='rparen'>)</span></code></pre>
+<span class='id identifier rubyid_object'>object</span><span class='period'>.</span><span class='id identifier rubyid_should_receive'>should_receive</span><span class='lparen'>(</span><span class='symbol'>:message</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_with'>with</span><span class='lparen'>(</span><span class='id identifier rubyid_hash_excluding'>hash_excluding</span><span class='lparen'>(</span><span class='symbol'>:key</span><span class='comma'>,</span> <span class='symbol'>:key2</span> <span class='op'>=&gt;</span> <span class='symbol'>:val2</span><span class='rparen'>)</span><span class='rparen'>)</span></pre>
     
   </div>
 
@@ -636,8 +621,7 @@ all match against the arg in same position in the argument list.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Matches a hash that includes the specified key(s) or key/value pairs.
+    <p>Matches a hash that includes the specified key(s) or key/value pairs.
 Ignores any additional keys.</p>
 
 
@@ -649,10 +633,10 @@ Ignores any additional keys.</p>
     <p class="tag_title">Examples:</p>
     
       
-      <pre class="example code"><code>
+      <pre class="example code">
 <span class='id identifier rubyid_object'>object</span><span class='period'>.</span><span class='id identifier rubyid_should_receive'>should_receive</span><span class='lparen'>(</span><span class='symbol'>:message</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_with'>with</span><span class='lparen'>(</span><span class='id identifier rubyid_hash_including'>hash_including</span><span class='lparen'>(</span><span class='symbol'>:key</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_val'>val</span><span class='rparen'>)</span><span class='rparen'>)</span>
 <span class='id identifier rubyid_object'>object</span><span class='period'>.</span><span class='id identifier rubyid_should_receive'>should_receive</span><span class='lparen'>(</span><span class='symbol'>:message</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_with'>with</span><span class='lparen'>(</span><span class='id identifier rubyid_hash_including'>hash_including</span><span class='lparen'>(</span><span class='symbol'>:key</span><span class='rparen'>)</span><span class='rparen'>)</span>
-<span class='id identifier rubyid_object'>object</span><span class='period'>.</span><span class='id identifier rubyid_should_receive'>should_receive</span><span class='lparen'>(</span><span class='symbol'>:message</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_with'>with</span><span class='lparen'>(</span><span class='id identifier rubyid_hash_including'>hash_including</span><span class='lparen'>(</span><span class='symbol'>:key</span><span class='comma'>,</span> <span class='symbol'>:key2</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_val2'>val2</span><span class='rparen'>)</span><span class='rparen'>)</span></code></pre>
+<span class='id identifier rubyid_object'>object</span><span class='period'>.</span><span class='id identifier rubyid_should_receive'>should_receive</span><span class='lparen'>(</span><span class='symbol'>:message</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_with'>with</span><span class='lparen'>(</span><span class='id identifier rubyid_hash_including'>hash_including</span><span class='lparen'>(</span><span class='symbol'>:key</span><span class='comma'>,</span> <span class='symbol'>:key2</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_val2'>val2</span><span class='rparen'>)</span><span class='rparen'>)</span></pre>
     
   </div>
 
@@ -693,8 +677,7 @@ Ignores any additional keys.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Matches if <code>arg.instance_of?(klass)</code></p>
+    <p>Matches if <code>arg.instance_of?(klass)</code></p>
 
 
   </div>
@@ -705,8 +688,8 @@ Ignores any additional keys.</p>
     <p class="tag_title">Examples:</p>
     
       
-      <pre class="example code"><code>
-<span class='id identifier rubyid_object'>object</span><span class='period'>.</span><span class='id identifier rubyid_should_receive'>should_receive</span><span class='lparen'>(</span><span class='symbol'>:message</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_with'>with</span><span class='lparen'>(</span><span class='id identifier rubyid_instance_of'>instance_of</span><span class='lparen'>(</span><span class='const'>Thing</span><span class='rparen'>)</span><span class='rparen'>)</span></code></pre>
+      <pre class="example code">
+<span class='id identifier rubyid_object'>object</span><span class='period'>.</span><span class='id identifier rubyid_should_receive'>should_receive</span><span class='lparen'>(</span><span class='symbol'>:message</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_with'>with</span><span class='lparen'>(</span><span class='id identifier rubyid_instance_of'>instance_of</span><span class='lparen'>(</span><span class='const'>Thing</span><span class='rparen'>)</span><span class='rparen'>)</span></pre>
     
   </div>
 
@@ -747,8 +730,7 @@ Ignores any additional keys.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Matches if <code>arg.kind_of?(klass)</code></p>
+    <p>Matches if <code>arg.kind_of?(klass)</code></p>
 
 
   </div>
@@ -759,8 +741,8 @@ Ignores any additional keys.</p>
     <p class="tag_title">Examples:</p>
     
       
-      <pre class="example code"><code>
-<span class='id identifier rubyid_object'>object</span><span class='period'>.</span><span class='id identifier rubyid_should_receive'>should_receive</span><span class='lparen'>(</span><span class='symbol'>:message</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_with'>with</span><span class='lparen'>(</span><span class='id identifier rubyid_kind_of'>kind_of</span><span class='lparen'>(</span><span class='const'>Thing</span><span class='rparen'>)</span><span class='rparen'>)</span></code></pre>
+      <pre class="example code">
+<span class='id identifier rubyid_object'>object</span><span class='period'>.</span><span class='id identifier rubyid_should_receive'>should_receive</span><span class='lparen'>(</span><span class='symbol'>:message</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_with'>with</span><span class='lparen'>(</span><span class='id identifier rubyid_kind_of'>kind_of</span><span class='lparen'>(</span><span class='const'>Thing</span><span class='rparen'>)</span><span class='rparen'>)</span></pre>
     
   </div>
 
@@ -797,8 +779,7 @@ Ignores any additional keys.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Matches no arguments.</p>
+    <p>Matches no arguments.</p>
 
 
   </div>
@@ -809,8 +790,8 @@ Ignores any additional keys.</p>
     <p class="tag_title">Examples:</p>
     
       
-      <pre class="example code"><code>
-<span class='id identifier rubyid_object'>object</span><span class='period'>.</span><span class='id identifier rubyid_should_receive'>should_receive</span><span class='lparen'>(</span><span class='symbol'>:message</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_with'>with</span><span class='lparen'>(</span><span class='id identifier rubyid_no_args'>no_args</span><span class='rparen'>)</span></code></pre>
+      <pre class="example code">
+<span class='id identifier rubyid_object'>object</span><span class='period'>.</span><span class='id identifier rubyid_should_receive'>should_receive</span><span class='lparen'>(</span><span class='symbol'>:message</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_with'>with</span><span class='lparen'>(</span><span class='id identifier rubyid_no_args'>no_args</span><span class='rparen'>)</span></pre>
     
   </div>
 
@@ -841,9 +822,9 @@ Ignores any additional keys.</p>
 </div>
 
     <div id="footer">
-  Generated on Thu Dec 18 08:28:13 2014 by
+  Generated on Wed Jan 28 22:10:34 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.6 (ruby-2.1.5).
+  0.8.0 (ruby-2.1.5).
 </div>
 
   </body>
