@@ -6,7 +6,7 @@
 <title>
   Class: RSpec::Core::FilterManager
   
-    &mdash; Documentation by YARD 0.8.7.6
+    &mdash; Documentation by YARD 0.8.0
   
 </title>
 
@@ -17,7 +17,7 @@
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '../../';
-  framesUrl = "../../frames.html#!RSpec/Core/FilterManager.html";
+  framesUrl = "../../frames.html#!" + escape(window.location.href);
 </script>
 
 
@@ -106,7 +106,7 @@ the command line or options files, or filters declared via
 <code>RSpec.configure</code>, with hash key/values submitted within example group
 and/or example declarations. For example, given this declaration:</p>
 
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_describe'>describe</span> <span class='const'>Thing</span><span class='comma'>,</span> <span class='symbol'>:awesome</span> <span class='op'>=&gt;</span> <span class='kw'>true</span> <span class='kw'>do</span>
+<pre class="code ruby"><code><span class='id identifier rubyid_describe'>describe</span> <span class='const'>Thing</span><span class='comma'>,</span> <span class='symbol'>:awesome</span> <span class='op'>=&gt;</span> <span class='kw'>true</span> <span class='kw'>do</span>
   <span class='id identifier rubyid_it'>it</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>does something</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
     <span class='comment'># ...
 </span>  <span class='kw'>end</span>
@@ -116,7 +116,7 @@ and/or example declarations. For example, given this declaration:</p>
 <p>That group (or any other with <code>:awesome =&gt; true</code>) would be filtered in
 with any of the following commands:</p>
 
-<pre class="code ruby"><code class="ruby">rspec --tag awesome:true
+<pre class="code ruby"><code>rspec --tag awesome:true
 rspec --tag awesome
 rspec -t awesome:true
 rspec -t awesome
@@ -125,7 +125,7 @@ rspec -t awesome
 <p>Prefixing the tag names with <code>~</code> negates the tags, thus excluding this group with
 any of:</p>
 
-<pre class="code ruby"><code class="ruby">rspec --tag ~awesome:true
+<pre class="code ruby"><code>rspec --tag ~awesome:true
 rspec --tag ~awesome
 rspec -t ~awesome:true
 rspec -t ~awesome
@@ -138,12 +138,12 @@ options file.  This is useful for storing defaults. For example, let&#39;s
 say you&#39;ve got some slow specs that you want to suppress most of the
 time. You can tag them like this:</p>
 
-<pre class="code ruby"><code class="ruby">describe Something, :slow =&gt; true do
+<pre class="code ruby"><code>describe Something, :slow =&gt; true do
 </code></pre>
 
 <p>And then store this in <code>.rspec</code>:</p>
 
-<pre class="code ruby"><code class="ruby">--tag ~slow:true
+<pre class="code ruby"><code>--tag ~slow:true
 </code></pre>
 
 <p>Now when you run <code>rspec</code>, that group will be excluded.</p>
@@ -153,7 +153,7 @@ time. You can tag them like this:</p>
 <p>Of course, you probably want to run them sometimes, so you can override
 this tag on the command line like this:</p>
 
-<pre class="code ruby"><code class="ruby">rspec --tag slow:true
+<pre class="code ruby"><code>rspec --tag slow:true
 </code></pre>
 
 <h2>RSpec.configure</h2>
@@ -162,7 +162,7 @@ this tag on the command line like this:</p>
 the command line (and in options files like <code>.rspec</code>), but for historical
 reasons we use the term <code>filter</code> in `RSpec.configure:</p>
 
-<pre class="code ruby"><code class="ruby"><span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_configure'>configure</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_c'>c</span><span class='op'>|</span>
+<pre class="code ruby"><code><span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_configure'>configure</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_c'>c</span><span class='op'>|</span>
   <span class='id identifier rubyid_c'>c</span><span class='period'>.</span><span class='id identifier rubyid_filter_run_including'>filter_run_including</span> <span class='symbol'>:foo</span> <span class='op'>=&gt;</span> <span class='symbol'>:bar</span>
   <span class='id identifier rubyid_c'>c</span><span class='period'>.</span><span class='id identifier rubyid_filter_run_excluding'>filter_run_excluding</span> <span class='symbol'>:foo</span> <span class='op'>=&gt;</span> <span class='symbol'>:bar</span>
 <span class='kw'>end</span>
@@ -632,7 +632,7 @@ reasons we use the term <code>filter</code> in `RSpec.configure:</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns a new instance of FilterManager</p>
+    <p>A new instance of FilterManager</p>
 
 
   </div>
@@ -672,6 +672,7 @@ reasons we use the term <code>filter</code> in `RSpec.configure:</p>
     
       
       <span id=""></span>
+      <span id="exclusions-instance_method"></span>
       <div class="method_details first">
   <h3 class="signature first" id="exclusions-instance_method">
   
@@ -714,6 +715,7 @@ reasons we use the term <code>filter</code> in `RSpec.configure:</p>
     
       
       <span id=""></span>
+      <span id="inclusions-instance_method"></span>
       <div class="method_details ">
   <h3 class="signature " id="inclusions-instance_method">
   
@@ -1292,9 +1294,9 @@ reasons we use the term <code>filter</code> in `RSpec.configure:</p>
 </div>
 
     <div id="footer">
-  Generated on Thu Dec 18 08:14:27 2014 by
+  Generated on Wed Jan 28 22:10:24 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.6 (ruby-2.1.5).
+  0.8.0 (ruby-2.1.5).
 </div>
 
   </body>

@@ -6,7 +6,7 @@
 <title>
   Module: RSpec::Mocks::Syntax
   
-    &mdash; Documentation by YARD 0.8.7.6
+    &mdash; Documentation by YARD 0.8.0
   
 </title>
 
@@ -17,7 +17,7 @@
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '../../';
-  framesUrl = "../../frames.html#!RSpec/Mocks/Syntax.html";
+  framesUrl = "../../frames.html#!" + escape(window.location.href);
 </script>
 
 
@@ -90,9 +90,8 @@
   <strong>This module is part of a private API.</strong>
   You should avoid using this module if possible, as it may be removed or be changed in the future.
 </p>
-
-<p>Provides methods for enabling and disabling the available syntaxes provided
-by rspec-mocks.</p>
+<p>Provides methods for enabling and disabling the available syntaxes
+provided by rspec-mocks.</p>
 
 
   </div>
@@ -132,9 +131,7 @@ by rspec-mocks.</p>
   <span class="private note title">private</span>
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Determines where the methods like <code>should_receive</code>, and
-<code>stub</code> are added.</p>
+    <span class="summary_desc"><div class='inline'><p>Determines where the methods like <code>should_receive</code>, and <code>stub</code> are added.</p>
 </div></span>
   
 </li>
@@ -157,9 +154,7 @@ by rspec-mocks.</p>
   <span class="private note title">private</span>
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Disables the expect syntax (<code>expect(dbl).to receive</code>,
-<code>allow(dbl).to receive</code>, etc).</p>
+    <span class="summary_desc"><div class='inline'><p>Disables the expect syntax (<code>expect(dbl).to receive</code>, <code>allow(dbl).to receive</code>, etc).</p>
 </div></span>
   
 </li>
@@ -182,9 +177,7 @@ by rspec-mocks.</p>
   <span class="private note title">private</span>
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Disables the should syntax (<code>dbl.stub</code>,
-<code>dbl.should_receive</code>, etc).</p>
+    <span class="summary_desc"><div class='inline'><p>Disables the should syntax (<code>dbl.stub</code>, <code>dbl.should_receive</code>, etc).</p>
 </div></span>
   
 </li>
@@ -207,9 +200,7 @@ by rspec-mocks.</p>
   <span class="private note title">private</span>
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Enables the expect syntax (<code>expect(dbl).to receive</code>,
-<code>allow(dbl).to receive</code>, etc).</p>
+    <span class="summary_desc"><div class='inline'><p>Enables the expect syntax (<code>expect(dbl).to receive</code>, <code>allow(dbl).to receive</code>, etc).</p>
 </div></span>
   
 </li>
@@ -232,9 +223,7 @@ by rspec-mocks.</p>
   <span class="private note title">private</span>
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Enables the should syntax (<code>dbl.stub</code>,
-<code>dbl.should_receive</code>, etc).</p>
+    <span class="summary_desc"><div class='inline'><p>Enables the should syntax (<code>dbl.stub</code>, <code>dbl.should_receive</code>, etc).</p>
 </div></span>
   
 </li>
@@ -257,8 +246,7 @@ by rspec-mocks.</p>
   <span class="private note title">private</span>
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Indicates whether or not the expect syntax is enabled.</p>
+    <span class="summary_desc"><div class='inline'><p>Indicates whether or not the expect syntax is enabled.</p>
 </div></span>
   
 </li>
@@ -281,8 +269,7 @@ by rspec-mocks.</p>
   <span class="private note title">private</span>
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Indicates whether or not the should syntax is enabled.</p>
+    <span class="summary_desc"><div class='inline'><p>Indicates whether or not the should syntax is enabled.</p>
 </div></span>
   
 </li>
@@ -291,7 +278,7 @@ by rspec-mocks.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#stub_object-class_method" title="stub_object (class method)">+ (Object) <strong>stub_object</strong>(object, message_or_hash, opts = {}, &amp;block) </a>
+      <a href="#stub_object-class_method" title="stub_object (class method)">+ (Object) <strong>stub_object</strong>(object, message_or_hash, opts = {}) </a>
     
 
     
@@ -305,334 +292,7 @@ by rspec-mocks.</p>
   <span class="private note title">private</span>
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Common stubbing logic for both <code>stub</code> and <code>stub!</code>.</p>
-</div></span>
-  
-</li>
-
-      
-    </ul>
-  
-    <h2>
-      Instance Method Summary
-      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
-    </h2>
-
-    <ul class="summary">
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#allow-instance_method" title="#allow (instance method)">- (Object) <strong>allow</strong> </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>Used to wrap an object in preparation for stubbing a method on it.</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#allow_any_instance_of-instance_method" title="#allow_any_instance_of (instance method)">- (Object) <strong>allow_any_instance_of</strong> </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>Used to wrap a class in preparation for stubbing a method on instances of
-it.</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#any_instance-instance_method" title="#any_instance (instance method)">- (Recorder) <strong>any_instance</strong> </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>Used to set stubs and message expectations on any instance of a given
-class.</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#as_null_object-instance_method" title="#as_null_object (instance method)">- (Object) <strong>as_null_object</strong> </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>Tells the object to respond to all messages.</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#expect-instance_method" title="#expect (instance method)">- (Object) <strong>expect</strong> </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>Used to wrap an object in preparation for setting a mock expectation on it.</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#expect_any_instance_of-instance_method" title="#expect_any_instance_of (instance method)">- (Object) <strong>expect_any_instance_of</strong> </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>Used to wrap a class in preparation for setting a mock expectation on
-instances of it.</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#null_object%3F-instance_method" title="#null_object? (instance method)">- (Object) <strong>null_object?</strong> </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>Returns true if this object has received <code>as_null_object</code>.</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#receive-instance_method" title="#receive (instance method)">- (Object) <strong>receive</strong> </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>Used to specify a message that you expect or allow an object to receive.</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#should_not_receive-instance_method" title="#should_not_receive (instance method)">- (Object) <strong>should_not_receive</strong> </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>Sets and expectation that this object should <em>not</em> receive a message
-during this example.</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#should_receive-instance_method" title="#should_receive (instance method)">- (Object) <strong>should_receive</strong> </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>Sets an expectation that this object should receive a message before the
-end of the example.</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#stub-instance_method" title="#stub (instance method)">- (Object) <strong>stub</strong> </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>Tells the object to respond to the message with the specified value.</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#stub_chain-instance_method" title="#stub_chain (instance method)">- (Object) <strong>stub_chain</strong> </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>Stubs a chain of methods.</p>
-</div></span>
-  
-</li>
-
-      
-        <li class="public ">
-  <span class="summary_signature">
-    
-      <a href="#unstub-instance_method" title="#unstub (instance method)">- (Object) <strong>unstub</strong> </a>
-    
-
-    
-  </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
-    <span class="summary_desc"><div class='inline'>
-<p>Removes a stub.</p>
+    <span class="summary_desc"><div class='inline'><p>Common stubbing logic for both <code>stub</code> and <code>stub!</code>.</p>
 </div></span>
   
 </li>
@@ -662,9 +322,7 @@ end of the example.</p>
   <strong>This method is part of a private API.</strong>
   You should avoid using this method if possible, as it may be removed or be changed in the future.
 </p>
-
-<p>Determines where the methods like <code>should_receive</code>, and
-<code>stub</code> are added.</p>
+<p>Determines where the methods like <code>should_receive</code>, and <code>stub</code> are added.</p>
 
 
   </div>
@@ -742,9 +400,7 @@ end of the example.</p>
   <strong>This method is part of a private API.</strong>
   You should avoid using this method if possible, as it may be removed or be changed in the future.
 </p>
-
-<p>Disables the expect syntax (<code>expect(dbl).to receive</code>,
-<code>allow(dbl).to receive</code>, etc).</p>
+<p>Disables the expect syntax (<code>expect(dbl).to receive</code>, <code>allow(dbl).to receive</code>, etc).</p>
 
 
   </div>
@@ -810,9 +466,7 @@ end of the example.</p>
   <strong>This method is part of a private API.</strong>
   You should avoid using this method if possible, as it may be removed or be changed in the future.
 </p>
-
-<p>Disables the should syntax (<code>dbl.stub</code>,
-<code>dbl.should_receive</code>, etc).</p>
+<p>Disables the should syntax (<code>dbl.stub</code>, <code>dbl.should_receive</code>, etc).</p>
 
 
   </div>
@@ -890,9 +544,7 @@ end of the example.</p>
   <strong>This method is part of a private API.</strong>
   You should avoid using this method if possible, as it may be removed or be changed in the future.
 </p>
-
-<p>Enables the expect syntax (<code>expect(dbl).to receive</code>,
-<code>allow(dbl).to receive</code>, etc).</p>
+<p>Enables the expect syntax (<code>expect(dbl).to receive</code>, <code>allow(dbl).to receive</code>, etc).</p>
 
 
   </div>
@@ -984,9 +636,7 @@ end of the example.</p>
   <strong>This method is part of a private API.</strong>
   You should avoid using this method if possible, as it may be removed or be changed in the future.
 </p>
-
-<p>Enables the should syntax (<code>dbl.stub</code>,
-<code>dbl.should_receive</code>, etc).</p>
+<p>Enables the should syntax (<code>dbl.stub</code>, <code>dbl.should_receive</code>, etc).</p>
 
 
   </div>
@@ -1140,7 +790,6 @@ end of the example.</p>
   <strong>This method is part of a private API.</strong>
   You should avoid using this method if possible, as it may be removed or be changed in the future.
 </p>
-
 <p>Indicates whether or not the expect syntax is enabled.</p>
 
 
@@ -1198,7 +847,6 @@ end of the example.</p>
   <strong>This method is part of a private API.</strong>
   You should avoid using this method if possible, as it may be removed or be changed in the future.
 </p>
-
 <p>Indicates whether or not the should syntax is enabled.</p>
 
 
@@ -1244,7 +892,7 @@ end of the example.</p>
       <div class="method_details ">
   <h3 class="signature " id="stub_object-class_method">
   
-    + (<tt>Object</tt>) <strong>stub_object</strong>(object, message_or_hash, opts = {}, &amp;block) 
+    + (<tt>Object</tt>) <strong>stub_object</strong>(object, message_or_hash, opts = {}) 
   
 
   
@@ -1256,13 +904,11 @@ end of the example.</p>
   <strong>This method is part of a private API.</strong>
   You should avoid using this method if possible, as it may be removed or be changed in the future.
 </p>
-
-<p>Common stubbing logic for both <code>stub</code> and <code>stub!</code>.
-This used to live in <code>stub</code>, and <code>stub!</code> delegated to
-<code>stub</code>, but we discovered that <code>stub!</code> was delegating
-to <code>RSpec::Mocks::ExampleMethods#stub</code> (which declares a test
-double) when called with an implicit receiver, which was a regression in
-2.14.0.</p>
+<p>Common stubbing logic for both <code>stub</code> and <code>stub!</code>. This used to
+live in <code>stub</code>, and <code>stub!</code> delegated to <code>stub</code>, but we discovered
+that <code>stub!</code> was delegating to <code>RSpec::Mocks::ExampleMethods#stub</code>
+(which declares a test double) when called with an implicit receiver,
+which was a regression in 2.14.0.</p>
 
 
   </div>
@@ -1303,756 +949,12 @@ double) when called with an implicit receiver, which was a regression in
     
   </div>
 
-  <div id="instance_method_details" class="method_details_list">
-    <h2>Instance Method Details</h2>
-
-    
-      <div class="method_details first">
-  <h3 class="signature first" id="allow-instance_method">
-  
-    - (<tt>Object</tt>) <strong>allow</strong> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-  <div class="note notetag">
-    <strong>Note:</strong>
-    <div class='inline'>
-<p>This is only available when you have enabled the <code>expect</code>
-syntax.</p>
-</div>
-  </div>
-
-
-<p>Used to wrap an object in preparation for stubbing a method on it.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-  <div class="examples">
-    <p class="tag_title">Examples:</p>
-    
-      
-      <pre class="example code"><code>
-<span class='id identifier rubyid_allow'>allow</span><span class='lparen'>(</span><span class='id identifier rubyid_dbl'>dbl</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_receive'>receive</span><span class='lparen'>(</span><span class='symbol'>:foo</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_with'>with</span><span class='lparen'>(</span><span class='int'>5</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_and_return'>and_return</span><span class='lparen'>(</span><span class='symbol'>:return_value</span><span class='rparen'>)</span></code></pre>
-    
-  </div>
-
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/mocks/syntax.rb', line 304</span>
-
-</pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="allow_any_instance_of-instance_method">
-  
-    - (<tt>Object</tt>) <strong>allow_any_instance_of</strong> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-  <div class="note notetag">
-    <strong>Note:</strong>
-    <div class='inline'>
-<p>This is only available when you have enabled the <code>expect</code>
-syntax.</p>
-</div>
-  </div>
-
-
-<p>Used to wrap a class in preparation for stubbing a method on instances of
-it.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-  <div class="examples">
-    <p class="tag_title">Examples:</p>
-    
-      
-      <pre class="example code"><code>
-<span class='id identifier rubyid_allow_any_instance_of'>allow_any_instance_of</span><span class='lparen'>(</span><span class='const'>MyClass</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_receive'>receive</span><span class='lparen'>(</span><span class='symbol'>:foo</span><span class='rparen'>)</span></code></pre>
-    
-  </div>
-
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/mocks/syntax.rb', line 324</span>
-
-</pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="any_instance-instance_method">
-  
-    - (<tt>Recorder</tt>) <strong>any_instance</strong> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-  <div class="note notetag">
-    <strong>Note:</strong>
-    <div class='inline'>
-<p>This is only available when you have enabled the <code>should</code>
-syntax.</p>
-</div>
-  </div>
-
-
-<p>Used to set stubs and message expectations on any instance of a given
-class. Returns a <a href="Recorder">Recorder</a>, which records messages
-like <code>stub</code> and <code>should_receive</code> for later playback
-on instances of the class.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-  <div class="examples">
-    <p class="tag_title">Examples:</p>
-    
-      
-      <pre class="example code"><code>
-<span class='const'>Car</span><span class='period'>.</span><span class='id identifier rubyid_any_instance'>any_instance</span><span class='period'>.</span><span class='id identifier rubyid_should_receive'>should_receive</span><span class='lparen'>(</span><span class='symbol'>:go</span><span class='rparen'>)</span>
-<span class='id identifier rubyid_race'>race</span> <span class='op'>=</span> <span class='const'>Race</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
-<span class='id identifier rubyid_race'>race</span><span class='period'>.</span><span class='id identifier rubyid_cars'>cars</span> <span class='op'>&lt;&lt;</span> <span class='const'>Car</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
-<span class='id identifier rubyid_race'>race</span><span class='period'>.</span><span class='id identifier rubyid_go'>go</span> <span class='comment'># assuming this delegates to all of its cars
-</span>        <span class='comment'># this example would pass
-</span>
-<span class='const'>Account</span><span class='period'>.</span><span class='id identifier rubyid_any_instance'>any_instance</span><span class='period'>.</span><span class='id identifier rubyid_stub'>stub</span><span class='lparen'>(</span><span class='symbol'>:balance</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='const'>Money</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='symbol'>:USD</span><span class='comma'>,</span> <span class='int'>25</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
-<span class='const'>Account</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='period'>.</span><span class='id identifier rubyid_balance'>balance</span> <span class='comment'># =&gt; Money.new(:USD, 25))</span></code></pre>
-    
-  </div>
-
-<p class="tag_title">Returns:</p>
-<ul class="return">
-  
-    <li>
-      
-      
-        <span class='type'>(<tt>Recorder</tt>)</span>
-      
-      
-      
-    </li>
-  
-</ul>
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/mocks/syntax.rb', line 271</span>
-
-</pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="as_null_object-instance_method">
-  
-    - (<tt>Object</tt>) <strong>as_null_object</strong> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-  <div class="note notetag">
-    <strong>Note:</strong>
-    <div class='inline'>
-<p>This is only available when you have enabled the <code>should</code>
-syntax.</p>
-</div>
-  </div>
-
-
-<p>Tells the object to respond to all messages. If specific stub values are
-declared, they&#39;ll work as expected. If not, the receiver is returned.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/mocks/syntax.rb', line 259</span>
-
-</pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="expect-instance_method">
-  
-    - (<tt>Object</tt>) <strong>expect</strong> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-  <div class="note notetag">
-    <strong>Note:</strong>
-    <div class='inline'>
-<p>This method is usually provided by rspec-expectations, unless you are using
-rspec-mocks w/o rspec-expectations, in which case it is only made available
-if you enable the <code>expect</code> syntax.</p>
-</div>
-  </div>
-
-
-<p>Used to wrap an object in preparation for setting a mock expectation on it.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-  <div class="examples">
-    <p class="tag_title">Examples:</p>
-    
-      
-      <pre class="example code"><code>
-<span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_obj'>obj</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_receive'>receive</span><span class='lparen'>(</span><span class='symbol'>:foo</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_with'>with</span><span class='lparen'>(</span><span class='int'>5</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_and_return'>and_return</span><span class='lparen'>(</span><span class='symbol'>:return_value</span><span class='rparen'>)</span></code></pre>
-    
-  </div>
-
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/mocks/syntax.rb', line 292</span>
-
-</pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="expect_any_instance_of-instance_method">
-  
-    - (<tt>Object</tt>) <strong>expect_any_instance_of</strong> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-  <div class="note notetag">
-    <strong>Note:</strong>
-    <div class='inline'>
-<p>This is only available when you have enabled the <code>expect</code>
-syntax.</p>
-</div>
-  </div>
-
-
-<p>Used to wrap a class in preparation for setting a mock expectation on
-instances of it.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-  <div class="examples">
-    <p class="tag_title">Examples:</p>
-    
-      
-      <pre class="example code"><code>
-<span class='id identifier rubyid_expect_any_instance_of'>expect_any_instance_of</span><span class='lparen'>(</span><span class='const'>MyClass</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_receive'>receive</span><span class='lparen'>(</span><span class='symbol'>:foo</span><span class='rparen'>)</span></code></pre>
-    
-  </div>
-
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/mocks/syntax.rb', line 314</span>
-
-</pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="null_object?-instance_method">
-  
-    - (<tt>Object</tt>) <strong>null_object?</strong> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-  <div class="note notetag">
-    <strong>Note:</strong>
-    <div class='inline'>
-<p>This is only available when you have enabled the <code>should</code>
-syntax.</p>
-</div>
-  </div>
-
-
-<p>Returns true if this object has received <code>as_null_object</code></p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/mocks/syntax.rb', line 266</span>
-
-</pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="receive-instance_method">
-  
-    - (<tt>Object</tt>) <strong>receive</strong> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-  <div class="note notetag">
-    <strong>Note:</strong>
-    <div class='inline'>
-<p>This is only available when you have enabled the <code>expect</code>
-syntax.</p>
-</div>
-  </div>
-
-
-<p>Used to specify a message that you expect or allow an object to receive.
-The object returned by <code>receive</code> supports the same fluent
-interface that <code>should_receive</code> and <code>stub</code> have
-always supported, allowing you to constrain the arguments or number of
-times, and configure how the object should respond to the message.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-  <div class="examples">
-    <p class="tag_title">Examples:</p>
-    
-      
-      <pre class="example code"><code>
-<span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_obj'>obj</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_receive'>receive</span><span class='lparen'>(</span><span class='symbol'>:hello</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_with'>with</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>world</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_exactly'>exactly</span><span class='lparen'>(</span><span class='int'>3</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_times'>times</span></code></pre>
-    
-  </div>
-
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/mocks/syntax.rb', line 334</span>
-
-</pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="should_not_receive-instance_method">
-  
-    - (<tt>Object</tt>) <strong>should_not_receive</strong> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-<p>Sets and expectation that this object should <em>not</em> receive a message
-during this example.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/mocks/syntax.rb', line 202</span>
-
-</pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="should_receive-instance_method">
-  
-    - (<tt>Object</tt>) <strong>should_receive</strong> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-  <div class="note notetag">
-    <strong>Note:</strong>
-    <div class='inline'>
-<p>This is only available when you have enabled the <code>should</code>
-syntax.</p>
-</div>
-  </div>
-
-
-<p>Sets an expectation that this object should receive a message before the
-end of the example.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-  <div class="examples">
-    <p class="tag_title">Examples:</p>
-    
-      
-      <pre class="example code"><code>
-<span class='id identifier rubyid_logger'>logger</span> <span class='op'>=</span> <span class='id identifier rubyid_double'>double</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>logger</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
-<span class='id identifier rubyid_thing_that_logs'>thing_that_logs</span> <span class='op'>=</span> <span class='const'>ThingThatLogs</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_logger'>logger</span><span class='rparen'>)</span>
-<span class='id identifier rubyid_logger'>logger</span><span class='period'>.</span><span class='id identifier rubyid_should_receive'>should_receive</span><span class='lparen'>(</span><span class='symbol'>:log</span><span class='rparen'>)</span>
-<span class='id identifier rubyid_thing_that_logs'>thing_that_logs</span><span class='period'>.</span><span class='id identifier rubyid_do_something_that_logs_a_message'>do_something_that_logs_a_message</span></code></pre>
-    
-  </div>
-
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/mocks/syntax.rb', line 189</span>
-
-</pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="stub-instance_method">
-  
-    - (<tt>Object</tt>) <strong>stub</strong> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-  <div class="note notetag">
-    <strong>Note:</strong>
-    <div class='inline'>
-<p>This is only available when you have enabled the <code>should</code>
-syntax.</p>
-</div>
-  </div>
-
-
-<p>Tells the object to respond to the message with the specified value.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-  <div class="examples">
-    <p class="tag_title">Examples:</p>
-    
-      
-      <pre class="example code"><code>
-<span class='id identifier rubyid_counter'>counter</span><span class='period'>.</span><span class='id identifier rubyid_stub'>stub</span><span class='lparen'>(</span><span class='symbol'>:count</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_and_return'>and_return</span><span class='lparen'>(</span><span class='int'>37</span><span class='rparen'>)</span>
-<span class='id identifier rubyid_counter'>counter</span><span class='period'>.</span><span class='id identifier rubyid_stub'>stub</span><span class='lparen'>(</span><span class='symbol'>:count</span> <span class='op'>=&gt;</span> <span class='int'>37</span><span class='rparen'>)</span>
-<span class='id identifier rubyid_counter'>counter</span><span class='period'>.</span><span class='id identifier rubyid_stub'>stub</span><span class='lparen'>(</span><span class='symbol'>:count</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='int'>37</span> <span class='rbrace'>}</span></code></pre>
-    
-  </div>
-
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/mocks/syntax.rb', line 206</span>
-
-</pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="stub_chain-instance_method">
-  
-    
-      <span class="overload">- (<tt>Object</tt>) <strong>stub_chain</strong>(method1, method2) </span>
-    
-      <span class="overload">- (<tt>Object</tt>) <strong>stub_chain</strong>(&quot;method1.method2&quot;) </span>
-    
-      <span class="overload">- (<tt>Object</tt>) <strong>stub_chain</strong>(method1, method_to_value_hash) </span>
-    
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-  <div class="note notetag">
-    <strong>Note:</strong>
-    <div class='inline'>
-<p>This is only available when you have enabled the <code>should</code>
-syntax.</p>
-</div>
-  </div>
-
-
-<p>Stubs a chain of methods.</p>
-
-<h2 id="label-Warning%3A">Warning:</h2>
-
-<p>Chains can be arbitrarily long, which makes it quite painless to violate
-the Law of Demeter in violent ways, so you should consider any use of
-<code>stub_chain</code> a code smell. Even though not all code smells
-indicate real problems (think fluent interfaces), <code>stub_chain</code>
-still results in brittle examples. For example, if you write
-<code>foo.stub_chain(:bar, :baz =&gt; 37)</code> in a spec and then the
-implementation calls <code>foo.baz.bar</code>, the stub will not work.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-  <div class="examples">
-    <p class="tag_title">Examples:</p>
-    
-      
-      <pre class="example code"><code>
-<span class='id identifier rubyid_double'>double</span><span class='period'>.</span><span class='id identifier rubyid_stub_chain'>stub_chain</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>foo.bar</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='symbol'>:baz</span> <span class='rbrace'>}</span>
-<span class='id identifier rubyid_double'>double</span><span class='period'>.</span><span class='id identifier rubyid_stub_chain'>stub_chain</span><span class='lparen'>(</span><span class='symbol'>:foo</span><span class='comma'>,</span> <span class='symbol'>:bar</span> <span class='op'>=&gt;</span> <span class='symbol'>:baz</span><span class='rparen'>)</span>
-<span class='id identifier rubyid_double'>double</span><span class='period'>.</span><span class='id identifier rubyid_stub_chain'>stub_chain</span><span class='lparen'>(</span><span class='symbol'>:foo</span><span class='comma'>,</span> <span class='symbol'>:bar</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='symbol'>:baz</span> <span class='rbrace'>}</span>
-
-<span class='comment'># Given any of ^^ these three forms ^^:
-</span><span class='id identifier rubyid_double'>double</span><span class='period'>.</span><span class='id identifier rubyid_foo'>foo</span><span class='period'>.</span><span class='id identifier rubyid_bar'>bar</span> <span class='comment'># =&gt; :baz
-</span>
-<span class='comment'># Common use in Rails/ActiveRecord:
-</span><span class='const'>Article</span><span class='period'>.</span><span class='id identifier rubyid_stub_chain'>stub_chain</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>recent.published</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='lbracket'>[</span><span class='const'>Article</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='rbracket'>]</span> <span class='rbrace'>}</span></code></pre>
-    
-  </div>
-
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/mocks/syntax.rb', line 228</span>
-
-</pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-      <div class="method_details ">
-  <h3 class="signature " id="unstub-instance_method">
-  
-    - (<tt>Object</tt>) <strong>unstub</strong> 
-  
-
-  
-
-  
-</h3><div class="docstring">
-  <div class="discussion">
-    
-  <div class="note notetag">
-    <strong>Note:</strong>
-    <div class='inline'>
-<p>This is only available when you have enabled the <code>should</code>
-syntax.</p>
-</div>
-  </div>
-
-
-<p>Removes a stub. On a double, the object will no longer respond to
-<code>message</code>. On a real object, the original method (if it exists)
-is restored.</p>
-
-<p>This is rarely used, but can be useful when a stub is set up during a
-shared <code>before</code> hook for the common case, but you want to
-replace it for a special case.</p>
-
-
-  </div>
-</div>
-<div class="tags">
-  
-
-</div><table class="source_code">
-  <tr>
-    <td>
-      <pre class="lines">
-
-
-</pre>
-    </td>
-    <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/mocks/syntax.rb', line 217</span>
-
-</pre>
-    </td>
-  </tr>
-</table>
-</div>
-    
-  </div>
-
 </div>
 
     <div id="footer">
-  Generated on Thu Dec 18 08:28:12 2014 by
+  Generated on Wed Jan 28 22:10:34 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.6 (ruby-2.1.5).
+  0.8.0 (ruby-2.1.5).
 </div>
 
   </body>

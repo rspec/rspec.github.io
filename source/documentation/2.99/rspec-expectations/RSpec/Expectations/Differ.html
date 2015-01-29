@@ -6,7 +6,7 @@
 <title>
   Class: RSpec::Expectations::Differ
   
-    &mdash; Documentation by YARD 0.8.7.4
+    &mdash; Documentation by YARD 0.8.0
   
 </title>
 
@@ -17,7 +17,7 @@
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '../../';
-  framesUrl = "../../frames.html#!RSpec/Expectations/Differ.html";
+  framesUrl = "../../frames.html#!" + escape(window.location.href);
 </script>
 
 
@@ -155,6 +155,50 @@
   
     <span class="summary_desc"><div class='inline'><p>This is snagged from diff/lcs/ldiff.rb (which is a commandline tool).</p>
 </div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#matching_encoding-instance_method" title="#matching_encoding (instance method)">- (Object) <strong>matching_encoding</strong>(string, encoding) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#pick_encoding-instance_method" title="#pick_encoding (instance method)">- (Object) <strong>pick_encoding</strong>(source_a, source_b) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -334,14 +378,78 @@
 </table>
 </div>
     
+      <div class="method_details ">
+  <h3 class="signature " id="matching_encoding-instance_method">
+  
+    - (<tt>Object</tt>) <strong>matching_encoding</strong>(string, encoding) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+137
+138
+139
+140
+141</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/expectations/differ.rb', line 137</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_matching_encoding'>matching_encoding</span><span class='lparen'>(</span><span class='id identifier rubyid_string'>string</span><span class='comma'>,</span> <span class='id identifier rubyid_encoding'>encoding</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_string'>string</span><span class='period'>.</span><span class='id identifier rubyid_encode'>encode</span> <span class='id identifier rubyid_encoding'>encoding</span>
+<span class='kw'>rescue</span> <span class='const'>Encoding</span><span class='op'>::</span><span class='const'>UndefinedConversionError</span>
+  <span class='id identifier rubyid_string'>string</span><span class='period'>.</span><span class='id identifier rubyid_encode'>encode</span><span class='lparen'>(</span><span class='id identifier rubyid_encoding'>encoding</span><span class='comma'>,</span> <span class='symbol'>:undef</span> <span class='op'>=&gt;</span> <span class='symbol'>:replace</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="pick_encoding-instance_method">
+  
+    - (<tt>Object</tt>) <strong>pick_encoding</strong>(source_a, source_b) 
+  
+
+  
+
+  
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+133
+134
+135</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/expectations/differ.rb', line 133</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_pick_encoding'>pick_encoding</span><span class='lparen'>(</span><span class='id identifier rubyid_source_a'>source_a</span><span class='comma'>,</span> <span class='id identifier rubyid_source_b'>source_b</span><span class='rparen'>)</span>
+  <span class='const'>Encoding</span><span class='period'>.</span><span class='id identifier rubyid_compatible?'>compatible?</span><span class='lparen'>(</span><span class='id identifier rubyid_source_a'>source_a</span><span class='comma'>,</span> <span class='id identifier rubyid_source_b'>source_b</span><span class='rparen'>)</span> <span class='op'>||</span> <span class='const'>Encoding</span><span class='period'>.</span><span class='id identifier rubyid_default_external'>default_external</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
   </div>
 
 </div>
 
     <div id="footer">
-  Generated on Thu Dec 18 08:27:10 2014 by
+  Generated on Wed Jan 28 22:10:29 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.4 (ruby-2.1.5).
+  0.8.0 (ruby-2.1.5).
 </div>
 
   </body>

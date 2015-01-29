@@ -6,7 +6,7 @@
 <title>
   Class: RSpec::Mocks::Constant
   
-    &mdash; Documentation by YARD 0.8.7.6
+    &mdash; Documentation by YARD 0.8.0
   
 </title>
 
@@ -17,7 +17,7 @@
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '../../';
-  framesUrl = "../../frames.html#!RSpec/Mocks/Constant.html";
+  framesUrl = "../../frames.html#!" + escape(window.location.href);
 </script>
 
 
@@ -105,9 +105,8 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    
-<p>Provides information about constants that may (or may not) have been
-mutated by rspec-mocks.</p>
+    <p>Provides information about constants that may (or may not)
+have been mutated by rspec-mocks.</p>
 
 
   </div>
@@ -171,8 +170,7 @@ mutated by rspec-mocks.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>The fully qualified name of the constant.</p>
+    <span class="summary_desc"><div class='inline'><p>The fully qualified name of the constant.</p>
 </div></span>
   
 </li>
@@ -198,9 +196,9 @@ mutated by rspec-mocks.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>The original value (e.g. before it was mutated by rspec-mocks) of the
-constant, or nil if the constant was not previously defined.</p>
+    <span class="summary_desc"><div class='inline'><p>The original value (e.g. before it
+was mutated by rspec-mocks) of the constant, or
+nil if the constant was not previously defined.</p>
 </div></span>
   
 </li>
@@ -290,9 +288,30 @@ constant, or nil if the constant was not previously defined.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Queries rspec-mocks to find out information about the named constant.</p>
+    <span class="summary_desc"><div class='inline'><p>Queries rspec-mocks to find out information about the named constant.</p>
 </div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#unmutated-class_method" title="unmutated (class method)">+ (Object) <strong>unmutated</strong>(name) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  <span class="private note title">private</span>
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -323,8 +342,8 @@ constant, or nil if the constant was not previously defined.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Whether or not rspec-mocks has hidden this constant.</p>
+    <span class="summary_desc"><div class='inline'><p>Whether or not rspec-mocks has hidden
+this constant.</p>
 </div></span>
   
 </li>
@@ -349,8 +368,7 @@ constant, or nil if the constant was not previously defined.</p>
   <span class="private note title">private</span>
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>A new instance of Constant.</p>
+    <span class="summary_desc"><div class='inline'><p>A new instance of Constant.</p>
 </div></span>
   
 </li>
@@ -373,8 +391,8 @@ constant, or nil if the constant was not previously defined.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Whether or not rspec-mocks has mutated (stubbed or hidden) this constant.</p>
+    <span class="summary_desc"><div class='inline'><p>Whether or not rspec-mocks has mutated
+(stubbed or hidden) this constant.</p>
 </div></span>
   
 </li>
@@ -397,8 +415,8 @@ constant, or nil if the constant was not previously defined.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Whether or not the constant was defined before the current example.</p>
+    <span class="summary_desc"><div class='inline'><p>Whether or not the constant was defined
+before the current example.</p>
 </div></span>
   
 </li>
@@ -421,8 +439,8 @@ constant, or nil if the constant was not previously defined.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Whether or not rspec-mocks has stubbed this constant.</p>
+    <span class="summary_desc"><div class='inline'><p>Whether or not rspec-mocks has stubbed
+this constant.</p>
 </div></span>
   
 </li>
@@ -484,8 +502,7 @@ constant, or nil if the constant was not previously defined.</p>
   <strong>This method is part of a private API.</strong>
   You should avoid using this method if possible, as it may be removed or be changed in the future.
 </p>
-
-<p>Returns a new instance of Constant</p>
+<p>A new instance of Constant</p>
 
 
   </div>
@@ -526,6 +543,7 @@ constant, or nil if the constant was not previously defined.</p>
     <h2>Instance Attribute Details</h2>
     
       
+      <span id="hidden=-instance_method"></span>
       <span id=""></span>
       <div class="method_details first">
   <h3 class="signature first" id="hidden=-instance_method">
@@ -572,6 +590,7 @@ constant, or nil if the constant was not previously defined.</p>
     
       
       <span id=""></span>
+      <span id="name-instance_method"></span>
       <div class="method_details ">
   <h3 class="signature " id="name-instance_method">
   
@@ -583,8 +602,7 @@ constant, or nil if the constant was not previously defined.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns The fully qualified name of the constant.</p>
+    <p>The fully qualified name of the constant.</p>
 
 
   </div>
@@ -602,8 +620,7 @@ constant, or nil if the constant was not previously defined.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>The fully qualified name of the constant.</p>
+        <div class='inline'><p>The fully qualified name of the constant.</p>
 </div>
       
     </li>
@@ -633,6 +650,7 @@ constant, or nil if the constant was not previously defined.</p>
     
       
       <span id="original_value=-instance_method"></span>
+      <span id="original_value-instance_method"></span>
       <div class="method_details ">
   <h3 class="signature " id="original_value-instance_method">
   
@@ -644,9 +662,9 @@ constant, or nil if the constant was not previously defined.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns The original value (e.g. before it was mutated by rspec-mocks) of
-the constant, or nil if the constant was not previously defined.</p>
+    <p>The original value (e.g. before it
+was mutated by rspec-mocks) of the constant, or
+nil if the constant was not previously defined.</p>
 
 
   </div>
@@ -664,9 +682,9 @@ the constant, or nil if the constant was not previously defined.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>The original value (e.g. before it was mutated by rspec-mocks) of the
-constant, or nil if the constant was not previously defined.</p>
+        <div class='inline'><p>The original value (e.g. before it
+was mutated by rspec-mocks) of the constant, or
+nil if the constant was not previously defined.</p>
 </div>
       
     </li>
@@ -695,6 +713,7 @@ constant, or nil if the constant was not previously defined.</p>
 </div>
     
       
+      <span id="previously_defined=-instance_method"></span>
       <span id=""></span>
       <div class="method_details ">
   <h3 class="signature " id="previously_defined=-instance_method">
@@ -740,6 +759,7 @@ constant, or nil if the constant was not previously defined.</p>
 </div>
     
       
+      <span id="stubbed=-instance_method"></span>
       <span id=""></span>
       <div class="method_details ">
   <h3 class="signature " id="stubbed=-instance_method">
@@ -802,8 +822,7 @@ constant, or nil if the constant was not previously defined.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Queries rspec-mocks to find out information about the named constant.</p>
+    <p>Queries rspec-mocks to find out information about the named constant.</p>
 
 
   </div>
@@ -822,8 +841,7 @@ constant, or nil if the constant was not previously defined.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>the name of the constant</p>
+        <div class='inline'><p>the name of the constant</p>
 </div>
       
     </li>
@@ -841,8 +859,8 @@ constant, or nil if the constant was not previously defined.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>an object contaning information about the named constant.</p>
+        <div class='inline'><p>an object contaning information about the named
+constant.</p>
 </div>
       
     </li>
@@ -872,6 +890,61 @@ constant, or nil if the constant was not previously defined.</p>
 </table>
 </div>
     
+      <div class="method_details ">
+  <h3 class="signature " id="unmutated-class_method">
+  
+    + (<tt>Object</tt>) <strong>unmutated</strong>(name) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p class="note private">
+  <strong>This method is part of a private API.</strong>
+  You should avoid using this method if possible, as it may be removed or be changed in the future.
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+132
+133
+134
+135
+136
+137
+138
+139
+140</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/mocks/mutate_const.rb', line 132</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_unmutated'>unmutated</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_const'>const</span> <span class='op'>=</span> <span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_const'>const</span><span class='period'>.</span><span class='id identifier rubyid_previously_defined'>previously_defined</span> <span class='op'>=</span> <span class='id identifier rubyid_recursive_const_defined?'>recursive_const_defined?</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_const'>const</span><span class='period'>.</span><span class='id identifier rubyid_stubbed'>stubbed</span> <span class='op'>=</span> <span class='kw'>false</span>
+  <span class='id identifier rubyid_const'>const</span><span class='period'>.</span><span class='id identifier rubyid_hidden'>hidden</span> <span class='op'>=</span> <span class='kw'>false</span>
+  <span class='id identifier rubyid_const'>const</span><span class='period'>.</span><span class='id identifier rubyid_original_value'>original_value</span> <span class='op'>=</span> <span class='id identifier rubyid_recursive_const_get'>recursive_const_get</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_const'>const</span><span class='period'>.</span><span class='id identifier rubyid_previously_defined?'>previously_defined?</span>
+
+  <span class='id identifier rubyid_const'>const</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
   </div>
 
   <div id="instance_method_details" class="method_details_list">
@@ -889,8 +962,8 @@ constant, or nil if the constant was not previously defined.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns Whether or not rspec-mocks has hidden this constant.</p>
+    <p>Whether or not rspec-mocks has hidden
+this constant.</p>
 
 
   </div>
@@ -908,8 +981,8 @@ constant, or nil if the constant was not previously defined.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>Whether or not rspec-mocks has hidden this constant.</p>
+        <div class='inline'><p>Whether or not rspec-mocks has hidden
+this constant.</p>
 </div>
       
     </li>
@@ -948,9 +1021,8 @@ constant, or nil if the constant was not previously defined.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns Whether or not rspec-mocks has mutated (stubbed or hidden) this
-constant.</p>
+    <p>Whether or not rspec-mocks has mutated
+(stubbed or hidden) this constant.</p>
 
 
   </div>
@@ -968,8 +1040,8 @@ constant.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>Whether or not rspec-mocks has mutated (stubbed or hidden) this constant.</p>
+        <div class='inline'><p>Whether or not rspec-mocks has mutated
+(stubbed or hidden) this constant.</p>
 </div>
       
     </li>
@@ -1008,8 +1080,8 @@ constant.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns Whether or not the constant was defined before the current example.</p>
+    <p>Whether or not the constant was defined
+before the current example.</p>
 
 
   </div>
@@ -1027,8 +1099,8 @@ constant.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>Whether or not the constant was defined before the current example.</p>
+        <div class='inline'><p>Whether or not the constant was defined
+before the current example.</p>
 </div>
       
     </li>
@@ -1067,8 +1139,8 @@ constant.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns Whether or not rspec-mocks has stubbed this constant.</p>
+    <p>Whether or not rspec-mocks has stubbed
+this constant.</p>
 
 
   </div>
@@ -1086,8 +1158,8 @@ constant.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>Whether or not rspec-mocks has stubbed this constant.</p>
+        <div class='inline'><p>Whether or not rspec-mocks has stubbed
+this constant.</p>
 </div>
       
     </li>
@@ -1154,9 +1226,9 @@ constant.</p>
 </div>
 
     <div id="footer">
-  Generated on Thu Dec 18 08:28:13 2014 by
+  Generated on Wed Jan 28 22:10:35 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.6 (ruby-2.1.5).
+  0.8.0 (ruby-2.1.5).
 </div>
 
   </body>

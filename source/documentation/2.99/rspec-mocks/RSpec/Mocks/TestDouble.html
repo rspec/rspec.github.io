@@ -6,7 +6,7 @@
 <title>
   Module: RSpec::Mocks::TestDouble
   
-    &mdash; Documentation by YARD 0.8.7.6
+    &mdash; Documentation by YARD 0.8.0
   
 </title>
 
@@ -17,7 +17,7 @@
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '../../';
-  framesUrl = "../../frames.html#!RSpec/Mocks/TestDouble.html";
+  framesUrl = "../../frames.html#!" + escape(window.location.href);
 </script>
 
 
@@ -90,10 +90,9 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    
-<p>Implements the methods needed for a pure test double. RSpec::Mocks::Mock
-includes this module, and it is provided for cases where you want a pure
-test double without subclassing RSpec::Mocks::Mock.</p>
+    <p>Implements the methods needed for a pure test double.  RSpec::Mocks::Mock
+includes this module, and it is provided for cases where you want a
+pure test double without subclassing RSpec::Mocks::Mock.</p>
 
 
   </div>
@@ -133,9 +132,8 @@ test double without subclassing RSpec::Mocks::Mock.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Extends the TestDouble module onto the given object and initializes it as a
-test double.</p>
+    <span class="summary_desc"><div class='inline'><p>Extends the TestDouble module onto the given object and
+initializes it as a test double.</p>
 </div></span>
   
 </li>
@@ -167,8 +165,7 @@ test double.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>This allows for comparing the mock to other objects that proxy such as
+    <span class="summary_desc"><div class='inline'><p>This allows for comparing the mock to other objects that proxy such as
 ActiveRecords belongs_to proxy objects.</p>
 </div></span>
   
@@ -214,8 +211,7 @@ ActiveRecords belongs_to proxy objects.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Tells the object to respond to all messages.</p>
+    <span class="summary_desc"><div class='inline'><p>Tells the object to respond to all messages.</p>
 </div></span>
   
 </li>
@@ -246,7 +242,7 @@ ActiveRecords belongs_to proxy objects.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#initialize-instance_method" title="#initialize (instance method)">- (Object) <strong>initialize</strong>(name = nil, stubs_and_options = {}) </a>
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (TestDouble) <strong>initialize</strong>(name = nil, stubs_and_options = {}) </a>
     
 
     
@@ -260,9 +256,8 @@ ActiveRecords belongs_to proxy objects.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Creates a new test double with a <code>name</code> (that will be used in
-error messages only).</p>
+    <span class="summary_desc"><div class='inline'><p>Creates a new test double with a <code>name</code> (that will be used in error
+messages only).</p>
 </div></span>
   
 </li>
@@ -285,8 +280,7 @@ error messages only).</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Returns true if this object has received <code>as_null_object</code>.</p>
+    <span class="summary_desc"><div class='inline'><p>Returns true if this object has received <code>as_null_object</code>.</p>
 </div></span>
   
 </li>
@@ -305,7 +299,7 @@ error messages only).</p>
     <div class="method_details first">
   <h3 class="signature first" id="method_missing-instance_method">
   
-    - (<tt>Object</tt>) <strong>method_missing</strong>(message, *args, &amp;block)  <span class="extras">(private)</span>
+    - (<tt>Object</tt>) <strong>method_missing</strong>(message, *args)  <span class="extras">(private)</span>
   
 
   
@@ -378,9 +372,8 @@ error messages only).</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Extends the TestDouble module onto the given object and initializes it as a
-test double.</p>
+    <p>Extends the TestDouble module onto the given object and
+initializes it as a test double.</p>
 
 
   </div>
@@ -391,10 +384,10 @@ test double.</p>
     <p class="tag_title">Examples:</p>
     
       
-      <pre class="example code"><code>
+      <pre class="example code">
 module = Module.new
 RSpec::Mocks::TestDouble.extend_onto(module, &quot;MyMixin&quot;, :foo =&gt; &quot;bar&quot;)
-module.foo  #=&gt; &quot;bar&quot;</code></pre>
+module.foo  #=&gt; &quot;bar&quot;</pre>
     
   </div>
 
@@ -441,10 +434,10 @@ module.foo  #=&gt; &quot;bar&quot;</code></pre>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>This allows for comparing the mock to other objects that proxy such as
-ActiveRecords belongs_to proxy objects. By making the other object run the
-comparison, we&#39;re sure the call gets delegated to the proxy target.</p>
+    <p>This allows for comparing the mock to other objects that proxy such as
+ActiveRecords belongs_to proxy objects. By making the other object run
+the comparison, we&#39;re sure the call gets delegated to the proxy
+target.</p>
 
 
   </div>
@@ -514,9 +507,9 @@ comparison, we&#39;re sure the call gets delegated to the proxy target.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Tells the object to respond to all messages. If specific stub values are
-declared, they&#39;ll work as expected. If not, the receiver is returned.</p>
+    <p>Tells the object to respond to all messages. If specific stub values
+are declared, they&#39;ll work as expected. If not, the receiver is
+returned.</p>
 
 
   </div>
@@ -584,7 +577,7 @@ declared, they&#39;ll work as expected. If not, the receiver is returned.</p>
       <div class="method_details ">
   <h3 class="signature " id="initialize-instance_method">
   
-    - (<tt>Object</tt>) <strong>initialize</strong>(name = nil, stubs_and_options = {}) 
+    - (<tt><span class='object_link'><a href="" title="RSpec::Mocks::TestDouble (module)">TestDouble</a></span></tt>) <strong>initialize</strong>(name = nil, stubs_and_options = {}) 
   
 
   
@@ -592,9 +585,8 @@ declared, they&#39;ll work as expected. If not, the receiver is returned.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Creates a new test double with a <code>name</code> (that will be used in
-error messages only)</p>
+    <p>Creates a new test double with a <code>name</code> (that will be used in error
+messages only)</p>
 
 
   </div>
@@ -634,8 +626,7 @@ error messages only)</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns true if this object has received <code>as_null_object</code></p>
+    <p>Returns true if this object has received <code>as_null_object</code></p>
 
 
   </div>
@@ -684,9 +675,9 @@ error messages only)</p>
 </div>
 
     <div id="footer">
-  Generated on Thu Dec 18 08:28:12 2014 by
+  Generated on Wed Jan 28 22:10:34 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.6 (ruby-2.1.5).
+  0.8.0 (ruby-2.1.5).
 </div>
 
   </body>

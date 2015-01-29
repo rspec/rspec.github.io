@@ -6,7 +6,7 @@
 <title>
   Module: RSpec::Expectations
   
-    &mdash; Documentation by YARD 0.8.7.4
+    &mdash; Documentation by YARD 0.8.0
   
 </title>
 
@@ -17,7 +17,7 @@
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '../';
-  framesUrl = "../frames.html#!RSpec/Expectations.html";
+  framesUrl = "../frames.html#!" + escape(window.location.href);
 </script>
 
 
@@ -90,7 +90,7 @@
   <div class="discussion">
     <p>RSpec::Expectations adds two instance methods to every object:</p>
 
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_should'>should</span><span class='lparen'>(</span><span class='id identifier rubyid_matcher'>matcher</span><span class='op'>=</span><span class='kw'>nil</span><span class='rparen'>)</span>
+<pre class="code ruby"><code><span class='id identifier rubyid_should'>should</span><span class='lparen'>(</span><span class='id identifier rubyid_matcher'>matcher</span><span class='op'>=</span><span class='kw'>nil</span><span class='rparen'>)</span>
 <span class='id identifier rubyid_should_not'>should_not</span><span class='lparen'>(</span><span class='id identifier rubyid_matcher'>matcher</span><span class='op'>=</span><span class='kw'>nil</span><span class='rparen'>)</span>
 </code></pre>
 
@@ -99,7 +99,7 @@
 matcher, it turns around and calls <code>matcher.matches?(self)</code>.  For example,
 in the expression:</p>
 
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_order'>order</span><span class='period'>.</span><span class='id identifier rubyid_total'>total</span><span class='period'>.</span><span class='id identifier rubyid_should'>should</span> <span class='id identifier rubyid_eq'>eq</span><span class='lparen'>(</span><span class='const'>Money</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='float'>5.55</span><span class='comma'>,</span> <span class='symbol'>:USD</span><span class='rparen'>)</span><span class='rparen'>)</span>
+<pre class="code ruby"><code><span class='id identifier rubyid_order'>order</span><span class='period'>.</span><span class='id identifier rubyid_total'>total</span><span class='period'>.</span><span class='id identifier rubyid_should'>should</span> <span class='id identifier rubyid_eq'>eq</span><span class='lparen'>(</span><span class='const'>Money</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='float'>5.55</span><span class='comma'>,</span> <span class='symbol'>:USD</span><span class='rparen'>)</span><span class='rparen'>)</span>
 </code></pre>
 
 <p>the <code>should</code> method invokes the equivalent of <code>eq.matches?(order.total)</code>. If
@@ -109,7 +109,7 @@ in the expression:</p>
 
 <p>Given the expression:</p>
 
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_order'>order</span><span class='period'>.</span><span class='id identifier rubyid_entries'>entries</span><span class='period'>.</span><span class='id identifier rubyid_should_not'>should_not</span> <span class='id identifier rubyid_include'>include</span><span class='lparen'>(</span><span class='id identifier rubyid_entry'>entry</span><span class='rparen'>)</span>
+<pre class="code ruby"><code><span class='id identifier rubyid_order'>order</span><span class='period'>.</span><span class='id identifier rubyid_entries'>entries</span><span class='period'>.</span><span class='id identifier rubyid_should_not'>should_not</span> <span class='id identifier rubyid_include'>include</span><span class='lparen'>(</span><span class='id identifier rubyid_entry'>entry</span><span class='rparen'>)</span>
 </code></pre>
 
 <p>the <code>should_not</code> method invokes the equivalent of
@@ -255,6 +255,28 @@ own custom matchers.</p>
   
     <span class="summary_desc"><strong>Deprecated.</strong> <div class='inline'><p>(no replacement)</p>
 </div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#multiline%3F-instance_method" title="#multiline? (instance method)">- (Boolean) <strong>multiline?</strong>(string) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
   
 </li>
 
@@ -487,14 +509,66 @@ both present.</p>
 </table>
 </div>
     
+      <div class="method_details ">
+  <h3 class="signature " id="multiline?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>multiline?</strong>(string) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+69
+70
+71</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/expectations/fail_with.rb', line 69</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_multiline?'>multiline?</span><span class='lparen'>(</span><span class='id identifier rubyid_string'>string</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_string'>string</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n</span><span class='tstring_end'>&quot;</span></span><span class='period'>.</span><span class='id identifier rubyid_encode'>encode</span><span class='lparen'>(</span><span class='id identifier rubyid_string'>string</span><span class='period'>.</span><span class='id identifier rubyid_encoding'>encoding</span><span class='rparen'>)</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
   </div>
 
 </div>
 
     <div id="footer">
-  Generated on Thu Dec 18 08:27:10 2014 by
+  Generated on Wed Jan 28 22:10:29 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.4 (ruby-2.1.5).
+  0.8.0 (ruby-2.1.5).
 </div>
 
   </body>

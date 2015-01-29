@@ -6,7 +6,7 @@
 <title>
   Class: RSpec::Expectations::ExpectationTarget
   
-    &mdash; Documentation by YARD 0.8.7.4
+    &mdash; Documentation by YARD 0.8.0
   
 </title>
 
@@ -17,7 +17,7 @@
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '../../';
-  framesUrl = "../../frames.html#!RSpec/Expectations/ExpectationTarget.html";
+  framesUrl = "../../frames.html#!" + escape(window.location.href);
 </script>
 
 
@@ -120,14 +120,14 @@ directly by users. Use <code>expect</code> instead.</p>
     <p class="tag_title">Examples:</p>
     
       
-      <pre class="example code"><code><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_something'>something</span><span class='rparen'>)</span>       <span class='comment'># =&gt; ExpectationTarget wrapping something
+      <pre class="example code"><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_something'>something</span><span class='rparen'>)</span>       <span class='comment'># =&gt; ExpectationTarget wrapping something
 </span><span class='id identifier rubyid_expect'>expect</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_do_something'>do_something</span> <span class='rbrace'>}</span> <span class='comment'># =&gt; ExpectationTarget wrapping the block
 </span>
 <span class='comment'># used with `to`
 </span><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_actual'>actual</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_eq'>eq</span><span class='lparen'>(</span><span class='int'>3</span><span class='rparen'>)</span>
 
 <span class='comment'># with `not_to`
-</span><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_actual'>actual</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_not_to'>not_to</span> <span class='id identifier rubyid_eq'>eq</span><span class='lparen'>(</span><span class='int'>3</span><span class='rparen'>)</span></code></pre>
+</span><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_actual'>actual</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_not_to'>not_to</span> <span class='id identifier rubyid_eq'>eq</span><span class='lparen'>(</span><span class='int'>3</span><span class='rparen'>)</span></pre>
     
   </div>
 
@@ -164,7 +164,7 @@ directly by users. Use <code>expect</code> instead.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Returns the value of attribute deprecated_should_enabled.</p>
+    <span class="summary_desc"><div class='inline'><p>Returns the value of attribute deprecated<em>should</em>enabled.</p>
 </div></span>
   
 </li>
@@ -264,7 +264,7 @@ directly by users. Use <code>expect</code> instead.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#not_to-instance_method" title="#not_to (instance method)">- (Boolean) <strong>not_to</strong>(matcher = nil, message = nil, &amp;block) </a>
+      <a href="#not_to-instance_method" title="#not_to (instance method)">- (Boolean) <strong>not_to</strong>(matcher = nil, message = nil) </a>
     
 
     
@@ -333,7 +333,7 @@ directly by users. Use <code>expect</code> instead.</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#to-instance_method" title="#to (instance method)">- (Boolean) <strong>to</strong>(matcher = nil, message = nil, &amp;block) </a>
+      <a href="#to-instance_method" title="#to (instance method)">- (Boolean) <strong>to</strong>(matcher = nil, message = nil) </a>
     
 
     
@@ -374,7 +374,7 @@ directly by users. Use <code>expect</code> instead.</p>
   <strong>This method is part of a private API.</strong>
   You should avoid using this method if possible, as it may be removed or be changed in the future.
 </p>
-<p>Returns a new instance of ExpectationTarget</p>
+<p>A new instance of ExpectationTarget</p>
 
 
   </div>
@@ -410,6 +410,7 @@ directly by users. Use <code>expect</code> instead.</p>
     
       
       <span id="deprecated_should_enabled=-class_method"></span>
+      <span id="deprecated_should_enabled-class_method"></span>
       <div class="method_details first">
   <h3 class="signature first" id="deprecated_should_enabled-class_method">
   
@@ -425,7 +426,7 @@ directly by users. Use <code>expect</code> instead.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns the value of attribute deprecated_should_enabled</p>
+    <p>Returns the value of attribute deprecated<em>should</em>enabled</p>
 
 
   </div>
@@ -564,7 +565,7 @@ directly by users. Use <code>expect</code> instead.</p>
       <div class="method_details first">
   <h3 class="signature first" id="not_to-instance_method">
   
-    - (<tt>Boolean</tt>) <strong>not_to</strong>(matcher = nil, message = nil, &amp;block) 
+    - (<tt>Boolean</tt>) <strong>not_to</strong>(matcher = nil, message = nil) 
   
 
   
@@ -587,7 +588,7 @@ directly by users. Use <code>expect</code> instead.</p>
     <p class="tag_title">Examples:</p>
     
       
-      <pre class="example code"><code><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_not_to'>not_to</span> <span class='id identifier rubyid_eq'>eq</span><span class='lparen'>(</span><span class='int'>5</span><span class='rparen'>)</span></code></pre>
+      <pre class="example code"><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_not_to'>not_to</span> <span class='id identifier rubyid_eq'>eq</span><span class='lparen'>(</span><span class='int'>5</span><span class='rparen'>)</span></pre>
     
   </div>
 <p class="tag_title">Parameters:</p>
@@ -740,7 +741,7 @@ directly by users. Use <code>expect</code> instead.</p>
       <div class="method_details ">
   <h3 class="signature " id="to-instance_method">
   
-    - (<tt>Boolean</tt>) <strong>to</strong>(matcher = nil, message = nil, &amp;block) 
+    - (<tt>Boolean</tt>) <strong>to</strong>(matcher = nil, message = nil) 
   
 
   
@@ -759,8 +760,8 @@ directly by users. Use <code>expect</code> instead.</p>
     <p class="tag_title">Examples:</p>
     
       
-      <pre class="example code"><code><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_eq'>eq</span><span class='lparen'>(</span><span class='int'>5</span><span class='rparen'>)</span>
-<span class='id identifier rubyid_expect'>expect</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_perform'>perform</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_raise_error'>raise_error</span></code></pre>
+      <pre class="example code"><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_eq'>eq</span><span class='lparen'>(</span><span class='int'>5</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_expect'>expect</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_perform'>perform</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_raise_error'>raise_error</span></pre>
     
   </div>
 <p class="tag_title">Parameters:</p>
@@ -851,9 +852,9 @@ directly by users. Use <code>expect</code> instead.</p>
 </div>
 
     <div id="footer">
-  Generated on Thu Dec 18 08:27:11 2014 by
+  Generated on Wed Jan 28 22:10:31 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.4 (ruby-2.1.5).
+  0.8.0 (ruby-2.1.5).
 </div>
 
   </body>

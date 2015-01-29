@@ -6,7 +6,7 @@
 <title>
   Class: RSpec::Matchers::BuiltIn::OperatorMatcher
   
-    &mdash; Documentation by YARD 0.8.7.4
+    &mdash; Documentation by YARD 0.8.0
   
 </title>
 
@@ -17,7 +17,7 @@
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '../../../';
-  framesUrl = "../../../frames.html#!RSpec/Matchers/BuiltIn/OperatorMatcher.html";
+  framesUrl = "../../../frames.html#!" + escape(window.location.href);
 </script>
 
 
@@ -284,6 +284,28 @@
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#has_non_generic_implementation_of%3F-instance_method" title="#has_non_generic_implementation_of? (instance method)">- (Boolean) <strong>has_non_generic_implementation_of?</strong>(op) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#initialize-instance_method" title="#initialize (instance method)">- (OperatorMatcher) <strong>initialize</strong>(actual) </a>
     
 
@@ -323,7 +345,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns a new instance of OperatorMatcher</p>
+    <p>A new instance of OperatorMatcher</p>
 
 
   </div>
@@ -617,14 +639,70 @@
 </table>
 </div>
     
+      <div class="method_details ">
+  <h3 class="signature " id="has_non_generic_implementation_of?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>has_non_generic_implementation_of?</strong>(op) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+67
+68
+69
+70
+71</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/matchers/operator_matcher.rb', line 67</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_has_non_generic_implementation_of?'>has_non_generic_implementation_of?</span><span class='lparen'>(</span><span class='id identifier rubyid_op'>op</span><span class='rparen'>)</span>
+  <span class='const'>Expectations</span><span class='period'>.</span><span class='id identifier rubyid_method_handle_for'>method_handle_for</span><span class='lparen'>(</span><span class='ivar'>@actual</span><span class='comma'>,</span> <span class='id identifier rubyid_op'>op</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_owner'>owner</span> <span class='op'>!=</span> <span class='op'>::</span><span class='const'>Kernel</span>
+<span class='kw'>rescue</span> <span class='const'>NameError</span>
+  <span class='kw'>false</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
   </div>
 
 </div>
 
     <div id="footer">
-  Generated on Thu Dec 18 08:27:11 2014 by
+  Generated on Wed Jan 28 22:10:30 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.4 (ruby-2.1.5).
+  0.8.0 (ruby-2.1.5).
 </div>
 
   </body>
