@@ -101,20 +101,17 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    
-<p>This class isn&#39;t loaded at runtime but serves to document all of the
-notifications implemented as part of the standard interface. The reporter
-will issue these during a normal test suite run, but a formatter will only
-receive those notifications it has registered itself to receive. To
-register a formatter call:</p>
+    <p>This class isn&#39;t loaded at runtime but serves to document all of the
+notifications implemented as part of the standard interface. The
+reporter will issue these during a normal test suite run, but a
+formatter will only receive those notifications it has registered
+itself to receive. To register a formatter call:</p>
 
-<p><code>::RSpec::Core::Formatters.register class, :list, :of,
-:notifications</code></p>
+<p><code>::RSpec::Core::Formatters.register class, :list, :of, :notifications</code></p>
 
 <p>e.g.</p>
 
-<p><code>::RSpec::Core::Formatters.register self, :start,
-:example_started</code></p>
+<p><code>::RSpec::Core::Formatters.register self, :start, :example_started</code></p>
 
 
   </div>
@@ -165,9 +162,7 @@ register a formatter call:</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Invoked at the very end, <code>close</code> allows the formatter to clean
-up resources, e.g.</p>
+    <span class="summary_desc"><div class='inline'><p>Invoked at the very end, <code>close</code> allows the formatter to clean up resources, e.g.</p>
 </div></span>
   
 </li>
@@ -190,8 +185,7 @@ up resources, e.g.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Dumps detailed information about each example failure.</p>
+    <span class="summary_desc"><div class='inline'><p>Dumps detailed information about each example failure.</p>
 </div></span>
   
 </li>
@@ -214,8 +208,7 @@ up resources, e.g.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Outputs a report of pending examples.</p>
+    <span class="summary_desc"><div class='inline'><p>Outputs a report of pending examples.</p>
 </div></span>
   
 </li>
@@ -238,9 +231,7 @@ up resources, e.g.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>This method is invoked after the dumping the summary if profiling is
-enabled.</p>
+    <span class="summary_desc"><div class='inline'><p>This method is invoked after the dumping the summary if profiling is enabled.</p>
 </div></span>
   
 </li>
@@ -263,8 +254,7 @@ enabled.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>This method is invoked after the dumping of examples and failures.</p>
+    <span class="summary_desc"><div class='inline'><p>This method is invoked after the dumping of examples and failures.</p>
 </div></span>
   
 </li>
@@ -287,8 +277,7 @@ enabled.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Used by the reporter to send messages to the output stream.</p>
+    <span class="summary_desc"><div class='inline'><p>Used by the reporter to send messages to the output stream.</p>
 </div></span>
   
 </li>
@@ -311,9 +300,7 @@ enabled.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>This method is invoked before any examples are run, right after they have
-all been collected.</p>
+    <span class="summary_desc"><div class='inline'><p>This method is invoked before any examples are run, right after they have all been collected.</p>
 </div></span>
   
 </li>
@@ -336,8 +323,7 @@ all been collected.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>This method is invoked after all of the examples have executed.</p>
+    <span class="summary_desc"><div class='inline'><p>This method is invoked after all of the examples have executed.</p>
 </div></span>
   
 </li>
@@ -360,8 +346,7 @@ all been collected.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Invoked after all examples have executed, before dumping post-run reports.</p>
+    <span class="summary_desc"><div class='inline'><p>Invoked after all examples have executed, before dumping post-run reports.</p>
 </div></span>
   
 </li>
@@ -393,8 +378,7 @@ all been collected.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Invoked at the end of the execution of each example group.</p>
+    <span class="summary_desc"><div class='inline'><p>Invoked at the end of the execution of each example group.</p>
 </div></span>
   
 </li>
@@ -417,9 +401,7 @@ all been collected.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>This method is invoked at the beginning of the execution of each example
-group.</p>
+    <span class="summary_desc"><div class='inline'><p>This method is invoked at the beginning of the execution of each example group.</p>
 </div></span>
   
 </li>
@@ -451,8 +433,7 @@ group.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Invoked when an example fails.</p>
+    <span class="summary_desc"><div class='inline'><p>Invoked when an example fails.</p>
 </div></span>
   
 </li>
@@ -475,8 +456,7 @@ group.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Invoked when an example passes.</p>
+    <span class="summary_desc"><div class='inline'><p>Invoked when an example passes.</p>
 </div></span>
   
 </li>
@@ -499,8 +479,7 @@ group.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Invoked when an example is pending.</p>
+    <span class="summary_desc"><div class='inline'><p>Invoked when an example is pending.</p>
 </div></span>
   
 </li>
@@ -523,8 +502,7 @@ group.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Invoked at the beginning of the execution of each example.</p>
+    <span class="summary_desc"><div class='inline'><p>Invoked at the beginning of the execution of each example.</p>
 </div></span>
   
 </li>
@@ -598,8 +576,7 @@ group.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>the formatter output</p>
+        <div class='inline'><p>the formatter output</p>
 </div>
       
     </li>
@@ -642,8 +619,7 @@ group.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Invoked at the very end, <code>close</code> allows the formatter to clean
+    <p>Invoked at the very end, <code>close</code> allows the formatter to clean
 up resources, e.g. open streams, etc.</p>
 
 
@@ -695,8 +671,7 @@ up resources, e.g. open streams, etc.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Dumps detailed information about each example failure.</p>
+    <p>Dumps detailed information about each example failure.</p>
 
 
   </div>
@@ -747,9 +722,8 @@ up resources, e.g. open streams, etc.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Outputs a report of pending examples. This gets invoked after the summary
-if option is set to do so.</p>
+    <p>Outputs a report of pending examples.  This gets invoked
+after the summary if option is set to do so.</p>
 
 
   </div>
@@ -800,8 +774,7 @@ if option is set to do so.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>This method is invoked after the dumping the summary if profiling is
+    <p>This method is invoked after the dumping the summary if profiling is
 enabled.</p>
 
 
@@ -821,8 +794,8 @@ enabled.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>containing duration, slowest_examples and slowest_example_groups</p>
+        <div class='inline'><p>containing duration, slowest_examples
+and slowest_example_groups</p>
 </div>
       
     </li>
@@ -858,9 +831,8 @@ enabled.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>This method is invoked after the dumping of examples and failures. Each
-parameter is assigned to a corresponding attribute.</p>
+    <p>This method is invoked after the dumping of examples and failures. Each parameter
+is assigned to a corresponding attribute.</p>
 
 
   </div>
@@ -879,8 +851,8 @@ parameter is assigned to a corresponding attribute.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>containing duration, example_count, failure_count and pending_count</p>
+        <div class='inline'><p>containing duration, example_count,
+failure_count and pending_count</p>
 </div>
       
     </li>
@@ -916,8 +888,7 @@ parameter is assigned to a corresponding attribute.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Invoked when an example fails.</p>
+    <p>Invoked when an example fails.</p>
 
 
   </div>
@@ -936,8 +907,7 @@ parameter is assigned to a corresponding attribute.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>containing example subclass of <code>RSpec::Core::Example</code></p>
+        <div class='inline'><p>containing example subclass of <code>RSpec::Core::Example</code></p>
 </div>
       
     </li>
@@ -973,8 +943,7 @@ parameter is assigned to a corresponding attribute.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Invoked at the end of the execution of each example group.</p>
+    <p>Invoked at the end of the execution of each example group.</p>
 
 
   </div>
@@ -993,8 +962,7 @@ parameter is assigned to a corresponding attribute.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>containing example_group subclass of <code>RSpec::Core::ExampleGroup</code></p>
+        <div class='inline'><p>containing example_group subclass of <code>RSpec::Core::ExampleGroup</code></p>
 </div>
       
     </li>
@@ -1030,9 +998,7 @@ parameter is assigned to a corresponding attribute.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>This method is invoked at the beginning of the execution of each example
-group.</p>
+    <p>This method is invoked at the beginning of the execution of each example group.</p>
 
 <p>The next method to be invoked after this is <span class='object_link'><a href="#example_passed-instance_method" title="RSpec::Core::Formatters::Protocol#example_passed (method)">#example_passed</a></span>,
 <span class='object_link'><a href="#example_pending-instance_method" title="RSpec::Core::Formatters::Protocol#example_pending (method)">#example_pending</a></span>, or <span class='object_link'><a href="#example_group_finished-instance_method" title="RSpec::Core::Formatters::Protocol#example_group_finished (method)">#example_group_finished</a></span>.</p>
@@ -1054,8 +1020,7 @@ group.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>containing example_group subclass of <code>RSpec::Core::ExampleGroup</code></p>
+        <div class='inline'><p>containing example_group subclass of <code>RSpec::Core::ExampleGroup</code></p>
 </div>
       
     </li>
@@ -1091,8 +1056,7 @@ group.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Invoked when an example passes.</p>
+    <p>Invoked when an example passes.</p>
 
 
   </div>
@@ -1111,8 +1075,7 @@ group.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>containing example subclass of <code>RSpec::Core::Example</code></p>
+        <div class='inline'><p>containing example subclass of <code>RSpec::Core::Example</code></p>
 </div>
       
     </li>
@@ -1148,8 +1111,7 @@ group.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Invoked when an example is pending.</p>
+    <p>Invoked when an example is pending.</p>
 
 
   </div>
@@ -1168,8 +1130,7 @@ group.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>containing example subclass of <code>RSpec::Core::Example</code></p>
+        <div class='inline'><p>containing example subclass of <code>RSpec::Core::Example</code></p>
 </div>
       
     </li>
@@ -1205,8 +1166,7 @@ group.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Invoked at the beginning of the execution of each example.</p>
+    <p>Invoked at the beginning of the execution of each example.</p>
 
 
   </div>
@@ -1225,8 +1185,7 @@ group.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>containing example subclass of <code>RSpec::Core::Example</code></p>
+        <div class='inline'><p>containing example subclass of <code>RSpec::Core::Example</code></p>
 </div>
       
     </li>
@@ -1262,8 +1221,7 @@ group.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Used by the reporter to send messages to the output stream.</p>
+    <p>Used by the reporter to send messages to the output stream.</p>
 
 
   </div>
@@ -1282,8 +1240,7 @@ group.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>containing message</p>
+        <div class='inline'><p>containing message</p>
 </div>
       
     </li>
@@ -1319,13 +1276,12 @@ group.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>This method is invoked before any examples are run, right after they have
-all been collected. This can be useful for special formatters that need to
-provide progress on feedback (graphical ones).</p>
+    <p>This method is invoked before any examples are run, right after
+they have all been collected. This can be useful for special
+formatters that need to provide progress on feedback (graphical ones).</p>
 
-<p>This will only be invoked once, and the next one to be invoked is
-<span class='object_link'><a href="#example_group_started-instance_method" title="RSpec::Core::Formatters::Protocol#example_group_started (method)">#example_group_started</a></span>.</p>
+<p>This will only be invoked once, and the next one to be invoked
+is <span class='object_link'><a href="#example_group_started-instance_method" title="RSpec::Core::Formatters::Protocol#example_group_started (method)">#example_group_started</a></span>.</p>
 
 
   </div>
@@ -1376,10 +1332,9 @@ provide progress on feedback (graphical ones).</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>This method is invoked after all of the examples have executed. The next
-method to be invoked after this one is <span class='object_link'><a href="#dump_failures-instance_method" title="RSpec::Core::Formatters::Protocol#dump_failures (method)">#dump_failures</a></span> (BaseTextFormatter
-then calls #dump_failure once for each failed example.)</p>
+    <p>This method is invoked after all of the examples have executed. The next method
+to be invoked after this one is <span class='object_link'><a href="#dump_failures-instance_method" title="RSpec::Core::Formatters::Protocol#dump_failures (method)">#dump_failures</a></span>
+(BaseTextFormatter then calls #dump_failure once for each failed example.)</p>
 
 
   </div>
@@ -1430,8 +1385,7 @@ then calls #dump_failure once for each failed example.)</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Invoked after all examples have executed, before dumping post-run reports.</p>
+    <p>Invoked after all examples have executed, before dumping post-run reports.</p>
 
 
   </div>
@@ -1476,7 +1430,7 @@ then calls #dump_failure once for each failed example.)</p>
 </div>
 
     <div id="footer">
-  Generated on Thu Dec 18 09:20:57 2014 by
+  Generated on Wed Jan 28 22:04:51 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.1.5).
 </div>
