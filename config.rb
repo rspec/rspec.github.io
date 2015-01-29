@@ -87,7 +87,7 @@ activate :deploy do |deploy|
 
   case ENV['TARGET'].to_s.downcase
   when 'production'
-    deploy.remote = 'origin'
+    deploy.remote = 'git@github.com:rspec/rspec.github.io.git'
   else
     deploy.remote = 'git@github.com:RSpec-Staging/rspec-staging.github.io.git'
   end
