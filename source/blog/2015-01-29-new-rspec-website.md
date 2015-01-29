@@ -1,7 +1,6 @@
 ---
 title: New RSpec Website!
 author: Myron Marston
-published: false
 ---
 
 RSpec's website has been in need of a refresh for a long time. We've
@@ -19,7 +18,7 @@ I'd like to thank all the people who helped make this site happen:
 * [Andrew Harvey](http://mootpointer.com/),
   [Shamim Jahandideh](https://github.com/sjahandideh), and
   [Jon Rowe](http://jonrowe.co.uk/), who helped develop the site.
-* [Carlos Rodriguez](http://cohitre.com/), who helped out with the CSS.
+* [Carlos Rodriguez](http://cohitre.com/) and Brandon Renfrow, who helped out with the CSS.
 
 While what we have now is a huge improvement, it's still not as polished
 as we would like, and we're hoping folks from the community will chip in
