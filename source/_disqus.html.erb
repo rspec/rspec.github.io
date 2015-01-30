@@ -1,7 +1,10 @@
 <div id="disqus_thread"></div>
 <script type="text/javascript">
   /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-  var disqus_shortname = 'rspec'; // required: replace example with your forum shortname
+  var disqus_shortname  = '<%= disqus_shortname_for current_page %>';
+  var disqus_identifier = '<%= disqus_identifier_for current_page %>';
+  var disqus_title      = '<%= js_escape current_page.data.title %>';
+  var disqus_url        = '<%= disqus_url_for current_page %>';
 
   /* * * DON'T EDIT BELOW THIS LINE * * */
   (function() {
