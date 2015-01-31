@@ -1,7 +1,6 @@
 ---
 title: New RSpec Gem signing certificate
 author: Sam Phippen
-published: false
 ---
 
 **TL;DR If you rely on our signing of RSpec releases you'll have to get a new cert from us**
