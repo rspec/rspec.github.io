@@ -41,7 +41,15 @@ set :markdown_engine, :kramdown
 activate :directory_indexes
 
 page "documentation/**/*.html", directory_index: false
-config[:ignored_sitemap_matchers][:partials] = proc { |file| file =~ %r{/_[^_]} && file !~ %r{\A/source/documentation/_.+\.html\z} }
+config[:ignored_sitemap_matchers][:partials] = ->(file) do
+  # Only files with 1 (but not two) underscores at the start
+  # of the file name are candidates for being considered a partial.
+  return false unless file =~ %r{/_[^_]}
+
+  # ...but not our generated docs -- YARD generates `_index.html` files
+  # which are not partials.
+  file !~ %r{source/documentation/[0-9\.]+/}
+end
 
 set :css_dir,    'stylesheets'
 set :js_dir,     'javascripts'
