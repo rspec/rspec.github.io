@@ -79,17 +79,21 @@ configure :build do
     }
 end
 
-activate :deploy do |deploy|
-  deploy.method = :git
-  deploy.build_before = true
-  deploy.branch = 'master'
-
-  case ENV['TARGET'].to_s
-  when /prod/i
-    deploy.remote = 'git@github.com:rspec/rspec.github.io.git'
-  else
-    deploy.remote = 'git@github.com:RSpec-Staging/rspec-staging.github.io.git'
+def deploy_to target
+  activate :deploy do |deploy|
+    deploy.method = :git
+    deploy.build_before = true
+    deploy.branch = 'master'
+    deploy.remote = target
   end
+end
+
+case ENV['TARGET'].to_s
+when /prod/i
+  deploy_to 'git@github.com:rspec/rspec.github.io.git'
+else
+  deploy_to 'git@github.com:RSpec-Staging/rspec-staging.github.io.git'
+  ignore 'CNAME'
 end
 
 helpers do
