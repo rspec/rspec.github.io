@@ -41,7 +41,7 @@ set :markdown_engine, :kramdown
 activate :directory_indexes
 
 page "documentation/**/*.html", directory_index: false
-config[:ignored_sitemap_matchers][:partials] = proc { |file| file =~ %r{/_[^_]} && file !~ %r{/source/documentation/_.+\.html} }
+config[:ignored_sitemap_matchers][:partials] = proc { |file| file =~ %r{/_[^_]} && file !~ %r{\A/source/documentation/_.+\.html\z} }
 
 set :css_dir,    'stylesheets'
 set :js_dir,     'javascripts'
