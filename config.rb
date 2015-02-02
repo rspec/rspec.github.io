@@ -14,15 +14,6 @@ activate :blog do |blog|
   blog.layout = "blog_post"
 
   blog.permalink = "/{year}/{month}/{title}"
-  # Matcher for blog source files
-  # blog.sources = "{year}-{month}-{day}-{title}.html"
-  # blog.taglink = "tags/{tag}.html"
-  # blog.summary_separator = /(READMORE)/
-  # blog.summary_length = 250
-  # blog.year_link = "{year}.html"
-  # blog.month_link = "{year}/{month}.html"
-  # blog.day_link = "{year}/{month}/{day}.html"
-  # blog.default_extension = ".markdown"
 
   blog.tag_template = "tag.html"
   blog.calendar_template = "calendar.html"
@@ -30,7 +21,6 @@ activate :blog do |blog|
   # Enable pagination
   blog.paginate = true
   blog.per_page = 10
-  # blog.page_link = "page/{num}"
 end
 
 page "/blog/feed.xml", layout: false
@@ -89,17 +79,21 @@ configure :build do
     }
 end
 
-activate :deploy do |deploy|
-  deploy.method = :git
-  deploy.build_before = true
-  deploy.branch = 'master'
-
-  case ENV['TARGET'].to_s
-  when /prod/i
-    deploy.remote = 'git@github.com:rspec/rspec.github.io.git'
-  else
-    deploy.remote = 'git@github.com:RSpec-Staging/rspec-staging.github.io.git'
+def deploy_to target
+  activate :deploy do |deploy|
+    deploy.method = :git
+    deploy.build_before = true
+    deploy.branch = 'master'
+    deploy.remote = target
   end
+end
+
+case ENV['TARGET'].to_s
+when /prod/i
+  deploy_to 'git@github.com:rspec/rspec.github.io.git'
+else
+  deploy_to 'git@github.com:RSpec-Staging/rspec-staging.github.io.git'
+  ignore 'CNAME'
 end
 
 helpers do
