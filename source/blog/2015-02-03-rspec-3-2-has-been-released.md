@@ -1,7 +1,6 @@
 ---
 title: RSpec 3.2 has been released!
 author: Myron Marston
-published: false
 ---
 
 RSpec 3.2 has just been released! Given our commitment to
@@ -11,8 +10,8 @@ any regressions, please let us know, and we'll get a patch release
 out with a fix ASAP.
 
 RSpec continues to be a community-driven project with contributors
-from all over the world. This release includes nearly 900 commits
-from over 50 different contributors!
+from all over the world. This release includes 915 commits and 278
+merged pull requests from over 50 different contributors!
 
 Thank you to everyone who helped make this release happen!
 
@@ -403,41 +402,39 @@ improvements](https://github.com/rspec/rspec-rails/pull/1236).
 
 ## Stats
 
-(As of 2015-02-02. I plan to regenerate this after releasing 3.2).
-
 ### Combined: 
 
-* **Total Commits**: 894
-* **Merged pull requests**: 274
-* **52 contributors**: Aaron Kromer, Akos Vandra, Alex Chaffee, Alex Genco, Alexey Fedorov, Andy Waite, Arlandis Lawrence, Avner Cohen, Ben Moss, Ben Snape, Benjamin Fleischer, Brian Kane, Cezary Baginski, ChaYoung You, Christian Nelson, Dennis Ideler, Durran Jordan, Elena Sharma, Elia Schito, Eliot Sykes, Fumiaki MATSUSHIMA, Griffin Smith, Guido Günther, Jim Kingdon, Jon Rowe, Jonathan, Jonathan Rochkind, Jori Hardman, Kevin Mook, Max Lincoln, Melanie Gilman, Mike Dalton, Myron Marston, Peter Rhoades, Piotr Jakubowski, Postmodern, Rebecca Skinner, Ryan Fitzgerald, Sam Phippen, Scott Archer, Siva Gollapalli, Takashi Nakagawa, Thaddee Tyl, Tim Wade, Tom Schady, Tom Stuart, Tony Novak, Xavier Shay, Yorick Peterse, Yuji Nakayama, dB, tyler-ball
+* **Total Commits**: 915
+* **Merged pull requests**: 278
+* **54 contributors**: Aaron Kromer, Akos Vandra, Alex Chaffee, Alex Genco, Alexey Fedorov, Andy Waite, Arlandis Lawrence, Avner Cohen, Ben Moss, Ben Snape, Benjamin Fleischer, Brian Kane, Cezary Baginski, ChaYoung You, Christian Nelson, Dennis Ideler, Durran Jordan, Elena Sharma, Elia Schito, Eliot Sykes, Fumiaki MATSUSHIMA, Griffin Smith, Guido Günther, Jim Kingdon, Jon Rowe, Jonathan, Jonathan Rochkind, Jori Hardman, Kevin Mook, Max Lincoln, Melanie Gilman, Michael Stock, Mike Dalton, Myron Marston, Peter Rhoades, Piotr Jakubowski, Postmodern, Rebecca Skinner, Ryan Fitzgerald, Sam Phippen, Scott Archer, Siva Gollapalli, Takashi Nakagawa, Thaddee Tyl, Thales Oliveira, Tim Wade, Tom Schady, Tom Stuart, Tony Novak, Xavier Shay, Yorick Peterse, Yuji Nakayama, dB, tyler-ball
 
 ### rspec-core: 
 
-* **Total Commits**: 361
+* **Total Commits**: 364
 * **Merged pull requests**: 89
 * **23 contributors**: Aaron Kromer, Akos Vandra, Alex Chaffee, Alexey Fedorov, Arlandis Lawrence, Ben Moss, Ben Snape, Cezary Baginski, ChaYoung You, Christian Nelson, Durran Jordan, Fumiaki MATSUSHIMA, Guido Günther, Jim Kingdon, Jon Rowe, Jonathan Rochkind, Kevin Mook, Max Lincoln, Mike Dalton, Myron Marston, Sam Phippen, Tom Schady, tyler-ball
 
 ### rspec-expectations: 
 
-* **Total Commits**: 119
-* **Merged pull requests**: 44
-* **13 contributors**: Aaron Kromer, Alex Genco, Alexey Fedorov, Avner Cohen, Ben Moss, Elia Schito, Jon Rowe, Jonathan, Jori Hardman, Mike Dalton, Myron Marston, Postmodern, Tom Stuart
+* **Total Commits**: 123
+* **Merged pull requests**: 45
+* **14 contributors**: Aaron Kromer, Alex Genco, Alexey Fedorov, Avner Cohen, Ben Moss, Elia Schito, Jon Rowe, Jonathan, Jori Hardman, Mike Dalton, Myron Marston, Postmodern, Siva Gollapalli, Tom Stuart
 
 ### rspec-mocks: 
 
-* **Total Commits**: 178
+* **Total Commits**: 180
 * **Merged pull requests**: 61
 * **17 contributors**: Aaron Kromer, Andy Waite, Ben Moss, Cezary Baginski, Jon Rowe, Melanie Gilman, Myron Marston, Piotr Jakubowski, Ryan Fitzgerald, Sam Phippen, Siva Gollapalli, Tim Wade, Tom Schady, Tony Novak, Xavier Shay, Yorick Peterse, dB
 
 ### rspec-rails: 
 
-* **Total Commits**: 126
-* **Merged pull requests**: 39
-* **15 contributors**: Aaron Kromer, Ben Moss, Brian Kane, Dennis Ideler, Elena Sharma, Eliot Sykes, Griffin Smith, Jon Rowe, Myron Marston, Peter Rhoades, Rebecca Skinner, Sam Phippen, Takashi Nakagawa, Thaddee Tyl, Yuji Nakayama
+* **Total Commits**: 136
+* **Merged pull requests**: 42
+* **17 contributors**: Aaron Kromer, Ben Moss, Brian Kane, Dennis Ideler, Elena Sharma, Eliot Sykes, Griffin Smith, Jon Rowe, Michael Stock, Myron Marston, Peter Rhoades, Rebecca Skinner, Sam Phippen, Takashi Nakagawa, Thaddee Tyl, Thales Oliveira, Yuji Nakayama
 
 ### rspec-support: 
 
-* **Total Commits**: 110
+* **Total Commits**: 112
 * **Merged pull requests**: 41
 * **10 contributors**: Aaron Kromer, Alex Genco, Alexey Fedorov, Ben Moss, Benjamin Fleischer, Jon Rowe, Myron Marston, Sam Phippen, Scott Archer, Yorick Peterse
 
@@ -459,10 +456,8 @@ improvements](https://github.com/rspec/rspec-rails/pull/1236).
 
 ## Release Notes
 
-(As of 2015-02-02. I plan to regenerate this after releasing 3.2).
-
 ### rspec-core-3.2.0
-[Full Changelog](http://github.com/rspec/rspec-core/compare/v3.1.7...master)
+[Full Changelog](http://github.com/rspec/rspec-core/compare/v3.1.7...v3.2.0)
 
 Enhancements:
 
@@ -536,10 +531,15 @@ Bug Fixes:
   (Durran Jordan, #1853)
 * Fix regression in 3.x that caused the profile information to be printed
   after the summary. (Max Lincoln, #1857)
+* Apply `--seed` before loading `--require` files so that required files
+  can access the provided seed. (Myron Marston, #1745)
+* Handle `RSpec::Core::Formatters::DeprecationFormatter::FileStream` being
+  reopened with an IO stream, which sometimes happens with spring.
+  (Kevin Mook, #1757)
 
 
 ### rspec-expectations-3.2.0
-[Full Changelog](http://github.com/rspec/rspec-expectations/compare/v3.1.2...master)
+[Full Changelog](http://github.com/rspec/rspec-expectations/compare/v3.1.2...v3.2.0)
 
 Enhancements:
 
@@ -585,7 +585,7 @@ Bug Fixes:
 
 
 ### rspec-mocks-3.2.0
-[Full Changelog](http://github.com/rspec/rspec-mocks/compare/v3.1.3...master)
+[Full Changelog](http://github.com/rspec/rspec-mocks/compare/v3.1.3...v3.2.0)
 
 Enhancements:
 
@@ -642,7 +642,7 @@ Bug Fixes:
 
 
 ### rspec-rails-3.2.0
-[Full Changelog](http://github.com/rspec/rspec-core/compare/v3.1.7...master)
+[Full Changelog](http://github.com/rspec/rspec-rails/compare/v3.1.0...v3.2.0)
 
 Enhancements:
 
@@ -652,6 +652,8 @@ Enhancements:
 * Support Ruby 2.2 with Rails 3.2 and 4.x (Aaron Kromer, #1264, #1277)
 * Improve `instance_double` to support verifying dynamic column methods defined
   by `ActiveRecord` (Jon Rowe, #1238)
+* Mirror the use of Ruby 1.9 hash syntax for the `type` tags in the spec
+  generators on Rails 4. (Michael Stock, #1292)
 
 Bug Fixes:
 
@@ -659,5 +661,21 @@ Bug Fixes:
   monkey-patching is disabled. (Rebecca Skinner, #1231)
 * Fix `NoMethodError` caused by calling `RSpec.feature` when Capybara is not
   available or the Capybara version is < 2.4.0. (Aaron Kromer, #1261)
-* Fix `ArgumentError` when when using an anonymous controller which inherits an
+* Fix `ArgumentError` when using an anonymous controller which inherits an
   outer group's anonymous controller. (Yuji Nakayama, #1260)
+* Fix "Test is not a class (TypeError)" error when using a custom `Test` class
+  in Rails 4.1 and 4.2. (Aaron Kromer, #1295)
+
+
+### rspec-support-3.2.0
+[Full Changelog](http://github.com/rspec/rspec-support/compare/v3.1.2...v3.2.0)
+
+Enhancements:
+
+* Add extra Ruby type detection. (Jon Rowe, #133)
+* Make differ instance re-usable. (Alexey Fedorov, #160)
+
+Bug Fixes:
+
+* Do not consider `[]` and `{}` to match when performing fuzzy matching.
+  (Myron Marston, #157)
