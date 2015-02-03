@@ -122,7 +122,8 @@ RSpec.configure do |config|
 end
 ~~~
 
-Thanks to Tyler Ball for [implementing this](TODO).
+Thanks to Tyler Ball for [implementing
+this](https://github.com/rspec/rspec-core/pull/1808).
 
 ### Core: Shared Example Group Improvements
 
@@ -131,12 +132,12 @@ with shared example groups:
 
 * Failures from examples defined in shared groups now include a full
   shared example group inclusion backtrace so you can pinpoint the
-  exact inclusion that contains the failure. [#1763](TODO)
+  exact inclusion that contains the failure. [#1763](https://github.com/rspec/rspec-core/pull/1763)
 * The re-run command printed for a shared example group failure
   should now always work to re-run the failed example (although it
-  may run additional examples, too). [#1835](TODO)
+  may run additional examples, too). [#1835](https://github.com/rspec/rspec-core/pull/1835)
 * Location filtering applied to a shared example now works properly
-  for some odd edge cases where it previously failed. [#1837](TODO)
+  for some odd edge cases where it previously failed. [#1837](https://github.com/rspec/rspec-core/pull/1837)
 
 If you've had issues with shared example groups in the past due to
 issues like these, you may want to give them another try.
