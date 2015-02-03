@@ -63,9 +63,9 @@
 
     <iframe id="search_frame"></iframe>
 
-    <div id="content"><div id='filecontents'><h3>3.2.0 Development</h3>
+    <div id="content"><div id='filecontents'><h3>3.2.0 / 2015-02-03</h3>
 
-<p><a href="http://github.com/rspec/rspec-core/compare/v3.1.7...master">Full Changelog</a></p>
+<p><a href="http://github.com/rspec/rspec-rails/compare/v3.1.0...v3.2.0">Full Changelog</a></p>
 
 <p>Enhancements:</p>
 
@@ -76,6 +76,8 @@
 <li>Support Ruby 2.2 with Rails 3.2 and 4.x (Aaron Kromer, #1264, #1277)</li>
 <li>Improve <code>instance_double</code> to support verifying dynamic column methods defined
 by <code>ActiveRecord</code> (Jon Rowe, #1238)</li>
+<li>Mirror the use of Ruby 1.9 hash syntax for the <code>type</code> tags in the spec
+generators on Rails 4. (Michael Stock, #1292)</li>
 </ul>
 
 <p>Bug Fixes:</p>
@@ -85,8 +87,10 @@ by <code>ActiveRecord</code> (Jon Rowe, #1238)</li>
 monkey-patching is disabled. (Rebecca Skinner, #1231)</li>
 <li>Fix <code>NoMethodError</code> caused by calling <code>RSpec.feature</code> when Capybara is not
 available or the Capybara version is &lt; 2.4.0. (Aaron Kromer, #1261)</li>
-<li>Fix <code>ArgumentError</code> when when using an anonymous controller which inherits an
+<li>Fix <code>ArgumentError</code> when using an anonymous controller which inherits an
 outer group&#39;s anonymous controller. (Yuji Nakayama, #1260)</li>
+<li>Fix &quot;Test is not a class (TypeError)&quot; error when using a custom <code>Test</code> class
+in Rails 4.1 and 4.2. (Aaron Kromer, #1295)</li>
 </ul>
 
 <h3>3.1.0 / 2014-09-04</h3>
@@ -927,7 +931,7 @@ any stubs submitted each time it is called.</li>
 </div></div>
 
     <div id="footer">
-  Generated on Thu Jan 29 13:53:17 2015 by
+  Generated on Tue Feb  3 07:41:43 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.3 (ruby-2.1.5).
 </div>
