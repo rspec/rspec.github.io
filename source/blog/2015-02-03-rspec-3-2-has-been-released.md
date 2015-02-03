@@ -4,8 +4,6 @@ author: Myron Marston
 published: false
 ---
 
-(TODO: consider writing a new intro.)
-
 RSpec 3.2 has just been released! Given our commitment to
 [semantic versioning](http://semver.org/), this should be a trivial
 upgrade for anyone already using RSpec 3.0 or 3.1, but if we did introduce
@@ -13,8 +11,8 @@ any regressions, please let us know, and we'll get a patch release
 out with a fix ASAP.
 
 RSpec continues to be a community-driven project with contributors
-from all over the world. This release includes 647 commits from 190
-pull requests from 47 different contributors.
+from all over the world. This release includes nearly 900 commits
+from over 50 different contributors!
 
 Thank you to everyone who helped make this release happen!
 
@@ -88,7 +86,15 @@ singleton classes.
 
 ### Core: Performance Improvements
 
-(TODO: I plan to call out the allocation differences between 3.1 and 3.2 and other general perf improvements).
+We put some significant effort into optimizing rspec-core's performance
+for RSpec 3.2. Besides some algorithmic changes and numerous micro-optimizations,
+we also found ways to greatly reduce the number of object allocations
+done by rspec-core. According to [my
+benchmarks](https://gist.github.com/myronmarston/5de3daf2cfaf07a73e6b), RSpec 3.2 allocates
+~30% fewer objects than RSpec 3.1, all while gaining numerous new features.
+
+In future releases, I'm hoping we can apply similar improvements
+to rspec-expectations and rspec-mocks.
 
 ### Core: New Sandboxing API
 
