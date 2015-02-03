@@ -37,7 +37,7 @@ please get in touch!
 
 ### Core: Pending Example Output Includes Failure Details
 
-RSpec 3.0 shipped with new semantics for `pending`: rather than
+RSpec 3.0 shipped with new semantics for `pending`.  Rather than
 skipping the example (now available using `skip`), pending examples
 are executed with an expectation that a failure will occur, and, if
 there is no failure, they'll fail to notify you that they no longer
@@ -52,7 +52,7 @@ includes the failure that occurred while executing the example.
 
 ### Core: Each Example Now Has a Singleton Group
 
-RSpec has a number of metadata-based feautures that, before now,
+RSpec has a number of metadata-based features that, before now,
 would only apply to example groups, not individual examples:
 
 ~~~ ruby
@@ -95,8 +95,8 @@ singleton classes.
 RSpec is tested using RSpec. In rspec-core, many of the specs in our
 spec suite define and run example groups and examples to verify the
 behavior of how RSpec's various constructs relate when when run in
-a real RSpec contrxt. To facilitate this dog-fooding, rspec-core's
-spec suite has long used a _sandboxing_ technique, where each spec
+a real RSpec context. To facilitate this dog-fooding, rspec-core's
+spec suite has long used a _sandboxing_ technique. Each spec
 is free to mutate configuration and define example groups and examples
 without worrying about how that could interfere with the RSpec runner's
 internal state.
