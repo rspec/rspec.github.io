@@ -65,7 +65,7 @@ RSpec.configure do |config|
 end
 
 # 3. Shared context auto-inclusion: groups tagged with
-#    `:redis` will have this context included.
+#    `:uses_redis` will have this context included.
 RSpec.shared_context "Uses Redis", :uses_redis do
   let(:redis) { Redis.connect(ENV['REDIS_URL']) }
   before { redis.flushdb }
