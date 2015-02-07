@@ -378,7 +378,7 @@ Thanks to Jon Rowe for
 Ruby 2.2 was released in December, and while most Ruby 2.1 code bases
 work just fine on 2.2, there were a few changes the Rails core team
 had to make to Rails to support 2.2. Likewise, Aaron Kromer has updated
-rspec-rails to support [Rails
+rspec-rails to support Ruby 2.2 on [Rails
 3.2](https://github.com/rspec/rspec-rails/pull/1277) and [Rails
 4.x](https://github.com/rspec/rspec-rails/pull/1264).
 
