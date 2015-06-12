@@ -291,14 +291,18 @@ If you want to enable this feature everywhere, you can use [`define_derived_meta
 ~~~ ruby
 RSpec.configure do |c|
   c.define_derived_metadata do |meta|
-    meta[:aggregate_failures] = true
+    meta[:aggregate_failures] = true unless meta.key?(:aggregate_failures)
   end
 end
 ~~~
 
-Of course, you may not want this enabled everywhere. When you've got _dependent_ expectations
-(e.g. where an expectation only makes sense if the prior expectation passed), or if you're
-using expectations to express a pre-condition, you'll probably want the example to immediately abort
+
+Of course, you may not want this enabled by default everywhere.  The
+`unless meta.key?(:aggregate_failures)` bit allows you to opt out individual
+examples or groups by tagging them with `aggregate_failures: false`.  When
+you've got _dependent_ expectations (e.g. where an expectation only makes
+sense if the prior expectation passed), or if you're using expectations to
+express a pre-condition, you'll probably want the example to immediately abort
 when the expectation fails.
 
 ### Expectations: Improved Failure Output
@@ -335,7 +339,7 @@ Failure/Error: expect([Time.now]).to include(Time.now)
   +[2015-06-09 07:49:16.610635000 -0700]
 ~~~
 
-...which makes it much clearer that the time objects differ at the level of milliseconds.
+...which makes it much clearer that the time objects differ at the subsecond level.
 
 Thanks to Gavin Miller, Nicholas Chmielewski and Siva Gollapalli for contributing to
 these improvements!
