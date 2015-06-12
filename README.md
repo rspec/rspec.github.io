@@ -17,7 +17,8 @@ Requires a recent version of Ruby (2.1.x), bundler and imagemagick (to generate 
 
 ## Deploying
 
-* `middleman deploy`
+* `middleman deploy` (for http://rspec-staging.github.io/)
+* `TARGET=prod middleman deploy` (for http://rspec.info/)
 
 ## To Do:
 
