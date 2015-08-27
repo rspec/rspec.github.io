@@ -73,7 +73,7 @@ Here's the general approach I recommend for upgrading a project to RSpec 3:
    you're ready to upgrade to RSpec 3. Install RSpec 3.0.0.beta1
    (or whatever the latest 3.x release is when you go through this process).
 10. Run your test suite. It should still be green. If anything fails, please
-    open a Github issue -- we consider it a bug[^foot_1]!
+    open a GitHub issue -- we consider it a bug[^foot_1]!
 11. Commit and enjoy using the latest RSpec release!
 
 ## What's Next
