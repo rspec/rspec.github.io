@@ -1,5 +1,5 @@
 ---
-title: How RSpec 3.0 composable matchers work
+title: How the RSpec 3.0 composable matchers work
 author: Sam Phippen
 ---
 
@@ -13,20 +13,21 @@ that implement this protocol include:
 * regexes
 * ranges
 
-Conceptually, this protocol represents a "match". That is, the object that
-implements the `===` declares whether or not it "matches" the other object.
-For example, `Array === []` returns `true`. This is because an empty array is a
-subclass of the array class. `Array === {}` returns false because a hash is not
-a subclass of array. For regexes, `===` returns true if the passed string
+Conceptually, this protocol represents a "match", but can be thought of as
+categorising instances of objects. That is, the object that implements the
+`===` declares whether or not it belongs in the same category as the other
+object.  For example, `Array === []` returns `true`. This is because an empty
+array is an instance of the array class. `Array === {}` returns false because
+a hash is not an array. For regexes, `===` returns true if the passed string
 matches the regex, and false if it does not.
 
 The `===` method is used in Ruby case statements to decide if a branch should
 be taken. For example
 
-```
+```Ruby
 case 3
 when (1...18)
-    puts "hello"
+  puts "hello"
 end
 ```
 
@@ -40,22 +41,17 @@ play around with it a little before moving on.
 
 In an RSpec expectation expression like `expect(object_1).to eq(object_2)`
 there are two primary objects at play, the **target** and the **matcher**. The
-**target** object is created by "expect" and basically wraps the passed object
-to it in a class called `ExpectationTarget`. The primary methods on the
-`ExpectationTarget` that users see are `to` and `not_to`/`to_not`. Let's focus
-on `to`.
+**target** object is created by "expect" and exposes `to` (and `to_not`) which
+takes the matcher is is responsible for invoking `matches?` on it.
 
-The `to` method is basically responsible for invoking the `matches?` method on the
-passed matcher. It's possible to see this happening quite easily in an IRB session.
+It's possible to see this happening in an IRB session, e.g:
 
-```
+```Ruby
 >> require "rspec/expectations"
 => true
->> o = Object.new
-=> #<Object:0x007fa20d221490>
->> o.extend(RSpec::Matchers)
-=> #<Object:0x007fa20d221490>
->> o.expect(3).to Object.new
+>> extend(RSpec::Matchers)
+=> main
+>> expect(3).to Object.new
 NoMethodError: undefined method `matches?' for #<Object:0x007fa20d1f4e68>
     from /Users/sam/.gem/ruby/2.1.5/gems/rspec-expectations-3.2.1/lib/rspec/expectations/handler.rb:50:in `block in handle_matcher'
     from /Users/sam/.gem/ruby/2.1.5/gems/rspec-expectations-3.2.1/lib/rspec/expectations/handler.rb:27:in `with_matcher'
@@ -66,52 +62,50 @@ NoMethodError: undefined method `matches?' for #<Object:0x007fa20d1f4e68>
 >>
 ```
 
-In this session, we extend the RSpec DSL on to a blank object and then call
-`o.expect(3).to Object.new`. This blows up because our new object does not implement
-the `matches?` method.
+In this session, we extend the RSpec DSL into the main object and then call
+`expect(3).to Object.new`. This blows up because our new object does not
+implement the `matches?` method.
 
-In RSpec expectations, most matchers inherit from a class called `BaseMatcher`
-which causes `matches?` to delegate to a method called `match`. Some matchers have
-a very simple definition of `match`. For example, here's the definition of `match`
-for the `eq` matcher:
+In RSpec expectations matchers implement `matches?` to provide assertions for
+your test suite, some of these are complex but they can also be quite simple.
+For example, here's the logic of `matches?` for the `eq` matcher:
 
 ```ruby
-def match(expected, actual)
+def matches?(actual)
   actual == expected
 end
 ```
 
-Some matchers, however, have a more complicated match protocol. This more complicated
-protocol is called the **composable** matcher protocol, which is what we'll discuss next.
-
 ## Composable RSpec matchers
 
-A composable RSpec matcher is one which expects other RSpec matchers for some/all of it's
-arguments. The `match` matcher is perhaps an obvious place to start. In RSpec 2.xx the match
-matcher was really only used match regexes, and its match definition looked thus:
+A composable RSpec matcher is one which expects other RSpec matchers for it's
+arguments. These are higher order matchers (as opposed to more primitive
+matchers such as `be_predicate` or `be > x`) such as `include`, `start_with`
+and `match`. Let's take a look at the `match` matcher as a place to start.
+
+In RSpec 2.xx the match matcher was mostly used to match regexes, and its
+`matches?` definition looked thus:
 
 ```ruby
-def match(expected, actual)
+def matches?(expected, actual)
   actual.match expected
 end
 ```
 
-Now obviously, one could extend the capabilites by providing other objects that provided a
-definition of match, but that's besides the point.
-
-The new definition of the match matcher's match method is thus:
+The new definition of this matcher's `matches?` method is thus:
 
 ```ruby
-def match(expected, actual)
+def matches?(expected, actual)
   return true if values_match?(expected, actual)
   return false unless can_safely_call_match?(expected, actual)
   actual.match(expected)
 end
 ```
 
-The key important difference is that call to `values_match?` which is the core implementation
-of the new matching protocol in RSpec. The list of matchers which now reference the values_match?
-method are (as of RSpec expectations 3.3.0 development, not including mocks):
+The key difference is that call to `values_match?` which leverages `===`
+(the core implementation of the new matching protocol in RSpec) to check if
+the "values match" and accepts matcher. The list of matchers which now use
+this approach are (as of RSpec expectations 3.3.0, not including mocks):
 
 * `change`
 * `contain_exactly`
@@ -120,9 +114,13 @@ method are (as of RSpec expectations 3.3.0 development, not including mocks):
 * `match`
 * `output`
 * `raise_error`
-* `start_or_end_with`
+* `start_with`
+* `end_with`
 * `throw_symbol`
-* `yield`
+* `yield_control`
+* `yield_successive_args`
+* `yield_with_args`
+* `yield_with_no_args`
 
 Let's take a look at what `values_match?` does.
 
@@ -154,17 +152,20 @@ what those methods do is recursively apply `values_match?` to each of the
 elements in the various collection types as you'd expect. Arrays by scanning
 elements and hashes by matching keys and values.
 
-The next thing the method does is return `true` if expected === actual. An easy
-way to demonstrate this is back in our IRB session:
+The next thing the method does is to return `true` if `expected == actual`,
+note not `expected === actual` but `==` because `/foo/ === /foo/` returns
+`false` as does `MyClass === MyClass` -- so we have to check normal equality
+as well and not rely solely on `===`. We can demonstrate this is back in our
+IRB session:
 
-```
->> o.expect(3).to o.match(3)
+```ruby
+>> expect(/foo/).to match(/foo/)
 => true
 ```
 
-What we've done here is we've constructed a both a target and match matcher with the value 3.
-When the match matcher hits `values_match?` it sees that 3 is not an array or a hash, and so
-checks `expected == actual`, which in this case is `3 == 3`, which is true.
+What we've done here is constructed a both a target and match matcher with the value /foo/.
+When the match matcher hits `values_match?` it sees that /foo/ is not an array or a hash, and so
+checks `expected == actual`, which in this case is `/foo/ == /foo/`, which is true.
 
 The next line checks `expected === actual`. This is where the power of RSpec's new composability
 really kicks in. The reason for this is that the `BaseMatcher` class includes a module called
@@ -176,39 +177,40 @@ def ===(value)
 end
 ```
 
-This means that `expected` in the expression `expected === actual` can be another RSpec matcher,
-a regex, or any other object that responds to `===`. This means, for example, that one can trivially
-match a lambda by doing `expect(obj).to match(lambda { |actual| ... })`. Given that all RSpec matchers
-implement `===` we are able to compose them arbitrarily with other "matching" values in the Ruby system.
+This means that `expected` in the expression `expected === actual` can be
+another RSpec matcher, a regex, or any other object that responds to `===`.
+This means, for example, that one can trivially match a lambda by doing
+`expect(obj).to match(lambda { |actual| ... })`. Given that all built in RSpec
+matchers implement `===` we are able to compose them arbitrarily with other
+"matching" values in the Ruby system.
 
-An example I've given in the past is matching nesting hashes like so:
+An example is matching nesting hashes like so:
 
-```
+```rspec
 expect({:data => {... complex hash ...}).to include(:data => a_hash_including(:response => "success"))
 ```
 
 The reason we're able to pass the `a_hash_including` matcher inside the
-`include` matcher is that `values_match?` will dilligently call `===` on the
-inner, `a_hash_including` matcher, which will invoke its `matches?` method, which
+`include` matcher is that `values_match?` will call `===` on the inner
+`a_hash_including` matcher, which will invoke its `matches?` method, which
 will allow it to match the complex inner hash.
-
 
 ##Conclusions
 
 The old RSpec match protocol used to be a lot easier to understand. Each of the
-matchers held their own matching logic, which was universally pretty simple. It
-did mean, however, that one could not use RSpec matchers in a highly composable
-way. For example: performing nested inclusion matches would require multiple
+matchers held their own matching logic, which was pretty simple. It did mean
+that you could not use RSpec matchers in a highly composable way though.
+For example: performing nested inclusion matches would require multiple
 expectation expressions.
 
-I think the new RSpec match protocol is a lot "simpler". There is one core
-piece of matching logic, the `values_match?` method. Once you understand that
-this method is at the core of all matches, it becomes a lot easier to reason
-about what's going on.  All matches now look like a 'tree'. At the root of the
-tree we use the `matches?` method to descend through a potentially complex tree
-of matching objects using the `===` protocol. At the bottom level we end up using
-either `===` or `==` to actually get the boolean values that determine the match.
-These values then propogate back up until we are able to determine the result of
+To understand the new RSpec match protocol you have to understand the one core
+piece of matching logic, the `===` method. Once you understand that this method
+is at the core of all matches, it becomes a lot easier to reason about what's
+going on. All matches now look like a 'tree'. At the root of the tree we use the
+`matches?` method to descend through potentially complex branches of matching
+objects using the `===` protocol. At the bottom level we end up using either
+`===` or `==` to actually get the boolean values that determine the match.
+These values then propagate back up until we are able to determine the result of
 the expectation.
 
 I hope this has helped you understand a little better how RSpec performs
