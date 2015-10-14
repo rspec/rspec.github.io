@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"><![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]<!--><html class="no-js" lang="en"><!--<![endif]--><head><meta charset="UTF-8" /><title>New in RSpec 3: Composable Matchers</title><link href="/stylesheets/application.css" rel="stylesheet" type="text/css" /><link href="/stylesheets/normalize.css" rel="stylesheet" type="text/css" /><link href="/stylesheets/pages/blog.css" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" type="text/css" /><link href="/blog/feed.xml" rel="alternate" type="application/atom+xml" /></head><body class="blog"><header><nav><h1><a href="/">RSpec</a></h1><ul><li><a href="/about">About</a></li><li><a href="/documentation">Documentation</a></li><li><a href="/blog">Blog</a></li><li><a href="/upgrading-from-rspec-2">Upgrade</a></li><li><a href="/help">Get Help</a></li><li><a href="/contributing">Contributing</a></li></ul></nav></header><section><article class="blog_post"><h1>New in RSpec 3: Composable Matchers</h1><h3 class="author">Myron Marston</h3><small class="date">Jan 14, 2014</small><p>One of RSpec 3's big new features is shipping 3.0.0.beta2: composable
+matchers. This feature supports more powerful, less brittle
+expectations, and opens up new possibilities.</p>
+
+<h2 id="an-example">An Example</h2>
+
+<p>In RSpec 2.x, I've written code like this on many occassions:</p>
+
+<pre class="highlight ruby"><code><span class="c1"># background_worker.rb</span>
+<span class="k">class</span> <span class="nc">BackgroundWorker</span>
+  <span class="kp">attr_reader</span> <span class="ss">:queue</span>
+
+  <span class="k">def</span> <span class="nf">initialize</span>
+    <span class="vi">@queue</span> <span class="o">=</span> <span class="p">[]</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">enqueue</span><span class="p">(</span><span class="n">job_data</span><span class="p">)</span>
+    <span class="n">queue</span> <span class="o">&lt;&lt;</span> <span class="n">job_data</span><span class="p">.</span><span class="nf">merge</span><span class="p">(</span><span class="ss">:enqueued_at</span> <span class="o">=&gt;</span> <span class="no">Time</span><span class="p">.</span><span class="nf">now</span><span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+
+<pre class="highlight ruby"><code><span class="c1"># background_worker_spec.rb</span>
+<span class="n">describe</span> <span class="no">BackgroundWorker</span> <span class="k">do</span>
+  <span class="n">it</span> <span class="s1">'puts enqueued jobs onto the queue in order'</span> <span class="k">do</span>
+    <span class="n">worker</span> <span class="o">=</span> <span class="no">BackgroundWorker</span><span class="p">.</span><span class="nf">new</span>
+    <span class="n">worker</span><span class="p">.</span><span class="nf">enqueue</span><span class="p">(</span><span class="ss">:klass</span> <span class="o">=&gt;</span> <span class="s2">"Class1"</span><span class="p">,</span> <span class="ss">:id</span> <span class="o">=&gt;</span> <span class="mi">37</span><span class="p">)</span>
+    <span class="n">worker</span><span class="p">.</span><span class="nf">enqueue</span><span class="p">(</span><span class="ss">:klass</span> <span class="o">=&gt;</span> <span class="s2">"Class2"</span><span class="p">,</span> <span class="ss">:id</span> <span class="o">=&gt;</span> <span class="mi">42</span><span class="p">)</span>
+
+    <span class="n">expect</span><span class="p">(</span><span class="n">worker</span><span class="p">.</span><span class="nf">queue</span><span class="p">.</span><span class="nf">size</span><span class="p">).</span><span class="nf">to</span> <span class="n">eq</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">expect</span><span class="p">(</span><span class="n">worker</span><span class="p">.</span><span class="nf">queue</span><span class="p">[</span><span class="mi">0</span><span class="p">]).</span><span class="nf">to</span> <span class="kp">include</span><span class="p">(</span><span class="ss">:klass</span> <span class="o">=&gt;</span> <span class="s2">"Class1"</span><span class="p">,</span> <span class="ss">:id</span> <span class="o">=&gt;</span> <span class="mi">37</span><span class="p">)</span>
+    <span class="n">expect</span><span class="p">(</span><span class="n">worker</span><span class="p">.</span><span class="nf">queue</span><span class="p">[</span><span class="mi">1</span><span class="p">]).</span><span class="nf">to</span> <span class="kp">include</span><span class="p">(</span><span class="ss">:klass</span> <span class="o">=&gt;</span> <span class="s2">"Class2"</span><span class="p">,</span> <span class="ss">:id</span> <span class="o">=&gt;</span> <span class="mi">42</span><span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+
+<p>In RSpec 3, composable matchers allow you to pass matchers as arguments
+(or nested within data structures passed as arguments) to other matchers
+allowing you to simplify specs like these:</p>
+
+<pre class="highlight ruby"><code><span class="c1"># background_worker_spec.rb</span>
+<span class="n">describe</span> <span class="no">BackgroundWorker</span> <span class="k">do</span>
+  <span class="n">it</span> <span class="s1">'puts enqueued jobs onto the queue in order'</span> <span class="k">do</span>
+    <span class="n">worker</span> <span class="o">=</span> <span class="no">BackgroundWorker</span><span class="p">.</span><span class="nf">new</span>
+    <span class="n">worker</span><span class="p">.</span><span class="nf">enqueue</span><span class="p">(</span><span class="ss">:klass</span> <span class="o">=&gt;</span> <span class="s2">"Class1"</span><span class="p">,</span> <span class="ss">:id</span> <span class="o">=&gt;</span> <span class="mi">37</span><span class="p">)</span>
+    <span class="n">worker</span><span class="p">.</span><span class="nf">enqueue</span><span class="p">(</span><span class="ss">:klass</span> <span class="o">=&gt;</span> <span class="s2">"Class2"</span><span class="p">,</span> <span class="ss">:id</span> <span class="o">=&gt;</span> <span class="mi">42</span><span class="p">)</span>
+
+    <span class="n">expect</span><span class="p">(</span><span class="n">worker</span><span class="p">.</span><span class="nf">queue</span><span class="p">).</span><span class="nf">to</span> <span class="n">match</span> <span class="p">[</span>
+      <span class="n">a_hash_including</span><span class="p">(</span><span class="ss">:klass</span> <span class="o">=&gt;</span> <span class="s2">"Class1"</span><span class="p">,</span> <span class="ss">:id</span> <span class="o">=&gt;</span> <span class="mi">37</span><span class="p">),</span>
+      <span class="n">a_hash_including</span><span class="p">(</span><span class="ss">:klass</span> <span class="o">=&gt;</span> <span class="s2">"Class2"</span><span class="p">,</span> <span class="ss">:id</span> <span class="o">=&gt;</span> <span class="mi">42</span><span class="p">)</span>
+    <span class="p">]</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+
+<p>We've made sure the failure messages read well for cases like these,
+opting to use the <code>description</code> of the provided matcher rather than
+the <code>inspect</code> output.  For example, if we "break" the implementation
+tested by this spec by commenting out the <code>queue &lt;&lt; ...</code> line, it fails
+with:</p>
+
+<pre class="highlight plaintext"><code>1) BackgroundWorker puts enqueued jobs onto the queue in order
+   Failure/Error: expect(worker.queue).to match [
+     expected [] to match [(a hash including {:klass =&gt; "Class1", :id =&gt; 37}), (a hash including {:klass =&gt; "Class2", :id =&gt; 42})]
+     Diff:
+     @@ -1,3 +1,2 @@
+     -[(a hash including {:klass =&gt; "Class1", :id =&gt; 37}),
+     - (a hash including {:klass =&gt; "Class2", :id =&gt; 42})]
+     +[]
+
+   # ./spec/background_worker_spec.rb:19:in `block (2 levels) in &lt;top (required)&gt;'
+</code></pre>
+
+<h2 id="matcher-aliases">Matcher aliases</h2>
+
+<p>As you may have noticed, the example above uses <code>a_hash_including</code>
+in place of <code>include</code>. RSpec 3 provides similar aliases for all of the
+built-in matchers that read better grammatically and provide a
+better failure message.</p>
+
+<p>For example, compare this expectation and failure message:</p>
+
+<pre class="highlight plaintext"><code>x = "a"
+expect { }.to change { x }.from start_with("a")
+</code></pre>
+<pre class="highlight plaintext"><code>expected result to have changed from start with "a", but did not change
+</code></pre>
+
+<p>…to:</p>
+
+<pre class="highlight ruby"><code><span class="n">x</span> <span class="o">=</span> <span class="s2">"a"</span>
+<span class="n">expect</span> <span class="p">{</span> <span class="p">}.</span><span class="nf">to</span> <span class="n">change</span> <span class="p">{</span> <span class="n">x</span> <span class="p">}.</span><span class="nf">from</span> <span class="n">a_string_starting_with</span><span class="p">(</span><span class="s2">"a"</span><span class="p">)</span>
+</code></pre>
+<pre class="highlight plaintext"><code>expected result to have changed from a string starting with "a",
+but did not change
+</code></pre>
+
+<p>While <code>a_string_starting_with</code> is more verbose than <code>start_with</code>, it
+produces a failure message that actually reads well, so you don't trip
+over odd grammatical constructs. We've provided one or more similar
+aliases for all of RSpec's built-in matchers. We've tried to use
+consistent phrasing (generally "a [type of object] [verb]ing") so
+they are easy to guess. You'll see many examples below, and the RSpec
+3 docs will have a full list.</p>
+
+<p>There's also a public API that makes it trivial to define your own aliases
+(either for RSpec's built in matchers or for a custom matcher). Here's
+the bit of code in rspec-expectations that provides the
+<code>a_string_starting_with</code> alias of <code>start_with</code>:</p>
+
+<pre class="highlight ruby"><code><span class="no">RSpec</span><span class="o">::</span><span class="no">Matchers</span><span class="p">.</span><span class="nf">alias_matcher</span> <span class="ss">:a_string_starting_with</span><span class="p">,</span> <span class="ss">:start_with</span>
+</code></pre>
+
+<h2 id="compound-matcher-expressions">Compound Matcher Expressions</h2>
+
+<p><a href="https://github.com/eloyesp">Eloy Espinaco</a> contributed a new feature
+that provides another way of combining matchers: compound <code>and</code> and <code>or</code>
+matcher expressions. For example, rather than writing this:</p>
+
+<pre class="highlight ruby"><code><span class="n">expect</span><span class="p">(</span><span class="n">alphabet</span><span class="p">).</span><span class="nf">to</span> <span class="n">start_with</span><span class="p">(</span><span class="s2">"a"</span><span class="p">)</span>
+<span class="n">expect</span><span class="p">(</span><span class="n">alphabet</span><span class="p">).</span><span class="nf">to</span> <span class="n">end_with</span><span class="p">(</span><span class="s2">"z"</span><span class="p">)</span>
+</code></pre>
+
+<p>…you can combine these into one expectation:</p>
+
+<pre class="highlight ruby"><code><span class="n">expect</span><span class="p">(</span><span class="n">alphabet</span><span class="p">).</span><span class="nf">to</span> <span class="n">start_with</span><span class="p">(</span><span class="s2">"a"</span><span class="p">).</span><span class="nf">and</span> <span class="n">end_with</span><span class="p">(</span><span class="s2">"z"</span><span class="p">)</span>
+</code></pre>
+
+<p>You can do the same with <code>or</code>. While less common, this is useful
+for expressing one of a valid list of values (e.g. when the exact
+value is indeterminite):</p>
+
+<pre class="highlight ruby"><code><span class="n">expect</span><span class="p">(</span><span class="n">stoplight</span><span class="p">.</span><span class="nf">color</span><span class="p">).</span><span class="nf">to</span> <span class="n">eq</span><span class="p">(</span><span class="s2">"red"</span><span class="p">).</span><span class="nf">or</span> <span class="n">eq</span><span class="p">(</span><span class="s2">"green"</span><span class="p">).</span><span class="nf">or</span> <span class="n">eq</span><span class="p">(</span><span class="s2">"yellow"</span><span class="p">)</span>
+</code></pre>
+
+<p>I think this could particularly come in handy for expressing invariants
+using Jim Weirich's <a href="https://github.com/jimweirich/rspec-given#invariant">rspec-given</a>.</p>
+
+<p>Compound matcher expressions can also be passed as an argument to
+another matcher:</p>
+
+<pre class="highlight ruby"><code><span class="n">expect</span><span class="p">([</span><span class="s2">"food"</span><span class="p">,</span> <span class="s2">"drink"</span><span class="p">]).</span><span class="nf">to</span> <span class="kp">include</span><span class="p">(</span>
+  <span class="n">a_string_starting_with</span><span class="p">(</span><span class="s2">"f"</span><span class="p">).</span><span class="nf">and</span> <span class="n">ending_with</span><span class="p">(</span><span class="s2">"d"</span><span class="p">)</span>
+<span class="p">)</span>
+</code></pre>
+
+<p>Note: in this example, <code>ending_with</code> is another alias for the <code>end_with</code>
+matcher.</p>
+
+<h2 id="which-matchers-support-matcher-arguments">Which matchers support matcher arguments?</h2>
+
+<p>In RSpec 3, we've updated many of the matchers to support receiving
+matchers as arguments, but not all of them do. In general, we updated
+all of the ones where we felt like it made sense. The ones that do not
+support matchers are those that have precise matching semantics that
+do not allow for a matcher argument.  For example the <code>eq</code> matcher is
+documented as passing if and only if <code>actual == expected</code>. It doesn't
+make sense for <code>eq</code> to support receiving a matcher argument<sup id="fnref:foot_1"><a href="#fn:foot_1" class="footnote">1</a></sup>.</p>
+
+<p>I've compiled a list below of all the built-in matchers that support
+receiving matchers as arguments.</p>
+
+<h3 id="change">change</h3>
+
+<p>The <code>by</code> method of the <code>change</code> matcher can receive a matcher:</p>
+
+<pre class="highlight ruby"><code><span class="n">k</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">expect</span> <span class="p">{</span> <span class="n">k</span> <span class="o">+=</span> <span class="mi">1</span><span class="o">.</span><span class="mo">05</span> <span class="p">}.</span><span class="nf">to</span> <span class="n">change</span> <span class="p">{</span> <span class="n">k</span> <span class="p">}.</span><span class="nf">by</span><span class="p">(</span> <span class="n">a_value_within</span><span class="p">(</span><span class="mi">0</span><span class="o">.</span><span class="mi">1</span><span class="p">).</span><span class="nf">of</span><span class="p">(</span><span class="mi">1</span><span class="o">.</span><span class="mi">0</span><span class="p">)</span> <span class="p">)</span>
+</code></pre>
+
+<p>You can also pass matchers to <code>from</code> or <code>to</code>:</p>
+
+<pre class="highlight ruby"><code><span class="n">s</span> <span class="o">=</span> <span class="s2">"food"</span>
+<span class="n">expect</span> <span class="p">{</span> <span class="n">s</span> <span class="o">=</span> <span class="s2">"barn"</span> <span class="p">}.</span><span class="nf">to</span> <span class="n">change</span> <span class="p">{</span> <span class="n">s</span> <span class="p">}.</span>
+  <span class="nf">from</span><span class="p">(</span> <span class="n">a_string_matching</span><span class="p">(</span><span class="sr">/foo/</span><span class="p">)</span> <span class="p">).</span>
+  <span class="nf">to</span><span class="p">(</span> <span class="n">a_string_matching</span><span class="p">(</span><span class="sr">/bar/</span><span class="p">)</span> <span class="p">)</span>
+</code></pre>
+
+<h3 id="containexactly">contain_exactly</h3>
+
+<p><code>contain_exactly</code> is a new alias of <code>match_array</code>. The semantics are a bit
+more clear than <code>match_array</code> (now that <code>match</code> can match arrays, too, but
+<code>match</code> requires the ordering to match whereas <code>match_array</code> doesn't). It
+also allows you to pass the array elements as individual arguments rather
+than being forced to pass a single array argument like <code>match_array</code> expects.</p>
+
+<pre class="highlight ruby"><code><span class="n">expect</span><span class="p">([</span><span class="s2">"barn"</span><span class="p">,</span> <span class="mi">2</span><span class="o">.</span><span class="mi">45</span><span class="p">]).</span><span class="nf">to</span> <span class="n">contain_exactly</span><span class="p">(</span>
+  <span class="n">a_value_within</span><span class="p">(</span><span class="mi">0</span><span class="o">.</span><span class="mi">1</span><span class="p">).</span><span class="nf">of</span><span class="p">(</span><span class="mi">2</span><span class="o">.</span><span class="mi">5</span><span class="p">),</span>
+  <span class="n">a_string_starting_with</span><span class="p">(</span><span class="s2">"bar"</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="c1"># ...which is the same as:</span>
+
+<span class="n">expect</span><span class="p">([</span><span class="s2">"barn"</span><span class="p">,</span> <span class="mi">2</span><span class="o">.</span><span class="mi">45</span><span class="p">]).</span><span class="nf">to</span> <span class="n">match_array</span><span class="p">([</span>
+  <span class="n">a_value_within</span><span class="p">(</span><span class="mi">0</span><span class="o">.</span><span class="mi">1</span><span class="p">).</span><span class="nf">of</span><span class="p">(</span><span class="mi">2</span><span class="o">.</span><span class="mi">5</span><span class="p">),</span>
+  <span class="n">a_string_starting_with</span><span class="p">(</span><span class="s2">"bar"</span><span class="p">)</span>
+<span class="p">])</span>
+</code></pre>
+
+<h3 id="include">include</h3>
+
+<p><code>include</code> allows you to match against the elements of a collection,
+the keys of a hash, or against a subset of the key/value pairs in a hash:</p>
+
+<pre class="highlight ruby"><code><span class="n">expect</span><span class="p">([</span><span class="s2">"barn"</span><span class="p">,</span> <span class="mi">2</span><span class="o">.</span><span class="mi">45</span><span class="p">]).</span><span class="nf">to</span> <span class="kp">include</span><span class="p">(</span> <span class="n">a_string_starting_with</span><span class="p">(</span><span class="s2">"bar"</span><span class="p">)</span> <span class="p">)</span>
+
+<span class="n">expect</span><span class="p">(</span><span class="mi">12</span> <span class="o">=&gt;</span> <span class="s2">"twelve"</span><span class="p">,</span> <span class="mi">3</span> <span class="o">=&gt;</span> <span class="s2">"three"</span><span class="p">).</span><span class="nf">to</span> <span class="kp">include</span><span class="p">(</span> <span class="n">a_value_between</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span> <span class="p">)</span>
+
+<span class="n">expect</span><span class="p">(</span><span class="ss">:a</span> <span class="o">=&gt;</span> <span class="s2">"food"</span><span class="p">,</span> <span class="ss">:b</span> <span class="o">=&gt;</span> <span class="s2">"good"</span><span class="p">).</span><span class="nf">to</span> <span class="kp">include</span><span class="p">(</span>
+  <span class="ss">:a</span> <span class="o">=&gt;</span> <span class="n">a_string_matching</span><span class="p">(</span><span class="sr">/foo/</span><span class="p">)</span>
+<span class="p">)</span>
+</code></pre>
+
+<h3 id="match">match</h3>
+
+<p>In addition to matching a string against a regex or another string, <code>match</code>
+now works against arbitrary array/hash data structures, nested as deeply
+as you like. Matchers can be used at any level of that nesting:</p>
+
+<pre class="highlight ruby"><code><span class="nb">hash</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="ss">:a</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="ss">:b</span> <span class="o">=&gt;</span> <span class="p">[</span><span class="s2">"foo"</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span>
+    <span class="ss">:c</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="ss">:d</span> <span class="o">=&gt;</span> <span class="mi">2</span><span class="o">.</span><span class="mo">05</span> <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">expect</span><span class="p">(</span><span class="nb">hash</span><span class="p">).</span><span class="nf">to</span> <span class="n">match</span><span class="p">(</span>
+  <span class="ss">:a</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="ss">:b</span> <span class="o">=&gt;</span> <span class="n">a_collection_containing_exactly</span><span class="p">(</span>
+      <span class="n">an_instance_of</span><span class="p">(</span><span class="no">Fixnum</span><span class="p">),</span>
+      <span class="n">a_string_starting_with</span><span class="p">(</span><span class="s2">"f"</span><span class="p">)</span>
+    <span class="p">),</span>
+    <span class="ss">:c</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="ss">:d</span> <span class="o">=&gt;</span> <span class="p">(</span><span class="n">a_value</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">)</span> <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">)</span>
+</code></pre>
+
+<h3 id="raiseerror">raise_error</h3>
+
+<p><code>raise_error</code> can accept a matcher for matching against the exception
+class or a matcher to match against the message, or both.</p>
+
+<pre class="highlight ruby"><code><span class="no">RSpec</span><span class="o">::</span><span class="no">Matchers</span><span class="p">.</span><span class="nf">define</span> <span class="ss">:an_exception_caused_by</span> <span class="k">do</span> <span class="o">|</span><span class="n">cause</span><span class="o">|</span>
+  <span class="n">match</span> <span class="k">do</span> <span class="o">|</span><span class="n">exception</span><span class="o">|</span>
+    <span class="n">cause</span> <span class="o">===</span> <span class="n">exception</span><span class="p">.</span><span class="nf">cause</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="n">expect</span> <span class="p">{</span>
+  <span class="k">begin</span>
+    <span class="s2">"foo"</span><span class="p">.</span><span class="nf">gsub</span> <span class="c1"># requires 2 args</span>
+  <span class="k">rescue</span> <span class="no">ArgumentError</span>
+    <span class="k">raise</span> <span class="s2">"failed to gsub"</span>
+  <span class="k">end</span>
+<span class="p">}.</span><span class="nf">to</span> <span class="n">raise_error</span><span class="p">(</span> <span class="n">an_exception_caused_by</span><span class="p">(</span><span class="no">ArgumentError</span><span class="p">)</span> <span class="p">)</span>
+
+<span class="n">expect</span> <span class="p">{</span>
+  <span class="k">raise</span> <span class="no">ArgumentError</span><span class="p">,</span> <span class="s2">"missing :foo arg"</span>
+<span class="p">}.</span><span class="nf">to</span> <span class="n">raise_error</span><span class="p">(</span><span class="no">ArgumentError</span><span class="p">,</span> <span class="n">a_string_starting_with</span><span class="p">(</span><span class="s2">"missing"</span><span class="p">))</span>
+</code></pre>
+
+<h3 id="startwith-and-endwith">start_with and end_with</h3>
+
+<p>These are pretty self-explanatory:</p>
+
+<pre class="highlight ruby"><code><span class="n">expect</span><span class="p">([</span><span class="s2">"barn"</span><span class="p">,</span> <span class="s2">"food"</span><span class="p">,</span> <span class="mi">2</span><span class="o">.</span><span class="mi">45</span><span class="p">]).</span><span class="nf">to</span> <span class="n">start_with</span><span class="p">(</span>
+  <span class="n">a_string_matching</span><span class="p">(</span><span class="s2">"bar"</span><span class="p">),</span>
+  <span class="n">a_string_matching</span><span class="p">(</span><span class="s2">"foo"</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">expect</span><span class="p">([</span><span class="s2">"barn"</span><span class="p">,</span> <span class="s2">"food"</span><span class="p">,</span> <span class="mi">2</span><span class="o">.</span><span class="mi">45</span><span class="p">]).</span><span class="nf">to</span> <span class="n">end_with</span><span class="p">(</span>
+  <span class="n">a_string_matching</span><span class="p">(</span><span class="s2">"foo"</span><span class="p">),</span>
+  <span class="n">a_value</span> <span class="o">&lt;</span> <span class="mi">3</span>
+<span class="p">)</span>
+</code></pre>
+
+<h3 id="throwsymbol">throw_symbol</h3>
+
+<p>You can pass a matcher to <code>throw_symbol</code> to match against the accompanying argument:</p>
+
+<pre class="highlight ruby"><code><span class="n">expect</span> <span class="p">{</span>
+  <span class="kp">throw</span> <span class="ss">:pi</span><span class="p">,</span> <span class="no">Math</span><span class="o">::</span><span class="no">PI</span>
+<span class="p">}.</span><span class="nf">to</span> <span class="n">throw_symbol</span><span class="p">(</span><span class="ss">:pi</span><span class="p">,</span> <span class="n">a_value_within</span><span class="p">(</span><span class="mi">0</span><span class="o">.</span><span class="mo">01</span><span class="p">).</span><span class="nf">of</span><span class="p">(</span><span class="mi">3</span><span class="o">.</span><span class="mi">14</span><span class="p">))</span>
+</code></pre>
+
+<h3 id="yieldwithargs-and-yieldsuccessiveargs">yield_with_args and yield_successive_args</h3>
+
+<p>Matchers can be used to specify the yielded arguments for these matchers:</p>
+
+<pre class="highlight ruby"><code><span class="n">expect</span> <span class="p">{</span> <span class="o">|</span><span class="n">probe</span><span class="o">|</span>
+  <span class="s2">"food"</span><span class="p">.</span><span class="nf">tap</span><span class="p">(</span><span class="o">&amp;</span><span class="n">probe</span><span class="p">)</span>
+<span class="p">}.</span><span class="nf">to</span> <span class="n">yield_with_args</span><span class="p">(</span> <span class="n">a_string_starting_with</span><span class="p">(</span><span class="s2">"f"</span><span class="p">)</span> <span class="p">)</span>
+
+<span class="n">expect</span> <span class="p">{</span> <span class="o">|</span><span class="n">probe</span><span class="o">|</span>
+  <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">].</span><span class="nf">each</span><span class="p">(</span><span class="o">&amp;</span><span class="n">probe</span><span class="p">)</span>
+<span class="p">}.</span><span class="nf">to</span> <span class="n">yield_successive_args</span><span class="p">(</span> <span class="n">a_value</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">a_value</span> <span class="o">&gt;</span> <span class="mi">2</span> <span class="p">)</span>
+</code></pre>
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>This is one of the new features of RSpec 3 I'm most excited about and I hope
+you can see why. This should help make it easier to avoid writing brittle
+specs by enabling you to specify <em>exactly</em> what you expect (and nothing
+more).</p>
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:foot_1">
+      <p>You can, of course pass a matcher to <code>eq</code>, but it'll treat it just like any other object: it'll compare it to <code>actual</code> using <code>==</code>, and, if that returns true (i.e. if it's the same object), the expectation will pass. <a href="#fnref:foot_1" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+  var disqus_shortname  = 'myronmarston-personal-site';
+  var disqus_identifier = '/n/dev-blog/2014/01/new-in-rspec-3-composable-matchers';
+  var disqus_title      = 'New in RSpec 3: Composable Matchers';
+  var disqus_url        = 'http://myronmars.to/n/dev-blog/2014/01/new-in-rspec-3-composable-matchers';
+
+  /* * * DON'T EDIT BELOW THIS LINE * * */
+  (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</article></section><script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-59095215-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body></html>

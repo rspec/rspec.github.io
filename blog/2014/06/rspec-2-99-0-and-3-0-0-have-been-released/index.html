@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"><![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]<!--><html class="no-js" lang="en"><!--<![endif]--><head><meta charset="UTF-8" /><title>RSpec 2.99.0 and 3.0.0 have been released!</title><link href="/stylesheets/application.css" rel="stylesheet" type="text/css" /><link href="/stylesheets/normalize.css" rel="stylesheet" type="text/css" /><link href="/stylesheets/pages/blog.css" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" type="text/css" /><link href="/blog/feed.xml" rel="alternate" type="application/atom+xml" /></head><body class="blog"><header><nav><h1><a href="/">RSpec</a></h1><ul><li><a href="/about">About</a></li><li><a href="/documentation">Documentation</a></li><li><a href="/blog">Blog</a></li><li><a href="/upgrading-from-rspec-2">Upgrade</a></li><li><a href="/help">Get Help</a></li><li><a href="/contributing">Contributing</a></li></ul></nav></header><section><article class="blog_post"><h1>RSpec 2.99.0 and 3.0.0 have been released!</h1><h3 class="author">Myron Marston</h3><small class="date">Jun  2, 2014</small><p>RSpec 2.99.0 and 3.0.0 have been released! RSpec 3 has tons of <a href="/blog/2014/05/notable-changes-in-rspec-3">great new
+features</a>. RSpec 2.99 is
+part of the <a href="https://relishapp.com/rspec/docs/upgrade">recommended upgrade path</a>
+for projects currently on RSpec 2.x.</p>
+
+<p>RSpec 3 is the work of many, many people, and it never would have happened without
+the community contributing to it. Special thanks to:</p>
+
+<ul>
+  <li>The RSpec core team: Aaron Kromer, Andy Lindeman, Bradley Schaefer, Jon Rowe, Sam Phippen and Xavier Shay.
+It's fantastic to work with all of you.</li>
+  <li>Yuji Nakayama, for creating <a href="http://yujinakayama.me/transpec/">transpec</a>.</li>
+  <li>The folks who stepped forward to maintain the extracted gems:
+    <ul>
+      <li>Peter Alfvin – <a href="https://github.com/rspec/rspec-its">rspec-its</a></li>
+      <li>Hugo Baraúna – <a href="https://github.com/rspec/rspec-collection_matchers">rspec-collection_matchers</a></li>
+      <li>Thomas Holmes – <a href="https://github.com/rspec/rspec-activemodel-mocks">rspec-activemodel-mocks</a></li>
+      <li>Abdelkader Boudih – <a href="https://github.com/rspec/rspec-autotest">rspec-autotest</a></li>
+    </ul>
+  </li>
+  <li>Everyone who contributed to RSpec 3. Their names are all listed below.</li>
+  <li>Everyone who tried out the betas and the release candidate. Getting bug reports early,
+before 3.0 final was out, really helped us make it a solid release, so thank you.</li>
+</ul>
+
+<h2 id="the-numbers">The numbers</h2>
+
+<p>I thought it'd be fun to extract some stats from the git logs to get an idea of how much work went into RSpec 3.
+I put together a <a href="https://github.com/rspec/rspec-dev/pull/71">rake task</a> to do this, and the raw numbers surprised me:</p>
+
+<h3 id="across-all-repos">Across all repos:</h3>
+
+<ul>
+  <li><strong>Total Commits</strong>: 4069</li>
+  <li><strong>Merged pull requests</strong>: 882</li>
+  <li><strong>122 contributors</strong>: Aaron Blew, Aaron Kromer, AbuSabah, Adam Farhi, Adarsh Pandit, Adrian CB, Adrian Gonzalez, Alex Peattie, Alex Rothenberg, Alex Yaremyuk, Alexander Clark, Alexey Fedorov, Alexey Pisarenko, Andy Henson, Andy Lindeman, Andy Waite, Arthur Neves, Arthur Nogueira Neves, Ashish Dixit, Ben Hamill, Ben Hoskings, Ben Moss, Ben Orenstein, Billy, Bradley Schaefer, Brandon Turner, Brian Fontenot, Cezar Halmagean, Christof, Claudio B., Damian Galarza, Daniel Fone, Daniel Murphy, Darryl Pogue, David Chelimsky, David Dollar, David Long, Eloy Espinaco, Erik Michaels-Ober, Federico Ravasio, Florian Thomas, Fujimura Daisuke, Giovanni Cappellotto, Giuseppe Capizzi, Grant Hollingworth, Guilherme Carvalho, Hendy Tanata, Hugo Baraúna, Ivo Wever, Jakub Racek, Jared Norman, Jay Hayes, Jeff Wallace, Johannes / universa1, John Feminella, John Firebaugh, John Voloski, Jon Rowe, Jonathan del Strother, Josef Šimánek, Justin Coyne, Karthik Kastury, Katsuhiko Nishimra, Keiji, Kelly Stannard, Kenrick Chien, Lucas Mazza, Marc-Andre Lafortune, MasterLambaster, Matijs van Zuijlen, Matt Sanders, Matthew M. Boedicker, Mauricio Linhares, Michael Gee, Michael de Silva, Michi Huber, Myron Marston, Nerian, Nick DeLuca, Olle Jonsson, Oren Dobzinski, Paavo Leinonen, Parker Selbert, Paul Annesley, Pedro Gimenez, Pete Higgins, Peter Alfvin, Peter Inglesby, Postmodern, Prathamesh Sonpatki, Puneet Goyal, René Föhring, Reyes Yang, Rodrigo Rosenfeld Rosas, Ryo Nakamura, Salimane Adjao Moustapha, Sam Phippen, Sergey Pchelincev, Stephen Best, Steve Richert, Stuart Hicks, Tay Ray Chuan, Thijs Wouters, Thomas Drake-Brockman, Thomas Holmes, Thomas Stratmann, Tim Cowlishaw, Tim Watson, Tom Stuart, Tom Ward, Travis Herrick, Vinicius Horewicz, Vipul A M, Xavier Shay, Yoshimi, Yuji Nakayama, lucapette, maxlinc, modocache, sanemat, thepoho, vanstee</li>
+</ul>
+
+<h3 id="rspec">rspec:</h3>
+
+<ul>
+  <li><strong>Total Commits</strong>: 23</li>
+  <li><strong>Merged pull requests</strong>: 3</li>
+  <li><strong>5 contributors</strong>: Aaron Kromer, Andy Lindeman, Jon Rowe, Josef Šimánek, Myron Marston</li>
+</ul>
+
+<h3 id="rspec-core">rspec-core:</h3>
+
+<ul>
+  <li><strong>Total Commits</strong>: 1589</li>
+  <li><strong>Merged pull requests</strong>: 345</li>
+  <li><strong>47 contributors</strong>: Aaron Kromer, Adam Farhi, Adrian CB, Alex Peattie, Alexander Clark, Alexey Fedorov, Andy Lindeman, Arthur Neves, Ashish Dixit, Ben Hoskings, Ben Moss, Bradley Schaefer, David Chelimsky, David Dollar, Federico Ravasio, Giuseppe Capizzi, Jay Hayes, John Feminella, Jon Rowe, Karthik Kastury, Keiji, Kelly Stannard, MasterLambaster, Matijs van Zuijlen, Matthew M. Boedicker, Michael de Silva, Michi Huber, Myron Marston, Nerian, Parker Selbert, Pete Higgins, Peter Alfvin, Postmodern, René Föhring, Ryo Nakamura, Sam Phippen, Sergey Pchelincev, Steve Richert, Tay Ray Chuan, Thomas Stratmann, Tom Stuart, Travis Herrick, Vipul A M, Xavier Shay, Yoshimi, Yuji Nakayama, thepoho</li>
+</ul>
+
+<h3 id="rspec-expectations">rspec-expectations:</h3>
+
+<ul>
+  <li><strong>Total Commits</strong>: 924</li>
+  <li><strong>Merged pull requests</strong>: 191</li>
+  <li><strong>41 contributors</strong>: Aaron Kromer, Adam Farhi, Adrian Gonzalez, Alexey Pisarenko, Andy Henson, Andy Lindeman, Ben Moss, Ben Orenstein, Bradley Schaefer, Brandon Turner, Claudio B., Damian Galarza, Daniel Fone, Daniel Murphy, David Chelimsky, Eloy Espinaco, Erik Michaels-Ober, Federico Ravasio, Hendy Tanata, Hugo Baraúna, Ivo Wever, Jared Norman, Jeff Wallace, John Voloski, Jon Rowe, Katsuhiko Nishimra, Kenrick Chien, Myron Marston, Nerian, Pedro Gimenez, Pete Higgins, Prathamesh Sonpatki, René Föhring, Reyes Yang, Sam Phippen, Thijs Wouters, Thomas Holmes, Xavier Shay, Yuji Nakayama, lucapette, modocache</li>
+</ul>
+
+<h3 id="rspec-mocks">rspec-mocks:</h3>
+
+<ul>
+  <li><strong>Total Commits</strong>: 1036</li>
+  <li><strong>Merged pull requests</strong>: 249</li>
+  <li><strong>36 contributors</strong>: Aaron Kromer, Adarsh Pandit, Andy Lindeman, Arthur Nogueira Neves, Ashish Dixit, Ben Moss, Bradley Schaefer, Cezar Halmagean, David Chelimsky, Federico Ravasio, Grant Hollingworth, Guilherme Carvalho, Jon Rowe, Jonathan del Strother, Justin Coyne, Marc-Andre Lafortune, Mauricio Linhares, Michael Gee, Michi Huber, Myron Marston, Nick DeLuca, Oren Dobzinski, Paul Annesley, Pete Higgins, René Föhring, Sam Phippen, Stephen Best, Stuart Hicks, Thomas Holmes, Tim Cowlishaw, Tom Ward, Vinicius Horewicz, Xavier Shay, Yuji Nakayama, maxlinc, sanemat</li>
+</ul>
+
+<h3 id="rspec-rails">rspec-rails:</h3>
+
+<ul>
+  <li><strong>Total Commits</strong>: 497</li>
+  <li><strong>Merged pull requests</strong>: 94</li>
+  <li><strong>39 contributors</strong>: Aaron Blew, Aaron Kromer, AbuSabah, Alex Rothenberg, Alex Yaremyuk, Andy Lindeman, Andy Waite, Ben Hamill, Billy, Bradley Schaefer, Brian Fontenot, Christof, Darryl Pogue, David Long, Florian Thomas, Fujimura Daisuke, Giovanni Cappellotto, Jakub Racek, Johannes / universa1, John Firebaugh, John Voloski, Jon Rowe, Lucas Mazza, Matt Sanders, Myron Marston, Olle Jonsson, Paavo Leinonen, Peter Inglesby, Puneet Goyal, René Föhring, Rodrigo Rosenfeld Rosas, Salimane Adjao Moustapha, Sam Phippen, Thomas Drake-Brockman, Thomas Holmes, Tim Watson, Xavier Shay, Yuji Nakayama, vanstee</li>
+</ul>
+
+<h2 id="release-notes">Release Notes</h2>
+
+<p>These are just the changelogs for what's changed since RC1. The full changelogs are available on github:</p>
+
+<ul>
+  <li><a href="https://github.com/rspec/rspec-core/blob/master/Changelog.md">rspec-core</a></li>
+  <li><a href="https://github.com/rspec/rspec-expectations/blob/master/Changelog.md">rspec-expectations</a></li>
+  <li><a href="https://github.com/rspec/rspec-mocks/blob/master/Changelog.md">rspec-mocks</a></li>
+  <li><a href="https://github.com/rspec/rspec-rails/blob/master/Changelog.md">rspec-rails</a></li>
+</ul>
+
+<h3 id="rspec-core-2990">rspec-core 2.99.0</h3>
+
+<p><a href="http://github.com/rspec/rspec-core/compare/v2.99.0.rc1...v2.99.0">Full Changelog</a></p>
+
+<p>Bug Fixes:</p>
+
+<ul>
+  <li>Fix <code>BaseTextFormatter</code> so that it does not re-close a closed output
+stream. (Myron Marston)</li>
+  <li>Use <code>RSpec::Configuration#backtrace_exclusion_patterns</code> rather than the
+deprecated <code>RSpec::Configuration#backtrace_clean_patterns</code> when mocking
+with rr. (David Dollar)</li>
+</ul>
+
+<h3 id="rspec-core-300">rspec-core 3.0.0</h3>
+
+<p><a href="http://github.com/rspec/rspec-core/compare/v3.0.0.rc1...v3.0.0">Full Changelog</a></p>
+
+<p>Bug Fixes:</p>
+
+<ul>
+  <li>Fix <code>BaseTextFormatter</code> so that it does not re-close a closed output
+stream. (Myron Marston)</li>
+  <li>Fix regression in metadata that caused the metadata hash of a top-level
+example group to have a <code>:parent_example_group</code> key even though it has
+no parent example group. (Myron Marston)</li>
+</ul>
+
+<p>Enhancements:</p>
+
+<ul>
+  <li>Alter the default <code>spec_helper.rb</code> to no longer recommend
+<code>config.full_backtrace = true</code> see #1536 for discussion. (Jon Rowe)</li>
+</ul>
+
+<h3 id="rspec-expectations-2990">rspec-expectations 2.99.0</h3>
+
+<p><a href="http://github.com/rspec/rspec-expectations/compare/v2.99.0.rc1...v2.99.0">Full Changelog</a></p>
+
+<p>Enhancements:</p>
+
+<ul>
+  <li>Special case deprecation message for <code>errors_on</code> with <code>rspec-rails</code> to be more useful.
+(Aaron Kromer)</li>
+</ul>
+
+<h3 id="rspec-expectations-300">rspec-expectations 3.0.0</h3>
+
+<p><a href="http://github.com/rspec/rspec-expectations/compare/v3.0.0.rc1...v3.0.0">Full Changelog</a></p>
+
+<p>No code changes. Just taking it out of pre-release.</p>
+
+<h3 id="rspec-mocks-2990">rspec-mocks 2.99.0</h3>
+
+<p><a href="http://github.com/rspec/rspec-mocks/compare/v2.99.0.rc1...v2.99.0">Full Changelog</a></p>
+
+<p>No changes. Just taking it out of pre-release.</p>
+
+<h3 id="rspec-mocks-300">rspec-mocks 3.0.0</h3>
+
+<p><a href="http://github.com/rspec/rspec-mocks/compare/v3.0.0.rc1...v3.0.0">Full Changelog</a></p>
+
+<p>Bug Fixes:</p>
+
+<ul>
+  <li>Fix module prepend detection to work properly on ruby 2.0 for a case
+where a module is extended onto itself. (Myron Marston)</li>
+  <li>Fix <code>transfer_nested_constants</code> option so that transferred constants
+get properly reset at the end of the example. (Myron Marston)</li>
+  <li>Fix <code>config.transfer_nested_constants = true</code> so that you don't
+erroneously get errors when stubbing a constant that is not a module
+or a class. (Myron Marston)</li>
+  <li>Fix regression that caused <code>double(:class =&gt; SomeClass)</code> to later
+trigger infinite recursion. (Myron Marston)</li>
+  <li>Fix bug in <code>have_received(...).with(...).ordered</code> where it was not
+taking the args into account when checking the order. (Myron Marston)</li>
+  <li>Fix bug in <code>have_received(...).ordered</code> where it was wrongly
+considering stubs when checking the order. (Myron Marston)</li>
+  <li>Message expectation matchers now show descriptions from argument
+matchers when their expectations aren't met. (Jon Rowe)</li>
+  <li>Display warning when encountering <code>TypeError</code> during instance method
+staging on 2.0.0-p195, suffers from https://bugs.ruby-lang.org/issues/8686
+too. (Cezar Halmagean).</li>
+</ul>
+
+<h3 id="rspec-rails-2990">rspec-rails 2.99.0</h3>
+
+<p><a href="http://github.com/rspec/rspec-rails/compare/v2.99.0.rc1...v2.99.0">Full Changelog</a></p>
+
+<p>No changes. Just taking it out of pre-release.</p>
+
+<h3 id="rspec-rails-300">rspec-rails 3.0.0</h3>
+
+<p><a href="http://github.com/rspec/rspec-rails/compare/v3.0.0.rc1...v3.0.0">Full Changelog</a></p>
+
+<p>Enhancements:</p>
+
+<ul>
+  <li>Separate RSpec configuration in generated <code>spec_helper</code> from Rails setup
+and associated configuration options. Moving Rails specific settings and
+options to <code>rails_helper</code>. (Aaron Kromer)</li>
+</ul>
+
+<p>Bug Fixes:</p>
+
+<ul>
+  <li>Fix an issue with fixture support when <code>ActiveRecord</code> isn't loaded. (Jon Rowe)</li>
+</ul>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+  var disqus_shortname  = 'myronmarston-personal-site';
+  var disqus_identifier = '/n/dev-blog/2014/06/rspec-2-99-0-and-3-0-0-have-been-released';
+  var disqus_title      = 'RSpec 2.99.0 and 3.0.0 have been released!';
+  var disqus_url        = 'http://myronmars.to/n/dev-blog/2014/06/rspec-2-99-0-and-3-0-0-have-been-released';
+
+  /* * * DON'T EDIT BELOW THIS LINE * * */
+  (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</article></section><script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-59095215-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body></html>

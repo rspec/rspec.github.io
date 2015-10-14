@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"><![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]<!--><html class="no-js" lang="en"><!--<![endif]--><head><meta charset="UTF-8" /><title>RSpec 2.99 and 3.0 betas have been released!</title><link href="/stylesheets/application.css" rel="stylesheet" type="text/css" /><link href="/stylesheets/normalize.css" rel="stylesheet" type="text/css" /><link href="/stylesheets/pages/blog.css" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" type="text/css" /><link href="/blog/feed.xml" rel="alternate" type="application/atom+xml" /></head><body class="blog"><header><nav><h1><a href="/">RSpec</a></h1><ul><li><a href="/about">About</a></li><li><a href="/documentation">Documentation</a></li><li><a href="/blog">Blog</a></li><li><a href="/upgrading-from-rspec-2">Upgrade</a></li><li><a href="/help">Get Help</a></li><li><a href="/contributing">Contributing</a></li></ul></nav></header><section><article class="blog_post"><h1>RSpec 2.99 and 3.0 betas have been released!</h1><h3 class="author">Myron Marston</h3><small class="date">Nov  8, 2013</small><p>The RSpec team has just released RSpec 3.0.0.beta1 – the first RSpec 3 pre-release!
+Along with that, we've released 2.99.0.beta1, which is intended to help with
+the upgrade process.</p>
+
+<p>I'd like to thank all the contributors, and especially the core team
+(<a href="https://twitter.com/alindeman">Andy</a>, <a href="https://twitter.com/soulcutter">Bradley</a>,
+<a href="https://twitter.com/JonRowe">Jon</a>, <a href="https://twitter.com/samphippen">Sam</a> and
+<a href="https://twitter.com/xshay">Xavier</a>) for making this release happen.</p>
+
+<p>I don't have the energy right now to write up a full "What's new in RSpec 3"
+blog post, but we've mostly been making changes according to what
+we <a href="/blog/2013/07/the-plan-for-rspec-3">previously announced for RSpec 3</a>.
+The detailed release notes are below to fill you in on the details for
+these releases. We'll be following up with other blog posts in the
+future discussing the new features in depth.</p>
+
+<h2 id="the-upgrade-process">The Upgrade Process</h2>
+
+<p>RSpec 3 includes many breaking changes, but our hope is to make this
+the smoothest major-version gem upgrade you've ever done. To assist
+with that process, we've been developing RSpec 2.99 in tandem with
+RSpec 3.  Every time we make a breaking change in the master branch
+for 3.0, we've been adding a corresponding deprecation to 2.99.  This
+isn't just for APIs that have been removed; it's also for slight changes
+in edge-case semantics (in order to make RSpec more consistent) that
+some projects may rely on. Rather than just giving you a generic
+upgrade document that describes <em>all</em> of the breaking changes
+(including many that affect very few users!), RSpec 2.99 gives you
+a detailed upgrade checklist.</p>
+
+<p>In addition, <a href="https://twitter.com/nkym37">Yuji Nakayama</a> has been developing
+<a href="https://github.com/yujinakayama/transpec">transpec</a> – an absolutely amazing
+tool that can automatically upgrade most RSpec suites. I've tried it on a
+couple projects and I've been <em>amazed</em> at how well it works.</p>
+
+<p>Here's the general approach I recommend for upgrading a project to RSpec 3:</p>
+
+<ol>
+  <li>Ensure your test suite is already green on whatever RSpec 2.x version
+you're already using.</li>
+  <li>Install RSpec 2.99.0.beta1 (or whatever the latest 2.99 release is
+when you go through this process).</li>
+  <li>Run your test suite and ensure it's still green. (It should be, but
+we may have made a mistake – if it breaks anything, please report
+a bug!). Now would be a good time to commit.</li>
+  <li>You'll notice a bunch of deprecation warnings printed off at the
+end of the spec run. These may be truncated since we don't to
+spam you with the same deprecation warning over and over again. To
+get the full list of deprecations, you can pipe them into a file
+by setting the <code>config.deprecation_stream = 'rspec.log'</code> option.</li>
+  <li>If you want to understand all of what is being deprecated, it's a
+good idea to read through the deprecation messages.  In some cases,
+you have choices – such as continuing to use the <code>have</code> collection
+cardinality matchers via the extracted
+<a href="https://github.com/rspec/rspec-collection_matchers">rspec-collection_matchers</a>
+gem, or by rewriting the expectation expression to something like
+<code>expect(list.size).to eq(3)</code>.</li>
+  <li><code>gem install transpec</code> (Note that this need not go into your
+<code>Gemfile</code>: you run <code>transpec</code> as a standalone executable
+ outside the context of your bundle).</li>
+  <li>Run transpec on your project. Check <code>transpec --help</code> or
+<a href="https://github.com/yujinakayama/transpec#transpec">the README</a>
+for a full list of options.</li>
+  <li>Run the test suite (it should still be green but it's always good to check!)
+and commit.</li>
+  <li>If there are any remaining deprecation warnings (transpec doesn't quite handle
+all of the warnings you may get), deal with them.</li>
+  <li>Once you've got a deprecation-free test suite running against RSpec 2.99,
+you're ready to upgrade to RSpec 3. Install RSpec 3.0.0.beta1
+(or whatever the latest 3.x release is when you go through this process).</li>
+  <li>Run your test suite. It should still be green. If anything fails, please
+open a GitHub issue – we consider it a bug<sup id="fnref:foot_1"><a href="#fn:foot_1" class="footnote">1</a></sup>!</li>
+  <li>Commit and enjoy using the latest RSpec release!</li>
+</ol>
+
+<h2 id="whats-next">What's Next</h2>
+
+<p>While we've made significant progress on RSpec 3, we're not done yet.
+We have more to do. (We haven't gotten to everything we've planned.)
+We take <a href="http://semver.org/">SemVer</a> seriously, and this is the first
+opportunity we've had in years to clean out old cruft, so we want to
+take full advantage of it :). We hope to release an RC in the next
+few months, with a final release shortly after that.</p>
+
+<h2 id="release-notes">Release Notes</h2>
+
+<h3 id="rspec-core-2990beta1">rspec-core 2.99.0.beta1</h3>
+
+<p><a href="http://github.com/rspec/rspec-core/compare/v2.14.7...v2.99.0.beta1">Full Changelog</a></p>
+
+<p>Enhancements:</p>
+
+<ul>
+  <li>Block-based DSL methods that run in the context of an example
+(<code>it</code>, <code>before(:each)</code>, <code>after(:each)</code>, <code>let</code> and <code>subject</code>)
+now yield the example as a block argument. (David Chelimsky)</li>
+  <li>Warn when the name of more than one example group is submitted to
+<code>include_examples</code> and it's aliases. (David Chelimsky)</li>
+  <li>Add <code>expose_current_running_example_as</code> config option for
+use during the upgrade process when external gems use the
+deprecated <code>RSpec::Core::ExampleGroup#example</code> and
+<code>RSpec::Core::ExampleGroup#running_example</code> methods. (Myron Marston)</li>
+  <li>Limit spamminess of deprecation messages. (Bradley Schaefer, Loren Segal)</li>
+  <li>Add <code>config.raise_errors_for_deprecations!</code> option, which turns
+deprecations warnings into errors to surface the full backtrace
+of the call site. (Myron Marston)</li>
+</ul>
+
+<p>Deprecations:</p>
+
+<ul>
+  <li>Deprecate <code>RSpec::Core::ExampleGroup#example</code> and
+<code>RSpec::Core::ExampleGroup#running_example</code> methods. If you need
+access to the example (e.g. to get its metadata), use a block argument
+instead. (David Chelimsky)</li>
+  <li>Deprecate use of <code>autotest/rspec2</code> in favour of <code>rspec-autotest</code>. (Jon Rowe)</li>
+  <li>Deprecate RSpec's built-in debugger support. Use a CLI option like
+<code>-rruby-debug</code> (for the ruby-debug gem) or <code>-rdebugger</code> (for the
+debugger gem) instead. (Myron Marston)</li>
+  <li>Deprecate <code>config.treat_symbols_as_metadata_keys_with_true_values = false</code>.
+RSpec 3 will not support having this option set to <code>false</code>. (Myron Marston)</li>
+  <li>Deprecate accessing a <code>let</code> or <code>subject</code> declaration in
+a <code>after(:all)</code> hook. (Myron Marston, Jon Rowe)</li>
+  <li>Deprecate built-in <code>its</code> usage in favor of <code>rspec-its</code> gem due to planned
+removal in RSpec 3. (Peter Alfvin)</li>
+  <li>Deprecate <code>RSpec::Core::PendingExampleFixedError</code> in favor of
+<code>RSpec::Core::Pending::PendingExampleFixedError</code>. (Myron Marston)</li>
+  <li>Deprecate <code>RSpec::Core::Configuration#out</code> and
+<code>RSpec::Core::Configuration#output</code> in favor of
+<code>RSpec::Core::Configuration#output_stream</code>. (Myron Marston)</li>
+  <li>Each of the following are deprecated in favor of
+<code>register_ordering(:global)</code> (Myron Marston):
+    <ul>
+      <li><code>RSpec::Core::Configuration#order_examples</code></li>
+      <li><code>RSpec::Core::Configuration#order_groups</code></li>
+      <li><code>RSpec::Core::Configuration#order_groups_and_examples</code></li>
+    </ul>
+  </li>
+  <li>These are deprecated with no replacement because in RSpec 3
+ordering is a property of individual example groups rather than
+just a global property of the entire test suite (Myron Marston):
+    <ul>
+      <li><code>RSpec::Core::Configuration#order</code></li>
+      <li><code>RSpec::Core::Configuration#randomize?</code></li>
+      <li><code>--order default</code> is deprecated in favor of <code>--order defined</code></li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="rspec-core-300beta1">rspec-core 3.0.0.beta1</h3>
+
+<p><a href="http://github.com/rspec/rspec-core/compare/v2.99.0.beta1...v3.0.0.beta1">Full Changelog</a></p>
+
+<p>Breaking Changes:</p>
+
+<ul>
+  <li>Remove explicit support for 1.8.6. (Jon Rowe)</li>
+  <li>Remove <code>RSpec::Core::ExampleGroup#example</code> and
+<code>RSpec::Core::ExampleGroup#running_example</code> methods. If you need
+access to the example (e.g. to get its metadata), use a block arg
+instead. (David Chelimsky)</li>
+  <li>Remove <code>TextMateFormatter</code>, it has been moved to <code>rspec-tmbundle</code>.
+(Aaron Kromer)</li>
+  <li>Remove RCov integration. (Jon Rowe)</li>
+  <li>Remove deprecated support for RSpec 1 constructs (Myron Marston):
+    <ul>
+      <li>The <code>Spec</code> and <code>Rspec</code> constants (rather than <code>RSpec</code>).</li>
+      <li><code>Spec::Runner.configure</code> rather than <code>RSpec.configure</code>.</li>
+      <li><code>Rake::SpecTask</code> rather than <code>RSpec::Core::RakeTask</code>.</li>
+    </ul>
+  </li>
+  <li>Remove deprecated support for <code>share_as</code>. (Myron Marston)</li>
+  <li>Remove <code>--debug</code> option (and corresponding option on
+<code>RSpec::Core::Configuration</code>). Instead, use <code>-r&lt;debugger gem name&gt;</code> to
+load whichever debugger gem you wish to use (e.g. <code>ruby-debug</code>,
+<code>debugger</code>, or <code>pry</code>). (Myron Marston)</li>
+  <li>Extract Autotest support to a seperate gem. (Jon Rowe)</li>
+  <li>Raise an error when a <code>let</code> or <code>subject</code> declaration is
+accessed in a <code>before(:all)</code> or <code>after(:all)</code> hook. (Myron Marston)</li>
+  <li>Extract <code>its</code> support to a separate gem. (Peter Alfvin)</li>
+  <li>Disallow use of a shared example group from sibling contexts, making them
+fully isolated. 2.14 and 2.99 allowed this but printed a deprecation warning.
+(Jon Rowe)</li>
+  <li>Remove <code>RSpec::Core::Configuration#output</code> and
+<code>RSpec::Core::Configuration#out</code> aliases of
+<code>RSpec::Core::Configuration#output_stream</code>. (Myron Marston)</li>
+</ul>
+
+<p>Enhancements:</p>
+
+<ul>
+  <li>Replace unmaintained syntax gem with coderay gem. (Xavier Shay)</li>
+  <li>Times in profile output are now bold instead of <code>failure_color</code>.
+(Matthew Boedicker)</li>
+  <li>Add <code>--no-fail-fast</code> command line option. (Gonzalo Rodríguez-Baltanás Díaz)</li>
+  <li>Runner now considers the local system ip address when running under Drb.
+(Adrian CB)</li>
+  <li>JsonFormatter now includes <code>--profile</code> information. (Alex / @MasterLambaster)</li>
+  <li>Always treat symbols passed as metadata args as hash
+keys with true values. RSpec 2 supported this with the
+<code>treat_symbols_as_metadata_keys_with_true_values</code> but
+now this behavior is always enabled. (Myron Marston)</li>
+  <li>Add <code>--dry-run</code> option, which prints the formatter output
+of your suite without running any examples or hooks.
+(Thomas Stratmann, Myron Marston)</li>
+  <li>Document the configuration options and default values in the <code>spec_helper.rb</code>
+file that is generated by RSpec. (Parker Selbert)</li>
+  <li>Give generated example group classes a friendly name derived
+from the docstring, rather than something like "Nested_2".
+(Myron Marston)</li>
+  <li>Avoid affecting randomization of user code when shuffling
+examples so that users can count on their own seeds
+working. (Travis Herrick)</li>
+</ul>
+
+<p>Deprecations:</p>
+
+<ul>
+  <li><code>treat_symbols_as_metadata_keys_with_true_values</code> is deprecated and no
+longer has an affect now that the behavior it enabled is always
+enabled. (Myron Marston)</li>
+</ul>
+
+<h3 id="rspec-mocks-2990beta1">rspec-mocks 2.99.0.beta1</h3>
+
+<p><a href="http://github.com/rspec/rspec-mocks/compare/v2.14.4...v2.99.0.beta1">Full Changelog</a></p>
+
+<p>Deprecations:</p>
+
+<ul>
+  <li>Expecting to use lambdas or other strong arity implementations for stub
+methods with mis-matched arity is deprecated and support for them will be
+removed in 3.0. Either provide the right amount of arguments or use a weak
+arity implementation (methods with splats or procs). (Jon Rowe)</li>
+  <li>Using the same test double instance in multiple examples is deprecated. Test
+doubles are only meant to live for one example. The mocks and stubs have
+always been reset between examples; however, in 2.x the <code>as_null_object</code>
+state was not reset and some users relied on this to have a null object
+double that is used for many examples. This behavior will be removed in 3.0.
+(Myron Marston)</li>
+  <li>Print a detailed warning when an <code>any_instance</code> implementation block is used
+when the new <code>yield_receiver_to_any_instance_implementation_blocks</code> config
+option is not explicitly set, as RSpec 3.0 will default to enabling this new
+feature. (Sam Phippen)</li>
+</ul>
+
+<p>Enhancements:</p>
+
+<ul>
+  <li>Add a config option to yield the receiver to <code>any_instance</code> implementation
+blocks. (Sam Phippen)</li>
+</ul>
+
+<h3 id="rspec-mocks-300beta1">rspec-mocks 3.0.0.beta1</h3>
+<p><a href="http://github.com/rspec/rspec-mocks/compare/v2.99.0.beta1...v3.0.0.beta1">Full Changelog</a></p>
+
+<p>Breaking Changes:</p>
+
+<ul>
+  <li>Raise an explicit error if <code>should_not_receive(...).and_return</code> is used. (Sam
+Phippen)</li>
+  <li>Remove 1.8.6 workarounds. (Jon Rowe)</li>
+  <li>Remove <code>stub!</code> and <code>unstub!</code>. (Sam Phippen)</li>
+  <li>Remove <code>mock(name, methods)</code> and <code>stub(name, methods)</code>, leaving
+<code>double(name, methods)</code> for creating test doubles. (Sam Phippen, Michi Huber)</li>
+  <li>Remove <code>any_number_of_times</code> since <code>should_receive(:msg).any_number_of_times</code>
+is really a stub in a mock's clothing. (Sam Phippen)</li>
+  <li>Remove support for re-using the same null-object test double in multiple
+examples.  Test doubles are designed to only live for one example.
+(Myron Marston)</li>
+  <li>Make <code>at_least(0)</code> raise an error. (Sam Phippen)</li>
+  <li>Remove support for <code>require 'spec/mocks'</code> which had been kept
+in place for backwards compatibility with RSpec 1. (Myron Marston)</li>
+  <li>Blocks provided to <code>with</code> are always used as implementation. (Xavier Shay)</li>
+  <li>The config option (added in 2.99) to yield the receiver to
+<code>any_instance</code> implementation blocks now defaults to "on". (Sam Phippen)</li>
+</ul>
+
+<p>Enhancements:</p>
+
+<ul>
+  <li>Allow the <code>have_received</code> matcher to use a block to set further expectations
+on arguments. (Tim Cowlishaw)</li>
+  <li>Provide <code>instance_double</code> and <code>class_double</code> to create verifying doubles,
+ported from <code>rspec-fire</code>. (Xavier Shay)</li>
+  <li><code>as_null_object</code> on a verifying double only responds to defined methods.
+(Xavier Shay)</li>
+  <li>Provide <code>object_double</code> to create verified doubles of specific object
+instances. (Xavier Shay)</li>
+  <li>Provide <code>verify_partial_doubles</code> configuration that provides <code>object_double</code>
+like verification behaviour on partial mocks. (Xavier Shay)</li>
+  <li>Improved performance of double creation, particularly those with many
+attributes. (Xavier Shay)</li>
+  <li>Default value of <code>transfer_nested_constants</code> option for constant stubbing can
+be configured. (Xavier Shay)</li>
+  <li>Messages can be allowed or expected on in bulk via
+<code>receive_messages(:message =&gt; :value)</code>. (Jon Rowe)</li>
+  <li><code>allow(Klass.any_instance)</code> and <code>expect(Klass.any_instance)</code> now print a
+warning. This is usually a mistake, and users usually want
+<code>allow_any_instance_of</code> or <code>expect_any_instance_of</code> instead. (Sam Phippen)</li>
+  <li><code>instance_double</code> and <code>class_double</code> raise <code>ArgumentError</code> if the underlying
+module is loaded and the arity of the method being invoked does not match the
+arity of the method as it is actually implemented. (Andy Lindeman)</li>
+  <li>Spies can now check their invocation ordering is correct. (Jon Rowe)</li>
+</ul>
+
+<p>Deprecations:</p>
+
+<ul>
+  <li>Using the old <code>:should</code> syntax without explicitly configuring it
+is deprecated. It will continue to work but will emit a deprecation
+warning in RSpec 3 if you do not explicitly enable it. (Sam Phippen)</li>
+</ul>
+
+<p>Bug Fixes:</p>
+
+<ul>
+  <li>Fix <code>and_call_original</code> to handle a complex edge case involving
+singleton class ancestors. (Marc-André Lafortune, Myron Marston)</li>
+  <li>When generating an error message for unexpected arguments,
+use <code>#inspect</code> rather than <code>#description</code> if <code>#description</code>
+returns <code>nil</code> or <code>''</code> so that you still get a useful message.
+(Nick DeLuca)</li>
+</ul>
+
+<h3 id="rspec-expectations-2990beta1">rspec-expectations 2.99.0.beta1</h3>
+
+<p><a href="http://github.com/rspec/rspec-expectations/compare/v2.14.4...v2.99.0.beta1">Full Changelog</a></p>
+
+<p>Deprecations:</p>
+
+<ul>
+  <li>Deprecate <code>have</code>, <code>have_at_least</code> and <code>have_at_most</code>. You can continue using those
+matchers through https://github.com/rspec/rspec-collection_matchers, or
+you can rewrite your expectations with something like
+<code>expect(your_object.size).to eq(num)</code>. (Hugo Baraúna)</li>
+  <li>Deprecate <code>be_xyz</code> predicate matcher when <code>xyz?</code> is a private method.
+(Jon Rowe)</li>
+  <li>Deprecate <code>be_true</code>/<code>be_false</code> in favour of <code>be_truthy</code>/<code>be_falsey</code>
+(for Ruby's conditional semantics) or <code>be true</code>/<code>be false</code>
+(for exact equality). (Sam Phippen)</li>
+  <li>Deprecate calling helper methods from a custom matcher with the wrong
+scope. (Myron Marston)
+    <ul>
+      <li><code>def self.foo</code> / <code>extend Helper</code> can be used to add macro methods
+(e.g. methods that call the custom matcher DSL methods), but should
+not be used to define helper methods called from within the DSL
+blocks.</li>
+      <li><code>def foo</code> / <code>include Helper</code> is the opposite: it's for helper methods
+callable from within a DSL block, but not for defining macros.</li>
+      <li>RSpec 2.x allowed helper methods defined either way to be used for
+either purpose, but RSpec 3.0 will not.</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="rspec-expectations-300beta1">rspec-expectations 3.0.0.beta1</h3>
+
+<p><a href="http://github.com/rspec/rspec-expectations/compare/v2.99.0.beta1...v3.0.0.beta1">Full Changelog</a></p>
+
+<p>Breaking Changes:</p>
+
+<ul>
+  <li>Remove explicit support for 1.8.6. (Jon Rowe)</li>
+  <li>Remove the deprecated <code>be_close</code> matcher, preferring <code>be_within</code> instead.
+(Sam Phippen)</li>
+  <li>Rename <code>be_true</code> and <code>be_false</code> to <code>be_truthy</code> and <code>be_falsey</code>. (Sam Phippen)</li>
+  <li>Make <code>expect { }.to_not raise_error(SomeSpecificClass, message)</code>,
+     <code>expect { }.to_not raise_error(SomeSpecificClass)</code> and
+     <code>expect { }.to_not raise_error(message)</code> invalid, since they are prone
+to hiding failures. Instead, use <code>expect { }.to_not raise_error</code> (with no
+args). (Sam Phippen)</li>
+  <li>Within <code>RSpec::Matchers.define</code> blocks, helper methods made available
+either via <code>def self.helper</code> or <code>extend HelperModule</code> are no longer
+available to the <code>match</code> block (or any of the others). Instead
+<code>include</code> your helper module and define the helper method as an
+instance method. (Myron Marston)</li>
+</ul>
+
+<p>Enhancements:</p>
+
+<ul>
+  <li>Support <code>do..end</code> style block with <code>raise_error</code> matcher. (Yuji Nakayama)</li>
+  <li>Rewrote custom matcher DSL to simplify its implementation and solve a
+few issues. (Myron Marston)</li>
+  <li>Allow early <code>return</code> from within custom matcher DSL blocks. (Myron
+Marston)</li>
+  <li>The custom matcher DSL's <code>chain</code> can now accept a block. (Myron
+Marston)</li>
+  <li>Support setting an expectation on a <code>raise_error</code> matcher via a chained
+<code>with_message</code> method call. (Sam Phippen)</li>
+</ul>
+
+<p>Bug Fixes:</p>
+
+<ul>
+  <li>Allow <code>include</code> and <code>match</code> matchers to be used from within a
+DSL-defined custom matcher's <code>match</code> block. (Myron Marston)</li>
+</ul>
+
+<p>Deprecations:</p>
+
+<ul>
+  <li>Using the old <code>:should</code> syntax without explicitly configuring it is deprecated.
+It will continue to work but will emit a deprecation warning in RSpec 3 if
+you do not explicitly enable it. (Sam Phippen)</li>
+</ul>
+
+<h3 id="rspec-rails-2990beta1">rspec-rails 2.99.0.beta1</h3>
+
+<p><a href="http://github.com/rspec/rspec-rails/compare/v2.14.0...v2.99.0.beta1">Full Changelog</a></p>
+
+<p>Deprecations:</p>
+
+<ul>
+  <li>Deprecates autotest integration in favor of the <code>rspec-autotest</code> gem. (Andy
+Lindeman)</li>
+</ul>
+
+<p>Enhancements:</p>
+
+<ul>
+  <li>Supports Rails 4.1 and Minitest 5. (Patrick Van Stee)</li>
+</ul>
+
+<p>Bug Fixes:</p>
+
+<ul>
+  <li>Fixes "warning: instance variable @orig_routes not initialized" raised by
+controller specs when <code>--warnings</code> are enabled. (Andy Lindeman)</li>
+  <li>Where possible, check against the version of ActiveRecord, rather than
+Rails. It is possible to use some of rspec-rails without all of Rails.
+(Darryl Pogue)</li>
+  <li>Explicitly depends on <code>activemodel</code>. This allows libraries that do not bring
+in all of <code>rails</code> to use <code>rspec-rails</code>. (John Firebaugh)</li>
+</ul>
+
+<h3 id="rspec-rails-300beta1">rspec-rails 3.0.0.beta1</h3>
+
+<p><a href="http://github.com/rspec/rspec-rails/compare/v2.99.0.beta1...v3.0.0.beta1">Full Changelog</a></p>
+
+<p>Breaking Changes:</p>
+
+<ul>
+  <li>Extracts <code>autotest</code> and <code>autotest-rails</code> support to <code>rspec-autotest</code> gem.
+(Andy Lindeman)</li>
+</ul>
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:foot_1">
+      <p>There is one caveat to that, though: we only consider it a bug to the extent that your test suite uses the RSpec APIs as they are documented. The dynamic nature of Ruby makes it possible to use RSpec in ways that we can't support. <a href="#fnref:foot_1" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+  var disqus_shortname  = 'myronmarston-personal-site';
+  var disqus_identifier = '/n/dev-blog/2013/11/rspec-2-99-and-3-0-betas-have-been-released';
+  var disqus_title      = 'RSpec 2.99 and 3.0 betas have been released!';
+  var disqus_url        = 'http://myronmars.to/n/dev-blog/2013/11/rspec-2-99-and-3-0-betas-have-been-released';
+
+  /* * * DON'T EDIT BELOW THIS LINE * * */
+  (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</article></section><script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-59095215-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body></html>

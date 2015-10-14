@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"><![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]<!--><html class="no-js" lang="en"><!--<![endif]--><head><meta charset="UTF-8" /><title>RSpec 2.14 is released!</title><link href="/stylesheets/application.css" rel="stylesheet" type="text/css" /><link href="/stylesheets/normalize.css" rel="stylesheet" type="text/css" /><link href="/stylesheets/pages/blog.css" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" type="text/css" /><link href="/blog/feed.xml" rel="alternate" type="application/atom+xml" /></head><body class="blog"><header><nav><h1><a href="/">RSpec</a></h1><ul><li><a href="/about">About</a></li><li><a href="/documentation">Documentation</a></li><li><a href="/blog">Blog</a></li><li><a href="/upgrading-from-rspec-2">Upgrade</a></li><li><a href="/help">Get Help</a></li><li><a href="/contributing">Contributing</a></li></ul></nav></header><section><article class="blog_post"><h1>RSpec 2.14 is released!</h1><h3 class="author">Myron Marston</h3><small class="date">Jul  8, 2013</small><p>We've just released RSpec 2.14. It will be the last 2.x feature release
+and is a recommended upgrade for all users. We're getting started on
+RSpec 3.  I'll be blogging about our plans for RSpec 3 next week, so
+check back soon :).</p>
+
+<p>Thanks to all the contributors who helped make this RSpec release happen.</p>
+
+<h2 id="notable-new-features">Notable New Features</h2>
+
+<h3 id="core-profiler-now-profiles-example-groups-too">Core: Profiler now profiles example groups, too</h3>
+
+<p>RSpec has long had the <code>--profile</code> option for dumping the top N
+slowest examples at the end. In RSpec 2.14, this has been enhanced
+so that it prints the groups with the largest mean example time.
+For example, here's the output from using <code>--profile 5</code> on rspec-core's
+suite:</p>
+
+<pre class="highlight plaintext"><code>Top 5 slowest examples (0.38945 seconds, 10.8% of total time):
+  RSpec::Core::Formatters::TextMateFormatter produces HTML identical to the one we designed manually
+    0.10471 seconds ./spec/rspec/core/formatters/text_mate_formatter_spec.rb:64
+  ::DRbCommandLine --drb-port without RSPEC_DRB environment variable set sets the DRb port
+    0.07461 seconds ./spec/rspec/core/drb_command_line_spec.rb:39
+  RSpec::Core::Runner#run with --drb or -X and a DRb server is running builds a DRbCommandLine and runs the specs
+    0.0744 seconds ./spec/rspec/core/runner_spec.rb:47
+  command line when a custom order is configured orders the groups and examples by the provided strategy
+    0.06924 seconds ./spec/command_line/order_spec.rb:169
+  RSpec::Core::ConfigurationOptions#configure sends pattern before files_or_directories_to_run
+    0.06649 seconds ./spec/rspec/core/configuration_options_spec.rb:48
+
+Top 5 slowest example groups:
+  RSpec::Core::Formatters::HtmlFormatter
+    0.05861 seconds average (0.05861 seconds / 1 example) ./spec/rspec/core/formatters/html_formatter_spec.rb:9
+  RSpec::Core::Formatters::TextMateFormatter
+    0.05713 seconds average (0.1714 seconds / 3 examples) ./spec/rspec/core/formatters/text_mate_formatter_spec.rb:9
+  command line
+    0.05218 seconds average (0.31307 seconds / 6 examples) ./spec/command_line/order_spec.rb:3
+  ::DRbCommandLine
+    0.02016 seconds average (0.16127 seconds / 8 examples) ./spec/rspec/core/drb_command_line_spec.rb:4
+  RSpec::Core::Runner
+    0.01822 seconds average (0.10931 seconds / 6 examples) ./spec/rspec/core/runner_spec.rb:5
+</code></pre>
+
+<h3 id="core-new---warnings-flag-to-enable-rubys-warning-mode">Core: New <code>--warnings</code> flag to enable Ruby's warning mode</h3>
+
+<p>You can now pass the <code>--warnings</code> or <code>-w</code> flag to enable ruby's warning
+mode.</p>
+
+<h3 id="core-shared-example-groups-are-scoped-to-the-context-they-are-defined-in">Core: Shared example groups are scoped to the context they are defined in</h3>
+
+<p>Before 2.14, shared example groups were stored in a global hash, could
+be defined in any context, and could be used from any context. In 2.14,
+this has changed: shared example groups are now scoped to the context
+they are defined in. That means you can now do this:</p>
+
+<pre class="highlight ruby"><code><span class="n">describe</span> <span class="no">MySinatraApp1</span> <span class="k">do</span>
+  <span class="n">shared_examples_for</span> <span class="s2">"error handling"</span> <span class="k">do</span>
+    <span class="c1"># some examples would go here</span>
+  <span class="k">end</span>
+
+  <span class="n">context</span> <span class="s1">'GET to /foo'</span> <span class="k">do</span>
+    <span class="n">include_examples</span> <span class="s2">"error handling"</span>
+  <span class="k">end</span>
+
+  <span class="n">context</span> <span class="s1">'GET to /bar'</span> <span class="k">do</span>
+    <span class="n">include_examples</span> <span class="s2">"error handling"</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+
+<pre class="highlight ruby"><code><span class="n">describe</span> <span class="no">MySinatraApp2</span> <span class="k">do</span>
+  <span class="n">shared_examples_for</span> <span class="s2">"error handling"</span> <span class="k">do</span>
+    <span class="c1"># some different examples would go here</span>
+  <span class="k">end</span>
+
+  <span class="n">context</span> <span class="s1">'GET to /foo'</span> <span class="k">do</span>
+    <span class="n">include_examples</span> <span class="s2">"error handling"</span>
+  <span class="k">end</span>
+
+  <span class="n">context</span> <span class="s1">'GET to /bar'</span> <span class="k">do</span>
+    <span class="n">include_examples</span> <span class="s2">"error handling"</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+
+<p>Here there are two different <code>"error handling"</code> shared example
+groups, each scoped to (and used from) a different example group.
+As demonstrated here, shared example groups are available from
+the context they are defined in or from any nested context.
+In 2.14, shared example groups declared in sibling contexts
+are still available to maintain backwards compatibility,
+but will print a deprecation warning. In 3.0, you will not
+be able to use a shared example group that was defined in
+a sibling context.</p>
+
+<h3 id="core-deprecation-output-now-configurable">Core: Deprecation output now configurable</h3>
+
+<p>RSpec 2.14 has deprecated a number of things in preparation for
+removal in 3.0. To help reduce the noisiness of the increased
+number of deprecations, there's a new option that can direct
+deprecation warnings to a file:</p>
+
+<pre class="highlight ruby"><code><span class="c1"># spec_helper.rb</span>
+<span class="no">RSpec</span><span class="p">.</span><span class="nf">configure</span> <span class="k">do</span> <span class="o">|</span><span class="n">rspec</span><span class="o">|</span>
+  <span class="n">rspec</span><span class="p">.</span><span class="nf">deprecation_stream</span> <span class="o">=</span> <span class="s1">'log/deprecations.log'</span>
+  <span class="c1"># or</span>
+  <span class="n">rspec</span><span class="p">.</span><span class="nf">deprecation_stream</span> <span class="o">=</span> <span class="no">File</span><span class="p">.</span><span class="nf">open</span><span class="p">(</span><span class="s2">"/path/to/file"</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">)</span>
+<span class="k">end</span>
+</code></pre>
+
+<p>Normally, deprecation warnings get printed to <code>stderr</code>. When
+you configure this, it'll send deprecation warnings to the
+configured file instead, and at the end of the spec run
+it will print out a message like:</p>
+
+<pre class="highlight plaintext"><code>2 deprecations logged to log/deprecations.log
+</code></pre>
+
+<h3 id="mocks-new-message-expectation-syntax">Mocks: New message expectation syntax</h3>
+
+<p>In RSpec 2.11, we added a <a href="/blog/2012/06/rspecs-new-expectation-syntax">new syntax to
+rspec-expectations</a>
+that removes a reliance on monkey-patching, avoiding certain
+kinds of problems related to proxy objects. In RSpec 2.14,
+we've extended that same syntax to rspec-mocks:</p>
+
+<pre class="highlight ruby"><code><span class="n">mailer</span> <span class="o">=</span> <span class="n">double</span><span class="p">(</span><span class="s2">"Mailer"</span><span class="p">)</span>
+
+<span class="c1"># old syntax:</span>
+<span class="n">mailer</span><span class="p">.</span><span class="nf">stub</span><span class="p">(</span><span class="ss">:deliver_welcome_email</span><span class="p">)</span>
+<span class="n">mailer</span><span class="p">.</span><span class="nf">should_receive</span><span class="p">(</span><span class="ss">:deliver_welcome_email</span><span class="p">).</span><span class="nf">with</span><span class="p">(</span><span class="n">an_instance_of</span><span class="p">(</span><span class="no">User</span><span class="p">))</span>
+
+<span class="c1"># new syntax</span>
+<span class="n">allow</span><span class="p">(</span><span class="n">mailer</span><span class="p">).</span><span class="nf">to</span> <span class="n">receive</span><span class="p">(</span><span class="ss">:deliver_welcome_email</span><span class="p">)</span>
+<span class="n">expect</span><span class="p">(</span><span class="n">mailer</span><span class="p">).</span><span class="nf">to</span> <span class="n">receive</span><span class="p">(</span><span class="ss">:deliver_welcome_email</span><span class="p">).</span><span class="nf">with</span><span class="p">(</span><span class="n">an_instance_of</span><span class="p">(</span><span class="no">User</span><span class="p">))</span>
+</code></pre>
+
+<p>For more details, read Sam Phippen's <a href="http://teaisaweso.me/blog/2013/05/27/rspecs-new-message-expectation-syntax/">announcement blog
+post</a>
+from the 2.14.0.rc1 release.</p>
+
+<h3 id="mocks-spies">Mocks: Spies</h3>
+
+<p>Joe Ferris from Thoughtbot implemented this new feature. Traditionally,
+rspec-mocks has required that you set a message expectation before
+the message is received:</p>
+
+<pre class="highlight ruby"><code><span class="n">mailer</span> <span class="o">=</span> <span class="n">double</span><span class="p">(</span><span class="s2">"Mailer"</span><span class="p">)</span>
+<span class="n">expect</span><span class="p">(</span><span class="n">mailer</span><span class="p">).</span><span class="nf">to</span> <span class="n">receive</span><span class="p">(</span><span class="ss">:deliver_welcome_email</span><span class="p">).</span><span class="nf">with</span><span class="p">(</span><span class="n">an_instance_of</span><span class="p">(</span><span class="no">User</span><span class="p">))</span>
+<span class="no">UserCreationService</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">mailer</span><span class="p">).</span><span class="nf">create_user</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+</code></pre>
+
+<p>In some situations, this ordering feels backwards (particularly if you
+try to organize your tests using an arrange/act/assert pattern). Spies
+allow you to assert that a message was received after the fact:</p>
+
+<pre class="highlight ruby"><code><span class="n">mailer</span> <span class="o">=</span> <span class="n">double</span><span class="p">(</span><span class="s2">"Mailer"</span><span class="p">,</span> <span class="ss">deliver_welcome_email: </span><span class="kp">nil</span><span class="p">)</span>
+<span class="no">UserCreationService</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">mailer</span><span class="p">).</span><span class="nf">create_user</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+<span class="n">expect</span><span class="p">(</span><span class="n">mailer</span><span class="p">).</span><span class="nf">to</span> <span class="n">have_received</span><span class="p">(</span><span class="ss">:deliver_welcome_email</span><span class="p">).</span><span class="nf">with</span><span class="p">(</span><span class="n">an_instance_of</span><span class="p">(</span><span class="no">User</span><span class="p">))</span>
+</code></pre>
+
+<p>Note that you first have to stub the message you will later expect
+so that rspec-mocks can spy on it. (There's no feasible performant
+way for rspec-mocks to automatically spy on all method calls).
+Alternately, you can create your test double as a null object,
+(using <code>double().as_null_object</code>) which has the effect of
+auto-spying on all messages sent to that object:</p>
+
+<pre class="highlight ruby"><code><span class="n">mailer</span> <span class="o">=</span> <span class="n">double</span><span class="p">(</span><span class="s2">"Mailer"</span><span class="p">).</span><span class="nf">as_null_object</span>
+<span class="no">UserCreationService</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">mailer</span><span class="p">).</span><span class="nf">create_user</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+<span class="n">expect</span><span class="p">(</span><span class="n">mailer</span><span class="p">).</span><span class="nf">to</span> <span class="n">have_received</span><span class="p">(</span><span class="ss">:deliver_welcome_email</span><span class="p">).</span><span class="nf">with</span><span class="p">(</span><span class="n">an_instance_of</span><span class="p">(</span><span class="no">User</span><span class="p">))</span>
+</code></pre>
+
+<h2 id="docs">Docs</h2>
+
+<h3 id="rdoc">RDoc</h3>
+
+<ul>
+  <li><a href="http://rubydoc.info/gems/rspec-core">http://rubydoc.info/gems/rspec-core</a></li>
+  <li><a href="http://rubydoc.info/gems/rspec-expectations">http://rubydoc.info/gems/rspec-expectations</a></li>
+  <li><a href="http://rubydoc.info/gems/rspec-mocks">http://rubydoc.info/gems/rspec-mocks</a></li>
+  <li><a href="http://rubydoc.info/gems/rspec-rails">http://rubydoc.info/gems/rspec-rails</a></li>
+</ul>
+
+<h3 id="cucumber-features">Cucumber Features</h3>
+
+<ul>
+  <li><a href="http://relishapp.com/rspec/rspec-core">http://relishapp.com/rspec/rspec-core</a></li>
+  <li><a href="http://relishapp.com/rspec/rspec-expectations">http://relishapp.com/rspec/rspec-expectations</a></li>
+  <li><a href="http://relishapp.com/rspec/rspec-mocks">http://relishapp.com/rspec/rspec-mocks</a></li>
+  <li><a href="http://relishapp.com/rspec/rspec-rails">http://relishapp.com/rspec/rspec-rails</a></li>
+</ul>
+
+<h2 id="release-notes">Release Notes</h2>
+
+<h3 id="rspec-core-2140">rspec-core 2.14.0</h3>
+
+<p><a href="http://github.com/rspec/rspec-core/compare/v2.13.0...v2.14.0">Full Changelog</a></p>
+
+<p>Enhancements:</p>
+
+<ul>
+  <li>Improved Windows detection inside Git Bash, for better <code>--color</code> handling.</li>
+  <li>Add profiling of the slowest example groups to <code>--profile</code> option.
+The output is sorted by the slowest average example groups.</li>
+  <li>Don't show slow examples if there's a failure and both <code>--fail-fast</code>
+and <code>--profile</code> options are used (Paweł Gościcki).</li>
+  <li>Rather than always adding <code>spec</code> to the load path, add the configured
+<code>--default-path</code> to the load path (which defaults to <code>spec</code>). This
+better supports folks who choose to put their specs in a different
+directory (John Feminella).</li>
+  <li>Add some logic to test time duration precision. Make it a
+function of time, dropping precision as the time increases. (Aaron Kromer)</li>
+  <li>Add new <code>backtrace_inclusion_patterns</code> config option. Backtrace lines
+that match one of these patterns will <em>always</em> be included in the
+backtrace, even if they match an exclusion pattern, too (Sam Phippen).</li>
+  <li>Support ERB trim mode using the <code>-</code> when parsing <code>.rspec</code> as ERB
+(Gabor Garami).</li>
+  <li>Give a better error message when let and subject are called without a block.
+(Sam Phippen).</li>
+  <li>List the precedence of <code>.rspec-local</code> in the configuration documentation
+(Sam Phippen)</li>
+  <li>Support <code>{a,b}</code> shell expansion syntax in <code>--pattern</code> option
+(Konstantin Haase).</li>
+  <li>Add cucumber documentation for –require command line option
+(Bradley Schaefer)</li>
+  <li>Expose configruation options via config:
+    <ul>
+      <li><code>config.libs</code> returns the libs configured to be added onto the load path</li>
+      <li><code>full_backtrace?</code> returns the state of the backtrace cleaner</li>
+      <li><code>debug?</code> returns true when the debugger is loaded</li>
+      <li><code>line_numbers</code> returns the line numbers we are filtering by (if any)</li>
+      <li><code>full_description</code> returns the RegExp used to filter descriptions
+(Jon Rowe)</li>
+    </ul>
+  </li>
+  <li>Add setters for RSpec.world and RSpec.configuration (Alex Soulim)</li>
+  <li>Configure ruby's warning behaviour with <code>--warnings</code> (Jon Rowe)</li>
+  <li>Fix an obscure issue on old versions of <code>1.8.7</code> where <code>Time.dup</code> wouldn't
+allow access to <code>Time.now</code> (Jon Rowe)</li>
+  <li>Make <code>shared_examples_for</code> context aware, so that keys may be safely reused
+in multiple contexts without colliding. (Jon Rowe)</li>
+  <li>Add a configurable <code>deprecation_stream</code> (Jon Rowe)</li>
+  <li>Publish deprecations through a formatter (David Chelimsky)</li>
+  <li>Apply focus to examples defined with <code>fit</code> (equivalent of
+<code>it "description", focus: true</code>) (Michael de Silva)</li>
+</ul>
+
+<p>Bug fixes:</p>
+
+<ul>
+  <li>Make JSON formatter behave the same when it comes to <code>--profile</code> as
+the text formatter (Paweł Gościcki).</li>
+  <li>Fix named subjects so that if an inner group defines a method that
+overrides the named method, <code>subject</code> still retains the originally
+declared value (Myron Marston).</li>
+  <li>Fix random ordering so that it does not cause <code>rand</code> in examples in
+nested sibling contexts to return the same value (Max Shytikov).</li>
+  <li>Use the new <code>backtrace_inclusion_patterns</code> config option to ensure
+that folks who develop code in a directory matching one of the default
+exclusion patterns (e.g. <code>gems</code>) still get the normal backtrace
+filtering (Sam Phippen).</li>
+  <li>Fix ordering of <code>before</code> hooks so that <code>before</code> hooks declared in
+<code>RSpec.configure</code> run before <code>before</code> hooks declared in a shared
+context (Michi Huber and Tejas Dinkar).</li>
+  <li>Fix <code>Example#full_description</code> so that it gets filled in by the last
+matcher description (as <code>Example#description</code> already did) when no
+doc string has been provided (David Chelimsky).</li>
+  <li>Fix the memoized methods (<code>let</code> and <code>subject</code>) leaking <code>define_method</code>
+as a <code>public</code> method. (Thomas Holmes and Jon Rowe) (#873)</li>
+  <li>Fix warnings coming from the test suite. (Pete Higgins)</li>
+  <li>Ensure methods defined by <code>let</code> take precedence over others
+when there is a name collision (e.g. from an included module).
+(Jon Rowe, Andy Lindeman and Myron Marston)</li>
+</ul>
+
+<p>Deprecations</p>
+
+<ul>
+  <li>Deprecate <code>Configuration#backtrace_clean_patterns</code> in favor of
+<code>Configuration#backtrace_exclusion_patterns</code> for greater consistency
+and symmetry with new <code>backtrace_inclusion_patterns</code> config option
+(Sam Phippen).</li>
+  <li>Deprecate <code>Configuration#requires=</code> in favor of using ruby's
+<code>require</code>. Requires specified by the command line can still be
+accessed by the <code>Configuration#require</code> reader. (Bradley Schaefer)</li>
+  <li>Deprecate calling <code>SharedExampleGroups</code> defined across sibling contexts
+(Jon Rowe)</li>
+</ul>
+
+<h3 id="rspec-expectations-2140">rspec-expectations 2.14.0</h3>
+
+<p><a href="http://github.com/rspec/rspec-expectations/compare/v2.13.0...v2.14.0">Full Changelog</a></p>
+
+<p>Enhancements:</p>
+
+<ul>
+  <li>Enhance <code>yield_control</code> so that you can specify an exact or relative
+number of times: <code>expect { }.to yield_control.exactly(3).times</code>,
+<code>expect { }.to yield_control.at_least(2).times</code>, etc (Bartek
+Borkowski).</li>
+  <li>Make the differ that is used when an expectation fails better handle arrays
+by splitting each element of the array onto its own line. (Sam Phippen)</li>
+  <li>Accept duck-typed strings that respond to <code>:to_str</code> as expectation messages.
+(Toby Ovod-Everett)</li>
+</ul>
+
+<p>Bug fixes:</p>
+
+<ul>
+  <li>Fix differ to not raise errors when dealing with differently-encoded
+strings (Jon Rowe).</li>
+  <li>Fix <code>expect(something).to be_within(x).percent_of(y)</code> where x and y are both
+integers (Sam Phippen).</li>
+  <li>Fix <code>have</code> matcher to handle the fact that on ruby 2.0,
+<code>Enumerator#size</code> may return nil (Kenta Murata).</li>
+  <li>Fix <code>expect { raise s }.to raise_error(s)</code> where s is an error instance
+on ruby 2.0 (Sam Phippen).</li>
+  <li>Fix <code>expect(object).to raise_error</code> passing. This now warns the user and
+fails the spec (tomykaira).</li>
+  <li>Values that are not matchers use <code>#inspect</code>, rather than <code>#description</code> for
+documentation output (Andy Lindeman, Sam Phippen).</li>
+  <li>Make <code>expect(a).to be_within(x).percent_of(y)</code> work with negative y
+(Katsuhiko Nishimra).</li>
+  <li>Make the <code>be_predicate</code> matcher work as expected used with <code>expect{...}.to
+change...</code>  (Sam Phippen).</li>
+</ul>
+
+<p>Deprecations</p>
+
+<ul>
+  <li>Deprecate <code>expect { }.not_to raise_error(SpecificErrorClass)</code> or
+<code>expect { }.not_to raise_error("some specific message")</code>. Using
+these was prone to hiding failures as they would allow <em>any other
+error</em> to pass. (Sam Phippen and David Chelimsky)</li>
+</ul>
+
+<h3 id="rspec-mocks-2140">rspec-mocks 2.14.0</h3>
+
+<p><a href="http://github.com/rspec/rspec-mocks/compare/v2.13.0...v2.14.0">Full Changelog</a></p>
+
+<p>Enhancements:</p>
+
+<ul>
+  <li>Refactor internals so that the mock proxy methods and state are held
+outside of the mocked object rather than inside it. This paves the way
+for future syntax enhancements and removes the need for some hacky
+work arounds for <code>any_instance</code> dup'ing and <code>YAML</code> serialization,
+among other things. Note that the code now relies upon <code>__id__</code>
+returning a unique, consistent value for any object you want to
+mock or stub (Myron Marston).</li>
+  <li>Add support for test spies. This allows you to verify a message
+was received afterwards using the <code>have_received</code> matcher.
+Note that you must first stub the method or use a null double.
+(Joe Ferris and Joël Quenneville)</li>
+  <li>Make <code>at_least</code> and <code>at_most</code> style receive expectations print that they were
+expecting at least or at most some number of calls, rather than just the
+number of calls given in the expectation (Sam Phippen)</li>
+  <li>Make <code>with</code> style receive expectations print the args they were expecting, and
+the args that they got (Sam Phippen)</li>
+  <li>Fix some warnings seen under ruby 2.0.0p0 (Sam Phippen).</li>
+  <li>Add a new <code>:expect</code> syntax for message expectations
+(Myron Marston and Sam Phippen).</li>
+  <li>Document test spies in the readme. (Adarsh Pandit)</li>
+  <li>Add an <code>array_including</code> matcher. (Sam Phippen)</li>
+  <li>Add a syntax-agnostic API for mocking or stubbing a method. This is
+intended for use by libraries such as rspec-rails that need to mock
+or stub a method, and work regardless of the syntax the user has
+configured (Paul Annesley, Myron Marston and Sam Phippen).</li>
+</ul>
+
+<p>Bug Fixes:</p>
+
+<ul>
+  <li>Fix <code>any_instance</code> so that a frozen object can be <code>dup</code>'d when methods
+have been stubbed on that type using <code>any_instance</code> (Jon Rowe).</li>
+  <li>Fix <code>and_call_original</code> so that it properly raises an <code>ArgumentError</code>
+when the wrong number of args are passed (Jon Rowe).</li>
+  <li>Fix <code>double</code> on 1.9.2 so you can wrap them in an Array
+using <code>Array(my_double)</code> (Jon Rowe).</li>
+  <li>Fix <code>stub_const</code> and <code>hide_const</code> to handle constants that redefine <code>send</code>
+(Sam Phippen).</li>
+  <li>Fix <code>Marshal.dump</code> extension so that it correctly handles nil.
+(Luke Imhoff, Jon Rowe)</li>
+  <li>Fix isolation of <code>allow_message_expectations_on_nil</code> (Jon Rowe)</li>
+  <li>Use inspect to format actual arguments on expectations in failure messages (#280, Ben Langfeld)</li>
+  <li>Protect against improperly initialised test doubles (#293) (Joseph Shraibman and Jon Rowe)</li>
+  <li>Fix <code>double</code> so that it sets up passed stubs correctly regardless of
+the configured syntax (Paul Annesley).</li>
+  <li>Allow a block implementation to be used in combination with
+<code>and_yield</code>, <code>and_raise</code>, <code>and_return</code> or <code>and_throw</code>. This got fixed
+in 2.13.1 but failed to get merged into master for the 2.14.0.rc1
+release (Myron Marston).</li>
+  <li><code>Marshal.dump</code> does not unnecessarily duplicate objects when rspec-mocks has
+not been fully initialized. This could cause errors when using <code>spork</code> or
+similar preloading gems (Andy Lindeman).</li>
+</ul>
+
+<p>Deprecations:</p>
+
+<ul>
+  <li>Deprecate <code>stub</code> and <code>mock</code> as aliases for <code>double</code>. <code>double</code> is the
+best term for creating a test double, and it reduces confusion to
+have only one term (Michi Huber).</li>
+  <li>Deprecate <code>stub!</code> and <code>unstub!</code> in favor of <code>stub</code> and <code>unstub</code>
+(Jon Rowe).</li>
+  <li>Deprecate <code>at_least(0).times</code> and <code>any_number_of_times</code> (Michi Huber).</li>
+</ul>
+
+<h3 id="rspec-rails-2140">rspec-rails 2.14.0</h3>
+
+<p>Enhancements:</p>
+
+<ul>
+  <li>Preliminarily support Rails 4.1 by updating adapters to support Minitest 5.0.
+(Andy Lindeman)</li>
+</ul>
+
+<p>Bug fixes:</p>
+
+<ul>
+  <li>Rake tasks do not define methods that might interact with other libraries.
+(Fujimura Daisuke)</li>
+  <li>Reverts fix for out-of-order <code>let</code> definitions in controller specs after the
+issue was fixed upstream in rspec-core. (Andy Lindeman)</li>
+  <li>Fixes deprecation warning when using <code>expect(Model).to have(n).records</code> with
+Rails 4. (Andy Lindeman)</li>
+  <li><code>rake stats</code> runs correctly when spec files exist at the top level of the
+spec/ directory. (Benjamin Fleischer)</li>
+</ul>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+  var disqus_shortname  = 'myronmarston-personal-site';
+  var disqus_identifier = '/n/dev-blog/2013/07/rspec-2-14-is-released';
+  var disqus_title      = 'RSpec 2.14 is released!';
+  var disqus_url        = 'http://myronmars.to/n/dev-blog/2013/07/rspec-2-14-is-released';
+
+  /* * * DON'T EDIT BELOW THIS LINE * * */
+  (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</article></section><script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-59095215-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body></html>

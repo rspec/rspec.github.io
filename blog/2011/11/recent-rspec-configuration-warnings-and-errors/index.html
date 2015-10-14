@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"><![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]<!--><html class="no-js" lang="en"><!--<![endif]--><head><meta charset="UTF-8" /><title>Recent RSpec Configuration Warnings and Errors</title><link href="/stylesheets/application.css" rel="stylesheet" type="text/css" /><link href="/stylesheets/normalize.css" rel="stylesheet" type="text/css" /><link href="/stylesheets/pages/blog.css" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" type="text/css" /><link href="/blog/feed.xml" rel="alternate" type="application/atom+xml" /></head><body class="blog"><header><nav><h1><a href="/">RSpec</a></h1><ul><li><a href="/about">About</a></li><li><a href="/documentation">Documentation</a></li><li><a href="/blog">Blog</a></li><li><a href="/upgrading-from-rspec-2">Upgrade</a></li><li><a href="/help">Get Help</a></li><li><a href="/contributing">Contributing</a></li></ul></nav></header><section><article class="blog_post"><h1>Recent RSpec Configuration Warnings and Errors</h1><h3 class="author">Myron Marston</h3><small class="date">Nov  4, 2011</small><p>RSpec 2.6 introduced a deprecation warning when using <code>RSpec.configure {
+... }</code> after defining an example group.  In RSpec 2.7, this warning was
+removed, and now an error is raised when particular configuration
+settings (<code>expect_with</code> and <code>mock_with</code>) are set after defining an
+example group.</p>
+
+<p>Recently, there have been comments and complaints on these changes
+from <a href="http://twitter.com/#!/elight/status/112166313518039040">several</a>
+<a href="http://twitter.com/#!/stevenharman/status/132251947473444864">different</a>
+<a href="http://twitter.com/#!/pda/status/129116122074185728">people</a>
+on <a href="http://twitter.com/#!/kytrinyx/status/116773198833532928">twitter</a>.</p>
+
+<p>I'm the one who made those changes to RSpec, and people are rightfully
+annoyed with these changes…but there's a lot more to the story. I'm
+not sure what the right solution is to the problem I was trying to solve
+by making those changes, but I'm hoping that by blogging about it, we
+can get some good ideas from the community.</p>
+
+<h2 id="rspec-20">RSpec 2.0</h2>
+
+<p>One of the primary goals of RSpec 2 was to decouple the spec runner (rspec-core)
+from the mocking framework (rspec-mocks) and the expectation framework
+(rspec-expectations).  Besides the fact that decoupling is A Good Thing™,
+this separation opened up new possibilities for people to pick and
+choose which parts of RSpec they want to use.</p>
+
+<p>In particular, it allows people to use rspec-core to define and run their tests
+using RSpec's example definition DSL (<code>describe</code>, <code>it</code>, <code>before</code>, <code>let</code>,
+etc) while sticking with the <code>assert_foo</code> assertion methods from
+Test::Unit or minitest, rather than using RSpec's <code>object.should whatever</code>
+syntax. For better or worse, some people really dislike rspec-expectations
+but love the runner.</p>
+
+<p>RSpec 2 allows you to configure which you want to use:</p>
+
+<pre class="highlight ruby"><code><span class="c1"># spec_helper.rb</span>
+<span class="no">RSpec</span><span class="p">.</span><span class="nf">configure</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
+  <span class="n">config</span><span class="p">.</span><span class="nf">expect_with</span> <span class="ss">:stdlib</span>
+<span class="k">end</span>
+
+<span class="c1"># or</span>
+
+<span class="no">RSpec</span><span class="p">.</span><span class="nf">configure</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
+  <span class="c1"># not strictly necessary; this is the default config anyway</span>
+  <span class="n">config</span><span class="p">.</span><span class="nf">expect_with</span> <span class="ss">:rspec</span>
+<span class="k">end</span>
+</code></pre>
+
+<p>Both rspec-expectations and the standard library assertions are
+available as modules–<code>RSpec::Matchers</code> and <code>Test::Unit::Assertions</code>,
+respectively.  RSpec 2.0 to 2.5 included the appropriate module into
+<code>RSpec::Core::ExampleGroup</code> just prior to running the examples (that is,
+after all of them have been defined) to allow people to configure this
+whenever they want.</p>
+
+<p>Unfortunately, this triggered an unfortunate bug in ruby 1.9…which
+I'll get to below.</p>
+
+<h2 id="infinite-recursion-issues">Infinite Recursion Issues</h2>
+
+<p>Shortly after RSpec 2 was released, we began to get some
+<a href="http://groups.google.com/group/rspec/browse_thread/thread/eb54642fa0f051d1">intermittent</a>
+<a href="https://github.com/rspec/rspec-expectations/issues/63">reports</a>
+that users were occasionally getting a <code>SystemStackError</code> from
+RSpec, indicating infinite recursion was occurring.  I myself saw this
+error when working on the rspec-core specs at one point.</p>
+
+<p>The recursion always happened in rspec-expectations' <a href="https://github.com/rspec/rspec-expectations/blob/v2.7.0/lib/rspec/matchers/method_missing.rb#L6-10">method_missing
+hook</a>.
+In particular, the call to <code>super</code> triggered infinite recursion.</p>
+
+<p>I found this very, very puzzling, and spent many hours troubleshooting
+trying to figure out why <code>super</code> would infinitely recurse on itself.</p>
+
+<h2 id="its-a-bug-in-ruby-19">It's a Bug in Ruby 1.9</h2>
+
+<p>I eventually managed to boil the problem down to a simple rspec-less example:</p>
+
+<pre class="highlight ruby"><code><span class="c1"># example.rb</span>
+<span class="k">module</span> <span class="nn">MyModule</span>
+  <span class="k">def</span> <span class="nf">some_method</span><span class="p">;</span> <span class="k">super</span><span class="p">;</span> <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">MyBaseClass</span><span class="p">;</span> <span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">MySubClass</span> <span class="o">&lt;</span> <span class="no">MyBaseClass</span><span class="p">;</span>
+  <span class="kp">include</span> <span class="no">MyModule</span>
+<span class="k">end</span>
+
+<span class="c1"># To trigger this bug, we must include the module in the base class after</span>
+<span class="c1"># the module has already been included in the subclass.  If we move this line</span>
+<span class="c1"># above the subclass declaration, this bug will not occur.</span>
+<span class="no">MyBaseClass</span><span class="p">.</span><span class="nf">send</span><span class="p">(</span><span class="ss">:include</span><span class="p">,</span> <span class="no">MyModule</span><span class="p">)</span>
+
+<span class="no">MySubClass</span><span class="p">.</span><span class="nf">new</span><span class="p">.</span><span class="nf">some_method</span>
+</code></pre>
+
+<p>If you run this on ruby 1.8, you will (correctly) get a <code>NoMethodError</code>.
+On ruby 1.9, you get infinite recursion and a <code>SystemStackError</code>. Here's
+my short explanation of the conditions that trigger this bug:</p>
+
+<ul>
+  <li>Define a module that has a method that uses <code>super</code>.</li>
+  <li>Include that module in a class <em>after</em> it has already been included in one of its subclasses.</li>
+  <li>Create an instance of said subclass and call the method.</li>
+</ul>
+
+<p>Note that this error does not occur if the module is included in the
+superclass <em>before</em> it is included in the subclass.</p>
+
+<h2 id="how-this-bug-manifested-itself-in-rspec">How this Bug Manifested Itself in RSpec</h2>
+
+<p>Here's how this bug manifested itself in RSpec:</p>
+
+<ul>
+  <li>Every time you define an example group (using <code>describe</code> or <code>context</code>),
+RSpec creates a new subclass of <code>RSpec::Core::ExampleGroup</code>, or a
+subclass-of-a-subclass, if you have nested your example group within
+another one.</li>
+  <li>Some users included <code>RSpec::Matchers</code> into their example groups.
+<a href="https://github.com/radar/forem/blob/a9ce93d15fa77dbb3c586c3583dda49e70750809/spec/support/integration_example_group.rb#L13">Here's one example</a>.</li>
+  <li>As I explained above, in 2.0 to 2.5, RSpec included <code>RSpec::Matchers</code> in
+<code>RSpec::Core::ExampleGroup</code> right before running the examples, <em>after</em>
+all examples have been defined (and hence, after the user may have
+already included <code>RSpec::Matchers</code> in their example groups).</li>
+  <li>When a user called an undefined or misspelled method from an example,
+it would trigger this error.</li>
+</ul>
+
+<h2 id="fixing-the-issueby-introducing-other-problems-">Fixing the Issue…by Introducing Other Problems :(</h2>
+
+<p>To prevent users from getting infinite recursion, we need to prevent
+<code>RSpec::Matchers</code> (and really, any other module that may use <code>super</code>)
+from being included in an example group before it is included in
+<code>RSpec::Core::ExampleGroup</code>. At one point, I considered adding a hook to
+either <code>RSpec::Core::ExampleGroup</code> or <code>RSpec::Matchers</code> to detect when a
+user is including it, and somehow prevent or warn them.  However, I
+quickly realized that the extreme flexibility of Ruby's module system
+makes this very complicated. A user may not be including
+<code>RSpec::Matchers</code> directly; they may be including a module from some
+library or plugin, that itself includes <code>RSpec::Matchers</code>, or includes a
+module that includes <code>RSpec::Matchers</code>. I realized this wasn't going to
+be a simple solution to get right.</p>
+
+<p>Instead, after talking with <a href="http://twitter.com/#!/dchelimsky">David
+Chelimsky</a> and some other members of the
+RSpec core team, we decided it was best to change when <code>RSpec::Matchers</code>
+gets included. By including <code>RSpec::Matchers</code> in
+<code>RSpec::Core::ExampleGroup</code> before it has been subclassed the issue goes away entirely.</p>
+
+<p>We still wanted to let people configure <code>expect_with :stdlib</code>, though.
+the best solution we could come up with is to delay the inclusion of the
+expectation module until the moment when <code>RSpec::Core::ExampleGroup</code> is
+being subclassed for the first time. This gives the user a chance to
+configure <code>expect_with :stdlib</code> as long as they do so before defining
+any example groups. Once an example group has been defined, we
+automatically default to <code>expect_with :rspec</code>–which means that any
+future <code>expect_with</code> configuration would be effectively ignored.</p>
+
+<p><a href="https://github.com/rspec/rspec-core/commit/622a4b7ac41e0ab6a4786070cca3ff866b72b57c">Here's the commit</a>,
+if you're interested.  You'll notice that it also changes when the
+mocking framework adapter module gets included.  Since we don't want to deal
+with this issue again if/when one of the mocking framework adapter
+modules uses <code>super</code>, I thought it best to change it as well.</p>
+
+<p>This whole issue suggested to me that it's problematic to allow users to
+configure RSpec after defining examples.  In my mind, since the
+configuration affects how RSpec works, it's best to set it <em>before</em> you
+start to use RSpec (i.e. by defining examples).  I <a href="https://github.com/rspec/rspec-core/commit/fc70cee014689a947bfdea1ab04d91191327946f">made a
+change</a>
+to cause RSpec to print a deprecation warning when you use
+<code>RSpec.configure</code> after defining an example group.</p>
+
+<p>In retrospect, I should have realized that this would affect a lot of
+users. At the time, it didn't occur to me that it would. I do all of my
+RSpec configuration before defining any example groups and I assumed
+that's what everyone else did, too. The deprecation warning was mostly
+just put there on the off chance that someone might configure RSpec
+after defining an example.</p>
+
+<h2 id="rspec-26">RSpec 2.6</h2>
+
+<p>RSpec 2.6 was released with these changes and we immediately began
+getting questions and complaints
+about this warning. People like <a href="http://twitter.com/#!/garybernhardt">Gary Bernhardt</a>
+and <a href="http://twitter.com/#!/coreyhaines">Corey Haines</a> have a technique
+of speeding up their tests by loading as little as possible–and this
+usually involves not loading <code>spec_helper</code> from each spec file. This can
+trigger the deprecation warning when one spec file (say,
+<code>spec/lib/my_class_spec.rb</code>) does not require <code>spec_helper</code>, but another file in
+the same suite (say <code>spec/models/user_spec.rb</code>) does.  If
+<code>spec/lib/my_class_spec.rb</code> is
+loaded before <code>spec/models/user_spec.rb</code> (which usually happens–they tend to
+get loaded in alphabetical order), it will trigger the warning since
+examples are defined in <code>spec/lib/my_class_spec.rb</code> before the configuration
+happens in <code>spec_helper.rb</code>.</p>
+
+<p>I'm a big fan of the "don't load spec_helper" approach now, but at the time I made the changes,
+I had never heard or thought of doing it that way.</p>
+
+<p>We had a conversation about this on an <a href="https://github.com/rspec/rspec-rails/issues/371">rspec-rails issue</a>.
+The best suggestion to come out of that (and one that no one argued
+against) was to remove the warning, and instead raise an error on the
+specific, problematic configs (<code>expect_with</code> and <code>mock_with</code>), if they
+get set after defining an example group.</p>
+
+<p>I made <a href="https://github.com/rspec/rspec-core/commit/f46e00aff4c9aa028991ff57e71d54f3dcd5c307">this change</a>
+and it was released in RSpec 2.7.</p>
+
+<h2 id="rspec-27">RSpec 2.7</h2>
+
+<p>After RSpec 2.7 came out, there were yet more complaints about this
+change. Now some users were unable to run their specs because of the
+error. Effectively, this had made the problem worse–the previous
+warning could be ignored, but not the error.</p>
+
+<p>I <a href="https://github.com/rspec/rspec-core/commit/f2dc2f8954fc6663dc45f03375912dc58fc590f9">committed a change</a>
+a few days ago that should improve things here: instead of raising an error anytime
+<code>expect_with</code> or <code>mock_with</code> are called after an example group is
+defined, the error is only raised if the method call is changing the
+setting. No error will be raised if you're simply explicitly setting the
+default (i.e. <code>mock_with :rspec</code>) or re-setting the existing config
+value.</p>
+
+<p>This is certainly an important, needed change that I simply didn't
+consider when I made the previous changes.  I apologize.</p>
+
+<p>Note that this does not remove the error entirely: if you are
+configuring RSpec to use a different expectation/assertion framework or
+mocking framework, this must still be done <em>before</em> an example group is
+defined so that RSpec can include the appropriate module in
+<code>RSpec::Core::ExampleGroup</code> <em>before</em> it has been subclassed.</p>
+
+<h2 id="avoiding-these-warningserrors">Avoiding these warnings/errors</h2>
+
+<p>If you're on RSpec 2.6 or 2.7 and have gotten these warnings or errors,
+there are some very simple changes you can make to avoid them.</p>
+
+<p>First, make sure all of your spec_helper requires are simply <code>require
+'spec_helper'</code>. If you use a path relative to <code>__FILE__</code>, as people
+often do, spec_helper.rb can be loaded multiple times (since ruby will
+happily re-require a file if it is specified as a different file path).
+RSpec puts the spec directoy on the load path for you, so you can (and
+generally should) just require <code>spec_helper</code>.</p>
+
+<p>Second, if you follow the "don't load spec_helper" approach, and
+you need to configure either <code>expect_with</code> or <code>mock_with</code>, you'll
+need to create a secondary helper file for your isolated, fast specs.</p>
+
+<p>Here's one way to do it:</p>
+
+<pre class="highlight ruby"><code><span class="c1"># spec/fast_spec_helper.rb</span>
+<span class="nb">require</span> <span class="s1">'rspec'</span>
+
+<span class="no">RSpec</span><span class="p">.</span><span class="nf">configure</span> <span class="k">do</span> <span class="o">|</span><span class="n">c</span><span class="o">|</span>
+  <span class="n">c</span><span class="p">.</span><span class="nf">mock_with</span> <span class="ss">:mocha</span>
+<span class="k">end</span>
+</code></pre>
+
+<pre class="highlight ruby"><code><span class="c1"># spec/spec_helper.rb</span>
+<span class="nb">require</span> <span class="s1">'fast_spec_helper'</span>
+
+<span class="c1"># load rails or whatever to get your full app environment booted</span>
+
+<span class="no">RSpec</span><span class="p">.</span><span class="nf">configure</span> <span class="k">do</span> <span class="o">|</span><span class="n">c</span><span class="o">|</span>
+  <span class="c1"># other RSpec configuration</span>
+<span class="k">end</span>
+</code></pre>
+
+<pre class="highlight ruby"><code><span class="c1"># spec/lib/my_class_spec.rb</span>
+<span class="nb">require</span> <span class="s1">'fast_spec_helper'</span>
+
+<span class="n">describe</span> <span class="no">MyClass</span> <span class="k">do</span>
+<span class="k">end</span>
+</code></pre>
+
+<pre class="highlight ruby"><code><span class="c1"># spec/controllers/my_controller_spec.rb</span>
+<span class="nb">require</span> <span class="s1">'spec_helper'</span>
+
+<span class="n">describe</span> <span class="no">MyController</span> <span class="k">do</span>
+<span class="k">end</span>
+</code></pre>
+
+<p>I know this goes against the "don't load spec_helper" approach a bit,
+but the important thing is that the rails/sinatra/whatever environment
+is not fully loaded in the isolated specs.  We're using
+fast_spec_helper.rb to only configure the bare minimum–the specific
+<code>expect_with</code> or <code>mock_with</code> settings that must be set before an
+example group is defined. The one extra require isn't going to make a
+noticeable difference in the speed of your isolated tests.</p>
+
+<p>Of course, if you are just setting <code>mock_with</code> or <code>expect_with</code> to the
+default (<code>:rspec</code>) then you should just remove that configuration
+entirely and the error should go away–no need for a separate
+<code>fast_spec_helper.rb</code> file.</p>
+
+<p>Alternatively, you could use ruby's <code>-r</code> flag to force a helper file to
+be loaded before any isolated specs, rather than having to require
+a helper file from each.</p>
+
+<h2 id="is-there-a-better-way-to-work-around-this-bug">Is There a Better Way to Work Around this Bug?</h2>
+
+<p>So there you have it…the full story behind the recent configuration
+warnings and errors in RSpec. I apologize if this has caused upgrade
+pain for you. I solved the issues in the best way I could figure out.</p>
+
+<p>If you think I totally screwed up, or if you can think of a better way
+to deal with the ruby 1.9 bug, please let me know in the comments!</p>
+
+<p>Also, I <a href="http://redmine.ruby-lang.org/issues/5236">filed a bug</a> on
+the ruby issue tracker. Please comment there if you would like to see it
+fixed.</p>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+  var disqus_shortname  = 'myronmarston-personal-site';
+  var disqus_identifier = '/n/dev-blog/2011/11/recent-rspec-configuration-warnings-and-errors';
+  var disqus_title      = 'Recent RSpec Configuration Warnings and Errors';
+  var disqus_url        = 'http://myronmars.to/n/dev-blog/2011/11/recent-rspec-configuration-warnings-and-errors';
+
+  /* * * DON'T EDIT BELOW THIS LINE * * */
+  (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</article></section><script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-59095215-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body></html>

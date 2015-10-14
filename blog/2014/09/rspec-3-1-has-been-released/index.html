@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"><![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]<!--><html class="no-js" lang="en"><!--<![endif]--><head><meta charset="UTF-8" /><title>RSpec 3.1 has been released!</title><link href="/stylesheets/application.css" rel="stylesheet" type="text/css" /><link href="/stylesheets/normalize.css" rel="stylesheet" type="text/css" /><link href="/stylesheets/pages/blog.css" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" type="text/css" /><link href="/blog/feed.xml" rel="alternate" type="application/atom+xml" /></head><body class="blog"><header><nav><h1><a href="/">RSpec</a></h1><ul><li><a href="/about">About</a></li><li><a href="/documentation">Documentation</a></li><li><a href="/blog">Blog</a></li><li><a href="/upgrading-from-rspec-2">Upgrade</a></li><li><a href="/help">Get Help</a></li><li><a href="/contributing">Contributing</a></li></ul></nav></header><section><article class="blog_post"><h1>RSpec 3.1 has been released!</h1><h3 class="author">Myron Marston</h3><small class="date">Sep  4, 2014</small><p>RSpec 3.1 has just been released! Given our commitment to
+<a href="http://semver.org/">semantic versioning</a>, this should be a trivial
+upgrade for anyone already using RSpec 3.0, but if we did introduce
+any regressions, please let us know, and we'll get a patch release
+out with a fix ASAP.</p>
+
+<p>RSpec continues to be a community-driven project with contributors
+from all over the world. This release includes 647 commits from 190
+pull requests from 47 different contributors.</p>
+
+<p>Thank you to everyone who helped make this release happen!</p>
+
+<h2 id="notable-changes">Notable Changes</h2>
+
+<h3 id="core-backtrace-filtering-changes">Core: Backtrace filtering changes</h3>
+
+<p>In RSpec 2.x and RSpec 3.0, the default backtrace filtering configuration
+excluded lines from gems from printed backraces. We <a href="https://github.com/rspec/rspec-core/issues/1536#issuecomment-43521129">got some
+feedback</a>
+that this was unhelpful and have removed <code>/gems/</code> from the default
+backtrace filter patterns. In RSpec 3.1, lines from gems will be
+included backtraces, but lines from RSpec itself will continue to be
+excluded. Of course, if you want still gems to be excluded, you can easily
+add this pattern back yourself:</p>
+
+<pre class="highlight ruby"><code><span class="c1"># spec/spec_helper.rb</span>
+<span class="no">RSpec</span><span class="p">.</span><span class="nf">configure</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
+  <span class="n">config</span><span class="p">.</span><span class="nf">backtrace_exclusion_patterns</span> <span class="o">&lt;&lt;</span> <span class="sr">/gems/</span>
+<span class="k">end</span>
+</code></pre>
+
+<p>In addition, we've added a new API to make it easy to filter out one
+or more specific gems:</p>
+
+<pre class="highlight ruby"><code><span class="c1"># spec/spec_helper.rb</span>
+<span class="no">RSpec</span><span class="p">.</span><span class="nf">configure</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
+  <span class="n">config</span><span class="p">.</span><span class="nf">filter_gems_from_backtrace</span> <span class="s2">"rack"</span><span class="p">,</span> <span class="s2">"rake"</span>
+<span class="k">end</span>
+</code></pre>
+
+<h3 id="core-new---exclude-pattern-option">Core: New <code>--exclude-pattern</code> option</h3>
+
+<p>RSpec 3.1 has a new <code>--exclude-pattern</code> option that is the inverse of
+<code>--pattern</code>. This allows you to exclude particular files, so that,
+for example, you can load and run all spec files except those from
+a particular directory:</p>
+
+<pre class="highlight ruby"><code><span class="n">rspec</span> <span class="o">--</span><span class="n">pattern</span> <span class="s2">"spec/**/*_spec.rb"</span> <span class="o">--</span><span class="n">exclude</span><span class="o">-</span><span class="n">pattern</span> <span class="s2">"spec/acceptance/**/*_spec.rb"</span>
+</code></pre>
+
+<p>The rake task definition API supports this option now, too, so it is
+easy to define tasks that run all specs but those from one directory:</p>
+
+<pre class="highlight ruby"><code><span class="c1"># Rakefile</span>
+<span class="nb">require</span> <span class="s1">'rspec/core/rake_task'</span>
+
+<span class="n">desc</span> <span class="s2">"Run all but the acceptance specs"</span>
+<span class="no">RSpec</span><span class="o">::</span><span class="no">Core</span><span class="o">::</span><span class="no">RakeTask</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="ss">:all_but_acceptance</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">t</span><span class="o">|</span>
+  <span class="n">t</span><span class="p">.</span><span class="nf">exclude_pattern</span> <span class="o">=</span> <span class="s2">"spec/acceptance/**/*_spec.rb"</span>
+<span class="k">end</span>
+</code></pre>
+
+<p>Thanks to John Gesimondo for suggesting and
+<a href="https://github.com/rspec/rspec-core/pull/1651">implementing</a>
+this new feature!</p>
+
+<h3 id="core-can-now-be-used-standalone-without-configuration">Core: Can now be used standalone without configuration</h3>
+
+<p>RSpec got split up into separate gems (core, expecations and mocks) in RSpec 2.0,
+which allows users to <a href="/blog/2012/07/mixing-and-matching-parts-of-rspec">mix and
+match parts of RSpec</a>
+with other testing libraries like Minitest. Tom Stuart pointed out that it
+wasn't as easy to use just rspec-core as it could be–specifically, in RSpec 3.0 and
+before, if you didn't explicitly configure rspec-core to not use
+rspec-expectations and rspec-mocks, it assumed they were available,
+tried to load them, and gave you an error if they were not.</p>
+
+<p>In RSpec 3.1, we've rectified this. rspec-expectations and rspec-mocks
+will still both be used by default if available, but it they are not
+available and you haven't configured anything, rspec-core will work just
+fine.</p>
+
+<p>Thanks to Sam Phippen for <a href="https://github.com/rspec/rspec-core/pull/1615">implementating</a> this improvement.</p>
+
+<h3 id="core-warnings-flag-no-longer-defaults-to-true-in-generated-files">Core: Warnings flag no longer defaults to true in generated files</h3>
+
+<p>In RSpec 3.0, we put <code>--warnings</code> in the generated <code>.rspec</code> file. We
+did that to encourage gem authors to make their gems warning-free (as
+gems that issue warnings inhibit users from using Ruby's warning mode).
+However, the rails ecosystem has generally not strived to have warning-free
+code, and on new rails projects, this led to a <em>ton</em> of confusing warnings.</p>
+
+<p>In RSpec 3.1, we learned from the community feedback on this and have removed
+<code>--warnings</code> from the generated <code>.rspec</code> file. In non-rails projects, <code>rspec --init</code>
+will include <code>config.warnings = true</code> in the commented-out section of recommended
+settings in <code>spec_helper.rb</code>.</p>
+
+<p>Thanks to Andrew Hooker for <a href="https://github.com/rspec/rspec-core/pull/1572">making this change</a>.</p>
+
+<h3 id="expectations-new-haveattributes-matcher">Expectations: New <code>have_attributes</code> matcher</h3>
+
+<p>This new matcher makes it easy to match an object based on its attributes:</p>
+
+<pre class="highlight ruby"><code><span class="no">Person</span> <span class="o">=</span> <span class="no">Struct</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="ss">:name</span><span class="p">,</span> <span class="ss">:age</span><span class="p">)</span>
+<span class="n">person</span> <span class="o">=</span> <span class="no">Person</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s2">"Coen"</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">expect</span><span class="p">(</span><span class="n">person</span><span class="p">).</span><span class="nf">to</span> <span class="n">have_attributes</span><span class="p">(</span><span class="ss">name: </span><span class="s2">"Coen"</span><span class="p">,</span> <span class="ss">age: </span><span class="mi">3</span><span class="p">)</span>
+</code></pre>
+
+<p>It's also aliased to <code>an_object_having_attributes</code>, which is particularly
+useful in composed matcher expressions:</p>
+
+<pre class="highlight ruby"><code><span class="n">people</span> <span class="o">=</span> <span class="p">[</span><span class="no">Person</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s2">"Coen"</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="no">Person</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s2">"Daphne"</span><span class="p">,</span> <span class="mi">2</span><span class="p">)]</span>
+<span class="n">expect</span><span class="p">(</span><span class="n">people</span><span class="p">).</span><span class="nf">to</span> <span class="n">match</span><span class="p">([</span>
+  <span class="n">an_object_having_attributes</span><span class="p">(</span><span class="ss">name: </span><span class="s2">"Coen"</span><span class="p">,</span>   <span class="ss">age: </span><span class="mi">3</span><span class="p">),</span>
+  <span class="n">an_object_having_attributes</span><span class="p">(</span><span class="ss">name: </span><span class="s2">"Daphne"</span><span class="p">,</span> <span class="ss">age: </span><span class="mi">2</span><span class="p">)</span>
+<span class="p">])</span>
+</code></pre>
+
+<p>It can also be used as an argument matcher for a message expectation:</p>
+
+<pre class="highlight ruby"><code><span class="n">expect</span><span class="p">(</span><span class="n">email_gateway</span><span class="p">).</span><span class="nf">to</span> <span class="n">receive</span><span class="p">(</span><span class="ss">:send_receipt</span><span class="p">).</span><span class="nf">with</span><span class="p">(</span>
+  <span class="n">an_object_having_attributes</span><span class="p">(</span><span class="ss">email: </span><span class="s2">"foo@example.com"</span><span class="p">)</span>
+<span class="p">)</span>
+</code></pre>
+
+<p>Thanks to Adam Farhi for
+<a href="https://github.com/rspec/rspec-expectations/pull/571">implementing</a>
+this new matcher.</p>
+
+<h3 id="expectations-block-matchers-can-now-be-used-in-compound-expressions">Expectations: Block matchers can now be used in compound expressions</h3>
+
+<p>RSpec 3.0 gained the ability to use <a href="/blog/2014/01/new-in-rspec-3-composable-matchers#compound_matcher_expressions">compound matcher
+expressions</a>.
+However, it didn't work with block expectations because we had internal
+changes that needed to be made to ensure the block is only executed
+once as one would expect. We've addressed this in 3.1, which allows an
+expression like:</p>
+
+<pre class="highlight ruby"><code><span class="n">x</span> <span class="o">=</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">expect</span> <span class="p">{</span>
+  <span class="n">x</span> <span class="o">+=</span> <span class="mi">1</span>
+  <span class="n">y</span> <span class="o">+=</span> <span class="mi">2</span>
+<span class="p">}.</span><span class="nf">to</span> <span class="n">change</span> <span class="p">{</span> <span class="n">x</span> <span class="p">}.</span><span class="nf">to</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span><span class="nf">and</span> <span class="n">change</span> <span class="p">{</span> <span class="n">y</span> <span class="p">}.</span><span class="nf">to</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</code></pre>
+
+<h3 id="expectations-new-definenegatedmatcher-api">Expectations: New <code>define_negated_matcher</code> API</h3>
+
+<p>This new API provides a means to define a negated version of an existing matcher:</p>
+
+<pre class="highlight ruby"><code><span class="c1"># define a negated form of `include`...</span>
+<span class="no">RSpec</span><span class="o">::</span><span class="no">Matchers</span><span class="p">.</span><span class="nf">define_negated_matcher</span> <span class="ss">:exclude</span><span class="p">,</span> <span class="ss">:include</span>
+
+<span class="c1"># ...which allows you to write:</span>
+<span class="n">expect</span><span class="p">(</span><span class="n">odd_numbers</span><span class="p">).</span><span class="nf">to</span> <span class="n">exclude</span><span class="p">(</span><span class="mi">14</span><span class="p">)</span>
+
+<span class="c1"># ...rather than:</span>
+<span class="n">expect</span><span class="p">(</span><span class="n">odd_numbers</span><span class="p">).</span><span class="nf">not_to</span> <span class="kp">include</span><span class="p">(</span><span class="mi">14</span><span class="p">)</span>
+</code></pre>
+
+<p>On its own, this doesn't buy you much. However, it really comes in handy
+when dealing with composed or compound matcher expressions:</p>
+
+<pre class="highlight ruby"><code><span class="n">adults</span> <span class="o">=</span> <span class="no">Town</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="s2">"Springfield"</span><span class="p">).</span><span class="nf">adults</span>
+<span class="n">marge</span>  <span class="o">=</span> <span class="no">Character</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="s2">"Marge"</span><span class="p">)</span>
+<span class="n">bart</span>   <span class="o">=</span> <span class="no">Character</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="s2">"Bart"</span><span class="p">)</span>
+
+<span class="n">expect</span><span class="p">(</span><span class="n">adults</span><span class="p">).</span><span class="nf">to</span> <span class="kp">include</span><span class="p">(</span><span class="n">marge</span><span class="p">).</span><span class="nf">and</span> <span class="n">exclude</span><span class="p">(</span><span class="n">bart</span><span class="p">)</span>
+</code></pre>
+
+<p>Thanks to Adam Farhi for helping with the
+<a href="https://github.com/rspec/rspec-expectations/pull/618">implementation</a>
+of this feature.</p>
+
+<h3 id="expectations-custom-matcher-chained-modifiers-now-included-in-generated-description">Expectations: Custom matcher chained modifiers now included in generated description</h3>
+
+<p>The custom matcher DSL allows you to define a fluent interface using
+<code>chain</code>:</p>
+
+<pre class="highlight ruby"><code><span class="no">RSpec</span><span class="o">::</span><span class="no">Matchers</span><span class="p">.</span><span class="nf">define</span> <span class="ss">:be_smaller_than</span> <span class="k">do</span> <span class="o">|</span><span class="n">max</span><span class="o">|</span>
+  <span class="n">chain</span> <span class="ss">:and_bigger_than</span> <span class="k">do</span> <span class="o">|</span><span class="n">min</span><span class="o">|</span>
+    <span class="vi">@min</span> <span class="o">=</span> <span class="n">min</span>
+  <span class="k">end</span>
+
+  <span class="n">match</span> <span class="k">do</span> <span class="o">|</span><span class="n">actual</span><span class="o">|</span>
+    <span class="n">actual</span> <span class="o">&lt;</span> <span class="n">max</span> <span class="o">&amp;&amp;</span> <span class="n">actual</span> <span class="o">&gt;</span> <span class="vi">@min</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="c1"># usage:</span>
+<span class="n">expect</span><span class="p">(</span><span class="mi">10</span><span class="p">).</span><span class="nf">to</span> <span class="n">be_smaller_than</span><span class="p">(</span><span class="mi">20</span><span class="p">).</span><span class="nf">and_bigger_than</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</code></pre>
+
+<p>In RSpec 2.x and 3.0, the chained part was not included in failure messages:</p>
+
+<pre class="highlight plaintext"><code>Failure/Error: expect(5).to be_smaller_than(10).and_bigger_than(7)
+  expected 5 to be smaller than 10
+</code></pre>
+
+<p>RSpec 3.1 can include the chained part in the failure message:</p>
+
+<pre class="highlight plaintext"><code>Failure/Error: expect(5).to be_smaller_than(10).and_bigger_than(7)
+  expected 5 to be smaller than 10 and bigger than 7
+</code></pre>
+
+<p>…but only if you enable this behavior with a config option:</p>
+
+<pre class="highlight ruby"><code><span class="no">RSpec</span><span class="p">.</span><span class="nf">configure</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
+  <span class="n">config</span><span class="p">.</span><span class="nf">expect_with</span> <span class="ss">:rspec</span> <span class="k">do</span> <span class="o">|</span><span class="n">expectations</span><span class="o">|</span>
+    <span class="n">expectations</span><span class="p">.</span><span class="nf">include_chain_clauses_in_custom_matcher_descriptions</span> <span class="o">=</span> <span class="kp">true</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+
+<p>This config option defaults to <code>false</code> for backwards compatibility.
+We plan to always enable it in RSpec 4.</p>
+
+<p>Thanks to Dan Oved for
+<a href="https://github.com/rspec/rspec-expectations/pull/600">implementing</a>
+this improvement!</p>
+
+<h3 id="mocks-new-spy-methods">Mocks: New <code>*_spy</code> methods</h3>
+
+<p>RSpec 2.14 added support for using test doubles as spies, which allow
+you to set an expectation that a message was received after the fact:</p>
+
+<pre class="highlight ruby"><code><span class="n">spy</span> <span class="o">=</span> <span class="n">double</span><span class="p">(</span><span class="ss">:foo</span> <span class="o">=&gt;</span> <span class="kp">nil</span><span class="p">)</span>
+<span class="c1"># do something with spy</span>
+<span class="n">expect</span><span class="p">(</span><span class="n">spy</span><span class="p">).</span><span class="nf">to</span> <span class="n">have_received</span><span class="p">(</span><span class="ss">:foo</span><span class="p">)</span>
+</code></pre>
+
+<p>Note that we stubbed <code>foo</code> here. This is necessary because doubles are
+strict by default – meaning that they will raise an error when they
+receive an unexpected message. Unfortunately, this forces a bit of
+duplication on you as you have to declare the method twice (stubbing it
+once before and expecting it was received after).</p>
+
+<p>You can get around this by using <code>as_null_object</code> which makes a double
+"loose" rather than strict, allowing it to receive any message:</p>
+
+<pre class="highlight ruby"><code><span class="n">spy</span> <span class="o">=</span> <span class="n">double</span><span class="p">.</span><span class="nf">as_null_object</span>
+<span class="c1"># do something with spy</span>
+<span class="n">expect</span><span class="p">(</span><span class="n">spy</span><span class="p">).</span><span class="nf">to</span> <span class="n">have_received</span><span class="p">(</span><span class="ss">:foo</span><span class="p">)</span>
+</code></pre>
+
+<p>This pattern is useful enough that in RSpec 3.1, we've added new methods
+to declare spies:</p>
+
+<pre class="highlight ruby"><code><span class="n">spy</span><span class="p">(.</span><span class="nf">.</span><span class="o">.</span><span class="p">)</span>          <span class="c1"># equivalent to double(...).as_null_object</span>
+<span class="n">instance_spy</span><span class="p">(.</span><span class="nf">.</span><span class="o">.</span><span class="p">)</span> <span class="c1"># equivalent to instance_double(...).as_null_object</span>
+<span class="n">class_spy</span><span class="p">(.</span><span class="nf">.</span><span class="o">.</span><span class="p">)</span>    <span class="c1"># equivalent to class_double(...).as_null_object</span>
+<span class="n">object_spy</span><span class="p">(.</span><span class="nf">.</span><span class="o">.</span><span class="p">)</span>   <span class="c1"># equivalent to object_double(...).as_null_object</span>
+</code></pre>
+
+<p>Thanks to Justin Searls for <a href="https://github.com/rspec/rspec-mocks/issues/636">bringing
+up this issue</a> and
+Sam Phippen for
+<a href="https://github.com/rspec/rspec-mocks/pull/671">implementing</a> the new
+methods.</p>
+
+<h3 id="mocks-new-andwraporiginal-api">Mocks: New <code>and_wrap_original</code> API</h3>
+
+<p>This new API allows you to easily decorate a particular existing method on a
+particular object just for the duration of the current example. The
+original method is yielded to your block as the first argument (before
+the args of the actual method call).</p>
+
+<pre class="highlight ruby"><code><span class="n">allow</span><span class="p">(</span><span class="n">api_client</span><span class="p">).</span><span class="nf">to</span> <span class="n">receive</span><span class="p">(</span><span class="ss">:fetch_users</span><span class="p">).</span><span class="nf">and_wrap_original</span> <span class="k">do</span> <span class="o">|</span><span class="n">original_method</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="o">|</span>
+  <span class="n">original_method</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">).</span><span class="nf">first</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="c1"># truncate the response to the first 10 users</span>
+<span class="k">end</span>
+</code></pre>
+
+<p>Thanks to Jon Rowe for
+<a href="https://github.com/rspec/rspec-mocks/pull/762">implementing</a> this
+feature.</p>
+
+<h3 id="rails-rails-42-support">Rails: Rails 4.2 support</h3>
+
+<p>rspec-rails 3.1 will officially support Rails 4.2. Aaron Kromer has been
+doing a great job getting RSpec 3.1 ready for Rails 4.2. This includes
+a generator <a href="https://github.com/rspec/rspec-rails/pull/1155">provided by Abdelkader
+Boudih</a> for ActiveJob.</p>
+
+<h3 id="rails-generated-railshelperrb-no-longer-auto-loads-specsupport-files-by-default">Rails: Generated <code>rails_helper.rb</code> no longer auto-loads <code>spec/support</code> files by default</h3>
+
+<p>Aaron has also <a href="https://github.com/rspec/rspec-rails/pull/1137">made a small change</a>
+to the generator for <code>rails_helper.rb</code>.  Previously, it contained some code that
+would automatically load all files under <code>spec/support</code>. That code is still
+there but is now commented out.  We've found that it helps prevent load time
+bloat to manually require the support files that are needed, rather than
+always loading all of them.</p>
+
+<p>Of course, if you prefer the convenience of the old way, that's a reasonable
+tradeoff, and you can easily uncomment this bit of code.</p>
+
+<h2 id="stats">Stats</h2>
+
+<h3 id="rspec-core">rspec-core:</h3>
+
+<ul>
+  <li><strong>Total Commits</strong>: 176</li>
+  <li><strong>Merged pull requests</strong>: 50</li>
+  <li><strong>20 contributors</strong>: Aaron Kromer, Alex Tan, Andrew Hooker, Christian Treppo, Colin Jones, Daniela Wellisz, Dominic Muller, Evgeny Zislis, Gary Fleshman, Jimmy Cuadra, John Gesimondo, Jon Rowe, Mark Lorenz, Max Lincoln, Myron Marston, Paul Cortens, Prem Sichanugrist, Sam Phippen, Su Zhang (張甦), tomykaira</li>
+</ul>
+
+<h3 id="rspec-expectations">rspec-expectations:</h3>
+
+<ul>
+  <li><strong>Total Commits</strong>: 149</li>
+  <li><strong>Merged pull requests</strong>: 40</li>
+  <li><strong>14 contributors</strong>: Aaron Kromer, Abdelkader Boudih, Adam Farhi, Alex Sunderland, Chris Griego, Dennis Taylor, Hao Su, Jon Rowe, Myron Marston, Pritesh Jain, Sam Phippen, Xavier Shay, fimmtiu, oveddan</li>
+</ul>
+
+<h3 id="rspec-mocks">rspec-mocks:</h3>
+
+<ul>
+  <li><strong>Total Commits</strong>: 118</li>
+  <li><strong>Merged pull requests</strong>: 39</li>
+  <li><strong>13 contributors</strong>: Aaron Kromer, Chris Griego, Dennis Taylor, Eugene Kenny, Igor Kapkov, Jimmy Cuadra, Jon Rowe, Karthik T, Myron Marston, Oliver Martell Núñez, Sam Phippen, Thomas Brand, Xavier Shay</li>
+</ul>
+
+<h3 id="rspec-rails">rspec-rails:</h3>
+
+<ul>
+  <li><strong>Total Commits</strong>: 137</li>
+  <li><strong>Merged pull requests</strong>: 38</li>
+  <li><strong>16 contributors</strong>: Aaron Kromer, Abdelkader Boudih, Alex Rothenberg, Andre Arko &amp; Doc Ritezel, André Arko, Bradley Schaefer, Diego Plentz, Jon Rowe, Josh Kalderimis, Juan González, Kosmas Chatzimichalis, Michael E. Gruen, Myron Marston, Sam Phippen, Thomas Kriechbaumer, joker1007</li>
+</ul>
+
+<h3 id="rspec-support">rspec-support:</h3>
+
+<ul>
+  <li><strong>Total Commits</strong>: 67</li>
+  <li><strong>Merged pull requests</strong>: 23</li>
+  <li><strong>8 contributors</strong>: Aaron Kromer, Ben Langfeld, Jimmy Cuadra, Jon Rowe, Myron Marston, Pritesh Jain, Sam Phippen, Xavier Shay</li>
+</ul>
+
+<h2 id="docs">Docs</h2>
+
+<h3 id="api-docs">API Docs</h3>
+
+<ul>
+  <li><a href="http://rubydoc.info/gems/rspec-core">http://rubydoc.info/gems/rspec-core</a></li>
+  <li><a href="http://rubydoc.info/gems/rspec-expectations">http://rubydoc.info/gems/rspec-expectations</a></li>
+  <li><a href="http://rubydoc.info/gems/rspec-mocks">http://rubydoc.info/gems/rspec-mocks</a></li>
+  <li><a href="http://rubydoc.info/gems/rspec-rails">http://rubydoc.info/gems/rspec-rails</a></li>
+</ul>
+
+<h3 id="cucumber-features">Cucumber Features</h3>
+
+<ul>
+  <li><a href="http://relishapp.com/rspec/rspec-core">http://relishapp.com/rspec/rspec-core</a></li>
+  <li><a href="http://relishapp.com/rspec/rspec-expectations">http://relishapp.com/rspec/rspec-expectations</a></li>
+  <li><a href="http://relishapp.com/rspec/rspec-mocks">http://relishapp.com/rspec/rspec-mocks</a></li>
+  <li><a href="http://relishapp.com/rspec/rspec-rails">http://relishapp.com/rspec/rspec-rails</a></li>
+</ul>
+
+<h2 id="release-notes">Release Notes</h2>
+
+<h3 id="rspec-core-310">rspec-core-3.1.0</h3>
+<p><a href="http://github.com/rspec/rspec-core/compare/v3.0.4...v3.1.0">Full Changelog</a></p>
+
+<p>Enhancements:</p>
+
+<ul>
+  <li>Update files generated by <code>rspec --init</code> so that warnings are enabled
+in commented out section of <code>spec_helper</code> rather than <code>.rspec</code> so users
+have to consciously opt-in to the setting. (Andrew Hooker, #1572)</li>
+  <li>Update <code>spec_helper</code> generated by <code>rspec --init</code> so that it sets the new
+rspec-expectations <code>include_chain_clauses_in_custom_matcher_descriptions</code>
+config option (which will be on by default in RSpec 4) and also sets the
+rspec-mocks <code>verify_partial_doubles</code> option (which will also default
+to on in RSpec 4). (Myron Marston, #1647)</li>
+  <li>Provide an <code>inspect</code> output for example procsy objects (used in around
+hooks) that doesn't make them look like procs. (Jon Rowe, #1620)</li>
+  <li>Remove a few unneeded <code>require</code> statements from
+<code>rspec/core/rake_task.rb</code>, making it even more lighterweight.
+(Myron Marston, #1640)</li>
+  <li>Allow rspec-core to be used when neither rspec-mocks or
+rspec-expectations are installed, without requiring any
+user configuration. (Sam Phippen, Myron Marston, #1615)</li>
+  <li>Don't filter out gems from backtraces by default. (The RSpec
+gems will still be filtered). User feedback has indicated
+that including gems in default backtraces will be useful.
+(Myron Marston, #1641)</li>
+  <li>Add new <code>config.filter_gems_from_backtrace "rack", "rake"</code> API
+to easily filter the named gems from backtraces. (Myron Marston, #1682)</li>
+  <li>Fix default backtrace filters so that the RSpec binary is
+excluded when installing RSpec as a bundler <code>:git</code> dependency.
+(Myron Marston, #1648)</li>
+  <li>Simplify command generated by the rake task so that it no longer
+includes unnecessary <code>-S</code>. (Myron Marston, #1559)</li>
+  <li>Add <code>--exclude-pattern</code> CLI option, <code>config.exclude_pattern =</code> config
+option and <code>task.exclude_pattern =</code> rake task config option. Matching
+files will be excluded. (John Gesimondo, Myron Marston, #1651, #1671)</li>
+  <li>When an around hook fails to execute the example, mark it as
+pending (rather than passing) so the user is made aware of the
+fact that the example did not actually run. (Myron Marston, #1660)</li>
+  <li>Remove dependency on <code>FileUtils</code> from the standard library so that users do
+not get false positives where their code relies on it but they are not
+requiring it. (Sam Phippen, #1565)</li>
+</ul>
+
+<p>Bug Fixes:</p>
+
+<ul>
+  <li>Fix rake task <code>t.pattern =</code> option so that it does not run all specs
+when it matches no files, by passing along a <code>--pattern</code> option to
+the <code>rspec</code> command, rather than resolving the file list and passing
+along the files individually. (Evgeny Zislis, #1653)</li>
+  <li>Fix rake task default pattern so that it follows symlinks properly.
+(Myron Marston, #1672)</li>
+  <li>Fix default pattern used with <code>rspec</code> command so that it follows
+symlinks properly. (Myron Marston, #1672)</li>
+  <li>Change how we assign constant names to example group classes so that
+it avoids a problem with <code>describe "Core"</code>. (Daniela Wellisz, #1679)</li>
+  <li>Handle rendering exceptions that have a different encoding than that
+of their original source file. (Jon Rowe, #1681)</li>
+  <li>Allow access to message_lines without colour for failed examples even
+when they're part of a shared example group. (tomykaira, #1689)</li>
+</ul>
+
+<h3 id="rspec-expectations-310">rspec-expectations-3.1.0</h3>
+<p><a href="http://github.com/rspec/rspec-expectations/compare/v3.0.4...v3.1.0">Full Changelog</a></p>
+
+<p>Enhancements:</p>
+
+<ul>
+  <li>Add <code>have_attributes</code> matcher, that passes if actual's attribute
+values match the expected attributes hash:
+<code>Person = Struct.new(:name, :age)</code>
+<code>person = Person.new("Bob", 32)</code>
+<code>expect(person).to have_attributes(:name =&gt; "Bob", :age =&gt; 32)</code>.
+(Adam Farhi, #571)</li>
+  <li>Extended compound matcher support to block matchers, for cases like:
+<code>expect { ... }.to change { x }.to(3).and change { y }.to(4)</code>. (Myron
+Marston, #567)</li>
+  <li>Include chained methods in custom matcher description and failure message
+when new <code>include_chain_clauses_in_custom_matcher_descriptions</code> config
+option is enabled. (Dan Oved, #600)</li>
+  <li>Add <code>thrice</code> modifier to <code>yield_control</code> matcher as a synonym for
+<code>exactly(3).times</code>. (Dennis Taylor, #615)</li>
+  <li>Add <code>RSpec::Matchers.define_negated_matcher</code>, which defines a negated
+version of the named matcher. (Adam Farhi, Myron Marston, #618)</li>
+  <li>Document and support negation of <code>contain_exactly</code>/<code>match_array</code>.
+(Jon Rowe, #626).</li>
+</ul>
+
+<p>Bug Fixes:</p>
+
+<ul>
+  <li>Rename private <code>LegacyMacherAdapter</code> constant to <code>LegacyMatcherAdapter</code>
+to fix typo. (Abdelkader Boudih, #563)</li>
+  <li>Fix <code>all</code> matcher so that it fails properly (rather than raising a
+<code>NoMethodError</code>) when matched against a non-enumerable. (Hao Su, #622)</li>
+</ul>
+
+<h3 id="rspec-mocks-310">rspec-mocks-3.1.0</h3>
+<p><a href="http://github.com/rspec/rspec-mocks/compare/v3.0.4...v3.1.0">Full Changelog</a></p>
+
+<p>Enhancements:</p>
+
+<ul>
+  <li>Add spying methods (<code>spy</code>, <code>ìnstance_spy</code>, <code>class_spy</code> and <code>object_spy</code>)
+which create doubles as null objects for use with spying in testing. (Sam
+Phippen, #671)</li>
+  <li><code>have_received</code> matcher will raise "does not implement" errors correctly when
+used with verifying doubles and partial doubles. (Xavier Shay, #722)</li>
+  <li>Allow matchers to be used in place of keyword arguments in <code>with</code>
+expectations. (Xavier Shay, #726)</li>
+  <li>Add <code>thrice</code> modifier to message expectation interface as a synonym
+for <code>exactly(3).times</code>. (Dennis Taylor, #753)</li>
+  <li>Add more <code>thrice</code> synonyms e.g. <code>.at_least(:thrice)</code>, <code>.at_most(:thrice)</code>,
+<code>receive(...).thrice</code> and <code>have_received(...).thrice</code>. (Jon Rowe, #754)</li>
+  <li>Add <code>and_wrap_original</code> modifier for partial doubles to mutate the
+response from a method. (Jon Rowe, #762)</li>
+</ul>
+
+<p>Bugfixes:</p>
+
+<ul>
+  <li>Remove <code>any_number_of_times</code> from <code>any_instance</code> recorders that were
+erroneously causing mention of the method in documentation. (Jon Rowe, #760)</li>
+  <li>Prevent included modules being detected as prepended modules on Ruby 2.0.
+(Eugene Kenny, #771)</li>
+</ul>
+
+<h3 id="rspec-rails-310">rspec-rails-3.1.0</h3>
+<p><a href="http://github.com/rspec/rspec-rails/compare/v3.0.2...v3.1.0">Full Changelog</a></p>
+
+<p>Enhancements:</p>
+
+<ul>
+  <li>Switch to using the <code>have_http_status</code> matcher in spec generators. (Aaron Kromer, #1086)</li>
+  <li>Update <code>rails_helper</code> generator to allow users to opt-in to auto-loading
+<code>spec/support</code> files instead of forcing it upon them. (Aaron Kromer, #1137)</li>
+  <li>Include generator for <code>ActiveJob</code>. (Abdelkader Boudih, #1155)</li>
+  <li>Improve support for non-ActiveRecord apps by not loading ActiveRecord related
+settings in the generated <code>rails_helper</code>. (Aaron Kromer, #1150)</li>
+  <li>Remove Ruby warnings as a suggested configuration. (Aaron Kromer, #1163)</li>
+</ul>
+
+<p>Bug Fixes:</p>
+
+<ul>
+  <li>Fix controller route lookup for Rails 4.2. (Tomohiro Hashidate, #1142)</li>
+</ul>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+  var disqus_shortname  = 'myronmarston-personal-site';
+  var disqus_identifier = '/n/dev-blog/2014/09/rspec-3-1-has-been-released';
+  var disqus_title      = 'RSpec 3.1 has been released!';
+  var disqus_url        = 'http://myronmars.to/n/dev-blog/2014/09/rspec-3-1-has-been-released';
+
+  /* * * DON'T EDIT BELOW THIS LINE * * */
+  (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</article></section><script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-59095215-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body></html>

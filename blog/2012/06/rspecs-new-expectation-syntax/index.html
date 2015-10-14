@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"><![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]<!--><html class="no-js" lang="en"><!--<![endif]--><head><meta charset="UTF-8" /><title>RSpec's New Expectation Syntax</title><link href="/stylesheets/application.css" rel="stylesheet" type="text/css" /><link href="/stylesheets/normalize.css" rel="stylesheet" type="text/css" /><link href="/stylesheets/pages/blog.css" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" type="text/css" /><link href="/blog/feed.xml" rel="alternate" type="application/atom+xml" /></head><body class="blog"><header><nav><h1><a href="/">RSpec</a></h1><ul><li><a href="/about">About</a></li><li><a href="/documentation">Documentation</a></li><li><a href="/blog">Blog</a></li><li><a href="/upgrading-from-rspec-2">Upgrade</a></li><li><a href="/help">Get Help</a></li><li><a href="/contributing">Contributing</a></li></ul></nav></header><section><article class="blog_post"><h1>RSpec's New Expectation Syntax</h1><h3 class="author">Myron Marston</h3><small class="date">Jun 15, 2012</small><p>RSpec has featured a readable english-like syntax for setting
+expectations for a long time:</p>
+
+<pre class="highlight ruby"><code><span class="n">foo</span><span class="p">.</span><span class="nf">should</span> <span class="n">eq</span><span class="p">(</span><span class="n">bar</span><span class="p">)</span>
+<span class="n">foo</span><span class="p">.</span><span class="nf">should_not</span> <span class="n">eq</span><span class="p">(</span><span class="n">bar</span><span class="p">)</span>
+</code></pre>
+
+<p>RSpec 2.11 will include a new variant to this syntax:</p>
+
+<pre class="highlight ruby"><code><span class="n">expect</span><span class="p">(</span><span class="n">foo</span><span class="p">).</span><span class="nf">to</span> <span class="n">eq</span><span class="p">(</span><span class="n">bar</span><span class="p">)</span>
+<span class="n">expect</span><span class="p">(</span><span class="n">foo</span><span class="p">).</span><span class="nf">not_to</span> <span class="n">eq</span><span class="p">(</span><span class="n">bar</span><span class="p">)</span>
+</code></pre>
+
+<p>There are a few things motivating this new syntax, and I wanted
+to blog about it to spread awareness.</p>
+
+<h2 id="delegation-issues">Delegation Issues</h2>
+
+<p>Between <code>method_missing</code>, <code>BasicObject</code> and the standard library's
+<code>delegate</code>, ruby has very rich tools for building delegate or proxy
+objects. Unfortunately, RSpec's <code>should</code> syntax, as elegantly as it
+reads, is prone to producing weird, confusing failures when testing
+delegate/proxy objects.</p>
+
+<p>Consider a simple proxy object that subclasses <code>BasicObject</code>:</p>
+
+<pre class="highlight ruby"><code><span class="c1"># fuzzy_proxy.rb</span>
+<span class="k">class</span> <span class="nc">FuzzyProxy</span> <span class="o">&lt;</span> <span class="no">BasicObject</span>
+  <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="n">target</span><span class="p">)</span>
+    <span class="vi">@target</span> <span class="o">=</span> <span class="n">target</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">fuzzy?</span>
+    <span class="kp">true</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">method_missing</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">block</span><span class="p">)</span>
+    <span class="vi">@target</span><span class="p">.</span><span class="nf">__send__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">block</span><span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+
+<p>Simple enough; it defines a <code>#fuzzy?</code> predicate, and delegates all
+other method calls to the target object.</p>
+
+<p>Here's a simple spec to test its fuzziness:</p>
+
+<pre class="highlight ruby"><code><span class="c1"># fuzzy_proxy_spec.rb</span>
+<span class="n">describe</span> <span class="no">FuzzyProxy</span> <span class="k">do</span>
+  <span class="n">it</span> <span class="s1">'is fuzzy'</span> <span class="k">do</span>
+    <span class="n">instance</span> <span class="o">=</span> <span class="no">FuzzyProxy</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="ss">:some_object</span><span class="p">)</span>
+    <span class="n">instance</span><span class="p">.</span><span class="nf">should</span> <span class="n">be_fuzzy</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+
+<p>Surprisingly, this fails:</p>
+
+<pre class="highlight plaintext"><code>  1) FuzzyProxy is a fuzzy proxy
+     Failure/Error: instance.should be_fuzzy
+     NoMethodError:
+       undefined method `fuzzy?' for :some_object:Symbol
+     # ./fuzzy_proxy.rb:11:in `method_missing'
+     # ./fuzzy_proxy_spec.rb:6:in `block (2 levels) in &lt;top (required)&gt;'
+
+Finished in 0.01152 seconds
+1 example, 1 failure
+</code></pre>
+
+<p>The problem is that rspec-expectations defines <code>should</code> on <code>Kernel</code>,
+and <code>BasicObject</code> does not include <code>Kernel</code>…so <code>instance.should</code>
+triggers <code>method_missing</code> and gets delegated to the target object.
+The result is actually <code>:some_object.should be_fuzzy</code> which is
+clearly false (or rather, a <code>NoMethodError</code>).</p>
+
+<p>It gets even more confusing when using <code>delegate</code> in the standard
+library. It <a href="https://github.com/ruby/ruby/blob/v1_9_3_194/lib/delegate.rb#L43-50">selectively
+includes</a>
+some of <code>Kernel</code>'s methods…which means that if rspec-expectations gets
+loaded before <code>delegate</code>, <code>should</code> will work properly on delegate
+objects, but if <code>delegate</code> is loaded first, it will proxy the <code>should</code>
+calls just like in our <code>FuzzyProxy</code> example above.</p>
+
+<p>The underlying problem is RSpec's <code>should</code> syntax: for <code>should</code> to
+work properly, it must be defined on every object in the system…
+but RSpec does not own every object in the system and cannot ensure
+that it always works consistently. As we've seen, it doesn't work
+as RSpec expects on proxy objects. Note that this isn't just a
+problem with RSpec; it's a problem with minitest/spec's <code>must_xxx</code>
+syntax as well.</p>
+
+<p>The solution we came up with is the new <code>expect</code> syntax:</p>
+
+<pre class="highlight ruby"><code><span class="c1"># fuzzy_proxy_spec.rb</span>
+<span class="n">describe</span> <span class="no">FuzzyProxy</span> <span class="k">do</span>
+  <span class="n">it</span> <span class="s1">'is fuzzy'</span> <span class="k">do</span>
+    <span class="n">instance</span> <span class="o">=</span> <span class="no">FuzzyProxy</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="ss">:some_object</span><span class="p">)</span>
+    <span class="n">expect</span><span class="p">(</span><span class="n">instance</span><span class="p">).</span><span class="nf">to</span> <span class="n">be_fuzzy</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+
+<p>This does not rely on any methods being present on all objects
+in the system, and thus avoids the underlying problem altogether.</p>
+
+<h2 id="almost-all-matchers-are-supported">(Almost) All Matchers Are Supported</h2>
+
+<p>The new <code>expect</code> syntax looks different from the old
+<code>should</code> syntax, but under the covers, it's essentially
+the same. You pass a matcher to the <code>#to</code> method, and
+it fails the example if it does not match.</p>
+
+<p>All matchers are supported, with an important exception:
+the <code>expect</code> syntax does not directly support the operator
+matchers.</p>
+
+<pre class="highlight ruby"><code><span class="c1"># rather than:</span>
+<span class="n">foo</span><span class="p">.</span><span class="nf">should</span> <span class="o">==</span> <span class="n">bar</span>
+
+<span class="c1"># ...use:</span>
+<span class="n">expect</span><span class="p">(</span><span class="n">foo</span><span class="p">).</span><span class="nf">to</span> <span class="n">eq</span><span class="p">(</span><span class="n">bar</span><span class="p">)</span>
+</code></pre>
+
+<p>While operator matchers are intuitive to use, they require
+special handling in RSpec for them to work right, due to Ruby's
+precedence rules. Furthermore, <code>should ==</code> generates a ruby
+warning<sup id="fnref:foot_1"><a href="#fn:foot_1" class="footnote">1</a></sup>, and people have been occasionally surprised by
+the fact that <code>should !=</code> does not work as they might expect<sup id="fnref:foot_2"><a href="#fn:foot_2" class="footnote">2</a></sup>.</p>
+
+<p>The new syntax affords us the chance to make a clean
+break from the inconsistencies of the operator matchers
+without the risk of breaking existing test suites, so
+we decided not to support operator matchers with
+the new syntax. Here's a listing of each of the old
+operator matchers (used with <code>should</code>), and their <code>expect</code> equivalent:</p>
+
+<pre class="highlight ruby"><code><span class="n">foo</span><span class="p">.</span><span class="nf">should</span> <span class="o">==</span> <span class="n">bar</span>
+<span class="n">expect</span><span class="p">(</span><span class="n">foo</span><span class="p">).</span><span class="nf">to</span> <span class="n">eq</span><span class="p">(</span><span class="n">bar</span><span class="p">)</span>
+
+<span class="s2">"a string"</span><span class="p">.</span><span class="nf">should_not</span> <span class="o">=~</span> <span class="sr">/a regex/</span>
+<span class="n">expect</span><span class="p">(</span><span class="s2">"a string"</span><span class="p">).</span><span class="nf">not_to</span> <span class="n">match</span><span class="p">(</span><span class="sr">/a regex/</span><span class="p">)</span>
+
+<span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">].</span><span class="nf">should</span> <span class="o">=~</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="n">expect</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]).</span><span class="nf">to</span> <span class="n">match_array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+</code></pre>
+
+<p>You may have noticed I didn't list the comparison matchers
+(e.g. <code>x.should &lt; 10</code>)–that's because they work but have
+never been recommended. Who says "x should less than 10"?
+They were always intended to be used with <code>be</code>, which
+both reads better and continues to work:</p>
+
+<pre class="highlight ruby"><code><span class="n">foo</span><span class="p">.</span><span class="nf">should</span> <span class="n">be</span> <span class="o">&lt;</span> <span class="mi">10</span>
+<span class="n">foo</span><span class="p">.</span><span class="nf">should</span> <span class="n">be</span> <span class="o">&lt;=</span> <span class="mi">10</span>
+<span class="n">foo</span><span class="p">.</span><span class="nf">should</span> <span class="n">be</span> <span class="o">&gt;</span> <span class="mi">10</span>
+<span class="n">foo</span><span class="p">.</span><span class="nf">should</span> <span class="n">be</span> <span class="o">&gt;=</span> <span class="mi">10</span>
+<span class="n">expect</span><span class="p">(</span><span class="n">foo</span><span class="p">).</span><span class="nf">to</span> <span class="n">be</span> <span class="o">&lt;</span> <span class="mi">10</span>
+<span class="n">expect</span><span class="p">(</span><span class="n">foo</span><span class="p">).</span><span class="nf">to</span> <span class="n">be</span> <span class="o">&lt;=</span> <span class="mi">10</span>
+<span class="n">expect</span><span class="p">(</span><span class="n">foo</span><span class="p">).</span><span class="nf">to</span> <span class="n">be</span> <span class="o">&gt;</span> <span class="mi">10</span>
+<span class="n">expect</span><span class="p">(</span><span class="n">foo</span><span class="p">).</span><span class="nf">to</span> <span class="n">be</span> <span class="o">&gt;=</span> <span class="mi">10</span>
+</code></pre>
+
+<h2 id="unification-of-block-vs-value-syntaxes">Unification of Block vs. Value Syntaxes</h2>
+
+<p><code>expect</code> has actually been available in RSpec for a long
+time<sup id="fnref:foot_3"><a href="#fn:foot_3" class="footnote">3</a></sup> in a limited form, as a more-readable alternative
+for block expectations:</p>
+
+<pre class="highlight ruby"><code><span class="c1"># rather than:</span>
+<span class="nb">lambda</span> <span class="p">{</span> <span class="n">do_something</span> <span class="p">}.</span><span class="nf">should</span> <span class="n">raise_error</span><span class="p">(</span><span class="no">SomeError</span><span class="p">)</span>
+
+<span class="c1"># ...you can do:</span>
+<span class="n">expect</span> <span class="p">{</span> <span class="n">something</span> <span class="p">}.</span><span class="nf">to</span> <span class="n">raise_error</span><span class="p">(</span><span class="no">SomeError</span><span class="p">)</span>
+</code></pre>
+
+<p>Before RSpec 2.11, <code>expect</code> would not accept any normal arguments,
+and could not be used for value expectations. With the changes
+in 2.11, it's nice to have the unity of the same syntax for both
+kinds of expectations.</p>
+
+<h2 id="configuration-options">Configuration Options</h2>
+
+<p>By default, both the <code>should</code> and <code>expect</code> syntaxes are
+available. However, if you want to use only one syntax
+or the other, you can configure RSpec:</p>
+
+<pre class="highlight ruby"><code><span class="c1"># spec_helper.rb</span>
+<span class="no">RSpec</span><span class="p">.</span><span class="nf">configure</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
+  <span class="n">config</span><span class="p">.</span><span class="nf">expect_with</span> <span class="ss">:rspec</span> <span class="k">do</span> <span class="o">|</span><span class="n">c</span><span class="o">|</span>
+    <span class="c1"># Disable the `expect` sytax...</span>
+    <span class="n">c</span><span class="p">.</span><span class="nf">syntax</span> <span class="o">=</span> <span class="ss">:should</span>
+
+    <span class="c1"># ...or disable the `should` syntax...</span>
+    <span class="n">c</span><span class="p">.</span><span class="nf">syntax</span> <span class="o">=</span> <span class="ss">:expect</span>
+
+    <span class="c1"># ...or explicitly enable both</span>
+    <span class="n">c</span><span class="p">.</span><span class="nf">syntax</span> <span class="o">=</span> <span class="p">[</span><span class="ss">:should</span><span class="p">,</span> <span class="ss">:expect</span><span class="p">]</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+
+<p>For example, if you're starting a new project, and you want
+to ensure only <code>expect</code> is used for consistency, you can disable
+<code>should</code> entirely. When one of the syntaxes is disabled, the
+corresponding method will simply be undefined.</p>
+
+<p>In the future, we plan to change the defaults so that only
+<code>expect</code> is available unless you explicitly enable <code>should</code>.
+We may do this as soon as RSpec 3.0, but we want to give
+users plenty of time to get acquianted with it.</p>
+
+<p>Let us know what you think!</p>
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:foot_1">
+      <p>As <a href="http://mislav.uniqpath.com/2011/06/ruby-verbose-mode/">Mislav reports</a>, when warnings are turned on, you can get a "Useless use of == in void context" warning. <a href="#fnref:foot_1" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:foot_2">
+      <p>On ruby 1.8, <code>x.should != y</code> is syntactic sugar for <code>!(x.should == y)</code> and RSpec has no way to distinguish <code>should ==</code> from <code>should !=</code>. On 1.9, we can distinguish between them (since <code>!=</code> can now be defined as a separate method), but it would be confusing to support it on 1.9 but not on 1.8, so we <a href="https://github.com/rspec/rspec-expectations/issues/33">decided to just raise an error instead</a>. <a href="#fnref:foot_2" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:foot_3">
+      <p>It was originally added <a href="https://github.com/dchelimsky/rspec/commit/7e4f872b4becbd41588da95c0e5d954a6e770293">over 3 years ago!</a> <a href="#fnref:foot_3" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+  var disqus_shortname  = 'myronmarston-personal-site';
+  var disqus_identifier = '/n/dev-blog/2012/06/rspecs-new-expectation-syntax';
+  var disqus_title      = 'RSpec\'s New Expectation Syntax';
+  var disqus_url        = 'http://myronmars.to/n/dev-blog/2012/06/rspecs-new-expectation-syntax';
+
+  /* * * DON'T EDIT BELOW THIS LINE * * */
+  (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</article></section><script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-59095215-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body></html>

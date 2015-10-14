@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"><![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]<!--><html class="no-js" lang="en"><!--<![endif]--><head><meta charset="UTF-8" /><title>The Plan for RSpec 3</title><link href="/stylesheets/application.css" rel="stylesheet" type="text/css" /><link href="/stylesheets/normalize.css" rel="stylesheet" type="text/css" /><link href="/stylesheets/pages/blog.css" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" type="text/css" /><link href="/blog/feed.xml" rel="alternate" type="application/atom+xml" /></head><body class="blog"><header><nav><h1><a href="/">RSpec</a></h1><ul><li><a href="/about">About</a></li><li><a href="/documentation">Documentation</a></li><li><a href="/blog">Blog</a></li><li><a href="/upgrading-from-rspec-2">Upgrade</a></li><li><a href="/help">Get Help</a></li><li><a href="/contributing">Contributing</a></li></ul></nav></header><section><article class="blog_post"><h1>The Plan for RSpec 3</h1><h3 class="author">Myron Marston</h3><small class="date">Jul 15, 2013</small><p>Update: <a href="http://nilp.hatenablog.com/entry/2013/07/16/131641">There's a Japanese translation of
+this</a> available
+now.</p>
+
+<p>RSpec 2.0 was released in October 2010. In the nearly three years since
+then, we've been able to continually improve RSpec without needing to
+make breaking changes, but we've reached a point where RSpec has a fair
+bit of cruft stemming from the need to retain backwards
+compatibility with older 2.x releases.</p>
+
+<p><a href="/blog/2013/07/rspec-2-14-is-released">RSpec 2.14</a>
+will be the last RSpec 2 feature release. (We may do some
+bug-fix patch releases, though). We're getting started on RSpec 3, and
+I'd like to share our thoughts on the direction RSpec will be going.</p>
+
+<p>None of this is set in stone, of course, and ultimately RSpec has been
+a successful project because of all of the people who use it. So please
+speak up if you have any thoughts about the direction we should take
+with RSpec 3!</p>
+
+<h2 id="whats-being-removed">What's Being Removed</h2>
+
+<h3 id="no-more-186-and-191-support">No More 1.8.6 and 1.9.1 Support</h3>
+
+<p>RSpec 2.x has continued to support Ruby 1.8.6 long after that version
+has ceased being supported by the MRI team. As an important piece of
+testing infrastructure in the Ruby ecosystem, we've felt that it's
+important to allow gem authors to decide when to drop support for
+older Ruby versions, and not be forced to do so prematurely because
+the test framework they've chosen to use no longer supports one of
+the versions they support.</p>
+
+<p>Ruby 1.8.6 and 1.9.1 have not been available on
+<a href="https://travis-ci.org/">Travis</a> for <a href="https://gist.github.com/michaelklishin/1223640">nearly two
+years</a>, and
+without the safety net of a CI server running our builds
+on those versions, it's become extremely difficult to continue
+supporting them. In practice, we've really only "semi-supported"
+these ruby versions for the last couple years: when users report
+issues on these ruby versions, we'll fix them, but we haven't been
+expending effort on support beyond that.</p>
+
+<p>And so, the time has come to drop support for these versions. We plan
+to continue to support 1.8.7, 1.9.2 and all newer ruby versions on
+RSpec 3. Given that 1.8.7 is now legacy, we'll probably be dropping
+support for 1.8.7 in RSpec 4, although if/when Travis stops supporting it
+before then, we'll only be able to "semi-support" it in the same way
+we've been semi-supporting 1.8.6.</p>
+
+<h3 id="core-its-will-be-moved-into-an-external-gem">Core: <code>its</code> will be moved into an external gem</h3>
+
+<p><a href="https://gist.github.com/myronmarston/4503509">I've written about this
+before</a>, so I won't
+belabor the point here.  We plan to move <code>its</code> out of rspec-core
+and into an external gem.</p>
+
+<h3 id="expectations-havexitems-matchers-will-be-moved-into-an-external-gem">Expectations: <code>have(x).items</code> matchers will be moved into an external gem</h3>
+
+<p>RSpec originated in a time before the existence of Cucumber/Gherkin,
+and one of its early goals was to express things in natural language
+that a project stakeholder could understand.  In those early days,
+an expression like <code>team.should have(9).players</code> made sense for
+the goals of the project. Since then, Cucumber/Gherkin have emerged
+as a better alternative for stakeholder-focused tests, and RSpec
+is rarely used for that purpose today. The <code>have(x).items</code> family
+of matchers (including the <code>have_at_least(x).items</code> and
+<code>have_at_most(x).items</code> siblings) are unnecessarily complicated, when a
+simple expression like <code>expect(team.players.size).to eq(9)</code> works just fine.</p>
+
+<p>We plan to move these matchers out of <code>rspec-expectations</code> and into
+an external gem.</p>
+
+<h3 id="core-no-more-explicit-debugger-support">Core: No more explicit debugger support</h3>
+
+<p>RSpec has long supported a <code>-d</code> / <code>--debug</code> command line option
+for enabling the debugger via the <code>ruby-debug</code> gem. However, today
+<code>ruby-debug</code> is not the only (or even main) debugging gem in use
+today. <a href="https://github.com/cldwalker/debugger">debugger</a> has become
+the de-facto standard debugging gem for MRI 1.9.2+, and many developers
+prefer to use <a href="http://pryrepl.org/">pry</a> for debugging. Other
+ruby interpreters like Rubinius feature <a href="http://rubini.us/doc/en/tools/debugger/">their own
+debugger</a>.</p>
+
+<p>We plan to remove the explicit debugger support in RSpec 3. Besides
+removing the command line option, we'll be removing the
+<a href="https://github.com/rspec/rspec-core/blob/v2.13.1/lib/rspec/core/extensions/kernel.rb">monkey patching of debugger in
+Kernel</a>
+when ruby-debug is not loaded, so you will get a <code>NoMethodError</code>
+from <code>debugger</code> when a debugger is not loaded.</p>
+
+<p>If you want to continue to load the debugger using a command line option,
+you can use the require flag (<code>-r</code>), using an option like <code>-rdebugger</code>.</p>
+
+<h3 id="core-no-more-rcov-integration">Core: No more RCov integration</h3>
+
+<p><code>RSpec::Core::RakeTask</code> has had some <a href="https://github.com/rspec/rspec-core/blob/v2.13.1/lib/rspec/core/rake_task.rb#L65-L84">RCov
+options</a>
+for a long time. RCov only works with MRI 1.8, and today
+most ruby developers use
+<a href="https://github.com/colszowka/simplecov">SimpleCov</a> for their code
+coverage needs. SimpleCov integrates with RSpec (or any test framework)
+very simply, with no explicit support needed from within RSpec itself.</p>
+
+<h3 id="core-autotest-integration-will-be-moved-into-an-external-gem">Core: Autotest integration will be moved into an external gem</h3>
+
+<p>Autotest used to be the primary ruby continuous test runner.
+These days, <a href="https://github.com/guard/guard">guard</a> seems to
+be the more popular choice, and there's no reason that RSpec's
+Autotest integration needs to remain in rspec-core.</p>
+
+<h3 id="core-textmate-formatter-will-be-moved-into-the-textmate-bundle">Core: TextMate formatter will be moved into the TextMate bundle</h3>
+
+<p>For many years, TextMate was the most popular text editor used by
+ruby developers. RSpec has had a <a href="https://github.com/rspec/rspec-core/blob/v2.13.1/lib/rspec/core/formatters/text_mate_formatter.rb">TextMate-specific
+formatter</a>
+for many years.  These days, <a href="http://survey.hamptoncatlin.com/survey/stats#question_6">TextMate isn't nearly as popular
+among ruby developers as it used to
+be</a>, and
+there's no compelling reason for the TextMate formatter
+to remain in rspec-core.</p>
+
+<h3 id="lots-of-deprecations">Lots of Deprecations</h3>
+
+<p>RSpec 2.14 includes many things that have been deprecated
+over the last couple of years. We plan to remove nearly all of the
+deprecated APIs and features.</p>
+
+<h3 id="what-about-the-old-expectationmock-syntax">What about the old expectation/mock syntax?</h3>
+
+<p><a href="/blog/2012/06/rspecs-new-expectation-syntax">RSpec 2.11
+introduced</a>
+a new <code>expect</code>-based syntax for rspec-expectations.
+<a href="http://teaisaweso.me/blog/2013/05/27/rspecs-new-message-expectation-syntax/">In RSpec
+2.14</a>,
+we updated rspec-mocks to use a similar syntax. Since
+introducing the new syntax, I've received a number of questions
+about how soon we will be deprecating or removing the old
+<code>should</code>-based syntax.</p>
+
+<p>While I won't say "never" (who knows what the future holds?),
+we don't have any current plans to ever remove the old syntax.
+Users have invested in code that uses the old syntax for many
+years, and while we recommend using the new syntax (particularly
+for new projects), we'd be doing users a disservice to remove
+the old syntax anytime soon. It's also not a significant
+maintenance burden.</p>
+
+<p>For RSpec 3, we considered the idea of disabling the old syntax
+by default, forcing users to opt-in to use it.  However, I think
+that doing so would be a disservice to new users who are coming
+to RSpec through a less-than-current tutorial. Getting a <code>NoMethodError</code>
+for an example copied from a tutorial can be very frustrating
+to someone trying RSpec for the first time. Experienced users
+can easily disable the old syntax, whereas new users aren't
+likely to have enough RSpec knowledge to know to enable
+the old syntax used by their tutorial.</p>
+
+<p>That said, we do want to encourage people to switch to
+the new syntax, so we plan to make RSpec 3
+print a warning on first usage of any the old syntax
+methods (<code>should</code>, <code>should_not</code>, <code>should_receive</code>, etc)
+<em>unless the <code>should</code> syntax has been explicitly enabled</em>.
+This should nudge folks towards the new syntax while keeping
+RSpec friendly to new users and will pave the way for
+the old syntax to be disabled by default in RSpec 4.</p>
+
+<h2 id="whats-new">What's New</h2>
+
+<h3 id="zero-monkey-patching-mode">Zero Monkey Patching Mode!</h3>
+
+<p>Historically, RSpec has extensively used monkey patching
+to create its readable syntax, adding methods like <code>describe</code>,
+<code>shared_examples_for</code>, <code>shared_context</code>,
+<code>should</code>, <code>should_not</code>, <code>should_receive</code>, <code>should_not_receive</code>
+and <code>stub</code> to every object. In the last few 2.x releases, we've
+worked towards reducing the amount of monkey patching done by RSpec:</p>
+
+<ul>
+  <li>As of rspec-core 2.11, <code>describe</code> is no longer added to every
+object. Instead, it is only added to the top-level <code>main</code> object
+and to <code>Module</code> (so that it is available from within classes
+and modules).</li>
+  <li>In rspec-expectations 2.11, we added the <code>expect</code> syntax and
+provided a config option to disable the <code>should</code> syntax – which
+removes <code>should</code> and <code>should_not</code> from every object.</li>
+  <li>As of rspec-core 2.12, <code>shared_examples_for</code> and <code>shared_context</code>,
+are no longer added to every object. As with <code>describe</code>, they are
+only added to the top-level <code>main</code> object and to <code>Module</code>.</li>
+  <li>In rspec-mocks 2.14, we updated <code>rspec-mocks</code> to support an
+<code>expect</code>-based syntax as well, and provided a config option
+to disable the old mocking syntax – which removes <code>should_receive</code>,
+<code>should_not_receive</code> and <code>stub</code> from every object.</li>
+</ul>
+
+<p>As discussed above, we'll be removing RSpec's monkey-patched
+<code>Kernel#debugger</code> in 3.0. We're also planning to provide a
+config option to remove the monkey patching of the top-level
+DSL methods (<code>describe</code>, <code>shared_examples_for</code>, etc) onto
+<code>main</code> and <code>Module</code>, instead requiring you to prefix these
+methods with <code>RSpec.</code>:</p>
+
+<pre class="highlight ruby"><code><span class="no">RSpec</span><span class="p">.</span><span class="nf">describe</span> <span class="no">MyClass</span> <span class="k">do</span>
+  <span class="c1"># Within an example group you'll still be able to use</span>
+  <span class="c1"># a bare `describe`:</span>
+  <span class="n">describe</span> <span class="s2">"#some_method"</span> <span class="k">do</span>
+  <span class="k">end</span>
+
+  <span class="c1"># And you'll be able to use a bare `shared_examples_for`:</span>
+  <span class="n">shared_examples_for</span> <span class="s2">"something"</span> <span class="k">do</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="no">RSpec</span><span class="p">.</span><span class="nf">shared_examples_for</span> <span class="s2">"some behavior"</span> <span class="k">do</span>
+<span class="k">end</span>
+</code></pre>
+
+<p>The net result will be a set of config options (one for
+<code>rspec-expectations</code>, one for <code>rspec-mocks</code> and one for <code>rspec-core</code>), that
+will provide a zero-monkey-patching mode for RSpec. (We may also
+provide a single unified config option that sets all three).</p>
+
+<p>We plan for these config options to become the defaults in RSpec 4.0,
+so that RSpec 4.0 will have zero monkey patching out of the box.</p>
+
+<h3 id="mocks-test-double-interface-verification">Mocks: Test double interface verification</h3>
+
+<p>It's unfortunately been very easy to let your test doubles
+get out of sync with the real interfaces they are doubling.
+When you rename a method, or change the number of arguments
+a method expects, it's easy to forget to update the test doubles
+you are using as standins for the changed class.</p>
+
+<p>I've long been a fan of
+<a href="https://github.com/xaviershay/rspec-fire">rspec-fire's</a> approach
+to solving this problem.  I plan to port a version of it to rspec-mocks.</p>
+
+<p>Take a look at the <a href="https://github.com/rspec/rspec-mocks/issues/227#issuecomment-19143955">github
+issue</a>
+where we are discussing this for the full details (the API and semantics
+of this feature are certainly not set in stone yet, so please voice your
+thoughts on that ticket!)</p>
+
+<h3 id="expectations-fully-composable-matchers">Expectations: Fully composable matchers</h3>
+
+<p>In RSpec 2.13, we <a href="/blog/2013/02/rspec-2-13-is-released#_matcher_can_accept_a_list_of_matchers">added
+support</a>
+for the <code>include</code> matcher to accept a list of matchers to match against.
+This kind of composability is quite useful and we plan to extend
+it to all matchers in RSpec 3. For example, you could use an expression
+like:</p>
+
+<pre class="highlight ruby"><code><span class="n">expect</span> <span class="p">{</span> <span class="o">|</span><span class="n">b</span><span class="o">|</span>
+  <span class="n">some_object</span><span class="p">.</span><span class="nf">do_something</span><span class="p">(</span><span class="o">&amp;</span><span class="n">b</span><span class="p">)</span>
+<span class="p">}.</span><span class="nf">to</span> <span class="n">yield_with_args</span><span class="p">(</span><span class="kp">include</span><span class="p">(</span><span class="n">match</span><span class="p">(</span><span class="sr">/foo/</span><span class="p">),</span> <span class="n">match</span><span class="p">(</span><span class="sr">/bar/</span><span class="p">)))</span>
+</code></pre>
+
+<p>This expresses a detailed expectation: "I expect
+<code>some_object.do_something</code> to yield with a collection that
+includes a string matching <code>/foo/</code> and a string matching <code>/bar/</code>".</p>
+
+<p>We're also considering adding matcher aliases that read better when
+composed in this fashion, so that you could write this as:</p>
+
+<pre class="highlight ruby"><code><span class="n">expect</span> <span class="p">{</span> <span class="o">|</span><span class="n">b</span><span class="o">|</span>
+  <span class="n">some_object</span><span class="p">.</span><span class="nf">do_something</span><span class="p">(</span><span class="o">&amp;</span><span class="n">b</span><span class="p">)</span>
+<span class="p">}.</span><span class="nf">to</span> <span class="n">yield_with_args</span><span class="p">(</span><span class="n">a_collection_including</span><span class="p">(</span><span class="n">a_string_matching</span><span class="p">(</span><span class="sr">/foo/</span><span class="p">),</span>
+                                            <span class="n">a_string_matching</span><span class="p">(</span><span class="sr">/bar/</span><span class="p">)))</span>
+</code></pre>
+
+<p>For more details, or to weigh in on this issue, take a look at the
+<a href="https://github.com/rspec/rspec-expectations/issues/280">github issue</a>.</p>
+
+<h3 id="core-formatter-api-improvements">Core: Formatter API improvements</h3>
+
+<p>The current API for notifying formatters of test suite progress has proved to
+be a bit inflexible when it comes to adding in new notifications and changing
+existing notifications.  We're planning to change it in a couple ways:</p>
+
+<ul>
+  <li>Rather than requiring that all formatters implement all notification methods,
+formatters will be able to subscribe to specific notifications. This will
+allow you to implement the minimum set your formatter needs, and will allow
+us to add new notifications without worrying about breaking existing formatters.</li>
+  <li>Notification arguments will change from an ordered list of arguments
+to a single value object, which will allow us to easily add additional data
+to specific notifications without changing the method signature.</li>
+</ul>
+
+<p>These changes will allow us to make further improvements that we have been unable
+to make in the 2.x releases. We also plan to provide a compatibility layer in
+RSpec 3 that wraps formatters written against the old API and adapts
+them to the new API so that users can more easily upgrade when they rely
+upon old formatters.</p>
+
+<p>For more details, take a look at the <a href="https://github.com/rspec/rspec-core/issues/944">github
+issue</a>.</p>
+
+<h3 id="core-dsl-methods-will-yield-the-example">Core: DSL methods will yield the example</h3>
+
+<p>In RSpec 2, the current running example is exposed as <code>example</code>.
+It can be used to <a href="https://relishapp.com/rspec/rspec-core/v/2-14/docs/metadata/user-defined-metadata#define-group-metadata-using-a-hash">access the example's
+metadata</a>.
+This has occasionally <a href="https://github.com/rspec/rspec-core/issues/663">caused
+problems</a>
+when users inadvertently define their own <code>example</code> method. In RSpec 3,
+we're removing the <code>example</code> method, opting to yield the example from
+each DSL method that runs in the context of an example:</p>
+
+<pre class="highlight ruby"><code><span class="n">describe</span> <span class="no">MyClass</span> <span class="k">do</span>
+  <span class="n">before</span><span class="p">(</span><span class="ss">:each</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">example</span><span class="o">|</span> <span class="p">}</span>
+  <span class="n">subject</span>       <span class="p">{</span> <span class="o">|</span><span class="n">ex</span><span class="o">|</span> <span class="p">}</span>
+  <span class="n">let</span><span class="p">(</span><span class="ss">:user</span><span class="p">)</span>    <span class="p">{</span> <span class="o">|</span><span class="n">ex</span><span class="o">|</span> <span class="no">User</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="n">ex</span><span class="p">.</span><span class="nf">metadata</span><span class="p">[</span><span class="ss">:user_id</span><span class="p">])</span> <span class="p">}</span>
+
+  <span class="c1"># before(:all) will NOT yield an example</span>
+
+  <span class="n">it</span> <span class="s2">"can access the current example using a block local"</span> <span class="k">do</span> <span class="o">|</span><span class="n">example</span><span class="o">|</span>
+    <span class="c1"># do something with `example`</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre>
+
+<p>We're aware that this may cause upgrade headaches for users who
+rely on gems that use the <code>example</code> API (such as Capybara).
+We're discussing ways to make the upgrade smoother, both for users
+of gem authors. For more information, see the <a href="https://github.com/rspec/rspec-core/pull/666">github
+issue</a>.</p>
+
+<h3 id="expectations-matcher-protocol-and-custom-matcher-api-changes">Expectations: Matcher protocol and custom matcher API changes</h3>
+
+<p>While RSpec has been moving away from its <code>should</code>-based syntax,
+the matcher protocol and custom matcher API have not changed
+accordingly. The matcher protocol still relies upon methods like
+<code>failure_message_for_should</code> and <code>failure_message_for_should_not</code>,
+and the custom matcher API has methods like <code>match_for_should</code>
+and <code>match_for_should_not</code>.</p>
+
+<p>In RSpec 3, we'd like to change the matcher protocol and custom matcher
+API to no longer speak in terms of <code>should</code> while still retaining
+a backwards compatibility layer so that existing matchers will
+continue to work, with the plan to remove that compatibility
+layer in RSpec 4. We're not sure what the new APIs will be yet; if
+you have thoughts, please <a href="https://github.com/rspec/rspec-expectations/issues/270">chime in on the github
+issue</a>.</p>
+
+<h3 id="mocks-anyinstance-block-implementations-will-yield-the-receiver">Mocks: <code>any_instance</code> block implementations will yield the receiver</h3>
+
+<p>When stubbing a method using <code>any_instance</code> you can pass a block
+implementation just like a normal stub. However, if you wanted to
+access the receiver (i.e. the instance receiving the message) in
+the block, there was no way to accomplish this.  In RSpec 3, we're
+correcting this oversight, and the receiver will be yielded as
+the first block argument:</p>
+
+<pre class="highlight ruby"><code><span class="n">allow_any_instance_of</span><span class="p">(</span><span class="no">User</span><span class="p">).</span><span class="nf">to</span> <span class="n">receive</span><span class="p">(</span><span class="ss">:age</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">user</span><span class="o">|</span>
+  <span class="p">((</span><span class="no">Date</span><span class="p">.</span><span class="nf">today</span> <span class="o">-</span> <span class="n">user</span><span class="p">.</span><span class="nf">birthdate</span><span class="p">)</span> <span class="o">/</span> <span class="mi">365</span><span class="p">).</span><span class="nf">floor</span>
+<span class="k">end</span>
+</code></pre>
+
+<p>For backwards compatibility, we'll be adding a config option to disable
+this behavior.</p>
+
+<h2 id="the-upgrade-path">The Upgrade Path</h2>
+
+<p>Even though RSpec 3.0 will be a major release that allows
+us to make intentional breaking changes for the first time since 2010,
+it's important to us that the upgrade path for existing
+test suites be as easy as possible. To that end, we're planning
+a 2.99 release that will exist purely to help users upgrade.
+Here's what we have in mind:</p>
+
+<ul>
+  <li>RSpec 2.99 will be RSpec 2.14 plus some extra deprectation warnings
+for things that will be removed in 3.0.</li>
+  <li>You should be able to take your existing RSpec 2.x test suite and
+upgrade to 2.99 <em>without</em> needing to make any changes.</li>
+  <li>RSpec 2.99 will give you deprecation notices for anything we're
+removing or somehow breaking in 3.0. You should address those
+warnings. Once you're warning-free on 2.99, you should be able
+to upgrade to 3.0 without needing to make any further changes.</li>
+</ul>
+
+<p>The 2.99 release will be an important step that shouldn't be skipped
+in the upgrade process. It'll give you an upgrade checklist that
+is specifically tailored to <em>your</em> test suite's usage of RSpec,
+giving you a much simpler and more efficient way to upgrade than
+combing through changelogs trying to figure out what all is changing
+in RSpec 3.</p>
+
+<h2 id="the-development-and-release-plan">The Development and Release Plan</h2>
+
+<p>We've already began working on RSpec 3 in the master branches of
+each of the RSpec repos. We also have a 2-14-maintenance branch
+for 2.14 changes (i.e. for possible patch releases)
+and a 2-99-maintenance branch for the changes
+that will be going in to 2.99. We're planning to do multiple
+release candidates (and potentially some beta releases) as we
+make progress towards the final 3.0 release.</p>
+
+<p>I won't venture a guess for when we might release RSpec 3.
+Experience has taught me that software release date estimates
+are always wrong :(.</p>
+
+<h2 id="how-can-i-help">"How can I help?"</h2>
+
+<p>The current RSpec core team (<a href="https://twitter.com/dchelimsky">David</a>,
+<a href="https://twitter.com/alindeman">Andy</a>, <a href="https://twitter.com/JonRowe">Jon</a>,
+<a href="https://twitter.com/samphippen">Sam</a>, <a href="https://twitter.com/soulcutter">Bradley</a>
+and <a href="https://twitter.com/myronmarston">myself</a>) will be driving the work
+for the 3.0 release…but as always, we love to get help from the community.
+Here are some specific ways you can help out:</p>
+
+<ul>
+  <li>As mentioned above, we plan to extract some of RSpec's functionality
+into an external gem (<code>its</code>, <code>have</code> matchers and the autotest integration).
+It would be great to find folks in the community who can step forward
+and take over maintenance (and maybe even do the initial extraction,
+if you're so inclined) for these gems.</li>
+  <li>We value community feedback about the direction RSpec is going, so please
+comment on the issues I've linked to above (and any other issues, really –
+there will be more in RSpec 3 than I've covered here!)
+if you have thoughts or ideas.</li>
+  <li>If you'd like to help contribute code to RSpec, that's great! However,
+during this period, there's going to be more churn than usual in the
+codebases of the various RSpec gems, creating more merge conflicts
+with pull requests, and making it more difficult for us to integrate
+contributions from users. So, if you want to contribute, please get
+in touch (either by commenting on github issues and/or chatting with
+us on the #rspec channel on irc.freenode.net) before putting extensive
+effort into a PR. A little bit of communication up front will go a long
+way towards making it easy for us to integrate your contribution.</li>
+  <li>One of the most important ways you can help is to try out out the
+pre-release versions of 2.99 and 3.0 and give us feedback. Stay tuned
+for release announcements.</li>
+  <li><a href="http://rspec.info/">rspec.info</a> is badly in need of a refresh, and it
+would be great to launch a new version of that site in tandem with the
+release of RSpec 3.  However, it's very hard for the RSpec core team to
+find time to work on the website, and most of us focus more on backend
+than frontend dev. It would be great if some community members would
+step forward and help in this area!</li>
+</ul>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+  var disqus_shortname  = 'myronmarston-personal-site';
+  var disqus_identifier = '/n/dev-blog/2013/07/the-plan-for-rspec-3';
+  var disqus_title      = 'The Plan for RSpec 3';
+  var disqus_url        = 'http://myronmars.to/n/dev-blog/2013/07/the-plan-for-rspec-3';
+
+  /* * * DON'T EDIT BELOW THIS LINE * * */
+  (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</article></section><script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-59095215-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body></html>

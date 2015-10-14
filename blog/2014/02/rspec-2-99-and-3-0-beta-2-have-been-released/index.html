@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"><![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]<!--><html class="no-js" lang="en"><!--<![endif]--><head><meta charset="UTF-8" /><title>RSpec 2.99 and 3.0 beta2 have been released!</title><link href="/stylesheets/application.css" rel="stylesheet" type="text/css" /><link href="/stylesheets/normalize.css" rel="stylesheet" type="text/css" /><link href="/stylesheets/pages/blog.css" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" type="text/css" /><link href="/blog/feed.xml" rel="alternate" type="application/atom+xml" /></head><body class="blog"><header><nav><h1><a href="/">RSpec</a></h1><ul><li><a href="/about">About</a></li><li><a href="/documentation">Documentation</a></li><li><a href="/blog">Blog</a></li><li><a href="/upgrading-from-rspec-2">Upgrade</a></li><li><a href="/help">Get Help</a></li><li><a href="/contributing">Contributing</a></li></ul></nav></header><section><article class="blog_post"><h1>RSpec 2.99 and 3.0 beta2 have been released!</h1><h3 class="author">Myron Marston</h3><small class="date">Feb 21, 2014</small><p>The RSpec team has released 3.0.0.beta2 and 2.99.0.beta2.</p>
+
+<p>This is a huge release that includes tons of new features.
+I plan to do a full blog post listing and giving examples for
+all the notable new 3.0 features at a later date. For now, I've
+just got the full release notes.</p>
+
+<p>Thanks to all the contributors who helped make this release happen!</p>
+
+<p>I also want to thank those of you who have put your projects though
+the upgrade process and have been using 3.0.0.beta1–your feedback
+has been invaluable.</p>
+
+<p>For more details on the upgrade process, see the <a href="/blog/2013/11/rspec-2-99-and-3-0-betas-have-been-released#the_upgrade_process">beta1
+annoucement</a>
+blog post.</p>
+
+<p>This will be the last 2.99/3.0 beta release. Next up are the release
+candidates!</p>
+
+<h2 id="release-notes">Release Notes</h2>
+
+<h3 id="rspec-core-2990beta2">rspec-core 2.99.0.beta2</h3>
+
+<p><a href="http://github.com/rspec/rspec-core/compare/v2.99.0.beta1...v2.99.0.beta2">Full Changelog</a></p>
+
+<p>Enhancements:</p>
+
+<ul>
+  <li>Add <code>is_expected</code> for one-liners that read well with the
+<code>expect</code>-based syntax. <code>is_expected</code> is simply defined as
+<code>expect(subject)</code> and can be used in an expression like:
+<code>it { is_expected.to read_well }</code>. (Myron Marston)</li>
+  <li>Backport <code>skip</code> from RSpec 3, which acts like <code>pending</code> did in RSpec 2
+when not given a block, since the behavior of <code>pending</code> is changing in
+RSpec 3. (Xavier Shay)</li>
+</ul>
+
+<p>Deprecations:</p>
+
+<ul>
+  <li>Deprecate inexact <code>mock_with</code> config options. RSpec 3 will only support
+the exact symbols <code>:rspec</code>, <code>:mocha</code>, <code>:flexmock</code>, <code>:rr</code> or <code>:nothing</code>
+(or any module that implements the adapter interface). RSpec 2 did
+fuzzy matching but this will not be supported going forward.
+(Myron Marston)</li>
+  <li>Deprecate <code>show_failures_in_pending_blocks</code> config option. To achieve
+the same behavior as the option enabled, you can use a custom
+formatter instead. (Xavier Shay)</li>
+  <li>Add a deprecation warning for the fact that the behavior of <code>pending</code>
+is changing in RSpec 3 – rather than skipping the example (as it did
+in 2.x when no block was provided), it will run the example and mark
+it as failed if no exception is raised. Use <code>skip</code> instead to preserve
+the old behavior. (Xavier Shay)</li>
+  <li>Deprecate 's', 'n', 'spec' and 'nested' as aliases for documentation
+formatter. (Jon Rowe)</li>
+  <li>Deprecate <code>RSpec::Core::Reporter#abort</code> in favor of
+<code>RSpec::Core::Reporter#finish</code>. (Jon Rowe)</li>
+</ul>
+
+<p>Bug Fixes:</p>
+
+<ul>
+  <li>Fix failure (undefined method <code>path</code>) in end-of-run summary
+when <code>raise_errors_for_deprecations!</code> is configured. (Myron Marston)</li>
+  <li>Fix issue were overridding spec ordering from the command line wasn't
+fully recognised interally. (Jon Rowe)</li>
+</ul>
+
+<h3 id="rspec-core-300beta2">rspec-core 3.0.0.beta2</h3>
+
+<p><a href="http://github.com/rspec/rspec-core/compare/v3.0.0.beta1...v3.0.0.beta2">Full Changelog</a></p>
+
+<p>Breaking Changes for 3.0.0:</p>
+
+<ul>
+  <li>Make <code>mock_with</code> option more strict. Strings are no longer supported
+(e.g. <code>mock_with "mocha"</code>) – use a symbol instead. Also, unrecognized
+values will now result in an error rather than falling back to the
+null mocking adapter. If you want to use the null mocking adapter,
+use <code>mock_with :nothing</code> (as has been documented for a long time).
+(Myron Marston)</li>
+  <li>Remove support for overriding RSpec's built-in <code>:if</code> and <code>:unless</code>
+filters. (Ashish Dixit)</li>
+  <li>Custom formatters are now required to call
+<code>RSpec::Core::Formatters.register(formatter_class, *notifications)</code>
+where <code>notifications</code> is the list of events the formatter wishes to
+be notified about. Notifications are handled by methods matching the
+names on formatters. This allows us to add or remove notifications
+without breaking existing formatters. (Jon Rowe)</li>
+  <li>Change arguments passed to formatters. Rather than passing multiple
+arguments (which limits are ability to add additional arguments as
+doing so would break existing formatters), we now pass a notification
+value object that exposes the same data via attributes. This will
+allow us to add new bits of data to a notification event without
+breaking existing formattesr. (Jon Rowe)</li>
+  <li>Remove support for deprecated <code>:alias</code> option for
+<code>RSpec.configuration.add_setting</code>. (Myron Marston)</li>
+  <li>Remove support for deprecated <code>RSpec.configuration.requires = [...]</code>.
+(Myron Marston)</li>
+  <li>Remove support for deprecated <code>--formatter</code> CLI option. (Myron Marston)</li>
+  <li>Remove support for deprecated <code>--configure</code> CLI option. (Myron Marston)</li>
+  <li>Remove support for deprecated <code>RSpec::Core::RakeTask#spec_opts=</code>.
+(Myron Marston)</li>
+  <li>An example group level <code>pending</code> block or <code>:pending</code> metadata now executes
+the example and cause a failure if it passes, otherwise it will be pending if
+it fails. The old "never run" behaviour is still used for <code>xexample</code>, <code>xit</code>,
+and <code>xspecify</code>, or via a new <code>skip</code> method or <code>:skip</code> metadata option.
+(Xavier Shay)</li>
+  <li>After calling <code>pending</code> inside an example, the remainder of the example will
+now be run. If it passes a failure is raised, otherwise the example is marked
+pending. The old "never run" behaviour is provided a by a new <code>skip</code> method.
+(Xavier Shay)</li>
+  <li>Pending blocks inside an example have been removed as a feature with no
+direct replacement. Use <code>skip</code> or <code>pending</code> without a block. (Xavier Shay)</li>
+  <li>Pending statement is no longer allowed in <code>before(:all)</code> hooks. Use <code>skip</code>
+instead.  (Xavier Shay)</li>
+  <li>Remove <code>show_failures_in_pending_blocks</code> configuration option. (Xavier Shay)</li>
+  <li>Remove support for specifying the documentation formatter using
+'s', 'n', 'spec' or 'nested'. (Jon Rowe)</li>
+</ul>
+
+<p>Enhancements:</p>
+
+<ul>
+  <li>Add example run time to JSON formatter output. (Karthik Kastury)</li>
+  <li>Add more suggested settings to the files generated by
+<code>rspec --init</code>. (Myron Marston)</li>
+  <li>Add <code>config.alias_example_group_to</code>, which can be used to define a
+new method that defines an example group with the provided metadata.
+(Michi Huber)</li>
+  <li>Add <code>xdescribe</code> and <code>xcontext</code> as shortcuts to make an example group
+pending. (Myron Marston)</li>
+  <li>Add <code>fdescribe</code> and <code>fcontext</code> as shortcuts to focus an example group.
+(Myron Marston)</li>
+  <li>Don't autorun specs via <code>#at_exit</code> by default. <code>require 'rspec/autorun'</code>
+is only needed when running specs via <code>ruby</code>, as it always has been.
+Running specs via <code>rake</code> or <code>rspec</code> are both unaffected. (Ben Hoskings)</li>
+  <li>Add <code>expose_dsl_globally</code> config option, defaulting to true. When disabled
+it will remove the monkey patches rspec-core adds to <code>main</code> and <code>Module</code>
+(e.g. <code>describe</code>, <code>shared_examples_for</code>, etc).  (Jon Rowe)</li>
+  <li>Expose RSpec DSL entry point methods (<code>describe</code>,
+<code>shared_examples_for</code>, etc) on the <code>RSpec</code> constant. Intended for use
+when <code>expose_dsl_globally</code> is set to <code>false</code>. (Jon Rowe)</li>
+  <li>For consistency, expose all example group aliases (including
+<code>context</code>) on the <code>RSpec</code> constant. If <code>expose_dsl_globally</code> is set to
+<code>true</code>, also expose them on <code>main</code> and <code>Module</code>. Historically, only <code>describe</code>
+was exposed. (Jon Rowe, Michi Huber)</li>
+</ul>
+
+<p>Bug Fixes:</p>
+
+<ul>
+  <li>Fix failure (undefined method <code>path</code>) in end-of-run summary
+when <code>raise_errors_for_deprecations!</code> is configured. (Myron Marston)</li>
+  <li>Issue error when attempting to use -i or –I on command line,
+too close to -I to be considered short hand for –init. (Jon Rowe)</li>
+  <li>Prevent adding formatters to an output target if the same
+formatter has already been added to that output. (Alex Peattie)</li>
+  <li>Allow a matcher-generated example description to be used when
+the example is pending. (Myron Marston)</li>
+  <li>Ensure the configured <code>failure_exit_code</code> is used by the rake
+task when there is a failure. (Jon Rowe)</li>
+  <li>Restore behaviour whereby system exclusion filters take priority over working
+directory (was broken in beta1). (Jon Rowe)</li>
+  <li>Prevent RSpec mangling file names that have substrings containing <code>line_number</code>
+or <code>default_path</code>. (Matijs van Zuijlen)</li>
+</ul>
+
+<h3 id="rspec-expectations-2990beta2">rspec-expectations 2.99.0.beta2</h3>
+
+<p><a href="http://github.com/rspec/rspec-expectations/compare/v2.99.0.beta1...v2.99.0.beta2">Full Changelog</a></p>
+
+<p>Deprecations:</p>
+
+<ul>
+  <li>Deprecate chaining <code>by</code>, <code>by_at_least</code>, <code>by_at_most</code> or <code>to</code> off of
+<code>expect { }.not_to change { }</code>. The docs have always said these are
+not supported for the negative form but now they explicitly raise
+errors in RSpec 3. (Myron Marston)</li>
+  <li>Change the semantics of <code>expect { }.not_to change { x }.from(y)</code>.
+In RSpec 2.x, this expectation would only fail if <code>x</code> started with
+the value of <code>y</code> and changed. If it started with a different value
+and changed, it would pass. In RSpec 3, it will pass only if the
+value starts at <code>y</code> and it does not change. (Myron Marston)</li>
+  <li>Deprecate <code>matcher == value</code> as an alias for <code>matcher.matches?(value)</code>,
+in favor of <code>matcher === value</code>. (Myron Marston)</li>
+  <li>Deprecate <code>RSpec::Matchers::OperatorMatcher</code> in favor of
+<code>RSpec::Matchers::BuiltIn::OperatorMatcher</code>. (Myron Marston)</li>
+  <li>Deprecate auto-integration with Test::Unit and minitest.
+Instead, include <code>RSpec::Matchers</code> in the appropriate test case
+base class yourself. (Myron Marston)</li>
+  <li>Deprecate treating <code>#expected</code> on a DSL-generated custom matcher
+as an array when only 1 argument is passed to the matcher method.
+In RSpec 3 it will be the single value in order to make diffs
+work properly. (Jon Rowe)</li>
+</ul>
+
+<h3 id="rspec-expectations-300beta2">rspec-expectations 3.0.0.beta2</h3>
+
+<p><a href="http://github.com/rspec/rspec-expectations/compare/v3.0.0.beta1...v3.0.0.beta2">Full Changelog</a></p>
+
+<p>Breaking Changes for 3.0.0:</p>
+
+<ul>
+  <li>Remove deprecated support for accessing the <code>RSpec</code> constant using
+<code>Rspec</code> or <code>Spec</code>. (Myron Marston)</li>
+  <li>Remove deprecated <code>RSpec::Expectations.differ=</code>. (Myron Marston)</li>
+  <li>Remove support for deprecated <code>expect(...).should</code>. (Myron Marston)</li>
+  <li>Explicitly disallow <code>expect { }.not_to change { }</code> with <code>by</code>,
+<code>by_at_least</code>, <code>by_at_most</code> or <code>to</code>. These have never been supported
+but did not raise explicit errors. (Myron Marston)</li>
+  <li>Provide <code>===</code> rather than <code>==</code> as an alias of <code>matches?</code> for
+all matchers.  The semantics of <code>===</code> are closer to an RSpec
+matcher than <code>==</code>. (Myron Marston)</li>
+  <li>Remove deprecated <code>RSpec::Matchers::OperatorMatcher</code> constant.
+(Myron Marston)</li>
+  <li>Make <code>RSpec::Expectations::ExpectationNotMetError</code> subclass
+<code>Exception</code> rather than <code>StandardError</code> so they can bypass
+a bare <code>rescue</code> in end-user code (e.g. when an expectation is
+set from within a rspec-mocks stub implementation). (Myron Marston)</li>
+  <li>Remove Test::Unit and Minitest 4.x integration. (Myron Marston)</li>
+</ul>
+
+<p>Enhancements:</p>
+
+<ul>
+  <li>Simplify the failure message of the <code>be</code> matcher when matching against:
+<code>true</code>, <code>false</code> and <code>nil</code>. (Sam Phippen)</li>
+  <li>Update matcher protocol and custom matcher DSL to better align
+with the newer <code>expect</code> syntax. If you want your matchers to
+maintain compatibility with multiple versions of RSpec, you can
+alias the new names to the old. (Myron Marston)
+    <ul>
+      <li><code>failure_message_for_should</code> =&gt; <code>failure_message</code></li>
+      <li><code>failure_message_for_should_not</code> =&gt; <code>failure_message_when_negated</code></li>
+      <li><code>match_for_should</code> =&gt; <code>match</code></li>
+      <li><code>match_for_should_not</code> =&gt; <code>match_when_negated</code></li>
+    </ul>
+  </li>
+  <li>Improve generated descriptions from <code>change</code> matcher. (Myron Marston)</li>
+  <li>Add support for compound matcher expressions using <code>and</code> and <code>or</code>.
+Simply chain them off of any existing matcher to create an expression
+like <code>expect(alphabet).to start_with("a").and end_with("z")</code>.
+(Eloy Espinaco)</li>
+  <li>Add <code>contain_exactly</code> as a less ambiguous version of <code>match_array</code>.
+Note that it expects the expected array to be splatted as
+individual args: <code>expect(array).to contain_exactly(1, 2)</code> is
+the same as <code>expect(array).to match_array([1, 2])</code>. (Myron Marston)</li>
+  <li>Update <code>contain_exactly</code>/<code>match_array</code> so that it can match against
+other non-array collections (such as a <code>Set</code>). (Myron Marston)</li>
+  <li>Update built-in matchers so that they can accept matchers as arguments
+to allow you to compose matchers in arbitrary ways. (Myron Marston)</li>
+  <li>Add <code>RSpec::Matchers::Composable</code> mixin that can be used to make
+a custom matcher composable as well. Note that custom matchers
+defined via <code>RSpec::Matchers.define</code> already have this. (Myron
+Marston)</li>
+  <li>Define noun-phrase aliases for built-in matchers, which can be
+used when creating composed matcher expressions that read better
+and provide better failure messages. (Myron Marston)</li>
+  <li>Add <code>RSpec::Machers.alias_matcher</code> so users can define their own
+matcher aliases. The <code>description</code> of the matcher will reflect the
+alternate matcher name. (Myron Marston)</li>
+  <li>Add explicit <code>be_between</code> matcher. <code>be_between</code> has worked for a
+long time as a dynamic predicate matcher, but the failure message
+was suboptimal. The new matcher provides a much better failure
+message. (Erik Michaels-Ober)</li>
+  <li>Enhance the <code>be_between</code> matcher to allow for <code>inclusive</code> or <code>exclusive</code>
+comparison (e.g. inclusive of min/max or exclusive of min/max).
+(Pedro Gimenez)</li>
+  <li>Make failure message for <code>not_to be #{operator}</code> less confusing by
+only saying it's confusing when comparison operators are used.
+(Prathamesh Sonpatki)</li>
+  <li>Improve failure message of <code>eq</code> matcher when <code>Time</code> or <code>DateTime</code>
+objects are used so that the full sub-second precision is included.
+(Thomas Holmes, Jeff Wallace)</li>
+  <li>Add <code>output</code> matcher for expecting that a block outputs <code>to_stdout</code>
+or <code>to_stderr</code>. (Luca Pette, Matthias Günther)</li>
+  <li>Forward a provided block on to the <code>has_xyz?</code> method call when
+the <code>have_xyz</code> matcher is used. (Damian Galarza)</li>
+  <li>Provide integration with Minitest 5.x. Require
+<code>rspec/expectations/minitest_integration</code> after loading minitest
+to use rspec-expectations with minitest. (Myron Marston)</li>
+</ul>
+
+<p>Bug Fixes:</p>
+
+<ul>
+  <li>Fix wrong matcher descriptions with falsey expected value (yujinakayama)</li>
+  <li>Fix <code>expect { }.not_to change { }.from(x)</code> so that the matcher only
+passes if the starting value is <code>x</code>. (Tyler Rick, Myron Marston)</li>
+  <li>Fix hash diffing, so that it colorizes properly and doesn't consider trailing
+commas when performing the diff. (Jared Norman)</li>
+  <li>Fix built-in matchers to fail normally rather than raising
+<code>ArgumentError</code> when given an object of the wrong type to match
+against, so that they work well in composite matcher expressions like
+<code>expect([1.51, "foo"]).to include(a_string_matching(/foo/), a_value_within(0.1).of(1.5))</code>.
+(Myron Marston)</li>
+</ul>
+
+<p>Deprecations:</p>
+
+<ul>
+  <li>Retain support for RSpec 2 matcher protocol (e.g. for matchers
+in 3rd party extension gems like <code>shoulda</code>), but it will print
+a deprecation warning. (Myron Marston)</li>
+</ul>
+
+<h3 id="rspec-mocks-2990beta2">rspec-mocks 2.99.0.beta2</h3>
+
+<p><a href="http://github.com/rspec/rspec-mocks/compare/v2.99.0.beta1...v2.99.0.beta2">Full Changelog</a></p>
+
+<p>Deprecations:</p>
+
+<ul>
+  <li>Deprecate <code>RSpec::Mocks::Mock</code> in favor of <code>RSpec::Mocks::Double</code>.
+(Myron Marston)</li>
+  <li>Deprecate the <code>host</code> argument of <code>RSpec::Mocks.setup</code>. Instead
+<code>RSpec::Mocks::ExampleMethods</code> should be included directly in the scope where
+RSpec's mocking capabilities are used. (Sam Phippen)</li>
+  <li>Deprecate using any of rspec-mocks' features outside the per-test
+lifecycle (e.g. from a <code>before(:all)</code> hook). (Myron Marston)</li>
+  <li>Deprecate re-using a test double in another example. (Myron Marston)</li>
+  <li>Deprecate <code>and_return { value }</code> and <code>and_return</code> without arguments. (Yuji Nakayama)</li>
+</ul>
+
+<h3 id="rspec-mocks-300beta2">rspec-mocks 3.0.0.beta2</h3>
+
+<p><a href="http://github.com/rspec/rspec-mocks/compare/v3.0.0.beta1...v3.0.0.beta2">Full Changelog</a></p>
+
+<p>Breaking Changes for 3.0.0:</p>
+
+<ul>
+  <li>Rename <code>RSpec::Mocks::Mock</code> to <code>RSpec::Mocks::Double</code>. (Myron Marston)</li>
+  <li>Change how to integrate rspec-mocks in other test frameworks. You now
+need to include <code>RSpec::Mocks::ExampleMethods</code> in your test context.
+(Myron Marston)</li>
+  <li>Prevent RSpec mocks' doubles and partial doubles from being used outside of
+the per-test lifecycle (e.g. from a <code>before(:all)</code> hook). (Sam Phippen)</li>
+  <li>Remove the <code>host</code> argument of <code>RSpec::Mocks.setup</code>. Instead
+<code>RSpec::Mocks::ExampleMethods</code> should be included directly in the scope where
+RSpec's mocking capabilities are used. (Sam Phippen)</li>
+  <li>Make test doubles raise errors if you attempt to use them after they
+get reset, to help surface issues when you accidentally retain
+references to test doubles and attempt to reuse them in another
+example. (Myron Marston)</li>
+  <li>Remove support for <code>and_return { value }</code> and <code>and_return</code> without arguments. (Yuji Nakayama)</li>
+</ul>
+
+<p>Enhancements:</p>
+
+<ul>
+  <li>Add <code>receive_message_chain</code> which provides the functionality of the old
+<code>stub_chain</code> for the new allow/expect syntax. Use it like so: <code>allow(...).to
+receive_message_chain(:foo, :bar, :bazz)</code>. (Sam Phippen).</li>
+  <li>Change argument matchers to use <code>===</code> as their primary matching
+protocol, since their semantics mirror that of a case or rescue statement
+(which uses <code>===</code> for matching). (Myron Marston)</li>
+  <li>Add <code>RSpec::Mocks.with_temporary_scope</code>, which allows you to create
+temporary rspec-mocks scopes in arbitrary places (such as a
+<code>before(:all)</code> hook). (Myron Marston)</li>
+  <li>Support keyword arguments when checking arity with verifying doubles.
+(Xavier Shay)</li>
+</ul>
+
+<p>Bug Fixes:</p>
+
+<ul>
+  <li>Fix regression in 3.0.0.beta1 that caused <code>double("string_name" =&gt; :value)</code>
+to stop working. (Xavier Shay)</li>
+  <li>Fix the way rspec-mocks and rspec-core interact so that if users
+define a <code>let</code> with the same name as one of the methods
+from <code>RSpec::Mocks::ArgumentMatchers</code>, the user's <code>let</code> takes
+precedence. (Michi Huber, Myron Marston)</li>
+  <li>Fix verified doubles so that their methods match the visibility
+(public, protected or private) of the interface they verify
+against. (Myron Marston)</li>
+  <li>Fix verified null object doubles so that they do not wrongly
+report that they respond to anything. They only respond to methods
+available on the interface they verify against. (Myron Marston)</li>
+  <li>Fix deprecation warning for use of old <code>:should</code> syntax w/o explicit
+config so that it no longer is silenced by an extension gem such
+as rspec-rails when it calls <code>config.add_stub_and_should_receive_to</code>.
+(Sam Phippen)</li>
+  <li>Fix <code>expect</code> syntax so that it does not wrongly emit a "You're
+overriding a previous implementation for this stub" warning when
+you are not actually doing that. (Myron Marston)</li>
+  <li>Fix <code>any_instance.unstub</code> when used on sub classes for whom the super
+class has had <code>any_instance.stub</code> invoked on. (Jon Rowe)</li>
+  <li>Fix regression in <code>stub_chain</code>/<code>receive_message_chain</code> that caused
+it to raise an <code>ArgumentError</code> when passing args to the stubbed
+methods. (Sam Phippen)</li>
+  <li>Correct stub of undefined parent modules all the way down when stubbing a
+nested constant. (Xavier Shay)</li>
+  <li>Raise <code>VerifyingDoubleNotDefinedError</code> when a constant is not defined for
+a verifying class double. (Maurício Linhares)</li>
+  <li>Remove <code>Double#to_str</code>, which caused confusing <code>raise some_double</code>
+behavior. (Maurício Linhares)</li>
+</ul>
+
+<h3 id="rspec-rails-2990beta2">rspec-rails 2.99.0.beta2</h3>
+
+<p><a href="http://github.com/rspec/rspec-rails/compare/v2.99.0.beta1...v2.99.0.beta2">Full Changelog</a></p>
+
+<p>Deprecations:</p>
+
+<ul>
+  <li>Deprecates the <code>--webrat</code> option to the scaffold and request spec generator (Andy Lindeman)</li>
+  <li>Deprecates the use of <code>Capybara::DSL</code> (e.g., <code>visit</code>) in controller specs.
+It is more appropriate to use capybara in feature specs (<code>spec/features</code>)
+instead. (Andy Lindeman)</li>
+</ul>
+
+<p>Bug Fixes:</p>
+
+<ul>
+  <li>Use <code>__send__</code> rather than <code>send</code> to prevent naming collisions (Bradley Schaefer)</li>
+  <li>Supports Rails 4.1. (Andy Lindeman)</li>
+  <li>Loads ActiveSupport properly to support changes in Rails 4.1. (Andy Lindeman)</li>
+  <li>Anonymous controllers inherit from <code>ActionController::Base</code> if <code>ApplicationController</code>
+is not present. (Jon Rowe)</li>
+</ul>
+
+<h3 id="rspec-rails-300beta2">rspec-rails 3.0.0.beta2</h3>
+
+<p><a href="http://github.com/rspec/rspec-rails/compare/v3.0.0.beta1...v3.0.0.beta2">Full Changelog</a></p>
+
+<p>Breaking Changes for 3.0.0:</p>
+
+<ul>
+  <li>Removes the <code>--webrat</code> option for the request spec generator (Andy Lindeman)</li>
+  <li>Methods from <code>Capybara::DSL</code> (e.g., <code>visit</code>) are no longer available in
+controller specs. It is more appropriate to use capybara in feature specs
+(<code>spec/features</code>) instead. (Andy Lindeman)</li>
+  <li><code>infer_base_class_for_anonymous_controllers</code> is
+enabled by default. (Thomas Holmes)</li>
+  <li>Capybara 2.2.0 or above is required for feature specs. (Andy Lindeman)</li>
+</ul>
+
+<p>Enhancements:</p>
+
+<ul>
+  <li>Improve <code>be_valid</code> matcher for non-ActiveModel::Errors implementations (Ben Hamill)</li>
+</ul>
+
+<p>Bug Fixes:</p>
+
+<ul>
+  <li>Use <code>__send__</code> rather than <code>send</code> to prevent naming collisions (Bradley Schaefer)</li>
+  <li>Supports Rails 4.1. (Andy Lindeman)</li>
+  <li>Routes are drawn correctly for anonymous controllers with abstract
+parents. (Billy Chan)</li>
+  <li>Loads ActiveSupport properly to support changes in Rails 4.1. (Andy Lindeman)</li>
+  <li>Anonymous controllers inherit from <code>ActionController::Base</code> if <code>ApplicationController</code>
+is not present. (Jon Rowe)</li>
+  <li>Require <code>rspec/collection_matchers</code> when <code>rspec/rails</code> is required. (Yuji Nakayama)</li>
+</ul>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+  var disqus_shortname  = 'myronmarston-personal-site';
+  var disqus_identifier = '/n/dev-blog/2014/02/rspec-2-99-and-3-0-beta-2-have-been-released';
+  var disqus_title      = 'RSpec 2.99 and 3.0 beta2 have been released!';
+  var disqus_url        = 'http://myronmars.to/n/dev-blog/2014/02/rspec-2-99-and-3-0-beta-2-have-been-released';
+
+  /* * * DON'T EDIT BELOW THIS LINE * * */
+  (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</article></section><script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-59095215-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body></html>
