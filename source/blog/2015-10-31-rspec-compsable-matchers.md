@@ -14,12 +14,12 @@ that implement this protocol include:
 * ranges
 
 Conceptually, this protocol represents a "match", but can be thought of as
-categorising instances of objects. That is, the object that implements the
-`===` declares whether or not it belongs in the same category as the other
-object.  For example, `Array === []` returns `true`. This is because an empty
-array is an instance of the array class. `Array === {}` returns false because
-a hash is not an array. For regexes, `===` returns true if the passed string
-matches the regex, and false if it does not.
+categorising instances of objects. That is, the object that implements `===`
+defines whether or not the passed in object belongs in the same category.
+For example, `Array === []` returns `true`. This is because an empty array is
+an instance of the array class. `Array === {}` returns false because a hash is
+not an array. For regexes, `===` returns true if the passed string matches the
+regex, and false if it does not.
 
 The `===` method is used in Ruby case statements to decide if a branch should
 be taken. For example
@@ -42,7 +42,7 @@ play around with it a little before moving on.
 In an RSpec expectation expression like `expect(object_1).to eq(object_2)`
 there are two primary objects at play, the **target** and the **matcher**. The
 **target** object is created by "expect" and exposes `to` (and `to_not`) which
-takes the matcher is is responsible for invoking `matches?` on it.
+takes a matcher and is responsible for invoking `matches?` on it.
 
 It's possible to see this happening in an IRB session, e.g:
 
@@ -78,10 +78,11 @@ end
 
 ## Composable RSpec matchers
 
-A composable RSpec matcher is one which expects other RSpec matchers for it's
-arguments. These are higher order matchers (as opposed to more primitive
-matchers such as `be_predicate` or `be > x`) such as `include`, `start_with`
-and `match`. Let's take a look at the `match` matcher as a place to start.
+A composable RSpec matcher is one which accepts other RSpec matchers for it's
+arguments. These are higher order matchers such as `include`, `start_with` and
+`match` (matchers like `be_predicate` or `be > x` are more primative and
+generally aren't composable). Let's take a look at the `match` matcher as a
+place to start.
 
 In RSpec 2.xx the match matcher was mostly used to match regexes, and its
 `matches?` definition looked thus:
@@ -149,12 +150,12 @@ end
 
 The first thing to note is the special casing for Hashes and Arrays. Basically,
 what those methods do is recursively apply `values_match?` to each of the
-elements in the various collection types as you'd expect. Arrays by scanning
-elements and hashes by matching keys and values.
+elements in the various collection types as you'd expect, so matching Arrays by
+scanning elements and hashes by matching keys and values.
 
-The next thing the method does is to return `true` if `expected == actual`,
-note not `expected === actual` but `==` because `/foo/ === /foo/` returns
-`false` as does `MyClass === MyClass` -- so we have to check normal equality
+We next check normal equality `==` so that if `expected == actual` we return
+`true`, we do this because objects of the same type, e.g. `/foo/ === /foo/`
+ir `MyClass === MyClass`, return `false` so we have to check normal equality
 as well and not rely solely on `===`. We can demonstrate this is back in our
 IRB session:
 
@@ -163,9 +164,11 @@ IRB session:
 => true
 ```
 
-What we've done here is constructed a both a target and match matcher with the value /foo/.
-When the match matcher hits `values_match?` it sees that /foo/ is not an array or a hash, and so
-checks `expected == actual`, which in this case is `/foo/ == /foo/`, which is true.
+What we've done here is construct two objects with a value of `/foo/`, one is
+a target, the other an instance of the  match matcher.  When the target checks
+`values_match?` on the matcher it sees that /foo/ is not an array or a hash, so
+it uses the simplier `expected == actual`, in this case `/foo/ == /foo/`, which
+is true.
 
 The next line checks `expected === actual`. This is where the power of RSpec's new composability
 really kicks in. The reason for this is that the `BaseMatcher` class includes a module called
@@ -197,10 +200,9 @@ will allow it to match the complex inner hash.
 
 ##Conclusions
 
-The old RSpec match protocol used to be a lot easier to understand. Each of the
-matchers held their own matching logic, which was pretty simple. It did mean
-that you could not use RSpec matchers in a highly composable way though.
-For example: performing nested inclusion matches would require multiple
+With the old RSpec match protocol each of the matchers tended to hold their own
+matching logic. This meant that you could not use RSpec matchers in a composable
+way. For example: performing nested inclusion matches would require multiple
 expectation expressions.
 
 To understand the new RSpec match protocol you have to understand the one core
