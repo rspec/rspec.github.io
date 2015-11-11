@@ -3,8 +3,7 @@ pageable: false
 ---
 <section class='blog_index'>
   <h2>Blog</h2>
-
-  <% page_articles.each_with_index do |article, i| %>
+  <% page_articles(current_blog_name).each do |article| %>
     <h3><%= link_to article.title, article.url %></h3>
     <p>
       <%= article.data.author %>
