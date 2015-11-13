@@ -71,6 +71,9 @@ source and determine how many lines to include for the full expectation
 expression. For a case like the snippet above, the failure output
 will now include the entire expression.
 
+There's also a new config option to go wth this: `config.max_displayed_failure_line_count`,
+which defaults to 10 and sets a limit on the size of the snippet.
+
 Thanks to Yuji Nakayama for [implementing](https://github.com/rspec/rspec-core/pull/2083) this!
 
 #### Install `coderay` for Syntax Highlighting
@@ -92,8 +95,9 @@ failure, the top frame refers to a link in RSpec where the
 to see the snippet from your `expect` call site rather than seeing
 a snippet of RSpec's code. Before RSpec 3.4, our solution for this
 was fairly naive: we just looked for the first
-stack frame from your spec file. In some situations this would display
-the wrong snippet (such as when your spec file called a helper method
+stack frame from the spec containing your current running example file.
+In some situations this would display the wrong snippet
+(such as when your example called a helper method
 defined in a `spec/support` file where the real failure occurred).
 In others it didn't find anything and we wound up displaying
 `Unable to find matching line from backtrace` instead.
