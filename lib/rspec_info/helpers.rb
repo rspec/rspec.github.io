@@ -1,7 +1,16 @@
 module RSpecInfo
   module Helpers
+    def current_blog
+      blog(current_blog_name)
+    end
+
+    def current_blog_name
+      I18n.locale == :en ? 'en' : 'i18n'
+    end
+
     def primary_page_class
-      page_classes.split(" ").first
+      classes = page_classes.split(" ").map { |klass| klass.sub(/\A#{I18n.locale}_?/, '') }
+      classes.find { |klass| !klass.empty? }
     end
 
     def asciinema_video(id, speed: 1)

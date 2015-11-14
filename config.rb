@@ -10,9 +10,9 @@ end
 # dev mode addons
 activate :livereload if ENV['LIVERELOAD']
 
-activate :blog do |blog|
-  # This will add a prefix to all links, template references and source paths
-  blog.prefix = "blog"
+activate :i18n, langs: [:en, :ja], mount_at_root: :en
+
+def configure_blog(blog)
   blog.layout = "blog_post"
 
   blog.permalink = "/{year}/{month}/{title}"
@@ -25,7 +25,26 @@ activate :blog do |blog|
   blog.per_page = 10
 end
 
-page "/blog/feed.xml", layout: false
+# middleman-blog does not allow the `mount_at_root` like feature
+# so we define two blog instances for English one and localized one.
+
+# English blog at /blog
+activate :blog do |blog|
+  blog.name = 'en'
+  # This will add a prefix to all links, template references and source paths
+  blog.prefix = "blog"
+  configure_blog(blog)
+end
+
+# Localized blogs at /{lang}/blog
+activate :blog do |blog|
+  blog.name = 'i18n'
+  # This will add a prefix to all links, template references and source paths
+  blog.prefix = "{lang}/blog"
+  configure_blog(blog)
+end
+
+page "/**/feed.xml", layout: false
 
 # for build
 activate :syntax
