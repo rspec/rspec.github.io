@@ -5,11 +5,34 @@ module RSpecInfo
     end
 
     def current_blog_name
-      I18n.locale == :en ? 'en' : 'i18n'
+      current_lang == :en ? 'en' : 'i18n'
+    end
+
+    def current_lang
+      current_resource.respond_to?(:lang) ? current_resource.lang : :en
+    end
+
+    def other_localized_resources
+      localized_resources.reject { |resource| resource.lang == current_lang }
+    end
+
+    def localized_resources
+      current_resource_name = current_resource.destination_path.sub(%r{\A#{current_lang}}, '')
+
+      resources = langs.map do |lang|
+        localized_resource_path = if lang == :en
+                                    current_resource_name
+                                  else
+                                    File.join(lang.to_s, current_resource_name)
+                                  end
+        sitemap.find_resource_by_destination_path(localized_resource_path)
+      end
+
+      resources.compact.sort_by(&:lang)
     end
 
     def primary_page_class
-      classes = page_classes.split(" ").map { |klass| klass.sub(/\A#{I18n.locale}_?/, '') }
+      classes = page_classes.split(" ").map { |klass| klass.sub(/\A#{current_lang}_?/, '') }
       classes.find { |klass| !klass.empty? }
     end
 
