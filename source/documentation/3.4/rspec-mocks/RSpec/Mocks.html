@@ -1,0 +1,911 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Module: RSpec::Mocks
+  
+    &mdash; Documentation by YARD 0.8.7.6
+  
+</title>
+
+  <link rel="stylesheet" href="/stylesheets/docs/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="/stylesheets/docs/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '../';
+  framesUrl = "../frames.html#!RSpec/Mocks.html";
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="/javascripts/docs/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="/javascripts/docs/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (M)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../RSpec.html" title="RSpec (module)">RSpec</a></span></span>
+     &raquo; 
+    <span class="title">Mocks</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="../method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="../file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><h1>Module: RSpec::Mocks
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">lib/rspec/mocks.rb<span class="defines">,<br />
+  lib/rspec/mocks/space.rb,<br /> lib/rspec/mocks/proxy.rb,<br /> lib/rspec/mocks/syntax.rb,<br /> lib/rspec/mocks/version.rb,<br /> lib/rspec/mocks/targets.rb,<br /> lib/rspec/mocks/test_double.rb,<br /> lib/rspec/mocks/order_group.rb,<br /> lib/rspec/mocks/mutate_const.rb,<br /> lib/rspec/mocks/method_double.rb,<br /> lib/rspec/mocks/message_chain.rb,<br /> lib/rspec/mocks/configuration.rb,<br /> lib/rspec/mocks/example_methods.rb,<br /> lib/rspec/mocks/error_generator.rb,<br /> lib/rspec/mocks/verifying_proxy.rb,<br /> lib/rspec/mocks/matchers/receive.rb,<br /> lib/rspec/mocks/object_reference.rb,<br /> lib/rspec/mocks/method_reference.rb,<br /> lib/rspec/mocks/verifying_double.rb,<br /> lib/rspec/mocks/argument_matchers.rb,<br /> lib/rspec/mocks/marshal_extension.rb,<br /> lib/rspec/mocks/any_instance/proxy.rb,<br /> lib/rspec/mocks/any_instance/chain.rb,<br /> lib/rspec/mocks/message_expectation.rb,<br /> lib/rspec/mocks/any_instance/recorder.rb,<br /> lib/rspec/mocks/argument_list_matcher.rb,<br /> lib/rspec/mocks/matchers/have_received.rb,<br /> lib/rspec/mocks/instance_method_stasher.rb,<br /> lib/rspec/mocks/any_instance/stub_chain.rb,<br /> lib/rspec/mocks/matchers/receive_messages.rb,<br /> lib/rspec/mocks/any_instance/message_chains.rb,<br /> lib/rspec/mocks/any_instance/error_generator.rb,<br /> lib/rspec/mocks/any_instance/stub_chain_chain.rb,<br /> lib/rspec/mocks/verifying_message_expectation.rb,<br /> lib/rspec/mocks/any_instance/expectation_chain.rb,<br /> lib/rspec/mocks/matchers/receive_message_chain.rb,<br /> lib/rspec/mocks/any_instance/expect_chain_chain.rb,<br /> lib/rspec/mocks/matchers/expectation_customization.rb</span>
+</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>Contains top-level utility methods. While this contains a few public
+methods, these are not generally meant to be called from a test or example.
+They exist primarily for integration with test frameworks (such as
+rspec-core).</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><h2>Defined Under Namespace</h2>
+<p class="children">
+  
+    
+      <strong class="modules">Modules:</strong> <span class='object_link'><a href="Mocks/ArgumentMatchers.html" title="RSpec::Mocks::ArgumentMatchers (module)">ArgumentMatchers</a></span>, <span class='object_link'><a href="Mocks/ExampleMethods.html" title="RSpec::Mocks::ExampleMethods (module)">ExampleMethods</a></span>, <span class='object_link'><a href="Mocks/Matchers.html" title="RSpec::Mocks::Matchers (module)">Matchers</a></span>, <span class='object_link'><a href="Mocks/Syntax.html" title="RSpec::Mocks::Syntax (module)">Syntax</a></span>, <span class='object_link'><a href="Mocks/TestDouble.html" title="RSpec::Mocks::TestDouble (module)">TestDouble</a></span>, <span class='object_link'><a href="Mocks/Version.html" title="RSpec::Mocks::Version (module)">Version</a></span>
+    
+  
+    
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="Mocks/ArgumentListMatcher.html" title="RSpec::Mocks::ArgumentListMatcher (class)">ArgumentListMatcher</a></span>, <span class='object_link'><a href="Mocks/Configuration.html" title="RSpec::Mocks::Configuration (class)">Configuration</a></span>, <span class='object_link'><a href="Mocks/Constant.html" title="RSpec::Mocks::Constant (class)">Constant</a></span>, <span class='object_link'><a href="Mocks/ConstantMutator.html" title="RSpec::Mocks::ConstantMutator (class)">ConstantMutator</a></span>, <span class='object_link'><a href="Mocks/DirectObjectReference.html" title="RSpec::Mocks::DirectObjectReference (class)">DirectObjectReference</a></span>, <span class='object_link'><a href="Mocks/Double.html" title="RSpec::Mocks::Double (class)">Double</a></span>, <span class='object_link'><a href="Mocks/MessageExpectation.html" title="RSpec::Mocks::MessageExpectation (class)">MessageExpectation</a></span>, <span class='object_link'><a href="Mocks/NamedObjectReference.html" title="RSpec::Mocks::NamedObjectReference (class)">NamedObjectReference</a></span>, <span class='object_link'><a href="Mocks/VerifyingMessageExpectation.html" title="RSpec::Mocks::VerifyingMessageExpectation (class)">VerifyingMessageExpectation</a></span>
+    
+  
+</p>
+
+  <h2>Constant Summary</h2>
+  
+    <dl class="constants">
+      
+        <dt id="MockExpectationError-constant" class="">MockExpectationError =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>Raised when a message expectation is not satisfied.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='const'>Class</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='const'>Exception</span><span class='rparen'>)</span></pre></dd>
+      
+        <dt id="ExpiredTestDoubleError-constant" class="">ExpiredTestDoubleError =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>Raised when a test double is used after it has been torn down (typically at
+the end of an rspec-core example).</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='const'>Class</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='const'>MockExpectationError</span><span class='rparen'>)</span></pre></dd>
+      
+        <dt id="OutsideOfExampleError-constant" class="">OutsideOfExampleError =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>Raised when doubles or partial doubles are used outside of the per-test
+lifecycle.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='const'>Class</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='const'>StandardError</span><span class='rparen'>)</span></pre></dd>
+      
+        <dt id="MockExpectationAlreadyInvokedError-constant" class="">MockExpectationAlreadyInvokedError =
+          <div class="docstring">
+  <div class="discussion">
+    
+<p>Raised when an expectation customization method (e.g. <code>with</code>,
+<code>and_return</code>) is called on a message expectation which has
+already been invoked.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='const'>Class</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='const'>Exception</span><span class='rparen'>)</span></pre></dd>
+      
+        <dt id="CannotSupportArgMutationsError-constant" class="deprecated">CannotSupportArgMutationsError =
+          <div class="docstring">
+  <div class="discussion">
+    <div class="note deprecated"><strong>Deprecated.</strong> <div class='inline'>
+<p>We no longer raise this error but the constant remains until RSpec 4 for
+SemVer reasons.</p>
+</div></div>
+
+<p>Raised for situations that RSpec cannot support due to mutations made
+externally on arguments that RSpec is holding onto to use for later
+comparisons.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='const'>Class</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='const'>StandardError</span><span class='rparen'>)</span></pre></dd>
+      
+    </dl>
+  
+
+
+
+
+
+
+
+  
+    <h2>
+      Class Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#allow_message-class_method" title="allow_message (class method)">+ (Object) <strong>allow_message</strong>(subject, message, opts = {}) { ... }</a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Adds an allowance (stub) on <code>subject</code>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#configuration-class_method" title="configuration (class method)">+ (Object) <strong>configuration</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Mocks specific configuration, as distinct from
+<code>RSpec.configuration</code> which is core RSpec configuration.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#expect_message-class_method" title="expect_message (class method)">+ (Object) <strong>expect_message</strong>(subject, message, opts = {}) { ... }</a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Sets a message expectation on <code>subject</code>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#setup-class_method" title="setup (class method)">+ (Object) <strong>setup</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Performs per-test/example setup.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#teardown-class_method" title="teardown (class method)">+ (Object) <strong>teardown</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Cleans up all test double state (including any methods that were redefined
+on partial doubles).</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#verify-class_method" title="verify (class method)">+ (Object) <strong>verify</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Verifies any message expectations that were set during the test or example.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#with_temporary_scope-class_method" title="with_temporary_scope (class method)">+ (Object) <strong>with_temporary_scope</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Call the passed block and verify mocks after it has executed.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="allow_message-class_method">
+  
+    + (<tt>Object</tt>) <strong>allow_message</strong>(subject, message, opts = {}) { ... }
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Adds an allowance (stub) on <code>subject</code></p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+        <p class="example_title"><div class='inline'>
+<p>Defines the implementation of <code>foo</code> on <code>bar</code>, using
+the passed block</p>
+</div></p>
+      
+      <pre class="example code"><code><span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='int'>0</span>
+<span class='const'>RSpec</span><span class='op'>::</span><span class='const'>Mocks</span><span class='period'>.</span><span class='id identifier rubyid_allow_message'>allow_message</span><span class='lparen'>(</span><span class='id identifier rubyid_bar'>bar</span><span class='comma'>,</span> <span class='symbol'>:foo</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_x'>x</span> <span class='op'>+=</span> <span class='int'>1</span> <span class='rbrace'>}</span></code></pre>
+    
+  </div>
+<p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>subject</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the subject to which the message will be added</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>message</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>a symbol, representing the message that will be added.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>opts</span>
+      
+      
+        <span class='type'></span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>a hash of options, :expected_from is used to set the original call site</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Yields:</p>
+<ul class="yield">
+  
+    <li>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        
+        <div class='inline'>
+<p>an optional implementation for the allowance</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+69
+70
+71</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/mocks.rb', line 69</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_allow_message'>allow_message</span><span class='lparen'>(</span><span class='id identifier rubyid_subject'>subject</span><span class='comma'>,</span> <span class='id identifier rubyid_message'>message</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_space'>space</span><span class='period'>.</span><span class='id identifier rubyid_proxy_for'>proxy_for</span><span class='lparen'>(</span><span class='id identifier rubyid_subject'>subject</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_add_stub'>add_stub</span><span class='lparen'>(</span><span class='id identifier rubyid_message'>message</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="configuration-class_method">
+  
+    + (<tt>Object</tt>) <strong>configuration</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Mocks specific configuration, as distinct from
+<code>RSpec.configuration</code> which is core RSpec configuration.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+199
+200
+201</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/mocks/configuration.rb', line 199</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_configuration'>configuration</span>
+  <span class='ivar'>@configuration</span> <span class='op'>||=</span> <span class='const'>Configuration</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="expect_message-class_method">
+  
+    + (<tt>Object</tt>) <strong>expect_message</strong>(subject, message, opts = {}) { ... }
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Sets a message expectation on <code>subject</code>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+        <p class="example_title"><div class='inline'>
+<p>Expect the message <code>foo</code> to receive <code>bar</code>, then call
+it</p>
+</div></p>
+      
+      <pre class="example code"><code><span class='const'>RSpec</span><span class='op'>::</span><span class='const'>Mocks</span><span class='period'>.</span><span class='id identifier rubyid_expect_message'>expect_message</span><span class='lparen'>(</span><span class='id identifier rubyid_bar'>bar</span><span class='comma'>,</span> <span class='symbol'>:foo</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_bar'>bar</span><span class='period'>.</span><span class='id identifier rubyid_foo'>foo</span></code></pre>
+    
+  </div>
+<p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>subject</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the subject on which the message will be expected</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>message</span>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>a symbol, representing the message that will be expected.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>opts</span>
+      
+      
+        <span class='type'></span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>a hash of options, :expected_from is used to set the original call site</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+<p class="tag_title">Yields:</p>
+<ul class="yield">
+  
+    <li>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        
+        <div class='inline'>
+<p>an optional implementation for the expectation</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+84
+85
+86</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/mocks.rb', line 84</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_expect_message'>expect_message</span><span class='lparen'>(</span><span class='id identifier rubyid_subject'>subject</span><span class='comma'>,</span> <span class='id identifier rubyid_message'>message</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_space'>space</span><span class='period'>.</span><span class='id identifier rubyid_proxy_for'>proxy_for</span><span class='lparen'>(</span><span class='id identifier rubyid_subject'>subject</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_add_message_expectation'>add_message_expectation</span><span class='lparen'>(</span><span class='id identifier rubyid_message'>message</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="setup-class_method">
+  
+    + (<tt>Object</tt>) <strong>setup</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Performs per-test/example setup. This should be called before an test or
+example begins.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+38
+39
+40</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/mocks.rb', line 38</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_setup'>setup</span>
+  <span class='ivar'>@space_stack</span> <span class='op'>&lt;&lt;</span> <span class='lparen'>(</span><span class='ivar'>@space</span> <span class='op'>=</span> <span class='id identifier rubyid_space'>space</span><span class='period'>.</span><span class='id identifier rubyid_new_scope'>new_scope</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="teardown-class_method">
+  
+    + (<tt>Object</tt>) <strong>teardown</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Cleans up all test double state (including any methods that were redefined
+on partial doubles). This <em>must</em> be called after each example, even
+if an error was raised during the example.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+51
+52
+53
+54
+55</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/mocks.rb', line 51</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_teardown'>teardown</span>
+  <span class='id identifier rubyid_space'>space</span><span class='period'>.</span><span class='id identifier rubyid_reset_all'>reset_all</span>
+  <span class='ivar'>@space_stack</span><span class='period'>.</span><span class='id identifier rubyid_pop'>pop</span>
+  <span class='ivar'>@space</span> <span class='op'>=</span> <span class='ivar'>@space_stack</span><span class='period'>.</span><span class='id identifier rubyid_last'>last</span> <span class='op'>||</span> <span class='ivar'>@root_space</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="verify-class_method">
+  
+    + (<tt>Object</tt>) <strong>verify</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Verifies any message expectations that were set during the test or example.
+This should be called at the end of an example.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+44
+45
+46</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/mocks.rb', line 44</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_verify'>verify</span>
+  <span class='id identifier rubyid_space'>space</span><span class='period'>.</span><span class='id identifier rubyid_verify_all'>verify_all</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="with_temporary_scope-class_method">
+  
+    + (<tt>Object</tt>) <strong>with_temporary_scope</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Call the passed block and verify mocks after it has executed. This allows
+mock usage in arbitrary places, such as a <code>before(:all)</code> hook.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/mocks.rb', line 90</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_with_temporary_scope'>with_temporary_scope</span>
+  <span class='id identifier rubyid_setup'>setup</span>
+
+  <span class='kw'>begin</span>
+    <span class='kw'>yield</span>
+    <span class='id identifier rubyid_verify'>verify</span>
+  <span class='kw'>ensure</span>
+    <span class='id identifier rubyid_teardown'>teardown</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+    <div id="footer">
+  Generated on Wed Nov 11 23:57:45 2015 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.6 (ruby-2.1.5).
+</div>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-59095215-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+  </body>
+</html>

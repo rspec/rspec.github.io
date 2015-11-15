@@ -1,0 +1,188 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>
+  File: Capybara
+  
+    &mdash; Documentation by YARD 0.8.7.6
+  
+</title>
+
+  <link rel="stylesheet" href="/stylesheets/docs/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="/stylesheets/docs/common.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="/stylesheets/docs/rspec.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '';
+  framesUrl = "frames.html#!file.Capybara.html";
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="/javascripts/docs/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="/javascripts/docs/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="_index.html">Index</a> &raquo; 
+    <span class="title">File: Capybara</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><div id='filecontents'>
+<p>rspec-rails supports integration with Capbyara out of the box by adding its
+Capybara::DSL (visit/page) and Capybara::RSpecMatchers to the examples in
+the applicable directories, which differ slightly between Capybara 1.x and
+Capybara &gt;= 2.x.</p>
+
+<h2 id="label-Capybara%3A%3ADSL">Capybara::DSL</h2>
+
+<p>Adds the <code>visit</code> and <code>page</code> methods, which work
+together to simulate a GET request and provide access to the result (via
+<code>page</code>).</p>
+
+<h2 id="label-Capybara%3A%3ARSpecMatchers">Capybara::RSpecMatchers</h2>
+
+<p>Exposes matchers used to specify expected HTML content (e.g.
+<code>should_not have_selector</code> will work correctly).</p>
+
+<h2 id="label-Capybara+1.x">Capybara 1.x</h2>
+
+<p>Capybara::DSL is added to examples in:</p>
+<ul><li>
+<p>spec/requests # included by Capybara</p>
+</li><li>
+<p>spec/controllers</p>
+</li></ul>
+
+<p>Capybara::RSpecMatchers is added to examples in:</p>
+<ul><li>
+<p>spec/requests # included by Capybara</p>
+</li><li>
+<p>spec/controllers</p>
+</li><li>
+<p>spec/views</p>
+</li><li>
+<p>spec/helpers</p>
+</li><li>
+<p>spec/mailers</p>
+</li></ul>
+
+<h2 id="label-Capybara+2.0">Capybara 2.0</h2>
+
+<p>To use Capybara 2.0, you need rspec-rails-2.11.1 or greater.</p>
+
+<p>Capybara::DSL is added to examples in:</p>
+<ul><li>
+<p>spec/features</p>
+</li></ul>
+
+<p>Capybara::RSpecMatchers is added to examples in:</p>
+<ul><li>
+<p>spec/features</p>
+</li><li>
+<p>spec/controllers</p>
+</li><li>
+<p>spec/views</p>
+</li><li>
+<p>spec/helpers</p>
+</li><li>
+<p>spec/mailers</p>
+</li></ul>
+
+<h2 id="label-Upgrading+to+Capybara-2.0">Upgrading to Capybara-2.0</h2>
+
+<p>Many users have been confused by the co-existence of the the Capybara::DSL
+(visit/page) alongside the rack-test DSL
+(get|post|put|delete|head/response.body) in examples in spec/requests and
+spec/controllers. As of rspec-rails-2.11.1 and capybara-2.0.0.beta2, these
+are separated as follows:</p>
+<ul><li>
+<p>Capybara::DSL is included <code>spec/features</code></p>
+</li><li>
+<p>rack-test DSL is included in <code>spec/requests</code> and
+<code>spec/controllers</code></p>
+</li></ul>
+
+<p>Capybara::RSpecMatchers is added to examples in:</p>
+<ul><li>
+<p>spec/features</p>
+</li><li>
+<p>spec/controllers</p>
+</li><li>
+<p>spec/views</p>
+</li><li>
+<p>spec/helpers</p>
+</li><li>
+<p>spec/mailers</p>
+</li></ul>
+
+<p>If you&#39;re upgrading to Capybara-2.0 and you used visit/page in
+spec/requests you&#39;ll want to move those examples to spec/features and
+they should just work.</p>
+
+<p>If you want to leave those examples in spec/requests, you can include
+Capybara::DSL in those examples yourself as follows, but this is absolutely
+not recommended as you will be overriding the intended behavior and
+accepting the risks associated with doing so:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='comment'># not recommended!
+</span><span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_configure'>configure</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_c'>c</span><span class='op'>|</span>
+  <span class='id identifier rubyid_c'>c</span><span class='period'>.</span><span class='id identifier rubyid_include'>include</span> <span class='const'>Capybara</span><span class='op'>::</span><span class='const'>DSL</span><span class='comma'>,</span> <span class='symbol'>:file_path</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>spec/requests</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span>
+</code></pre>
+</div></div>
+
+    <div id="footer">
+  Generated on Wed Nov 11 23:58:12 2015 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.6 (ruby-2.1.5).
+</div>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-59095215-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+  </body>
+</html>

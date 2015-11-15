@@ -1,0 +1,676 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>
+  File: README
+  
+    &mdash; Documentation by YARD 0.8.7.6
+  
+</title>
+
+  <link rel="stylesheet" href="/stylesheets/docs/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="/stylesheets/docs/common.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="/stylesheets/docs/rspec.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '';
+  framesUrl = "frames.html#!file.README.html";
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="/javascripts/docs/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="/javascripts/docs/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="_index.html">Index</a> &raquo; 
+    <span class="title">File: README</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><div id='filecontents'>
+<h1 id="label-rspec-rails+rdoc-image%3Ahttps%3A%2F%2Fsecure.travis-ci.org%2Frspec%2Frspec-rails.svg%3Fbranch%3Dmaster+rdoc-image%3Ahttps%3A%2F%2Fimg.shields.io%2Fcodeclimate%2Fgithub%2Frspec%2Frspec-rails.svg">rspec-rails <a href="http://travis-ci.org/rspec/rspec-rails"><img src="https://secure.travis-ci.org/rspec/rspec-rails.svg?branch=master"></a> <a href="https://codeclimate.com/github/rspec/rspec-rails"><img src="https://img.shields.io/codeclimate/github/rspec/rspec-rails.svg"></a></h1>
+
+<p><strong>rspec-rails</strong> is a testing framework for Rails 3.x and 4.x.</p>
+
+<p>Use <strong><a href="http://github.com/dchelimsky/rspec-rails">rspec-rails
+1.x</a></strong> for Rails 2.x.</p>
+
+<h2 id="label-Installation">Installation</h2>
+
+<p>Add <code>rspec-rails</code> to <strong>both</strong> the
+<code>:development</code> and <code>:test</code> groups in the
+<code>Gemfile</code>:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_group'>group</span> <span class='symbol'>:development</span><span class='comma'>,</span> <span class='symbol'>:test</span> <span class='kw'>do</span>
+  <span class='id identifier rubyid_gem'>gem</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>rspec-rails</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>~&gt; 3.0</span><span class='tstring_end'>&#39;</span></span>
+<span class='kw'>end</span>
+</code></pre>
+
+<p>Want to run against the <code>master</code> branch? You&#39;ll need to
+include the dependent RSpec repos as well. Add the following to your
+<code>Gemfile</code>:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='qwords_beg'>%w[</span><span class='tstring_content'>rspec-core</span><span class='words_sep'> </span><span class='tstring_content'>rspec-expectations</span><span class='words_sep'> </span><span class='tstring_content'>rspec-mocks</span><span class='words_sep'> </span><span class='tstring_content'>rspec-rails</span><span class='words_sep'> </span><span class='tstring_content'>rspec-support</span><span class='words_sep'>]</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_lib'>lib</span><span class='op'>|</span>
+  <span class='id identifier rubyid_gem'>gem</span> <span class='id identifier rubyid_lib'>lib</span><span class='comma'>,</span> <span class='symbol'>:git</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>git://github.com/rspec/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_lib'>lib</span><span class='embexpr_end'>}</span><span class='tstring_content'>.git</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:branch</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>master</span><span class='tstring_end'>&#39;</span></span>
+<span class='kw'>end</span>
+</code></pre>
+
+<p>Download and install by running:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_bundle'>bundle</span> <span class='id identifier rubyid_install'>install</span></code></pre>
+
+<p>Initialize the <code>spec/</code> directory (where specs will reside) with:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_rails'>rails</span> <span class='id identifier rubyid_generate'>generate</span> <span class='label'>rspec:</span><span class='id identifier rubyid_install'>install</span></code></pre>
+
+<p>This adds the following files which are used for configuration:</p>
+<ul><li>
+<p><code>.rspec</code></p>
+</li><li>
+<p><code>spec/spec_helper.rb</code></p>
+</li><li>
+<p><code>spec/rails_helper.rb</code></p>
+</li></ul>
+
+<p>Check the comments in each file for more information.</p>
+
+<p>Use the <code>rspec</code> command to run your specs:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_bundle'>bundle</span> <span class='id identifier rubyid_exec'>exec</span> <span class='id identifier rubyid_rspec'>rspec</span></code></pre>
+
+<p>By default the above will run all <code>_spec.rb</code> files in the
+<code>spec</code> directory. For more details about this see the <a
+href="https://www.relishapp.com/rspec/rspec-core/docs/spec-files">RSpec
+spec file docs</a>.</p>
+
+<p>To run only a subset of these specs use the following command:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='comment'># Run only model specs
+</span><span class='id identifier rubyid_bundle'>bundle</span> <span class='id identifier rubyid_exec'>exec</span> <span class='id identifier rubyid_rspec'>rspec</span> <span class='id identifier rubyid_spec'>spec</span><span class='op'>/</span><span class='id identifier rubyid_models'>models</span>
+
+<span class='comment'># Run only specs for AccountsController
+</span><span class='id identifier rubyid_bundle'>bundle</span> <span class='id identifier rubyid_exec'>exec</span> <span class='id identifier rubyid_rspec'>rspec</span> <span class='id identifier rubyid_spec'>spec</span><span class='op'>/</span><span class='id identifier rubyid_controllers'>controllers</span><span class='op'>/</span><span class='id identifier rubyid_accounts_controller_spec'>accounts_controller_spec</span><span class='period'>.</span><span class='id identifier rubyid_rb'>rb</span></code></pre>
+
+<p>Specs can also be run via <code>rake spec</code>, though this command may
+be slower to start than the <code>rspec</code> command.</p>
+
+<p>In Rails 4, you may want to create a binstub for the <code>rspec</code>
+command so it can be run via <code>bin/rspec</code>:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_bundle'>bundle</span> <span class='id identifier rubyid_binstubs'>binstubs</span> <span class='id identifier rubyid_rspec'>rspec</span><span class='op'>-</span><span class='id identifier rubyid_core'>core</span></code></pre>
+
+<h3 id="label-Upgrade+Note">Upgrade Note</h3>
+
+<p>For detailed information on the general RSpec 3.x upgrade process see the
+<a href="https://relishapp.com/rspec/docs/upgrade">RSpec Upgrade docs</a>.</p>
+
+<p>There are three particular <code>rspec-rails</code> specific changes to be
+aware of:</p>
+<ol><li>
+<p><a
+href="https://www.relishapp.com/rspec/rspec-rails/docs/upgrade#default-helper-files">The
+default helper files created in RSpec 3.x have changed</a></p>
+</li><li>
+<p><a
+href="https://www.relishapp.com/rspec/rspec-rails/docs/upgrade#file-type-inference-disabled">File-type
+inference disabled by default</a></p>
+</li><li>
+<p><a
+href="https://www.relishapp.com/rspec/rspec-rails/docs/upgrade#pending-migration-checks">Rails
+4.x ActiveRecord::Migration pending migration checks</a></p>
+</li><li>
+<p>Extraction of <code>stub_model</code> and <code>mock_model</code> to  <a
+href="https://github.com/rspec/rspec-activemodel-mocks">rspec-activemodel-mocks</a></p>
+</li></ol>
+
+<p>Please see the <a
+href="https://www.relishapp.com/rspec/rspec-rails/docs/upgrade">RSpec Rails
+Upgrade docs</a> for full details.</p>
+
+<p><strong>NOTE:</strong> Generators run in RSpec 3.x will now require
+<code>rails_helper</code> instead of <code>spec_helper</code>.</p>
+
+<h3 id="label-Generators">Generators</h3>
+
+<p>Once installed, RSpec will generate spec files instead of Test::Unit test
+files when commands like <code>rails generate model</code> and <code>rails
+generate controller</code> are used.</p>
+
+<p>You may also invoke RSpec generators independently. For instance, running
+<code>rails generate rspec:model</code> will generate a model spec. For
+more information, see <a
+href="https://www.relishapp.com/rspec/rspec-rails/docs/generators">list of
+all generators</a>.</p>
+
+<h2 id="label-Contributing">Contributing</h2>
+
+<p>Once you&#39;ve set up the environment, you&#39;ll need to cd into the
+working directory of whichever repo you want to work in. From there you can
+run the specs and cucumber features, and make patches.</p>
+
+<p>NOTE: You do not need to use rspec-dev to work on a specific RSpec repo.
+You can treat each RSpec repo as an independent project. Please see the
+following files:</p>
+
+<p>For <code>rspec-rails</code>-specific development information, see</p>
+<ul><li>
+<p><a href="BUILD_DETAIL.md">Build details</a></p>
+</li><li>
+<p><a href="CODE_OF_CONDUCT.md">Code of Conduct</a></p>
+</li><li>
+<p><a href="CONTRIBUTING.md">Detailed contributing guide</a></p>
+</li><li>
+<p><a href="DEVELOPMENT.md">Development setup guide</a></p>
+</li></ul>
+
+<h2 id="label-Model+Specs">Model Specs</h2>
+
+<p>Use model specs to describe behavior of models (usually ActiveRecord-based)
+in the application.</p>
+
+<p>Model specs default to residing in the <code>spec/models</code> folder.
+Tagging any context with the metadata <code>:type =&gt; :model</code>
+treats its examples as model specs.</p>
+
+<p>For example:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>rails_helper</span><span class='tstring_end'>&quot;</span></span>
+
+<span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_describe'>describe</span> <span class='const'>User</span><span class='comma'>,</span> <span class='symbol'>:type</span> <span class='op'>=&gt;</span> <span class='symbol'>:model</span> <span class='kw'>do</span>
+  <span class='id identifier rubyid_it'>it</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>orders by last name</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+    <span class='id identifier rubyid_lindeman'>lindeman</span> <span class='op'>=</span> <span class='const'>User</span><span class='period'>.</span><span class='id identifier rubyid_create!'>create!</span><span class='lparen'>(</span><span class='label'>first_name:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Andy</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>last_name:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Lindeman</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_chelimsky'>chelimsky</span> <span class='op'>=</span> <span class='const'>User</span><span class='period'>.</span><span class='id identifier rubyid_create!'>create!</span><span class='lparen'>(</span><span class='label'>first_name:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>David</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>last_name:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Chelimsky</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+
+    <span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='const'>User</span><span class='period'>.</span><span class='id identifier rubyid_ordered_by_last_name'>ordered_by_last_name</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_eq'>eq</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='id identifier rubyid_chelimsky'>chelimsky</span><span class='comma'>,</span> <span class='id identifier rubyid_lindeman'>lindeman</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span>
+</code></pre>
+
+<p>For more information, see <a
+href="https://www.relishapp.com/rspec/rspec-rails/docs/model-specs">cucumber
+scenarios for model specs</a>.</p>
+
+<h2 id="label-Controller+Specs">Controller Specs</h2>
+
+<p>Use controller specs to describe behavior of Rails controllers.</p>
+
+<p>Controller specs default to residing in the <code>spec/controllers</code>
+folder. Tagging any context with the metadata <code>:type =&gt;
+:controller</code> treats its examples as controller specs.</p>
+
+<p>For example:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>rails_helper</span><span class='tstring_end'>&quot;</span></span>
+
+<span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_describe'>describe</span> <span class='const'>PostsController</span><span class='comma'>,</span> <span class='symbol'>:type</span> <span class='op'>=&gt;</span> <span class='symbol'>:controller</span> <span class='kw'>do</span>
+  <span class='id identifier rubyid_describe'>describe</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>GET #index</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+    <span class='id identifier rubyid_it'>it</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>responds successfully with an HTTP 200 status code</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+      <span class='id identifier rubyid_get'>get</span> <span class='symbol'>:index</span>
+      <span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_be_success'>be_success</span>
+      <span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_have_http_status'>have_http_status</span><span class='lparen'>(</span><span class='int'>200</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+
+    <span class='id identifier rubyid_it'>it</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>renders the index template</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+      <span class='id identifier rubyid_get'>get</span> <span class='symbol'>:index</span>
+      <span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_render_template'>render_template</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>index</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+
+    <span class='id identifier rubyid_it'>it</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>loads all of the posts into @posts</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+      <span class='id identifier rubyid_post1'>post1</span><span class='comma'>,</span> <span class='id identifier rubyid_post2'>post2</span> <span class='op'>=</span> <span class='const'>Post</span><span class='period'>.</span><span class='id identifier rubyid_create!'>create!</span><span class='comma'>,</span> <span class='const'>Post</span><span class='period'>.</span><span class='id identifier rubyid_create!'>create!</span>
+      <span class='id identifier rubyid_get'>get</span> <span class='symbol'>:index</span>
+
+      <span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_assigns'>assigns</span><span class='lparen'>(</span><span class='symbol'>:posts</span><span class='rparen'>)</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_match_array'>match_array</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='id identifier rubyid_post1'>post1</span><span class='comma'>,</span> <span class='id identifier rubyid_post2'>post2</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span>
+</code></pre>
+
+<p>For more information, see <a
+href="https://www.relishapp.com/rspec/rspec-rails/docs/controller-specs">cucumber
+scenarios for controller specs</a>.</p>
+
+<p><strong>Note:</strong> To encourage more isolated testing, views are not
+rendered by default in controller specs. If you are verifying discrete view
+logic, use a <a href="#view-specs">view spec</a>. If you are verifying the
+behaviour of a controller and view together, consider a <a
+href="#request-specs">request spec</a>. You can use <a
+href="https://www.relishapp.com/rspec/rspec-rails/docs/controller-specs/render-views">render_views</a>
+if you must verify the rendered view contents within a controller spec, but
+this is not recommended.</p>
+
+<h2 id="label-Request+Specs">Request Specs</h2>
+
+<p>Use request specs to specify one or more request/response cycles from end
+to end using a black box approach.</p>
+
+<p>Request specs default to residing in the <code>spec/requests</code>,
+<code>spec/api</code>, and <code>spec/integration</code> directories.
+Tagging any context with the metadata <code>:type =&gt; :request</code>
+treats its examples as request specs.</p>
+
+<p>Request specs mix in behavior from <a
+href="http://api.rubyonrails.org/classes/ActionDispatch/Integration/Runner.html">ActionDispatch::Integration::Runner</a>,
+which is the basis for <a
+href="http://guides.rubyonrails.org/testing.html#integration-testing">Rails’
+integration tests</a>.</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>rails_helper</span><span class='tstring_end'>&#39;</span></span>
+
+<span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_describe'>describe</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>home page</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:type</span> <span class='op'>=&gt;</span> <span class='symbol'>:request</span> <span class='kw'>do</span>
+  <span class='id identifier rubyid_it'>it</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>displays the user&#39;s username after successful login</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+    <span class='id identifier rubyid_user'>user</span> <span class='op'>=</span> <span class='const'>User</span><span class='period'>.</span><span class='id identifier rubyid_create!'>create!</span><span class='lparen'>(</span><span class='symbol'>:username</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>jdoe</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:password</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>secret</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_get'>get</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/login</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id identifier rubyid_assert_select'>assert_select</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>form.login</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+      <span class='id identifier rubyid_assert_select'>assert_select</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>input[name=?]</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>username</span><span class='tstring_end'>&quot;</span></span>
+      <span class='id identifier rubyid_assert_select'>assert_select</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>input[name=?]</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>password</span><span class='tstring_end'>&quot;</span></span>
+      <span class='id identifier rubyid_assert_select'>assert_select</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>input[type=?]</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>submit</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>end</span>
+
+    <span class='id identifier rubyid_post'>post</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/login</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:username</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>jdoe</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:password</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>secret</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id identifier rubyid_assert_select'>assert_select</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>.header .username</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:text</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>jdoe</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span>
+</code></pre>
+
+<p>The above example uses only standard Rails and RSpec APIs, but many
+RSpec/Rails users like to use extension libraries like <a
+href="https://github.com/thoughtbot/factory_girl">FactoryGirl</a> and <a
+href="https://github.com/jnicklas/capybara">Capybara</a>:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>rails_helper</span><span class='tstring_end'>&#39;</span></span>
+
+<span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_describe'>describe</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>home page</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:type</span> <span class='op'>=&gt;</span> <span class='symbol'>:request</span> <span class='kw'>do</span>
+  <span class='id identifier rubyid_it'>it</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>displays the user&#39;s username after successful login</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+    <span class='id identifier rubyid_user'>user</span> <span class='op'>=</span> <span class='const'>FactoryGirl</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='lparen'>(</span><span class='symbol'>:user</span><span class='comma'>,</span> <span class='symbol'>:username</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>jdoe</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:password</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>secret</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_visit'>visit</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/login</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id identifier rubyid_fill_in'>fill_in</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Username</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:with</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>jdoe</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id identifier rubyid_fill_in'>fill_in</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Password</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:with</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>secret</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id identifier rubyid_click_button'>click_button</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Log in</span><span class='tstring_end'>&quot;</span></span>
+
+    <span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_page'>page</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_have_selector'>have_selector</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>.header .username</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:text</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>jdoe</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span>
+</code></pre>
+
+<p>FactoryGirl decouples this example from changes to validation requirements,
+which can be encoded into the underlying factory definition without
+requiring changes to this example.</p>
+
+<p>Among other benefits, Capybara binds the form post to the generated HTML,
+which means we don&#39;t need to specify them separately. Note that
+Capybara&#39;s DSL as shown is, by default, only available in specs in the
+spec/features directory. For more information, see the <a
+href="http://rubydoc.info/gems/rspec-rails/file/Capybara.md">Capybara
+integration docs</a>.</p>
+
+<p>There are several other Ruby libs that implement the factory pattern or
+provide a DSL for request specs (a.k.a. acceptance or integration specs),
+but FactoryGirl and Capybara seem to be the most widely used. Whether you
+choose these or other libs, we strongly recommend using something for each
+of these roles.</p>
+
+<h2 id="label-Feature+Specs">Feature Specs</h2>
+
+<p>Feature specs test your application from the outside by simulating a
+browser. <a href="https://github.com/jnicklas/capybara">capybara</a> is
+used to manage the simulated browser.</p>
+
+<p>Feature specs default to residing in the <code>spec/features</code> folder.
+Tagging any context with the metadata <code>:type =&gt; :feature</code>
+treats its examples as feature specs.</p>
+
+<p>Feature specs mix in functionality from the capybara gem, thus they require
+<code>capybara</code> to use. To use feature specs, add
+<code>capybara</code> to the <code>Gemfile</code>:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_gem'>gem</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>capybara</span><span class='tstring_end'>&quot;</span></span>
+</code></pre>
+
+<p>For more information, see the <a
+href="https://www.relishapp.com/rspec/rspec-rails/v/3-0/docs/feature-specs/feature-spec">cucumber
+scenarios for feature specs</a>.</p>
+
+<h2 id="label-View+specs">View specs</h2>
+
+<p>View specs default to residing in the <code>spec/views</code> folder.
+Tagging any context with the metadata <code>:type =&gt; :view</code> treats
+its examples as view specs.</p>
+
+<p>View specs mix in <code>ActionView::TestCase::Behavior</code>.</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>rails_helper</span><span class='tstring_end'>&#39;</span></span>
+
+<span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_describe'>describe</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>events/index</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:type</span> <span class='op'>=&gt;</span> <span class='symbol'>:view</span> <span class='kw'>do</span>
+  <span class='id identifier rubyid_it'>it</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>renders _event partial for each event</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+    <span class='id identifier rubyid_assign'>assign</span><span class='lparen'>(</span><span class='symbol'>:events</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='id identifier rubyid_double'>double</span><span class='lparen'>(</span><span class='const'>Event</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='id identifier rubyid_double'>double</span><span class='lparen'>(</span><span class='const'>Event</span><span class='rparen'>)</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_render'>render</span>
+    <span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_view'>view</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_render_template'>render_template</span><span class='lparen'>(</span><span class='symbol'>:partial</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>_event</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:count</span> <span class='op'>=&gt;</span> <span class='int'>2</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span>
+
+<span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_describe'>describe</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>events/show</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:type</span> <span class='op'>=&gt;</span> <span class='symbol'>:view</span> <span class='kw'>do</span>
+  <span class='id identifier rubyid_it'>it</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>displays the event location</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+    <span class='id identifier rubyid_assign'>assign</span><span class='lparen'>(</span><span class='symbol'>:event</span><span class='comma'>,</span> <span class='const'>Event</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='symbol'>:location</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Chicago</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_render'>render</span>
+    <span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_rendered'>rendered</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_include'>include</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Chicago</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span>
+</code></pre>
+
+<p>View specs infer the controller name and path from the path to the view
+template. e.g. if the template is <code>events/index.html.erb</code> then:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_controller'>controller</span><span class='period'>.</span><span class='id identifier rubyid_controller_path'>controller_path</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>events</span><span class='tstring_end'>&quot;</span></span>
+<span class='id identifier rubyid_controller'>controller</span><span class='period'>.</span><span class='id identifier rubyid_request'>request</span><span class='period'>.</span><span class='id identifier rubyid_path_parameters'>path_parameters</span><span class='lbracket'>[</span><span class='symbol'>:controller</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>events</span><span class='tstring_end'>&quot;</span></span>
+</code></pre>
+
+<p>This means that most of the time you don&#39;t need to set these values.
+When spec&#39;ing a partial that is included across different controllers,
+you <em>may</em> need to override these values before rendering the view.</p>
+
+<p>To provide a layout for the render, you&#39;ll need to specify
+<em>both</em> the template and the layout explicitly. For example:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_render'>render</span> <span class='symbol'>:template</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>events/show</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:layout</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>layouts/application</span><span class='tstring_end'>&quot;</span></span>
+</code></pre>
+
+<h3 id="label-assign%28key%2C+val%29"><code>assign(key, val)</code></h3>
+
+<p>Use this to assign values to instance variables in the view:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_assign'>assign</span><span class='lparen'>(</span><span class='symbol'>:widget</span><span class='comma'>,</span> <span class='const'>Widget</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_render'>render</span>
+</code></pre>
+
+<p>The code above assigns <code>Widget.new</code> to the <code>@widget</code>
+variable in the view, and then renders the view.</p>
+
+<p>Note that because view specs mix in <code>ActionView::TestCase</code>
+behavior, any instance variables you set will be transparently propagated
+into your views (similar to how instance variables you set in controller
+actions are made available in views). For example:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='ivar'>@widget</span> <span class='op'>=</span> <span class='const'>Widget</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
+<span class='id identifier rubyid_render'>render</span> <span class='comment'># @widget is available inside the view
+</span></code></pre>
+
+<p>RSpec doesn&#39;t officially support this pattern, which only works as a
+side-effect of the inclusion of <code>ActionView::TestCase</code>. Be aware
+that it may be made unavailable in the future.</p>
+
+<h4 id="label-Upgrade+note">Upgrade note</h4>
+
+<pre class="code ruby"><code class="ruby"><span class='comment'># rspec-rails-1.x
+</span><span class='id identifier rubyid_assigns'>assigns</span><span class='lbracket'>[</span><span class='id identifier rubyid_key'>key</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_value'>value</span>
+
+<span class='comment'># rspec-rails-2.x+
+</span><span class='id identifier rubyid_assign'>assign</span><span class='lparen'>(</span><span class='id identifier rubyid_key'>key</span><span class='comma'>,</span> <span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span>
+</code></pre>
+
+<h3 id="label-rendered"><code>rendered</code></h3>
+
+<p>This represents the rendered view.</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_render'>render</span>
+<span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_rendered'>rendered</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_match'>match</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>Some text expected to appear on the page</span><span class='regexp_end'>/</span></span>
+</code></pre>
+
+<h4 id="label-Upgrade+note">Upgrade note</h4>
+
+<pre class="code ruby"><code class="ruby"><span class='comment'># rspec-rails-1.x
+</span><span class='id identifier rubyid_render'>render</span>
+<span class='id identifier rubyid_response'>response</span><span class='period'>.</span><span class='id identifier rubyid_should'>should</span> <span class='id identifier rubyid_xxx'>xxx</span>
+
+<span class='comment'># rspec-rails-2.x+
+</span><span class='id identifier rubyid_render'>render</span>
+<span class='id identifier rubyid_rendered'>rendered</span><span class='period'>.</span><span class='id identifier rubyid_should'>should</span> <span class='id identifier rubyid_xxx'>xxx</span>
+
+<span class='comment'># rspec-rails-2.x+ with expect syntax
+</span><span class='id identifier rubyid_render'>render</span>
+<span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_rendered'>rendered</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_xxx'>xxx</span>
+</code></pre>
+
+<h2 id="label-Routing+specs">Routing specs</h2>
+
+<p>Routing specs default to residing in the <code>spec/routing</code> folder.
+Tagging any context with the metadata <code>:type =&gt; :routing</code>
+treats its examples as routing specs.</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>rails_helper</span><span class='tstring_end'>&#39;</span></span>
+
+<span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_describe'>describe</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>routing to profiles</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:type</span> <span class='op'>=&gt;</span> <span class='symbol'>:routing</span> <span class='kw'>do</span>
+  <span class='id identifier rubyid_it'>it</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>routes /profile/:username to profile#show for username</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+    <span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='symbol'>:get</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/profiles/jsmith</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_route_to'>route_to</span><span class='lparen'>(</span>
+      <span class='symbol'>:controller</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>profiles</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+      <span class='symbol'>:action</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>show</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+      <span class='symbol'>:username</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>jsmith</span><span class='tstring_end'>&quot;</span></span>
+    <span class='rparen'>)</span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_it'>it</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>does not expose a list of profiles</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+    <span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='symbol'>:get</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/profiles</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_not_to'>not_to</span> <span class='id identifier rubyid_be_routable'>be_routable</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span>
+</code></pre>
+
+<h3 id="label-Upgrade+note">Upgrade note</h3>
+
+<p><code>route_for</code> from rspec-rails-1.x is gone. Use
+<code>route_to</code> and <code>be_routable</code> instead.</p>
+
+<h2 id="label-Helper+specs">Helper specs</h2>
+
+<p>Helper specs default to residing in the <code>spec/helpers</code> folder.
+Tagging any context with the metadata <code>:type =&gt; :helper</code>
+treats its examples as helper specs.</p>
+
+<p>Helper specs mix in ActionView::TestCase::Behavior. A <code>helper</code>
+object is provided which mixes in the helper module being spec&#39;d, along
+with <code>ApplicationHelper</code> (if present).</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>rails_helper</span><span class='tstring_end'>&#39;</span></span>
+
+<span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_describe'>describe</span> <span class='const'>EventsHelper</span><span class='comma'>,</span> <span class='symbol'>:type</span> <span class='op'>=&gt;</span> <span class='symbol'>:helper</span> <span class='kw'>do</span>
+  <span class='id identifier rubyid_describe'>describe</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>#link_to_event</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+    <span class='id identifier rubyid_it'>it</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>displays the title, and formatted date</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+      <span class='id identifier rubyid_event'>event</span> <span class='op'>=</span> <span class='const'>Event</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Ruby Kaigi</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='const'>Date</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='int'>2010</span><span class='comma'>,</span> <span class='int'>8</span><span class='comma'>,</span> <span class='int'>27</span><span class='rparen'>)</span><span class='rparen'>)</span>
+      <span class='comment'># helper is an instance of ActionView::Base configured with the
+</span>      <span class='comment'># EventsHelper and all of Rails&#39; built-in helpers
+</span>      <span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_helper'>helper</span><span class='period'>.</span><span class='id identifier rubyid_link_to_event'>link_to_event</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_match'>match</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>Ruby Kaigi, 27 Aug, 2010</span><span class='regexp_end'>/</span></span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span>
+</code></pre>
+
+<h2 id="label-Matchers">Matchers</h2>
+
+<p>Several domain-specific matchers are provided to each of the example group
+types. Most simply delegate to their equivalent Rails&#39; assertions.</p>
+
+<h3 id="label-be_a_new"><code>be_a_new</code></h3>
+<ul><li>
+<p>Available in all specs</p>
+</li><li>
+<p>Primarily intended for controller specs</p>
+</li></ul>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_object'>object</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_be_a_new'>be_a_new</span><span class='lparen'>(</span><span class='const'>Widget</span><span class='rparen'>)</span>
+</code></pre>
+
+<p>Passes if the object is a <code>Widget</code> and returns true for
+<code>new_record?</code></p>
+
+<h3 id="label-render_template"><code>render_template</code></h3>
+<ul><li>
+<p>Delegates to Rails&#39; <code>assert_template</code></p>
+</li><li>
+<p>Available in request, controller, and view specs</p>
+</li></ul>
+
+<p>In request and controller specs, apply to the <code>response</code> object:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_render_template'>render_template</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>new</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+</code></pre>
+
+<p>In view specs, apply to the <code>view</code> object:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_view'>view</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_render_template'>render_template</span><span class='lparen'>(</span><span class='symbol'>:partial</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>_form</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:locals</span> <span class='op'>=&gt;</span> <span class='lbrace'>{</span> <span class='symbol'>:widget</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_widget'>widget</span> <span class='rbrace'>}</span> <span class='rparen'>)</span>
+</code></pre>
+
+<h3 id="label-redirect_to"><code>redirect_to</code></h3>
+<ul><li>
+<p>Delegates to <code>assert_redirect</code></p>
+</li><li>
+<p>Available in request and controller specs</p>
+</li></ul>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_redirect_to'>redirect_to</span><span class='lparen'>(</span><span class='id identifier rubyid_widgets_path'>widgets_path</span><span class='rparen'>)</span>
+</code></pre>
+
+<h3 id="label-route_to"><code>route_to</code></h3>
+<ul><li>
+<p>Delegates to Rails&#39; <code>assert_routing</code></p>
+</li><li>
+<p>Available in routing and controller specs</p>
+</li></ul>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='symbol'>:get</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/widgets</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_route_to'>route_to</span><span class='lparen'>(</span><span class='symbol'>:controller</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>widgets</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:action</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>index</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+</code></pre>
+
+<h3 id="label-be_routable"><code>be_routable</code></h3>
+
+<p>Passes if the path is recognized by Rails&#39; routing. This is primarily
+intended to be used with <code>not_to</code> to specify standard CRUD
+routes which should not be routable.</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='symbol'>:get</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/widgets/1/edit</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_not_to'>not_to</span> <span class='id identifier rubyid_be_routable'>be_routable</span>
+</code></pre>
+
+<h3 id="label-have_http_status"><code>have_http_status</code></h3>
+<ul><li>
+<p>Passes if <code>response</code> has a matching HTTP status code</p>
+</li><li>
+<p>The following symbolic status codes are allowed:</p>
+</li><li>
+<p><code>Rack::Utils::SYMBOL_TO_STATUS_CODE</code></p>
+</li><li>
+<p>One of the defined <code>ActionDispatch::TestResponse</code> aliases:</p>
+<ul><li>
+<p><code>:error</code></p>
+</li><li>
+<p><code>:missing</code></p>
+</li><li>
+<p><code>:redirect</code></p>
+</li><li>
+<p><code>:success</code></p>
+</li></ul>
+</li><li>
+<p>Available in controller, feature, and request specs.</p>
+</li></ul>
+
+<p>In controller and request specs, apply to the <code>response</code> object:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_have_http_status'>have_http_status</span><span class='lparen'>(</span><span class='int'>201</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_not_to'>not_to</span> <span class='id identifier rubyid_have_http_status'>have_http_status</span><span class='lparen'>(</span><span class='symbol'>:created</span><span class='rparen'>)</span>
+</code></pre>
+
+<p>In feature specs, apply to the <code>page</code> object:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_page'>page</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_have_http_status'>have_http_status</span><span class='lparen'>(</span><span class='symbol'>:success</span><span class='rparen'>)</span>
+</code></pre>
+
+<h2 id="label-rake+tasks"><code>rake</code> tasks</h2>
+
+<p>Several rake tasks are provided as a convenience for working with RSpec. To
+run the entire spec suite use <code>rake spec</code>. To run a subset of
+specs use the associated type task, for example <code>rake
+spec:models</code>.</p>
+
+<p>A full list of the available rake tasks can be seen by running <code>rake
+-T | grep spec</code>.</p>
+
+<h3 id="label-Customizing+rake+tasks">Customizing <code>rake</code> tasks</h3>
+
+<p>If you want to customize the behavior of <code>rake spec</code>, you may <a
+href="https://www.relishapp.com/rspec/rspec-core/docs/command-line/rake-task">define
+your own task in the Rakefile for your project</a>. However, you must first
+clear the task that rspec-rails defined:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_task'>task</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>spec</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_clear'>clear</span>
+</code></pre>
+
+<h2 id="label-Also+see">Also see</h2>
+<ul><li>
+<p><a href="https://github.com/rspec/rspec">github.com/rspec/rspec</a></p>
+</li><li>
+<p><a
+href="https://github.com/rspec/rspec-core">github.com/rspec/rspec-core</a></p>
+</li><li>
+<p><a
+href="https://github.com/rspec/rspec-expectations">github.com/rspec/rspec-expectations</a></p>
+</li><li>
+<p><a
+href="https://github.com/rspec/rspec-mocks">github.com/rspec/rspec-mocks</a></p>
+</li></ul>
+
+<h2 id="label-Feature+Requests+%26+Bugs">Feature Requests &amp; Bugs</h2>
+
+<p>See <a
+href="http://github.com/rspec/rspec-rails/issues">github.com/rspec/rspec-rails/issues</a></p>
+</div></div>
+
+    <div id="footer">
+  Generated on Wed Nov 11 23:58:01 2015 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.6 (ruby-2.1.5).
+</div>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-59095215-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+  </body>
+</html>

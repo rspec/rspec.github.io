@@ -1,0 +1,3397 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Module: RSpec::Mocks::ExampleMethods
+  
+    &mdash; Documentation by YARD 0.8.7.6
+  
+</title>
+
+  <link rel="stylesheet" href="/stylesheets/docs/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="/stylesheets/docs/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '../../';
+  framesUrl = "../../frames.html#!RSpec/Mocks/ExampleMethods.html";
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="/javascripts/docs/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="/javascripts/docs/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../../_index.html">Index (E)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../../RSpec.html" title="RSpec (module)">RSpec</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Mocks.html" title="RSpec::Mocks (module)">Mocks</a></span></span>
+     &raquo; 
+    <span class="title">ExampleMethods</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../../class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="../../method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="../../file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><h1>Module: RSpec::Mocks::ExampleMethods
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+  
+    
+  
+    
+      <dt class="r1">Includes:</dt>
+      <dd class="r1"><span class='object_link'><a href="ArgumentMatchers.html" title="RSpec::Mocks::ArgumentMatchers (module)">ArgumentMatchers</a></span></dd>
+      
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/rspec/mocks/example_methods.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>Contains methods intended to be used from within code examples. Mix this in
+to your test context (such as a test framework base class) to use
+rspec-mocks with your test framework. If you&#39;re using rspec-core,
+it&#39;ll take care of doing this for you.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><h2>Defined Under Namespace</h2>
+<p class="children">
+  
+    
+      <strong class="modules">Modules:</strong> <span class='object_link'><a href="ExampleMethods/ExpectHost.html" title="RSpec::Mocks::ExampleMethods::ExpectHost (module)">ExpectHost</a></span>
+    
+  
+    
+  
+</p>
+
+
+
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#allow-instance_method" title="#allow (instance method)">- (Object) <strong>allow</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Used to wrap an object in preparation for stubbing a method on it.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#allow_any_instance_of-instance_method" title="#allow_any_instance_of (instance method)">- (Object) <strong>allow_any_instance_of</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Used to wrap a class in preparation for stubbing a method on instances of
+it.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public deprecated">
+  <span class="summary_signature">
+    
+      <a href="#allow_message_expectations_on_nil-instance_method" title="#allow_message_expectations_on_nil (instance method)">- (Object) <strong>allow_message_expectations_on_nil</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  <span class="deprecated note title">deprecated</span>
+  
+
+  
+    <span class="summary_desc"><strong>Deprecated.</strong> <div class='inline'>
+<p>Use <span class='object_link'><a href="Configuration.html#allow_message_expectations_on_nil-instance_method" title="RSpec::Mocks::Configuration#allow_message_expectations_on_nil (method)">Configuration#allow_message_expectations_on_nil</a></span>
+instead.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#class_double-instance_method" title="#class_double (instance method)">- (Object) <strong>class_double</strong>(doubled_class, *args) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Constructs a test double against a specific class.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#class_spy-instance_method" title="#class_spy (instance method)">- (Object) <strong>class_spy</strong>(*args) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Constructs a test double that is optimized for use with
+<code>have_received</code> against a specific class.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#double-instance_method" title="#double (instance method)">- (Double) <strong>double</strong>(*args) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Constructs an instance of <a href="RSpec::Mocks::Double">:Mocks::Double</a>
+configured with an optional name, used for reporting in failure messages,
+and an optional hash of message/return-value pairs.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#expect-instance_method" title="#expect (instance method)">- (Object) <strong>expect</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Used to wrap an object in preparation for setting a mock expectation on it.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#expect_any_instance_of-instance_method" title="#expect_any_instance_of (instance method)">- (Object) <strong>expect_any_instance_of</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Used to wrap a class in preparation for setting a mock expectation on
+instances of it.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#have_received-instance_method" title="#have_received (instance method)">- (Object) <strong>have_received</strong>(method_name, &amp;block) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Verifies that the given object received the expected message during the
+course of the test.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#hide_const-instance_method" title="#hide_const (instance method)">- (Object) <strong>hide_const</strong>(constant_name) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Hides the named constant with the given value.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#instance_double-instance_method" title="#instance_double (instance method)">- (Object) <strong>instance_double</strong>(doubled_class, *args) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Constructs a test double against a specific class.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#instance_spy-instance_method" title="#instance_spy (instance method)">- (Object) <strong>instance_spy</strong>(*args) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Constructs a test double that is optimized for use with
+<code>have_received</code> against a specific class.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#object_double-instance_method" title="#object_double (instance method)">- (Object) <strong>object_double</strong>(object_or_name, *args) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Constructs a test double against a specific object.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#object_spy-instance_method" title="#object_spy (instance method)">- (Object) <strong>object_spy</strong>(*args) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Constructs a test double that is optimized for use with
+<code>have_received</code> against a specific object.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#receive-instance_method" title="#receive (instance method)">- (Object) <strong>receive</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Used to specify a message that you expect or allow an object to receive.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#receive_message_chain-instance_method" title="#receive_message_chain (instance method)">- (Object) <strong>receive_message_chain</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>stubs/mocks a chain of messages on an object or test double.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#receive_messages-instance_method" title="#receive_messages (instance method)">- (Object) <strong>receive_messages</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Shorthand syntax used to setup message(s), and their return value(s), that
+you expect or allow an object to receive.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#spy-instance_method" title="#spy (instance method)">- (Double) <strong>spy</strong>(*args) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Constructs a test double that is optimized for use with
+<code>have_received</code>.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#stub_const-instance_method" title="#stub_const (instance method)">- (Object) <strong>stub_const</strong>(constant_name, value, options = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Stubs the named constant with the given value.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="ArgumentMatchers.html" title="RSpec::Mocks::ArgumentMatchers (module)">ArgumentMatchers</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="ArgumentMatchers.html#any_args-instance_method" title="RSpec::Mocks::ArgumentMatchers#any_args (method)">#any_args</a></span>, <span class='object_link'><a href="ArgumentMatchers.html#anything-instance_method" title="RSpec::Mocks::ArgumentMatchers#anything (method)">#anything</a></span>, <span class='object_link'><a href="ArgumentMatchers.html#array_including-instance_method" title="RSpec::Mocks::ArgumentMatchers#array_including (method)">#array_including</a></span>, <span class='object_link'><a href="ArgumentMatchers.html#boolean-instance_method" title="RSpec::Mocks::ArgumentMatchers#boolean (method)">#boolean</a></span>, <span class='object_link'><a href="ArgumentMatchers.html#duck_type-instance_method" title="RSpec::Mocks::ArgumentMatchers#duck_type (method)">#duck_type</a></span>, <span class='object_link'><a href="ArgumentMatchers.html#hash_excluding-instance_method" title="RSpec::Mocks::ArgumentMatchers#hash_excluding (method)">#hash_excluding</a></span>, <span class='object_link'><a href="ArgumentMatchers.html#hash_including-instance_method" title="RSpec::Mocks::ArgumentMatchers#hash_including (method)">#hash_including</a></span>, <span class='object_link'><a href="ArgumentMatchers.html#instance_of-instance_method" title="RSpec::Mocks::ArgumentMatchers#instance_of (method)">#instance_of</a></span>, <span class='object_link'><a href="ArgumentMatchers.html#kind_of-instance_method" title="RSpec::Mocks::ArgumentMatchers#kind_of (method)">#kind_of</a></span>, <span class='object_link'><a href="ArgumentMatchers.html#no_args-instance_method" title="RSpec::Mocks::ArgumentMatchers#no_args (method)">#no_args</a></span></p>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="allow-instance_method">
+  
+    - (<tt>Object</tt>) <strong>allow</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+  <div class="note notetag">
+    <strong>Note:</strong>
+    <div class='inline'>
+<p>If you disable the <code>:expect</code> syntax this method will be
+undefined.</p>
+</div>
+  </div>
+
+
+<p>Used to wrap an object in preparation for stubbing a method on it.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code><span class='id identifier rubyid_allow'>allow</span><span class='lparen'>(</span><span class='id identifier rubyid_dbl'>dbl</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_receive'>receive</span><span class='lparen'>(</span><span class='symbol'>:foo</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_with'>with</span><span class='lparen'>(</span><span class='int'>5</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_and_return'>and_return</span><span class='lparen'>(</span><span class='symbol'>:return_value</span><span class='rparen'>)</span></code></pre>
+    
+  </div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/mocks/example_methods.rb', line 297</span>
+
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="allow_any_instance_of-instance_method">
+  
+    - (<tt>Object</tt>) <strong>allow_any_instance_of</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+  <div class="note notetag">
+    <strong>Note:</strong>
+    <div class='inline'>
+<p>This is only available when you have enabled the <code>expect</code>
+syntax.</p>
+</div>
+  </div>
+
+
+<p>Used to wrap a class in preparation for stubbing a method on instances of
+it.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code><span class='id identifier rubyid_allow_any_instance_of'>allow_any_instance_of</span><span class='lparen'>(</span><span class='const'>MyClass</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_receive'>receive</span><span class='lparen'>(</span><span class='symbol'>:foo</span><span class='rparen'>)</span></code></pre>
+    
+  </div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/mocks/example_methods.rb', line 315</span>
+
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="allow_message_expectations_on_nil-instance_method">
+  
+    - (<tt>Object</tt>) <strong>allow_message_expectations_on_nil</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <div class="note deprecated"><strong>Deprecated.</strong> <div class='inline'>
+<p>Use <span class='object_link'><a href="Configuration.html#allow_message_expectations_on_nil-instance_method" title="RSpec::Mocks::Configuration#allow_message_expectations_on_nil (method)">Configuration#allow_message_expectations_on_nil</a></span>
+instead.</p>
+</div></div>
+
+<p>Disables warning messages about expectations being set on nil.</p>
+
+<p>By default warning messages are issued when expectations are set on nil.
+This is to prevent false-positives and to catch potential bugs early on.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+201
+202
+203</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/mocks/example_methods.rb', line 201</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_allow_message_expectations_on_nil'>allow_message_expectations_on_nil</span>
+  <span class='const'>RSpec</span><span class='op'>::</span><span class='const'>Mocks</span><span class='period'>.</span><span class='id identifier rubyid_space'>space</span><span class='period'>.</span><span class='id identifier rubyid_proxy_for'>proxy_for</span><span class='lparen'>(</span><span class='kw'>nil</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_warn_about_expectations'>warn_about_expectations</span> <span class='op'>=</span> <span class='kw'>false</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="class_double-instance_method">
+  
+    
+      <span class="overload">- (<tt>Object</tt>) <strong>class_double</strong>(doubled_class) </span>
+    
+      <span class="overload">- (<tt>Object</tt>) <strong>class_double</strong>(doubled_class, name) </span>
+    
+      <span class="overload">- (<tt>Object</tt>) <strong>class_double</strong>(doubled_class, stubs) </span>
+    
+      <span class="overload">- (<tt>Object</tt>) <strong>class_double</strong>(doubled_class, name, stubs) </span>
+    
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Constructs a test double against a specific class. If the given class name
+has been loaded, only class methods defined on the class are allowed to be
+stubbed. In all other ways it behaves like a <a href="double">double</a>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <p class="tag_title">Overloads:</p>
+  <ul class="overload">
+    
+      
+      <li class="overload_item">
+        <span class="signature">- (<tt>Object</tt>) <strong>class_double</strong>(doubled_class) </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>doubled_class</span>
+      
+      
+        <span class='type'>(<tt>String</tt>, <tt>Module</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">- (<tt>Object</tt>) <strong>class_double</strong>(doubled_class, name) </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>doubled_class</span>
+      
+      
+        <span class='type'>(<tt>String</tt>, <tt>Module</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>name</span>
+      
+      
+        <span class='type'>(<tt>String/Symbol</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>name or description to be used in failure messages</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">- (<tt>Object</tt>) <strong>class_double</strong>(doubled_class, stubs) </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>doubled_class</span>
+      
+      
+        <span class='type'>(<tt>String</tt>, <tt>Module</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>stubs</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>hash of message/return-value pairs</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">- (<tt>Object</tt>) <strong>class_double</strong>(doubled_class, name, stubs) </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>doubled_class</span>
+      
+      
+        <span class='type'>(<tt>String</tt>, <tt>Module</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>name</span>
+      
+      
+        <span class='type'>(<tt>String/Symbol</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>name or description to be used in failure messages</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>stubs</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>hash of message/return-value pairs</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div>
+      </li>
+    
+  </ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        
+        <div class='inline'>
+<p>ClassVerifyingDouble</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+79
+80
+81
+82</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/mocks/example_methods.rb', line 79</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_class_double'>class_double</span><span class='lparen'>(</span><span class='id identifier rubyid_doubled_class'>doubled_class</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_ref'>ref</span> <span class='op'>=</span> <span class='const'>ObjectReference</span><span class='period'>.</span><span class='id identifier rubyid_for'>for</span><span class='lparen'>(</span><span class='id identifier rubyid_doubled_class'>doubled_class</span><span class='rparen'>)</span>
+  <span class='const'>ExampleMethods</span><span class='period'>.</span><span class='id identifier rubyid_declare_verifying_double'>declare_verifying_double</span><span class='lparen'>(</span><span class='const'>ClassVerifyingDouble</span><span class='comma'>,</span> <span class='id identifier rubyid_ref'>ref</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="class_spy-instance_method">
+  
+    
+      <span class="overload">- (<tt>Object</tt>) <strong>class_spy</strong>(doubled_class) </span>
+    
+      <span class="overload">- (<tt>Object</tt>) <strong>class_spy</strong>(doubled_class, name) </span>
+    
+      <span class="overload">- (<tt>Object</tt>) <strong>class_spy</strong>(doubled_class, stubs) </span>
+    
+      <span class="overload">- (<tt>Object</tt>) <strong>class_spy</strong>(doubled_class, name, stubs) </span>
+    
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Constructs a test double that is optimized for use with
+<code>have_received</code> against a specific class. If the given class
+name has been loaded, only class methods defined on the class are allowed
+to be stubbed. With a normal double one has to stub methods in order to be
+able to spy them. An class_spy automatically spies on all class methods to
+which the class responds.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <p class="tag_title">Overloads:</p>
+  <ul class="overload">
+    
+      
+      <li class="overload_item">
+        <span class="signature">- (<tt>Object</tt>) <strong>class_spy</strong>(doubled_class) </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>doubled_class</span>
+      
+      
+        <span class='type'>(<tt>String</tt>, <tt>Module</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">- (<tt>Object</tt>) <strong>class_spy</strong>(doubled_class, name) </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>doubled_class</span>
+      
+      
+        <span class='type'>(<tt>String</tt>, <tt><span class='object_link'><a href="../../Class.html" title="Class (class)">Class</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>name</span>
+      
+      
+        <span class='type'>(<tt>String/Symbol</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>name or description to be used in failure messages</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">- (<tt>Object</tt>) <strong>class_spy</strong>(doubled_class, stubs) </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>doubled_class</span>
+      
+      
+        <span class='type'>(<tt>String</tt>, <tt>Module</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>stubs</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>hash of message/return-value pairs</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">- (<tt>Object</tt>) <strong>class_spy</strong>(doubled_class, name, stubs) </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>doubled_class</span>
+      
+      
+        <span class='type'>(<tt>String</tt>, <tt><span class='object_link'><a href="../../Class.html" title="Class (class)">Class</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>name</span>
+      
+      
+        <span class='type'>(<tt>String/Symbol</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>name or description to be used in failure messages</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>stubs</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>hash of message/return-value pairs</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div>
+      </li>
+    
+  </ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        
+        <div class='inline'>
+<p>ClassVerifyingDouble</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+191
+192
+193</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/mocks/example_methods.rb', line 191</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_class_spy'>class_spy</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_class_double'>class_double</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_as_null_object'>as_null_object</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="double-instance_method">
+  
+    
+      <span class="overload">- (<tt><span class='object_link'><a href="Double.html" title="RSpec::Mocks::Double (class)">Double</a></span></tt>) <strong>double</strong> </span>
+    
+      <span class="overload">- (<tt><span class='object_link'><a href="Double.html" title="RSpec::Mocks::Double (class)">Double</a></span></tt>) <strong>double</strong>(name) </span>
+    
+      <span class="overload">- (<tt><span class='object_link'><a href="Double.html" title="RSpec::Mocks::Double (class)">Double</a></span></tt>) <strong>double</strong>(stubs) </span>
+    
+      <span class="overload">- (<tt><span class='object_link'><a href="Double.html" title="RSpec::Mocks::Double (class)">Double</a></span></tt>) <strong>double</strong>(name, stubs) </span>
+    
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Constructs an instance of <a href="RSpec::Mocks::Double">:Mocks::Double</a>
+configured with an optional name, used for reporting in failure messages,
+and an optional hash of message/return-value pairs.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code><span class='id identifier rubyid_book'>book</span> <span class='op'>=</span> <span class='id identifier rubyid_double'>double</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>book</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:title</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>The RSpec Book</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='id identifier rubyid_book'>book</span><span class='period'>.</span><span class='id identifier rubyid_title'>title</span> <span class='comment'>#=&gt; &quot;The RSpec Book&quot;
+</span>
+<span class='id identifier rubyid_card'>card</span> <span class='op'>=</span> <span class='id identifier rubyid_double'>double</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>card</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:suit</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Spades</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:rank</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>A</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='id identifier rubyid_card'>card</span><span class='period'>.</span><span class='id identifier rubyid_suit'>suit</span>  <span class='comment'>#=&gt; &quot;Spades&quot;
+</span><span class='id identifier rubyid_card'>card</span><span class='period'>.</span><span class='id identifier rubyid_rank'>rank</span>  <span class='comment'>#=&gt; &quot;A&quot;</span></code></pre>
+    
+  </div>
+
+  <p class="tag_title">Overloads:</p>
+  <ul class="overload">
+    
+      
+      
+      <li class="overload_item">
+        <span class="signature">- (<tt><span class='object_link'><a href="Double.html" title="RSpec::Mocks::Double (class)">Double</a></span></tt>) <strong>double</strong>(name) </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>name</span>
+      
+      
+        <span class='type'>(<tt>String/Symbol</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>name or description to be used in failure messages</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">- (<tt><span class='object_link'><a href="Double.html" title="RSpec::Mocks::Double (class)">Double</a></span></tt>) <strong>double</strong>(stubs) </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>stubs</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>hash of message/return-value pairs</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">- (<tt><span class='object_link'><a href="Double.html" title="RSpec::Mocks::Double (class)">Double</a></span></tt>) <strong>double</strong>(name, stubs) </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>name</span>
+      
+      
+        <span class='type'>(<tt>String/Symbol</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>name or description to be used in failure messages</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>stubs</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>hash of message/return-value pairs</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div>
+      </li>
+    
+  </ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Double.html" title="RSpec::Mocks::Double (class)">Double</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+34
+35
+36</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/mocks/example_methods.rb', line 34</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_double'>double</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
+  <span class='const'>ExampleMethods</span><span class='period'>.</span><span class='id identifier rubyid_declare_double'>declare_double</span><span class='lparen'>(</span><span class='const'>Double</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="expect-instance_method">
+  
+    - (<tt>Object</tt>) <strong>expect</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+  <div class="note notetag">
+    <strong>Note:</strong>
+    <div class='inline'>
+<p>This method is usually provided by rspec-expectations. However, if you use
+rspec-mocks without rspec-expectations, there&#39;s a definition of it that
+is made available here. If you disable the <code>:expect</code> syntax this
+method will be undefined.</p>
+</div>
+  </div>
+
+
+<p>Used to wrap an object in preparation for setting a mock expectation on it.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_obj'>obj</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_receive'>receive</span><span class='lparen'>(</span><span class='symbol'>:foo</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_with'>with</span><span class='lparen'>(</span><span class='int'>5</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_and_return'>and_return</span><span class='lparen'>(</span><span class='symbol'>:return_value</span><span class='rparen'>)</span></code></pre>
+    
+  </div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/mocks/example_methods.rb', line 285</span>
+
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="expect_any_instance_of-instance_method">
+  
+    - (<tt>Object</tt>) <strong>expect_any_instance_of</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+  <div class="note notetag">
+    <strong>Note:</strong>
+    <div class='inline'>
+<p>If you disable the <code>:expect</code> syntax this method will be
+undefined.</p>
+</div>
+  </div>
+
+
+<p>Used to wrap a class in preparation for setting a mock expectation on
+instances of it.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code><span class='id identifier rubyid_expect_any_instance_of'>expect_any_instance_of</span><span class='lparen'>(</span><span class='const'>MyClass</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_receive'>receive</span><span class='lparen'>(</span><span class='symbol'>:foo</span><span class='rparen'>)</span></code></pre>
+    
+  </div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/mocks/example_methods.rb', line 306</span>
+
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="have_received-instance_method">
+  
+    - (<tt>Object</tt>) <strong>have_received</strong>(method_name, &amp;block) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+  <div class="note notetag">
+    <strong>Note:</strong>
+    <div class='inline'>
+<p><code>have_received(...).with(...)</code> is unable to work properly when
+passed arguments are mutated after the spy records the received message.</p>
+</div>
+  </div>
+
+
+<p>Verifies that the given object received the expected message during the
+course of the test. On a spy objects or as null object doubles this works
+for any method, on other objects the method must have been stubbed
+beforehand in order for messages to be verified.</p>
+
+<p>Stubbing and verifying messages received in this way implements the Test
+Spy pattern.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code><span class='id identifier rubyid_invitation'>invitation</span> <span class='op'>=</span> <span class='id identifier rubyid_double'>double</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>invitation</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>accept:</span> <span class='kw'>true</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_user'>user</span><span class='period'>.</span><span class='id identifier rubyid_accept_invitation'>accept_invitation</span><span class='lparen'>(</span><span class='id identifier rubyid_invitation'>invitation</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_invitation'>invitation</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_have_received'>have_received</span><span class='lparen'>(</span><span class='symbol'>:accept</span><span class='rparen'>)</span>
+
+<span class='comment'># You can also use most message expectations:
+</span><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_invitation'>invitation</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_have_received'>have_received</span><span class='lparen'>(</span><span class='symbol'>:accept</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_with'>with</span><span class='lparen'>(</span><span class='id identifier rubyid_mailer'>mailer</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_once'>once</span></code></pre>
+    
+  </div>
+<p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>method_name</span>
+      
+      
+        <span class='type'>(<tt>Symbol</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>name of the method expected to have been called.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+281
+282
+283</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/mocks/example_methods.rb', line 281</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_have_received'>have_received</span><span class='lparen'>(</span><span class='id identifier rubyid_method_name'>method_name</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
+  <span class='const'>Matchers</span><span class='op'>::</span><span class='const'>HaveReceived</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_method_name'>method_name</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="hide_const-instance_method">
+  
+    - (<tt>Object</tt>) <strong>hide_const</strong>(constant_name) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Hides the named constant with the given value. The constant will be
+undefined for the duration of the test.</p>
+
+<p>Like method stubs, the constant will be restored to its original value when
+the example completes.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code><span class='id identifier rubyid_hide_const'>hide_const</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>MyClass</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='comment'># =&gt; MyClass is now an undefined constant</span></code></pre>
+    
+  </div>
+<p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>constant_name</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The fully qualified name of the constant. The current constant scoping at
+the point of call is not considered.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+256
+257
+258</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/mocks/example_methods.rb', line 256</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_hide_const'>hide_const</span><span class='lparen'>(</span><span class='id identifier rubyid_constant_name'>constant_name</span><span class='rparen'>)</span>
+  <span class='const'>ConstantMutator</span><span class='period'>.</span><span class='id identifier rubyid_hide'>hide</span><span class='lparen'>(</span><span class='id identifier rubyid_constant_name'>constant_name</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="instance_double-instance_method">
+  
+    
+      <span class="overload">- (<tt>Object</tt>) <strong>instance_double</strong>(doubled_class) </span>
+    
+      <span class="overload">- (<tt>Object</tt>) <strong>instance_double</strong>(doubled_class, name) </span>
+    
+      <span class="overload">- (<tt>Object</tt>) <strong>instance_double</strong>(doubled_class, stubs) </span>
+    
+      <span class="overload">- (<tt>Object</tt>) <strong>instance_double</strong>(doubled_class, name, stubs) </span>
+    
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Constructs a test double against a specific class. If the given class name
+has been loaded, only instance methods defined on the class are allowed to
+be stubbed. In all other ways it behaves like a <a
+href="double">double</a>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <p class="tag_title">Overloads:</p>
+  <ul class="overload">
+    
+      
+      <li class="overload_item">
+        <span class="signature">- (<tt>Object</tt>) <strong>instance_double</strong>(doubled_class) </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>doubled_class</span>
+      
+      
+        <span class='type'>(<tt>String</tt>, <tt><span class='object_link'><a href="../../Class.html" title="Class (class)">Class</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">- (<tt>Object</tt>) <strong>instance_double</strong>(doubled_class, name) </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>doubled_class</span>
+      
+      
+        <span class='type'>(<tt>String</tt>, <tt><span class='object_link'><a href="../../Class.html" title="Class (class)">Class</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>name</span>
+      
+      
+        <span class='type'>(<tt>String/Symbol</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>name or description to be used in failure messages</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">- (<tt>Object</tt>) <strong>instance_double</strong>(doubled_class, stubs) </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>doubled_class</span>
+      
+      
+        <span class='type'>(<tt>String</tt>, <tt><span class='object_link'><a href="../../Class.html" title="Class (class)">Class</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>stubs</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>hash of message/return-value pairs</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">- (<tt>Object</tt>) <strong>instance_double</strong>(doubled_class, name, stubs) </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>doubled_class</span>
+      
+      
+        <span class='type'>(<tt>String</tt>, <tt><span class='object_link'><a href="../../Class.html" title="Class (class)">Class</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>name</span>
+      
+      
+        <span class='type'>(<tt>String/Symbol</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>name or description to be used in failure messages</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>stubs</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>hash of message/return-value pairs</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div>
+      </li>
+    
+  </ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        
+        <div class='inline'>
+<p>InstanceVerifyingDouble</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+56
+57
+58
+59</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/mocks/example_methods.rb', line 56</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_instance_double'>instance_double</span><span class='lparen'>(</span><span class='id identifier rubyid_doubled_class'>doubled_class</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_ref'>ref</span> <span class='op'>=</span> <span class='const'>ObjectReference</span><span class='period'>.</span><span class='id identifier rubyid_for'>for</span><span class='lparen'>(</span><span class='id identifier rubyid_doubled_class'>doubled_class</span><span class='rparen'>)</span>
+  <span class='const'>ExampleMethods</span><span class='period'>.</span><span class='id identifier rubyid_declare_verifying_double'>declare_verifying_double</span><span class='lparen'>(</span><span class='const'>InstanceVerifyingDouble</span><span class='comma'>,</span> <span class='id identifier rubyid_ref'>ref</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="instance_spy-instance_method">
+  
+    
+      <span class="overload">- (<tt>Object</tt>) <strong>instance_spy</strong>(doubled_class) </span>
+    
+      <span class="overload">- (<tt>Object</tt>) <strong>instance_spy</strong>(doubled_class, name) </span>
+    
+      <span class="overload">- (<tt>Object</tt>) <strong>instance_spy</strong>(doubled_class, stubs) </span>
+    
+      <span class="overload">- (<tt>Object</tt>) <strong>instance_spy</strong>(doubled_class, name, stubs) </span>
+    
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Constructs a test double that is optimized for use with
+<code>have_received</code> against a specific class. If the given class
+name has been loaded, only instance methods defined on the class are
+allowed to be stubbed. With a normal double one has to stub methods in
+order to be able to spy them. An instance_spy automatically spies on all
+instance methods to which the class responds.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <p class="tag_title">Overloads:</p>
+  <ul class="overload">
+    
+      
+      <li class="overload_item">
+        <span class="signature">- (<tt>Object</tt>) <strong>instance_spy</strong>(doubled_class) </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>doubled_class</span>
+      
+      
+        <span class='type'>(<tt>String</tt>, <tt><span class='object_link'><a href="../../Class.html" title="Class (class)">Class</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">- (<tt>Object</tt>) <strong>instance_spy</strong>(doubled_class, name) </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>doubled_class</span>
+      
+      
+        <span class='type'>(<tt>String</tt>, <tt><span class='object_link'><a href="../../Class.html" title="Class (class)">Class</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>name</span>
+      
+      
+        <span class='type'>(<tt>String/Symbol</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>name or description to be used in failure messages</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">- (<tt>Object</tt>) <strong>instance_spy</strong>(doubled_class, stubs) </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>doubled_class</span>
+      
+      
+        <span class='type'>(<tt>String</tt>, <tt><span class='object_link'><a href="../../Class.html" title="Class (class)">Class</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>stubs</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>hash of message/return-value pairs</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">- (<tt>Object</tt>) <strong>instance_spy</strong>(doubled_class, name, stubs) </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>doubled_class</span>
+      
+      
+        <span class='type'>(<tt>String</tt>, <tt><span class='object_link'><a href="../../Class.html" title="Class (class)">Class</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>name</span>
+      
+      
+        <span class='type'>(<tt>String/Symbol</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>name or description to be used in failure messages</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>stubs</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>hash of message/return-value pairs</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div>
+      </li>
+    
+  </ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        
+        <div class='inline'>
+<p>InstanceVerifyingDouble</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+144
+145
+146</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/mocks/example_methods.rb', line 144</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_instance_spy'>instance_spy</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_instance_double'>instance_double</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_as_null_object'>as_null_object</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="object_double-instance_method">
+  
+    
+      <span class="overload">- (<tt>Object</tt>) <strong>object_double</strong>(object_or_name) </span>
+    
+      <span class="overload">- (<tt>Object</tt>) <strong>object_double</strong>(object_or_name, name) </span>
+    
+      <span class="overload">- (<tt>Object</tt>) <strong>object_double</strong>(object_or_name, stubs) </span>
+    
+      <span class="overload">- (<tt>Object</tt>) <strong>object_double</strong>(object_or_name, name, stubs) </span>
+    
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Constructs a test double against a specific object. Only the methods the
+object responds to are allowed to be stubbed. If a String argument is
+provided, it is assumed to reference a constant object which is used for
+verification. In all other ways it behaves like a <a
+href="double">double</a>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <p class="tag_title">Overloads:</p>
+  <ul class="overload">
+    
+      
+      <li class="overload_item">
+        <span class="signature">- (<tt>Object</tt>) <strong>object_double</strong>(object_or_name) </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>object_or_name</span>
+      
+      
+        <span class='type'>(<tt>String</tt>, <tt>Object</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">- (<tt>Object</tt>) <strong>object_double</strong>(object_or_name, name) </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>object_or_name</span>
+      
+      
+        <span class='type'>(<tt>String</tt>, <tt>Object</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>name</span>
+      
+      
+        <span class='type'>(<tt>String/Symbol</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>name or description to be used in failure messages</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">- (<tt>Object</tt>) <strong>object_double</strong>(object_or_name, stubs) </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>object_or_name</span>
+      
+      
+        <span class='type'>(<tt>String</tt>, <tt>Object</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>stubs</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>hash of message/return-value pairs</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">- (<tt>Object</tt>) <strong>object_double</strong>(object_or_name, name, stubs) </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>object_or_name</span>
+      
+      
+        <span class='type'>(<tt>String</tt>, <tt>Object</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>name</span>
+      
+      
+        <span class='type'>(<tt>String/Symbol</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>name or description to be used in failure messages</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>stubs</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>hash of message/return-value pairs</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div>
+      </li>
+    
+  </ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        
+        <div class='inline'>
+<p>ObjectVerifyingDouble</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+102
+103
+104
+105</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/mocks/example_methods.rb', line 102</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_object_double'>object_double</span><span class='lparen'>(</span><span class='id identifier rubyid_object_or_name'>object_or_name</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_ref'>ref</span> <span class='op'>=</span> <span class='const'>ObjectReference</span><span class='period'>.</span><span class='id identifier rubyid_for'>for</span><span class='lparen'>(</span><span class='id identifier rubyid_object_or_name'>object_or_name</span><span class='comma'>,</span> <span class='symbol'>:allow_direct_object_refs</span><span class='rparen'>)</span>
+  <span class='const'>ExampleMethods</span><span class='period'>.</span><span class='id identifier rubyid_declare_verifying_double'>declare_verifying_double</span><span class='lparen'>(</span><span class='const'>ObjectVerifyingDouble</span><span class='comma'>,</span> <span class='id identifier rubyid_ref'>ref</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="object_spy-instance_method">
+  
+    
+      <span class="overload">- (<tt>Object</tt>) <strong>object_spy</strong>(object_or_name) </span>
+    
+      <span class="overload">- (<tt>Object</tt>) <strong>object_spy</strong>(object_or_name, name) </span>
+    
+      <span class="overload">- (<tt>Object</tt>) <strong>object_spy</strong>(object_or_name, stubs) </span>
+    
+      <span class="overload">- (<tt>Object</tt>) <strong>object_spy</strong>(object_or_name, name, stubs) </span>
+    
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Constructs a test double that is optimized for use with
+<code>have_received</code> against a specific object. Only instance methods
+defined on the object are allowed to be stubbed. With a normal double one
+has to stub methods in order to be able to spy them. An object_spy
+automatically spies on all methods to which the object responds.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <p class="tag_title">Overloads:</p>
+  <ul class="overload">
+    
+      
+      <li class="overload_item">
+        <span class="signature">- (<tt>Object</tt>) <strong>object_spy</strong>(object_or_name) </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>object_or_name</span>
+      
+      
+        <span class='type'>(<tt>String</tt>, <tt>Object</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">- (<tt>Object</tt>) <strong>object_spy</strong>(object_or_name, name) </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>object_or_name</span>
+      
+      
+        <span class='type'>(<tt>String</tt>, <tt><span class='object_link'><a href="../../Class.html" title="Class (class)">Class</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>name</span>
+      
+      
+        <span class='type'>(<tt>String/Symbol</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>name or description to be used in failure messages</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">- (<tt>Object</tt>) <strong>object_spy</strong>(object_or_name, stubs) </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>object_or_name</span>
+      
+      
+        <span class='type'>(<tt>String</tt>, <tt>Object</tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>stubs</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>hash of message/return-value pairs</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">- (<tt>Object</tt>) <strong>object_spy</strong>(object_or_name, name, stubs) </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>object_or_name</span>
+      
+      
+        <span class='type'>(<tt>String</tt>, <tt><span class='object_link'><a href="../../Class.html" title="Class (class)">Class</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>name</span>
+      
+      
+        <span class='type'>(<tt>String/Symbol</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>name or description to be used in failure messages</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>stubs</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>hash of message/return-value pairs</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div>
+      </li>
+    
+  </ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'></span>
+      
+      
+      
+        
+        <div class='inline'>
+<p>ObjectVerifyingDouble</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+167
+168
+169</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/mocks/example_methods.rb', line 167</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_object_spy'>object_spy</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_object_double'>object_double</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_as_null_object'>as_null_object</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="receive-instance_method">
+  
+    - (<tt>Object</tt>) <strong>receive</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+  <div class="note notetag">
+    <strong>Note:</strong>
+    <div class='inline'>
+<p>If you disable the <code>:expect</code> syntax this method will be
+undefined.</p>
+</div>
+  </div>
+
+
+<p>Used to specify a message that you expect or allow an object to receive.
+The object returned by <code>receive</code> supports the same fluent
+interface that <code>should_receive</code> and <code>stub</code> have
+always supported, allowing you to constrain the arguments or number of
+times, and configure how the object should respond to the message.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_obj'>obj</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_receive'>receive</span><span class='lparen'>(</span><span class='symbol'>:hello</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_with'>with</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>world</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_exactly'>exactly</span><span class='lparen'>(</span><span class='int'>3</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_times'>times</span></code></pre>
+    
+  </div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/mocks/example_methods.rb', line 324</span>
+
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="receive_message_chain-instance_method">
+  
+    
+      <span class="overload">- (<tt>Object</tt>) <strong>receive_message_chain</strong>(method1, method2) </span>
+    
+      <span class="overload">- (<tt>Object</tt>) <strong>receive_message_chain</strong>(&quot;method1.method2&quot;) </span>
+    
+      <span class="overload">- (<tt>Object</tt>) <strong>receive_message_chain</strong>(method1, method_to_value_hash) </span>
+    
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+  <div class="note notetag">
+    <strong>Note:</strong>
+    <div class='inline'>
+<p>If you disable the <code>:expect</code> syntax this method will be
+undefined.</p>
+</div>
+  </div>
+
+
+<p>stubs/mocks a chain of messages on an object or test double.</p>
+
+<h2 id="label-Warning%3A">Warning:</h2>
+
+<p>Chains can be arbitrarily long, which makes it quite painless to violate
+the Law of Demeter in violent ways, so you should consider any use of
+<code>receive_message_chain</code> a code smell. Even though not all code
+smells indicate real problems (think fluent interfaces),
+<code>receive_message_chain</code> still results in brittle examples. For
+example, if you write <code>allow(foo).to receive_message_chain(:bar, :baz
+=&gt; 37)</code> in a spec and then the implementation calls
+<code>foo.baz.bar</code>, the stub will not work.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code><span class='id identifier rubyid_allow'>allow</span><span class='lparen'>(</span><span class='id identifier rubyid_double'>double</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_receive_message_chain'>receive_message_chain</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>foo.bar</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='symbol'>:baz</span> <span class='rbrace'>}</span>
+<span class='id identifier rubyid_allow'>allow</span><span class='lparen'>(</span><span class='id identifier rubyid_double'>double</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_receive_message_chain'>receive_message_chain</span><span class='lparen'>(</span><span class='symbol'>:foo</span><span class='comma'>,</span> <span class='symbol'>:bar</span> <span class='op'>=&gt;</span> <span class='symbol'>:baz</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_allow'>allow</span><span class='lparen'>(</span><span class='id identifier rubyid_double'>double</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_receive_message_chain'>receive_message_chain</span><span class='lparen'>(</span><span class='symbol'>:foo</span><span class='comma'>,</span> <span class='symbol'>:bar</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='symbol'>:baz</span> <span class='rbrace'>}</span>
+
+<span class='comment'># Given any of ^^ these three forms ^^:
+</span><span class='id identifier rubyid_double'>double</span><span class='period'>.</span><span class='id identifier rubyid_foo'>foo</span><span class='period'>.</span><span class='id identifier rubyid_bar'>bar</span> <span class='comment'># =&gt; :baz
+</span>
+<span class='comment'># Common use in Rails/ActiveRecord:
+</span><span class='id identifier rubyid_allow'>allow</span><span class='lparen'>(</span><span class='const'>Article</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_receive_message_chain'>receive_message_chain</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>recent.published</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='lbracket'>[</span><span class='const'>Article</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='rbracket'>]</span> <span class='rbrace'>}</span></code></pre>
+    
+  </div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/mocks/example_methods.rb', line 349</span>
+
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="receive_messages-instance_method">
+  
+    - (<tt>Object</tt>) <strong>receive_messages</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+  <div class="note notetag">
+    <strong>Note:</strong>
+    <div class='inline'>
+<p>If you disable the <code>:expect</code> syntax this method will be
+undefined.</p>
+</div>
+  </div>
+
+
+<p>Shorthand syntax used to setup message(s), and their return value(s), that
+you expect or allow an object to receive. The method takes a hash of
+messages and their respective return values. Unlike with
+<code>receive</code>, you cannot apply further customizations using a block
+or the fluent interface.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code><span class='id identifier rubyid_allow'>allow</span><span class='lparen'>(</span><span class='id identifier rubyid_obj'>obj</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_receive_messages'>receive_messages</span><span class='lparen'>(</span><span class='symbol'>:speak</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Hello World</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='id identifier rubyid_allow'>allow</span><span class='lparen'>(</span><span class='id identifier rubyid_obj'>obj</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_receive_messages'>receive_messages</span><span class='lparen'>(</span><span class='symbol'>:speak</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Hello</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:meow</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Meow</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span></code></pre>
+    
+  </div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/mocks/example_methods.rb', line 336</span>
+
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="spy-instance_method">
+  
+    
+      <span class="overload">- (<tt><span class='object_link'><a href="Double.html" title="RSpec::Mocks::Double (class)">Double</a></span></tt>) <strong>spy</strong> </span>
+    
+      <span class="overload">- (<tt><span class='object_link'><a href="Double.html" title="RSpec::Mocks::Double (class)">Double</a></span></tt>) <strong>spy</strong>(name) </span>
+    
+      <span class="overload">- (<tt><span class='object_link'><a href="Double.html" title="RSpec::Mocks::Double (class)">Double</a></span></tt>) <strong>spy</strong>(stubs) </span>
+    
+      <span class="overload">- (<tt><span class='object_link'><a href="Double.html" title="RSpec::Mocks::Double (class)">Double</a></span></tt>) <strong>spy</strong>(name, stubs) </span>
+    
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Constructs a test double that is optimized for use with
+<code>have_received</code>. With a normal double one has to stub methods in
+order to be able to spy them. A spy automatically spies on all methods.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <p class="tag_title">Overloads:</p>
+  <ul class="overload">
+    
+      
+      
+      <li class="overload_item">
+        <span class="signature">- (<tt><span class='object_link'><a href="Double.html" title="RSpec::Mocks::Double (class)">Double</a></span></tt>) <strong>spy</strong>(name) </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>name</span>
+      
+      
+        <span class='type'>(<tt>String/Symbol</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>name or description to be used in failure messages</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">- (<tt><span class='object_link'><a href="Double.html" title="RSpec::Mocks::Double (class)">Double</a></span></tt>) <strong>spy</strong>(stubs) </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>stubs</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>hash of message/return-value pairs</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">- (<tt><span class='object_link'><a href="Double.html" title="RSpec::Mocks::Double (class)">Double</a></span></tt>) <strong>spy</strong>(name, stubs) </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>name</span>
+      
+      
+        <span class='type'>(<tt>String/Symbol</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>name or description to be used in failure messages</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>stubs</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>hash of message/return-value pairs</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div>
+      </li>
+    
+  </ul>
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Double.html" title="RSpec::Mocks::Double (class)">Double</a></span></tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+120
+121
+122</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/mocks/example_methods.rb', line 120</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_spy'>spy</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_double'>double</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_as_null_object'>as_null_object</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="stub_const-instance_method">
+  
+    - (<tt>Object</tt>) <strong>stub_const</strong>(constant_name, value, options = {}) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Stubs the named constant with the given value. Like method stubs, the
+constant will be restored to its original value (or lack of one, if it was
+undefined) when the example completes.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code><span class='id identifier rubyid_stub_const'>stub_const</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>MyClass</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='const'>Class</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='rparen'>)</span> <span class='comment'># =&gt; Replaces (or defines) MyClass with a new class object.
+</span><span class='id identifier rubyid_stub_const'>stub_const</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>SomeModel::PER_PAGE</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='int'>5</span><span class='rparen'>)</span> <span class='comment'># =&gt; Sets SomeModel::PER_PAGE to 5.
+</span>
+<span class='kw'>class</span> <span class='const'>CardDeck</span>
+  <span class='const'>SUITS</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='symbol'>:Spades</span><span class='comma'>,</span> <span class='symbol'>:Diamonds</span><span class='comma'>,</span> <span class='symbol'>:Clubs</span><span class='comma'>,</span> <span class='symbol'>:Hearts</span><span class='rbracket'>]</span>
+  <span class='const'>NUM_CARDS</span> <span class='op'>=</span> <span class='int'>52</span>
+<span class='kw'>end</span>
+
+<span class='id identifier rubyid_stub_const'>stub_const</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>CardDeck</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='const'>Class</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='rparen'>)</span>
+<span class='const'>CardDeck</span><span class='op'>::</span><span class='const'>SUITS</span> <span class='comment'># =&gt; uninitialized constant error
+</span><span class='const'>CardDeck</span><span class='op'>::</span><span class='const'>NUM_CARDS</span> <span class='comment'># =&gt; uninitialized constant error
+</span>
+<span class='id identifier rubyid_stub_const'>stub_const</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>CardDeck</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='const'>Class</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='comma'>,</span> <span class='symbol'>:transfer_nested_constants</span> <span class='op'>=&gt;</span> <span class='kw'>true</span><span class='rparen'>)</span>
+<span class='const'>CardDeck</span><span class='op'>::</span><span class='const'>SUITS</span> <span class='comment'># =&gt; our suits array
+</span><span class='const'>CardDeck</span><span class='op'>::</span><span class='const'>NUM_CARDS</span> <span class='comment'># =&gt; 52
+</span>
+<span class='id identifier rubyid_stub_const'>stub_const</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>CardDeck</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='const'>Class</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='comma'>,</span> <span class='symbol'>:transfer_nested_constants</span> <span class='op'>=&gt;</span> <span class='lbracket'>[</span><span class='symbol'>:SUITS</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+<span class='const'>CardDeck</span><span class='op'>::</span><span class='const'>SUITS</span> <span class='comment'># =&gt; our suits array
+</span><span class='const'>CardDeck</span><span class='op'>::</span><span class='const'>NUM_CARDS</span> <span class='comment'># =&gt; uninitialized constant error</span></code></pre>
+    
+  </div>
+<p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>constant_name</span>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The fully qualified name of the constant. The current constant scoping at
+the point of call is not considered.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>value</span>
+      
+      
+        <span class='type'>(<tt>Object</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>The value to make the constant refer to. When the example completes, the
+constant will be restored to its prior state.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>options</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+        <em class="default">(defaults to: <tt>{}</tt>)</em>
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>Stubbing options.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+  
+    
+    
+    
+    
+    
+    
+    <p class="tag_title">Options Hash (<tt>options</tt>):</p>
+    <ul class="option">
+      
+        <li>
+          <span class="name">:transfer_nested_constants</span>
+          <span class="type">(<tt>Boolean</tt>, <tt>Array&lt;Symbol&gt;</tt>)</span>
+          <span class="default">
+            
+          </span>
+          
+            &mdash; <div class='inline'>
+<p>Determines what nested constants, if any, will be transferred from the
+original value of the constant to the new value of the constant. This only
+works if both the original and new values are modules (or classes).</p>
+</div>
+          
+        </li>
+      
+    </ul>
+  
+
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Object</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'>
+<p>the stubbed value of the constant</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+241
+242
+243</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/mocks/example_methods.rb', line 241</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_stub_const'>stub_const</span><span class='lparen'>(</span><span class='id identifier rubyid_constant_name'>constant_name</span><span class='comma'>,</span> <span class='id identifier rubyid_value'>value</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
+  <span class='const'>ConstantMutator</span><span class='period'>.</span><span class='id identifier rubyid_stub'>stub</span><span class='lparen'>(</span><span class='id identifier rubyid_constant_name'>constant_name</span><span class='comma'>,</span> <span class='id identifier rubyid_value'>value</span><span class='comma'>,</span> <span class='id identifier rubyid_options'>options</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+    <div id="footer">
+  Generated on Wed Nov 11 23:57:48 2015 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.6 (ruby-2.1.5).
+</div>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-59095215-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+  </body>
+</html>

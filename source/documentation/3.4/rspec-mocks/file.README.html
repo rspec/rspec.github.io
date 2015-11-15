@@ -1,0 +1,532 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>
+  File: README
+  
+    &mdash; Documentation by YARD 0.8.7.6
+  
+</title>
+
+  <link rel="stylesheet" href="/stylesheets/docs/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="/stylesheets/docs/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '';
+  framesUrl = "frames.html#!file.README.html";
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="/javascripts/docs/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="/javascripts/docs/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="_index.html">Index</a> &raquo; 
+    <span class="title">File: README</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><div id='filecontents'>
+<h1 id="label-RSpec+Mocks+rdoc-image%3Ahttps%3A%2F%2Fsecure.travis-ci.org%2Frspec%2Frspec-mocks.svg%3Fbranch%3Dmaster+rdoc-image%3Ahttps%3A%2F%2Fcodeclimate.com%2Fgithub%2Frspec%2Frspec-mocks.svg">RSpec Mocks <a href="http://travis-ci.org/rspec/rspec-mocks"><img src="https://secure.travis-ci.org/rspec/rspec-mocks.svg?branch=master"></a> <a href="https://codeclimate.com/github/rspec/rspec-mocks"><img src="https://codeclimate.com/github/rspec/rspec-mocks.svg"></a></h1>
+
+<p>rspec-mocks is a test-double framework for rspec with support for method
+stubs, fakes, and message expectations on generated test-doubles and real
+objects alike.</p>
+
+<h2 id="label-Install">Install</h2>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_gem'>gem</span> <span class='id identifier rubyid_install'>install</span> <span class='id identifier rubyid_rspec'>rspec</span>       <span class='comment'># for rspec-core, rspec-expectations, rspec-mocks
+</span><span class='id identifier rubyid_gem'>gem</span> <span class='id identifier rubyid_install'>install</span> <span class='id identifier rubyid_rspec'>rspec</span><span class='op'>-</span><span class='id identifier rubyid_mocks'>mocks</span> <span class='comment'># for rspec-mocks only</span></code></pre>
+
+<p>Want to run against the <code>master</code> branch? You&#39;ll need to
+include the dependent RSpec repos as well. Add the following to your
+<code>Gemfile</code>:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='qwords_beg'>%w[</span><span class='tstring_content'>rspec-core</span><span class='words_sep'> </span><span class='tstring_content'>rspec-expectations</span><span class='words_sep'> </span><span class='tstring_content'>rspec-mocks</span><span class='words_sep'> </span><span class='tstring_content'>rspec-support</span><span class='words_sep'>]</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_lib'>lib</span><span class='op'>|</span>
+  <span class='id identifier rubyid_gem'>gem</span> <span class='id identifier rubyid_lib'>lib</span><span class='comma'>,</span> <span class='symbol'>:git</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>git://github.com/rspec/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_lib'>lib</span><span class='embexpr_end'>}</span><span class='tstring_content'>.git</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:branch</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>master</span><span class='tstring_end'>&#39;</span></span>
+<span class='kw'>end</span>
+</code></pre>
+
+<h2 id="label-Contributing">Contributing</h2>
+
+<p>Once you&#39;ve set up the environment, you&#39;ll need to cd into the
+working directory of whichever repo you want to work in. From there you can
+run the specs and cucumber features, and make patches.</p>
+
+<p>NOTE: You do not need to use rspec-dev to work on a specific RSpec repo.
+You can treat each RSpec repo as an independent project.</p>
+
+<p>For information about contributing to RSpec, please refer to the following
+markdown files: * <a href="BUILD_DETAIL.md">Build details</a> * <a
+href="CODE_OF_CONDUCT.md">Code of Conduct</a> * <a
+href="CONTRIBUTING.md">Detailed contributing guide</a> * <a
+href="DEVELOPMENT.md">Development setup guide</a></p>
+
+<h2 id="label-Test+Doubles">Test Doubles</h2>
+
+<p>A test double is an object that stands in for another object in your system
+during a code example. Use the <code>double</code> method, passing in an
+optional identifier, to create one:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_book'>book</span> <span class='op'>=</span> <span class='id identifier rubyid_double'>double</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>book</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+</code></pre>
+
+<p>Most of the time you will want some confidence that your doubles resemble
+an existing object in your system. Verifying doubles are provided for this
+purpose. If the existing object is available, they will prevent you from
+adding stubs and expectations for methods that do not exist or that have an
+invalid number of parameters.</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_book'>book</span> <span class='op'>=</span> <span class='id identifier rubyid_instance_double'>instance_double</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Book</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:pages</span> <span class='op'>=&gt;</span> <span class='int'>250</span><span class='rparen'>)</span>
+</code></pre>
+
+<p>Verifying doubles have some clever tricks to enable you to both test in
+isolation without your dependencies loaded while still being able to
+validate them against real objects. More detail is available in <a
+href="https://github.com/rspec/rspec-mocks/blob/master/features/verifying_doubles">their
+documentation</a>.</p>
+
+<p>Verifying doubles can also accept custom identifiers, just like double(),
+e.g.:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_books'>books</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+<span class='id identifier rubyid_books'>books</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_instance_double'>instance_double</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Book</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:rspec_book</span><span class='comma'>,</span> <span class='symbol'>:pages</span> <span class='op'>=&gt;</span> <span class='int'>250</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_books'>books</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_instance_double'>instance_double</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Book</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>(Untitled)</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:pages</span> <span class='op'>=&gt;</span> <span class='int'>5000</span><span class='rparen'>)</span>
+
+<span class='id identifier rubyid_puts'>puts</span> <span class='id identifier rubyid_books'>books</span><span class='period'>.</span><span class='id identifier rubyid_inspect'>inspect</span> <span class='comment'># with names, it&#39;s clearer which were actually added
+</span></code></pre>
+
+<h2 id="label-Method+Stubs">Method Stubs</h2>
+
+<p>A method stub is an implementation that returns a pre-determined value.
+Method stubs can be declared on test doubles or real objects using the same
+syntax. rspec-mocks supports 3 forms for declaring method stubs:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_allow'>allow</span><span class='lparen'>(</span><span class='id identifier rubyid_book'>book</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_receive'>receive</span><span class='lparen'>(</span><span class='symbol'>:title</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>The RSpec Book</span><span class='tstring_end'>&quot;</span></span> <span class='rbrace'>}</span>
+<span class='id identifier rubyid_allow'>allow</span><span class='lparen'>(</span><span class='id identifier rubyid_book'>book</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_receive'>receive</span><span class='lparen'>(</span><span class='symbol'>:title</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_and_return'>and_return</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>The RSpec Book</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='id identifier rubyid_allow'>allow</span><span class='lparen'>(</span><span class='id identifier rubyid_book'>book</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_receive_messages'>receive_messages</span><span class='lparen'>(</span>
+    <span class='symbol'>:title</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>The RSpec Book</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+    <span class='symbol'>:subtitle</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Behaviour-Driven Development with RSpec, Cucumber, and Friends</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+</code></pre>
+
+<p>You can also use this shortcut, which creates a test double and declares a
+method stub in one statement:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_book'>book</span> <span class='op'>=</span> <span class='id identifier rubyid_double'>double</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>book</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:title</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>The RSpec Book</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+</code></pre>
+
+<p>The first argument is a name, which is used for documentation and appears
+in failure messages. If you don&#39;t care about the name, you can leave it
+out, making the combined instantiation/stub declaration very terse:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_double'>double</span><span class='lparen'>(</span><span class='symbol'>:foo</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>bar</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+</code></pre>
+
+<p>This is particularly nice when providing a list of test doubles to a method
+that iterates through them:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_order'>order</span><span class='period'>.</span><span class='id identifier rubyid_calculate_total_price'>calculate_total_price</span><span class='lparen'>(</span><span class='id identifier rubyid_double'>double</span><span class='lparen'>(</span><span class='symbol'>:price</span> <span class='op'>=&gt;</span> <span class='float'>1.99</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='id identifier rubyid_double'>double</span><span class='lparen'>(</span><span class='symbol'>:price</span> <span class='op'>=&gt;</span> <span class='float'>2.99</span><span class='rparen'>)</span><span class='rparen'>)</span>
+</code></pre>
+
+<h2 id="label-Consecutive+return+values">Consecutive return values</h2>
+
+<p>When a stub might be invoked more than once, you can provide additional
+arguments to <code>and_return</code>. The invocations cycle through the
+list. The last value is returned for any subsequent invocations:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_allow'>allow</span><span class='lparen'>(</span><span class='id identifier rubyid_die'>die</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_receive'>receive</span><span class='lparen'>(</span><span class='symbol'>:roll</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_and_return'>and_return</span><span class='lparen'>(</span><span class='int'>1</span><span class='comma'>,</span> <span class='int'>2</span><span class='comma'>,</span> <span class='int'>3</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_die'>die</span><span class='period'>.</span><span class='id identifier rubyid_roll'>roll</span> <span class='comment'># =&gt; 1
+</span><span class='id identifier rubyid_die'>die</span><span class='period'>.</span><span class='id identifier rubyid_roll'>roll</span> <span class='comment'># =&gt; 2
+</span><span class='id identifier rubyid_die'>die</span><span class='period'>.</span><span class='id identifier rubyid_roll'>roll</span> <span class='comment'># =&gt; 3
+</span><span class='id identifier rubyid_die'>die</span><span class='period'>.</span><span class='id identifier rubyid_roll'>roll</span> <span class='comment'># =&gt; 3
+</span><span class='id identifier rubyid_die'>die</span><span class='period'>.</span><span class='id identifier rubyid_roll'>roll</span> <span class='comment'># =&gt; 3
+</span></code></pre>
+
+<p>To return an array in a single invocation, declare an array:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_allow'>allow</span><span class='lparen'>(</span><span class='id identifier rubyid_team'>team</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_receive'>receive</span><span class='lparen'>(</span><span class='symbol'>:players</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_and_return'>and_return</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='id identifier rubyid_double'>double</span><span class='lparen'>(</span><span class='symbol'>:name</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>David</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+</code></pre>
+
+<h2 id="label-Message+Expectations">Message Expectations</h2>
+
+<p>A message expectation is an expectation that the test double will receive a
+message some time before the example ends. If the message is received, the
+expectation is satisfied. If not, the example fails.</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_validator'>validator</span> <span class='op'>=</span> <span class='id identifier rubyid_double'>double</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>validator</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_validator'>validator</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_receive'>receive</span><span class='lparen'>(</span><span class='symbol'>:validate</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>02134</span><span class='tstring_end'>&quot;</span></span> <span class='rbrace'>}</span>
+<span class='id identifier rubyid_zipcode'>zipcode</span> <span class='op'>=</span> <span class='const'>Zipcode</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>02134</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_validator'>validator</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_zipcode'>zipcode</span><span class='period'>.</span><span class='id identifier rubyid_valid?'>valid?</span>
+</code></pre>
+
+<h2 id="label-Test+Spies">Test Spies</h2>
+
+<p>Verifies the given object received the expected message during the course
+of the test. For a message to be verified, the given object must be setup
+to spy on it, either by having it explicitly stubbed or by being a null
+object double (e.g. <code>double(...).as_null_object</code>). Convenience
+methods are provided to easily create null object doubles for this purpose:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_spy'>spy</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>invitation</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='comment'># =&gt; same as `double(&quot;invitation&quot;).as_null_object`
+</span><span class='id identifier rubyid_instance_spy'>instance_spy</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Invitation</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='comment'># =&gt; same as `instance_double(&quot;Invitation&quot;).as_null_object`
+</span><span class='id identifier rubyid_class_spy'>class_spy</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Invitation</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='comment'># =&gt; same as `class_double(&quot;Invitation&quot;).as_null_object`
+</span><span class='id identifier rubyid_object_spy'>object_spy</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Invitation</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='comment'># =&gt; same as `object_double(&quot;Invitation&quot;).as_null_object`
+</span></code></pre>
+
+<p>Verifying messages received in this way implements the Test Spy pattern.</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_invitation'>invitation</span> <span class='op'>=</span> <span class='id identifier rubyid_spy'>spy</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>invitation</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+
+<span class='id identifier rubyid_user'>user</span><span class='period'>.</span><span class='id identifier rubyid_accept_invitation'>accept_invitation</span><span class='lparen'>(</span><span class='id identifier rubyid_invitation'>invitation</span><span class='rparen'>)</span>
+
+<span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_invitation'>invitation</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_have_received'>have_received</span><span class='lparen'>(</span><span class='symbol'>:accept</span><span class='rparen'>)</span>
+
+<span class='comment'># You can also use other common message expectations. For example:
+</span><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_invitation'>invitation</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_have_received'>have_received</span><span class='lparen'>(</span><span class='symbol'>:accept</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_with'>with</span><span class='lparen'>(</span><span class='id identifier rubyid_mailer'>mailer</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_invitation'>invitation</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_have_received'>have_received</span><span class='lparen'>(</span><span class='symbol'>:accept</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_twice'>twice</span>
+<span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_invitation'>invitation</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to_not'>to_not</span> <span class='id identifier rubyid_have_received'>have_received</span><span class='lparen'>(</span><span class='symbol'>:accept</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_with'>with</span><span class='lparen'>(</span><span class='id identifier rubyid_mailer'>mailer</span><span class='rparen'>)</span>
+
+<span class='comment'># One can specify a return value on the spy the same way one would a double.
+</span><span class='id identifier rubyid_invitation'>invitation</span> <span class='op'>=</span> <span class='id identifier rubyid_spy'>spy</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>invitation</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='symbol'>:accept</span> <span class='op'>=&gt;</span> <span class='kw'>true</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_invitation'>invitation</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_have_received'>have_received</span><span class='lparen'>(</span><span class='symbol'>:accept</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_with'>with</span><span class='lparen'>(</span><span class='id identifier rubyid_mailer'>mailer</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_invitation'>invitation</span><span class='period'>.</span><span class='id identifier rubyid_accept'>accept</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_eq'>eq</span><span class='lparen'>(</span><span class='kw'>true</span><span class='rparen'>)</span>
+</code></pre>
+
+<p>Note that <code>have_received(...).with(...)</code> is unable to work
+properly when passed arguments are mutated after the spy records the
+received message. For example, this does not work properly:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_greeter'>greeter</span> <span class='op'>=</span> <span class='id identifier rubyid_spy'>spy</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>greeter</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+
+<span class='id identifier rubyid_message'>message</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Hello</span><span class='tstring_end'>&quot;</span></span>
+<span class='id identifier rubyid_greeter'>greeter</span><span class='period'>.</span><span class='id identifier rubyid_greet_with'>greet_with</span><span class='lparen'>(</span><span class='id identifier rubyid_message'>message</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_message'>message</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>, World</span><span class='tstring_end'>&quot;</span></span>
+
+<span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_greeter'>greeter</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_have_received'>have_received</span><span class='lparen'>(</span><span class='symbol'>:greet_with</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_with'>with</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Hello</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+</code></pre>
+
+<h2 id="label-Nomenclature">Nomenclature</h2>
+
+<h3 id="label-Mock+Objects+and+Test+Stubs">Mock Objects and Test Stubs</h3>
+
+<p>The names Mock Object and Test Stub suggest specialized Test Doubles. i.e.
+a Test Stub is a Test Double that only supports method stubs, and a Mock
+Object is a Test Double that supports message expectations and method
+stubs.</p>
+
+<p>There is a lot of overlapping nomenclature here, and there are many
+variations of these patterns (fakes, spies, etc). Keep in mind that most of
+the time we&#39;re talking about method-level concepts that are variations
+of method stubs and message expectations, and we&#39;re applying to them to
+<em>one</em> generic kind of object: a Test Double.</p>
+
+<h3 id="label-Test-Specific+Extension">Test-Specific Extension</h3>
+
+<p>a.k.a. Partial Double, a Test-Specific Extension is an extension of a real
+object in a system that is instrumented with test-double like behaviour in
+the context of a test. This technique is very common in Ruby because we
+often see class objects acting as global namespaces for methods. For
+example, in Rails:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_person'>person</span> <span class='op'>=</span> <span class='id identifier rubyid_double'>double</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>person</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='id identifier rubyid_allow'>allow</span><span class='lparen'>(</span><span class='const'>Person</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_receive'>receive</span><span class='lparen'>(</span><span class='symbol'>:find</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_person'>person</span> <span class='rbrace'>}</span>
+</code></pre>
+
+<p>In this case we&#39;re instrumenting Person to return the person object
+we&#39;ve defined whenever it receives the <code>find</code> message. We
+can also set a message expectation so that the example fails if
+<code>find</code> is not called:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_person'>person</span> <span class='op'>=</span> <span class='id identifier rubyid_double'>double</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>person</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='const'>Person</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_receive'>receive</span><span class='lparen'>(</span><span class='symbol'>:find</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_person'>person</span> <span class='rbrace'>}</span>
+</code></pre>
+
+<p>RSpec replaces the method we&#39;re stubbing or mocking with its own
+test-double-like method. At the end of the example, RSpec verifies any
+message expectations, and then restores the original methods.</p>
+
+<h2 id="label-Expecting+Arguments">Expecting Arguments</h2>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_double'>double</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_receive'>receive</span><span class='lparen'>(</span><span class='symbol'>:msg</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_with'>with</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_double'>double</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to_not'>to_not</span> <span class='id identifier rubyid_receive'>receive</span><span class='lparen'>(</span><span class='symbol'>:msg</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_with'>with</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
+</code></pre>
+
+<p>You can set multiple expectations for the same message if you need to:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_double'>double</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_receive'>receive</span><span class='lparen'>(</span><span class='symbol'>:msg</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_with'>with</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>A</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='int'>1</span><span class='comma'>,</span> <span class='int'>3</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_double'>double</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_receive'>receive</span><span class='lparen'>(</span><span class='symbol'>:msg</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_with'>with</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>B</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='int'>2</span><span class='comma'>,</span> <span class='int'>4</span><span class='rparen'>)</span>
+</code></pre>
+
+<h2 id="label-Argument+Matchers">Argument Matchers</h2>
+
+<p>Arguments that are passed to <code>with</code> are compared with actual
+arguments received using ==. In cases in which you want to specify things
+about the arguments rather than the arguments themselves, you can use any
+of the matchers that ship with rspec-expectations. They don&#39;t all make
+syntactic sense (they were primarily designed for use with
+RSpec::Expectations), but you are free to create your own custom
+RSpec::Matchers.</p>
+
+<p>rspec-mocks also adds some keyword Symbols that you can use to specify
+certain kinds of arguments:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_double'>double</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_receive'>receive</span><span class='lparen'>(</span><span class='symbol'>:msg</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_with'>with</span><span class='lparen'>(</span><span class='id identifier rubyid_no_args'>no_args</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_double'>double</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_receive'>receive</span><span class='lparen'>(</span><span class='symbol'>:msg</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_with'>with</span><span class='lparen'>(</span><span class='id identifier rubyid_any_args'>any_args</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_double'>double</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_receive'>receive</span><span class='lparen'>(</span><span class='symbol'>:msg</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_with'>with</span><span class='lparen'>(</span><span class='int'>1</span><span class='comma'>,</span> <span class='id identifier rubyid_any_args'>any_args</span><span class='rparen'>)</span> <span class='comment'># any args acts like an arg splat and can go anywhere
+</span><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_double'>double</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_receive'>receive</span><span class='lparen'>(</span><span class='symbol'>:msg</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_with'>with</span><span class='lparen'>(</span><span class='int'>1</span><span class='comma'>,</span> <span class='id identifier rubyid_kind_of'>kind_of</span><span class='lparen'>(</span><span class='const'>Numeric</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>b</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='comment'>#2nd argument can be any kind of Numeric
+</span><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_double'>double</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_receive'>receive</span><span class='lparen'>(</span><span class='symbol'>:msg</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_with'>with</span><span class='lparen'>(</span><span class='int'>1</span><span class='comma'>,</span> <span class='id identifier rubyid_boolean'>boolean</span><span class='lparen'>(</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>b</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='comment'>#2nd argument can be true or false
+</span><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_double'>double</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_receive'>receive</span><span class='lparen'>(</span><span class='symbol'>:msg</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_with'>with</span><span class='lparen'>(</span><span class='int'>1</span><span class='comma'>,</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>abc</span><span class='regexp_end'>/</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>b</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='comment'>#2nd argument can be any String matching the submitted Regexp
+</span><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_double'>double</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_receive'>receive</span><span class='lparen'>(</span><span class='symbol'>:msg</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_with'>with</span><span class='lparen'>(</span><span class='int'>1</span><span class='comma'>,</span> <span class='id identifier rubyid_anything'>anything</span><span class='lparen'>(</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>b</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='comment'>#2nd argument can be anything at all
+</span><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_double'>double</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_receive'>receive</span><span class='lparen'>(</span><span class='symbol'>:msg</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_with'>with</span><span class='lparen'>(</span><span class='int'>1</span><span class='comma'>,</span> <span class='id identifier rubyid_duck_type'>duck_type</span><span class='lparen'>(</span><span class='symbol'>:abs</span><span class='comma'>,</span> <span class='symbol'>:div</span><span class='rparen'>)</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>b</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='comment'>#2nd argument can be object that responds to #abs and #div
+</span><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_double'>double</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_receive'>receive</span><span class='lparen'>(</span><span class='symbol'>:msg</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_with'>with</span><span class='lparen'>(</span><span class='id identifier rubyid_hash_including'>hash_including</span><span class='lparen'>(</span><span class='symbol'>:a</span> <span class='op'>=&gt;</span> <span class='int'>5</span><span class='rparen'>)</span><span class='rparen'>)</span> <span class='comment'># first arg is a hash with a: 5 as one of the key-values
+</span><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_double'>double</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_receive'>receive</span><span class='lparen'>(</span><span class='symbol'>:msg</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_with'>with</span><span class='lparen'>(</span><span class='id identifier rubyid_array_including'>array_including</span><span class='lparen'>(</span><span class='int'>5</span><span class='rparen'>)</span><span class='rparen'>)</span> <span class='comment'># first arg is an array with 5 as one of the key-values
+</span><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_double'>double</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_receive'>receive</span><span class='lparen'>(</span><span class='symbol'>:msg</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_with'>with</span><span class='lparen'>(</span><span class='id identifier rubyid_hash_excluding'>hash_excluding</span><span class='lparen'>(</span><span class='symbol'>:a</span> <span class='op'>=&gt;</span> <span class='int'>5</span><span class='rparen'>)</span><span class='rparen'>)</span> <span class='comment'># first arg is a hash without a: 5 as one of the key-values
+</span></code></pre>
+
+<h2 id="label-Receive+Counts">Receive Counts</h2>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_double'>double</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_receive'>receive</span><span class='lparen'>(</span><span class='symbol'>:msg</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_once'>once</span>
+<span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_double'>double</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_receive'>receive</span><span class='lparen'>(</span><span class='symbol'>:msg</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_twice'>twice</span>
+<span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_double'>double</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_receive'>receive</span><span class='lparen'>(</span><span class='symbol'>:msg</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_exactly'>exactly</span><span class='lparen'>(</span><span class='id identifier rubyid_n'>n</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_times'>times</span>
+<span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_double'>double</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_receive'>receive</span><span class='lparen'>(</span><span class='symbol'>:msg</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_at_least'>at_least</span><span class='lparen'>(</span><span class='symbol'>:once</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_double'>double</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_receive'>receive</span><span class='lparen'>(</span><span class='symbol'>:msg</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_at_least'>at_least</span><span class='lparen'>(</span><span class='symbol'>:twice</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_double'>double</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_receive'>receive</span><span class='lparen'>(</span><span class='symbol'>:msg</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_at_least'>at_least</span><span class='lparen'>(</span><span class='id identifier rubyid_n'>n</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_times'>times</span>
+<span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_double'>double</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_receive'>receive</span><span class='lparen'>(</span><span class='symbol'>:msg</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_at_most'>at_most</span><span class='lparen'>(</span><span class='symbol'>:once</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_double'>double</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_receive'>receive</span><span class='lparen'>(</span><span class='symbol'>:msg</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_at_most'>at_most</span><span class='lparen'>(</span><span class='symbol'>:twice</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_double'>double</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_receive'>receive</span><span class='lparen'>(</span><span class='symbol'>:msg</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_at_most'>at_most</span><span class='lparen'>(</span><span class='id identifier rubyid_n'>n</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_times'>times</span>
+</code></pre>
+
+<h2 id="label-Ordering">Ordering</h2>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_double'>double</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_receive'>receive</span><span class='lparen'>(</span><span class='symbol'>:msg</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_ordered'>ordered</span>
+<span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_double'>double</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_receive'>receive</span><span class='lparen'>(</span><span class='symbol'>:other_msg</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_ordered'>ordered</span>
+  <span class='comment'># This will fail if the messages are received out of order
+</span></code></pre>
+
+<p>This can include the same message with different arguments:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_double'>double</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_receive'>receive</span><span class='lparen'>(</span><span class='symbol'>:msg</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_with'>with</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>A</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='int'>1</span><span class='comma'>,</span> <span class='int'>3</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_ordered'>ordered</span>
+<span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_double'>double</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_receive'>receive</span><span class='lparen'>(</span><span class='symbol'>:msg</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_with'>with</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>B</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='int'>2</span><span class='comma'>,</span> <span class='int'>4</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_ordered'>ordered</span>
+</code></pre>
+
+<h2 id="label-Setting+Responses">Setting Responses</h2>
+
+<p>Whether you are setting a message expectation or a method stub, you can
+tell the object precisely how to respond. The most generic way is to pass a
+block to <code>receive</code>:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_double'>double</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_receive'>receive</span><span class='lparen'>(</span><span class='symbol'>:msg</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_value'>value</span> <span class='rbrace'>}</span>
+</code></pre>
+
+<p>When the double receives the <code>msg</code> message, it evaluates the
+block and returns the result.</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_double'>double</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_receive'>receive</span><span class='lparen'>(</span><span class='symbol'>:msg</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_and_return'>and_return</span><span class='lparen'>(</span><span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_double'>double</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_receive'>receive</span><span class='lparen'>(</span><span class='symbol'>:msg</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_exactly'>exactly</span><span class='lparen'>(</span><span class='int'>3</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_times'>times</span><span class='period'>.</span><span class='id identifier rubyid_and_return'>and_return</span><span class='lparen'>(</span><span class='id identifier rubyid_value1'>value1</span><span class='comma'>,</span> <span class='id identifier rubyid_value2'>value2</span><span class='comma'>,</span> <span class='id identifier rubyid_value3'>value3</span><span class='rparen'>)</span>
+  <span class='comment'># returns value1 the first time, value2 the second, etc
+</span><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_double'>double</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_receive'>receive</span><span class='lparen'>(</span><span class='symbol'>:msg</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_and_raise'>and_raise</span><span class='lparen'>(</span><span class='id identifier rubyid_error'>error</span><span class='rparen'>)</span>
+  <span class='comment'># error can be an instantiated object or a class
+</span>  <span class='comment'># if it is a class, it must be instantiable with no args
+</span><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_double'>double</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_receive'>receive</span><span class='lparen'>(</span><span class='symbol'>:msg</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_and_throw'>and_throw</span><span class='lparen'>(</span><span class='symbol'>:msg</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_double'>double</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_receive'>receive</span><span class='lparen'>(</span><span class='symbol'>:msg</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_and_yield'>and_yield</span><span class='lparen'>(</span><span class='id identifier rubyid_values'>values</span><span class='comma'>,</span> <span class='id identifier rubyid_to'>to</span><span class='comma'>,</span> <span class='kw'>yield</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_double'>double</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_receive'>receive</span><span class='lparen'>(</span><span class='symbol'>:msg</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_and_yield'>and_yield</span><span class='lparen'>(</span><span class='id identifier rubyid_values'>values</span><span class='comma'>,</span> <span class='id identifier rubyid_to'>to</span><span class='comma'>,</span> <span class='kw'>yield</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_and_yield'>and_yield</span><span class='lparen'>(</span><span class='id identifier rubyid_some'>some</span><span class='comma'>,</span> <span class='id identifier rubyid_other'>other</span><span class='comma'>,</span> <span class='id identifier rubyid_values'>values</span><span class='comma'>,</span> <span class='id identifier rubyid_this'>this</span><span class='comma'>,</span> <span class='id identifier rubyid_time'>time</span><span class='rparen'>)</span>
+  <span class='comment'># for methods that yield to a block multiple times
+</span></code></pre>
+
+<p>Any of these responses can be applied to a stub as well</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_allow'>allow</span><span class='lparen'>(</span><span class='id identifier rubyid_double'>double</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_receive'>receive</span><span class='lparen'>(</span><span class='symbol'>:msg</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_and_return'>and_return</span><span class='lparen'>(</span><span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_allow'>allow</span><span class='lparen'>(</span><span class='id identifier rubyid_double'>double</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_receive'>receive</span><span class='lparen'>(</span><span class='symbol'>:msg</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_and_return'>and_return</span><span class='lparen'>(</span><span class='id identifier rubyid_value1'>value1</span><span class='comma'>,</span> <span class='id identifier rubyid_value2'>value2</span><span class='comma'>,</span> <span class='id identifier rubyid_value3'>value3</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_allow'>allow</span><span class='lparen'>(</span><span class='id identifier rubyid_double'>double</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_receive'>receive</span><span class='lparen'>(</span><span class='symbol'>:msg</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_and_raise'>and_raise</span><span class='lparen'>(</span><span class='id identifier rubyid_error'>error</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_allow'>allow</span><span class='lparen'>(</span><span class='id identifier rubyid_double'>double</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_receive'>receive</span><span class='lparen'>(</span><span class='symbol'>:msg</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_and_throw'>and_throw</span><span class='lparen'>(</span><span class='symbol'>:msg</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_allow'>allow</span><span class='lparen'>(</span><span class='id identifier rubyid_double'>double</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_receive'>receive</span><span class='lparen'>(</span><span class='symbol'>:msg</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_and_yield'>and_yield</span><span class='lparen'>(</span><span class='id identifier rubyid_values'>values</span><span class='comma'>,</span> <span class='id identifier rubyid_to'>to</span><span class='comma'>,</span> <span class='kw'>yield</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_allow'>allow</span><span class='lparen'>(</span><span class='id identifier rubyid_double'>double</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_receive'>receive</span><span class='lparen'>(</span><span class='symbol'>:msg</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_and_yield'>and_yield</span><span class='lparen'>(</span><span class='id identifier rubyid_values'>values</span><span class='comma'>,</span> <span class='id identifier rubyid_to'>to</span><span class='comma'>,</span> <span class='kw'>yield</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_and_yield'>and_yield</span><span class='lparen'>(</span><span class='id identifier rubyid_some'>some</span><span class='comma'>,</span> <span class='id identifier rubyid_other'>other</span><span class='comma'>,</span> <span class='id identifier rubyid_values'>values</span><span class='comma'>,</span> <span class='id identifier rubyid_this'>this</span><span class='comma'>,</span> <span class='id identifier rubyid_time'>time</span><span class='rparen'>)</span>
+</code></pre>
+
+<h2 id="label-Arbitrary+Handling">Arbitrary Handling</h2>
+
+<p>Once in a while you&#39;ll find that the available expectations don&#39;t
+solve the particular problem you are trying to solve. Imagine that you
+expect the message to come with an Array argument that has a specific
+length, but you don&#39;t care what is in it. You could do this:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_double'>double</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_receive'>receive</span><span class='lparen'>(</span><span class='symbol'>:msg</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_arg'>arg</span><span class='op'>|</span>
+  <span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_arg'>arg</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_eq'>eq</span> <span class='int'>7</span>
+<span class='kw'>end</span>
+</code></pre>
+
+<p>If the method being stubbed itself takes a block, and you need to yield to
+it in some special way, you can use this:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_double'>double</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_receive'>receive</span><span class='lparen'>(</span><span class='symbol'>:msg</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='op'>&amp;</span><span class='id identifier rubyid_arg'>arg</span><span class='op'>|</span>
+  <span class='kw'>begin</span>
+    <span class='id identifier rubyid_arg'>arg</span><span class='period'>.</span><span class='id identifier rubyid_call'>call</span>
+  <span class='kw'>ensure</span>
+    <span class='comment'># cleanup
+</span>  <span class='kw'>end</span>
+<span class='kw'>end</span>
+</code></pre>
+
+<h2 id="label-Delegating+to+the+Original+Implementation">Delegating to the Original Implementation</h2>
+
+<p>When working with a partial mock object, you may occasionally want to set a
+message expectation without interfering with how the object responds to the
+message. You can use <code>and_call_original</code> to achieve this:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='const'>Person</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_receive'>receive</span><span class='lparen'>(</span><span class='symbol'>:find</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_and_call_original'>and_call_original</span>
+<span class='const'>Person</span><span class='period'>.</span><span class='id identifier rubyid_find'>find</span> <span class='comment'># =&gt; executes the original find method and returns the result
+</span></code></pre>
+
+<h2 id="label-Combining+Expectation+Details">Combining Expectation Details</h2>
+
+<p>Combining the message name with specific arguments, receive counts and
+responses you can get quite a bit of detail in your expectations:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_double'>double</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_receive'>receive</span><span class='lparen'>(</span><span class='symbol'>:&lt;&lt;</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_with'>with</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>illegal value</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_once'>once</span><span class='period'>.</span><span class='id identifier rubyid_and_raise'>and_raise</span><span class='lparen'>(</span><span class='const'>ArgumentError</span><span class='rparen'>)</span>
+</code></pre>
+
+<p>While this is a good thing when you really need it, you probably don&#39;t
+really need it! Take care to specify only the things that matter to the
+behavior of your code.</p>
+
+<h2 id="label-Stubbing+and+Hiding+Constants">Stubbing and Hiding Constants</h2>
+
+<p>See the <a
+href="https://github.com/rspec/rspec-mocks/blob/master/features/mutating_constants/README.md">mutating
+constants README</a> for info on this feature.</p>
+
+<h2 id="label-Use+before%28%3Aexample%29%2C+not+before%28%3Acontext%29">Use <code>before(:example)</code>, not <code>before(:context)</code></h2>
+
+<p>Stubs in <code>before(:context)</code> are not supported. The reason is
+that all stubs and mocks get cleared out after each example, so any stub
+that is set in <code>before(:context)</code> would work in the first
+example that happens to run in that group, but not for any others.</p>
+
+<p>Instead of <code>before(:context)</code>, use
+<code>before(:example)</code>.</p>
+
+<h2 id="label-Settings+mocks+or+stubs+on+any+instance+of+a+class">Settings mocks or stubs on any instance of a class</h2>
+
+<p>rspec-mocks provides two methods, <code>allow_any_instance_of</code> and
+<code>expect_any_instance_of</code>, that will allow you to stub or mock
+any instance of a class. They are used in place of <code>allow</code> or
+<code>expect</code>:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_allow_any_instance_of'>allow_any_instance_of</span><span class='lparen'>(</span><span class='const'>Widget</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_receive'>receive</span><span class='lparen'>(</span><span class='symbol'>:name</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_and_return'>and_return</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Wibble</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='id identifier rubyid_expect_any_instance_of'>expect_any_instance_of</span><span class='lparen'>(</span><span class='const'>Widget</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_receive'>receive</span><span class='lparen'>(</span><span class='symbol'>:name</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_and_return'>and_return</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Wobble</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+</code></pre>
+
+<p>These methods add the appropriate stub or expectation to all instances of
+<code>Widget</code>.</p>
+
+<p>This feature is sometimes useful when working with legacy code, though in
+general we discourage its use for a number of reasons:</p>
+<ul><li>
+<p>The <code>rspec-mocks</code> API is designed for individual object
+instances, but this  feature operates on entire classes of objects. As a
+result there are some  semantically confusing edge cases. For example in 
+<code>expect_any_instance_of(Widget).to receive(:name).twice</code> it
+isn&#39;t clear  whether each specific instance is expected to receive
+<code>name</code> twice, or if two  receives total are expected. (It&#39;s
+the former.)</p>
+</li><li>
+<p>Using this feature is often a design smell. It may be  that your test is
+trying to do too much or that the object under test is too  complex.</p>
+</li><li>
+<p>It is the most complicated feature of <code>rspec-mocks</code>, and has
+historically  received the most bug reports. (None of the core team
+actively use it,  which doesn&#39;t help.)</p>
+</li></ul>
+
+<h2 id="label-Further+Reading">Further Reading</h2>
+
+<p>There are many different viewpoints about the meaning of mocks and stubs.
+If you are interested in learning more, here is some recommended reading:</p>
+<ul><li>
+<p>Mock Objects: <a href="http://www.mockobjects.com">www.mockobjects.com</a>/</p>
+</li><li>
+<p>Endo-Testing: <a
+href="http://www.ccs.neu.edu/research/demeter/related-work/extreme-programming/MockObjectsFinal.PDF">www.ccs.neu.edu/research/demeter/related-work/extreme-programming/MockObjectsFinal.PDF</a></p>
+</li><li>
+<p>Mock Roles, Not Objects: <a
+href="http://www.jmock.org/oopsla2004.pdf">www.jmock.org/oopsla2004.pdf</a></p>
+</li><li>
+<p>Test Double: <a
+href="http://www.martinfowler.com/bliki/TestDouble.html">www.martinfowler.com/bliki/TestDouble.html</a></p>
+</li><li>
+<p>Test Double Patterns: <a
+href="http://xunitpatterns.com/Test%20Double%20Patterns.html">xunitpatterns.com/Test%20Double%20Patterns.html</a></p>
+</li><li>
+<p>Mocks aren&#39;t stubs: <a
+href="http://www.martinfowler.com/articles/mocksArentStubs.html">www.martinfowler.com/articles/mocksArentStubs.html</a></p>
+</li></ul>
+
+<h2 id="label-Also+see">Also see</h2>
+<ul><li>
+<p><a href="https://github.com/rspec/rspec">github.com/rspec/rspec</a></p>
+</li><li>
+<p><a
+href="https://github.com/rspec/rspec-core">github.com/rspec/rspec-core</a></p>
+</li><li>
+<p><a
+href="https://github.com/rspec/rspec-expectations">github.com/rspec/rspec-expectations</a></p>
+</li><li>
+<p><a
+href="https://github.com/rspec/rspec-rails">github.com/rspec/rspec-rails</a></p>
+</li></ul>
+</div></div>
+
+    <div id="footer">
+  Generated on Wed Nov 11 23:57:28 2015 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.6 (ruby-2.1.5).
+</div>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-59095215-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+  </body>
+</html>
