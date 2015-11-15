@@ -1,0 +1,358 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Module: RSpec::Core::Formatters
+  
+    &mdash; Documentation by YARD 0.8.7.6
+  
+</title>
+
+  <link rel="stylesheet" href="/stylesheets/docs/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="/stylesheets/docs/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '../../';
+  framesUrl = "../../frames.html#!RSpec/Core/Formatters.html";
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="/javascripts/docs/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="/javascripts/docs/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../../_index.html">Index (F)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../../RSpec.html" title="RSpec (module)">RSpec</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Core.html" title="RSpec::Core (module)">Core</a></span></span>
+     &raquo; 
+    <span class="title">Formatters</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../../class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="../../method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="../../file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><h1>Module: RSpec::Core::Formatters
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">lib/rspec/core/formatters.rb<span class="defines">,<br />
+  lib/rspec/core/formatters/helpers.rb,<br /> lib/rspec/core/formatters/protocol.rb,<br /> lib/rspec/core/formatters/html_printer.rb,<br /> lib/rspec/core/formatters/console_codes.rb,<br /> lib/rspec/core/formatters/base_formatter.rb,<br /> lib/rspec/core/formatters/html_formatter.rb,<br /> lib/rspec/core/formatters/json_formatter.rb,<br /> lib/rspec/core/formatters/bisect_formatter.rb,<br /> lib/rspec/core/formatters/profile_formatter.rb,<br /> lib/rspec/core/formatters/snippet_extractor.rb,<br /> lib/rspec/core/formatters/progress_formatter.rb,<br /> lib/rspec/core/formatters/exception_presenter.rb,<br /> lib/rspec/core/formatters/base_text_formatter.rb,<br /> lib/rspec/core/formatters/deprecation_formatter.rb,<br /> lib/rspec/core/formatters/html_snippet_extractor.rb,<br /> lib/rspec/core/formatters/documentation_formatter.rb,<br /> lib/rspec/core/formatters/bisect_progress_formatter.rb,<br /> lib/rspec/core/formatters/fallback_message_formatter.rb</span>
+</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <h2>Built-in Formatters</h2>
+
+<ul>
+<li>progress (default) - Prints dots for passing examples, <code>F</code> for failures, <code>*</code>
+                   for pending.</li>
+<li>documentation - Prints the docstrings passed to <code>describe</code> and <code>it</code> methods
+              (and their aliases).</li>
+<li>html</li>
+<li>json - Useful for archiving data for subsequent analysis.</li>
+</ul>
+
+<p>The progress formatter is the default, but you can choose any one or more of
+the other formatters by passing with the <code>--format</code> (or <code>-f</code> for short)
+command-line option, e.g.</p>
+
+<pre class="code ruby"><code class="ruby">rspec --format documentation
+</code></pre>
+
+<p>You can also send the output of multiple formatters to different streams, e.g.</p>
+
+<pre class="code ruby"><code class="ruby">rspec --format documentation --format html --out results.html
+</code></pre>
+
+<p>This example sends the output of the documentation formatter to <code>$stdout</code>, and
+the output of the html formatter to results.html.</p>
+
+<h2>Custom Formatters</h2>
+
+<p>You can tell RSpec to use a custom formatter by passing its path and name to
+the <code>rspec</code> commmand. For example, if you define MyCustomFormatter in
+path/to/my_custom_formatter.rb, you would type this command:</p>
+
+<pre class="code ruby"><code class="ruby">rspec --require path/to/my_custom_formatter.rb --format MyCustomFormatter
+</code></pre>
+
+<p>The reporter calls every formatter with this protocol:</p>
+
+<ul>
+<li>To start
+
+<ul>
+<li><code>start(StartNotification)</code></li>
+</ul></li>
+<li>Once per example group
+
+<ul>
+<li><code>example_group_started(GroupNotification)</code></li>
+</ul></li>
+<li>Once per example
+
+<ul>
+<li><code>example_started(ExampleNotification)</code></li>
+</ul></li>
+<li>One of these per example, depending on outcome
+
+<ul>
+<li><code>example_passed(ExampleNotification)</code></li>
+<li><code>example_failed(FailedExampleNotification)</code></li>
+<li><code>example_pending(ExampleNotification)</code></li>
+</ul></li>
+<li>Optionally at any time
+
+<ul>
+<li><code>message(MessageNotification)</code></li>
+</ul></li>
+<li>At the end of the suite
+
+<ul>
+<li><code>stop(ExamplesNotification)</code></li>
+<li><code>start_dump(NullNotification)</code></li>
+<li><code>dump_pending(ExamplesNotification)</code></li>
+<li><code>dump_failures(ExamplesNotification)</code></li>
+<li><code>dump_summary(SummaryNotification)</code></li>
+<li><code>seed(SeedNotification)</code></li>
+<li><code>close(NullNotification)</code></li>
+</ul></li>
+</ul>
+
+<p>Only the notifications to which you subscribe your formatter will be called
+on your formatter. To subscribe your formatter use:
+<code>RSpec::Core::Formatters#register</code> e.g.</p>
+
+<p><code>RSpec::Core::Formatters.register FormatterClassName, :example_passed, :example_failed</code></p>
+
+<p>We recommend you implement the methods yourself; for simplicity we provide the
+default formatter output via our notification objects but if you prefer you
+can subclass <code>RSpec::Core::Formatters::BaseTextFormatter</code> and override the
+methods you wish to enhance.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="Formatters/BaseTextFormatter.html" title="RSpec::Core::Formatters::BaseTextFormatter (class)">BaseTextFormatter</a></span></li>
+    
+      <li><span class='object_link'><a href="Reporter.html" title="RSpec::Core::Reporter (class)">Reporter</a></span></li>
+    
+  </ul>
+
+</div><h2>Defined Under Namespace</h2>
+<p class="children">
+  
+    
+      <strong class="modules">Modules:</strong> <span class='object_link'><a href="Formatters/ConsoleCodes.html" title="RSpec::Core::Formatters::ConsoleCodes (module)">ConsoleCodes</a></span>, <span class='object_link'><a href="Formatters/Helpers.html" title="RSpec::Core::Formatters::Helpers (module)">Helpers</a></span>
+    
+  
+    
+      <strong class="classes">Classes:</strong> <span class='object_link'><a href="Formatters/BaseFormatter.html" title="RSpec::Core::Formatters::BaseFormatter (class)">BaseFormatter</a></span>, <span class='object_link'><a href="Formatters/BaseTextFormatter.html" title="RSpec::Core::Formatters::BaseTextFormatter (class)">BaseTextFormatter</a></span>, <span class='object_link'><a href="Formatters/FallbackMessageFormatter.html" title="RSpec::Core::Formatters::FallbackMessageFormatter (class)">FallbackMessageFormatter</a></span>, <span class='object_link'><a href="Formatters/HtmlSnippetExtractor.html" title="RSpec::Core::Formatters::HtmlSnippetExtractor (class)">HtmlSnippetExtractor</a></span>, <span class='object_link'><a href="Formatters/Loader.html" title="RSpec::Core::Formatters::Loader (class)">Loader</a></span>, <span class='object_link'><a href="Formatters/ProfileFormatter.html" title="RSpec::Core::Formatters::ProfileFormatter (class)">ProfileFormatter</a></span>, <span class='object_link'><a href="Formatters/Protocol.html" title="RSpec::Core::Formatters::Protocol (class)">Protocol</a></span>
+    
+  
+</p>
+
+
+
+
+
+
+
+  
+    <h2>
+      Class Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#register-class_method" title="register (class method)">+ (void) <strong>register</strong>(formatter_class, *notifications) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Register the formatter class.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="register-class_method">
+  
+    + (<tt>void</tt>) <strong>register</strong>(formatter_class, *notifications) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Register the formatter class</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>formatter_class</span>
+      
+      
+        <span class='type'>(<tt>Class</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>formatter class to register</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>notifications</span>
+      
+      
+        <span class='type'>(<tt>Symbol</tt>, <tt>...</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>one or more notifications to be
+registered to the specified formatter</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="Formatters/BaseFormatter.html" title="RSpec::Core::Formatters::BaseFormatter (class)">BaseFormatter</a></span></li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+84
+85
+86</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/formatters.rb', line 84</span>
+
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_register'>register</span><span class='lparen'>(</span><span class='id identifier rubyid_formatter_class'>formatter_class</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_notifications'>notifications</span><span class='rparen'>)</span>
+  <span class='const'>Loader</span><span class='period'>.</span><span class='id identifier rubyid_formatters'>formatters</span><span class='lbracket'>[</span><span class='id identifier rubyid_formatter_class'>formatter_class</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_notifications'>notifications</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+    <div id="footer">
+  Generated on Wed Nov 11 23:56:58 2015 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.6 (ruby-2.1.5).
+</div>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-59095215-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+  </body>
+</html>

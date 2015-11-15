@@ -1,0 +1,458 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>
+  File: README
+  
+    &mdash; Documentation by YARD 0.8.7.6
+  
+</title>
+
+  <link rel="stylesheet" href="/stylesheets/docs/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="/stylesheets/docs/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '';
+  framesUrl = "frames.html#!file.README.html";
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="/javascripts/docs/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="/javascripts/docs/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="_index.html">Index</a> &raquo; 
+    <span class="title">File: README</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><div id='filecontents'><h1>rspec-core <a href="http://travis-ci.org/rspec/rspec-core"><img src="https://secure.travis-ci.org/rspec/rspec-core.svg?branch=master" alt="Build Status"></a> <a href="https://codeclimate.com/github/rspec/rspec-core"><img src="https://codeclimate.com/github/rspec/rspec-core.svg" alt="Code Climate"></a></h1>
+
+<p>rspec-core provides the structure for writing executable examples of how your
+code should behave, and an <code>rspec</code> command with tools to constrain which
+examples get run and tailor the output.</p>
+
+<h2>Install</h2>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_gem'>gem</span> <span class='id identifier rubyid_install'>install</span> <span class='id identifier rubyid_rspec'>rspec</span>      <span class='comment'># for rspec-core, rspec-expectations, rspec-mocks
+</span><span class='id identifier rubyid_gem'>gem</span> <span class='id identifier rubyid_install'>install</span> <span class='id identifier rubyid_rspec'>rspec</span><span class='op'>-</span><span class='id identifier rubyid_core'>core</span> <span class='comment'># for rspec-core only
+</span><span class='id identifier rubyid_rspec'>rspec</span> <span class='op'>-</span><span class='op'>-</span><span class='id identifier rubyid_help'>help</span>
+</code></pre>
+
+<p>Want to run against the <code>master</code> branch? You&#39;ll need to include the dependent
+RSpec repos as well. Add the following to your <code>Gemfile</code>:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='qwords_beg'>%w[</span><span class='tstring_content'>rspec</span><span class='words_sep'> </span><span class='tstring_content'>rspec-core</span><span class='words_sep'> </span><span class='tstring_content'>rspec-expectations</span><span class='words_sep'> </span><span class='tstring_content'>rspec-mocks</span><span class='words_sep'> </span><span class='tstring_content'>rspec-support</span><span class='words_sep'>]</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_lib'>lib</span><span class='op'>|</span>
+  <span class='id identifier rubyid_gem'>gem</span> <span class='id identifier rubyid_lib'>lib</span><span class='comma'>,</span> <span class='symbol'>:git</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>git://github.com/rspec/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_lib'>lib</span><span class='embexpr_end'>}</span><span class='tstring_content'>.git</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:branch</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>master</span><span class='tstring_end'>&#39;</span></span>
+<span class='kw'>end</span>
+</code></pre>
+
+<h2>Contributing</h2>
+
+<p>Once you&#39;ve set up the environment, you&#39;ll need to cd into the working
+directory of whichever repo you want to work in. From there you can run the
+specs and cucumber features, and make patches.</p>
+
+<p>NOTE: You do not need to use rspec-dev to work on a specific RSpec repo. You
+can treat each RSpec repo as an independent project.</p>
+
+<ul>
+<li><a href="BUILD_DETAIL.md">Build details</a></li>
+<li><a href="CODE_OF_CONDUCT.md">Code of Conduct</a></li>
+<li><a href="CONTRIBUTING.md">Detailed contributing guide</a></li>
+<li><a href="DEVELOPMENT.md">Development setup guide</a></li>
+</ul>
+
+<h2>Basic Structure</h2>
+
+<p>RSpec uses the words &quot;describe&quot; and &quot;it&quot; so we can express concepts like a conversation:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Describe an order.</span><span class='tstring_end'>&quot;</span></span>
+<span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>It sums the prices of its line items.</span><span class='tstring_end'>&quot;</span></span>
+</code></pre>
+
+<pre class="code ruby"><code class="ruby"><span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_describe'>describe</span> <span class='const'>Order</span> <span class='kw'>do</span>
+  <span class='id identifier rubyid_it'>it</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>sums the prices of its line items</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+    <span class='id identifier rubyid_order'>order</span> <span class='op'>=</span> <span class='const'>Order</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
+
+    <span class='id identifier rubyid_order'>order</span><span class='period'>.</span><span class='id identifier rubyid_add_entry'>add_entry</span><span class='lparen'>(</span><span class='const'>LineItem</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='symbol'>:item</span> <span class='op'>=&gt;</span> <span class='const'>Item</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span>
+      <span class='symbol'>:price</span> <span class='op'>=&gt;</span> <span class='const'>Money</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='float'>1.11</span><span class='comma'>,</span> <span class='symbol'>:USD</span><span class='rparen'>)</span>
+    <span class='rparen'>)</span><span class='rparen'>)</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_order'>order</span><span class='period'>.</span><span class='id identifier rubyid_add_entry'>add_entry</span><span class='lparen'>(</span><span class='const'>LineItem</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='symbol'>:item</span> <span class='op'>=&gt;</span> <span class='const'>Item</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span>
+      <span class='symbol'>:price</span> <span class='op'>=&gt;</span> <span class='const'>Money</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='float'>2.22</span><span class='comma'>,</span> <span class='symbol'>:USD</span><span class='rparen'>)</span><span class='comma'>,</span>
+      <span class='symbol'>:quantity</span> <span class='op'>=&gt;</span> <span class='int'>2</span>
+    <span class='rparen'>)</span><span class='rparen'>)</span><span class='rparen'>)</span>
+
+    <span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_order'>order</span><span class='period'>.</span><span class='id identifier rubyid_total'>total</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_eq'>eq</span><span class='lparen'>(</span><span class='const'>Money</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='float'>5.55</span><span class='comma'>,</span> <span class='symbol'>:USD</span><span class='rparen'>)</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span>
+</code></pre>
+
+<p>The <code>describe</code> method creates an <a href="http://rubydoc.info/gems/rspec-core/RSpec/Core/ExampleGroup">ExampleGroup</a>.  Within the
+block passed to <code>describe</code> you can declare examples using the <code>it</code> method.</p>
+
+<p>Under the hood, an example group is a class in which the block passed to
+<code>describe</code> is evaluated. The blocks passed to <code>it</code> are evaluated in the
+context of an <em>instance</em> of that class.</p>
+
+<h2>Nested Groups</h2>
+
+<p>You can also declare nested nested groups using the <code>describe</code> or <code>context</code>
+methods:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_describe'>describe</span> <span class='const'>Order</span> <span class='kw'>do</span>
+  <span class='id identifier rubyid_context'>context</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>with no items</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+    <span class='id identifier rubyid_it'>it</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>behaves one way</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+      <span class='comment'># ...
+</span>    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_context'>context</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>with one item</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+    <span class='id identifier rubyid_it'>it</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>behaves another way</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+      <span class='comment'># ...
+</span>    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span>
+</code></pre>
+
+<p>Nested groups are subclasses of the outer example group class, providing
+the inheritance semantics you&#39;d want for free.</p>
+
+<h2>Aliases</h2>
+
+<p>You can declare example groups using either <code>describe</code> or <code>context</code>.
+For a top level example group, <code>describe</code> and <code>context</code> are available
+off of <code>RSpec</code>. For backwards compatibility, they are also available
+off of the <code>main</code> object and <code>Module</code> unless you disable monkey
+patching.</p>
+
+<p>You can declare examples within a group using any of <code>it</code>, <code>specify</code>, or
+<code>example</code>.</p>
+
+<h2>Shared Examples and Contexts</h2>
+
+<p>Declare a shared example group using <code>shared_examples</code>, and then include it
+in any group using <code>include_examples</code>.</p>
+
+<pre class="code ruby"><code class="ruby"><span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_shared_examples'>shared_examples</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>collections</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_collection_class'>collection_class</span><span class='op'>|</span>
+  <span class='id identifier rubyid_it'>it</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>is empty when first created</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+    <span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_collection_class'>collection_class</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_be_empty'>be_empty</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span>
+
+<span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_describe'>describe</span> <span class='const'>Array</span> <span class='kw'>do</span>
+  <span class='id identifier rubyid_include_examples'>include_examples</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>collections</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='const'>Array</span>
+<span class='kw'>end</span>
+
+<span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_describe'>describe</span> <span class='const'>Hash</span> <span class='kw'>do</span>
+  <span class='id identifier rubyid_include_examples'>include_examples</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>collections</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='const'>Hash</span>
+<span class='kw'>end</span>
+</code></pre>
+
+<p>Nearly anything that can be declared within an example group can be declared
+within a shared example group. This includes <code>before</code>, <code>after</code>, and <code>around</code>
+hooks, <code>let</code> declarations, and nested groups/contexts.</p>
+
+<p>You can also use the names <code>shared_context</code> and <code>include_context</code>. These are
+pretty much the same as <code>shared_examples</code> and <code>include_examples</code>, providing
+more accurate naming when you share hooks, <code>let</code> declarations, helper methods,
+etc, but no examples.</p>
+
+<h2>Metadata</h2>
+
+<p>rspec-core stores a metadata hash with every example and group, which
+contains their descriptions, the locations at which they were
+declared, etc, etc. This hash powers many of rspec-core&#39;s features,
+including output formatters (which access descriptions and locations),
+and filtering before and after hooks.</p>
+
+<p>Although you probably won&#39;t ever need this unless you are writing an
+extension, you can access it from an example like this:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_it'>it</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>does something</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_example'>example</span><span class='op'>|</span>
+  <span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_example'>example</span><span class='period'>.</span><span class='id identifier rubyid_metadata'>metadata</span><span class='lbracket'>[</span><span class='symbol'>:description</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_eq'>eq</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>does something</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='kw'>end</span>
+</code></pre>
+
+<h3><code>described_class</code></h3>
+
+<p>When a class is passed to <code>describe</code>, you can access it from an example
+using the <code>described_class</code> method, which is a wrapper for
+<code>example.metadata[:described_class]</code>.</p>
+
+<pre class="code ruby"><code class="ruby"><span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_describe'>describe</span> <span class='const'>Widget</span> <span class='kw'>do</span>
+  <span class='id identifier rubyid_example'>example</span> <span class='kw'>do</span>
+    <span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_described_class'>described_class</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_equal'>equal</span><span class='lparen'>(</span><span class='const'>Widget</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span>
+</code></pre>
+
+<p>This is useful in extensions or shared example groups in which the specific
+class is unknown. Taking the collections shared example group from above, we can
+clean it up a bit using <code>described_class</code>:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_shared_examples'>shared_examples</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>collections</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+  <span class='id identifier rubyid_it'>it</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>is empty when first created</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+    <span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_described_class'>described_class</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_be_empty'>be_empty</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span>
+
+<span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_describe'>describe</span> <span class='const'>Array</span> <span class='kw'>do</span>
+  <span class='id identifier rubyid_include_examples'>include_examples</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>collections</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span>
+
+<span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_describe'>describe</span> <span class='const'>Hash</span> <span class='kw'>do</span>
+  <span class='id identifier rubyid_include_examples'>include_examples</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>collections</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span>
+</code></pre>
+
+<h2>A Word on Scope</h2>
+
+<p>RSpec has two scopes:</p>
+
+<ul>
+<li><strong>Example Group</strong>: Example groups are defined by a <code>describe</code> or
+<code>context</code> block, which is eagerly evaluated when the spec file is
+loaded. The block is evaluated in the context of a subclass of
+<code>RSpec::Core::ExampleGroup</code>, or a subclass of the parent example group
+when you&#39;re nesting them.</li>
+<li><strong>Example</strong>: Examples -- typically defined by an <code>it</code> block -- and any other
+blocks with per-example semantics -- such as a <code>before(:example)</code> hook -- are
+evaluated in the context of
+an <em>instance</em> of the example group class to which the example belongs.
+Examples are <em>not</em> executed when the spec file is loaded; instead,
+RSpec waits to run any examples until all spec files have been loaded,
+at which point it can apply filtering, randomization, etc.</li>
+</ul>
+
+<p>To make this more concrete, consider this code snippet:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_describe'>describe</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Using an array as a stack</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+  <span class='kw'>def</span> <span class='id identifier rubyid_build_stack'>build_stack</span>
+    <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_before'>before</span><span class='lparen'>(</span><span class='symbol'>:example</span><span class='rparen'>)</span> <span class='kw'>do</span>
+    <span class='ivar'>@stack</span> <span class='op'>=</span> <span class='id identifier rubyid_build_stack'>build_stack</span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_it'>it</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>is initially empty</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>do</span>
+    <span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='ivar'>@stack</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_be_empty'>be_empty</span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_context'>context</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>after an item has been pushed</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+    <span class='id identifier rubyid_before'>before</span><span class='lparen'>(</span><span class='symbol'>:example</span><span class='rparen'>)</span> <span class='kw'>do</span>
+      <span class='ivar'>@stack</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span> <span class='symbol'>:item</span>
+    <span class='kw'>end</span>
+
+    <span class='id identifier rubyid_it'>it</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>allows the pushed item to be popped</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>do</span>
+      <span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='ivar'>@stack</span><span class='period'>.</span><span class='id identifier rubyid_pop'>pop</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_eq'>eq</span><span class='lparen'>(</span><span class='symbol'>:item</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span>
+</code></pre>
+
+<p>Under the covers, this is (roughly) equivalent to:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='kw'>class</span> <span class='const'>UsingAnArrayAsAStack</span> <span class='op'>&lt;</span> <span class='const'>RSpec</span><span class='op'>::</span><span class='const'>Core</span><span class='op'>::</span><span class='const'>ExampleGroup</span>
+  <span class='kw'>def</span> <span class='id identifier rubyid_build_stack'>build_stack</span>
+    <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>def</span> <span class='id identifier rubyid_before_example_1'>before_example_1</span>
+    <span class='ivar'>@stack</span> <span class='op'>=</span> <span class='id identifier rubyid_build_stack'>build_stack</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>def</span> <span class='id identifier rubyid_it_is_initially_empty'>it_is_initially_empty</span>
+    <span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='ivar'>@stack</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_be_empty'>be_empty</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>class</span> <span class='const'>AfterAnItemHasBeenPushed</span> <span class='op'>&lt;</span> <span class='kw'>self</span>
+    <span class='kw'>def</span> <span class='id identifier rubyid_before_example_2'>before_example_2</span>
+      <span class='ivar'>@stack</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span> <span class='symbol'>:item</span>
+    <span class='kw'>end</span>
+
+    <span class='kw'>def</span> <span class='id identifier rubyid_it_allows_the_pushed_item_to_be_popped'>it_allows_the_pushed_item_to_be_popped</span>
+      <span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='ivar'>@stack</span><span class='period'>.</span><span class='id identifier rubyid_pop'>pop</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_eq'>eq</span><span class='lparen'>(</span><span class='symbol'>:item</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span>
+</code></pre>
+
+<p>To run these examples, RSpec would (roughly) do the following:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_example_1'>example_1</span> <span class='op'>=</span> <span class='const'>UsingAnArrayAsAStack</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
+<span class='id identifier rubyid_example_1'>example_1</span><span class='period'>.</span><span class='id identifier rubyid_before_example_1'>before_example_1</span>
+<span class='id identifier rubyid_example_1'>example_1</span><span class='period'>.</span><span class='id identifier rubyid_it_is_initially_empty'>it_is_initially_empty</span>
+
+<span class='id identifier rubyid_example_2'>example_2</span> <span class='op'>=</span> <span class='const'>UsingAnArrayAsAStack</span><span class='op'>::</span><span class='const'>AfterAnItemHasBeenPushed</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
+<span class='id identifier rubyid_example_2'>example_2</span><span class='period'>.</span><span class='id identifier rubyid_before_example_1'>before_example_1</span>
+<span class='id identifier rubyid_example_2'>example_2</span><span class='period'>.</span><span class='id identifier rubyid_before_example_2'>before_example_2</span>
+<span class='id identifier rubyid_example_2'>example_2</span><span class='period'>.</span><span class='id identifier rubyid_it_allows_the_pushed_item_to_be_popped'>it_allows_the_pushed_item_to_be_popped</span>
+</code></pre>
+
+<h2>The <code>rspec</code> Command</h2>
+
+<p>When you install the rspec-core gem, it installs the <code>rspec</code> executable,
+which you&#39;ll use to run rspec. The <code>rspec</code> command comes with many useful
+options.
+Run <code>rspec --help</code> to see the complete list.</p>
+
+<h2>Store Command Line Options <code>.rspec</code></h2>
+
+<p>You can store command line options in a <code>.rspec</code> file in the project&#39;s root
+directory, and the <code>rspec</code> command will read them as though you typed them on
+the command line.</p>
+
+<h2>Get Started</h2>
+
+<p>Start with a simple example of behavior you expect from your system. Do
+this before you write any implementation code:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='comment'># in spec/calculator_spec.rb
+</span><span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_describe'>describe</span> <span class='const'>Calculator</span> <span class='kw'>do</span>
+  <span class='id identifier rubyid_describe'>describe</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>#add</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>do</span>
+    <span class='id identifier rubyid_it'>it</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>returns the sum of its arguments</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>do</span>
+      <span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='const'>Calculator</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='period'>.</span><span class='id identifier rubyid_add'>add</span><span class='lparen'>(</span><span class='int'>1</span><span class='comma'>,</span> <span class='int'>2</span><span class='rparen'>)</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_eq'>eq</span><span class='lparen'>(</span><span class='int'>3</span><span class='rparen'>)</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span>
+</code></pre>
+
+<p>Run this with the rspec command, and watch it fail:</p>
+
+<pre class="code ruby"><code class="ruby">$ rspec spec/calculator_spec.rb
+./spec/calculator_spec.rb:1: uninitialized constant Calculator
+</code></pre>
+
+<p>Address the failure by defining a skeleton of the <code>Calculator</code> class:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='comment'># in lib/calculator.rb
+</span><span class='kw'>class</span> <span class='const'>Calculator</span>
+  <span class='kw'>def</span> <span class='id identifier rubyid_add'>add</span><span class='lparen'>(</span><span class='id identifier rubyid_a'>a</span><span class='comma'>,</span> <span class='id identifier rubyid_b'>b</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span>
+</code></pre>
+
+<p>Be sure to require the implementation file in the spec:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='comment'># in spec/calculator_spec.rb
+</span><span class='comment'># - RSpec adds ./lib to the $LOAD_PATH
+</span><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>calculator</span><span class='tstring_end'>&quot;</span></span>
+</code></pre>
+
+<p>Now run the spec again, and watch the expectation fail:</p>
+
+<pre class="code ruby"><code class="ruby">$ rspec spec/calculator_spec.rb
+F
+
+Failures:
+
+  1) Calculator#add returns the sum of its arguments
+     Failure/Error: expect(Calculator.new.add(1, 2)).to eq(3)
+
+       expected: 3
+            got: nil
+
+       (compared using ==)
+     # ./spec/calcalator_spec.rb:6:in `block (3 levels) in &lt;top (required)&gt;&#39;
+
+Finished in 0.00131 seconds (files took 0.10968 seconds to load)
+1 example, 1 failure
+
+Failed examples:
+
+rspec ./spec/calcalator_spec.rb:5 # Calculator#add returns the sum of its arguments
+</code></pre>
+
+<p>Implement the simplest solution, by changing the definition of <code>Calculator#add</code> to:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='kw'>def</span> <span class='id identifier rubyid_add'>add</span><span class='lparen'>(</span><span class='id identifier rubyid_a'>a</span><span class='comma'>,</span> <span class='id identifier rubyid_b'>b</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_a'>a</span> <span class='op'>+</span> <span class='id identifier rubyid_b'>b</span>
+<span class='kw'>end</span>
+</code></pre>
+
+<p>Now run the spec again, and watch it pass:</p>
+
+<pre class="code ruby"><code class="ruby">$ rspec spec/calculator_spec.rb
+.
+
+Finished in 0.000315 seconds
+1 example, 0 failures
+</code></pre>
+
+<p>Use the <code>documentation</code> formatter to see the resulting spec:</p>
+
+<pre class="code ruby"><code class="ruby">$ rspec spec/calculator_spec.rb --format doc
+Calculator
+  #add
+    returns the sum of its arguments
+
+Finished in 0.000379 seconds
+1 example, 0 failures
+</code></pre>
+
+<h2>Also see</h2>
+
+<ul>
+<li><a href="https://github.com/rspec/rspec">https://github.com/rspec/rspec</a></li>
+<li><a href="https://github.com/rspec/rspec-expectations">https://github.com/rspec/rspec-expectations</a></li>
+<li><a href="https://github.com/rspec/rspec-mocks">https://github.com/rspec/rspec-mocks</a></li>
+<li><a href="https://github.com/rspec/rspec-rails">https://github.com/rspec/rspec-rails</a></li>
+</ul>
+</div></div>
+
+    <div id="footer">
+  Generated on Wed Nov 11 23:56:57 2015 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.6 (ruby-2.1.5).
+</div>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-59095215-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+  </body>
+</html>

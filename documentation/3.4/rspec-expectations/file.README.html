@@ -1,0 +1,375 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>
+  File: README
+  
+    &mdash; Documentation by YARD 0.8.7.4
+  
+</title>
+
+  <link rel="stylesheet" href="/stylesheets/docs/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="/stylesheets/docs/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '';
+  framesUrl = "frames.html#!file.README.html";
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="/javascripts/docs/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="/javascripts/docs/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="_index.html">Index</a> &raquo; 
+    <span class="title">File: README</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><div id='filecontents'><h1>RSpec Expectations <a href="http://travis-ci.org/rspec/rspec-expectations"><img src="https://secure.travis-ci.org/rspec/rspec-expectations.svg?branch=master" alt="Build Status"></a> <a href="https://codeclimate.com/github/rspec/rspec-expectations"><img src="https://codeclimate.com/github/rspec/rspec-expectations.svg" alt="Code Climate"></a></h1>
+
+<p>RSpec::Expectations lets you express expected outcomes on an object in an
+example.</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_account'>account</span><span class='period'>.</span><span class='id identifier rubyid_balance'>balance</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_eq'>eq</span><span class='lparen'>(</span><span class='const'>Money</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='float'>37.42</span><span class='comma'>,</span> <span class='symbol'>:USD</span><span class='rparen'>)</span><span class='rparen'>)</span>
+</code></pre>
+
+<h2>Install</h2>
+
+<p>If you want to use rspec-expectations with rspec, just install the rspec gem
+and RubyGems will also install rspec-expectations for you (along with
+rspec-core and rspec-mocks):</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_gem'>gem</span> <span class='id identifier rubyid_install'>install</span> <span class='id identifier rubyid_rspec'>rspec</span>
+</code></pre>
+
+<p>Want to run against the <code>master</code> branch? You&#39;ll need to include the dependent
+RSpec repos as well. Add the following to your <code>Gemfile</code>:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='qwords_beg'>%w[</span><span class='tstring_content'>rspec-core</span><span class='words_sep'> </span><span class='tstring_content'>rspec-expectations</span><span class='words_sep'> </span><span class='tstring_content'>rspec-mocks</span><span class='words_sep'> </span><span class='tstring_content'>rspec-support</span><span class='words_sep'>]</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_lib'>lib</span><span class='op'>|</span>
+  <span class='id identifier rubyid_gem'>gem</span> <span class='id identifier rubyid_lib'>lib</span><span class='comma'>,</span> <span class='symbol'>:git</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>git://github.com/rspec/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_lib'>lib</span><span class='embexpr_end'>}</span><span class='tstring_content'>.git</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:branch</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>master</span><span class='tstring_end'>&#39;</span></span>
+<span class='kw'>end</span>
+</code></pre>
+
+<p>If you want to use rspec-expectations with another tool, like Test::Unit,
+Minitest, or Cucumber, you can install it directly:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_gem'>gem</span> <span class='id identifier rubyid_install'>install</span> <span class='id identifier rubyid_rspec'>rspec</span><span class='op'>-</span><span class='id identifier rubyid_expectations'>expectations</span>
+</code></pre>
+
+<h2>Contributing</h2>
+
+<p>Once you&#39;ve set up the environment, you&#39;ll need to cd into the working
+directory of whichever repo you want to work in. From there you can run the
+specs and cucumber features, and make patches.</p>
+
+<p>NOTE: You do not need to use rspec-dev to work on a specific RSpec repo. You
+can treat each RSpec repo as an independent project.</p>
+
+<ul>
+<li><a href="BUILD_DETAIL.md">Build details</a></li>
+<li><a href="CODE_OF_CONDUCT.md">Code of Conduct</a></li>
+<li><a href="CONTRIBUTING.md">Detailed contributing guide</a></li>
+<li><a href="DEVELOPMENT.md">Development setup guide</a></li>
+</ul>
+
+<h2>Basic usage</h2>
+
+<p>Here&#39;s an example using rspec-core:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_describe'>describe</span> <span class='const'>Order</span> <span class='kw'>do</span>
+  <span class='id identifier rubyid_it'>it</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>sums the prices of the items in its line items</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+    <span class='id identifier rubyid_order'>order</span> <span class='op'>=</span> <span class='const'>Order</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
+    <span class='id identifier rubyid_order'>order</span><span class='period'>.</span><span class='id identifier rubyid_add_entry'>add_entry</span><span class='lparen'>(</span><span class='const'>LineItem</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='symbol'>:item</span> <span class='op'>=&gt;</span> <span class='const'>Item</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span>
+      <span class='symbol'>:price</span> <span class='op'>=&gt;</span> <span class='const'>Money</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='float'>1.11</span><span class='comma'>,</span> <span class='symbol'>:USD</span><span class='rparen'>)</span>
+    <span class='rparen'>)</span><span class='rparen'>)</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_order'>order</span><span class='period'>.</span><span class='id identifier rubyid_add_entry'>add_entry</span><span class='lparen'>(</span><span class='const'>LineItem</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='symbol'>:item</span> <span class='op'>=&gt;</span> <span class='const'>Item</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span>
+      <span class='symbol'>:price</span> <span class='op'>=&gt;</span> <span class='const'>Money</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='float'>2.22</span><span class='comma'>,</span> <span class='symbol'>:USD</span><span class='rparen'>)</span><span class='comma'>,</span>
+      <span class='symbol'>:quantity</span> <span class='op'>=&gt;</span> <span class='int'>2</span>
+    <span class='rparen'>)</span><span class='rparen'>)</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_order'>order</span><span class='period'>.</span><span class='id identifier rubyid_total'>total</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_eq'>eq</span><span class='lparen'>(</span><span class='const'>Money</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='float'>5.55</span><span class='comma'>,</span> <span class='symbol'>:USD</span><span class='rparen'>)</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span>
+</code></pre>
+
+<p>The <code>describe</code> and <code>it</code> methods come from rspec-core.  The <code>Order</code>, <code>LineItem</code>, <code>Item</code> and <code>Money</code> classes would be from <em>your</em> code. The last line of the example
+expresses an expected outcome. If <code>order.total == Money.new(5.55, :USD)</code>, then
+the example passes. If not, it fails with a message like:</p>
+
+<pre class="code ruby"><code class="ruby">expected: #&lt;Money @value=5.55 @currency=:USD&gt;
+     got: #&lt;Money @value=1.11 @currency=:USD&gt;
+</code></pre>
+
+<h2>Built-in matchers</h2>
+
+<h3>Equivalence</h3>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_actual'>actual</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_eq'>eq</span><span class='lparen'>(</span><span class='id identifier rubyid_expected'>expected</span><span class='rparen'>)</span>  <span class='comment'># passes if actual == expected
+</span><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_actual'>actual</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_eql'>eql</span><span class='lparen'>(</span><span class='id identifier rubyid_expected'>expected</span><span class='rparen'>)</span> <span class='comment'># passes if actual.eql?(expected)
+</span><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_actual'>actual</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_not_to'>not_to</span> <span class='id identifier rubyid_eql'>eql</span><span class='lparen'>(</span><span class='id identifier rubyid_not_expected'>not_expected</span><span class='rparen'>)</span> <span class='comment'># passes if not(actual.eql?(expected))
+</span></code></pre>
+
+<p>Note: The new <code>expect</code> syntax no longer supports the <code>==</code> matcher.</p>
+
+<h3>Identity</h3>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_actual'>actual</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_be'>be</span><span class='lparen'>(</span><span class='id identifier rubyid_expected'>expected</span><span class='rparen'>)</span>    <span class='comment'># passes if actual.equal?(expected)
+</span><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_actual'>actual</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_equal'>equal</span><span class='lparen'>(</span><span class='id identifier rubyid_expected'>expected</span><span class='rparen'>)</span> <span class='comment'># passes if actual.equal?(expected)
+</span></code></pre>
+
+<h3>Comparisons</h3>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_actual'>actual</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_be'>be</span> <span class='op'>&gt;</span>  <span class='id identifier rubyid_expected'>expected</span>
+<span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_actual'>actual</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_be'>be</span> <span class='op'>&gt;=</span> <span class='id identifier rubyid_expected'>expected</span>
+<span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_actual'>actual</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_be'>be</span> <span class='op'>&lt;=</span> <span class='id identifier rubyid_expected'>expected</span>
+<span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_actual'>actual</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_be'>be</span> <span class='op'>&lt;</span>  <span class='id identifier rubyid_expected'>expected</span>
+<span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_actual'>actual</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_be_within'>be_within</span><span class='lparen'>(</span><span class='id identifier rubyid_delta'>delta</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_of'>of</span><span class='lparen'>(</span><span class='id identifier rubyid_expected'>expected</span><span class='rparen'>)</span>
+</code></pre>
+
+<h3>Regular expressions</h3>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_actual'>actual</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_match'>match</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>expression</span><span class='regexp_end'>/</span></span><span class='rparen'>)</span>
+</code></pre>
+
+<p>Note: The new <code>expect</code> syntax no longer supports the <code>=~</code> matcher.</p>
+
+<h3>Types/classes</h3>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_actual'>actual</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_be_an_instance_of'>be_an_instance_of</span><span class='lparen'>(</span><span class='id identifier rubyid_expected'>expected</span><span class='rparen'>)</span> <span class='comment'># passes if actual.class == expected
+</span><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_actual'>actual</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_be_a'>be_a</span><span class='lparen'>(</span><span class='id identifier rubyid_expected'>expected</span><span class='rparen'>)</span>              <span class='comment'># passes if actual.kind_of?(expected)
+</span><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_actual'>actual</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_be_an'>be_an</span><span class='lparen'>(</span><span class='id identifier rubyid_expected'>expected</span><span class='rparen'>)</span>             <span class='comment'># an alias for be_a
+</span><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_actual'>actual</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_be_a_kind_of'>be_a_kind_of</span><span class='lparen'>(</span><span class='id identifier rubyid_expected'>expected</span><span class='rparen'>)</span>      <span class='comment'># another alias
+</span></code></pre>
+
+<h3>Truthiness</h3>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_actual'>actual</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_be_truthy'>be_truthy</span>   <span class='comment'># passes if actual is truthy (not nil or false)
+</span><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_actual'>actual</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_be'>be</span> <span class='kw'>true</span>     <span class='comment'># passes if actual == true
+</span><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_actual'>actual</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_be_falsy'>be_falsy</span>    <span class='comment'># passes if actual is falsy (nil or false)
+</span><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_actual'>actual</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_be'>be</span> <span class='kw'>false</span>    <span class='comment'># passes if actual == false
+</span><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_actual'>actual</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_be_nil'>be_nil</span>      <span class='comment'># passes if actual is nil
+</span><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_actual'>actual</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to_not'>to_not</span> <span class='id identifier rubyid_be_nil'>be_nil</span>  <span class='comment'># passes if actual is not nil
+</span></code></pre>
+
+<h3>Expecting errors</h3>
+
+<pre class="code ruby"><code class="ruby">expect { ... }.to raise_error
+expect { ... }.to raise_error(ErrorClass)
+expect { ... }.to raise_error(&quot;message&quot;)
+expect { ... }.to raise_error(ErrorClass, &quot;message&quot;)
+</code></pre>
+
+<h3>Expecting throws</h3>
+
+<pre class="code ruby"><code class="ruby">expect { ... }.to throw_symbol
+expect { ... }.to throw_symbol(:symbol)
+expect { ... }.to throw_symbol(:symbol, &#39;value&#39;)
+</code></pre>
+
+<h3>Yielding</h3>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_expect'>expect</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_b'>b</span><span class='op'>|</span> <span class='int'>5</span><span class='period'>.</span><span class='id identifier rubyid_tap'>tap</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_b'>b</span><span class='rparen'>)</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_yield_control'>yield_control</span> <span class='comment'># passes regardless of yielded args
+</span>
+<span class='id identifier rubyid_expect'>expect</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_b'>b</span><span class='op'>|</span> <span class='id identifier rubyid_yield_if_true'>yield_if_true</span><span class='lparen'>(</span><span class='kw'>true</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_b'>b</span><span class='rparen'>)</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_yield_with_no_args'>yield_with_no_args</span> <span class='comment'># passes only if no args are yielded
+</span>
+<span class='id identifier rubyid_expect'>expect</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_b'>b</span><span class='op'>|</span> <span class='int'>5</span><span class='period'>.</span><span class='id identifier rubyid_tap'>tap</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_b'>b</span><span class='rparen'>)</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_yield_with_args'>yield_with_args</span><span class='lparen'>(</span><span class='int'>5</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_expect'>expect</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_b'>b</span><span class='op'>|</span> <span class='int'>5</span><span class='period'>.</span><span class='id identifier rubyid_tap'>tap</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_b'>b</span><span class='rparen'>)</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_yield_with_args'>yield_with_args</span><span class='lparen'>(</span><span class='const'>Fixnum</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_expect'>expect</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_b'>b</span><span class='op'>|</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>a string</span><span class='tstring_end'>&quot;</span></span><span class='period'>.</span><span class='id identifier rubyid_tap'>tap</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_b'>b</span><span class='rparen'>)</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_yield_with_args'>yield_with_args</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>str</span><span class='regexp_end'>/</span></span><span class='rparen'>)</span>
+
+<span class='id identifier rubyid_expect'>expect</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_b'>b</span><span class='op'>|</span> <span class='lbracket'>[</span><span class='int'>1</span><span class='comma'>,</span> <span class='int'>2</span><span class='comma'>,</span> <span class='int'>3</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_b'>b</span><span class='rparen'>)</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_yield_successive_args'>yield_successive_args</span><span class='lparen'>(</span><span class='int'>1</span><span class='comma'>,</span> <span class='int'>2</span><span class='comma'>,</span> <span class='int'>3</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_expect'>expect</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_b'>b</span><span class='op'>|</span> <span class='lbrace'>{</span> <span class='symbol'>:a</span> <span class='op'>=&gt;</span> <span class='int'>1</span><span class='comma'>,</span> <span class='symbol'>:b</span> <span class='op'>=&gt;</span> <span class='int'>2</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_b'>b</span><span class='rparen'>)</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_yield_successive_args'>yield_successive_args</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='symbol'>:a</span><span class='comma'>,</span> <span class='int'>1</span><span class='rbracket'>]</span><span class='comma'>,</span> <span class='lbracket'>[</span><span class='symbol'>:b</span><span class='comma'>,</span> <span class='int'>2</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+</code></pre>
+
+<h3>Predicate matchers</h3>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_actual'>actual</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_be_xxx'>be_xxx</span>         <span class='comment'># passes if actual.xxx?
+</span><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_actual'>actual</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_have_xxx'>have_xxx</span><span class='lparen'>(</span><span class='symbol'>:arg</span><span class='rparen'>)</span> <span class='comment'># passes if actual.has_xxx?(:arg)
+</span></code></pre>
+
+<h3>Ranges (Ruby &gt;= 1.9 only)</h3>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='int'>1</span><span class='op'>..</span><span class='int'>10</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_cover'>cover</span><span class='lparen'>(</span><span class='int'>3</span><span class='rparen'>)</span>
+</code></pre>
+
+<h3>Collection membership</h3>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_actual'>actual</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_include'>include</span><span class='lparen'>(</span><span class='id identifier rubyid_expected'>expected</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_actual'>actual</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_start_with'>start_with</span><span class='lparen'>(</span><span class='id identifier rubyid_expected'>expected</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_actual'>actual</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_end_with'>end_with</span><span class='lparen'>(</span><span class='id identifier rubyid_expected'>expected</span><span class='rparen'>)</span>
+
+<span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_actual'>actual</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_contain_exactly'>contain_exactly</span><span class='lparen'>(</span><span class='id identifier rubyid_individual'>individual</span><span class='comma'>,</span> <span class='id identifier rubyid_items'>items</span><span class='rparen'>)</span>
+<span class='comment'># ...which is the same as:
+</span><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_actual'>actual</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_match_array'>match_array</span><span class='lparen'>(</span><span class='id identifier rubyid_expected_array'>expected_array</span><span class='rparen'>)</span>
+</code></pre>
+
+<h4>Examples</h4>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='int'>1</span><span class='comma'>,</span> <span class='int'>2</span><span class='comma'>,</span> <span class='int'>3</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_include'>include</span><span class='lparen'>(</span><span class='int'>1</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='int'>1</span><span class='comma'>,</span> <span class='int'>2</span><span class='comma'>,</span> <span class='int'>3</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_include'>include</span><span class='lparen'>(</span><span class='int'>1</span><span class='comma'>,</span> <span class='int'>2</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='int'>1</span><span class='comma'>,</span> <span class='int'>2</span><span class='comma'>,</span> <span class='int'>3</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_start_with'>start_with</span><span class='lparen'>(</span><span class='int'>1</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='int'>1</span><span class='comma'>,</span> <span class='int'>2</span><span class='comma'>,</span> <span class='int'>3</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_start_with'>start_with</span><span class='lparen'>(</span><span class='int'>1</span><span class='comma'>,</span> <span class='int'>2</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='int'>1</span><span class='comma'>,</span> <span class='int'>2</span><span class='comma'>,</span> <span class='int'>3</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_end_with'>end_with</span><span class='lparen'>(</span><span class='int'>3</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='int'>1</span><span class='comma'>,</span> <span class='int'>2</span><span class='comma'>,</span> <span class='int'>3</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_end_with'>end_with</span><span class='lparen'>(</span><span class='int'>2</span><span class='comma'>,</span> <span class='int'>3</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='lbrace'>{</span><span class='symbol'>:a</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>b</span><span class='tstring_end'>&#39;</span></span><span class='rbrace'>}</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_include'>include</span><span class='lparen'>(</span><span class='symbol'>:a</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>b</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+<span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>this string</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_include'>include</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>is str</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>this string</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_start_with'>start_with</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>this</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>this string</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_end_with'>end_with</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>ring</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='int'>1</span><span class='comma'>,</span> <span class='int'>2</span><span class='comma'>,</span> <span class='int'>3</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_contain_exactly'>contain_exactly</span><span class='lparen'>(</span><span class='int'>2</span><span class='comma'>,</span> <span class='int'>3</span><span class='comma'>,</span> <span class='int'>1</span><span class='rparen'>)</span>
+<span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='int'>1</span><span class='comma'>,</span> <span class='int'>2</span><span class='comma'>,</span> <span class='int'>3</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_match_array'>match_array</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='int'>3</span><span class='comma'>,</span> <span class='int'>2</span><span class='comma'>,</span> <span class='int'>1</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+</code></pre>
+
+<h2><code>should</code> syntax</h2>
+
+<p>In addition to the <code>expect</code> syntax, rspec-expectations continues to support the
+<code>should</code> syntax:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_actual'>actual</span><span class='period'>.</span><span class='id identifier rubyid_should'>should</span> <span class='id identifier rubyid_eq'>eq</span> <span class='id identifier rubyid_expected'>expected</span>
+<span class='id identifier rubyid_actual'>actual</span><span class='period'>.</span><span class='id identifier rubyid_should'>should</span> <span class='id identifier rubyid_be'>be</span> <span class='op'>&gt;</span> <span class='int'>3</span>
+<span class='lbracket'>[</span><span class='int'>1</span><span class='comma'>,</span> <span class='int'>2</span><span class='comma'>,</span> <span class='int'>3</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_should_not'>should_not</span> <span class='id identifier rubyid_include'>include</span> <span class='int'>4</span>
+</code></pre>
+
+<p>See <a href="https://github.com/rspec/rspec-expectations/blob/master/Should.md">detailed information on the <code>should</code> syntax and its usage.</a></p>
+
+<h2>Compound Matcher Expressions</h2>
+
+<p>You can also create compound matcher expressions using <code>and</code> or <code>or</code>:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_alphabet'>alphabet</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_start_with'>start_with</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>a</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_and'>and</span> <span class='id identifier rubyid_end_with'>end_with</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>z</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_stoplight'>stoplight</span><span class='period'>.</span><span class='id identifier rubyid_color'>color</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_eq'>eq</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>red</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_or'>or</span> <span class='id identifier rubyid_eq'>eq</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>green</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_or'>or</span> <span class='id identifier rubyid_eq'>eq</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>yellow</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+</code></pre>
+
+<h2>Composing Matchers</h2>
+
+<p>Many of the built-in matchers are designed to take matchers as
+arguments, to allow you to flexibly specify only the essential
+aspects of an object or data structure. In addition, all of the
+built-in matchers have one or more aliases that provide better
+phrasing for when they are used as arguments to another matcher.</p>
+
+<h3>Examples</h3>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_expect'>expect</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_k'>k</span> <span class='op'>+=</span> <span class='float'>1.05</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_change'>change</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_k'>k</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_by'>by</span><span class='lparen'>(</span> <span class='id identifier rubyid_a_value_within'>a_value_within</span><span class='lparen'>(</span><span class='float'>0.1</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_of'>of</span><span class='lparen'>(</span><span class='float'>1.0</span><span class='rparen'>)</span> <span class='rparen'>)</span>
+
+<span class='id identifier rubyid_expect'>expect</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_s'>s</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>barn</span><span class='tstring_end'>&quot;</span></span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_change'>change</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_s'>s</span> <span class='rbrace'>}</span><span class='period'>
+</span><span class='id identifier rubyid_  .from'>  .from</span><span class='lparen'>(</span> <span class='id identifier rubyid_a_string_matching'>a_string_matching</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>foo</span><span class='regexp_end'>/</span></span><span class='rparen'>)</span> <span class='rparen'>)</span><span class='period'>
+</span><span class='id identifier rubyid_  .to'>  .to</span><span class='lparen'>(</span> <span class='id identifier rubyid_a_string_matching'>a_string_matching</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>bar</span><span class='regexp_end'>/</span></span><span class='rparen'>)</span> <span class='rparen'>)</span>
+
+<span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>barn</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='float'>2.45</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_contain_exactly'>contain_exactly</span><span class='lparen'>(</span>
+  <span class='id identifier rubyid_a_value_within'>a_value_within</span><span class='lparen'>(</span><span class='float'>0.1</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_of'>of</span><span class='lparen'>(</span><span class='float'>2.5</span><span class='rparen'>)</span><span class='comma'>,</span>
+  <span class='id identifier rubyid_a_string_starting_with'>a_string_starting_with</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>bar</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
+<span class='rparen'>)</span>
+
+<span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>barn</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>food</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='float'>2.45</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_end_with'>end_with</span><span class='lparen'>(</span>
+  <span class='id identifier rubyid_a_string_matching'>a_string_matching</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>foo</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span>
+  <span class='id identifier rubyid_a_value'>a_value</span> <span class='op'>&gt;</span> <span class='int'>2</span>
+<span class='rparen'>)</span>
+
+<span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>barn</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='float'>2.45</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_include'>include</span><span class='lparen'>(</span> <span class='id identifier rubyid_a_string_starting_with'>a_string_starting_with</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>bar</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='rparen'>)</span>
+
+<span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='symbol'>:a</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>food</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:b</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>good</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_include'>include</span><span class='lparen'>(</span><span class='symbol'>:a</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_a_string_matching'>a_string_matching</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>foo</span><span class='regexp_end'>/</span></span><span class='rparen'>)</span><span class='rparen'>)</span>
+
+<span class='id identifier rubyid_hash'>hash</span> <span class='op'>=</span> <span class='lbrace'>{</span>
+  <span class='symbol'>:a</span> <span class='op'>=&gt;</span> <span class='lbrace'>{</span>
+    <span class='symbol'>:b</span> <span class='op'>=&gt;</span> <span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>foo</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='int'>5</span><span class='rbracket'>]</span><span class='comma'>,</span>
+    <span class='symbol'>:c</span> <span class='op'>=&gt;</span> <span class='lbrace'>{</span> <span class='symbol'>:d</span> <span class='op'>=&gt;</span> <span class='float'>2.05</span> <span class='rbrace'>}</span>
+  <span class='rbrace'>}</span>
+<span class='rbrace'>}</span>
+
+<span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_hash'>hash</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_match'>match</span><span class='lparen'>(</span>
+  <span class='symbol'>:a</span> <span class='op'>=&gt;</span> <span class='lbrace'>{</span>
+    <span class='symbol'>:b</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_a_collection_containing_exactly'>a_collection_containing_exactly</span><span class='lparen'>(</span>
+      <span class='id identifier rubyid_a_string_starting_with'>a_string_starting_with</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>f</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='comma'>,</span>
+      <span class='id identifier rubyid_an_instance_of'>an_instance_of</span><span class='lparen'>(</span><span class='const'>Fixnum</span><span class='rparen'>)</span>
+    <span class='rparen'>)</span><span class='comma'>,</span>
+    <span class='symbol'>:c</span> <span class='op'>=&gt;</span> <span class='lbrace'>{</span> <span class='symbol'>:d</span> <span class='op'>=&gt;</span> <span class='lparen'>(</span><span class='id identifier rubyid_a_value'>a_value</span> <span class='op'>&lt;</span> <span class='int'>3</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+  <span class='rbrace'>}</span>
+<span class='rparen'>)</span>
+
+<span class='id identifier rubyid_expect'>expect</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_probe'>probe</span><span class='op'>|</span>
+  <span class='lbracket'>[</span><span class='int'>1</span><span class='comma'>,</span> <span class='int'>2</span><span class='comma'>,</span> <span class='int'>3</span><span class='rbracket'>]</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_probe'>probe</span><span class='rparen'>)</span>
+<span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_yield_successive_args'>yield_successive_args</span><span class='lparen'>(</span> <span class='id identifier rubyid_a_value'>a_value</span> <span class='op'>&lt;</span> <span class='int'>2</span><span class='comma'>,</span> <span class='int'>2</span><span class='comma'>,</span> <span class='id identifier rubyid_a_value'>a_value</span> <span class='op'>&gt;</span> <span class='int'>2</span> <span class='rparen'>)</span>
+</code></pre>
+
+<h2>Usage outside rspec-core</h2>
+
+<p>You always need to load <code>rspec/expectations</code> even if you only want to use one part of the library:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_require'>require</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>rspec/expectations</span><span class='tstring_end'>&#39;</span></span>
+</code></pre>
+
+<p>Then simply include <code>RSpec::Matchers</code> in any class:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='kw'>class</span> <span class='const'>MyClass</span>
+  <span class='id identifier rubyid_include'>include</span> <span class='const'>RSpec</span><span class='op'>::</span><span class='const'>Matchers</span>
+
+  <span class='kw'>def</span> <span class='id identifier rubyid_do_something'>do_something</span><span class='lparen'>(</span><span class='id identifier rubyid_arg'>arg</span><span class='rparen'>)</span>
+    <span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_arg'>arg</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_be'>be</span> <span class='op'>&gt;</span> <span class='int'>0</span>
+    <span class='comment'># do other stuff
+</span>  <span class='kw'>end</span>
+<span class='kw'>end</span>
+</code></pre>
+
+<h2>Also see</h2>
+
+<ul>
+<li><a href="https://github.com/rspec/rspec">https://github.com/rspec/rspec</a></li>
+<li><a href="https://github.com/rspec/rspec-core">https://github.com/rspec/rspec-core</a></li>
+<li><a href="https://github.com/rspec/rspec-mocks">https://github.com/rspec/rspec-mocks</a></li>
+<li><a href="https://github.com/rspec/rspec-rails">https://github.com/rspec/rspec-rails</a></li>
+</ul>
+</div></div>
+
+    <div id="footer">
+  Generated on Wed Nov 11 23:57:11 2015 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.4 (ruby-2.1.5).
+</div>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-59095215-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+  </body>
+</html>

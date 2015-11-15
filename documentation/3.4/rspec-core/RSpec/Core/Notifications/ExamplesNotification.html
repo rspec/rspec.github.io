@@ -1,0 +1,904 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: RSpec::Core::Notifications::ExamplesNotification
+  
+    &mdash; Documentation by YARD 0.8.7.6
+  
+</title>
+
+  <link rel="stylesheet" href="/stylesheets/docs/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="/stylesheets/docs/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '../../../';
+  framesUrl = "../../../frames.html#!RSpec/Core/Notifications/ExamplesNotification.html";
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="/javascripts/docs/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="/javascripts/docs/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../../../_index.html">Index (E)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../../../RSpec.html" title="RSpec (module)">RSpec</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../../Core.html" title="RSpec::Core (module)">Core</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Notifications.html" title="RSpec::Core::Notifications (module)">Notifications</a></span></span>
+     &raquo; 
+    <span class="title">ExamplesNotification</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../../../class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="../../../method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="../../../file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><h1>Class: RSpec::Core::Notifications::ExamplesNotification
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName">Object</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">RSpec::Core::Notifications::ExamplesNotification</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/rspec/core/notifications.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <p>The <code>ExamplesNotification</code> represents notifications sent by the reporter
+which contain information about the suites examples.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code><span class='kw'>def</span> <span class='id identifier rubyid_stop'>stop</span><span class='lparen'>(</span><span class='id identifier rubyid_notification'>notification</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Hey I ran </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_notification'>notification</span><span class='period'>.</span><span class='id identifier rubyid_examples'>examples</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></code></pre>
+    
+  </div>
+
+
+</div>
+
+
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#examples-instance_method" title="#examples (instance method)">- (Array&lt;RSpec::Core::Example&gt;) <strong>examples</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>List of examples.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#failed_examples-instance_method" title="#failed_examples (instance method)">- (Array&lt;RSpec::Core::Example&gt;) <strong>failed_examples</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>List of failed examples.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#failure_notifications-instance_method" title="#failure_notifications (instance method)">- (Array&lt;RSpec::Core::Notifications::FailedExampleNotification&gt;) <strong>failure_notifications</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Returns failed examples as notifications.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#fully_formatted_failed_examples-instance_method" title="#fully_formatted_failed_examples (instance method)">- (String) <strong>fully_formatted_failed_examples</strong>(colorizer = ::RSpec::Core::Formatters::ConsoleCodes) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>The list of failed examples, fully formatted in the way that RSpec&#39;s built-in formatters emit.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#fully_formatted_pending_examples-instance_method" title="#fully_formatted_pending_examples (instance method)">- (String) <strong>fully_formatted_pending_examples</strong>(colorizer = ::RSpec::Core::Formatters::ConsoleCodes) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>The list of pending examples, fully formatted in the way that RSpec&#39;s built-in formatters emit.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (ExamplesNotification) <strong>initialize</strong>(reporter) </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>A new instance of ExamplesNotification.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#notifications-instance_method" title="#notifications (instance method)">- (Array&lt;RSpec::Core::Notifications::ExampleNotification&gt;) <strong>notifications</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Returns examples as notifications.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#pending_examples-instance_method" title="#pending_examples (instance method)">- (Array&lt;RSpec::Core::Example&gt;) <strong>pending_examples</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>List of pending examples.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#pending_notifications-instance_method" title="#pending_notifications (instance method)">- (Array&lt;RSpec::Core::Notifications::SkippedExampleNotification, RSpec::Core::Notifications::PendingExampleFailedAsExpectedNotification&gt;) <strong>pending_notifications</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>returns pending examples as notifications.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <h3 class="signature first" id="initialize-instance_method">
+  
+    - (<tt><span class='object_link'><a href="" title="RSpec::Core::Notifications::ExamplesNotification (class)">ExamplesNotification</a></span></tt>) <strong>initialize</strong>(reporter) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns a new instance of ExamplesNotification</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+70
+71
+72</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/notifications.rb', line 70</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_reporter'>reporter</span><span class='rparen'>)</span>
+  <span class='ivar'>@reporter</span> <span class='op'>=</span> <span class='id identifier rubyid_reporter'>reporter</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="examples-instance_method">
+  
+    - (<tt>Array&lt;<span class='object_link'><a href="../Example.html" title="RSpec::Core::Example (class)">RSpec::Core::Example</a></span>&gt;</tt>) <strong>examples</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns list of examples</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array&lt;<span class='object_link'><a href="../Example.html" title="RSpec::Core::Example (class)">RSpec::Core::Example</a></span>&gt;</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>list of examples</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+75
+76
+77</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/notifications.rb', line 75</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_examples'>examples</span>
+  <span class='ivar'>@reporter</span><span class='period'>.</span><span class='id identifier rubyid_examples'>examples</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="failed_examples-instance_method">
+  
+    - (<tt>Array&lt;<span class='object_link'><a href="../Example.html" title="RSpec::Core::Example (class)">RSpec::Core::Example</a></span>&gt;</tt>) <strong>failed_examples</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns list of failed examples</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array&lt;<span class='object_link'><a href="../Example.html" title="RSpec::Core::Example (class)">RSpec::Core::Example</a></span>&gt;</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>list of failed examples</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+80
+81
+82</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/notifications.rb', line 80</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_failed_examples'>failed_examples</span>
+  <span class='ivar'>@reporter</span><span class='period'>.</span><span class='id identifier rubyid_failed_examples'>failed_examples</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="failure_notifications-instance_method">
+  
+    - (<tt>Array&lt;<span class='object_link'><a href="FailedExampleNotification.html" title="RSpec::Core::Notifications::FailedExampleNotification (class)">RSpec::Core::Notifications::FailedExampleNotification</a></span>&gt;</tt>) <strong>failure_notifications</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns failed examples as notifications</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array&lt;<span class='object_link'><a href="FailedExampleNotification.html" title="RSpec::Core::Notifications::FailedExampleNotification (class)">RSpec::Core::Notifications::FailedExampleNotification</a></span>&gt;</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>returns failed examples as notifications</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+97
+98
+99</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/notifications.rb', line 97</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_failure_notifications'>failure_notifications</span>
+  <span class='ivar'>@failed_notifications</span> <span class='op'>||=</span> <span class='id identifier rubyid_format_examples'>format_examples</span><span class='lparen'>(</span><span class='id identifier rubyid_failed_examples'>failed_examples</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="fully_formatted_failed_examples-instance_method">
+  
+    - (<tt>String</tt>) <strong>fully_formatted_failed_examples</strong>(colorizer = ::RSpec::Core::Formatters::ConsoleCodes) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns The list of failed examples, fully formatted in the way
+that RSpec&#39;s built-in formatters emit.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>The list of failed examples, fully formatted in the way
+that RSpec&#39;s built-in formatters emit.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+110
+111
+112
+113
+114
+115
+116
+117
+118</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/notifications.rb', line 110</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_fully_formatted_failed_examples'>fully_formatted_failed_examples</span><span class='lparen'>(</span><span class='id identifier rubyid_colorizer'>colorizer</span><span class='op'>=</span><span class='op'>::</span><span class='const'>RSpec</span><span class='op'>::</span><span class='const'>Core</span><span class='op'>::</span><span class='const'>Formatters</span><span class='op'>::</span><span class='const'>ConsoleCodes</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_formatted'>formatted</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\nFailures:\n</span><span class='tstring_end'>&quot;</span></span>
+
+  <span class='id identifier rubyid_failure_notifications'>failure_notifications</span><span class='period'>.</span><span class='id identifier rubyid_each_with_index'>each_with_index</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_failure'>failure</span><span class='comma'>,</span> <span class='id identifier rubyid_index'>index</span><span class='op'>|</span>
+    <span class='id identifier rubyid_formatted'>formatted</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_failure'>failure</span><span class='period'>.</span><span class='id identifier rubyid_fully_formatted'>fully_formatted</span><span class='lparen'>(</span><span class='id identifier rubyid_index'>index</span><span class='period'>.</span><span class='id identifier rubyid_next'>next</span><span class='comma'>,</span> <span class='id identifier rubyid_colorizer'>colorizer</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_formatted'>formatted</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="fully_formatted_pending_examples-instance_method">
+  
+    - (<tt>String</tt>) <strong>fully_formatted_pending_examples</strong>(colorizer = ::RSpec::Core::Formatters::ConsoleCodes) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns The list of pending examples, fully formatted in the
+way that RSpec&#39;s built-in formatters emit.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>String</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>The list of pending examples, fully formatted in the
+way that RSpec&#39;s built-in formatters emit.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+122
+123
+124
+125
+126
+127
+128
+129
+130</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/notifications.rb', line 122</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_fully_formatted_pending_examples'>fully_formatted_pending_examples</span><span class='lparen'>(</span><span class='id identifier rubyid_colorizer'>colorizer</span><span class='op'>=</span><span class='op'>::</span><span class='const'>RSpec</span><span class='op'>::</span><span class='const'>Core</span><span class='op'>::</span><span class='const'>Formatters</span><span class='op'>::</span><span class='const'>ConsoleCodes</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_formatted'>formatted</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\nPending: (Failures listed here are expected and do not affect your suite&#39;s status)\n</span><span class='tstring_end'>&quot;</span></span>
+
+  <span class='id identifier rubyid_pending_notifications'>pending_notifications</span><span class='period'>.</span><span class='id identifier rubyid_each_with_index'>each_with_index</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_notification'>notification</span><span class='comma'>,</span> <span class='id identifier rubyid_index'>index</span><span class='op'>|</span>
+    <span class='id identifier rubyid_formatted'>formatted</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_notification'>notification</span><span class='period'>.</span><span class='id identifier rubyid_fully_formatted'>fully_formatted</span><span class='lparen'>(</span><span class='id identifier rubyid_index'>index</span><span class='period'>.</span><span class='id identifier rubyid_next'>next</span><span class='comma'>,</span> <span class='id identifier rubyid_colorizer'>colorizer</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_formatted'>formatted</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="notifications-instance_method">
+  
+    - (<tt>Array&lt;<span class='object_link'><a href="ExampleNotification.html" title="RSpec::Core::Notifications::ExampleNotification (class)">RSpec::Core::Notifications::ExampleNotification</a></span>&gt;</tt>) <strong>notifications</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns examples as notifications</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array&lt;<span class='object_link'><a href="ExampleNotification.html" title="RSpec::Core::Notifications::ExampleNotification (class)">RSpec::Core::Notifications::ExampleNotification</a></span>&gt;</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>returns examples as notifications</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+91
+92
+93</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/notifications.rb', line 91</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_notifications'>notifications</span>
+  <span class='ivar'>@notifications</span> <span class='op'>||=</span> <span class='id identifier rubyid_format_examples'>format_examples</span><span class='lparen'>(</span><span class='id identifier rubyid_examples'>examples</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="pending_examples-instance_method">
+  
+    - (<tt>Array&lt;<span class='object_link'><a href="../Example.html" title="RSpec::Core::Example (class)">RSpec::Core::Example</a></span>&gt;</tt>) <strong>pending_examples</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns list of pending examples</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array&lt;<span class='object_link'><a href="../Example.html" title="RSpec::Core::Example (class)">RSpec::Core::Example</a></span>&gt;</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>list of pending examples</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+85
+86
+87</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/notifications.rb', line 85</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_pending_examples'>pending_examples</span>
+  <span class='ivar'>@reporter</span><span class='period'>.</span><span class='id identifier rubyid_pending_examples'>pending_examples</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="pending_notifications-instance_method">
+  
+    - (<tt>Array&lt;<span class='object_link'><a href="SkippedExampleNotification.html" title="RSpec::Core::Notifications::SkippedExampleNotification (class)">RSpec::Core::Notifications::SkippedExampleNotification</a></span>,
+<span class='object_link'><a href="PendingExampleFailedAsExpectedNotification.html" title="RSpec::Core::Notifications::PendingExampleFailedAsExpectedNotification (class)">RSpec::Core::Notifications::PendingExampleFailedAsExpectedNotification</a></span>&gt;</tt>) <strong>pending_notifications</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>returns pending examples as notifications</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Array&lt;<span class='object_link'><a href="SkippedExampleNotification.html" title="RSpec::Core::Notifications::SkippedExampleNotification (class)">RSpec::Core::Notifications::SkippedExampleNotification</a></span>,
+<span class='object_link'><a href="PendingExampleFailedAsExpectedNotification.html" title="RSpec::Core::Notifications::PendingExampleFailedAsExpectedNotification (class)">RSpec::Core::Notifications::PendingExampleFailedAsExpectedNotification</a></span>&gt;</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+104
+105
+106</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/notifications.rb', line 104</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_pending_notifications'>pending_notifications</span>
+  <span class='ivar'>@pending_notifications</span> <span class='op'>||=</span> <span class='id identifier rubyid_format_examples'>format_examples</span><span class='lparen'>(</span><span class='id identifier rubyid_pending_examples'>pending_examples</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+    <div id="footer">
+  Generated on Wed Nov 11 23:57:04 2015 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.6 (ruby-2.1.5).
+</div>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-59095215-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+  </body>
+</html>

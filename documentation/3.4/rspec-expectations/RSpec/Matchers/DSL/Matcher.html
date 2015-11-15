@@ -1,0 +1,1066 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: RSpec::Matchers::DSL::Matcher
+  
+    &mdash; Documentation by YARD 0.8.7.4
+  
+</title>
+
+  <link rel="stylesheet" href="/stylesheets/docs/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="/stylesheets/docs/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '../../../';
+  framesUrl = "../../../frames.html#!RSpec/Matchers/DSL/Matcher.html";
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="/javascripts/docs/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="/javascripts/docs/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../../../_index.html">Index (M)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../../../RSpec.html" title="RSpec (module)">RSpec</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../../Matchers.html" title="RSpec::Matchers (module)">Matchers</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../DSL.html" title="RSpec::Matchers::DSL (module)">DSL</a></span></span>
+     &raquo; 
+    <span class="title">Matcher</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../../../class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="../../../method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="../../../file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><h1>Class: RSpec::Matchers::DSL::Matcher
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName">Object</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">RSpec::Matchers::DSL::Matcher</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+      <dt class="r2">Extended by:</dt>
+      <dd class="r2"><span class='object_link'><a href="Macros.html" title="RSpec::Matchers::DSL::Macros (module)">Macros</a></span>, <span class='object_link'><a href="Macros/Deprecated.html" title="RSpec::Matchers::DSL::Macros::Deprecated (module)">RSpec::Matchers::DSL::Macros::Deprecated</a></span></dd>
+      
+    
+  
+    
+      <dt class="r1">Includes:</dt>
+      <dd class="r1"><span class='object_link'><a href="../../Matchers.html" title="RSpec::Matchers (module)">RSpec::Matchers</a></span>, <span class='object_link'><a href="../Composable.html" title="RSpec::Matchers::Composable (module)">Composable</a></span>, <span class='object_link'><a href="DefaultImplementations.html" title="RSpec::Matchers::DSL::DefaultImplementations (module)">DefaultImplementations</a></span></dd>
+      
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/rspec/matchers/dsl.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <p>The class used for custom matchers. The block passed to
+<code>RSpec::Matchers.define</code> will be evaluated in the context
+of the singleton class of an instance, and will have the
+<span class='object_link'><a href="Macros.html" title="RSpec::Matchers::DSL::Macros (module)">Macros</a></span> methods available.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+  <h2>Constant Summary</h2>
+  
+
+
+
+
+  <h2>Instance Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#actual-instance_method" title="#actual (instance method)">- (Object) <strong>actual</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Exposes the value being matched against -- generally the object object wrapped by <code>expect</code>.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#block_arg-instance_method" title="#block_arg (instance method)">- (Object) <strong>block_arg</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>The block parameter used in the expectation.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#expected_as_array-instance_method" title="#expected_as_array (instance method)">- (Object) <strong>expected_as_array</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Returns the expected value as an an array.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#name-instance_method" title="#name (instance method)">- (Object) <strong>name</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>The name of the matcher.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#rescued_exception-instance_method" title="#rescued_exception (instance method)">- (Object) <strong>rescued_exception</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+      <span class="note title readonly">readonly</span>
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Exposes the exception raised during the matching by <code>match_unless_raises</code>.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#expected-instance_method" title="#expected (instance method)">- (Object) <strong>expected</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Provides the expected value.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (Matcher) <strong>initialize</strong>(name, declarations, matcher_execution_context, *expected, &amp;block_arg) </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  <span class="private note title">private</span>
+
+  
+    <span class="summary_desc"><div class='inline'><p>A new instance of Matcher.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#inspect-instance_method" title="#inspect (instance method)">- (Object) <strong>inspect</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Adds the name (rather than a cryptic hex number) so we can identify an instance of the matcher in error messages (e.g. for <code>NoMethodError</code>).</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#respond_to%3F-instance_method" title="#respond_to? (instance method)">- (Boolean) <strong>respond_to?</strong>(method, include_private = false) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>:nocov: Indicates that this matcher responds to messages from the <code>@matcher_execution_context</code> as well.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#respond_to_missing%3F-instance_method" title="#respond_to_missing? (instance method)">- (Boolean) <strong>respond_to_missing?</strong>(method, include_private = false) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Indicates that this matcher responds to messages from the <code>@matcher_execution_context</code> as well.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="Macros/Deprecated.html" title="RSpec::Matchers::DSL::Macros::Deprecated (module)">RSpec::Matchers::DSL::Macros::Deprecated</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="Macros/Deprecated.html#failure_message_for_should-instance_method" title="RSpec::Matchers::DSL::Macros::Deprecated#failure_message_for_should (method)">failure_message_for_should</a></span>, <span class='object_link'><a href="Macros/Deprecated.html#failure_message_for_should_not-instance_method" title="RSpec::Matchers::DSL::Macros::Deprecated#failure_message_for_should_not (method)">failure_message_for_should_not</a></span>, <span class='object_link'><a href="Macros/Deprecated.html#match_for_should-instance_method" title="RSpec::Matchers::DSL::Macros::Deprecated#match_for_should (method)">match_for_should</a></span>, <span class='object_link'><a href="Macros/Deprecated.html#match_for_should_not-instance_method" title="RSpec::Matchers::DSL::Macros::Deprecated#match_for_should_not (method)">match_for_should_not</a></span></p>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="Macros.html" title="RSpec::Matchers::DSL::Macros (module)">Macros</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="Macros.html#chain-instance_method" title="RSpec::Matchers::DSL::Macros#chain (method)">chain</a></span>, <span class='object_link'><a href="Macros.html#description-instance_method" title="RSpec::Matchers::DSL::Macros#description (method)">description</a></span>, <span class='object_link'><a href="Macros.html#diffable-instance_method" title="RSpec::Matchers::DSL::Macros#diffable (method)">diffable</a></span>, <span class='object_link'><a href="Macros.html#failure_message-instance_method" title="RSpec::Matchers::DSL::Macros#failure_message (method)">failure_message</a></span>, <span class='object_link'><a href="Macros.html#failure_message_when_negated-instance_method" title="RSpec::Matchers::DSL::Macros#failure_message_when_negated (method)">failure_message_when_negated</a></span>, <span class='object_link'><a href="Macros.html#match-instance_method" title="RSpec::Matchers::DSL::Macros#match (method)">match</a></span>, <span class='object_link'><a href="Macros.html#match_unless_raises-instance_method" title="RSpec::Matchers::DSL::Macros#match_unless_raises (method)">match_unless_raises</a></span>, <span class='object_link'><a href="Macros.html#match_when_negated-instance_method" title="RSpec::Matchers::DSL::Macros#match_when_negated (method)">match_when_negated</a></span>, <span class='object_link'><a href="Macros.html#supports_block_expectations-instance_method" title="RSpec::Matchers::DSL::Macros#supports_block_expectations (method)">supports_block_expectations</a></span></p>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="../Composable.html" title="RSpec::Matchers::Composable (module)">Composable</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../Composable.html#%3D%3D%3D-instance_method" title="RSpec::Matchers::Composable#=== (method)">#===</a></span>, <span class='object_link'><a href="../Composable.html#and-instance_method" title="RSpec::Matchers::Composable#and (method)">#and</a></span>, <span class='object_link'><a href="../Composable.html#description_of-instance_method" title="RSpec::Matchers::Composable#description_of (method)">#description_of</a></span>, <span class='object_link'><a href="../Composable.html#or-instance_method" title="RSpec::Matchers::Composable#or (method)">#or</a></span>, <span class='object_link'><a href="../Composable.html#should_enumerate%3F-class_method" title="RSpec::Matchers::Composable.should_enumerate? (method)">should_enumerate?</a></span>, <span class='object_link'><a href="../Composable.html#surface_descriptions_in-class_method" title="RSpec::Matchers::Composable.surface_descriptions_in (method)">surface_descriptions_in</a></span>, <span class='object_link'><a href="../Composable.html#unreadable_io%3F-class_method" title="RSpec::Matchers::Composable.unreadable_io? (method)">unreadable_io?</a></span>, <span class='object_link'><a href="../Composable.html#values_match%3F-instance_method" title="RSpec::Matchers::Composable#values_match? (method)">#values_match?</a></span></p>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="../../Matchers.html" title="RSpec::Matchers (module)">RSpec::Matchers</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../../Matchers.html#aggregate_failures-instance_method" title="RSpec::Matchers#aggregate_failures (method)">#aggregate_failures</a></span>, <span class='object_link'><a href="../../Matchers.html#alias_matcher-class_method" title="RSpec::Matchers.alias_matcher (method)">alias_matcher</a></span>, <span class='object_link'><a href="../../Matchers.html#all-instance_method" title="RSpec::Matchers#all (method)">#all</a></span>, <span class='object_link'><a href="../../Matchers.html#be-instance_method" title="RSpec::Matchers#be (method)">#be</a></span>, <span class='object_link'><a href="../../Matchers.html#be_a-instance_method" title="RSpec::Matchers#be_a (method)">#be_a</a></span>, <span class='object_link'><a href="../../Matchers.html#be_a_kind_of-instance_method" title="RSpec::Matchers#be_a_kind_of (method)">#be_a_kind_of</a></span>, <span class='object_link'><a href="../../Matchers.html#be_an_instance_of-instance_method" title="RSpec::Matchers#be_an_instance_of (method)">#be_an_instance_of</a></span>, <span class='object_link'><a href="../../Matchers.html#be_between-instance_method" title="RSpec::Matchers#be_between (method)">#be_between</a></span>, <span class='object_link'><a href="../../Matchers.html#be_falsey-instance_method" title="RSpec::Matchers#be_falsey (method)">#be_falsey</a></span>, <span class='object_link'><a href="../../Matchers.html#be_nil-instance_method" title="RSpec::Matchers#be_nil (method)">#be_nil</a></span>, <span class='object_link'><a href="../../Matchers.html#be_truthy-instance_method" title="RSpec::Matchers#be_truthy (method)">#be_truthy</a></span>, <span class='object_link'><a href="../../Matchers.html#be_within-instance_method" title="RSpec::Matchers#be_within (method)">#be_within</a></span>, <span class='object_link'><a href="../../Matchers.html#change-instance_method" title="RSpec::Matchers#change (method)">#change</a></span>, <span class='object_link'><a href="../../Matchers.html#clear_generated_description-class_method" title="RSpec::Matchers.clear_generated_description (method)">clear_generated_description</a></span>, <span class='object_link'><a href="../../Matchers.html#configuration-class_method" title="RSpec::Matchers.configuration (method)">configuration</a></span>, <span class='object_link'><a href="../../Matchers.html#contain_exactly-instance_method" title="RSpec::Matchers#contain_exactly (method)">#contain_exactly</a></span>, <span class='object_link'><a href="../../Matchers.html#cover-instance_method" title="RSpec::Matchers#cover (method)">#cover</a></span>, <span class='object_link'><a href="../../Matchers.html#define_negated_matcher-class_method" title="RSpec::Matchers.define_negated_matcher (method)">define_negated_matcher</a></span>, <span class='object_link'><a href="../../Matchers.html#end_with-instance_method" title="RSpec::Matchers#end_with (method)">#end_with</a></span>, <span class='object_link'><a href="../../Matchers.html#eq-instance_method" title="RSpec::Matchers#eq (method)">#eq</a></span>, <span class='object_link'><a href="../../Matchers.html#eql-instance_method" title="RSpec::Matchers#eql (method)">#eql</a></span>, <span class='object_link'><a href="../../Matchers.html#equal-instance_method" title="RSpec::Matchers#equal (method)">#equal</a></span>, <span class='object_link'><a href="../../Matchers.html#exist-instance_method" title="RSpec::Matchers#exist (method)">#exist</a></span>, <span class='object_link'><a href="../../Matchers.html#expect-instance_method" title="RSpec::Matchers#expect (method)">#expect</a></span>, <span class='object_link'><a href="../../Matchers.html#generated_description-class_method" title="RSpec::Matchers.generated_description (method)">generated_description</a></span>, <span class='object_link'><a href="../../Matchers.html#have_attributes-instance_method" title="RSpec::Matchers#have_attributes (method)">#have_attributes</a></span>, <span class='object_link'><a href="../../Matchers.html#include-instance_method" title="RSpec::Matchers#include (method)">#include</a></span>, <span class='object_link'><a href="../../Matchers.html#match-instance_method" title="RSpec::Matchers#match (method)">#match</a></span>, <span class='object_link'><a href="../../Matchers.html#match_array-instance_method" title="RSpec::Matchers#match_array (method)">#match_array</a></span>, <span class='object_link'><a href="../../Matchers.html#output-instance_method" title="RSpec::Matchers#output (method)">#output</a></span>, <span class='object_link'><a href="../../Matchers.html#raise_error-instance_method" title="RSpec::Matchers#raise_error (method)">#raise_error</a></span>, <span class='object_link'><a href="../../Matchers.html#respond_to-instance_method" title="RSpec::Matchers#respond_to (method)">#respond_to</a></span>, <span class='object_link'><a href="../../Matchers.html#satisfy-instance_method" title="RSpec::Matchers#satisfy (method)">#satisfy</a></span>, <span class='object_link'><a href="../../Matchers.html#start_with-instance_method" title="RSpec::Matchers#start_with (method)">#start_with</a></span>, <span class='object_link'><a href="../../Matchers.html#throw_symbol-instance_method" title="RSpec::Matchers#throw_symbol (method)">#throw_symbol</a></span>, <span class='object_link'><a href="../../Matchers.html#yield_control-instance_method" title="RSpec::Matchers#yield_control (method)">#yield_control</a></span>, <span class='object_link'><a href="../../Matchers.html#yield_successive_args-instance_method" title="RSpec::Matchers#yield_successive_args (method)">#yield_successive_args</a></span>, <span class='object_link'><a href="../../Matchers.html#yield_with_args-instance_method" title="RSpec::Matchers#yield_with_args (method)">#yield_with_args</a></span>, <span class='object_link'><a href="../../Matchers.html#yield_with_no_args-instance_method" title="RSpec::Matchers#yield_with_no_args (method)">#yield_with_no_args</a></span></p>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="DefaultImplementations.html" title="RSpec::Matchers::DSL::DefaultImplementations (module)">DefaultImplementations</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="DefaultImplementations.html#description-instance_method" title="RSpec::Matchers::DSL::DefaultImplementations#description (method)">#description</a></span>, <span class='object_link'><a href="DefaultImplementations.html#diffable%3F-instance_method" title="RSpec::Matchers::DSL::DefaultImplementations#diffable? (method)">#diffable?</a></span>, <span class='object_link'><a href="DefaultImplementations.html#expects_call_stack_jump%3F-instance_method" title="RSpec::Matchers::DSL::DefaultImplementations#expects_call_stack_jump? (method)">#expects_call_stack_jump?</a></span>, <span class='object_link'><a href="DefaultImplementations.html#supports_block_expectations%3F-instance_method" title="RSpec::Matchers::DSL::DefaultImplementations#supports_block_expectations? (method)">#supports_block_expectations?</a></span></p>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="../BuiltIn/BaseMatcher/DefaultFailureMessages.html" title="RSpec::Matchers::BuiltIn::BaseMatcher::DefaultFailureMessages (module)">BuiltIn::BaseMatcher::DefaultFailureMessages</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../BuiltIn/BaseMatcher/DefaultFailureMessages.html#failure_message-instance_method" title="RSpec::Matchers::BuiltIn::BaseMatcher::DefaultFailureMessages#failure_message (method)">#failure_message</a></span>, <span class='object_link'><a href="../BuiltIn/BaseMatcher/DefaultFailureMessages.html#failure_message_when_negated-instance_method" title="RSpec::Matchers::BuiltIn::BaseMatcher::DefaultFailureMessages#failure_message_when_negated (method)">#failure_message_when_negated</a></span></p>
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <h3 class="signature first" id="initialize-instance_method">
+  
+    - (<tt><span class='object_link'><a href="" title="RSpec::Matchers::DSL::Matcher (class)">Matcher</a></span></tt>) <strong>initialize</strong>(name, declarations, matcher_execution_context, *expected, &amp;block_arg) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p class="note private">
+  <strong>This method is part of a private API.</strong>
+  You should avoid using this method if possible, as it may be removed or be changed in the future.
+</p>
+<p>Returns a new instance of Matcher</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+372
+373
+374
+375
+376
+377
+378
+379
+380
+381
+382
+383
+384
+385</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/matchers/dsl.rb', line 372</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_declarations'>declarations</span><span class='comma'>,</span> <span class='id identifier rubyid_matcher_execution_context'>matcher_execution_context</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_expected'>expected</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block_arg'>block_arg</span><span class='rparen'>)</span>
+  <span class='ivar'>@name</span>     <span class='op'>=</span> <span class='id identifier rubyid_name'>name</span>
+  <span class='ivar'>@actual</span>   <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='ivar'>@expected_as_array</span> <span class='op'>=</span> <span class='id identifier rubyid_expected'>expected</span>
+  <span class='ivar'>@matcher_execution_context</span> <span class='op'>=</span> <span class='id identifier rubyid_matcher_execution_context'>matcher_execution_context</span>
+  <span class='ivar'>@chained_method_clauses</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='ivar'>@block_arg</span> <span class='op'>=</span> <span class='id identifier rubyid_block_arg'>block_arg</span>
+
+  <span class='kw'>class</span> <span class='op'>&lt;&lt;</span> <span class='kw'>self</span>
+    <span class='comment'># See `Macros#define_user_override` above, for an explanation.
+</span>    <span class='id identifier rubyid_include'>include</span><span class='lparen'>(</span><span class='ivar'>@user_method_defs</span> <span class='op'>=</span> <span class='const'>Module</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='rparen'>)</span>
+    <span class='kw'>self</span>
+  <span class='kw'>end</span><span class='period'>.</span><span class='id identifier rubyid_class_exec'>class_exec</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_expected'>expected</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_declarations'>declarations</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+<div id="method_missing_details" class="method_details_list">
+  <h2>Dynamic Method Handling</h2>
+  <p class="notice this">
+    This class handles dynamic methods through the <tt>method_missing</tt> method
+    
+  </p>
+  
+    <div class="method_details first">
+  <h3 class="signature first" id="method_missing-instance_method">
+  
+    - (<tt>Object</tt>) <strong>method_missing</strong>(method, *args, &amp;block)  <span class="extras">(private)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Takes care of forwarding unhandled messages to the
+<code>@matcher_execution_context</code> (typically the current
+running <code>RSpec::Core::Example</code>). This is needed by
+rspec-rails so that it can define matchers that wrap
+Rails&#39; test helper methods, but it&#39;s also a useful
+feature in its own right.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+441
+442
+443
+444
+445
+446
+447</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/matchers/dsl.rb', line 441</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_method_missing'>method_missing</span><span class='lparen'>(</span><span class='id identifier rubyid_method'>method</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='ivar'>@matcher_execution_context</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='id identifier rubyid_method'>method</span><span class='rparen'>)</span>
+    <span class='ivar'>@matcher_execution_context</span><span class='period'>.</span><span class='id identifier rubyid___send__'>__send__</span> <span class='id identifier rubyid_method'>method</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span>
+  <span class='kw'>else</span>
+    <span class='kw'>super</span><span class='lparen'>(</span><span class='id identifier rubyid_method'>method</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id=""></span>
+      <div class="method_details first">
+  <h3 class="signature first" id="actual-instance_method">
+  
+    - (<tt>Object</tt>) <strong>actual</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Exposes the value being matched against -- generally the object
+object wrapped by <code>expect</code>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+359
+360
+361</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/matchers/dsl.rb', line 359</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_actual'>actual</span>
+  <span class='ivar'>@actual</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="block_arg-instance_method">
+  
+    - (<tt>Object</tt>) <strong>block_arg</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>The block parameter used in the expectation</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+366
+367
+368</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/matchers/dsl.rb', line 366</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_block_arg'>block_arg</span>
+  <span class='ivar'>@block_arg</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="expected_as_array-instance_method">
+  
+    - (<tt>Object</tt>) <strong>expected_as_array</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns the expected value as an an array. This exists primarily
+to aid in upgrading from RSpec 2.x, since in RSpec 2, <code>expected</code>
+always returned an array.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="#expected-instance_method" title="RSpec::Matchers::DSL::Matcher#expected (method)">#expected</a></span></li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+403
+404
+405</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/matchers/dsl.rb', line 403</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_expected_as_array'>expected_as_array</span>
+  <span class='ivar'>@expected_as_array</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="name-instance_method">
+  
+    - (<tt>Object</tt>) <strong>name</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>The name of the matcher.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+369
+370
+371</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/matchers/dsl.rb', line 369</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_name'>name</span>
+  <span class='ivar'>@name</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="rescued_exception-instance_method">
+  
+    - (<tt>Object</tt>) <strong>rescued_exception</strong>  <span class="extras">(readonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Exposes the exception raised during the matching by <code>match_unless_raises</code>.
+Could be useful to extract details for a failure message.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+363
+364
+365</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/matchers/dsl.rb', line 363</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_rescued_exception'>rescued_exception</span>
+  <span class='ivar'>@rescued_exception</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="expected-instance_method">
+  
+    - (<tt>Object</tt>) <strong>expected</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Provides the expected value. This will return an array if
+multiple arguments were passed to the matcher; otherwise it
+will return a single value.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="#expected_as_array-instance_method" title="RSpec::Matchers::DSL::Matcher#expected_as_array (method)">#expected_as_array</a></span></li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+391
+392
+393
+394
+395
+396
+397</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/matchers/dsl.rb', line 391</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_expected'>expected</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_expected_as_array'>expected_as_array</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span> <span class='op'>==</span> <span class='int'>1</span>
+    <span class='id identifier rubyid_expected_as_array'>expected_as_array</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>
+  <span class='kw'>else</span>
+    <span class='id identifier rubyid_expected_as_array'>expected_as_array</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="inspect-instance_method">
+  
+    - (<tt>Object</tt>) <strong>inspect</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Adds the name (rather than a cryptic hex number)
+so we can identify an instance of
+the matcher in error messages (e.g. for <code>NoMethodError</code>)</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+408
+409
+410</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/matchers/dsl.rb', line 408</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_inspect'>inspect</span>
+  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>#&lt;</span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='embexpr_end'>}</span><span class='tstring_content'> </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_name'>name</span><span class='embexpr_end'>}</span><span class='tstring_content'>&gt;</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="respond_to?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>respond_to?</strong>(method, include_private = false) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>:nocov:
+Indicates that this matcher responds to messages
+from the <code>@matcher_execution_context</code> as well.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+423
+424
+425</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/matchers/dsl.rb', line 423</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='id identifier rubyid_method'>method</span><span class='comma'>,</span> <span class='id identifier rubyid_include_private'>include_private</span><span class='op'>=</span><span class='kw'>false</span><span class='rparen'>)</span>
+  <span class='kw'>super</span> <span class='op'>||</span> <span class='ivar'>@matcher_execution_context</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='id identifier rubyid_method'>method</span><span class='comma'>,</span> <span class='id identifier rubyid_include_private'>include_private</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="respond_to_missing?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>respond_to_missing?</strong>(method, include_private = false) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Indicates that this matcher responds to messages
+from the <code>@matcher_execution_context</code> as well.
+Also, supports getting a method object for such methods.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+416
+417
+418</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/matchers/dsl.rb', line 416</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_respond_to_missing?'>respond_to_missing?</span><span class='lparen'>(</span><span class='id identifier rubyid_method'>method</span><span class='comma'>,</span> <span class='id identifier rubyid_include_private'>include_private</span><span class='op'>=</span><span class='kw'>false</span><span class='rparen'>)</span>
+  <span class='kw'>super</span> <span class='op'>||</span> <span class='ivar'>@matcher_execution_context</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='id identifier rubyid_method'>method</span><span class='comma'>,</span> <span class='id identifier rubyid_include_private'>include_private</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+    <div id="footer">
+  Generated on Wed Nov 11 23:57:13 2015 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.4 (ruby-2.1.5).
+</div>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-59095215-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+  </body>
+</html>

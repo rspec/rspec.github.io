@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"><![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]<!--><html class="no-js" lang="en"><!--<![endif]--><head><meta charset="UTF-8" /><title>RSpec 3.4 がリリースされました！</title><link href="/stylesheets/application.css" rel="stylesheet" type="text/css" /><link href="/stylesheets/normalize.css" rel="stylesheet" type="text/css" /><link href="/stylesheets/pages/blog.css" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" type="text/css" /><link href="/blog/feed.xml" rel="alternate" type="application/atom+xml" /></head><body class="blog"><header><nav><h1><a href="/">RSpec</a></h1><ul><li><a href="/about">About</a></li><li><a href="/documentation">Documentation</a></li><li><a href="/blog">Blog</a></li><li><a href="/upgrading-from-rspec-2">Upgrade</a></li><li><a href="/help">Get Help</a></li><li><a href="/contributing">Contributing</a></li></ul></nav></header><section><article class="blog_post"><ul class="langs"><li class="lang"><a href="/blog/2015/11/rspec-3-4-has-been-released/">en</a></li><li class="lang current_lang">ja</li></ul><h1>RSpec 3.4 がリリースされました！</h1><h3 class="author">Yuji Nakayama</h3><small class="date">Nov 13, 2015</small><p>RSpec 3.4 がリリースされました！
+私たちは <a href="http://semver.org/">semantic versioning</a> に準拠する方針を掲げているため、
+このリリースはすでに RSpec 3 を使っている方にとってなにか対応が必要になるものではありません。
+しかし、もし私たちがバグを作り込んでしまっていた場合は教えてください。
+できるだけ早く修正をし、パッチ版をリリースします。</p>
+
+<p>RSpec は世界中のコントリビュータと共に、コミュニティ主導のプロジェクトであり続けます。
+今回のリリースには、50 人近くのコントリビュータによる 500 以上のコミットと 160 以上の pull request が含まれています！</p>
+
+<p>このリリースに向けて力になってくれたみなさん、ありがとう！</p>
+
+<h2 id="section">主要な変更</h2>
+
+<h3 id="core-bisect-">Core: Bisect アルゴリズムの改善</h3>
+
+<p><a href="/blog/2015/06/rspec-3-3-has-been-released/#core-bisect">RSpec 3.3</a> では、
+実行順序依存の失敗の原因を探す上で、
+失敗を再現する最小限のコマンドを特定するための <code>--bisect</code> オプションを導入しました。
+このときの二分アルゴリズムは単純な並び替えによる方法であり、
+各ラウンドごとに、
+まず最初の半分の example 群を試し、次にもう一方の半分、そしてそれら example 群の半分ずつの各組み合わせ、
+という流れを、確実に無視できる半分を見つけるまで繰り返すものでした。
+この方法は大抵の場合は問題ありませんでしたが、最悪のケースではひどい挙動を示すことがありました。
+具体的には、実行順序依存の原因として <em>複数の</em> example が関わっていた場合、
+それら原因の example 群をすべて含んだ多数の組み合わせが発生してしまうことがありました。
+さらに、残り半分以上の example 群が原因だった場合はすべての組み合わせを網羅的に試そうとし、
+非常に長時間かかってしまうこともありました。</p>
+
+<p>RSpec 3.4 では、この二分アルゴリズムは <em>はるかに</em> 賢くなりました。
+新しいアルゴリズムは再帰ベースになり、最小の試行回数で原因を特定します。
+この新しいアルゴリズムはすでに非常に良い反響を得ており、
+Sam Livingston-Gray は <a href="https://twitter.com/geeksam/status/656858995932573697">3.3 の二分アルゴリズムは一晩中かかっても終わらない</a>と報告していましたが、
+新しいアルゴリズムでは <a href="https://twitter.com/geeksam/status/656949626495328256">20 分足らずで完了した</a>とのことです！</p>
+
+<p>これを実装してくれた Simon Coffey、ありがとう！
+もしこのアルゴリズムについてもっと知りたい場合は、
+<a href="https://github.com/rspec/rspec-core/pull/1997">こちらの pull request</a> を参照してください。
+アルゴリズムの理解に役立つ図も載っています。</p>
+
+<h3 id="core-">Core: 失敗時の出力の改善</h3>
+
+<p>RSpec は失敗時のわかりやすいログ出力をこれまでずっと重要視してきましたが、
+3.4 では様々な方法によってさらに改善されました。</p>
+
+<h4 id="section-1">複数行のコードスニペット</h4>
+
+<p>RSpec は、エクスペクテーションが失敗したときにそのコードスニペットを表示します。
+RSpec 3.4 以前では、エクスペクテーションが1行に収まっている場合は問題ありませんでしたが、
+以下のように複数行で記述した場合、</p>
+
+<pre class="highlight ruby"><code><span class="n">expect</span> <span class="p">{</span>
+  <span class="no">MyNamespace</span><span class="o">::</span><span class="no">MyClass</span><span class="p">.</span><span class="nf">some_long_method_name</span><span class="p">(</span><span class="ss">:with</span><span class="p">,</span> <span class="ss">:some</span><span class="p">,</span> <span class="ss">:arguments</span><span class="p">)</span>
+<span class="p">}.</span><span class="nf">to</span> <span class="n">raise_error</span><span class="p">(</span><span class="sr">/some error snippet/</span><span class="p">)</span>
+</code></pre>
+
+<p>最初の1行目（<code>expect {</code>）しか表示されませんでした。
+なぜなら例外オブジェクトには、スタックフレームとしてそれだけの情報しか含まれていないからです。
+RSpec 3.4 では、
+標準ライブラリの <a href="http://ruby-doc.org/stdlib-2.2.0/libdoc/ripper/rdoc/Ripper.html">Ripper</a> が利用可能な場合はそれを読み込み、
+ソースをパースして問題のエクスペクテーションの式が何行続くかを判断するようになりました。
+上記のような複数行のケースでは、式全体が表示されるようになります。</p>
+
+<p>また、これに伴う設定オプション <code>config.max_displayed_failure_line_count</code> も追加されており、
+表示されるスニペットの最大行数を設定することができます（デフォルトで 10）。</p>
+
+<p>これを<a href="https://github.com/rspec/rspec-core/pull/2083">実装</a>してくれた Yuji Nakayama、ありがとう！</p>
+
+<h4 id="coderay"><code>coderay</code>がインストール済みの場合、シンタックスハイライトが有効に</h4>
+
+<p>これをさらに一歩進めて、<a href="http://coderay.rubychan.de/"><code>coderay</code></a> gem がインストールされている場合、
+RSpec 3.4 はコードスニペットのシンタックスハイライトを行うようになりました。
+前述のスニペットの場合、こんな感じで表示されます。</p>
+
+<p><img alt="Failure with syntax highlighting" src="/images/blog/multiline_failure_with_syntax_highlighting.png" /></p>
+
+<h4 id="section-2">失敗元の行の検出の改善</h4>
+
+<p>RSpec は、例外のスタックトレース中から適切なフレームを調べることで、失敗の元となったコードスニペットを探し出します。
+これを行う上で、単純にスタックトレースの一番上のフレームを使うこともできますが、
+それは大抵の場合あなたが求めているものではありません。
+例えばエクスペクテーションが失敗した場合は、
+一番上のフレームは常に RSpec 内の <code>RSpec::Expectations::ExpectationNotMetError</code> が発生した箇所になりますが、
+あなたが知りたいのは RSpec 内のコードではなく、spec ファイル中で <code>expect</code> を呼び出している箇所でしょう。
+RSpec 3.4 以前のこの実装はかなり単純で、
+現在実行中の example が含まれている spec ファイル内の一番最初のスタックフレームを探すだけでした。
+そのため、場合によっては間違ったスニペットを表示してしまうことがありました
+（例えば spec ファイル内から、<code>spec/support</code> 以下で定義されたヘルパーメソッドを呼び出しており、本当はそこで失敗していた場合）。
+また、該当するスタックフレームを見つけられなかった場合は
+<code>Unable to find matching line from backtrace</code> と表示するしかありませんでした。</p>
+
+<p>RSpec 3.4 ではこのロジックが改善され、
+まずは <code>config.project_source_dirs</code>（デフォルトで <code>lib</code>、<code>app</code>、<code>spec</code>）に含まれる最初のフレームを探し、
+もし該当するフレームが見つからなかった場合は一番最初のスタックフレームにフォールバックします。
+もう <code>Unable to find matching line from backtrace</code> が表示されることはありません！</p>
+
+<h3 id="expectations-">Expectations: 複合エクスペクテーションの失敗時メッセージの改善</h3>
+
+<p>さらに失敗時出力の改善が続きます。
+rspec-expectations 3.4 では、複合エクスペクテーション（<em>compound expectations</em>）の失敗メッセージが改善されました。
+これまでは複数の失敗メッセージを単純に1行に連結しており、例えば以下のようなエクスペクテーションの場合、</p>
+
+<pre class="highlight ruby"><code><span class="n">expect</span><span class="p">(</span><span class="n">lyrics</span><span class="p">).</span><span class="nf">to</span> <span class="n">start_with</span><span class="p">(</span><span class="s2">"There must be some kind of way out of here"</span><span class="p">)</span>
+              <span class="p">.</span><span class="nf">and</span> <span class="kp">include</span><span class="p">(</span><span class="s2">"No reason to get excited"</span><span class="p">)</span>
+</code></pre>
+
+<p>このような読みにくいメッセージが出力されてしまっていました。</p>
+
+<pre class="highlight plaintext"><code>1) All Along the Watchtower has the expected lyrics
+   Failure/Error: expect(lyrics).to start_with("There must be some kind of way out of here")
+     expected "I stand up next to a mountain And I chop it down with the edge of my hand" to start with "There must be some kind of way out of here" and expected "I stand up next to a mountain And I chop it down with the edge of my hand" to include "No reason to get excited"
+   # ./spec/example_spec.rb:20:in `block (2 levels) in &lt;top (required)&gt;'
+</code></pre>
+
+<p>RSpec 3.4 では、それぞれのメッセージが個別に表示されるようになり、読みやすくなりました。</p>
+
+<pre class="highlight plaintext"><code>1) All Along the Watchtower has the expected lyrics
+   Failure/Error:
+     expect(lyrics).to start_with("There must be some kind of way out of here")
+                   .and include("No reason to get excited")
+
+        expected "I stand up next to a mountain And I chop it down with the edge of my hand" to start with "There must be some kind of way out of here"
+
+     ...and:
+
+        expected "I stand up next to a mountain And I chop it down with the edge of my hand" to include "No reason to get excited"
+   # ./spec/example_spec.rb:20:in `block (2 levels) in &lt;top (required)&gt;'
+</code></pre>
+
+<h3 id="expectations-match--withcaptures-">Expectations: <code>match</code> マッチャへの <code>with_captures</code> の追加</h3>
+
+<p>RSpec 3.4 では、<code>match</code> マッチャに新しい機能が追加され、正規表現のキャプチャを指定することができるようになりました。
+新しい <code>with_captures</code> メソッドを使って、このようにインデックスベースのキャプチャを指定することができます。</p>
+
+<pre class="highlight ruby"><code><span class="n">year_regex</span> <span class="o">=</span> <span class="sr">/(\d{4})\-(\d{2})\-(\d{2})/</span>
+<span class="n">expect</span><span class="p">(</span><span class="n">year_regex</span><span class="p">).</span><span class="nf">to</span> <span class="n">match</span><span class="p">(</span><span class="s2">"2015-12-25"</span><span class="p">).</span><span class="nf">with_captures</span><span class="p">(</span><span class="s2">"2015"</span><span class="p">,</span> <span class="s2">"12"</span><span class="p">,</span> <span class="s2">"25"</span><span class="p">)</span>
+</code></pre>
+
+<p>また、名前付きキャプチャを指定することも可能です。</p>
+
+<pre class="highlight ruby"><code><span class="n">year_regex</span> <span class="o">=</span> <span class="sr">/(?&lt;year&gt;\d{4})\-(?&lt;month&gt;\d{2})\-(?&lt;day&gt;\d{2})/</span>
+<span class="n">expect</span><span class="p">(</span><span class="n">year_regex</span><span class="p">).</span><span class="nf">to</span> <span class="n">match</span><span class="p">(</span><span class="s2">"2015-12-25"</span><span class="p">).</span><span class="nf">with_captures</span><span class="p">(</span>
+  <span class="ss">year: </span><span class="s2">"2015"</span><span class="p">,</span>
+  <span class="ss">month: </span><span class="s2">"12"</span><span class="p">,</span>
+  <span class="ss">day: </span><span class="s2">"25"</span>
+<span class="p">)</span>
+</code></pre>
+
+<p>Sam Phippen と、この実装にあたって協力してくれた Jason Karns、ありがとう。</p>
+
+<h3 id="rails-activejob--haveenqueuedjob-">Rails: ActiveJob のための新しい <code>have_enqueued_job</code> マッチャ</h3>
+
+<p>Rails 4.2 には ActiveJob が組み込まれました。
+rspec-rails 3.4 では、任意のコードがジョブをキューに加えることを指定するためのマッチャが追加されました。
+このマッチャはメソッドチェーンによるインターフェースを持っており、
+rspec-mock を使ったことがあれば見覚えがあるのではないでしょうか。</p>
+
+<pre class="highlight ruby"><code><span class="n">expect</span> <span class="p">{</span>
+  <span class="no">HeavyLiftingJob</span><span class="p">.</span><span class="nf">perform_later</span>
+<span class="p">}.</span><span class="nf">to</span> <span class="n">have_enqueued_job</span>
+
+<span class="n">expect</span> <span class="p">{</span>
+  <span class="no">HelloJob</span><span class="p">.</span><span class="nf">perform_later</span>
+  <span class="no">HeavyLiftingJob</span><span class="p">.</span><span class="nf">perform_later</span>
+<span class="p">}.</span><span class="nf">to</span> <span class="n">have_enqueued_job</span><span class="p">(</span><span class="no">HelloJob</span><span class="p">).</span><span class="nf">exactly</span><span class="p">(</span><span class="ss">:once</span><span class="p">)</span>
+
+<span class="n">expect</span> <span class="p">{</span>
+  <span class="no">HelloJob</span><span class="p">.</span><span class="nf">perform_later</span>
+  <span class="no">HelloJob</span><span class="p">.</span><span class="nf">perform_later</span>
+  <span class="no">HelloJob</span><span class="p">.</span><span class="nf">perform_later</span>
+<span class="p">}.</span><span class="nf">to</span> <span class="n">have_enqueued_job</span><span class="p">(</span><span class="no">HelloJob</span><span class="p">).</span><span class="nf">at_least</span><span class="p">(</span><span class="mi">2</span><span class="p">).</span><span class="nf">times</span>
+
+<span class="n">expect</span> <span class="p">{</span>
+  <span class="no">HelloJob</span><span class="p">.</span><span class="nf">perform_later</span>
+<span class="p">}.</span><span class="nf">to</span> <span class="n">have_enqueued_job</span><span class="p">(</span><span class="no">HelloJob</span><span class="p">).</span><span class="nf">at_most</span><span class="p">(</span><span class="ss">:twice</span><span class="p">)</span>
+
+<span class="n">expect</span> <span class="p">{</span>
+  <span class="no">HelloJob</span><span class="p">.</span><span class="nf">perform_later</span>
+  <span class="no">HeavyLiftingJob</span><span class="p">.</span><span class="nf">perform_later</span>
+<span class="p">}.</span><span class="nf">to</span> <span class="n">have_enqueued_job</span><span class="p">(</span><span class="no">HelloJob</span><span class="p">).</span><span class="nf">and</span> <span class="n">have_enqueued_job</span><span class="p">(</span><span class="no">HeavyLiftingJob</span><span class="p">)</span>
+
+<span class="n">expect</span> <span class="p">{</span>
+  <span class="no">HelloJob</span><span class="p">.</span><span class="nf">set</span><span class="p">(</span><span class="ss">wait_until: </span><span class="no">Date</span><span class="p">.</span><span class="nf">tomorrow</span><span class="p">.</span><span class="nf">noon</span><span class="p">,</span> <span class="ss">queue: </span><span class="s2">"low"</span><span class="p">).</span><span class="nf">perform_later</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="p">}.</span><span class="nf">to</span> <span class="n">have_enqueued_job</span><span class="p">.</span><span class="nf">with</span><span class="p">(</span><span class="mi">42</span><span class="p">).</span><span class="nf">on_queue</span><span class="p">(</span><span class="s2">"low"</span><span class="p">).</span><span class="nf">at</span><span class="p">(</span><span class="no">Date</span><span class="p">.</span><span class="nf">tomorrow</span><span class="p">.</span><span class="nf">noon</span><span class="p">)</span>
+</code></pre>
+
+<p>この機能を実装してくれた Wojciech Wnętrzak、ありがとう！</p>
+
+<h2 id="section-3">統計</h2>
+
+<h3 id="section-4">全体:</h3>
+
+<ul>
+  <li><strong>総コミット</strong>: 502</li>
+  <li><strong>マージされた pull request</strong>: 163</li>
+  <li><strong>48 コントリビュータ</strong>: Aaron Kromer, Alex Dowad, Alex Egan, Alex Pounds, Andrew Horner, Ara Hacopian, Ashley Engelund (aenw / weedySeaDragon), Ben Woosley, Bradley Schaefer, Brian John, Bryce McDonnell, Chris Zetter, Dan Kohn, Dave Marr, Dennis Günnewig, Diego Carrion, Edward Park, Gavin Miller, Jack Scotti, Jam Black, Jamela Black, Jason Karns, Jon Moss, Jon Rowe, Leo Cassarani, Liz Rush, Marek Tuchowski, Max Meyer, Myron Marston, Nikki Murray, Pavel Pravosud, Sam Phippen, Sebastián Tello, Simon Coffey, Tim Mertens, Wojciech Wnętrzak, Xavier Shay, Yuji Nakayama, Zshawn Syed, bennacer860, bootstraponline, draffensperger, georgeu2000, jackscotti, mrageh, rafik, takiy33, unmanbearpig</li>
+</ul>
+
+<h3 id="rspec-core">rspec-core:</h3>
+
+<ul>
+  <li><strong>総コミット</strong>: 180</li>
+  <li><strong>マージされた pull request</strong>: 52</li>
+  <li><strong>24 コントリビュータ</strong>: Aaron Kromer, Alex Pounds, Ashley Engelund (aenw / weedySeaDragon), Ben Woosley, Bradley Schaefer, Brian John, Edward Park, Gavin Miller, Jack Scotti, Jon Moss, Jon Rowe, Leo Cassarani, Marek Tuchowski, Myron Marston, Sebastián Tello, Simon Coffey, Tim Mertens, Yuji Nakayama, bennacer860, bootstraponline, draffensperger, jackscotti, mrageh, takiy33</li>
+</ul>
+
+<h3 id="rspec-expectations">rspec-expectations:</h3>
+
+<ul>
+  <li><strong>総コミット</strong>: 93</li>
+  <li><strong>マージされた pull request</strong>: 34</li>
+  <li><strong>17 コントリビュータ</strong>: Aaron Kromer, Alex Egan, Bradley Schaefer, Brian John, Dennis Günnewig, Jason Karns, Jon Moss, Jon Rowe, Max Meyer, Myron Marston, Nikki Murray, Sam Phippen, Xavier Shay, Yuji Nakayama, Zshawn Syed, mrageh, unmanbearpig</li>
+</ul>
+
+<h3 id="rspec-mocks">rspec-mocks:</h3>
+
+<ul>
+  <li><strong>総コミット</strong>: 77</li>
+  <li><strong>マージされた pull request</strong>: 26</li>
+  <li><strong>12 コントリビュータ</strong>: Aaron Kromer, Alex Dowad, Alex Egan, Brian John, Bryce McDonnell, Jon Moss, Jon Rowe, Liz Rush, Myron Marston, Pavel Pravosud, Sam Phippen, georgeu2000</li>
+</ul>
+
+<h3 id="rspec-rails">rspec-rails:</h3>
+
+<ul>
+  <li><strong>総コミット</strong>: 97</li>
+  <li><strong>マージされた pull request</strong>: 31</li>
+  <li><strong>16 コントリビュータ</strong>: Aaron Kromer, Alex Egan, Ara Hacopian, Bradley Schaefer, Brian John, Chris Zetter, Dan Kohn, Dave Marr, Diego Carrion, Jam Black, Jamela Black, Jon Moss, Jon Rowe, Myron Marston, Nikki Murray, Wojciech Wnętrzak</li>
+</ul>
+
+<h3 id="rspec-support">rspec-support:</h3>
+
+<ul>
+  <li><strong>総コミット</strong>: 55</li>
+  <li><strong>マージされた pull request</strong>: 20</li>
+  <li><strong>10 コントリビュータ</strong>: Aaron Kromer, Alex Egan, Andrew Horner, Bradley Schaefer, Brian John, Jon Rowe, Myron Marston, Xavier Shay, Yuji Nakayama, rafik</li>
+</ul>
+
+<h2 id="section-5">ドキュメント</h2>
+
+<h3 id="api-">API ドキュメント</h3>
+
+<ul>
+  <li><a href="/documentation/3.4/rspec-core/">rspec-core</a></li>
+  <li><a href="/documentation/3.4/rspec-expectations/">rspec-expectations</a></li>
+  <li><a href="/documentation/3.4/rspec-mocks/">rspec-mocks</a></li>
+  <li><a href="/documentation/3.4/rspec-rails/">rspec-rails</a></li>
+</ul>
+
+<h3 id="cucumber-">Cucumber フィーチャ</h3>
+
+<ul>
+  <li><a href="http://relishapp.com/rspec/rspec-core">rspec-core</a></li>
+  <li><a href="http://relishapp.com/rspec/rspec-expectations">rspec-expectations</a></li>
+  <li><a href="http://relishapp.com/rspec/rspec-mocks">rspec-mocks</a></li>
+  <li><a href="http://relishapp.com/rspec/rspec-rails">rspec-rails</a></li>
+</ul>
+
+<h2 id="section-6">リリースノート</h2>
+
+<h3 id="rspec-core-340">rspec-core 3.4.0</h3>
+<p><a href="http://github.com/rspec/rspec-core/compare/v3.3.2...v3.4.0">すべての Changelog</a></p>
+
+<p>改善:</p>
+
+<ul>
+  <li>複数の <code>--pattern</code> オプションが指定されたとき、それらを統合して <code>--pattern=1,2,...,n</code> と等価に扱うようにしました。
+(Jon Rowe, #2002)</li>
+  <li><code>RSpec::Core::Example</code> オブジェクトの <code>inspect</code> と <code>to_s</code> の出力を、Ruby 標準の冗長過ぎる出力を置き換えることで改善しました。
+(Gavin Miller, #1922)</li>
+  <li><code>silence_filter_announcements</code> 設定オプションを追加しました。
+(David Raffensperger, #2007)</li>
+  <li><code>Reporter</code> プロトコルに、example の実行結果にかかわらず常に呼び出される <code>example_finished</code> 通知（optional）を追加しました。
+(Jon Rowe, #2013)</li>
+  <li><code>--bisect</code> を並べ替えベースのアルゴリズムから再帰ベースに変更しました。
+これによって、失敗する example が他の複数の example 群に依存にしているケースによりうまく対応できるようになり、
+最小限の組み合わせに到達するまでの実行回数も減りました。
+(Simon Coffey, #1997)</li>
+  <li>単純なフィルタ（<code>:symbol</code> キーのみ）が、真 (truthy) と評価された場合にも適用されるようになりました。
+(Tim Mertens, #2035)</li>
+  <li>Windows で RSpec の <code>--color</code> オプションを使った場合に表示される、<code>ansicon</code> についての不要な警告を削除しました。
+(Ashley Engelund, #2038)</li>
+  <li>RSpec が警告を表示しようとしたときに例外を発生させるためのオプションを追加しました。
+(Jon Rowe, #2052)</li>
+  <li>失敗やエラーの元となった <code>cause</code> が存在している場合、それを出力に含めるようにしました。
+(Adam Magan)</li>
+  <li><code>NoMemoryError</code>、<code>SignalExcepetion</code>、<code>Interrupt</code>、<code>SystemExit</code> を rescue しないようにしました。
+これらに干渉するのは危険なためです。
+(Myron Marston, #2063)</li>
+  <li>バックトレースがあなたのプロジェクト由来なのか外部ライブラリ由来なのかを RSpec が判断するための
+<code>config.project_source_dirs</code> 設定を追加しました。
+デフォルトで <code>spec</code>、<code>lib</code>、<code>app</code> が設定されていますが変更可能です。
+(Myron Marston, #2088)</li>
+  <li>失敗元の行の検出を、spec ファイル内だけでなくプロジェクトディレクトリ全体から探すように改善しました。
+さらにプロジェクトディレクトリ内で該当の行が見つからなかった場合は、
+バックトレースの1番目の行にフォールバックします。
+これによって "Unable to find matching line from backtrace" というメッセージが表示されることは事実上なくなります。
+(Myron Marston, #2088)</li>
+  <li>失敗時の出力に追加して表示される <code>:extra_failure_lines</code> メタデータを追加しました。
+(bootstraponline, #2092)</li>
+  <li>メタデータをコピーしながら新しい example を生成するための
+<code>RSpec::Core::Example#duplicate_with</code> を追加しました。
+(bootstraponline, #2098)</li>
+  <li>example グループが作成されたときに呼び出されるフックを登録するための
+<code>RSpec::Core::Configuration#on_example_group_definition</code> を追加しました。
+(bootstraponline, #2094)</li>
+  <li>example グループの example 群を操作するための <code>add_example</code> と <code>remove_example</code> を
+<code>RSpec::Core::ExampleGroup</code> に追加しました。
+(bootstraponline, #2095)</li>
+  <li>Ripper が利用可能な場合、複数行の失敗したソースを表示できるようにしました（MRI &gt;= 1.9.2 と、JRuby &gt;= 1.7.5 &amp;&amp; &lt; 9.0.0.0.rc1）。
+(Yuji Nakayama, #2083)</li>
+  <li><code>max_displayed_failure_line_count</code> 設定オプション（デフォルト 10）を追加しました。
+(Yuji Nakayama, #2083)</li>
+  <li><code>fail_fast</code> オプションを拡張し、指定した回数（例: <code>--fail-fast=3</code>）だけ失敗が発生した後に中断することができるようになりました。
+(Jack Scotti, #2065)</li>
+  <li>POSIX システム上で、<code>color</code> が有効化されていて、<code>coderay</code> gem がインストールされている場合、
+失敗したスニペットがシンタックスハイライトされるようになりました。
+(Myron Marston, #2109)</li>
+</ul>
+
+<p>バグ修正:</p>
+
+<ul>
+  <li>複数のプロセスが <code>example_status_persistence_file</code> が読み書きしようとしたときに競合が発生しないよう、ロックを行うようにしました。
+(Ben Woosley, #2029)</li>
+  <li>3.3 において、ファイル名に角括弧が含まれている spec ファイル（例えば <code>1[]_spec.rb</code>）が読み込まれなくなったバグを修正しました。
+(Myron Marston, #2041)</li>
+  <li>Ruby 1.9.3 における ASCII リテラル由来の出力エンコーディングの問題を修正しました。
+(Jon Rowe, #2072)</li>
+  <li>何人かのユーザに確認された、<code>rspec/core/rake_task.rb</code> が重複 require を行ってしまう問題を修正しました。
+(Myron Marston, #2101)</li>
+</ul>
+
+<h3 id="rspec-expectations-340">rspec-expectations 3.4.0</h3>
+<p><a href="http://github.com/rspec/rspec-expectations/compare/v3.3.1...v3.4.0">すべての Changelog</a></p>
+
+<p>改善:</p>
+
+<ul>
+  <li>MRI 1.9において、<code>RSpec::Matchers</code> がサブクラスにすでに include された後にスーパークラスにも include された場合、
+警告を行うようになりました。その状況で <code>super</code> を使うと無限再帰が発生してしまうためです。
+(Myron Marston, #816)</li>
+  <li><code>NoMemoryError</code>、<code>SignalExcepetion</code>、<code>Interrupt</code>、<code>SystemExit</code> を rescue しないようにしました。
+これらに干渉するのは危険なためです。
+(Myron Marston, #845)</li>
+  <li><a href="(https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers/match-matcher)">match マッチャ</a>で文字列に対して正規表現をマッチさせるとき、
+期待するキャプチャを指定するための <code>#with_captures</code> を追加しました。
+(Sam Phippen, #848)</li>
+  <li>複合エクスペクテーションの失敗メッセージ群を常に複数行で表示するようにしました。
+それらをすべて1行で表示するのはあまり読みやすくなかったためです。
+(Myron Marston, #859)</li>
+</ul>
+
+<p>バグ修正:</p>
+
+<ul>
+  <li>動的な predicate マッチャにおいて、オブジェクトがその predicate メソッドに応答しない場合、
+失敗メッセージ出力にそのオブジェクトの <code>to_s</code> を利用しないように改善しました。
+例えばオブジェクトが <code>nil</code> だった場合、空文字列ではなく <code>"nil"</code> が表示されるようになります。
+(Myron Marston, #841)</li>
+  <li><code>#each</code> がそのオブジェクト自身を含む Enumerable オブジェクトを diff しようとした場合に、
+SystemStackError が発生していた問題を修正しました。
+(Yuji Nakayama, #857)</li>
+</ul>
+
+<h3 id="rspec-mocks-340">rspec-mocks 3.4.0</h3>
+<p><a href="http://github.com/rspec/rspec-mocks/compare/v3.3.2...v3.4.0">すべての Changelog</a></p>
+
+<p>改善:</p>
+
+<ul>
+  <li><code>expect(...).to have_received</code> が rspec-expectations に依存せず利用できるようになりました。
+(Myron Marston, #978)</li>
+  <li><code>nil</code> に対してエクスペクテーションを設定した場合にテストを失敗させるオプションを追加しました。
+(Liz Rush, #983)</li>
+</ul>
+
+<p>バグ修正:</p>
+
+<ul>
+  <li>対象のメソッドに渡されたブロックが<code>have_received { ... }</code> のブロックに渡されるように修正をしました。
+(Myron Marston, #1006)</li>
+  <li><code>respond_to?</code> をスタブしている場合にエラー出力時に無限ループになってしまうのを修正しました。
+(Alex Dowad, #1022)</li>
+  <li>Ruby 1.8.7 において、サブクラスのクラスメソッドに対して <code>receive</code> を使ったときに発生していた問題を修正しました。
+(Alex Dowad, #1026)</li>
+</ul>
+
+<h3 id="rspec-rails-340">rspec-rails 3.4.0</h3>
+<p><a href="http://github.com/rspec/rspec-rails/compare/v3.3.3...v3.4.0">Full Changelog</a></p>
+
+<p>改善:</p>
+
+<ul>
+  <li><code>have_rendered</code> マッチャがリダイレクトレスポンスによって失敗したときのメッセージを改善しました。
+(Alex Egan, #1440)</li>
+  <li>各種 Rails gem をバックトレースからフィルターするための設定オプションを追加しました。
+(Bradley Schaefer, #1458)</li>
+  <li>大幅な速度改善のために view spec で resolver cache を有効化しました。
+(Chris Zetter, #1452)</li>
+  <li>ブロックがジョブをキューに追加したかどうかを確認するための <code>have_enqueued_job</code> マッチャを追加しました。
+(Wojciech Wnętrzak, #1464)</li>
+</ul>
+
+<p>バグ修正:</p>
+
+<ul>
+  <li>spec が作成された後で rspec-rails が読み込まれた場合に、
+"undefined method <code>fixture_path</code>" エラーが発生してしまう、ロード順の問題を修正しました。
+(Nikki Murray, #1430)</li>
+  <li>rspec-rails 自身の <code>lib</code> コードをバックトレースから除外するためのパターンが、
+不適切に空白で囲われてしまっていたのを削除しました。
+(Jam Black, #1439)</li>
+</ul>
+
+<h3 id="rspec-support-340">rspec-support 3.4.0</h3>
+<p><a href="http://github.com/rspec/rspec-support/compare/v3.3.0...v3.4.0">すべての Changelog</a></p>
+
+<p>改善:</p>
+
+<ul>
+  <li><code>Delegator</code> ベースのオブジェクト（例: <code>SimpleDelgator</code>）が失敗時メッセージやdiffで表示されたときのフォーマットを改善しました。
+(Andrew Horner, #215)</li>
+  <li><code>ComparableVersion</code> を追加しました。
+(Yuji Nakayama, #245)</li>
+  <li><code>Ripper</code>がサポートされているか検出する機能を追加しました。
+(Yuji Nakayama, #245)</li>
+</ul>
+
+<p>バグ修正:</p>
+
+<ul>
+  <li>JRubyのバグとして、<code>attr_writer</code> によって生成されたメソッドがパラメータを持たないと報告する問題に対処しました。
+RSpec の検証付きダブルで writer メソッドをモックやスタブした時に、間違って失敗してしまっていたためです。
+(Myron Marston, #225)</li>
+</ul>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+  var disqus_shortname  = 'rspec';
+  var disqus_identifier = '/ja/blog/2015/11/rspec-3-4-has-been-released/';
+  var disqus_title      = 'RSpec 3.4 がリリースされました！';
+  var disqus_url        = 'http://rspec.info/ja/blog/2015/11/rspec-3-4-has-been-released/';
+
+  /* * * DON'T EDIT BELOW THIS LINE * * */
+  (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</article></section><script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-59095215-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+</body></html>

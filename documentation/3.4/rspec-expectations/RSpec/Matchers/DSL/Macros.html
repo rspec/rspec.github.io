@@ -1,0 +1,1018 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Module: RSpec::Matchers::DSL::Macros
+  
+    &mdash; Documentation by YARD 0.8.7.4
+  
+</title>
+
+  <link rel="stylesheet" href="/stylesheets/docs/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="/stylesheets/docs/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '../../../';
+  framesUrl = "../../../frames.html#!RSpec/Matchers/DSL/Macros.html";
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="/javascripts/docs/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="/javascripts/docs/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../../../_index.html">Index (M)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../../../RSpec.html" title="RSpec (module)">RSpec</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../../Matchers.html" title="RSpec::Matchers (module)">Matchers</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../DSL.html" title="RSpec::Matchers::DSL (module)">DSL</a></span></span>
+     &raquo; 
+    <span class="title">Macros</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../../../class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="../../../method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="../../../file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><h1>Module: RSpec::Matchers::DSL::Macros
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+  
+    
+  
+    
+  
+  
+    <dt class="r1">Included in:</dt>
+    <dd class="r1"><span class='object_link'><a href="Matcher.html" title="RSpec::Matchers::DSL::Matcher (class)">Matcher</a></span></dd>
+    
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/rspec/matchers/dsl.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <p>Contains the methods that are available from within the
+<code>RSpec::Matchers.define</code> DSL for creating custom matchers.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><h2>Defined Under Namespace</h2>
+<p class="children">
+  
+    
+      <strong class="modules">Modules:</strong> <span class='object_link'><a href="Macros/Deprecated.html" title="RSpec::Matchers::DSL::Macros::Deprecated (module)">Deprecated</a></span>
+    
+  
+    
+  
+</p>
+
+  <h2>Constant Summary</h2>
+  
+
+
+
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#chain-instance_method" title="#chain (instance method)">- (Object) <strong>chain</strong>(method_name, *attr_names, &amp;definition) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Convenience for defining methods on this matcher to create a fluent interface.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#description-instance_method" title="#description (instance method)">- (Object) <strong>description</strong> {|Object| ... }</a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Customize the description to use for one-liners.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#diffable-instance_method" title="#diffable (instance method)">- (Object) <strong>diffable</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Tells the matcher to diff the actual and expected values in the failure message.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#failure_message-instance_method" title="#failure_message (instance method)">- (Object) <strong>failure_message</strong> {|Object| ... }</a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Customizes the failure messsage to use when this matcher is asked to positively match.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#failure_message_when_negated-instance_method" title="#failure_message_when_negated (instance method)">- (Object) <strong>failure_message_when_negated</strong> {|Object| ... }</a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Customize the failure messsage to use when this matcher is asked to negatively match.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#match-instance_method" title="#match (instance method)">- (Object) <strong>match</strong> {|Object| ... }</a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Stores the block that is used to determine whether this matcher passes or fails.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#match_unless_raises-instance_method" title="#match_unless_raises (instance method)">- (Object) <strong>match_unless_raises</strong>(expected_exception = Exception) {|Object| ... }</a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Use this instead of <code>match</code> when the block will raise an exception rather than returning false to indicate a failure.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#match_when_negated-instance_method" title="#match_when_negated (instance method)">- (Object) <strong>match_when_negated</strong> {|Object| ... }</a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Use this to define the block for a negative expectation (<code>expect(...).not_to</code>) when the positive and negative forms require different handling.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#supports_block_expectations-instance_method" title="#supports_block_expectations (instance method)">- (Object) <strong>supports_block_expectations</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Declares that the matcher can be used in a block expectation.</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="chain-instance_method">
+  
+    - (<tt>Object</tt>) <strong>chain</strong>(method_name, *attr_names, &amp;definition) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Convenience for defining methods on this matcher to create a fluent
+interface. The trick about fluent interfaces is that each method must
+return self in order to chain methods together. <code>chain</code> handles that
+for you. If the method is invoked and the
+<code>include_chain_clauses_in_custom_matcher_descriptions</code> config option
+hash been enabled, the chained method name and args will be added to the
+default description and failure message.</p>
+
+<p>In the common case where you just want the chained method to store some
+value(s) for later use (e.g. in <code>match</code>), you can provide one or more
+attribute names instead of a block; the chained method will store its
+arguments in instance variables with those names, and the values will
+be exposed via getters.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code>
+<span class='const'>RSpec</span><span class='op'>::</span><span class='const'>Matchers</span><span class='period'>.</span><span class='id identifier rubyid_define'>define</span> <span class='symbol'>:have_errors_on</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_key'>key</span><span class='op'>|</span>
+  <span class='id identifier rubyid_chain'>chain</span> <span class='symbol'>:with</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_message'>message</span><span class='op'>|</span>
+    <span class='ivar'>@message</span> <span class='op'>=</span> <span class='id identifier rubyid_message'>message</span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_match'>match</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_actual'>actual</span><span class='op'>|</span>
+    <span class='id identifier rubyid_actual'>actual</span><span class='period'>.</span><span class='id identifier rubyid_errors'>errors</span><span class='lbracket'>[</span><span class='id identifier rubyid_key'>key</span><span class='rbracket'>]</span> <span class='op'>==</span> <span class='ivar'>@message</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span>
+
+<span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_minor'>minor</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_have_errors_on'>have_errors_on</span><span class='lparen'>(</span><span class='symbol'>:age</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_with'>with</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Not old enough to participate</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span></code></pre>
+    
+  </div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+212
+213
+214
+215
+216
+217
+218
+219
+220
+221
+222
+223
+224</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/matchers/dsl.rb', line 212</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_chain'>chain</span><span class='lparen'>(</span><span class='id identifier rubyid_method_name'>method_name</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_attr_names'>attr_names</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_definition'>definition</span><span class='rparen'>)</span>
+  <span class='kw'>unless</span> <span class='id identifier rubyid_block_given?'>block_given?</span> <span class='op'>^</span> <span class='id identifier rubyid_attr_names'>attr_names</span><span class='period'>.</span><span class='id identifier rubyid_any?'>any?</span>
+    <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>You must pass either a block or some attribute names (but not both) to `chain`.</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_definition'>definition</span> <span class='op'>=</span> <span class='id identifier rubyid_assign_attributes'>assign_attributes</span><span class='lparen'>(</span><span class='id identifier rubyid_attr_names'>attr_names</span><span class='rparen'>)</span> <span class='kw'>if</span> <span class='id identifier rubyid_attr_names'>attr_names</span><span class='period'>.</span><span class='id identifier rubyid_any?'>any?</span>
+
+  <span class='id identifier rubyid_define_user_override'>define_user_override</span><span class='lparen'>(</span><span class='id identifier rubyid_method_name'>method_name</span><span class='comma'>,</span> <span class='id identifier rubyid_definition'>definition</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='op'>|</span>
+    <span class='kw'>super</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
+    <span class='ivar'>@chained_method_clauses</span><span class='period'>.</span><span class='id identifier rubyid_push'>push</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='id identifier rubyid_method_name'>method_name</span><span class='comma'>,</span> <span class='id identifier rubyid_args'>args</span><span class='rbracket'>]</span><span class='rparen'>)</span>
+    <span class='kw'>self</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="description-instance_method">
+  
+    - (<tt>Object</tt>) <strong>description</strong> {|Object| ... }
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Customize the description to use for one-liners.  Only use this when
+the description generated by default doesn&#39;t suit your needs.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code>
+<span class='const'>RSpec</span><span class='op'>::</span><span class='const'>Matchers</span><span class='period'>.</span><span class='id identifier rubyid_define'>define</span> <span class='symbol'>:qualify_for</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_expected'>expected</span><span class='op'>|</span>
+  <span class='id identifier rubyid_match'>match</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_your_match_logic'>your_match_logic</span> <span class='rbrace'>}</span>
+
+  <span class='id identifier rubyid_description'>description</span> <span class='kw'>do</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>qualify for </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_expected'>expected</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></code></pre>
+    
+  </div>
+
+<p class="tag_title">Yields:</p>
+<ul class="yield">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Object</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>actual the actual object (i.e. the value wrapped by <code>expect</code>)</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+167
+168
+169</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/matchers/dsl.rb', line 167</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_description'>description</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_definition'>definition</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_define_user_override'>define_user_override</span><span class='lparen'>(</span><span class='id identifier rubyid___method__'>__method__</span><span class='comma'>,</span> <span class='id identifier rubyid_definition'>definition</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="diffable-instance_method">
+  
+    - (<tt>Object</tt>) <strong>diffable</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Tells the matcher to diff the actual and expected values in the failure
+message.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+173
+174
+175</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/matchers/dsl.rb', line 173</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_diffable'>diffable</span>
+  <span class='id identifier rubyid_define_method'>define_method</span><span class='lparen'>(</span><span class='symbol'>:diffable?</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='kw'>true</span> <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="failure_message-instance_method">
+  
+    - (<tt>Object</tt>) <strong>failure_message</strong> {|Object| ... }
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Customizes the failure messsage to use when this matcher is
+asked to positively match. Only use this when the message
+generated by default doesn&#39;t suit your needs.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code>
+<span class='const'>RSpec</span><span class='op'>::</span><span class='const'>Matchers</span><span class='period'>.</span><span class='id identifier rubyid_define'>define</span> <span class='symbol'>:have_strength</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_expected'>expected</span><span class='op'>|</span>
+  <span class='id identifier rubyid_match'>match</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_your_match_logic'>your_match_logic</span> <span class='rbrace'>}</span>
+
+  <span class='id identifier rubyid_failure_message'>failure_message</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_actual'>actual</span><span class='op'>|</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Expected strength of </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_expected'>expected</span><span class='embexpr_end'>}</span><span class='tstring_content'>, but had </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_actual'>actual</span><span class='period'>.</span><span class='id identifier rubyid_strength'>strength</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></code></pre>
+    
+  </div>
+
+<p class="tag_title">Yields:</p>
+<ul class="yield">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Object</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>actual the actual object (i.e. the value wrapped by <code>expect</code>)</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+130
+131
+132</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/matchers/dsl.rb', line 130</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_failure_message'>failure_message</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_definition'>definition</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_define_user_override'>define_user_override</span><span class='lparen'>(</span><span class='id identifier rubyid___method__'>__method__</span><span class='comma'>,</span> <span class='id identifier rubyid_definition'>definition</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="failure_message_when_negated-instance_method">
+  
+    - (<tt>Object</tt>) <strong>failure_message_when_negated</strong> {|Object| ... }
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Customize the failure messsage to use when this matcher is asked
+to negatively match. Only use this when the message generated by
+default doesn&#39;t suit your needs.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code>
+<span class='const'>RSpec</span><span class='op'>::</span><span class='const'>Matchers</span><span class='period'>.</span><span class='id identifier rubyid_define'>define</span> <span class='symbol'>:have_strength</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_expected'>expected</span><span class='op'>|</span>
+  <span class='id identifier rubyid_match'>match</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_your_match_logic'>your_match_logic</span> <span class='rbrace'>}</span>
+
+  <span class='id identifier rubyid_failure_message_when_negated'>failure_message_when_negated</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_actual'>actual</span><span class='op'>|</span>
+    <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Expected not to have strength of </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_expected'>expected</span><span class='embexpr_end'>}</span><span class='tstring_content'>, but did</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></code></pre>
+    
+  </div>
+
+<p class="tag_title">Yields:</p>
+<ul class="yield">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Object</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>actual the actual object (i.e. the value wrapped by <code>expect</code>)</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+149
+150
+151</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/matchers/dsl.rb', line 149</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_failure_message_when_negated'>failure_message_when_negated</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_definition'>definition</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_define_user_override'>define_user_override</span><span class='lparen'>(</span><span class='id identifier rubyid___method__'>__method__</span><span class='comma'>,</span> <span class='id identifier rubyid_definition'>definition</span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="match-instance_method">
+  
+    - (<tt>Object</tt>) <strong>match</strong> {|Object| ... }
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Stores the block that is used to determine whether this matcher passes
+or fails. The block should return a boolean value. When the matcher is
+passed to <code>expect(...).to</code> and the block returns <code>true</code>, then the expectation
+passes. Similarly, when the matcher is passed to <code>expect(...).not_to</code> and the
+block returns <code>false</code>, then the expectation passes.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code>
+<span class='const'>RSpec</span><span class='op'>::</span><span class='const'>Matchers</span><span class='period'>.</span><span class='id identifier rubyid_define'>define</span> <span class='symbol'>:be_even</span> <span class='kw'>do</span>
+  <span class='id identifier rubyid_match'>match</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_actual'>actual</span><span class='op'>|</span>
+    <span class='id identifier rubyid_actual'>actual</span><span class='period'>.</span><span class='id identifier rubyid_even?'>even?</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span>
+
+<span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='int'>4</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_be_even'>be_even</span>     <span class='comment'># passes
+</span><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='int'>3</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_not_to'>not_to</span> <span class='id identifier rubyid_be_even'>be_even</span> <span class='comment'># passes
+</span><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='int'>3</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_be_even'>be_even</span>     <span class='comment'># fails
+</span><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='int'>4</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_not_to'>not_to</span> <span class='id identifier rubyid_be_even'>be_even</span> <span class='comment'># fails</span></code></pre>
+    
+  </div>
+
+<p class="tag_title">Yields:</p>
+<ul class="yield">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Object</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>actual the actual value (i.e. the value wrapped by <code>expect</code>)</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/matchers/dsl.rb', line 59</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_match'>match</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_match_block'>match_block</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_define_user_override'>define_user_override</span><span class='lparen'>(</span><span class='symbol'>:matches?</span><span class='comma'>,</span> <span class='id identifier rubyid_match_block'>match_block</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_actual'>actual</span><span class='op'>|</span>
+    <span class='kw'>begin</span>
+      <span class='ivar'>@actual</span> <span class='op'>=</span> <span class='id identifier rubyid_actual'>actual</span>
+      <span class='const'>RSpec</span><span class='op'>::</span><span class='const'>Support</span><span class='period'>.</span><span class='id identifier rubyid_with_failure_notifier'>with_failure_notifier</span><span class='lparen'>(</span><span class='const'>RAISE_NOTIFIER</span><span class='rparen'>)</span> <span class='kw'>do</span>
+        <span class='kw'>super</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_actual_arg_for'>actual_arg_for</span><span class='lparen'>(</span><span class='id identifier rubyid_match_block'>match_block</span><span class='rparen'>)</span><span class='rparen'>)</span>
+      <span class='kw'>end</span>
+    <span class='kw'>rescue</span> <span class='const'>RSpec</span><span class='op'>::</span><span class='const'>Expectations</span><span class='op'>::</span><span class='const'>ExpectationNotMetError</span>
+      <span class='kw'>false</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="match_unless_raises-instance_method">
+  
+    - (<tt>Object</tt>) <strong>match_unless_raises</strong>(expected_exception = Exception) {|Object| ... }
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Use this instead of <code>match</code> when the block will raise an exception
+rather than returning false to indicate a failure.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code>
+<span class='const'>RSpec</span><span class='op'>::</span><span class='const'>Matchers</span><span class='period'>.</span><span class='id identifier rubyid_define'>define</span> <span class='symbol'>:accept_as_valid</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_candidate_address'>candidate_address</span><span class='op'>|</span>
+  <span class='id identifier rubyid_match_unless_raises'>match_unless_raises</span> <span class='const'>ValidationException</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_validator'>validator</span><span class='op'>|</span>
+    <span class='id identifier rubyid_validator'>validator</span><span class='period'>.</span><span class='id identifier rubyid_validate'>validate</span><span class='lparen'>(</span><span class='id identifier rubyid_candidate_address'>candidate_address</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span>
+
+<span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_email_validator'>email_validator</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_accept_as_valid'>accept_as_valid</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>person@company.com</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span></code></pre>
+    
+  </div>
+
+<p class="tag_title">Yields:</p>
+<ul class="yield">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Object</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>actual the actual object (i.e. the value wrapped by <code>expect</code>)</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/matchers/dsl.rb', line 102</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_match_unless_raises'>match_unless_raises</span><span class='lparen'>(</span><span class='id identifier rubyid_expected_exception'>expected_exception</span><span class='op'>=</span><span class='const'>Exception</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_match_block'>match_block</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_define_user_override'>define_user_override</span><span class='lparen'>(</span><span class='symbol'>:matches?</span><span class='comma'>,</span> <span class='id identifier rubyid_match_block'>match_block</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_actual'>actual</span><span class='op'>|</span>
+    <span class='ivar'>@actual</span> <span class='op'>=</span> <span class='id identifier rubyid_actual'>actual</span>
+    <span class='kw'>begin</span>
+      <span class='kw'>super</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_actual_arg_for'>actual_arg_for</span><span class='lparen'>(</span><span class='id identifier rubyid_match_block'>match_block</span><span class='rparen'>)</span><span class='rparen'>)</span>
+    <span class='kw'>rescue</span> <span class='id identifier rubyid_expected_exception'>expected_exception</span> <span class='op'>=&gt;</span> <span class='ivar'>@rescued_exception</span>
+      <span class='kw'>false</span>
+    <span class='kw'>else</span>
+      <span class='kw'>true</span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="match_when_negated-instance_method">
+  
+    - (<tt>Object</tt>) <strong>match_when_negated</strong> {|Object| ... }
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Use this to define the block for a negative expectation (<code>expect(...).not_to</code>)
+when the positive and negative forms require different handling. This
+is rarely necessary, but can be helpful, for example, when specifying
+asynchronous processes that require different timeouts.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Yields:</p>
+<ul class="yield">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Object</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>actual the actual value (i.e. the value wrapped by <code>expect</code>)</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+81
+82
+83
+84
+85
+86</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/matchers/dsl.rb', line 81</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_match_when_negated'>match_when_negated</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_match_block'>match_block</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_define_user_override'>define_user_override</span><span class='lparen'>(</span><span class='symbol'>:does_not_match?</span><span class='comma'>,</span> <span class='id identifier rubyid_match_block'>match_block</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_actual'>actual</span><span class='op'>|</span>
+    <span class='ivar'>@actual</span> <span class='op'>=</span> <span class='id identifier rubyid_actual'>actual</span>
+    <span class='kw'>super</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_actual_arg_for'>actual_arg_for</span><span class='lparen'>(</span><span class='id identifier rubyid_match_block'>match_block</span><span class='rparen'>)</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="supports_block_expectations-instance_method">
+  
+    - (<tt>Object</tt>) <strong>supports_block_expectations</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Declares that the matcher can be used in a block expectation.
+Users will not be able to use your matcher in a block
+expectation without declaring this.
+(e.g. <code>expect { do_something }.to matcher</code>).</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+181
+182
+183</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/matchers/dsl.rb', line 181</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_supports_block_expectations'>supports_block_expectations</span>
+  <span class='id identifier rubyid_define_method'>define_method</span><span class='lparen'>(</span><span class='symbol'>:supports_block_expectations?</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='kw'>true</span> <span class='rbrace'>}</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+    <div id="footer">
+  Generated on Wed Nov 11 23:57:12 2015 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.4 (ruby-2.1.5).
+</div>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-59095215-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+  </body>
+</html>

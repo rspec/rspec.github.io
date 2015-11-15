@@ -1,0 +1,1666 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: RSpec::Mocks::Configuration
+  
+    &mdash; Documentation by YARD 0.8.7.6
+  
+</title>
+
+  <link rel="stylesheet" href="/stylesheets/docs/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="/stylesheets/docs/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '../../';
+  framesUrl = "../../frames.html#!RSpec/Mocks/Configuration.html";
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="/javascripts/docs/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="/javascripts/docs/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../../_index.html">Index (C)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../../RSpec.html" title="RSpec (module)">RSpec</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Mocks.html" title="RSpec::Mocks (module)">Mocks</a></span></span>
+     &raquo; 
+    <span class="title">Configuration</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../../class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="../../method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="../../file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><h1>Class: RSpec::Mocks::Configuration
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName">Object</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">RSpec::Mocks::Configuration</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/rspec/mocks/configuration.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    
+<p>Provides configuration options for rspec-mocks.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+
+
+
+  <h2>Instance Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
+  <ul class="summary">
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#allow_message_expectations_on_nil-instance_method" title="#allow_message_expectations_on_nil (instance method)">- (Object) <strong>allow_message_expectations_on_nil</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Sets whether RSpec will warn, ignore, or fail a test when expectations are
+set on nil.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#color%3D-instance_method" title="#color= (instance method)">- (Object) <strong>color</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+      <span class="note title writeonly">writeonly</span>
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Indicates whether or not diffs should be colored.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#transfer_nested_constants%3D-instance_method" title="#transfer_nested_constants= (instance method)">- (Object) <strong>transfer_nested_constants</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+      <span class="note title writeonly">writeonly</span>
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Sets the default for the <code>transfer_nested_constants</code> option when
+stubbing constants.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#verify_doubled_constant_names%3D-instance_method" title="#verify_doubled_constant_names= (instance method)">- (Object) <strong>verify_doubled_constant_names</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+      <span class="note title writeonly">writeonly</span>
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>When this is set to true, an error will be raised when
+<code>instance_double</code> or <code>class_double</code> is given the name
+of an undefined constant.</p>
+</div></span>
+  
+</li>
+
+    
+      <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#yield_receiver_to_any_instance_implementation_blocks%3D-instance_method" title="#yield_receiver_to_any_instance_implementation_blocks= (instance method)">- (Object) <strong>yield_receiver_to_any_instance_implementation_blocks</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+    
+    
+      <span class="note title writeonly">writeonly</span>
+    
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Sets whether or not RSpec will yield the receiving instance of a message to
+blocks that are used for any_instance stub implementations.</p>
+</div></span>
+  
+</li>
+
+    
+  </ul>
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#add_stub_and_should_receive_to-instance_method" title="#add_stub_and_should_receive_to (instance method)">- (Object) <strong>add_stub_and_should_receive_to</strong>(*modules) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Adds <code>stub</code> and <code>should_receive</code> to the given modules
+or classes.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#before_verifying_doubles-instance_method" title="#before_verifying_doubles (instance method)">- (Object) <strong>before_verifying_doubles</strong>(&amp;block) </a>
+    
+
+    
+      (also: #when_declaring_verifying_double)
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Provides a way to perform customisations when verifying doubles.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#color%3F-instance_method" title="#color? (instance method)">- (Boolean) <strong>color?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Indicates whether or not diffs should be colored.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (Configuration) <strong>initialize</strong> </a>
+    
+
+    
+  </span>
+  
+  
+    <span class="note title constructor">constructor</span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>A new instance of Configuration.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#patch_marshal_to_support_partial_doubles%3D-instance_method" title="#patch_marshal_to_support_partial_doubles= (instance method)">- (Object) <strong>patch_marshal_to_support_partial_doubles=</strong>(val) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Monkey-patch <code>Marshal.dump</code> to enable dumping of mocked or
+stubbed objects.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#reset_syntaxes_to_default-instance_method" title="#reset_syntaxes_to_default (instance method)">- (Object) <strong>reset_syntaxes_to_default</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  <span class="private note title">private</span>
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Resets the configured syntax to the default.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#syntax-instance_method" title="#syntax (instance method)">- (Object) <strong>syntax</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns an array with a list of syntaxes that are enabled.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#syntax%3D-instance_method" title="#syntax= (instance method)">- (Object) <strong>syntax=</strong>(*values) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Provides the ability to set either <code>expect</code>, <code>should</code>
+or both syntaxes.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#transfer_nested_constants%3F-instance_method" title="#transfer_nested_constants? (instance method)">- (Boolean) <strong>transfer_nested_constants?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#verify_doubled_constant_names%3F-instance_method" title="#verify_doubled_constant_names? (instance method)">- (Boolean) <strong>verify_doubled_constant_names?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#verify_partial_doubles%3D-instance_method" title="#verify_partial_doubles= (instance method)">- (Object) <strong>verify_partial_doubles=</strong>(val) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>When set to true, partial mocks will be verified the same as object
+doubles.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#verify_partial_doubles%3F-instance_method" title="#verify_partial_doubles? (instance method)">- (Boolean) <strong>verify_partial_doubles?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#verifying_double_callbacks-instance_method" title="#verifying_double_callbacks (instance method)">- (Object) <strong>verifying_double_callbacks</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  <span class="private note title">private</span>
+
+  
+    <span class="summary_desc"><div class='inline'>
+<p>Returns an array of blocks to call when verifying doubles.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#yield_receiver_to_any_instance_implementation_blocks%3F-instance_method" title="#yield_receiver_to_any_instance_implementation_blocks? (instance method)">- (Boolean) <strong>yield_receiver_to_any_instance_implementation_blocks?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+<div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+  
+    <div class="method_details first">
+  <h3 class="signature first" id="initialize-instance_method">
+  
+    - (<tt><span class='object_link'><a href="" title="RSpec::Mocks::Configuration (class)">Configuration</a></span></tt>) <strong>initialize</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns a new instance of Configuration</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+5
+6
+7
+8
+9
+10
+11</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/mocks/configuration.rb', line 5</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span>
+  <span class='ivar'>@allow_message_expectations_on_nil</span> <span class='op'>=</span> <span class='kw'>nil</span>
+  <span class='ivar'>@yield_receiver_to_any_instance_implementation_blocks</span> <span class='op'>=</span> <span class='kw'>true</span>
+  <span class='ivar'>@verify_doubled_constant_names</span> <span class='op'>=</span> <span class='kw'>false</span>
+  <span class='ivar'>@transfer_nested_constants</span> <span class='op'>=</span> <span class='kw'>false</span>
+  <span class='ivar'>@verify_partial_doubles</span> <span class='op'>=</span> <span class='kw'>false</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  
+</div>
+
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+    
+      
+      <span id="allow_message_expectations_on_nil=-instance_method"></span>
+      <div class="method_details first">
+  <h3 class="signature first" id="allow_message_expectations_on_nil-instance_method">
+  
+    - (<tt>Object</tt>) <strong>allow_message_expectations_on_nil</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Sets whether RSpec will warn, ignore, or fail a test when expectations are
+set on nil. By default, when this flag is not set, warning messages are
+issued when expectations are set on nil. This is to prevent false-positives
+and to catch potential bugs early on. When set to <code>true</code>,
+warning messages are suppressed. When set to <code>false</code>, it will
+raise an error.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code><span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_configure'>configure</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_config'>config</span><span class='op'>|</span>
+  <span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_mock_with'>mock_with</span> <span class='symbol'>:rspec</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_mocks'>mocks</span><span class='op'>|</span>
+    <span class='id identifier rubyid_mocks'>mocks</span><span class='period'>.</span><span class='id identifier rubyid_allow_message_expectations_on_nil'>allow_message_expectations_on_nil</span> <span class='op'>=</span> <span class='kw'>false</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></code></pre>
+    
+  </div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+27
+28
+29</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/mocks/configuration.rb', line 27</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_allow_message_expectations_on_nil'>allow_message_expectations_on_nil</span>
+  <span class='ivar'>@allow_message_expectations_on_nil</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="color=-instance_method">
+  
+    - (<tt>Object</tt>) <strong>color=</strong>(value)  <span class="extras">(writeonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Indicates whether or not diffs should be colored. Delegates to
+rspec-core&#39;s color option if rspec-core is loaded; otherwise you can
+set it here.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+164
+165
+166</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/mocks/configuration.rb', line 164</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_color='>color=</span><span class='lparen'>(</span><span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span>
+  <span class='ivar'>@color</span> <span class='op'>=</span> <span class='id identifier rubyid_value'>value</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="transfer_nested_constants=-instance_method">
+  
+    - (<tt>Object</tt>) <strong>transfer_nested_constants=</strong>(value)  <span class="extras">(writeonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Sets the default for the <code>transfer_nested_constants</code> option when
+stubbing constants.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+143
+144
+145</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/mocks/configuration.rb', line 143</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_transfer_nested_constants='>transfer_nested_constants=</span><span class='lparen'>(</span><span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span>
+  <span class='ivar'>@transfer_nested_constants</span> <span class='op'>=</span> <span class='id identifier rubyid_value'>value</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="verify_doubled_constant_names=-instance_method">
+  
+    - (<tt>Object</tt>) <strong>verify_doubled_constant_names=</strong>(value)  <span class="extras">(writeonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>When this is set to true, an error will be raised when
+<code>instance_double</code> or <code>class_double</code> is given the name
+of an undefined constant. You probably only want to set this when running
+your entire test suite, with all production code loaded. Setting this for
+an isolated unit test will prevent you from being able to isolate it!</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+118
+119
+120</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/mocks/configuration.rb', line 118</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_verify_doubled_constant_names='>verify_doubled_constant_names=</span><span class='lparen'>(</span><span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span>
+  <span class='ivar'>@verify_doubled_constant_names</span> <span class='op'>=</span> <span class='id identifier rubyid_value'>value</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      
+      <span id=""></span>
+      <div class="method_details ">
+  <h3 class="signature " id="yield_receiver_to_any_instance_implementation_blocks=-instance_method">
+  
+    - (<tt>Object</tt>) <strong>yield_receiver_to_any_instance_implementation_blocks=</strong>(value)  <span class="extras">(writeonly)</span>
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Sets whether or not RSpec will yield the receiving instance of a message to
+blocks that are used for any_instance stub implementations. When set, the
+first yielded argument will be the receiving instance. Defaults to
+<code>true</code>.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code><span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_configure'>configure</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_rspec'>rspec</span><span class='op'>|</span>
+  <span class='id identifier rubyid_rspec'>rspec</span><span class='period'>.</span><span class='id identifier rubyid_mock_with'>mock_with</span> <span class='symbol'>:rspec</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_mocks'>mocks</span><span class='op'>|</span>
+    <span class='id identifier rubyid_mocks'>mocks</span><span class='period'>.</span><span class='id identifier rubyid_yield_receiver_to_any_instance_implementation_blocks'>yield_receiver_to_any_instance_implementation_blocks</span> <span class='op'>=</span> <span class='kw'>false</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></code></pre>
+    
+  </div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+44
+45
+46</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/mocks/configuration.rb', line 44</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_yield_receiver_to_any_instance_implementation_blocks='>yield_receiver_to_any_instance_implementation_blocks=</span><span class='lparen'>(</span><span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span>
+  <span class='ivar'>@yield_receiver_to_any_instance_implementation_blocks</span> <span class='op'>=</span> <span class='id identifier rubyid_value'>value</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="add_stub_and_should_receive_to-instance_method">
+  
+    - (<tt>Object</tt>) <strong>add_stub_and_should_receive_to</strong>(*modules) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Adds <code>stub</code> and <code>should_receive</code> to the given modules
+or classes. This is usually only necessary if you application uses some
+proxy classes that “strip themselves down” to a bare minimum set of methods
+and remove <code>stub</code> and <code>should_receive</code> in the
+process.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code><span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_configure'>configure</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_rspec'>rspec</span><span class='op'>|</span>
+  <span class='id identifier rubyid_rspec'>rspec</span><span class='period'>.</span><span class='id identifier rubyid_mock_with'>mock_with</span> <span class='symbol'>:rspec</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_mocks'>mocks</span><span class='op'>|</span>
+    <span class='id identifier rubyid_mocks'>mocks</span><span class='period'>.</span><span class='id identifier rubyid_add_stub_and_should_receive_to'>add_stub_and_should_receive_to</span> <span class='const'>Delegator</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></code></pre>
+    
+  </div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+60
+61
+62
+63
+64</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/mocks/configuration.rb', line 60</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_add_stub_and_should_receive_to'>add_stub_and_should_receive_to</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_modules'>modules</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_modules'>modules</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_mod'>mod</span><span class='op'>|</span>
+    <span class='const'>Syntax</span><span class='period'>.</span><span class='id identifier rubyid_enable_should'>enable_should</span><span class='lparen'>(</span><span class='id identifier rubyid_mod'>mod</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="before_verifying_doubles-instance_method">
+  
+    - (<tt>Object</tt>) <strong>before_verifying_doubles</strong>(&amp;block) 
+  
+
+  
+    <span class="aliases">Also known as:
+    <span class="names"><span id='when_declaring_verifying_double-instance_method'>when_declaring_verifying_double</span></span>
+    </span>
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Provides a way to perform customisations when verifying doubles.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code><span class='const'>RSpec</span><span class='op'>::</span><span class='const'>Mocks</span><span class='period'>.</span><span class='id identifier rubyid_configuration'>configuration</span><span class='period'>.</span><span class='id identifier rubyid_before_verifying_doubles'>before_verifying_doubles</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_ref'>ref</span><span class='op'>|</span>
+  <span class='id identifier rubyid_ref'>ref</span><span class='period'>.</span><span class='id identifier rubyid_some_method!'>some_method!</span>
+<span class='kw'>end</span></code></pre>
+    
+  </div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+126
+127
+128</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/mocks/configuration.rb', line 126</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_before_verifying_doubles'>before_verifying_doubles</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_verifying_double_callbacks'>verifying_double_callbacks</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_block'>block</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="color?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>color?</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Indicates whether or not diffs should be colored. Delegates to
+rspec-core&#39;s color option if rspec-core is loaded; otherwise you can
+set it here.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+169
+170
+171</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/mocks/configuration.rb', line 169</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_color?'>color?</span>
+  <span class='op'>::</span><span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_configuration'>configuration</span><span class='period'>.</span><span class='id identifier rubyid_color_enabled?'>color_enabled?</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="patch_marshal_to_support_partial_doubles=-instance_method">
+  
+    - (<tt>Object</tt>) <strong>patch_marshal_to_support_partial_doubles=</strong>(val) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Monkey-patch <code>Marshal.dump</code> to enable dumping of mocked or
+stubbed objects. By default this will not work since RSpec mocks works by
+adding singleton methods that cannot be serialized. This patch removes
+these singleton methods before serialization. Setting to falsey removes the
+patch.</p>
+
+<p>This method is idempotent.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+181
+182
+183
+184
+185
+186
+187</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/mocks/configuration.rb', line 181</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_patch_marshal_to_support_partial_doubles='>patch_marshal_to_support_partial_doubles=</span><span class='lparen'>(</span><span class='id identifier rubyid_val'>val</span><span class='rparen'>)</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_val'>val</span>
+    <span class='const'>RSpec</span><span class='op'>::</span><span class='const'>Mocks</span><span class='op'>::</span><span class='const'>MarshalExtension</span><span class='period'>.</span><span class='id identifier rubyid_patch!'>patch!</span>
+  <span class='kw'>else</span>
+    <span class='const'>RSpec</span><span class='op'>::</span><span class='const'>Mocks</span><span class='op'>::</span><span class='const'>MarshalExtension</span><span class='period'>.</span><span class='id identifier rubyid_unpatch!'>unpatch!</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="reset_syntaxes_to_default-instance_method">
+  
+    - (<tt>Object</tt>) <strong>reset_syntaxes_to_default</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p class="note private">
+  <strong>This method is part of a private API.</strong>
+  You should avoid using this method if possible, as it may be removed or be changed in the future.
+</p>
+
+<p>Resets the configured syntax to the default.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+191
+192
+193
+194</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/mocks/configuration.rb', line 191</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_reset_syntaxes_to_default'>reset_syntaxes_to_default</span>
+  <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_syntax'>syntax</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='symbol'>:should</span><span class='comma'>,</span> <span class='symbol'>:expect</span><span class='rbracket'>]</span>
+  <span class='const'>RSpec</span><span class='op'>::</span><span class='const'>Mocks</span><span class='op'>::</span><span class='const'>Syntax</span><span class='period'>.</span><span class='id identifier rubyid_warn_about_should!'>warn_about_should!</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="syntax-instance_method">
+  
+    - (<tt>Object</tt>) <strong>syntax</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Returns an array with a list of syntaxes that are enabled.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code><span class='kw'>unless</span> <span class='const'>RSpec</span><span class='op'>::</span><span class='const'>Mocks</span><span class='period'>.</span><span class='id identifier rubyid_configuration'>configuration</span><span class='period'>.</span><span class='id identifier rubyid_syntax'>syntax</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='symbol'>:expect</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>this RSpec extension gem requires the rspec-mocks `:expect` syntax</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></code></pre>
+    
+  </div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+102
+103
+104
+105
+106
+107</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/mocks/configuration.rb', line 102</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_syntax'>syntax</span>
+  <span class='id identifier rubyid_syntaxes'>syntaxes</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='id identifier rubyid_syntaxes'>syntaxes</span> <span class='op'>&lt;&lt;</span> <span class='symbol'>:should</span>  <span class='kw'>if</span> <span class='const'>Syntax</span><span class='period'>.</span><span class='id identifier rubyid_should_enabled?'>should_enabled?</span>
+  <span class='id identifier rubyid_syntaxes'>syntaxes</span> <span class='op'>&lt;&lt;</span> <span class='symbol'>:expect</span> <span class='kw'>if</span> <span class='const'>Syntax</span><span class='period'>.</span><span class='id identifier rubyid_expect_enabled?'>expect_enabled?</span>
+  <span class='id identifier rubyid_syntaxes'>syntaxes</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="syntax=-instance_method">
+  
+    - (<tt>Object</tt>) <strong>syntax=</strong>(*values) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>Provides the ability to set either <code>expect</code>, <code>should</code>
+or both syntaxes. RSpec uses <code>expect</code> syntax by default. This is
+needed if you want to explicitly enable <code>should</code> syntax and/or
+explicitly disable <code>expect</code> syntax.</p>
+
+<p>end</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+      <pre class="example code"><code>RSpec.configure do |rspec|
+  rspec.mock_with :rspec do |mocks|
+    mocks.syntax = [:expect, :should]
+  end</code></pre>
+    
+  </div>
+
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/mocks/configuration.rb', line 79</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_syntax='>syntax=</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_values'>values</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_syntaxes'>syntaxes</span> <span class='op'>=</span> <span class='id identifier rubyid_values'>values</span><span class='period'>.</span><span class='id identifier rubyid_flatten'>flatten</span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_syntaxes'>syntaxes</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='symbol'>:expect</span><span class='rparen'>)</span>
+    <span class='const'>Syntax</span><span class='period'>.</span><span class='id identifier rubyid_enable_expect'>enable_expect</span>
+  <span class='kw'>else</span>
+    <span class='const'>Syntax</span><span class='period'>.</span><span class='id identifier rubyid_disable_expect'>disable_expect</span>
+  <span class='kw'>end</span>
+
+  <span class='kw'>if</span> <span class='id identifier rubyid_syntaxes'>syntaxes</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='symbol'>:should</span><span class='rparen'>)</span>
+    <span class='const'>Syntax</span><span class='period'>.</span><span class='id identifier rubyid_enable_should'>enable_should</span>
+  <span class='kw'>else</span>
+    <span class='const'>Syntax</span><span class='period'>.</span><span class='id identifier rubyid_disable_should'>disable_should</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="transfer_nested_constants?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>transfer_nested_constants?</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+137
+138
+139</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/mocks/configuration.rb', line 137</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_transfer_nested_constants?'>transfer_nested_constants?</span>
+  <span class='op'>!</span><span class='op'>!</span><span class='ivar'>@transfer_nested_constants</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="verify_doubled_constant_names?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>verify_doubled_constant_names?</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+109
+110
+111</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/mocks/configuration.rb', line 109</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_verify_doubled_constant_names?'>verify_doubled_constant_names?</span>
+  <span class='op'>!</span><span class='op'>!</span><span class='ivar'>@verify_doubled_constant_names</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="verify_partial_doubles=-instance_method">
+  
+    - (<tt>Object</tt>) <strong>verify_partial_doubles=</strong>(val) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+<p>When set to true, partial mocks will be verified the same as object
+doubles. Any stubs will have their arguments checked against the original
+method, and methods that do not exist cannot be stubbed.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+148
+149
+150</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/mocks/configuration.rb', line 148</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_verify_partial_doubles='>verify_partial_doubles=</span><span class='lparen'>(</span><span class='id identifier rubyid_val'>val</span><span class='rparen'>)</span>
+  <span class='ivar'>@verify_partial_doubles</span> <span class='op'>=</span> <span class='op'>!</span><span class='op'>!</span><span class='id identifier rubyid_val'>val</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="verify_partial_doubles?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>verify_partial_doubles?</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+152
+153
+154</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/mocks/configuration.rb', line 152</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_verify_partial_doubles?'>verify_partial_doubles?</span>
+  <span class='ivar'>@verify_partial_doubles</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="verifying_double_callbacks-instance_method">
+  
+    - (<tt>Object</tt>) <strong>verifying_double_callbacks</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p class="note private">
+  <strong>This method is part of a private API.</strong>
+  You should avoid using this method if possible, as it may be removed or be changed in the future.
+</p>
+
+<p>Returns an array of blocks to call when verifying doubles</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+133
+134
+135</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/mocks/configuration.rb', line 133</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_verifying_double_callbacks'>verifying_double_callbacks</span>
+  <span class='ivar'>@verifying_double_callbacks</span> <span class='op'>||=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="yield_receiver_to_any_instance_implementation_blocks?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>yield_receiver_to_any_instance_implementation_blocks?</strong> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  
+<p class="tag_title">Returns:</p>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+29
+30
+31</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/mocks/configuration.rb', line 29</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_yield_receiver_to_any_instance_implementation_blocks?'>yield_receiver_to_any_instance_implementation_blocks?</span>
+  <span class='ivar'>@yield_receiver_to_any_instance_implementation_blocks</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+    <div id="footer">
+  Generated on Wed Nov 11 23:57:51 2015 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.6 (ruby-2.1.5).
+</div>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-59095215-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+  </body>
+</html>

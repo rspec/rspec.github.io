@@ -1,0 +1,1215 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Module: RSpec::Core::Hooks
+  
+    &mdash; Documentation by YARD 0.8.7.6
+  
+</title>
+
+  <link rel="stylesheet" href="/stylesheets/docs/style.css" type="text/css" charset="utf-8" />
+
+  <link rel="stylesheet" href="/stylesheets/docs/common.css" type="text/css" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '../../';
+  framesUrl = "../../frames.html#!RSpec/Core/Hooks.html";
+</script>
+
+
+  <script type="text/javascript" charset="utf-8" src="/javascripts/docs/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="/javascripts/docs/app.js"></script>
+
+
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../../_index.html">Index (H)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../../RSpec.html" title="RSpec (module)">RSpec</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Core.html" title="RSpec::Core (module)">Core</a></span></span>
+     &raquo; 
+    <span class="title">Hooks</span>
+  
+
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a class="full_list_link" id="class_list_link"
+        href="../../class_list.html">
+      Class List
+    </a>
+  
+    <a class="full_list_link" id="method_list_link"
+        href="../../method_list.html">
+      Method List
+    </a>
+  
+    <a class="full_list_link" id="file_list_link"
+        href="../../file_list.html">
+      File List
+    </a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+
+    <iframe id="search_frame"></iframe>
+
+    <div id="content"><h1>Module: RSpec::Core::Hooks
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+  
+    
+  
+    
+  
+  
+    <dt class="r1">Included in:</dt>
+    <dd class="r1"><span class='object_link'><a href="Configuration.html" title="RSpec::Core::Configuration (class)">Configuration</a></span>, <span class='object_link'><a href="ExampleGroup.html" title="RSpec::Core::ExampleGroup (class)">ExampleGroup</a></span></dd>
+    
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/rspec/core/hooks.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <p>Provides <code>before</code>, <code>after</code> and <code>around</code> hooks as a means of
+supporting common setup and teardown. This module is extended
+onto <span class='object_link'><a href="ExampleGroup.html" title="RSpec::Core::ExampleGroup (class)">ExampleGroup</a></span>, making the methods available from any <code>describe</code>
+or <code>context</code> block and included in <span class='object_link'><a href="Configuration.html" title="RSpec::Core::Configuration (class)">Configuration</a></span>, making them
+available off of the configuration object to define global setup
+or teardown logic.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+
+
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#after-instance_method" title="#after (instance method)">- (void) <strong>after</strong>(*args, &amp;block) </a>
+    
+
+    
+      (also: #prepend_after)
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Declare a block of code to be run after each example (using <code>:example</code>) or once after all examples n the context (using <code>:context</code>).</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#append_after-instance_method" title="#append_after (instance method)">- (void) <strong>append_after</strong>(*args, &amp;block) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Adds <code>block</code> to the back of the list of <code>after</code> blocks in the same scope (<code>:example</code>, <code>:context</code>, or <code>:suite</code>).</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#around-instance_method" title="#around (instance method)">- (void) <strong>around</strong>(*args) {|Example| ... }</a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Declare a block of code, parts of which will be run before and parts after the example.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#before-instance_method" title="#before (instance method)">- (void) <strong>before</strong>(*args, &amp;block) </a>
+    
+
+    
+      (also: #append_before)
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Declare a block of code to be run before each example (using <code>:example</code>) or once before any example (using <code>:context</code>).</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#prepend_before-instance_method" title="#prepend_before (instance method)">- (void) <strong>prepend_before</strong>(*args, &amp;block) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>Adds <code>block</code> to the front of the list of <code>before</code> blocks in the same scope (<code>:example</code>, <code>:context</code>, or <code>:suite</code>).</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+
+    
+      <div class="method_details first">
+  <h3 class="signature first" id="after-instance_method">
+  
+    
+      <span class="overload">- (<tt>void</tt>) <strong>after</strong>(&amp;block) </span>
+    
+      <span class="overload">- (<tt>void</tt>) <strong>after</strong>(scope, &amp;block) </span>
+    
+      <span class="overload">- (<tt>void</tt>) <strong>after</strong>(scope, conditions, &amp;block) </span>
+    
+      <span class="overload">- (<tt>void</tt>) <strong>after</strong>(conditions, &amp;block) </span>
+    
+  
+
+  
+    <span class="aliases">Also known as:
+    <span class="names"><span id='prepend_after-instance_method'>prepend_after</span></span>
+    </span>
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+  <div class="note notetag">
+    <strong>Note:</strong>
+    <div class='inline'><p>The <code>:example</code> and <code>:context</code> scopes are also available as
+<code>:each</code> and <code>:all</code>, respectively. Use whichever you prefer.</p>
+</div>
+  </div>
+
+  <div class="note notetag">
+    <strong>Note:</strong>
+    <div class='inline'><p>The <code>:scope</code> alias is only supported for hooks registered on
+<code>RSpec.configuration</code> since they exist independently of any
+example or example group.</p>
+</div>
+  </div>
+
+<p>Declare a block of code to be run after each example (using <code>:example</code>)
+or once after all examples n the context (using <code>:context</code>). See
+<span class='object_link'><a href="#before-instance_method" title="RSpec::Core::Hooks#before (method)">#before</a></span> for more information about ordering.</p>
+
+<h3>Exceptions</h3>
+
+<p><code>after</code> hooks are guaranteed to run even when there are exceptions in
+<code>before</code> hooks or examples. When an exception is raised in an after
+block, the exception is captured for later reporting, and subsequent
+<code>after</code> blocks are run.</p>
+
+<h3>Order</h3>
+
+<p><code>after</code> hooks are stored in three scopes, which are run in order:
+<code>:example</code>, <code>:context</code>, and <code>:suite</code>. They can also be declared in
+several different places: <code>RSpec.configure</code>, a parent group, the current
+group. They are run in the following order:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_after'>after</span><span class='lparen'>(</span><span class='symbol'>:example</span><span class='rparen'>)</span> <span class='comment'># Declared in the current group.
+</span><span class='id identifier rubyid_after'>after</span><span class='lparen'>(</span><span class='symbol'>:example</span><span class='rparen'>)</span> <span class='comment'># Declared in a parent group.
+</span><span class='id identifier rubyid_after'>after</span><span class='lparen'>(</span><span class='symbol'>:example</span><span class='rparen'>)</span> <span class='comment'># Declared in RSpec.configure.
+</span><span class='id identifier rubyid_after'>after</span><span class='lparen'>(</span><span class='symbol'>:context</span><span class='rparen'>)</span> <span class='comment'># Declared in the current group.
+</span><span class='id identifier rubyid_after'>after</span><span class='lparen'>(</span><span class='symbol'>:context</span><span class='rparen'>)</span> <span class='comment'># Declared in a parent group.
+</span><span class='id identifier rubyid_after'>after</span><span class='lparen'>(</span><span class='symbol'>:context</span><span class='rparen'>)</span> <span class='comment'># Declared in RSpec.configure.
+</span><span class='id identifier rubyid_after'>after</span><span class='lparen'>(</span><span class='symbol'>:suite</span><span class='rparen'>)</span>   <span class='comment'># Declared in RSpec.configure.
+</span></code></pre>
+
+<p>This is the reverse of the order in which <code>before</code> hooks are run.
+Similarly, if more than one <code>after</code> is declared within any one scope,
+they are run in reverse order of that in which they are declared.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <p class="tag_title">Overloads:</p>
+  <ul class="overload">
+    
+      
+      
+      <li class="overload_item">
+        <span class="signature">- (<tt>void</tt>) <strong>after</strong>(scope, &amp;block) </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>scope</span>
+      
+      
+        <span class='type'>(<tt>Symbol</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p><code>:example</code>, <code>:context</code>, or <code>:suite</code> (defaults to
+<code>:example</code>)</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">- (<tt>void</tt>) <strong>after</strong>(scope, conditions, &amp;block) </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>scope</span>
+      
+      
+        <span class='type'>(<tt>Symbol</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p><code>:example</code>, <code>:context</code>, or <code>:suite</code> (defaults to
+<code>:example</code>)</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>conditions</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>constrains this hook to examples matching these conditions e.g.
+<code>after(:example, :ui =&gt; true) { ... }</code> will only run with examples
+or groups declared with <code>:ui =&gt; true</code>.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">- (<tt>void</tt>) <strong>after</strong>(conditions, &amp;block) </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>conditions</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>constrains this hook to examples matching these conditions e.g.
+<code>after(:example, :ui =&gt; true) { ... }</code> will only run with examples
+or groups declared with <code>:ui =&gt; true</code>.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div>
+      </li>
+    
+  </ul>
+
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="#before-instance_method" title="RSpec::Core::Hooks#before (method)">#before</a></span></li>
+    
+      <li><span class='object_link'><a href="#around-instance_method" title="RSpec::Core::Hooks#around (method)">#around</a></span></li>
+    
+      <li><span class='object_link'><a href="ExampleGroup.html" title="RSpec::Core::ExampleGroup (class)">ExampleGroup</a></span></li>
+    
+      <li><span class='object_link'><a href="SharedContext.html" title="RSpec::Core::SharedContext (module)">SharedContext</a></span></li>
+    
+      <li><span class='object_link'><a href="SharedExampleGroup.html" title="RSpec::Core::SharedExampleGroup (module)">SharedExampleGroup</a></span></li>
+    
+      <li><span class='object_link'><a href="Configuration.html" title="RSpec::Core::Configuration (class)">Configuration</a></span></li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+271
+272
+273</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/hooks.rb', line 271</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_after'>after</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_hooks'>hooks</span><span class='period'>.</span><span class='id identifier rubyid_register'>register</span> <span class='symbol'>:prepend</span><span class='comma'>,</span> <span class='symbol'>:after</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="append_after-instance_method">
+  
+    - (<tt>void</tt>) <strong>append_after</strong>(*args, &amp;block) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Adds <code>block</code> to the back of the list of <code>after</code> blocks in the same
+scope (<code>:example</code>, <code>:context</code>, or <code>:suite</code>).</p>
+
+<p>See <span class='object_link'><a href="#after-instance_method" title="RSpec::Core::Hooks#after (method)">#after</a></span> for scoping semantics.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+281
+282
+283</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/hooks.rb', line 281</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_append_after'>append_after</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_hooks'>hooks</span><span class='period'>.</span><span class='id identifier rubyid_register'>register</span> <span class='symbol'>:append</span><span class='comma'>,</span> <span class='symbol'>:after</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="around-instance_method">
+  
+    
+      <span class="overload">- (<tt>void</tt>) <strong>around</strong>(&amp;block) </span>
+    
+      <span class="overload">- (<tt>void</tt>) <strong>around</strong>(scope, &amp;block) </span>
+    
+      <span class="overload">- (<tt>void</tt>) <strong>around</strong>(scope, conditions, &amp;block) </span>
+    
+      <span class="overload">- (<tt>void</tt>) <strong>around</strong>(conditions, &amp;block) </span>
+    
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+  <div class="note notetag">
+    <strong>Note:</strong>
+    <div class='inline'><p>the syntax of <code>around</code> is similar to that of <code>before</code> and <code>after</code>
+but the semantics are quite different. <code>before</code> and <code>after</code> hooks are
+run in the context of of the examples with which they are associated,
+whereas <code>around</code> hooks are actually responsible for running the
+examples. Consequently, <code>around</code> hooks do not have direct access to
+resources that are made available within the examples and their
+associated <code>before</code> and <code>after</code> hooks.</p>
+</div>
+  </div>
+
+  <div class="note notetag">
+    <strong>Note:</strong>
+    <div class='inline'><p><code>:example</code>/<code>:each</code> is the only supported scope.</p>
+</div>
+  </div>
+
+<p>Declare a block of code, parts of which will be run before and parts
+after the example. It is your responsibility to run the example:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_around'>around</span><span class='lparen'>(</span><span class='symbol'>:example</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_ex'>ex</span><span class='op'>|</span>
+  <span class='comment'># Do some stuff before.
+</span>  <span class='id identifier rubyid_ex'>ex</span><span class='period'>.</span><span class='id identifier rubyid_run'>run</span>
+  <span class='comment'># Do some stuff after.
+</span><span class='kw'>end</span>
+</code></pre>
+
+<p>The yielded example aliases <code>run</code> with <code>call</code>, which lets you treat it
+like a <code>Proc</code>. This is especially handy when working with libaries
+that manage their own setup and teardown using a block or proc syntax,
+e.g.</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_around'>around</span><span class='lparen'>(</span><span class='symbol'>:example</span><span class='rparen'>)</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_ex'>ex</span><span class='op'>|</span> <span class='const'>Database</span><span class='period'>.</span><span class='id identifier rubyid_transaction'>transaction</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_ex'>ex</span><span class='rparen'>)</span><span class='rbrace'>}</span>
+<span class='id identifier rubyid_around'>around</span><span class='lparen'>(</span><span class='symbol'>:example</span><span class='rparen'>)</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_ex'>ex</span><span class='op'>|</span> <span class='const'>FakeFS</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_ex'>ex</span><span class='rparen'>)</span><span class='rbrace'>}</span>
+</code></pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <p class="tag_title">Overloads:</p>
+  <ul class="overload">
+    
+      
+      
+      <li class="overload_item">
+        <span class="signature">- (<tt>void</tt>) <strong>around</strong>(scope, &amp;block) </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>scope</span>
+      
+      
+        <span class='type'>(<tt>Symbol</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p><code>:example</code> (defaults to <code>:example</code>)
+present for syntax parity with <code>before</code> and <code>after</code>, but
+<code>:example</code>/<code>:each</code> is the only supported value.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">- (<tt>void</tt>) <strong>around</strong>(scope, conditions, &amp;block) </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>scope</span>
+      
+      
+        <span class='type'>(<tt>Symbol</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p><code>:example</code> (defaults to <code>:example</code>)
+present for syntax parity with <code>before</code> and <code>after</code>, but
+<code>:example</code>/<code>:each</code> is the only supported value.</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>conditions</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>constrains this hook to examples matching
+these conditions e.g. <code>around(:example, :ui =&gt; true) { ... }</code> will
+only run with examples or groups declared with <code>:ui =&gt; true</code>.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">- (<tt>void</tt>) <strong>around</strong>(conditions, &amp;block) </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>conditions</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>constrains this hook to examples matching
+these conditions e.g. <code>around(:example, :ui =&gt; true) { ... }</code> will
+only run with examples or groups declared with <code>:ui =&gt; true</code>.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div>
+      </li>
+    
+  </ul>
+
+<p class="tag_title">Yields:</p>
+<ul class="yield">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt><span class='object_link'><a href="Example.html" title="RSpec::Core::Example (class)">Example</a></span></tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>the example to run</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+332
+333
+334</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/hooks.rb', line 332</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_around'>around</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_hooks'>hooks</span><span class='period'>.</span><span class='id identifier rubyid_register'>register</span> <span class='symbol'>:prepend</span><span class='comma'>,</span> <span class='symbol'>:around</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="before-instance_method">
+  
+    
+      <span class="overload">- (<tt>void</tt>) <strong>before</strong>(&amp;block) </span>
+    
+      <span class="overload">- (<tt>void</tt>) <strong>before</strong>(scope, &amp;block) </span>
+    
+      <span class="overload">- (<tt>void</tt>) <strong>before</strong>(scope, conditions, &amp;block) </span>
+    
+      <span class="overload">- (<tt>void</tt>) <strong>before</strong>(conditions, &amp;block) </span>
+    
+  
+
+  
+    <span class="aliases">Also known as:
+    <span class="names"><span id='append_before-instance_method'>append_before</span></span>
+    </span>
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    
+  <div class="note notetag">
+    <strong>Note:</strong>
+    <div class='inline'><p>The <code>:example</code> and <code>:context</code> scopes are also available as
+<code>:each</code> and <code>:all</code>, respectively. Use whichever you prefer.</p>
+</div>
+  </div>
+
+  <div class="note notetag">
+    <strong>Note:</strong>
+    <div class='inline'><p>The <code>:scope</code> alias is only supported for hooks registered on
+<code>RSpec.configuration</code> since they exist independently of any
+example or example group.</p>
+</div>
+  </div>
+
+<p>Declare a block of code to be run before each example (using <code>:example</code>)
+or once before any example (using <code>:context</code>). These are usually
+declared directly in the <span class='object_link'><a href="ExampleGroup.html" title="RSpec::Core::ExampleGroup (class)">ExampleGroup</a></span> to which they apply, but they
+can also be shared across multiple groups.</p>
+
+<p>You can also use <code>before(:suite)</code> to run a block of code before any
+example groups are run. This should be declared in <span class='object_link'><a href="../../RSpec.html#configure-class_method" title="RSpec.configure (method)">RSpec.configure</a></span>.</p>
+
+<p>Instance variables declared in <code>before(:example)</code> or <code>before(:context)</code>
+are accessible within each example.</p>
+
+<h3>Order</h3>
+
+<p><code>before</code> hooks are stored in three scopes, which are run in order:
+<code>:suite</code>, <code>:context</code>, and <code>:example</code>. They can also be declared in
+several different places: <code>RSpec.configure</code>, a parent group, the current
+group. They are run in the following order:</p>
+
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_before'>before</span><span class='lparen'>(</span><span class='symbol'>:suite</span><span class='rparen'>)</span>    <span class='comment'># Declared in RSpec.configure.
+</span><span class='id identifier rubyid_before'>before</span><span class='lparen'>(</span><span class='symbol'>:context</span><span class='rparen'>)</span>  <span class='comment'># Declared in RSpec.configure.
+</span><span class='id identifier rubyid_before'>before</span><span class='lparen'>(</span><span class='symbol'>:context</span><span class='rparen'>)</span>  <span class='comment'># Declared in a parent group.
+</span><span class='id identifier rubyid_before'>before</span><span class='lparen'>(</span><span class='symbol'>:context</span><span class='rparen'>)</span>  <span class='comment'># Declared in the current group.
+</span><span class='id identifier rubyid_before'>before</span><span class='lparen'>(</span><span class='symbol'>:example</span><span class='rparen'>)</span>  <span class='comment'># Declared in RSpec.configure.
+</span><span class='id identifier rubyid_before'>before</span><span class='lparen'>(</span><span class='symbol'>:example</span><span class='rparen'>)</span>  <span class='comment'># Declared in a parent group.
+</span><span class='id identifier rubyid_before'>before</span><span class='lparen'>(</span><span class='symbol'>:example</span><span class='rparen'>)</span>  <span class='comment'># Declared in the current group.
+</span></code></pre>
+
+<p>If more than one <code>before</code> is declared within any one scope, they are run
+in the order in which they are declared.</p>
+
+<h3>Conditions</h3>
+
+<p>When you add a conditions hash to <code>before(:example)</code> or
+<code>before(:context)</code>, RSpec will only apply that hook to groups or
+examples that match the conditions. e.g.</p>
+
+<pre class="code ruby"><code class="ruby"><span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_configure'>configure</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_config'>config</span><span class='op'>|</span>
+  <span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_before'>before</span><span class='lparen'>(</span><span class='symbol'>:example</span><span class='comma'>,</span> <span class='symbol'>:authorized</span> <span class='op'>=&gt;</span> <span class='kw'>true</span><span class='rparen'>)</span> <span class='kw'>do</span>
+    <span class='id identifier rubyid_log_in_as'>log_in_as</span> <span class='symbol'>:authorized_user</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span>
+
+<span class='id identifier rubyid_describe'>describe</span> <span class='const'>Something</span><span class='comma'>,</span> <span class='symbol'>:authorized</span> <span class='op'>=&gt;</span> <span class='kw'>true</span> <span class='kw'>do</span>
+  <span class='comment'># The before hook will run in before each example in this group.
+</span><span class='kw'>end</span>
+
+<span class='id identifier rubyid_describe'>describe</span> <span class='const'>SomethingElse</span> <span class='kw'>do</span>
+  <span class='id identifier rubyid_it'>it</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>does something</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:authorized</span> <span class='op'>=&gt;</span> <span class='kw'>true</span> <span class='kw'>do</span>
+    <span class='comment'># The before hook will run before this example.
+</span>  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_it'>it</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>does something else</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+    <span class='comment'># The hook will not run before this example.
+</span>  <span class='kw'>end</span>
+<span class='kw'>end</span>
+</code></pre>
+
+<p>Note that filtered config <code>:context</code> hooks can still be applied
+to individual examples that have matching metadata. Just like
+Ruby&#39;s object model is that every object has a singleton class
+which has only a single instance, RSpec&#39;s model is that every
+example has a singleton example group containing just the one
+example.</p>
+
+<h3>Warning: <code>before(:suite, :with =&gt; :conditions)</code></h3>
+
+<p>The conditions hash is used to match against specific examples. Since
+<code>before(:suite)</code> is not run in relation to any specific example or
+group, conditions passed along with <code>:suite</code> are effectively ignored.</p>
+
+<h3>Exceptions</h3>
+
+<p>When an exception is raised in a <code>before</code> block, RSpec skips any
+subsequent <code>before</code> blocks and the example, but runs all of the
+<code>after(:example)</code> and <code>after(:context)</code> hooks.</p>
+
+<h3>Warning: implicit before blocks</h3>
+
+<p><code>before</code> hooks can also be declared in shared contexts which get
+included implicitly either by you or by extension libraries. Since
+RSpec runs these in the order in which they are declared within each
+scope, load order matters, and can lead to confusing results when one
+before block depends on state that is prepared in another before block
+that gets run later.</p>
+
+<h3>Warning: <code>before(:context)</code></h3>
+
+<p>It is very tempting to use <code>before(:context)</code> to speed things up, but we
+recommend that you avoid this as there are a number of gotchas, as well
+as things that simply don&#39;t work.</p>
+
+<h4>Context</h4>
+
+<p><code>before(:context)</code> is run in an example that is generated to provide
+group context for the block.</p>
+
+<h4>Instance variables</h4>
+
+<p>Instance variables declared in <code>before(:context)</code> are shared across all
+the examples in the group. This means that each example can change the
+state of a shared object, resulting in an ordering dependency that can
+make it difficult to reason about failures.</p>
+
+<h4>Unsupported RSpec constructs</h4>
+
+<p>RSpec has several constructs that reset state between each example
+automatically. These are not intended for use from within
+<code>before(:context)</code>:</p>
+
+<ul>
+<li><code>let</code> declarations</li>
+<li><code>subject</code> declarations</li>
+<li>Any mocking, stubbing or test double declaration</li>
+</ul>
+
+<h3>other frameworks</h3>
+
+<p>Mock object frameworks and database transaction managers (like
+ActiveRecord) are typically designed around the idea of setting up
+before an example, running that one example, and then tearing down. This
+means that mocks and stubs can (sometimes) be declared in
+<code>before(:context)</code>, but get torn down before the first real example is
+ever run.</p>
+
+<p>You <em>can</em> create database-backed model objects in a <code>before(:context)</code>
+in rspec-rails, but it will not be wrapped in a transaction for you, so
+you are on your own to clean up in an <code>after(:context)</code> block.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+  <div class="examples">
+    <p class="tag_title">Examples:</p>
+    
+      
+        <p class="example_title"><div class='inline'><p>before(:example) declared in an <span class='object_link'><a href="ExampleGroup.html" title="RSpec::Core::ExampleGroup (class)">ExampleGroup</a></span></p>
+</div></p>
+      
+      <pre class="example code"><code>
+<span class='id identifier rubyid_describe'>describe</span> <span class='const'>Thing</span> <span class='kw'>do</span>
+  <span class='id identifier rubyid_before'>before</span><span class='lparen'>(</span><span class='symbol'>:example</span><span class='rparen'>)</span> <span class='kw'>do</span>
+    <span class='ivar'>@thing</span> <span class='op'>=</span> <span class='const'>Thing</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_it'>it</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>does something</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+    <span class='comment'># Here you can access @thing.
+</span>  <span class='kw'>end</span>
+<span class='kw'>end</span></code></pre>
+    
+      
+        <p class="example_title"><div class='inline'><p>before(:context) declared in an <span class='object_link'><a href="ExampleGroup.html" title="RSpec::Core::ExampleGroup (class)">ExampleGroup</a></span></p>
+</div></p>
+      
+      <pre class="example code"><code>
+<span class='id identifier rubyid_describe'>describe</span> <span class='const'>Parser</span> <span class='kw'>do</span>
+  <span class='id identifier rubyid_before'>before</span><span class='lparen'>(</span><span class='symbol'>:context</span><span class='rparen'>)</span> <span class='kw'>do</span>
+    <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_open'>open</span><span class='lparen'>(</span><span class='id identifier rubyid_file_to_parse'>file_to_parse</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>w</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_f'>f</span><span class='op'>|</span>
+      <span class='id identifier rubyid_f'>f</span><span class='period'>.</span><span class='id identifier rubyid_write'>write</span> <span class='heredoc_beg'>&lt;&lt;-CONTENT</span>
+<span class='tstring_content'>        stuff in the file
+</span><span class='heredoc_end'>      CONTENT
+</span>    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_it'>it</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>parses the file</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
+    <span class='const'>Parser</span><span class='period'>.</span><span class='id identifier rubyid_parse'>parse</span><span class='lparen'>(</span><span class='id identifier rubyid_file_to_parse'>file_to_parse</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+
+  <span class='id identifier rubyid_after'>after</span><span class='lparen'>(</span><span class='symbol'>:context</span><span class='rparen'>)</span> <span class='kw'>do</span>
+    <span class='const'>File</span><span class='period'>.</span><span class='id identifier rubyid_delete'>delete</span><span class='lparen'>(</span><span class='id identifier rubyid_file_to_parse'>file_to_parse</span><span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></code></pre>
+    
+  </div>
+
+  <p class="tag_title">Overloads:</p>
+  <ul class="overload">
+    
+      
+      
+      <li class="overload_item">
+        <span class="signature">- (<tt>void</tt>) <strong>before</strong>(scope, &amp;block) </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>scope</span>
+      
+      
+        <span class='type'>(<tt>Symbol</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p><code>:example</code>, <code>:context</code>, or <code>:suite</code>
+(defaults to <code>:example</code>)</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">- (<tt>void</tt>) <strong>before</strong>(scope, conditions, &amp;block) </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>scope</span>
+      
+      
+        <span class='type'>(<tt>Symbol</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p><code>:example</code>, <code>:context</code>, or <code>:suite</code>
+(defaults to <code>:example</code>)</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>conditions</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>constrains this hook to examples matching these conditions e.g.
+<code>before(:example, :ui =&gt; true) { ... }</code> will only run with examples
+or groups declared with <code>:ui =&gt; true</code>.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div>
+      </li>
+    
+      
+      <li class="overload_item">
+        <span class="signature">- (<tt>void</tt>) <strong>before</strong>(conditions, &amp;block) </span>
+        <div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <p class="tag_title">Parameters:</p>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>conditions</span>
+      
+      
+        <span class='type'>(<tt>Hash</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>constrains this hook to examples matching these conditions e.g.
+<code>before(:example, :ui =&gt; true) { ... }</code> will only run with examples
+or groups declared with <code>:ui =&gt; true</code>.</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+
+</div>
+      </li>
+    
+  </ul>
+
+
+  <p class="tag_title">See Also:</p>
+  <ul class="see">
+    
+      <li><span class='object_link'><a href="#after-instance_method" title="RSpec::Core::Hooks#after (method)">#after</a></span></li>
+    
+      <li><span class='object_link'><a href="#around-instance_method" title="RSpec::Core::Hooks#around (method)">#around</a></span></li>
+    
+      <li><span class='object_link'><a href="ExampleGroup.html" title="RSpec::Core::ExampleGroup (class)">ExampleGroup</a></span></li>
+    
+      <li><span class='object_link'><a href="SharedContext.html" title="RSpec::Core::SharedContext (module)">SharedContext</a></span></li>
+    
+      <li><span class='object_link'><a href="SharedExampleGroup.html" title="RSpec::Core::SharedExampleGroup (module)">SharedExampleGroup</a></span></li>
+    
+      <li><span class='object_link'><a href="Configuration.html" title="RSpec::Core::Configuration (class)">Configuration</a></span></li>
+    
+  </ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+197
+198
+199</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/hooks.rb', line 197</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_before'>before</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_hooks'>hooks</span><span class='period'>.</span><span class='id identifier rubyid_register'>register</span> <span class='symbol'>:append</span><span class='comma'>,</span> <span class='symbol'>:before</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="prepend_before-instance_method">
+  
+    - (<tt>void</tt>) <strong>prepend_before</strong>(*args, &amp;block) 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Adds <code>block</code> to the front of the list of <code>before</code> blocks in the same
+scope (<code>:example</code>, <code>:context</code>, or <code>:suite</code>).</p>
+
+<p>See <span class='object_link'><a href="#before-instance_method" title="RSpec::Core::Hooks#before (method)">#before</a></span> for scoping semantics.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+207
+208
+209</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/hooks.rb', line 207</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_prepend_before'>prepend_before</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_hooks'>hooks</span><span class='period'>.</span><span class='id identifier rubyid_register'>register</span> <span class='symbol'>:prepend</span><span class='comma'>,</span> <span class='symbol'>:before</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+
+    <div id="footer">
+  Generated on Wed Nov 11 23:56:58 2015 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.6 (ruby-2.1.5).
+</div>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-59095215-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+  </body>
+</html>
