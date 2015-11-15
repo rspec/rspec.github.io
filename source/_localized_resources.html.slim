@@ -1,0 +1,7 @@
+- unless other_localized_resources.empty?
+  ul.langs
+    - localized_resources.each do |resource|
+      - if resource.lang == current_lang
+        li.lang.current_lang = resource.lang
+      - else
+        li.lang = link_to resource.lang, resource.url
