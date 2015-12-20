@@ -172,7 +172,7 @@ as you'd expect. If you're not spinning up any threads in your examples
 and want to avoid that overhead, you can configure RSpec to
 [disable](http://rspec.info/documentation/3.3/rspec-core/RSpec/Core/Configuration.html#threadsafe-instance_method) the thread safety.
 
-### Expectations: New `aggregrate_failures` API
+### Expectations: New `aggregate_failures` API
 
 When you've got multiple independent expectations to make about a
 particular result, there's generally two routes you can take. One way is
