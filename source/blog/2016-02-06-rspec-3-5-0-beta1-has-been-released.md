@@ -26,12 +26,12 @@ proper.
 
 Gemfile example:
 
-```ruby
+~~~ruby
 source "https://rubygems.org"
 
 gem "rails-controller-testing", :git => "https://github.com/rails/rails-controller-testing"
 gem "rspec-rails", "3.5.0.beta1"
-```
+~~~
 
 ## Summing up
 
