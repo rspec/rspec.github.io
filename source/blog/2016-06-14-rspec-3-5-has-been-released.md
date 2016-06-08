@@ -5,7 +5,7 @@ author: Sam Phippen
 
 RSpec 3.5 has just been released! Given our commitment to
 [semantic versioning](http://semver.org/), this should be a trivial
-upgrade for anyone already using any RSpec 3 release, but if we did introduce
+upgrade for anyone already using RSpec 3, but if we did introduce
 any regressions, please let us know, and we'll get a patch release
 out with a fix ASAP.
 
@@ -21,28 +21,30 @@ Thank you to everyone who helped make this release happen!
 
 The headline here is that RSpec 3.5.0 is compatible with Rails 5. As Rails 5
 betas and release candidates have been released, we've been releasing betas of
-3.5.0 to keep up alongside Rails. Due to this being a major release of Rails,
-but not a major release of RSpec, Rails has removed some APIs that we consume.
-This only gets exposed to you, our users, in one place: controller testing.
+3.5.0 to keep up alongside Rails. Due to this being a major release of Rails
+some APIs that we consume have been deprecated. RSpec is not doing a major
+release and so  this only gets exposed to you, our users, in one place:
+controller testing.
 
 In [Rails 5](https://github.com/rails/rails/issues/18950) `assigns` and
 `assert_template` are "soft deprecated". Controller tests themselves *are not*,
 and adding `:type => :controller` to your specs is still 100% supported.
-Through Rails 3 and 4: it was both prevalent and idiomatic to use `assigns` in
+Through Rails 3 and 4 it was both prevalent and idiomatic to use `assigns` in
 controller specs. As this is a minor release of RSpec our commitment to SemVer
 means that we are not going to break your existing controller specs. For
 existing Rails applications that make heavy use of `assigns` adding the
 [`rails-controller-testing`](https://github.com/rails/rails-controller-testing)
-to one's Gemfile will restore `assigns` and `assert_template`. RSpec integrates
+to your Gemfile will restore `assigns` and `assert_template`. RSpec integrates
 with this gem seamlessly, so your controller specs should just continue to work.
 
-For new Rails apps: we don't recommend adding the `rails-controller-testing gem
-to your application. The "official" stance of the Rails team and the RSpec core
-team is that [request specs](https://www.relishapp.com/rspec/rspec-rails/docs/request-specs/request-spec)
-should now be written instead. Request specs allow one to focus on a single
+For new Rails apps: we don't recommend adding the `rails-controller-testing` gem
+to your application. The official recommendation of the Rails team and the
+RSpec core team is to write  [request specs](https://www.relishapp.com/rspec/rspec-rails/docs/request-specs/request-spec)
+instead. Request specs allow one to focus on a single
 controller action, but unlike controller tests involve the router, the
 middleware stack, and both rack requests and responses. In Rails 5, they are
-very fast thanks to the work by [Eileen Uchitelle](https://twitter.com/eileencodes?lang=en-gb)
+significantly faster than either request or controller specs were in rails 4,
+thanks to the work by [Eileen Uchitelle](https://twitter.com/eileencodes?lang=en-gb)
 <sup>[[1]](#footnotes)</a></sup> of the Rails Committer Team.
 
 The other important feature of Rails 5 we wanted to discuss is ActionCable.
