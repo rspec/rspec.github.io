@@ -38,14 +38,15 @@ to your Gemfile will restore `assigns` and `assert_template`. RSpec integrates
 with this gem seamlessly, so your controller specs should just continue to work.
 
 For new Rails apps: we don't recommend adding the `rails-controller-testing` gem
-to your application. The official recommendation of the Rails team and the
-RSpec core team is to write  [request specs](https://www.relishapp.com/rspec/rspec-rails/docs/request-specs/request-spec)
-instead. Request specs allow one to focus on a single
-controller action, but unlike controller tests involve the router, the
-middleware stack, and both rack requests and responses. In Rails 5, they are
-significantly faster than either request or controller specs were in rails 4,
-thanks to the work by [Eileen Uchitelle](https://twitter.com/eileencodes?lang=en-gb)
-<sup>[[1]](#footnotes)</a></sup> of the Rails Committer Team.
+to your application. The official recommendation of the Rails team and the RSpec
+core team is to write  [request
+specs](https://www.relishapp.com/rspec/rspec-rails/docs/request-specs/request-spec)
+instead. Request specs allow you to focus on a single controller action, but
+unlike controller tests involve the router, the middleware stack, and both rack
+requests and responses. This adds realism to the test that you are writing, and
+helps avoid many of the issues that are common in controller specs. In Rails 5,
+request specs are significantly faster than either request or controller specs
+were in rails 4, thanks to the work by [Eileen Uchitelle](https://twitter.com/eileencodes?lang=en-gb)[^foot_1] of the Rails Committer Team.
 
 The other important feature of Rails 5 we wanted to discuss is ActionCable.
 Unfortunately RSpec is not able to provide a simple testing story for
@@ -124,4 +125,4 @@ making this possible.
 
 ## Footnotes
 
-1. See also Eileen's [talk about request spec performance](https://www.youtube.com/watch?v=oT74HLvDo_A)
+[^foot_1]: See also Eileen's [talk about request spec performance](https://www.youtube.com/watch?v=oT74HLvDo_A)
