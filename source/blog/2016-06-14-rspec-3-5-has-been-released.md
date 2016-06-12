@@ -17,6 +17,18 @@ Thank you to everyone who helped make this release happen!
 
 ## Notable Changes
 
+### Core: `config.when_first_matching_example_defined`
+
+### Core: `config.filter_run_when_matching`
+
+### Core: Load spec files in order specified at command line
+
+### Core: Shared example group changes
+
+### Expectations: Minitest integration now works with Minitest 5.6+
+
+### Mocks: Add Minitest integration
+
 ### Rails: Support for Rails 5
 
 The headline here is that RSpec 3.5.0 is compatible with Rails 5. As Rails 5
@@ -59,8 +71,6 @@ The work on Rails 5 represented a significant investment by a number of RSpec
 Core Team members, and we received significant help from members of the Rails
 Commiter and Core teams. We offer kind thanks to everyone that was involved with
 making this possible.
-
-###TODO: other notable changes here here.
 
 ## Stats
 
