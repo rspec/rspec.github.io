@@ -19,11 +19,89 @@ Thank you to everyone who helped make this release happen!
 
 ### Core: `config.when_first_matching_example_defined`
 
+We generally advise that you avoid putting setup logic in `spec_helper.rb` that is
+needed by only some of your specs--that way, you can minimize the boot time to
+run isolated unit specs. Instead, that kind of setup logic can go in a file in
+`spec/support`. Spec files that need it can then require the support file and tag the
+example group to opt-in to any associated hooks and module inclusions, e.g.:
+
+~~~ ruby
+require 'support/db'
+
+RSpec.describe SomeClassThatUsesTheDB, :db do
+  # ...
+end
+~~~
+
+This works, but it's always felt sub-optimal that both the require and the `:db` tag
+are necessary to make this work. It's duplication that happens in every spec file that
+uses the DB. If I forget to put the require 'support/db' line in a spec file that uses
+the DB, I can get in a situation where the spec file passes when run with the entire suite,
+but fails when run individually (because other spec files load the support file).
+
+RSpec 3.5 includes a new hook that works nicely in this situation. Instead of requiring
+`support/db` in each spec file that needs it, you can configure RSpec to load it if
+any examples tagged with `:db` are defined:
+
+~~~ ruby
+RSpec.configure do |config|
+  config.when_first_matching_example_defined(:db) do
+    require 'support/db'
+  end
+end
+~~~
+
+This new `when_first_matching_example_defined` hook fires as soon as the first
+example with matching metadata is defined, allowing you to configure things to
+be loaded as needed based on metadata.  Of course, this new hook isn't limited to
+just this use case, but it's one of the main ways we expect to see it used.
+
 ### Core: `config.filter_run_when_matching`
+
+One of the common uses for RSpec's metadata system is focus filtering. Before RSpec 3.4,
+you'd configure it like this:
+
+~~~ ruby
+RSpec.configure do |config|
+  config.filter_run :focus
+  config.run_all_when_everything_filtered = true
+end
+~~~
+
+Then you can tag an example or group with `:focus` to have RSpec run just what you've tagged.
+When nothing is tagged with `:focus` you want RSpec to ignore this filter, so the
+`run_all_when_everything_filtered = true` option makes it do that.
+
+Unfortunately, `run_all_when_everything_filtered` applies globally to _all_ filtering
+(not just `:focus` filtering), and it creates some surprising behavior in some situations.
+(See [this issue](https://github.com/rspec/rspec-core/issues/1920) for one example).
+We realized that it would make a lot more sense to be able to setup `:focus` as a
+_conditional_ filter, so in RSpec 3.5 you can do that:
+
+~~~ ruby
+RSpec.configure do |config|
+  config.filter_run_when_matching :focus
+end
+~~~
+
+With this configuration, the `:focus` filtering will only apply if any examples
+or groups are tagged with `:focus`. It also makes for shorter, simpler configuration!
 
 ### Core: Load spec files in order specified at command line
 
-### Core: Shared example group changes
+RSpec 3.5 now loads spec files and directories in the order of your
+command line arguments. This provides a simple way to order things in a
+one-off manner. For example, for a particular spec run if you want your fast
+unit specs to run before your slow acceptance specs, you can run RSpec like so:
+
+~~~
+$ rspec spec/unit spec/acceptance --order defined
+~~~
+
+The `--order defined` bit is only needed if you've configured RSpec to normally
+order things randomly (which we recommend as your default).
+
+### Core: Shared example group inclusion changes
 
 ### Expectations: Minitest integration now works with Minitest 5.6+
 
