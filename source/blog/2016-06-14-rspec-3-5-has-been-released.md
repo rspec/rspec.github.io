@@ -1,6 +1,6 @@
 ---
 title: RSpec 3.5 has been released!
-author: Sam Phippen
+author: Sam Phippen and Myron Marston
 ---
 
 RSpec 3.5 has just been released! Given our commitment to
