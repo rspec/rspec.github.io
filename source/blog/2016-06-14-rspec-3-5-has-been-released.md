@@ -103,9 +103,35 @@ order things randomly (which we recommend as your default).
 
 ### Core: Shared example group inclusion changes
 
+TODO
+
 ### Expectations: Minitest integration now works with Minitest 5.6+
 
+While rspec-expectations is normally used with rspec-core, you can easily use it
+with other test frameworks.  We provide integration with Minitest.  Simply load
+our Minitest support after loading Minitest itself:
+
+~~~ ruby
+require 'rspec/expectations/minitest_integration'
+~~~
+
+Unfortunately, Minitest 5.6 introduced its own `expect` method which conflicted with
+the `expect` method we provide and broke this integration. There's a fix for this in
+rspec-expectations 3.5.
+
 ### Mocks: Add Minitest integration
+
+While we've long provided Minitest integration for rspec-expectations, we've never
+provided the same level of simple integration with rspec-mocks. Instead, users had
+to integrate rspec-mocks with Minitest themselves using the lifecycle hooks we provide.
+This worked pretty well until the aforementioned `expect` method was added to Minitest 5.6
+and broke things for users trying to use rspec-mocks with minitest. In rspec-mocks 3.5,
+we now provide first-class support for usage with Minitest.  Just require our integration
+file:
+
+~~~ ruby
+require 'rspec/mocks/minitest_integration'
+~~~
 
 ### Rails: Support for Rails 5
 
