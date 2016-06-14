@@ -103,7 +103,110 @@ order things randomly (which we recommend as your default).
 
 ### Core: Shared example group inclusion changes
 
-TODO
+RSpec has supported the idea of a _shared context_--a shared example group defined
+for the purpose of sharing contextual helpers and hooks--for a long time. You define
+a shared context like this:
+
+~~~ ruby
+RSpec.shared_context "DB support" do
+  let(:db) { MyORM.database }
+
+  # Wrap each example in a transaction...
+  around do |ex|
+    db.transaction(:rollback => :always, &ex)
+  end
+
+  # Interleave example begin/end messages in DB logs so it
+  # is clear which SQL statements come from which examples.
+  before do |ex|
+    db.logger.info "Beginning example: #{ex.metadata[:full_description}"
+  end
+  after do |ex|
+    db.logger.info "Ending example: #{ex.metadata[:full_description}"
+  end
+end
+~~~
+
+To use this shared context, you can explicitly include it in a group with `include_context`:
+
+~~~ ruby
+RSpec.describe MyModel do
+  include_context "DB support"
+end
+~~~
+
+We also supported a way of _implicitly_ including the shared context in a group using matching metadata:
+
+~~~ ruby
+RSpec.shared_context "DB support", :db do
+  # ...
+end
+
+# ...
+
+RSpec.describe MyModel, :db do
+  # ...
+end
+~~~
+
+This approach worked OK, but had several significant problems:
+
+* The first argument to `shared_context` (`"DB support"`) doesn't serve a purpose
+  beyond labelling what the group is for (which a comment could achieve just as well).
+* Some users have expressed surprised that the metadata is treated "special" here and
+  isn't simply applied to the shared example group like it is applied to a normal example group.
+* It makes it impossible to attach some metadata to a shared example group that will be
+  automatically applied to including example groups. For example, maybe you want to temporarily
+  add `:skip` or `:focus` metadata to all including groups. There was no way to do this.
+* There's no obvious way to make a shared example group get auto-included in every
+  example group (e.g. for a global `before` hook or a `let` you want to make available everywhere...).
+* It's inconsistent with how module inclusion works (e.g. `config.include DBSupport, :db`).
+
+In RSpec 3.5 we've rectified these problems with a couple of changes.
+
+#### New API: `config.include_context`
+
+You can now define shared context inclusions in your `RSpec.configure` block:
+
+~~~ ruby
+RSpec.configure do |config|
+  config.include_context "DB support", :db
+end
+~~~
+
+This aligns with the existing `config.include` API for module inclusions, provides
+a way to include shared contexts based on metadata that is less surprising, and
+makes it simple to include a shared context in all example groups (just don't
+pass a metadata argument).
+
+#### New config option: `config.shared_context_metadata_behavior`
+
+We've also added a config option that lets you determine how shared context
+metadata is treated:
+
+~~~ ruby
+RSpec.configure do |config|
+  config.shared_context_metadata_behavior = :trigger_inclusion
+  # or
+  config.shared_context_metadata_behavior = :apply_to_host_groups
+end
+~~~
+
+The former value (`:trigger_inclusion`) is the default and exists only for backwards
+compatibility. It treats metadata passed to `RSpec.shared_context` exactly how it was
+treated in RSpec 3.4 and before: it triggers inclusion in groups with matching metadata.
+We plan to remove support for it in RSpec 4.
+
+The latter value (`:apply_to_host_groups`) opts-in to the new behavior. Instead of
+triggering inclusion in groups with matching metadata, it applies the metadata to host
+groups.  For example, you could focus on all groups that use the DB by tagging your
+shared context:
+
+~~~ ruby
+RSpec.shared_context "DB support", :focus do
+  # ...
+end
+~~~
 
 ### Expectations: Minitest integration now works with Minitest 5.6+
 
