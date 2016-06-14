@@ -35,9 +35,9 @@ end
 
 This works, but it's always felt sub-optimal that both the require and the `:db` tag
 are necessary to make this work. It's duplication that happens in every spec file that
-uses the DB. If I forget to put the require 'support/db' line in a spec file that uses
-the DB, I can get in a situation where the spec file passes when run with the entire suite,
-but fails when run individually (because other spec files load the support file).
+uses the DB. If I forget to put the `require 'support/db'` line in a spec file that uses
+the DB, I can get in a situation where the spec file fails when run individually, but
+passes when run with the entire suite (because other spec files load the support file).
 
 RSpec 3.5 includes a new hook that works nicely in this situation. Instead of requiring
 `support/db` in each spec file that needs it, you can configure RSpec to load it if
@@ -58,7 +58,7 @@ just this use case, but it's one of the main ways we expect to see it used.
 
 ### Core: `config.filter_run_when_matching`
 
-One of the common uses for RSpec's metadata system is focus filtering. Before RSpec 3.4,
+One of the common uses for RSpec's metadata system is focus filtering. Before RSpec 3.5,
 you'd configure it like this:
 
 ~~~ ruby
