@@ -231,6 +231,8 @@ expect(my_object).to respond_to(:build).with(2..3).arguments
 expect(my_object).to respond_to(:build).with_unlimited_arguments
 ~~~
 
+A big thank you to Rob Smith for the work you put into making this a part of RSpec.
+
 ### Expectations: Minitest integration now works with Minitest 5.6+
 
 While rspec-expectations is normally used with rspec-core, you can easily use it
