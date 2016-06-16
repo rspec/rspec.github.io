@@ -218,8 +218,8 @@ using keyword arguments. You'll now be able to check a methods response signatur
 keywords as well as arguments.
 
 ~~~ ruby
-  expect(my_object).to respond_to(:find).with_keywords(:limit, :offset) }
-  expect(my_object).to respond_to(:find).with(1).argument.and_keywords(:limit, :offset)
+expect(my_object).to respond_to(:find).with_keywords(:limit, :offset) }
+expect(my_object).to respond_to(:find).with(1).argument.and_keywords(:limit, :offset)
 ~~~
 
  We're also expanding the matchers existing capabilities, adding the ability
@@ -227,8 +227,8 @@ keywords as well as arguments.
  number. e.g:
 
 ~~~ ruby
-  expect(my_object).to respond_to(:build).with(2..3).arguments
-  expect(my_object).to respond_to(:build).with_unlimited_arguments
+expect(my_object).to respond_to(:build).with(2..3).arguments
+expect(my_object).to respond_to(:build).with_unlimited_arguments
 ~~~
 
 ### Expectations: Minitest integration now works with Minitest 5.6+
