@@ -1,6 +1,6 @@
 ---
 title: RSpec 3.5 has been released!
-author: Sam Phippen and Myron Marston
+author: Sam Phippen, Myron Marston and Jon Rowe
 ---
 
 RSpec 3.5 has just been released! Given our commitment to
@@ -206,6 +206,28 @@ shared context:
 RSpec.shared_context "DB support", :focus do
   # ...
 end
+~~~
+
+### Expectations: Keyword argument support for the `respond_to` matcher.
+
+Keyword arguments have been a stable language feature for some time now but RSpec
+has lacked support for placing expectations upon keyword arguments in a variety of our matchers.
+
+In rspec-expectations 3.5 we add support for checking whether an object responds to a method
+using keyword arguments. You'll now be able to check
+
+~~~ ruby
+  expect(my_object).to respond_to(:find).with_keywords(:limit, :offset) }
+  expect(my_object).to respond_to(:find).with(1).argument.and_keywords(:limit, :offset)
+~~~
+
+ We're also expanding the matchers existing capabilities, adding the ability
+ to check for a range of arguments, or unlimited arguments in addition to a specific
+ number. e.g:
+
+~~~ ruby
+  expect(my_object).to respond_to(:build).with(2..3).arguments
+  expect(my_object).to respond_to(:build).with_unlimited_arguments
 ~~~
 
 ### Expectations: Minitest integration now works with Minitest 5.6+
