@@ -214,8 +214,8 @@ Keyword arguments have been a stable language feature for some time now but RSpe
 has lacked support for placing expectations upon keyword arguments in a variety of our matchers.
 
 In rspec-expectations 3.5 we add support for checking whether an object responds to a method
-using keyword arguments. You'll now be able to check a methods response signature for particular
-keywords as well as arguments.
+using keyword arguments. You'll now be able to check a method's response signature for particular
+keyword(s) as well as a count of traditional arguments.
 
 ~~~ ruby
 expect(my_object).to respond_to(:find).with_keywords(:limit, :offset) }
