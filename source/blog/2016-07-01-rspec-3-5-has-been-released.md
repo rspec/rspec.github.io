@@ -10,7 +10,7 @@ any regressions, please let us know, and we'll get a patch release
 out with a fix ASAP.
 
 RSpec continues to be a community-driven project with contributors
-from all over the world. This release includes over 450 commits and 150
+from all over the world. This release includes over 600 commits and 150
 merged pull requests from over 50 different contributors!
 
 Thank you to everyone who helped make this release happen!
@@ -293,7 +293,7 @@ request specs are significantly faster than either request or controller specs
 were in rails 4, thanks to the work by [Eileen Uchitelle](https://twitter.com/eileencodes?lang=en-gb)[^foot_1] of the Rails Committer Team.
 
 The other important feature of Rails 5 we wanted to discuss is ActionCable.
-Unfortunately RSpec is not able to provide a simple testing story for
+Unfortunately RSpec is not able to provide a clean way of testing
 ActionCable at this time. Rails is working on a testing type for ActionCable
 slated for release as part of Rails 5.1. We'll be watching that closely and work
 something up when it's ready. In the mean time, we suggest you test ActionCable
@@ -306,43 +306,67 @@ making this possible.
 
 ## Stats
 
-**TODO: regenerate this on day of release**
 
 ### Combined:
 
-* **Total Commits**: 480
-* **Merged pull requests**: 153
-* **53 contributors**: Aaron Stone, Ahmed AbouElhamayed, Al Snow, Alex Altair, Alexander Skiba, Andrew Kozin (aka nepalez), Andrew White, Ben Saunders, Benjamin Quorning, Bradley Schaefer, Bruno Bonamin, David Rodríguez, Diogo Benicá, Eliot Sykes, Fernando Seror, Isaac Betesh, James Coleman, Joe Rafaniello, John Schroeder, Jon Moss, Jon Rowe, Jun Aruga, Kilian Cirera Sant, Koen Punt, Liss McCabe, Marc Ignacio, Martin Emde, Miklos Fazekas, Myron Marston, Patrik Wenger, Perry Smith, Peter Swan, Prem Sichanugrist, Rob, Ryan Beckman, Ryan Clark, Sam Phippen, Scott Bronson, Sergey Pchelintsev, Thomas Hart II, Timo Schilling, Tobias Bühlmann, Travis Grathwell, William Jeffries, Wojciech Wnętrzak, Xavier Shay, Yuji Nakayama, Zshawn Syed, chrisarcand, liam-m, mrageh, sleepingkingstudios, yui-knk
+* **Total Commits**: 625
+* **Merged pull requests**: 192
+* **62 contributors**: Aaron Stone, Ahmed AbouElhamayed, Al Snow, Alex Altair,
+  Alexander Skiba, Alireza Bashiri, Andrew Kozin (aka nepalez), Andrew White,
+Anton Rieder, Ben Saunders, Benjamin Quorning, Bradley Schaefer, Bruno Bonamin,
+DarthSim, David Rodríguez, Diogo Benicá, Eliot Sykes, Fernando Seror, Gautam
+Sawhney, Isaac Betesh, James Coleman, Joe Rafaniello, John Schroeder, Jon Moss,
+Jon Rowe, Jun Aruga, Kilian Cirera Sant, Koen Punt, Liss McCabe, Marc Ignacio,
+Martin Emde, Matt Jones, Michele Piccirillo, Miklos Fazekas, Myron Marston,
+Patrik Wenger, Perry Smith, Peter Swan, Prem Sichanugrist, Rob, Rob Smith, Ryan
+Beckman, Ryan Clark, Sam Phippen, Scott Bronson, Sergey Pchelintsev, Simon
+Coffey, Thomas Hart II, Timo Schilling, Tobias Bühlmann, Travis Grathwell,
+William Jeffries, Wojciech Wnętrzak, Xavier Shay, Yoshihiro Ashida, Yuji
+Nakayama, Zshawn Syed, chrisarcand, liam-m, mrageh, sleepingkingstudios, yui-knk
 
 ### rspec-core:
 
-* **Total Commits**: 133
-* **Merged pull requests**: 45
-* **14 contributors**: Alexander Skiba, Benjamin Quorning, Bradley Schaefer, Jon Moss, Jon Rowe, Myron Marston, Patrik Wenger, Perry Smith, Sam Phippen, Thomas Hart II, Travis Grathwell, Yuji Nakayama, mrageh, yui-knk
+* **Total Commits**: 194
+* **Merged pull requests**: 66
+* **18 contributors**: Alexander Skiba, Alireza Bashiri, Benjamin Quorning,
+  Bradley Schaefer, Jon Moss, Jon Rowe, Matt Jones, Michele Piccirillo, Myron
+Marston, Patrik Wenger, Perry Smith, Sam Phippen, Simon Coffey, Thomas Hart II,
+Travis Grathwell, Yuji Nakayama, mrageh, yui-knk
 
 ### rspec-expectations:
 
-* **Total Commits**: 50
-* **Merged pull requests**: 16
-* **12 contributors**: Alex Altair, Ben Saunders, Benjamin Quorning, Bradley Schaefer, James Coleman, Jon Rowe, Myron Marston, Sam Phippen, William Jeffries, Yuji Nakayama, Zshawn Syed, chrisarcand
+* **Total Commits**: 83
+* **Merged pull requests**: 25
+* **14 contributors**: Alex Altair, Ben Saunders, Benjamin Quorning, Bradley
+  Schaefer, James Coleman, Jon Rowe, Myron Marston, Rob Smith, Sam Phippen,
+William Jeffries, Yuji Nakayama, Zshawn Syed, chrisarcand, sleepingkingstudios
 
 ### rspec-mocks:
 
-* **Total Commits**: 70
-* **Merged pull requests**: 25
-* **17 contributors**: Andrew Kozin (aka nepalez), Benjamin Quorning, Bradley Schaefer, Bruno Bonamin, David Rodríguez, Isaac Betesh, Joe Rafaniello, Jon Rowe, Kilian Cirera Sant, Marc Ignacio, Martin Emde, Myron Marston, Patrik Wenger, Ryan Beckman, Sam Phippen, Tobias Bühlmann, Yuji Nakayama
+* **Total Commits**: 82
+* **Merged pull requests**: 28
+* **17 contributors**: Andrew Kozin (aka nepalez), Benjamin Quorning, Bradley
+  Schaefer, Bruno Bonamin, David Rodríguez, Isaac Betesh, Joe Rafaniello, Jon
+Rowe, Kilian Cirera Sant, Marc Ignacio, Martin Emde, Myron Marston, Patrik
+Wenger, Ryan Beckman, Sam Phippen, Tobias Bühlmann, Yuji Nakayama
 
 ### rspec-rails:
 
-* **Total Commits**: 157
-* **Merged pull requests**: 44
-* **27 contributors**: Ahmed AbouElhamayed, Al Snow, Andrew White, Benjamin Quorning, Bradley Schaefer, David Rodríguez, Diogo Benicá, Eliot Sykes, Fernando Seror, John Schroeder, Jon Rowe, Jun Aruga, Koen Punt, Liss McCabe, Miklos Fazekas, Myron Marston, Peter Swan, Prem Sichanugrist, Rob, Ryan Clark, Sam Phippen, Scott Bronson, Sergey Pchelintsev, Timo Schilling, Wojciech Wnętrzak, Xavier Shay, Yuji Nakayama
+* **Total Commits**: 185
+* **Merged pull requests**: 47
+* **31 contributors**: Ahmed AbouElhamayed, Al Snow, Andrew White, Anton Rieder,
+  Benjamin Quorning, Bradley Schaefer, DarthSim, David Rodríguez, Diogo Benicá,
+Eliot Sykes, Fernando Seror, Gautam Sawhney, John Schroeder, Jon Rowe, Jun
+Aruga, Koen Punt, Liss McCabe, Miklos Fazekas, Myron Marston, Peter Swan, Prem
+Sichanugrist, Rob, Ryan Clark, Sam Phippen, Scott Bronson, Sergey Pchelintsev,
+Timo Schilling, Wojciech Wnętrzak, Xavier Shay, Yoshihiro Ashida, Yuji Nakayama
 
 ### rspec-support:
 
-* **Total Commits**: 70
-* **Merged pull requests**: 23
-* **8 contributors**: Aaron Stone, Bradley Schaefer, Jon Rowe, Myron Marston, Sam Phippen, Yuji Nakayama, liam-m, sleepingkingstudios
+* **Total Commits**: 81
+* **Merged pull requests**: 26
+* **8 contributors**: Aaron Stone, Bradley Schaefer, Jon Rowe, Myron Marston,
+  Sam Phippen, Yuji Nakayama, liam-m, sleepingkingstudios
 
 ## Docs
 
@@ -362,7 +386,242 @@ making this possible.
 
 ## Release Notes
 
-**TODO: fill this out on day of release**
+### RSpec Core (combining all betas of RSpec 3.5.0)
+
+#### 3.5.0 / 2016-07-01
+[Full Changelog](http://github.com/rspec/rspec-core/compare/v3.5.0.beta4...v3.5.0)
+
+Enhancements:
+
+* Include any `SPEC_OPTS` in reproduction command printed at the end of
+  a bisect run. (Simon Coffey, #2274)
+
+Bug Fixes:
+
+* Handle `--bisect` in `SPEC_OPTS` environment variable correctly so as
+  to avoid infinite recursion. (Simon Coffey, #2271)
+
+#### 3.5.0.beta4 / 2016-06-05
+[Full Changelog](http://github.com/rspec/rspec-core/compare/v3.5.0.beta3...v3.5.0.beta4)
+
+Enhancements:
+
+* Filter out bundler stackframes from backtraces by default, since
+  Bundler 1.12 now includes its own frames in stack traces produced
+  by using `bundle exec`. (Myron Marston, #2240)
+* HTML Formatter uses exception presenter to get failure message
+  for consistency with other formatters. (@mrageh, #2222)
+* Load spec files in the order of the directories or files passed
+  at the command line, making it easy to make some specs run before
+  others in a one-off manner.  For example, `rspec spec/unit
+  spec/acceptance --order defined` will run unit specs before acceptance
+  specs. (Myron Marston, #2253)
+* Add new `config.include_context` API for configuring global or
+  filtered inclusion of shared contexts in example groups.
+  (Myron Marston, #2256)
+* Add new `config.shared_context_metadata_behavior = :apply_to_host_groups`
+  option, which causes shared context metadata to be inherited by the
+  metadata hash of all host groups and examples instead of configuring
+  implicit auto-inclusion based on the passed metadata. (Myron Marston, #2256)
+
+Bug Fixes:
+
+* Fix `--bisect` so it works on large spec suites that were previously triggering
+  "Argument list too long errors" due to all the spec locations being passed as
+  CLI args. (Matt Jones, #2223).
+* Fix deprecated `:example_group`-based filtering so that it properly
+  applies to matching example groups. (Myron Marston, #2234)
+* Fix `NoMethodError` caused by Java backtraces on JRuby. (Michele Piccirillo, #2244)
+
+#### 3.5.0.beta3 / 2016-04-02
+[Full Changelog](http://github.com/rspec/rspec-core/compare/v3.5.0.beta2...v3.5.0.beta3)
+
+Enhancements:
+
+* Add new `config.filter_run_when_matching` API, intended to replace
+  the combination of `config.filter_run` and
+  `config.run_all_when_everything_filtered` (Myron Marston, #2206)
+
+Bug Fixes:
+
+* Use the encoded string logic for source extraction. (Jon Rowe, #2183)
+* Fix rounding issue in duration formatting helper. (Fabersky, Jon Rowe, #2208)
+* Fix failure snippet extraction so that `def-end` snippets
+  ending with `end`-only line can be extracted properly.
+  (Yuji Nakayama, #2215)
+
+#### 3.5.0.beta2 / 2016-03-10
+[Full Changelog](http://github.com/rspec/rspec-core/compare/v3.5.0.beta1...v3.5.0.beta2)
+
+Enhancements:
+
+* Remove unneeded `:execution_result` example group metadata, saving a
+  bit of memory. (Myron Marston, #2172)
+* Apply hooks registered with `config` to previously defined groups.
+  (Myron Marston, #2189)
+* `RSpec::Core::Configuration#reporter` is now public API under SemVer.
+  (Jon Rowe, #2193)
+* Add new `config.when_first_matching_example_defined` hook. (Myron
+  Marston, #2175)
+
+#### 3.5.0.beta1 / 2016-02-06
+[Full Changelog](http://github.com/rspec/rspec-core/compare/v3.4.4...v3.5.0.beta1)
+
+Enhancements:
+
+* Add `RSpec::Core::ExampleGroup.currently_executing_a_context_hook?`,
+  primarily for use by rspec-rails. (Sam Phippen, #2131)
+
+Bug Fixes:
+
+* Ensure `MultipleExceptionError` does not contain a recursive reference
+  to itself. (Sam Phippen, #2133)
+
+
+### RSpec Expectations (including all betas of RSpec 3.5.0)
+
+#### 3.5.0 / 2016-07-01
+[Full Changelog](http://github.com/rspec/rspec-expectations/compare/v3.5.0.beta4...v3.5.0)
+
+**No user facing changes since beta4**
+
+#### 3.5.0.beta4 / 2016-06-05
+[Full Changelog](http://github.com/rspec/rspec-expectations/compare/v3.5.0.beta3...v3.5.0.beta4)
+
+Bug Fixes:
+
+* Fix `include` matcher so that it provides a valid diff for hashes. (Yuji Nakayama, #916)
+
+#### 3.5.0.beta3 / 2016-04-02
+[Full Changelog](http://github.com/rspec/rspec-expectations/compare/v3.5.0.beta2...v3.5.0.beta3)
+
+Enhancements:
+
+* Make `rspec/expectations/minitest_integration` work on Minitest::Spec
+  5.6+. (Myron Marston, #904)
+* Add an alias `having_attributes` for `have_attributes` matcher.
+  (Yuji Nakayama, #905)
+* Improve `change` matcher error message when block is mis-used.
+  (Alex Altair, #908)
+
+#### 3.5.0.beta2 / 2016-03-10
+[Full Changelog](http://github.com/rspec/rspec-expectations/compare/v3.5.0.beta1...v3.5.0.beta2)
+
+Enhancements:
+
+* Add the ability to raise an error on encountering false positives via
+  `RSpec::Configuration#on_potential_false_positives = :raise`. (Jon Rowe, #900)
+* When using the custom matcher DSL, support new
+  `notify_expectation_failures: true` option for the `match` method to
+  allow expectation failures to be raised as normal instead of being
+  converted into a `false` return value for `matches?`. (Jon Rowe, #892)
+
+Bug Fixes:
+
+* Allow `should` deprecation check to work on `BasicObject`s. (James Coleman, #898)
+
+#### 3.5.0.beta1 / 2016-02-06
+[Full Changelog](http://github.com/rspec/rspec-expectations/compare/v3.4.0...v3.5.0.beta1)
+
+Enhancements:
+
+* Make `match_when_negated` in custom matcher DSL support use of
+  expectations within the match logic. (Chris Arcand, #789)
+
+Bug Fixes:
+
+* Return `true` as expected from passing negated expectations
+  (such as `expect("foo").not_to eq "bar"`), so they work
+  properly when used within a `match` or `match_when_negated`
+  block. (Chris Arcand, #789)
+
+### RSpec Mocks (including all betas of RSpec 3.5.0)
+
+#### 3.5.0 / 2016-07-01
+[Full Changelog](http://github.com/rspec/rspec-mocks/compare/v3.5.0.beta4...v3.5.0)
+
+Enhancements:
+
+* Provides a nice string representation of
+  `RSpec::Mocks::MessageExpectation` (Myron Marston, #1095)
+
+#### 3.5.0.beta4 / 2016-06-05
+[Full Changelog](http://github.com/rspec/rspec-mocks/compare/v3.5.0.beta3...v3.5.0.beta4)
+
+Enhancements:
+
+* Add `and_throw` to any instance handling. (Tobias Bühlmann, #1068)
+
+#### 3.5.0.beta3 / 2016-04-02
+[Full Changelog](http://github.com/rspec/rspec-mocks/compare/v3.5.0.beta2...v3.5.0.beta3)
+
+Enhancements:
+
+* Issue warning when attempting to use unsupported
+  `allow(...).to receive(...).ordered`. (Jon Rowe, #1000)
+* Add `rspec/mocks/minitest_integration`, to properly integrate rspec-mocks
+  with minitest. (Myron Marston, #1065)
+
+#### 3.5.0.beta2 / 2016-03-10
+[Full Changelog](http://github.com/rspec/rspec-mocks/compare/v3.5.0.beta1...v3.5.0.beta2)
+
+Enhancements:
+
+* Improve error message displayed when using `and_wrap_original` on pure test
+  doubles. (betesh, #1063)
+
+Bug Fixes:
+
+* Fix issue that prevented `receive_message_chain(...).with(...)` working
+  correctly on "any instance" mocks. (Jon Rowe, #1061)
+
+#### 3.5.0.beta1 / 2016-02-06
+[Full Changelog](http://github.com/rspec/rspec-mocks/compare/v3.4.1...v3.5.0.beta1)
+
+Bug Fixes:
+
+* Allow `any_instance_of(...).to receive(...)` to use `and_yield` multiple
+  times. (Kilian Cirera Sant, #1054)
+* Allow matchers which inherit from `rspec-mocks` matchers to be used for
+  `allow`. (Andrew Kozin, #1056)
+* Prevent stubbing `respond_to?` on partial doubles from causing infinite
+  recursion. (Jon Rowe, #1013)
+* Prevent aliased methods from disapearing after being mocked with
+  `any_instance` (regression from #1043). (Joe Rafaniello, #1060)
+
+### RSpec Support (including all betas of RSpec 3.5.0)
+
+#### 3.5.0 / 2016-07-01
+[Full Changelog](http://github.com/rspec/rspec-support/compare/v3.5.0.beta4...v3.5.0)
+
+**No user facing changes since beat4**
+
+#### 3.5.0.beta4 / 2016-06-05
+[Full Changelog](http://github.com/rspec/rspec-support/compare/v3.5.0.beta3...v3.5.0.beta4)
+
+Enhancements:
+* Improve `MethodSignature` to better support keyword arguments. (#250, Rob Smith).
+
+#### 3.5.0.beta3 / 2016-04-02
+[Full Changelog](http://github.com/rspec/rspec-support/compare/v3.5.0.beta2...v3.5.0.beta3)
+
+Bug Fixes:
+
+* Fix `EncodedString` to properly handle the behavior of `String#split`
+  on JRuby when the string contains invalid bytes. (Jon Rowe, #268)
+* Fix `ObjectFormatter` so that formatting objects that don't respond to
+  `#inspect` (such as `BasicObject`) does not cause `NoMethodError`.
+  (Yuji Nakayama, #269)
+* Fix `ObjectFormatter` so that formatting recursive array or hash does not
+  cause `SystemStackError`. (Yuji Nakayama, #270, #272)
+
+#### 3.5.0.beta2 / 2016-03-10
+[Full Changelog](http://github.com/rspec/rspec-support/compare/v3.5.0.beta1...v3.5.0.beta2)
+
+No user-facing changes.
+
+#### 3.5.0.beta1 / 2016-02-06
+[Full Changelog](http://github.com/rspec/rspec-support/compare/v3.4.1...v3.5.0.beta1)
 
 
 ## Footnotes
