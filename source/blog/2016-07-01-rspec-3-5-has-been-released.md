@@ -218,7 +218,7 @@ using keyword arguments. You'll now be able to check a method's response signatu
 keyword(s) as well as a count of traditional arguments.
 
 ~~~ ruby
-expect(my_object).to respond_to(:find).with_keywords(:limit, :offset) }
+expect(my_object).to respond_to(:find).with_keywords(:limit, :offset)
 expect(my_object).to respond_to(:find).with(1).argument.and_keywords(:limit, :offset)
 ~~~
 
