@@ -191,17 +191,6 @@ RSpec.configure do |config|
 end
 ~~~
 
-
-The former value (`:trigger_inclusion`) is the default and exists only for backwards
-compatibility. It treats metadata passed to `RSpec.shared_context` exactly how it was
-treated in RSpec 3.4 and before: it triggers inclusion in groups with matching metadata.
-We plan to remove support for it in RSpec 4.
-
-The latter value (`:apply_to_host_groups`) opts-in to the new behavior. Instead of
-triggering inclusion in groups with matching metadata, it applies the metadata to host
-groups.  For example, you could focus on all groups that use the DB by tagging your
-shared context:
-
 前者（`:trigger_inclusion`）はデフォルトの挙動であり、後方互換性のためだけに存在しています。
 この場合、`RSpec.shared_context` に渡されたメタデータは
 RSpec 3.4 までと同様
