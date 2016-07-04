@@ -1,1 +1,767 @@
-button,input[type="submit"]{border:1px solid #2459a6;border-radius:3px;box-shadow:inset 0 1px 0 0 #89a8d5;color:white;display:inline-block;font-size:inherit;font-weight:bold;background-color:#477DCA;background-image:-webkit-linear-gradient(#477DCA, #2760b2);background-image:linear-gradient(#477DCA, #2760b2);padding:7px 18px;text-decoration:none;text-shadow:0 1px 0 #1b4f9a;background-clip:padding-box;font-size:1.05em}button:hover:not(:disabled),input[type="submit"]:hover:not(:disabled){background-color:#3c71bb;background-image:-webkit-linear-gradient(#3c71bb, #255aa5);background-image:linear-gradient(#3c71bb, #255aa5);box-shadow:inset 0 1px 0 0 #628cc8;cursor:pointer}button:active:not(:disabled),input[type="submit"]:active:not(:disabled),button:focus:not(:disabled),input[type="submit"]:focus:not(:disabled){border:1px solid #2459a6;box-shadow:inset 0 0 8px 4px #235397, inset 0 0 8px 4px #235397}button:disabled,input[type="submit"]:disabled{cursor:not-allowed;opacity:0.5}body{color:#333;font-family:"Monserrat", Helvetica, sans-serif;font-size:1.05em;-webkit-font-smoothing:antialiased;line-height:1.575em;background-color:#fffcf7}h1,h2,h3,h4,h5,h6{font-family:"Source Sans Pro";line-height:1.25em;margin:0;font-weight:normal;color:#182f44;text-rendering:optimizeLegibility}h1{font-size:2.3625em}h2{text-align:center;color:#fb5c28;font-size:3.15em}h3{font-family:"Monserrat", Helvetica, sans-serif;font-weight:700;font-size:1.05em;text-transform:uppercase}h4{font-size:1.575em}h5{font-size:1.3125em}h6{font-size:1.05em}p{margin:0 0 0.7875em}a{color:#477DCA;text-decoration:none;-webkit-transition:color 0.1s linear;-moz-transition:color 0.1s linear;transition:color 0.1s linear}a:hover{color:#2c5999}a:active,a:focus{color:#2c5999;outline:none}hr{border-bottom:1px solid #DDD;border-left:none;border-right:none;border-top:none;margin:1.575em 0}img{margin:0;max-width:100%}abbr,acronym{border-bottom:1px dotted #DDD;cursor:help}address{display:block;margin:0 0 0.7875em}hgroup{margin-bottom:0.7875em}del{color:#595959}blockquote{border-left:2px solid #DDD;color:#595959;margin:1.575em 0;padding-left:0.7875em}cite{color:#737373;font-style:italic}cite:before{content:'\2014 \00A0'}fieldset{background:#f7f7f7;border:1px solid #DDD;margin:0 0 0.7875em 0;padding:1.575em}input,label,select{display:block;font-family:"Monserrat", Helvetica, sans-serif;font-size:1.05em}label{font-weight:bold;margin-bottom:0.39375em}label.required:after{content:"*"}label abbr{display:none}textarea,input[type="color"],input[type="date"],input[type="datetime"],input[type="datetime-local"],input[type="email"],input[type="month"],input[type="number"],input[type="password"],input[type="search"],input[type="tel"],input[type="text"],input[type="time"],input[type="url"],input[type="week"],textarea{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;-webkit-transition:border-color;-moz-transition:border-color;transition:border-color;background-color:white;border-radius:0.1875em;border:1px solid #DDD;box-shadow:inset 0 1px 3px rgba(0,0,0,0.06);font-family:"Monserrat", Helvetica, sans-serif;font-size:1.05em;margin-bottom:0.7875em;padding:0.525em 0.525em;resize:vertical;width:100%}textarea:hover,input[type="color"]:hover,input[type="date"]:hover,input[type="datetime"]:hover,input[type="datetime-local"]:hover,input[type="email"]:hover,input[type="month"]:hover,input[type="number"]:hover,input[type="password"]:hover,input[type="search"]:hover,input[type="tel"]:hover,input[type="text"]:hover,input[type="time"]:hover,input[type="url"]:hover,input[type="week"]:hover,textarea:hover{border-color:#c4c4c4}textarea:focus,input[type="color"]:focus,input[type="date"]:focus,input[type="datetime"]:focus,input[type="datetime-local"]:focus,input[type="email"]:focus,input[type="month"]:focus,input[type="number"]:focus,input[type="password"]:focus,input[type="search"]:focus,input[type="tel"]:focus,input[type="text"]:focus,input[type="time"]:focus,input[type="url"]:focus,input[type="week"]:focus,textarea:focus{border-color:#477DCA;box-shadow:inset 0 1px 3px rgba(0,0,0,0.06),0 0 5px rgba(55,112,192,0.7);outline:none}input[type="search"]{-webkit-appearance:none;-moz-appearance:none;-ms-appearance:none;-o-appearance:none;appearance:none}input[type="checkbox"],input[type="radio"]{display:inline;margin-right:0.39375em}input[type="file"]{width:100%}select{width:auto;margin-bottom:1.575em}button,input[type="submit"]{-webkit-appearance:none;-moz-appearance:none;-ms-appearance:none;-o-appearance:none;appearance:none;cursor:pointer;user-select:none;vertical-align:middle;white-space:nowrap}table{border-collapse:collapse;margin:0.7875em 0;table-layout:fixed;width:100%}th{border-bottom:1px solid #b7b7b7;font-weight:bold;padding:0.7875em 0;text-align:left}td{border-bottom:1px solid #DDD;padding:0.7875em 0}tr,td,th{vertical-align:middle}ul,ol{margin:0;padding:0;list-style-type:none}dl{line-height:1.575em;margin-bottom:0.7875em}dl dt{font-weight:bold;margin-top:0.7875em}dl dd{margin:0}.error,#flash_failure{background:#FBE3E4;color:#96151b;font-weight:bold;margin-bottom:0.7875em;padding:0.7875em}.error a,#flash_failure a{color:#6a0f13}.error a:hover,#flash_failure a:hover{color:#110203}.notice,#flash_notice{background:#FFF6BF;color:#8c7800;font-weight:bold;margin-bottom:0.7875em;padding:0.7875em}.notice a,#flash_notice a{color:#594c00}.notice a:hover,#flash_notice a:hover{color:black}.success,#flash_success{background:#5ad29e;color:black;font-weight:bold;margin-bottom:0.7875em;padding:0.7875em}.success a,#flash_success a{color:black}.success a:hover,#flash_success a:hover{color:black}html{box-sizing:border-box}*,*::after,*::before{box-sizing:inherit}header{background-color:#faf5ed}header nav{max-width:940px;margin-left:auto;margin-right:auto;height:78px}header nav::after{clear:both;content:"";display:table}header nav h1{background:url("/images/logo-small.png") left no-repeat;float:left;display:block;margin-right:2.12766%;width:23.40426%;padding-left:66px;padding-top:12px;height:100%;font-weight:300}header nav h1:last-child{margin-right:0}header nav h1 a{text-decoration:none;color:black}header nav ul{text-align:right;float:left;display:block;margin-right:2.12766%;width:74.46809%}header nav ul:last-child{margin-right:0}header nav ul li{display:inline-block;font-size:1em}header nav ul li a{line-height:0.5;display:inline-block;padding:34px 10px;margin-left:20px;color:#182f44}footer{height:78px;width:100%;background-color:#e9e3d9;margin-top:100px;padding:13px;text-align:center}footer span{margin-left:3px}pre{font-family:inconsolata, courier;background-color:#002b36}.highlight{background-color:#002b36;color:#93a1a1}.highlight .c{color:#586e75}.highlight .err{color:#93a1a1}.highlight .g{color:#93a1a1}.highlight .k{color:#859900}.highlight .l{color:#93a1a1}.highlight .n{color:#93a1a1}.highlight .o{color:#859900}.highlight .x{color:#cb4b16}.highlight .p{color:#93a1a1}.highlight .cm{color:#586e75}.highlight .cp{color:#859900}.highlight .c1{color:#586e75}.highlight .cs{color:#859900}.highlight .gd{color:#2aa198}.highlight .ge{color:#93a1a1;font-style:italic}.highlight .gr{color:#dc322f}.highlight .gh{color:#cb4b16}.highlight .gi{color:#859900}.highlight .go{color:#93a1a1}.highlight .gp{color:#93a1a1}.highlight .gs{color:#93a1a1;font-weight:bold}.highlight .gu{color:#cb4b16}.highlight .gt{color:#93a1a1}.highlight .kc{color:#cb4b16}.highlight .kd{color:#268bd2}.highlight .kn{color:#859900}.highlight .kp{color:#859900}.highlight .kr{color:#268bd2}.highlight .kt{color:#dc322f}.highlight .ld{color:#93a1a1}.highlight .m{color:#2aa198}.highlight .s{color:#2aa198}.highlight .na{color:#93a1a1}.highlight .nb{color:#cb4b16}.highlight .nc{color:#B58900}.highlight .no{color:#B58900}.highlight .nd{color:#268bd2}.highlight .ni{color:#cb4b16}.highlight .ne{color:#cb4b16}.highlight .nf{color:#93a1a1}.highlight .nl{color:#93a1a1}.highlight .nn{color:#93a1a1}.highlight .nx{color:#93a1a1}.highlight .py{color:#93a1a1}.highlight .nt{color:#268bd2}.highlight .nv{color:#268bd2}.highlight .ow{color:#859900}.highlight .w{color:#93a1a1}.highlight .mf{color:#2aa198}.highlight .mh{color:#2aa198}.highlight .mi{color:#2aa198}.highlight .mo{color:#2aa198}.highlight .sb{color:#586e75}.highlight .sc{color:#2aa198}.highlight .sd{color:#93a1a1}.highlight .s2{color:#2aa198}.highlight .se{color:#cb4b16}.highlight .sh{color:#93a1a1}.highlight .si{color:#2aa198}.highlight .sx{color:#2aa198}.highlight .sr{color:#dc322f}.highlight .s1{color:#2aa198}.highlight .ss{color:#2aa198}.highlight .bp{color:#268bd2}.highlight .vc{color:#268bd2}.highlight .vg{color:#268bd2}.highlight .vi{color:#268bd2}.highlight .il{color:#2aa198}hr{margin:77px auto;width:220px}article{margin-bottom:77px}section{max-width:940px;margin-left:auto;margin-right:auto;padding-top:3em}section::after{clear:both;content:"";display:table}section article{float:left;display:block;margin-right:2.12766%;width:82.97872%;margin-left:8.51064%}section article:last-child{margin-right:0}section article h2{font-size:3em;padding:1em}section article p{font-size:1.1em}section article ol{list-style-type:decimal}.version-dropdown>a,.version-dropdown>ul{background-color:white;border:1px solid #ccc}.version-dropdown{display:inline-block;position:relative}.version-dropdown a:hover{text-decoration:underline}.version-dropdown>a{padding:4px 10px}.version-dropdown>ul{display:none;left:0;padding:0 10px;position:absolute;top:-18px}.version-dropdown:hover ul{display:block}.version-dropdown:hover>a{display:none}
+/* line 1, /Users/jon/Code/Gems/rspec-website/source/stylesheets/bitters/extends/_button.scss */
+button,
+input[type="submit"] {
+  border: 1px solid #2459a6;
+  border-radius: 3px;
+  box-shadow: inset 0 1px 0 0 #89a8d5;
+  color: white;
+  display: inline-block;
+  font-size: inherit;
+  font-weight: bold;
+  background-color: #477DCA;
+  background-image: -webkit-linear-gradient(#477DCA, #2760b2);
+  background-image: linear-gradient(#477DCA, #2760b2);
+  padding: 7px 18px;
+  text-decoration: none;
+  text-shadow: 0 1px 0 #1b4f9a;
+  background-clip: padding-box;
+  font-size: 1.05em; }
+  /* line 137, /Users/jon/.rvm/gems/ruby-2.3.0@RSpec-www/gems/bourbon-4.2.2/app/assets/stylesheets/_bourbon-deprecated-upcoming.scss */
+  button:hover:not(:disabled),
+  input[type="submit"]:hover:not(:disabled) {
+    background-color: #3c71bb;
+    background-image: -webkit-linear-gradient(#3c71bb, #255aa5);
+    background-image: linear-gradient(#3c71bb, #255aa5);
+    box-shadow: inset 0 1px 0 0 #628cc8;
+    cursor: pointer; }
+  /* line 154, /Users/jon/.rvm/gems/ruby-2.3.0@RSpec-www/gems/bourbon-4.2.2/app/assets/stylesheets/_bourbon-deprecated-upcoming.scss */
+  button:active:not(:disabled),
+  input[type="submit"]:active:not(:disabled), button:focus:not(:disabled),
+  input[type="submit"]:focus:not(:disabled) {
+    border: 1px solid #2459a6;
+    box-shadow: inset 0 0 8px 4px #235397, inset 0 0 8px 4px #235397; }
+  /* line 59, /Users/jon/.rvm/gems/ruby-2.3.0@RSpec-www/gems/bourbon-4.2.2/app/assets/stylesheets/_bourbon-deprecated-upcoming.scss */
+  button:disabled,
+  input[type="submit"]:disabled {
+    cursor: not-allowed;
+    opacity: 0.5; }
+
+/* line 1, /Users/jon/Code/Gems/rspec-website/source/stylesheets/bitters/_typography.scss */
+body {
+  color: #333;
+  font-family: "Monserrat", Helvetica, sans-serif;
+  font-size: 1.05em;
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.575em;
+  background-color: #fffcf7; }
+
+/* line 10, /Users/jon/Code/Gems/rspec-website/source/stylesheets/bitters/_typography.scss */
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Source Sans Pro";
+  line-height: 1.25em;
+  margin: 0;
+  font-weight: normal;
+  color: #182f44;
+  text-rendering: optimizeLegibility; }
+
+/* line 19, /Users/jon/Code/Gems/rspec-website/source/stylesheets/bitters/_typography.scss */
+h1 {
+  font-size: 2.3625em; }
+
+/* line 23, /Users/jon/Code/Gems/rspec-website/source/stylesheets/bitters/_typography.scss */
+h2 {
+  text-align: center;
+  color: #fb5c28;
+  font-size: 3.15em; }
+
+/* line 29, /Users/jon/Code/Gems/rspec-website/source/stylesheets/bitters/_typography.scss */
+h3 {
+  font-family: "Monserrat", Helvetica, sans-serif;
+  font-weight: 700;
+  font-size: 1.05em;
+  text-transform: uppercase; }
+
+/* line 36, /Users/jon/Code/Gems/rspec-website/source/stylesheets/bitters/_typography.scss */
+h4 {
+  font-size: 1.575em; }
+
+/* line 40, /Users/jon/Code/Gems/rspec-website/source/stylesheets/bitters/_typography.scss */
+h5 {
+  font-size: 1.3125em; }
+
+/* line 44, /Users/jon/Code/Gems/rspec-website/source/stylesheets/bitters/_typography.scss */
+h6 {
+  font-size: 1.05em; }
+
+/* line 48, /Users/jon/Code/Gems/rspec-website/source/stylesheets/bitters/_typography.scss */
+p {
+  margin: 0 0 0.7875em; }
+
+/* line 52, /Users/jon/Code/Gems/rspec-website/source/stylesheets/bitters/_typography.scss */
+a {
+  color: #477DCA;
+  text-decoration: none;
+  -webkit-transition: color 0.1s linear;
+  -moz-transition: color 0.1s linear;
+  transition: color 0.1s linear; }
+  /* line 57, /Users/jon/Code/Gems/rspec-website/source/stylesheets/bitters/_typography.scss */
+  a:hover {
+    color: #2c5999; }
+  /* line 61, /Users/jon/Code/Gems/rspec-website/source/stylesheets/bitters/_typography.scss */
+  a:active, a:focus {
+    color: #2c5999;
+    outline: none; }
+
+/* line 67, /Users/jon/Code/Gems/rspec-website/source/stylesheets/bitters/_typography.scss */
+hr {
+  border-bottom: 1px solid #DDD;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  margin: 1.575em 0; }
+
+/* line 75, /Users/jon/Code/Gems/rspec-website/source/stylesheets/bitters/_typography.scss */
+img {
+  margin: 0;
+  max-width: 100%; }
+
+/* line 80, /Users/jon/Code/Gems/rspec-website/source/stylesheets/bitters/_typography.scss */
+abbr, acronym {
+  border-bottom: 1px dotted #DDD;
+  cursor: help; }
+
+/* line 85, /Users/jon/Code/Gems/rspec-website/source/stylesheets/bitters/_typography.scss */
+address {
+  display: block;
+  margin: 0 0 0.7875em; }
+
+/* line 90, /Users/jon/Code/Gems/rspec-website/source/stylesheets/bitters/_typography.scss */
+hgroup {
+  margin-bottom: 0.7875em; }
+
+/* line 94, /Users/jon/Code/Gems/rspec-website/source/stylesheets/bitters/_typography.scss */
+del {
+  color: #595959; }
+
+/* line 98, /Users/jon/Code/Gems/rspec-website/source/stylesheets/bitters/_typography.scss */
+blockquote {
+  border-left: 2px solid #DDD;
+  color: #595959;
+  margin: 1.575em 0;
+  padding-left: 0.7875em; }
+
+/* line 105, /Users/jon/Code/Gems/rspec-website/source/stylesheets/bitters/_typography.scss */
+cite {
+  color: #737373;
+  font-style: italic; }
+  /* line 109, /Users/jon/Code/Gems/rspec-website/source/stylesheets/bitters/_typography.scss */
+  cite:before {
+    content: '\2014 \00A0'; }
+
+/* line 10, /Users/jon/Code/Gems/rspec-website/source/stylesheets/bitters/_forms.scss */
+fieldset {
+  background: #f7f7f7;
+  border: 1px solid #DDD;
+  margin: 0 0 0.7875em 0;
+  padding: 1.575em; }
+
+/* line 17, /Users/jon/Code/Gems/rspec-website/source/stylesheets/bitters/_forms.scss */
+input,
+label,
+select {
+  display: block;
+  font-family: "Monserrat", Helvetica, sans-serif;
+  font-size: 1.05em; }
+
+/* line 25, /Users/jon/Code/Gems/rspec-website/source/stylesheets/bitters/_forms.scss */
+label {
+  font-weight: bold;
+  margin-bottom: 0.39375em; }
+  /* line 29, /Users/jon/Code/Gems/rspec-website/source/stylesheets/bitters/_forms.scss */
+  label.required:after {
+    content: "*"; }
+  /* line 33, /Users/jon/Code/Gems/rspec-website/source/stylesheets/bitters/_forms.scss */
+  label abbr {
+    display: none; }
+
+/* line 38, /Users/jon/Code/Gems/rspec-website/source/stylesheets/bitters/_forms.scss */
+textarea,
+input[type="color"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="email"], input[type="month"], input[type="number"], input[type="password"], input[type="search"], input[type="tel"], input[type="text"], input[type="time"], input[type="url"], input[type="week"], textarea {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: border-color;
+  -moz-transition: border-color;
+  transition: border-color;
+  background-color: white;
+  border-radius: 0.1875em;
+  border: 1px solid #DDD;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06);
+  font-family: "Monserrat", Helvetica, sans-serif;
+  font-size: 1.05em;
+  margin-bottom: 0.7875em;
+  padding: 0.525em 0.525em;
+  resize: vertical;
+  width: 100%; }
+  /* line 53, /Users/jon/Code/Gems/rspec-website/source/stylesheets/bitters/_forms.scss */
+  textarea:hover,
+  input[type="color"]:hover, input[type="date"]:hover, input[type="datetime"]:hover, input[type="datetime-local"]:hover, input[type="email"]:hover, input[type="month"]:hover, input[type="number"]:hover, input[type="password"]:hover, input[type="search"]:hover, input[type="tel"]:hover, input[type="text"]:hover, input[type="time"]:hover, input[type="url"]:hover, input[type="week"]:hover, textarea:hover {
+    border-color: #c4c4c4; }
+  /* line 57, /Users/jon/Code/Gems/rspec-website/source/stylesheets/bitters/_forms.scss */
+  textarea:focus,
+  input[type="color"]:focus, input[type="date"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="email"]:focus, input[type="month"]:focus, input[type="number"]:focus, input[type="password"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="text"]:focus, input[type="time"]:focus, input[type="url"]:focus, input[type="week"]:focus, textarea:focus {
+    border-color: #477DCA;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06), 0 0 5px rgba(55, 112, 192, 0.7);
+    outline: none; }
+
+/* line 64, /Users/jon/Code/Gems/rspec-website/source/stylesheets/bitters/_forms.scss */
+input[type="search"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none; }
+
+/* line 68, /Users/jon/Code/Gems/rspec-website/source/stylesheets/bitters/_forms.scss */
+input[type="checkbox"], input[type="radio"] {
+  display: inline;
+  margin-right: 0.39375em; }
+
+/* line 73, /Users/jon/Code/Gems/rspec-website/source/stylesheets/bitters/_forms.scss */
+input[type="file"] {
+  width: 100%; }
+
+/* line 77, /Users/jon/Code/Gems/rspec-website/source/stylesheets/bitters/_forms.scss */
+select {
+  width: auto;
+  margin-bottom: 1.575em; }
+
+/* line 82, /Users/jon/Code/Gems/rspec-website/source/stylesheets/bitters/_forms.scss */
+button,
+input[type="submit"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+  cursor: pointer;
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap; }
+
+/* line 1, /Users/jon/Code/Gems/rspec-website/source/stylesheets/bitters/_tables.scss */
+table {
+  border-collapse: collapse;
+  margin: 0.7875em 0;
+  table-layout: fixed;
+  width: 100%; }
+
+/* line 8, /Users/jon/Code/Gems/rspec-website/source/stylesheets/bitters/_tables.scss */
+th {
+  border-bottom: 1px solid #b7b7b7;
+  font-weight: bold;
+  padding: 0.7875em 0;
+  text-align: left; }
+
+/* line 15, /Users/jon/Code/Gems/rspec-website/source/stylesheets/bitters/_tables.scss */
+td {
+  border-bottom: 1px solid #DDD;
+  padding: 0.7875em 0; }
+
+/* line 20, /Users/jon/Code/Gems/rspec-website/source/stylesheets/bitters/_tables.scss */
+tr, td, th {
+  vertical-align: middle; }
+
+/* line 1, /Users/jon/Code/Gems/rspec-website/source/stylesheets/bitters/_lists.scss */
+ul, ol {
+  margin: 0;
+  padding: 0;
+  list-style-type: none; }
+/* line 19, /Users/jon/Code/Gems/rspec-website/source/stylesheets/bitters/_lists.scss */
+dl {
+  line-height: 1.575em;
+  margin-bottom: 0.7875em; }
+  /* line 23, /Users/jon/Code/Gems/rspec-website/source/stylesheets/bitters/_lists.scss */
+  dl dt {
+    font-weight: bold;
+    margin-top: 0.7875em; }
+  /* line 28, /Users/jon/Code/Gems/rspec-website/source/stylesheets/bitters/_lists.scss */
+  dl dd {
+    margin: 0; }
+
+/* line 1, /Users/jon/Code/Gems/rspec-website/source/stylesheets/bitters/_flashes.scss */
+.error, #flash_failure {
+  background: #FBE3E4;
+  color: #96151b;
+  font-weight: bold;
+  margin-bottom: 0.7875em;
+  padding: 0.7875em; }
+  /* line 8, /Users/jon/Code/Gems/rspec-website/source/stylesheets/bitters/mixins/_flash.scss */
+  .error a, #flash_failure a {
+    color: #6a0f13; }
+    /* line 11, /Users/jon/Code/Gems/rspec-website/source/stylesheets/bitters/mixins/_flash.scss */
+    .error a:hover, #flash_failure a:hover {
+      color: #110203; }
+
+/* line 5, /Users/jon/Code/Gems/rspec-website/source/stylesheets/bitters/_flashes.scss */
+.notice, #flash_notice {
+  background: #FFF6BF;
+  color: #8c7800;
+  font-weight: bold;
+  margin-bottom: 0.7875em;
+  padding: 0.7875em; }
+  /* line 8, /Users/jon/Code/Gems/rspec-website/source/stylesheets/bitters/mixins/_flash.scss */
+  .notice a, #flash_notice a {
+    color: #594c00; }
+    /* line 11, /Users/jon/Code/Gems/rspec-website/source/stylesheets/bitters/mixins/_flash.scss */
+    .notice a:hover, #flash_notice a:hover {
+      color: black; }
+
+/* line 9, /Users/jon/Code/Gems/rspec-website/source/stylesheets/bitters/_flashes.scss */
+.success, #flash_success {
+  background: #5ad29e;
+  color: black;
+  font-weight: bold;
+  margin-bottom: 0.7875em;
+  padding: 0.7875em; }
+  /* line 8, /Users/jon/Code/Gems/rspec-website/source/stylesheets/bitters/mixins/_flash.scss */
+  .success a, #flash_success a {
+    color: black; }
+    /* line 11, /Users/jon/Code/Gems/rspec-website/source/stylesheets/bitters/mixins/_flash.scss */
+    .success a:hover, #flash_success a:hover {
+      color: black; }
+
+/* line 4, /Users/jon/.rvm/gems/ruby-2.3.0@RSpec-www/gems/neat-1.7.2/app/assets/stylesheets/grid/_box-sizing.scss */
+html {
+  box-sizing: border-box; }
+
+/* line 9, /Users/jon/.rvm/gems/ruby-2.3.0@RSpec-www/gems/neat-1.7.2/app/assets/stylesheets/grid/_box-sizing.scss */
+*, *::after, *::before {
+  box-sizing: inherit; }
+
+/* line 1, /Users/jon/Code/Gems/rspec-website/source/stylesheets/partials/_header.css.scss */
+header {
+  background-color: #faf5ed; }
+  /* line 4, /Users/jon/Code/Gems/rspec-website/source/stylesheets/partials/_header.css.scss */
+  header nav {
+    max-width: 940px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 78px; }
+    /* line 20, /Users/jon/.rvm/gems/ruby-2.3.0@RSpec-www/gems/bourbon-4.2.2/app/assets/stylesheets/addons/_clearfix.scss */
+    header nav::after {
+      clear: both;
+      content: "";
+      display: table; }
+    /* line 7, /Users/jon/Code/Gems/rspec-website/source/stylesheets/partials/_header.css.scss */
+    header nav h1 {
+      background: url("/images/logo-small.png") left no-repeat;
+      float: left;
+      display: block;
+      margin-right: 2.12766%;
+      width: 23.40426%;
+      padding-left: 66px;
+      padding-top: 12px;
+      height: 100%;
+      font-weight: 300; }
+      /* line 89, /Users/jon/.rvm/gems/ruby-2.3.0@RSpec-www/gems/neat-1.7.2/app/assets/stylesheets/grid/_span-columns.scss */
+      header nav h1:last-child {
+        margin-right: 0; }
+      /* line 14, /Users/jon/Code/Gems/rspec-website/source/stylesheets/partials/_header.css.scss */
+      header nav h1 a {
+        text-decoration: none;
+        color: black; }
+    /* line 19, /Users/jon/Code/Gems/rspec-website/source/stylesheets/partials/_header.css.scss */
+    header nav ul {
+      text-align: right;
+      float: left;
+      display: block;
+      margin-right: 2.12766%;
+      width: 74.46809%; }
+      /* line 89, /Users/jon/.rvm/gems/ruby-2.3.0@RSpec-www/gems/neat-1.7.2/app/assets/stylesheets/grid/_span-columns.scss */
+      header nav ul:last-child {
+        margin-right: 0; }
+      /* line 23, /Users/jon/Code/Gems/rspec-website/source/stylesheets/partials/_header.css.scss */
+      header nav ul li {
+        display: inline-block;
+        font-size: 1em; }
+        /* line 26, /Users/jon/Code/Gems/rspec-website/source/stylesheets/partials/_header.css.scss */
+        header nav ul li a {
+          line-height: 0.5;
+          display: inline-block;
+          padding: 34px 10px;
+          margin-left: 20px;
+          color: #182f44; }
+
+/* line 1, /Users/jon/Code/Gems/rspec-website/source/stylesheets/partials/_footer.css.scss */
+footer {
+  height: 78px;
+  width: 100%;
+  background-color: #e9e3d9;
+  margin-top: 100px;
+  padding: 13px;
+  text-align: center; }
+  /* line 9, /Users/jon/Code/Gems/rspec-website/source/stylesheets/partials/_footer.css.scss */
+  footer span {
+    margin-left: 3px; }
+
+/* Solarized Dark
+
+For use with Jekyll and Pygments
+
+http://ethanschoonover.com/solarized
+
+SOLARIZED HEX      ROLE
+--------- -------- ------------------------------------------
+base03    #002b36  background
+base01    #586e75  comments / secondary content
+base1     #93a1a1  body text / default code / primary content
+orange    #cb4b16  constants
+red       #dc322f  regex, special keywords
+blue      #268bd2  reserved keywords
+cyan      #2aa198  strings, numbers
+green     #859900  operators, other keywords
+ */
+/* line 20, /Users/jon/Code/Gems/rspec-website/source/stylesheets/partials/_code.css.scss.erb */
+pre {
+  font-family: inconsolata, courier;
+  background-color: #002b36; }
+
+/* line 25, /Users/jon/Code/Gems/rspec-website/source/stylesheets/partials/_code.css.scss.erb */
+.highlight {
+  background-color: #002b36;
+  color: #93a1a1;
+  /* Comment */
+  /* Error */
+  /* Generic */
+  /* Keyword */
+  /* Literal */
+  /* Name */
+  /* Operator */
+  /* Other */
+  /* Punctuation */
+  /* Comment.Multiline */
+  /* Comment.Preproc */
+  /* Comment.Single */
+  /* Comment.Special */
+  /* Generic.Deleted */
+  /* Generic.Emph */
+  /* Generic.Error */
+  /* Generic.Heading */
+  /* Generic.Inserted */
+  /* Generic.Output */
+  /* Generic.Prompt */
+  /* Generic.Strong */
+  /* Generic.Subheading */
+  /* Generic.Traceback */
+  /* Keyword.Constant */
+  /* Keyword.Declaration */
+  /* Keyword.Namespace */
+  /* Keyword.Pseudo */
+  /* Keyword.Reserved */
+  /* Keyword.Type */
+  /* Literal.Date */
+  /* Literal.Number */
+  /* Literal.String */
+  /* Name.Attribute */
+  /* Name.BuiltIn */
+  /* Name.Class */
+  /* Name.Constant */
+  /* Name.Decorator */
+  /* Name.Entity */
+  /* Name.Exception */
+  /* Name.Function */
+  /* Name.Label */
+  /* Name.Namespace */
+  /* Name.Other */
+  /* Name.Property */
+  /* Name.Tag */
+  /* Name.Variable */
+  /* Operator.Word */
+  /* Text.Whitespace */
+  /* Literal.Number.Float */
+  /* Literal.Number.Hex */
+  /* Literal.Number.Integer */
+  /* Literal.Number.Oct */
+  /* Literal.String.Backtick */
+  /* Literal.String.Char */
+  /* Literal.String.Doc */
+  /* Literal.String.Double */
+  /* Literal.String.Escape */
+  /* Literal.String.Heredoc */
+  /* Literal.String.Interpol */
+  /* Literal.String.Other */
+  /* Literal.String.Regex */
+  /* Literal.String.Single */
+  /* Literal.String.Symbol */
+  /* Name.Builtin.Pseudo */
+  /* Name.Variable.Class */
+  /* Name.Variable.Global */
+  /* Name.Variable.Instance */
+  /* Literal.Number.Integer.Long */ }
+  /* line 29, /Users/jon/Code/Gems/rspec-website/source/stylesheets/partials/_code.css.scss.erb */
+  .highlight .c {
+    color: #586e75; }
+  /* line 30, /Users/jon/Code/Gems/rspec-website/source/stylesheets/partials/_code.css.scss.erb */
+  .highlight .err {
+    color: #93a1a1; }
+  /* line 31, /Users/jon/Code/Gems/rspec-website/source/stylesheets/partials/_code.css.scss.erb */
+  .highlight .g {
+    color: #93a1a1; }
+  /* line 32, /Users/jon/Code/Gems/rspec-website/source/stylesheets/partials/_code.css.scss.erb */
+  .highlight .k {
+    color: #859900; }
+  /* line 33, /Users/jon/Code/Gems/rspec-website/source/stylesheets/partials/_code.css.scss.erb */
+  .highlight .l {
+    color: #93a1a1; }
+  /* line 34, /Users/jon/Code/Gems/rspec-website/source/stylesheets/partials/_code.css.scss.erb */
+  .highlight .n {
+    color: #93a1a1; }
+  /* line 35, /Users/jon/Code/Gems/rspec-website/source/stylesheets/partials/_code.css.scss.erb */
+  .highlight .o {
+    color: #859900; }
+  /* line 36, /Users/jon/Code/Gems/rspec-website/source/stylesheets/partials/_code.css.scss.erb */
+  .highlight .x {
+    color: #cb4b16; }
+  /* line 37, /Users/jon/Code/Gems/rspec-website/source/stylesheets/partials/_code.css.scss.erb */
+  .highlight .p {
+    color: #93a1a1; }
+  /* line 38, /Users/jon/Code/Gems/rspec-website/source/stylesheets/partials/_code.css.scss.erb */
+  .highlight .cm {
+    color: #586e75; }
+  /* line 39, /Users/jon/Code/Gems/rspec-website/source/stylesheets/partials/_code.css.scss.erb */
+  .highlight .cp {
+    color: #859900; }
+  /* line 40, /Users/jon/Code/Gems/rspec-website/source/stylesheets/partials/_code.css.scss.erb */
+  .highlight .c1 {
+    color: #586e75; }
+  /* line 41, /Users/jon/Code/Gems/rspec-website/source/stylesheets/partials/_code.css.scss.erb */
+  .highlight .cs {
+    color: #859900; }
+  /* line 42, /Users/jon/Code/Gems/rspec-website/source/stylesheets/partials/_code.css.scss.erb */
+  .highlight .gd {
+    color: #2aa198; }
+  /* line 43, /Users/jon/Code/Gems/rspec-website/source/stylesheets/partials/_code.css.scss.erb */
+  .highlight .ge {
+    color: #93a1a1;
+    font-style: italic; }
+  /* line 44, /Users/jon/Code/Gems/rspec-website/source/stylesheets/partials/_code.css.scss.erb */
+  .highlight .gr {
+    color: #dc322f; }
+  /* line 45, /Users/jon/Code/Gems/rspec-website/source/stylesheets/partials/_code.css.scss.erb */
+  .highlight .gh {
+    color: #cb4b16; }
+  /* line 46, /Users/jon/Code/Gems/rspec-website/source/stylesheets/partials/_code.css.scss.erb */
+  .highlight .gi {
+    color: #859900; }
+  /* line 47, /Users/jon/Code/Gems/rspec-website/source/stylesheets/partials/_code.css.scss.erb */
+  .highlight .go {
+    color: #93a1a1; }
+  /* line 48, /Users/jon/Code/Gems/rspec-website/source/stylesheets/partials/_code.css.scss.erb */
+  .highlight .gp {
+    color: #93a1a1; }
+  /* line 49, /Users/jon/Code/Gems/rspec-website/source/stylesheets/partials/_code.css.scss.erb */
+  .highlight .gs {
+    color: #93a1a1;
+    font-weight: bold; }
+  /* line 50, /Users/jon/Code/Gems/rspec-website/source/stylesheets/partials/_code.css.scss.erb */
+  .highlight .gu {
+    color: #cb4b16; }
+  /* line 51, /Users/jon/Code/Gems/rspec-website/source/stylesheets/partials/_code.css.scss.erb */
+  .highlight .gt {
+    color: #93a1a1; }
+  /* line 52, /Users/jon/Code/Gems/rspec-website/source/stylesheets/partials/_code.css.scss.erb */
+  .highlight .kc {
+    color: #cb4b16; }
+  /* line 53, /Users/jon/Code/Gems/rspec-website/source/stylesheets/partials/_code.css.scss.erb */
+  .highlight .kd {
+    color: #268bd2; }
+  /* line 54, /Users/jon/Code/Gems/rspec-website/source/stylesheets/partials/_code.css.scss.erb */
+  .highlight .kn {
+    color: #859900; }
+  /* line 55, /Users/jon/Code/Gems/rspec-website/source/stylesheets/partials/_code.css.scss.erb */
+  .highlight .kp {
+    color: #859900; }
+  /* line 56, /Users/jon/Code/Gems/rspec-website/source/stylesheets/partials/_code.css.scss.erb */
+  .highlight .kr {
+    color: #268bd2; }
+  /* line 57, /Users/jon/Code/Gems/rspec-website/source/stylesheets/partials/_code.css.scss.erb */
+  .highlight .kt {
+    color: #dc322f; }
+  /* line 58, /Users/jon/Code/Gems/rspec-website/source/stylesheets/partials/_code.css.scss.erb */
+  .highlight .ld {
+    color: #93a1a1; }
+  /* line 59, /Users/jon/Code/Gems/rspec-website/source/stylesheets/partials/_code.css.scss.erb */
+  .highlight .m {
+    color: #2aa198; }
+  /* line 60, /Users/jon/Code/Gems/rspec-website/source/stylesheets/partials/_code.css.scss.erb */
+  .highlight .s {
+    color: #2aa198; }
+  /* line 61, /Users/jon/Code/Gems/rspec-website/source/stylesheets/partials/_code.css.scss.erb */
+  .highlight .na {
+    color: #93a1a1; }
+  /* line 62, /Users/jon/Code/Gems/rspec-website/source/stylesheets/partials/_code.css.scss.erb */
+  .highlight .nb {
+    color: #cb4b16; }
+  /* line 63, /Users/jon/Code/Gems/rspec-website/source/stylesheets/partials/_code.css.scss.erb */
+  .highlight .nc {
+    color: #B58900; }
+  /* line 64, /Users/jon/Code/Gems/rspec-website/source/stylesheets/partials/_code.css.scss.erb */
+  .highlight .no {
+    color: #B58900; }
+  /* line 65, /Users/jon/Code/Gems/rspec-website/source/stylesheets/partials/_code.css.scss.erb */
+  .highlight .nd {
+    color: #268bd2; }
+  /* line 66, /Users/jon/Code/Gems/rspec-website/source/stylesheets/partials/_code.css.scss.erb */
+  .highlight .ni {
+    color: #cb4b16; }
+  /* line 67, /Users/jon/Code/Gems/rspec-website/source/stylesheets/partials/_code.css.scss.erb */
+  .highlight .ne {
+    color: #cb4b16; }
+  /* line 68, /Users/jon/Code/Gems/rspec-website/source/stylesheets/partials/_code.css.scss.erb */
+  .highlight .nf {
+    color: #93a1a1; }
+  /* line 69, /Users/jon/Code/Gems/rspec-website/source/stylesheets/partials/_code.css.scss.erb */
+  .highlight .nl {
+    color: #93a1a1; }
+  /* line 70, /Users/jon/Code/Gems/rspec-website/source/stylesheets/partials/_code.css.scss.erb */
+  .highlight .nn {
+    color: #93a1a1; }
+  /* line 71, /Users/jon/Code/Gems/rspec-website/source/stylesheets/partials/_code.css.scss.erb */
+  .highlight .nx {
+    color: #93a1a1; }
+  /* line 72, /Users/jon/Code/Gems/rspec-website/source/stylesheets/partials/_code.css.scss.erb */
+  .highlight .py {
+    color: #93a1a1; }
+  /* line 73, /Users/jon/Code/Gems/rspec-website/source/stylesheets/partials/_code.css.scss.erb */
+  .highlight .nt {
+    color: #268bd2; }
+  /* line 74, /Users/jon/Code/Gems/rspec-website/source/stylesheets/partials/_code.css.scss.erb */
+  .highlight .nv {
+    color: #268bd2; }
+  /* line 75, /Users/jon/Code/Gems/rspec-website/source/stylesheets/partials/_code.css.scss.erb */
+  .highlight .ow {
+    color: #859900; }
+  /* line 76, /Users/jon/Code/Gems/rspec-website/source/stylesheets/partials/_code.css.scss.erb */
+  .highlight .w {
+    color: #93a1a1; }
+  /* line 77, /Users/jon/Code/Gems/rspec-website/source/stylesheets/partials/_code.css.scss.erb */
+  .highlight .mf {
+    color: #2aa198; }
+  /* line 78, /Users/jon/Code/Gems/rspec-website/source/stylesheets/partials/_code.css.scss.erb */
+  .highlight .mh {
+    color: #2aa198; }
+  /* line 79, /Users/jon/Code/Gems/rspec-website/source/stylesheets/partials/_code.css.scss.erb */
+  .highlight .mi {
+    color: #2aa198; }
+  /* line 80, /Users/jon/Code/Gems/rspec-website/source/stylesheets/partials/_code.css.scss.erb */
+  .highlight .mo {
+    color: #2aa198; }
+  /* line 81, /Users/jon/Code/Gems/rspec-website/source/stylesheets/partials/_code.css.scss.erb */
+  .highlight .sb {
+    color: #586e75; }
+  /* line 82, /Users/jon/Code/Gems/rspec-website/source/stylesheets/partials/_code.css.scss.erb */
+  .highlight .sc {
+    color: #2aa198; }
+  /* line 83, /Users/jon/Code/Gems/rspec-website/source/stylesheets/partials/_code.css.scss.erb */
+  .highlight .sd {
+    color: #93a1a1; }
+  /* line 84, /Users/jon/Code/Gems/rspec-website/source/stylesheets/partials/_code.css.scss.erb */
+  .highlight .s2 {
+    color: #2aa198; }
+  /* line 85, /Users/jon/Code/Gems/rspec-website/source/stylesheets/partials/_code.css.scss.erb */
+  .highlight .se {
+    color: #cb4b16; }
+  /* line 86, /Users/jon/Code/Gems/rspec-website/source/stylesheets/partials/_code.css.scss.erb */
+  .highlight .sh {
+    color: #93a1a1; }
+  /* line 87, /Users/jon/Code/Gems/rspec-website/source/stylesheets/partials/_code.css.scss.erb */
+  .highlight .si {
+    color: #2aa198; }
+  /* line 88, /Users/jon/Code/Gems/rspec-website/source/stylesheets/partials/_code.css.scss.erb */
+  .highlight .sx {
+    color: #2aa198; }
+  /* line 89, /Users/jon/Code/Gems/rspec-website/source/stylesheets/partials/_code.css.scss.erb */
+  .highlight .sr {
+    color: #dc322f; }
+  /* line 90, /Users/jon/Code/Gems/rspec-website/source/stylesheets/partials/_code.css.scss.erb */
+  .highlight .s1 {
+    color: #2aa198; }
+  /* line 91, /Users/jon/Code/Gems/rspec-website/source/stylesheets/partials/_code.css.scss.erb */
+  .highlight .ss {
+    color: #2aa198; }
+  /* line 92, /Users/jon/Code/Gems/rspec-website/source/stylesheets/partials/_code.css.scss.erb */
+  .highlight .bp {
+    color: #268bd2; }
+  /* line 93, /Users/jon/Code/Gems/rspec-website/source/stylesheets/partials/_code.css.scss.erb */
+  .highlight .vc {
+    color: #268bd2; }
+  /* line 94, /Users/jon/Code/Gems/rspec-website/source/stylesheets/partials/_code.css.scss.erb */
+  .highlight .vg {
+    color: #268bd2; }
+  /* line 95, /Users/jon/Code/Gems/rspec-website/source/stylesheets/partials/_code.css.scss.erb */
+  .highlight .vi {
+    color: #268bd2; }
+  /* line 96, /Users/jon/Code/Gems/rspec-website/source/stylesheets/partials/_code.css.scss.erb */
+  .highlight .il {
+    color: #2aa198; }
+
+/* line 13, /Users/jon/Code/Gems/rspec-website/source/stylesheets/application.css.scss */
+hr {
+  margin: 77px auto;
+  width: 220px; }
+
+/* line 18, /Users/jon/Code/Gems/rspec-website/source/stylesheets/application.css.scss */
+article {
+  margin-bottom: 77px; }
+
+/* line 3, /Users/jon/Code/Gems/rspec-website/source/stylesheets/partials/_standard_article.css.scss */
+section {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 3em; }
+  /* line 20, /Users/jon/.rvm/gems/ruby-2.3.0@RSpec-www/gems/bourbon-4.2.2/app/assets/stylesheets/addons/_clearfix.scss */
+  section::after {
+    clear: both;
+    content: "";
+    display: table; }
+  /* line 6, /Users/jon/Code/Gems/rspec-website/source/stylesheets/partials/_standard_article.css.scss */
+  section article {
+    float: left;
+    display: block;
+    margin-right: 2.12766%;
+    width: 82.97872%;
+    margin-left: 8.51064%; }
+    /* line 89, /Users/jon/.rvm/gems/ruby-2.3.0@RSpec-www/gems/neat-1.7.2/app/assets/stylesheets/grid/_span-columns.scss */
+    section article:last-child {
+      margin-right: 0; }
+    /* line 10, /Users/jon/Code/Gems/rspec-website/source/stylesheets/partials/_standard_article.css.scss */
+    section article h2 {
+      font-size: 3em;
+      padding: 1em; }
+    /* line 15, /Users/jon/Code/Gems/rspec-website/source/stylesheets/partials/_standard_article.css.scss */
+    section article p {
+      font-size: 1.1em; }
+    /* line 19, /Users/jon/Code/Gems/rspec-website/source/stylesheets/partials/_standard_article.css.scss */
+    section article ol {
+      list-style-type: decimal; }
+
+/* line 3, /Users/jon/Code/Gems/rspec-website/source/stylesheets/pages/documentation.css.scss */
+.version-dropdown > a, .version-dropdown > ul {
+  background-color: white;
+  border: 1px solid #ccc; }
+
+/* line 8, /Users/jon/Code/Gems/rspec-website/source/stylesheets/pages/documentation.css.scss */
+.version-dropdown {
+  display: inline-block;
+  position: relative; }
+  /* line 12, /Users/jon/Code/Gems/rspec-website/source/stylesheets/pages/documentation.css.scss */
+  .version-dropdown a:hover {
+    text-decoration: underline; }
+  /* line 16, /Users/jon/Code/Gems/rspec-website/source/stylesheets/pages/documentation.css.scss */
+  .version-dropdown > a {
+    padding: 4px 10px; }
+  /* line 21, /Users/jon/Code/Gems/rspec-website/source/stylesheets/pages/documentation.css.scss */
+  .version-dropdown > ul {
+    display: none;
+    left: 0;
+    padding: 0 10px;
+    position: absolute;
+    top: -18px; }
+  /* line 31, /Users/jon/Code/Gems/rspec-website/source/stylesheets/pages/documentation.css.scss */
+  .version-dropdown:hover ul {
+    display: block; }
+  /* line 35, /Users/jon/Code/Gems/rspec-website/source/stylesheets/pages/documentation.css.scss */
+  .version-dropdown:hover > a {
+    display: none; }

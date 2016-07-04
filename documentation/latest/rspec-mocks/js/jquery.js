@@ -1,0 +1,1 @@
+<section><p>You should have been automatically forwarded to <a href="/documentation/3.5/rspec-mocks/js/jquery.js">/documentation/3.5/rspec-mocks/js/jquery.js</a>.</p></section>
