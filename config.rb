@@ -71,8 +71,8 @@ set :frontmatter_extensions, %w(.html .slim)
 set :relative_links, true
 
 configure :build do
-  activate :minify_css
-  activate :minify_javascript
+  activate :minify_css, ignore: 'documentation/*'
+  activate :minify_javascript, ignore: 'documentation/*'
   activate :favicon_maker, icons: { "_favicon_template.png" =>
       [
         { icon: "apple-touch-icon-152x152-precomposed.png" },             # Same as apple-touch-icon-57x57.png, for retina iPad with iOS7.
