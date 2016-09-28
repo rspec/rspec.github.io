@@ -111,7 +111,7 @@ I've found this useful in a few different situations:
   far less complex, and much, much safer.
 
 If you're curious how it all works, check out the [source on
-github](https://github.com/rspec/rspec-mocks/blob/master/lib/rspec/mocks/stub_const.rb).
+github](https://github.com/rspec/rspec-mocks/blob/2-11-maintenance/lib/rspec/mocks/stub_const.rb).
 
 [^foot_1]: Actually, this has been available in [rspec-fire](https://github.com/xaviershay/rspec-fire) for a good four months or so. But it's not really a full mocking library...it builds on top of rspec-mocks, and now this functionality has been ported over to rspec-mocks.
 
