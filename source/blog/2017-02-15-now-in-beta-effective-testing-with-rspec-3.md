@@ -34,7 +34,7 @@ Confidence](https://pragprog.com/book/rspec3/effective-testing-with-rspec-3) to
 be _the_ definitive guide to modern RSpec. If you're new to RSpec, it's a
 perfect introduction. If you've used RSpec before, but haven't kept up with the
 recent changes, this book will get you up to speed, covering new features through
-the soon-to-released RSpec 3.6.
+the soon-to-be-released RSpec 3.6.
 
 Our book goes far beyond the RSpec documentation, walking through
 building a real-world JSON API and then diving deep into each part
