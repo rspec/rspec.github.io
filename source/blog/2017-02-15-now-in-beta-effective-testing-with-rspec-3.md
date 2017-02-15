@@ -7,7 +7,7 @@ Six years ago, [The RSpec Book](https://pragprog.com/book/achbd/the-rspec-book)
 introduced thousands of people to RSpec and helped them get the most out of the
 framework. Since that time, RSpec has continued to evolve. RSpec 3 brought many
 changes to help developers build and test better Ruby programs. The RSpec Book,
-released over 6 years ago, does not cover these changes.  Readers have been
+now quite out of date, does not cover these changes.  Readers have been
 asking: _is there going to be a new book?_
 
 In fact, [Ian Dees](https://twitter.com/undees) and I have been hard at work on
@@ -23,14 +23,18 @@ notable additions in recent years, including composable matchers, the `--bisect`
 and `--only-failures` options, and the `:aggregate_failures` features. Together,
 we've written a book we're very proud of, and we're happy to announce it is now in beta:
 
-{:.centered-image}
-![Effective Testing with RSpec 3](/images/rspec3_book.jpg "Effective Testing with RSpec 3: Build Ruby Apps with Confidence")
+<div class="rspec-3-book">
+  <a href="https://pragprog.com/book/rspec3/effective-testing-with-rspec-3">
+    <img alt="Cover image for Effective Testing with RSpec 3" class="cover-xlarge b-lazy book-cover" height="228" id="title-book-cover-rspec3" itemprop="image" src="/images/rspec3_book_beta.jpg" title="Cover image for Effective Testing with RSpec 3" width="190">
+  </a>
+</div>
 
 We've written [Effective Testing with RSpec 3: Build Ruby Apps with
 Confidence](https://pragprog.com/book/rspec3/effective-testing-with-rspec-3) to
 be _the_ definitive guide to modern RSpec. If you're new to RSpec, it's a
 perfect introduction. If you've used RSpec before, but haven't kept up with the
-recent changes, this book will get you up to speed.
+recent changes, this book will get you up to speed, covering new features through
+the soon-to-released RSpec 3.6.
 
 Our book goes far beyond the RSpec documentation, walking through
 building a real-world JSON API and then diving deep into each part
