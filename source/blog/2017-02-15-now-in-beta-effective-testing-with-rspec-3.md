@@ -20,8 +20,8 @@ Weeks](https://pragprog.com/book/7lang/seven-more-languages-in-seven-weeks) and
 
 I've been the lead maintainer of RSpec since 2012.  I've built many of RSpec's
 notable additions in recent years, including composable matchers, the `--bisect`
-option, and MiniTest integration. Together, we've written a book we're very
-proud of, and we're happy to announce it is now in beta:
+and `--only-failures` options, and the `:aggregate_failures` features. Together,
+we've written a book we're very proud of, and we're happy to announce it is now in beta:
 
 {:.centered-image}
 ![Effective Testing with RSpec 3](/images/rspec3_book.jpg "Effective Testing with RSpec 3: Build Ruby Apps with Confidence")
@@ -39,4 +39,3 @@ more _value_ out of your specs than the cost of writing them--is woven
 throughout.
 
 If you're interested in the book, you can purchase the beta eBook now!
-
