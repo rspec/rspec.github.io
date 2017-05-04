@@ -31,6 +31,17 @@ src="/images/blog/errors_outside_example.png">
 
 Thanks to Jon Rowe for assisting with this feature.
 
+### Core: Output coloring is set automatically if RSpec is outputting to a tty.
+
+In past versions of RSpec, you were required to specify `--color` if you wanted
+output coloring, regardless of whether you were outputting to a terminal, a
+file, a CI system, or some other output location. Now, RSpec will automatically
+color output if it detects it is running in a TTY. You can still force coloring
+with `--color`, or if you are running in a TTY and explicitly do not want color,
+you can specify `--no-color` to disable this behavior.
+
+We thank Josh Justice for adding this behavior to RSpec.
+
 ### Core: `config.fail_if_no_examples`
 
 As it currently stands RSpec will exit with code `0` indicating success if no
@@ -49,18 +60,71 @@ end
 
 A special thanks to Ewa Czechowska for getting this in to core.
 
-### Core: Output coloring is set automatically if RSpec is outputting to a tty.
+### Expectations: Improved failure messages for the `change` and `satisfy` matchers
 
-In past versions of RSpec, you were required to specify `--color` if you wanted
-output coloring, regardless of whether you were outputting to a terminal, a
-file, a CI system, or some other output location. Now, RSpec will automatically
-color output if it detects it is running in a TTY. You can still force coloring
-with `--color`, or if you are running in a TTY and explicitly do not want color,
-you can specify `--no-color` to disable this behavior.
+The `change` and `satisfy` matchers both accept a block. For the
+`change` matcher, you use this to specify _what_ you expect to change.
+For the `satisfy` matcher you use a block to specify your pass/fail
+criteria.  In either case, the failure message has always been pretty
+generic.  For example, consider these specs:
 
-We thank Josh Justice for adding this behavior to RSpec.
+~~~ ruby
+RSpec.describe "`change` and `satisfy` matchers" do
+  example "`change` matcher" do
+    a = b = 1
 
-### Expectations: Scoped aliased and negative matchers
+    expect {
+      a += 1
+      b += 2
+    }.to change { a }.by(1)
+    .and change { b }.by(1)
+  end
+
+  example "`satisfy` matcher" do
+    expect(2).to satisfy { |x| x.odd? }
+            .and satisfy { |x| x.positive? }
+  end
+end
+~~~
+
+Prior versions of RSpec would fail with messages like
+"expected result to have changed by 1, but was changed by 2"
+and "expected 2 to satisfy block".  In both cases, the failure
+message is accurate, but does not help you distinguish _which_
+`change` or `satisfy` matcher failed.
+
+Here's what the failure output looks like on RSpec 3.6:
+
+~~~
+Failures:
+
+  1) `change` and `satisfy` matchers `change` matcher
+     Failure/Error:
+       expect {
+         a += 1
+         b += 2
+       }.to change { a }.by(1)
+       .and change { b }.by(1)
+
+       expected `b` to have changed by 1, but was changed by 2
+     # ./spec/example_spec.rb:5:in `block (2 levels) in <top (required)>'
+
+  2) `change` and `satisfy` matchers `satisfy` matcher
+     Failure/Error:
+       expect(2).to satisfy { |x| x.odd? }
+               .and satisfy { |x| x.positive? }
+
+       expected 2 to satisfy expression `x.odd?`
+     # ./spec/example_spec.rb:13:in `block (2 levels) in <top (required)>'
+~~~
+
+Thanks to the great work of Yuji Nakayama, RSpec now uses
+[Ripper](http://ruby-doc.org/stdlib-2.4.0/libdoc/ripper/rdoc/Ripper.html)
+to extract a snippet to include in the failure message. If we're not
+able to extract a simple, single-line snippet, we fall back to the older
+generic messages.
+
+### Expectations: Scoped aliased and negated matchers
 
 In RSpec 3, we added `alias_matcher`, allowing users to 
 [alias matchers](http://rspec.info/blog/2014/01/new-in-rspec-3-composable-matchers/#matcher-aliases) 
