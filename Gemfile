@@ -16,3 +16,5 @@ gem "builder", "~> 3.0"
 
 # For HTML-aware blog post summaries.
 gem 'nokogiri'
+gem 'foreman'
+gem 'puma'
