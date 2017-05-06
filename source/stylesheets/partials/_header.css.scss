@@ -2,37 +2,41 @@ header {
   background-color: $header-color;
 
   nav {
-  @include outer-container;
-  height: 78px;
-  h1 {
-    background: url(image-path("logo-small.png")) left no-repeat;
-    @include span-columns(3);
-    padding-left: 66px;
-    padding-top: 12px;
-    height: 100%;
-    font-weight: 300;
-    a {
-      text-decoration: none;
-      color: black;
-    }
-  }
-  ul {
-    text-align: right;
-    @include span-columns(9);
+    @include outer-container;
+    height: 78px;
 
-    li {
-      display: inline-block;
-      font-size: 1em;
+    h1 {
+      background: url(image-path("logo-small.png")) left no-repeat;
+      @include span-columns(3);
+      padding-left: 66px;
+      padding-top: 12px;
+      height: 100%;
+      font-weight: 300;
+
       a {
-        line-height: 0.5;
+        text-decoration: none;
+        color: black;
+      }
+    }
+
+    ul {
+      text-align: right;
+      @include span-columns(9);
+
+      li {
         display: inline-block;
-        padding: 34px 10px;
-        margin-left: 20px;
-        color: $heading-color;
+        font-size: 1em;
+
+        a {
+          line-height: 0.5;
+          display: inline-block;
+          padding: 34px 10px;
+          margin-left: 20px;
+          color: $heading-color;
+        }
       }
     }
   }
-}
 }
 
 
