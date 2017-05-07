@@ -15,6 +15,7 @@ html.no-js lang="en"
 
   head
     meta charset="UTF-8"
+    meta name="viewport" content="width=device-width, initial-scale=1"
     == yield_content(:head)
 
     title= current_page.data.title
@@ -30,14 +31,22 @@ html.no-js lang="en"
     header
       nav
         h1
-          = image_tag 'logo.png', width: 60, height: 60, alt: 'Logo'
+          = image_tag 'logo.png', alt: 'Logo'
           = link_to 'RSpec', '/'
-        ul
-          li= link_to 'About', '/about'
-          li= link_to 'Documentation', '/documentation'
-          li= link_to 'Blog', '/blog'
-          li= link_to 'Upgrade', '/upgrading-from-rspec-2'
-          li= link_to 'Get Help', '/help'
-          li= link_to 'Contributing', '/contributing'
+
+        input.hamburger-toggle type='checkbox'
+
+        .hamburger-icon
+          .bar
+          .bar
+          .bar
+
+        ul.menu
+          li = link_to 'About', '/about'
+          li = link_to 'Documentation', '/documentation'
+          li = link_to 'Blog', '/blog'
+          li = link_to 'Upgrade', '/upgrading-from-rspec-2'
+          li = link_to 'Get Help', '/help'
+          li = link_to 'Contributing', '/contributing'
     = yield
     = partial 'google_analytics'
