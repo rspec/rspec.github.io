@@ -29,7 +29,9 @@ html.no-js lang="en"
   body class=(primary_page_class)
     header
       nav
-        h1= link_to 'RSpec', '/'
+        h1
+          = image_tag 'logo.png', width: 60, height: 60, alt: 'Logo'
+          = link_to 'RSpec', '/'
         ul
           li= link_to 'About', '/about'
           li= link_to 'Documentation', '/documentation'

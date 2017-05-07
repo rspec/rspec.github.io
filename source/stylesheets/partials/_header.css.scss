@@ -2,37 +2,39 @@ header {
   background-color: $header-color;
 
   nav {
-    @include outer-container;
-    height: 78px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 0 auto;
+    max-width: 940px;
+    padding: 8px 0;
 
     h1 {
-      background: url(image-path("logo.png")) left no-repeat;
-      background-size: 60px;
-      @include span-columns(3);
-      padding-left: 66px;
-      padding-top: 12px;
-      height: 100%;
+      align-items: center;
+      display: flex;
+      flex-direction: row;
       font-weight: 300;
 
+      img {
+        margin-right: 8px;
+      }
+
       a {
-        text-decoration: none;
         color: black;
+        padding-bottom: .1em;
+        text-decoration: none;
       }
     }
 
     ul {
-      text-align: right;
-      @include span-columns(9);
+      align-items: center;
+      display: flex;
+      flex-direction: row;
 
       li {
-        display: inline-block;
-        font-size: 1em;
+        margin: 0 1em;
 
         a {
-          line-height: 0.5;
-          display: inline-block;
-          padding: 34px 10px;
-          margin-left: 20px;
           color: $heading-color;
         }
       }
