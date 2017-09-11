@@ -7,8 +7,8 @@ As we [announced back in February](/blog/2017/02/now-in-beta-effective-testing-w
 Ian Dees and I have written a new book for the Pragmatic Bookshelf
 about RSpec, entitled _Effective Testing with RSpec 3: Build Ruby Apps with Confidence_.
 We're happy to announce that the book is out of beta and is now shipping from
-[pragprog.com](https://pragprog.com/book/rspec3/effective-testing-with-rspec-3) and
-[amazon.com](https://www.amazon.com/Effective-Testing-RSpec-Build-Confidence/dp/1680501984/).
+[PragProg](https://pragprog.com/book/rspec3/effective-testing-with-rspec-3) and
+[Amazon](https://www.amazon.com/Effective-Testing-RSpec-Build-Confidence/dp/1680501984/).
 
 ![The book has shipped!](/images/blog/physical-book.jpg "Our book has shipped!")
 
