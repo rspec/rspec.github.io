@@ -109,10 +109,9 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    
-<p>The class used for custom matchers. The block passed to
-<code>RSpec::Matchers.define</code> will be evaluated in the context of the
-singleton class of an instance, and will have the
+    <p>The class used for custom matchers. The block passed to
+<code>RSpec::Matchers.define</code> will be evaluated in the context
+of the singleton class of an instance, and will have the
 <span class='object_link'><a href="Macros.html" title="RSpec::Matchers::DSL::Macros (module)">Macros</a></span> methods available.</p>
 
 
@@ -153,9 +152,7 @@ singleton class of an instance, and will have the
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Exposes the value being matched against – generally the object object
-wrapped by <code>expect</code>.</p>
+    <span class="summary_desc"><div class='inline'><p>Exposes the value being matched against -- generally the object object wrapped by <code>expect</code>.</p>
 </div></span>
   
 </li>
@@ -183,8 +180,7 @@ wrapped by <code>expect</code>.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>The block parameter used in the expectation.</p>
+    <span class="summary_desc"><div class='inline'><p>The block parameter used in the expectation.</p>
 </div></span>
   
 </li>
@@ -212,8 +208,7 @@ wrapped by <code>expect</code>.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Returns the expected value as an an array.</p>
+    <span class="summary_desc"><div class='inline'><p>Returns the expected value as an an array.</p>
 </div></span>
   
 </li>
@@ -241,8 +236,7 @@ wrapped by <code>expect</code>.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>The name of the matcher.</p>
+    <span class="summary_desc"><div class='inline'><p>The name of the matcher.</p>
 </div></span>
   
 </li>
@@ -270,9 +264,7 @@ wrapped by <code>expect</code>.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Exposes the exception raised during the matching by
-<code>match_unless_raises</code>.</p>
+    <span class="summary_desc"><div class='inline'><p>Exposes the exception raised during the matching by <code>match_unless_raises</code>.</p>
 </div></span>
   
 </li>
@@ -308,8 +300,7 @@ wrapped by <code>expect</code>.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Provides the expected value.</p>
+    <span class="summary_desc"><div class='inline'><p>Provides the expected value.</p>
 </div></span>
   
 </li>
@@ -334,8 +325,7 @@ wrapped by <code>expect</code>.</p>
   <span class="private note title">private</span>
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>A new instance of Matcher.</p>
+    <span class="summary_desc"><div class='inline'><p>A new instance of Matcher.</p>
 </div></span>
   
 </li>
@@ -358,10 +348,7 @@ wrapped by <code>expect</code>.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Adds the name (rather than a cryptic hex number) so we can identify an
-instance of the matcher in error messages (e.g. for
-<code>NoMethodError</code>).</p>
+    <span class="summary_desc"><div class='inline'><p>Adds the name (rather than a cryptic hex number) so we can identify an instance of the matcher in error messages (e.g. for <code>NoMethodError</code>).</p>
 </div></span>
   
 </li>
@@ -384,9 +371,7 @@ instance of the matcher in error messages (e.g. for
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>:nocov: Indicates that this matcher responds to messages from the
-<code>@matcher_execution_context</code> as well.</p>
+    <span class="summary_desc"><div class='inline'><p>:nocov: Indicates that this matcher responds to messages from the <code>@matcher_execution_context</code> as well.</p>
 </div></span>
   
 </li>
@@ -409,9 +394,7 @@ instance of the matcher in error messages (e.g. for
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Indicates that this matcher responds to messages from the
-<code>@matcher_execution_context</code> as well.</p>
+    <span class="summary_desc"><div class='inline'><p>Indicates that this matcher responds to messages from the <code>@matcher_execution_context</code> as well.</p>
 </div></span>
   
 </li>
@@ -515,7 +498,6 @@ instance of the matcher in error messages (e.g. for
   <strong>This method is part of a private API.</strong>
   You should avoid using this method if possible, as it may be removed or be changed in the future.
 </p>
-
 <p>Returns a new instance of Matcher</p>
 
 
@@ -586,12 +568,12 @@ instance of the matcher in error messages (e.g. for
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Takes care of forwarding unhandled messages to the
-<code>@matcher_execution_context</code> (typically the current running
-<code>RSpec::Core::Example</code>). This is needed by rspec-rails so that
-it can define matchers that wrap Rails&#39; test helper methods, but
-it&#39;s also a useful feature in its own right.</p>
+    <p>Takes care of forwarding unhandled messages to the
+<code>@matcher_execution_context</code> (typically the current
+running <code>RSpec::Core::Example</code>). This is needed by
+rspec-rails so that it can define matchers that wrap
+Rails&#39; test helper methods, but it&#39;s also a useful
+feature in its own right.</p>
 
 
   </div>
@@ -646,9 +628,8 @@ it&#39;s also a useful feature in its own right.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Exposes the value being matched against – generally the object object
-wrapped by <code>expect</code>.</p>
+    <p>Exposes the value being matched against -- generally the object
+object wrapped by <code>expect</code>.</p>
 
 
   </div>
@@ -690,8 +671,7 @@ wrapped by <code>expect</code>.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>The block parameter used in the expectation</p>
+    <p>The block parameter used in the expectation</p>
 
 
   </div>
@@ -733,10 +713,9 @@ wrapped by <code>expect</code>.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns the expected value as an an array. This exists primarily to aid in
-upgrading from RSpec 2.x, since in RSpec 2, <code>expected</code> always
-returned an array.</p>
+    <p>Returns the expected value as an an array. This exists primarily
+to aid in upgrading from RSpec 2.x, since in RSpec 2, <code>expected</code>
+always returned an array.</p>
 
 
   </div>
@@ -785,8 +764,7 @@ returned an array.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>The name of the matcher.</p>
+    <p>The name of the matcher.</p>
 
 
   </div>
@@ -828,10 +806,8 @@ returned an array.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Exposes the exception raised during the matching by
-<code>match_unless_raises</code>. Could be useful to extract details for a
-failure message.</p>
+    <p>Exposes the exception raised during the matching by <code>match_unless_raises</code>.
+Could be useful to extract details for a failure message.</p>
 
 
   </div>
@@ -878,10 +854,9 @@ failure message.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Provides the expected value. This will return an array if multiple
-arguments were passed to the matcher; otherwise it will return a single
-value.</p>
+    <p>Provides the expected value. This will return an array if
+multiple arguments were passed to the matcher; otherwise it
+will return a single value.</p>
 
 
   </div>
@@ -936,10 +911,9 @@ value.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Adds the name (rather than a cryptic hex number) so we can identify an
-instance of the matcher in error messages (e.g. for
-<code>NoMethodError</code>)</p>
+    <p>Adds the name (rather than a cryptic hex number)
+so we can identify an instance of
+the matcher in error messages (e.g. for <code>NoMethodError</code>)</p>
 
 
   </div>
@@ -979,9 +953,9 @@ instance of the matcher in error messages (e.g. for
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>:nocov: Indicates that this matcher responds to messages from the
-<code>@matcher_execution_context</code> as well.</p>
+    <p>:nocov:
+Indicates that this matcher responds to messages
+from the <code>@matcher_execution_context</code> as well.</p>
 
 
   </div>
@@ -1034,10 +1008,9 @@ instance of the matcher in error messages (e.g. for
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Indicates that this matcher responds to messages from the
-<code>@matcher_execution_context</code> as well. Also, supports getting a
-method object for such methods.</p>
+    <p>Indicates that this matcher responds to messages
+from the <code>@matcher_execution_context</code> as well.
+Also, supports getting a method object for such methods.</p>
 
 
   </div>
@@ -1084,9 +1057,9 @@ method object for such methods.</p>
 </div>
 
     <div id="footer">
-  Generated on Thu May  4 20:27:57 2017 by
+  Generated on Thu Sep 21 22:42:29 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.4 (ruby-2.2.6).
+  0.8.7.4 (ruby-2.2.2).
 </div>
 
 <script>

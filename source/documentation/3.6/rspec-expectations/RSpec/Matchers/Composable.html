@@ -90,10 +90,9 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    
-<p>Mixin designed to support the composable matcher features of RSpec 3+. Mix
-it into your custom matcher classes to allow them to be used in a
-composable fashion.</p>
+    <p>Mixin designed to support the composable matcher features
+of RSpec 3+. Mix it into your custom matcher classes to
+allow them to be used in a composable fashion.</p>
 
 
   </div>
@@ -143,8 +142,7 @@ composable fashion.</p>
   <span class="private note title">private</span>
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>We should enumerate arrays as long as they are not recursive.</p>
+    <span class="summary_desc"><div class='inline'><p>We should enumerate arrays as long as they are not recursive.</p>
 </div></span>
   
 </li>
@@ -167,11 +165,7 @@ composable fashion.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Transforms the given data structue (typically a hash or array) into a new
-data structure that, when <code>#inspect</code> is called on it, will
-provide descriptions of any contained matchers rather than the normal
-<code>#inspect</code> output.</p>
+    <span class="summary_desc"><div class='inline'><p>Transforms the given data structue (typically a hash or array) into a new data structure that, when <code>#inspect</code> is called on it, will provide descriptions of any contained matchers rather than the normal <code>#inspect</code> output.</p>
 </div></span>
   
 </li>
@@ -225,8 +219,7 @@ provide descriptions of any contained matchers rather than the normal
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Delegates to <code>#matches?</code>.</p>
+    <span class="summary_desc"><div class='inline'><p>Delegates to <code>#matches?</code>.</p>
 </div></span>
   
 </li>
@@ -251,8 +244,7 @@ provide descriptions of any contained matchers rather than the normal
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Creates a compound <code>and</code> expectation.</p>
+    <span class="summary_desc"><div class='inline'><p>Creates a compound <code>and</code> expectation.</p>
 </div></span>
   
 </li>
@@ -275,9 +267,7 @@ provide descriptions of any contained matchers rather than the normal
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Returns the description of the given object in a way that is aware of
-composed matchers.</p>
+    <span class="summary_desc"><div class='inline'><p>Returns the description of the given object in a way that is aware of composed matchers.</p>
 </div></span>
   
 </li>
@@ -302,8 +292,7 @@ composed matchers.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Creates a compound <code>or</code> expectation.</p>
+    <span class="summary_desc"><div class='inline'><p>Creates a compound <code>or</code> expectation.</p>
 </div></span>
   
 </li>
@@ -326,9 +315,7 @@ composed matchers.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>This provides a generic way to fuzzy-match an expected value against an
-actual value.</p>
+    <span class="summary_desc"><div class='inline'><p>This provides a generic way to fuzzy-match an expected value against an actual value.</p>
 </div></span>
   
 </li>
@@ -358,7 +345,6 @@ actual value.</p>
   <strong>This method is part of a private API.</strong>
   You should avoid using this method if possible, as it may be removed or be changed in the future.
 </p>
-
 <p>We should enumerate arrays as long as they are not recursive.</p>
 
 
@@ -412,16 +398,16 @@ actual value.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Transforms the given data structue (typically a hash or array) into a new
-data structure that, when <code>#inspect</code> is called on it, will
-provide descriptions of any contained matchers rather than the normal
-<code>#inspect</code> output.</p>
+    <p>Transforms the given data structue (typically a hash or array)
+into a new data structure that, when <code>#inspect</code> is called on it,
+will provide descriptions of any contained matchers rather than
+the normal <code>#inspect</code> output.</p>
 
 <p>You are encouraged to use this in your custom matcher&#39;s
 <code>description</code>, <code>failure_message</code> or
 <code>failure_message_when_negated</code> implementation if you are
-supporting any arguments which may be a data structure containing matchers.</p>
+supporting any arguments which may be a data structure
+containing matchers.</p>
 
 
   </div>
@@ -551,9 +537,8 @@ supporting any arguments which may be a data structure containing matchers.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Delegates to <code>#matches?</code>. Allows matchers to be used in
-composable fashion and also supports using matchers in case statements.</p>
+    <p>Delegates to <code>#matches?</code>. Allows matchers to be used in composable
+fashion and also supports using matchers in case statements.</p>
 
 
   </div>
@@ -600,16 +585,15 @@ composable fashion and also supports using matchers in case statements.</p>
     
   <div class="note notetag">
     <strong>Note:</strong>
-    <div class='inline'>
-<p>The negative form (<code>expect(...).not_to matcher.and other</code>) is
-not supported at this time.</p>
+    <div class='inline'><p>The negative form (<code>expect(...).not_to matcher.and other</code>)
+is not supported at this time.</p>
 </div>
   </div>
 
-
-<p>Creates a compound <code>and</code> expectation. The matcher will only pass
-if both sub-matchers pass. This can be chained together to form an
-arbitrarily long chain of matchers.</p>
+<p>Creates a compound <code>and</code> expectation. The matcher will
+only pass if both sub-matchers pass.
+This can be chained together to form an arbitrarily long
+chain of matchers.</p>
 
 
   </div>
@@ -658,11 +642,10 @@ arbitrarily long chain of matchers.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns the description of the given object in a way that is aware of
-composed matchers. If the object is a matcher with a
-<code>description</code> method, returns the description; otherwise returns
-<code>object.inspect</code>.</p>
+    <p>Returns the description of the given object in a way that is
+aware of composed matchers. If the object is a matcher with
+a <code>description</code> method, returns the description; otherwise
+returns <code>object.inspect</code>.</p>
 
 <p>You are encouraged to use this in your custom matcher&#39;s
 <code>description</code>, <code>failure_message</code> or
@@ -714,16 +697,15 @@ supporting matcher arguments.</p>
     
   <div class="note notetag">
     <strong>Note:</strong>
-    <div class='inline'>
-<p>The negative form (<code>expect(...).not_to matcher.or other</code>) is not
-supported at this time.</p>
+    <div class='inline'><p>The negative form (<code>expect(...).not_to matcher.or other</code>)
+is not supported at this time.</p>
 </div>
   </div>
 
-
-<p>Creates a compound <code>or</code> expectation. The matcher will pass if
-either sub-matcher passes. This can be chained together to form an
-arbitrarily long chain of matchers.</p>
+<p>Creates a compound <code>or</code> expectation. The matcher will
+pass if either sub-matcher passes.
+This can be chained together to form an arbitrarily long
+chain of matchers.</p>
 
 
   </div>
@@ -772,16 +754,16 @@ arbitrarily long chain of matchers.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>This provides a generic way to fuzzy-match an expected value against an
-actual value. It understands nested data structures (e.g. hashes and
-arrays) and is able to match against a matcher being used as the expected
-value or within the expected value at any level of nesting.</p>
+    <p>This provides a generic way to fuzzy-match an expected value against
+an actual value. It understands nested data structures (e.g. hashes
+and arrays) and is able to match against a matcher being used as
+the expected value or within the expected value at any level of
+nesting.</p>
 
 <p>Within a custom matcher you are encouraged to use this whenever your
 matcher needs to match two values, unless it needs more precise semantics.
-For example, the <code>eq</code> matcher <em>does not</em> use this as it
-is meant to use <code>==</code> (and only <code>==</code>) for matching.</p>
+For example, the <code>eq</code> matcher <em>does not</em> use this as it is meant to
+use <code>==</code> (and only <code>==</code>) for matching.</p>
 
 
   </div>
@@ -800,8 +782,7 @@ is meant to use <code>==</code> (and only <code>==</code>) for matching.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>what is expected</p>
+        <div class='inline'><p>what is expected</p>
 </div>
       
     </li>
@@ -816,8 +797,7 @@ is meant to use <code>==</code> (and only <code>==</code>) for matching.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>the actual value</p>
+        <div class='inline'><p>the actual value</p>
 </div>
       
     </li>
@@ -866,9 +846,9 @@ is meant to use <code>==</code> (and only <code>==</code>) for matching.</p>
 </div>
 
     <div id="footer">
-  Generated on Thu May  4 20:27:56 2017 by
+  Generated on Thu Sep 21 22:42:29 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.4 (ruby-2.2.6).
+  0.8.7.4 (ruby-2.2.2).
 </div>
 
 <script>
