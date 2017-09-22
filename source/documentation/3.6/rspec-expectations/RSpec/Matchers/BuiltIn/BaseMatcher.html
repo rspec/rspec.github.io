@@ -109,15 +109,14 @@
   <strong>This class is part of a private API.</strong>
   You should avoid using this class if possible, as it may be removed or be changed in the future.
 </p>
-
 <p>Used <em>internally</em> as a base class for matchers that ship with
 rspec-expectations and rspec-rails.</p>
 
-<h3 id="label-Warning-3A">Warning:</h3>
+<h3>Warning:</h3>
 
-<p>This class is for internal use, and subject to change without notice. We
-strongly recommend that you do not base your custom matchers on this class.
-If/when this changes, we will announce it and remove this warning.</p>
+<p>This class is for internal use, and subject to change without notice.
+We strongly recommend that you do not base your custom matchers on this
+class. If/when this changes, we will announce it and remove this warning.</p>
 
 
   </div>
@@ -151,7 +150,6 @@ If/when this changes, we will announce it and remove this warning.</p>
   <strong>This constant is part of a private API.</strong>
   You should avoid using this constant if possible, as it may be removed or be changed in the future.
 </p>
-
 <p>Used to detect when no arg is passed to <code>initialize</code>.
 <code>nil</code> cannot be used because it&#39;s a valid value to pass.</p>
 
@@ -199,8 +197,7 @@ If/when this changes, we will announce it and remove this warning.</p>
   <span class="private note title">private</span>
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Generates a description using <span class='object_link'><a href="../EnglishPhrasing.html" title="RSpec::Matchers::EnglishPhrasing (module)">EnglishPhrasing</a></span>.</p>
+    <span class="summary_desc"><div class='inline'><p>Generates a description using <span class='object_link'><a href="../EnglishPhrasing.html" title="RSpec::Matchers::EnglishPhrasing (module)">EnglishPhrasing</a></span>.</p>
 </div></span>
   
 </li>
@@ -223,8 +220,7 @@ If/when this changes, we will announce it and remove this warning.</p>
   <span class="private note title">private</span>
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Matchers are not diffable by default.</p>
+    <span class="summary_desc"><div class='inline'><p>Matchers are not diffable by default.</p>
 </div></span>
   
 </li>
@@ -271,8 +267,7 @@ If/when this changes, we will announce it and remove this warning.</p>
   <span class="private note title">private</span>
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>A new instance of BaseMatcher.</p>
+    <span class="summary_desc"><div class='inline'><p>A new instance of BaseMatcher.</p>
 </div></span>
   
 </li>
@@ -295,9 +290,7 @@ If/when this changes, we will announce it and remove this warning.</p>
   <span class="private note title">private</span>
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Used to wrap a block of code that will indicate failure by raising one of
-the named exceptions.</p>
+    <span class="summary_desc"><div class='inline'><p>Used to wrap a block of code that will indicate failure by raising one of the named exceptions.</p>
 </div></span>
   
 </li>
@@ -320,8 +313,7 @@ the named exceptions.</p>
   <span class="private note title">private</span>
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Indicates if the match is successful.</p>
+    <span class="summary_desc"><div class='inline'><p>Indicates if the match is successful.</p>
 </div></span>
   
 </li>
@@ -344,10 +336,7 @@ the named exceptions.</p>
   <span class="private note title">private</span>
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Most matchers are value matchers (i.e. meant to work with
-<code>expect(value)</code>) rather than block matchers (i.e. meant to work
-with <code>expect { }</code>), so this defaults to false.</p>
+    <span class="summary_desc"><div class='inline'><p>Most matchers are value matchers (i.e. meant to work with <code>expect(value)</code>) rather than block matchers (i.e. meant to work with <code>expect { }</code>), so this defaults to false.</p>
 </div></span>
   
 </li>
@@ -402,7 +391,6 @@ with <code>expect { }</code>), so this defaults to false.</p>
   <strong>This method is part of a private API.</strong>
   You should avoid using this method if possible, as it may be removed or be changed in the future.
 </p>
-
 <p>Returns a new instance of BaseMatcher</p>
 
 
@@ -454,7 +442,6 @@ with <code>expect { }</code>), so this defaults to false.</p>
   <strong>This method is part of a private API.</strong>
   You should avoid using this method if possible, as it may be removed or be changed in the future.
 </p>
-
 <p>Generates a description using <span class='object_link'><a href="../EnglishPhrasing.html" title="RSpec::Matchers::EnglishPhrasing (module)">EnglishPhrasing</a></span>.</p>
 
 
@@ -516,9 +503,8 @@ with <code>expect { }</code>), so this defaults to false.</p>
   <strong>This method is part of a private API.</strong>
   You should avoid using this method if possible, as it may be removed or be changed in the future.
 </p>
-
-<p>Matchers are not diffable by default. Override this to make your subclass
-diffable.</p>
+<p>Matchers are not diffable by default. Override this to make your
+subclass diffable.</p>
 
 
   </div>
@@ -631,12 +617,11 @@ diffable.</p>
   <strong>This method is part of a private API.</strong>
   You should avoid using this method if possible, as it may be removed or be changed in the future.
 </p>
+<p>Used to wrap a block of code that will indicate failure by
+raising one of the named exceptions.</p>
 
-<p>Used to wrap a block of code that will indicate failure by raising one of
-the named exceptions.</p>
-
-<p>This is used by rspec-rails for some of its matchers that wrap rails&#39;
-assertions.</p>
+<p>This is used by rspec-rails for some of its matchers that
+wrap rails&#39; assertions.</p>
 
 
   </div>
@@ -692,9 +677,8 @@ assertions.</p>
   <strong>This method is part of a private API.</strong>
   You should avoid using this method if possible, as it may be removed or be changed in the future.
 </p>
-
-<p>Indicates if the match is successful. Delegates to <code>match</code>,
-which should be defined on a subclass. Takes care of consistently
+<p>Indicates if the match is successful. Delegates to <code>match</code>, which
+should be defined on a subclass. Takes care of consistently
 initializing the <code>actual</code> attribute.</p>
 
 
@@ -754,11 +738,9 @@ initializing the <code>actual</code> attribute.</p>
   <strong>This method is part of a private API.</strong>
   You should avoid using this method if possible, as it may be removed or be changed in the future.
 </p>
-
-<p>Most matchers are value matchers (i.e. meant to work with
-<code>expect(value)</code>) rather than block matchers (i.e. meant to work
-with <code>expect { }</code>), so this defaults to false. Block matchers
-must override this to return true.</p>
+<p>Most matchers are value matchers (i.e. meant to work with <code>expect(value)</code>)
+rather than block matchers (i.e. meant to work with <code>expect { }</code>), so
+this defaults to false. Block matchers must override this to return true.</p>
 
 
   </div>
@@ -805,9 +787,9 @@ must override this to return true.</p>
 </div>
 
     <div id="footer">
-  Generated on Thu May  4 20:28:00 2017 by
+  Generated on Thu Sep 21 22:42:35 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.4 (ruby-2.2.6).
+  0.8.7.4 (ruby-2.2.2).
 </div>
 
 <script>

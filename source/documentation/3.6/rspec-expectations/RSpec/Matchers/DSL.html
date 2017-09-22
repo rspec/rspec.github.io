@@ -90,8 +90,7 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    
-<p>Defines the custom matcher DSL.</p>
+    <p>Defines the custom matcher DSL.</p>
 
 
   </div>
@@ -143,8 +142,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Defines a matcher alias.</p>
+    <span class="summary_desc"><div class='inline'><p>Defines a matcher alias.</p>
 </div></span>
   
 </li>
@@ -169,8 +167,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Defines a custom matcher.</p>
+    <span class="summary_desc"><div class='inline'><p>Defines a custom matcher.</p>
 </div></span>
   
 </li>
@@ -193,8 +190,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Defines a negated matcher.</p>
+    <span class="summary_desc"><div class='inline'><p>Defines a negated matcher.</p>
 </div></span>
   
 </li>
@@ -220,11 +216,9 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Defines a matcher alias. The returned matcher&#39;s
-<code>description</code> will be overriden to reflect the phrasing of the
-new name, which will be used in failure messages when passed as an argument
-to another matcher in a composed matcher expression.</p>
+    <p>Defines a matcher alias. The returned matcher&#39;s <code>description</code> will be overriden
+to reflect the phrasing of the new name, which will be used in failure messages
+when passed as an argument to another matcher in a composed matcher expression.</p>
 
 
   </div>
@@ -261,8 +255,7 @@ to another matcher in a composed matcher expression.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>the new name for the matcher</p>
+        <div class='inline'><p>the new name for the matcher</p>
 </div>
       
     </li>
@@ -277,8 +270,7 @@ to another matcher in a composed matcher expression.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>the original name for the matcher</p>
+        <div class='inline'><p>the original name for the matcher</p>
 </div>
       
     </li>
@@ -295,8 +287,7 @@ to another matcher in a composed matcher expression.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>options for the aliased matcher</p>
+        <div class='inline'><p>options for the aliased matcher</p>
 </div>
       
     </li>
@@ -320,8 +311,7 @@ to another matcher in a composed matcher expression.</p>
             
           </span>
           
-            &mdash; <div class='inline'>
-<p>the ruby class to use as the decorator. (Not normally used).</p>
+            &mdash; <div class='inline'><p>the ruby class to use as the decorator. (Not normally used).</p>
 </div>
           
         </li>
@@ -340,10 +330,9 @@ to another matcher in a composed matcher expression.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>optional block that, when given, is used to define the overriden logic. The
-yielded arg is the original description or failure message. If no block is
-provided, a default override is used based on the old and new names.</p>
+        <div class='inline'><p>optional block that, when given, is used to define the overriden
+logic. The yielded arg is the original description or failure message. If no
+block is provided, a default override is used based on the old and new names.</p>
 </div>
       
     </li>
@@ -411,8 +400,7 @@ provided, a default override is used based on the old and new names.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Defines a custom matcher.</p>
+    <p>Defines a custom matcher.</p>
 
 
   </div>
@@ -431,8 +419,7 @@ provided, a default override is used based on the old and new names.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>the name for the matcher</p>
+        <div class='inline'><p>the name for the matcher</p>
 </div>
       
     </li>
@@ -450,10 +437,10 @@ provided, a default override is used based on the old and new names.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>block that is used to define the matcher. The block is evaluated in the
-context of your custom matcher class. When args are passed to your matcher,
-they will be yielded here, usually representing the expected value(s).</p>
+        <div class='inline'><p>block that is used to define the matcher.
+The block is evaluated in the context of your custom matcher class.
+When args are passed to your matcher, they will be yielded here,
+usually representing the expected value(s).</p>
 </div>
       
     </li>
@@ -505,11 +492,9 @@ they will be yielded here, usually representing the expected value(s).</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Defines a negated matcher. The returned matcher&#39;s
-<code>description</code> and <code>failure_message</code> will be overriden
-to reflect the phrasing of the new name, and the match logic will be based
-on the original matcher but negated.</p>
+    <p>Defines a negated matcher. The returned matcher&#39;s <code>description</code> and <code>failure_message</code>
+will be overriden to reflect the phrasing of the new name, and the match logic will
+be based on the original matcher but negated.</p>
 
 
   </div>
@@ -538,8 +523,7 @@ on the original matcher but negated.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>the name for the negated matcher</p>
+        <div class='inline'><p>the name for the negated matcher</p>
 </div>
       
     </li>
@@ -554,8 +538,7 @@ on the original matcher but negated.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>the name of the original matcher that will be negated</p>
+        <div class='inline'><p>the name of the original matcher that will be negated</p>
 </div>
       
     </li>
@@ -573,10 +556,9 @@ on the original matcher but negated.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>optional block that, when given, is used to define the overriden logic. The
-yielded arg is the original description or failure message. If no block is
-provided, a default override is used based on the old and new names.</p>
+        <div class='inline'><p>optional block that, when given, is used to define the overriden
+logic. The yielded arg is the original description or failure message. If no
+block is provided, a default override is used based on the old and new names.</p>
 </div>
       
     </li>
@@ -616,9 +598,9 @@ provided, a default override is used based on the old and new names.</p>
 </div>
 
     <div id="footer">
-  Generated on Thu May  4 20:27:55 2017 by
+  Generated on Thu Sep 21 22:42:28 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.4 (ruby-2.2.6).
+  0.8.7.4 (ruby-2.2.2).
 </div>
 
 <script>

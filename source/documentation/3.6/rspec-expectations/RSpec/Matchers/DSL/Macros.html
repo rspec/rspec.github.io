@@ -90,8 +90,7 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    
-<p>Contains the methods that are available from within the
+    <p>Contains the methods that are available from within the
 <code>RSpec::Matchers.define</code> DSL for creating custom matchers.</p>
 
 
@@ -145,9 +144,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Convenience for defining methods on this matcher to create a fluent
-interface.</p>
+    <span class="summary_desc"><div class='inline'><p>Convenience for defining methods on this matcher to create a fluent interface.</p>
 </div></span>
   
 </li>
@@ -170,8 +167,7 @@ interface.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Customize the description to use for one-liners.</p>
+    <span class="summary_desc"><div class='inline'><p>Customize the description to use for one-liners.</p>
 </div></span>
   
 </li>
@@ -194,9 +190,7 @@ interface.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Tells the matcher to diff the actual and expected values in the failure
-message.</p>
+    <span class="summary_desc"><div class='inline'><p>Tells the matcher to diff the actual and expected values in the failure message.</p>
 </div></span>
   
 </li>
@@ -219,9 +213,7 @@ message.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Customizes the failure messsage to use when this matcher is asked to
-positively match.</p>
+    <span class="summary_desc"><div class='inline'><p>Customizes the failure messsage to use when this matcher is asked to positively match.</p>
 </div></span>
   
 </li>
@@ -244,9 +236,7 @@ positively match.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Customize the failure messsage to use when this matcher is asked to
-negatively match.</p>
+    <span class="summary_desc"><div class='inline'><p>Customize the failure messsage to use when this matcher is asked to negatively match.</p>
 </div></span>
   
 </li>
@@ -269,9 +259,7 @@ negatively match.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Stores the block that is used to determine whether this matcher passes or
-fails.</p>
+    <span class="summary_desc"><div class='inline'><p>Stores the block that is used to determine whether this matcher passes or fails.</p>
 </div></span>
   
 </li>
@@ -294,9 +282,7 @@ fails.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Use this instead of <code>match</code> when the block will raise an
-exception rather than returning false to indicate a failure.</p>
+    <span class="summary_desc"><div class='inline'><p>Use this instead of <code>match</code> when the block will raise an exception rather than returning false to indicate a failure.</p>
 </div></span>
   
 </li>
@@ -319,10 +305,7 @@ exception rather than returning false to indicate a failure.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Use this to define the block for a negative expectation
-(<code>expect(...).not_to</code>) when the positive and negative forms
-require different handling.</p>
+    <span class="summary_desc"><div class='inline'><p>Use this to define the block for a negative expectation (<code>expect(...).not_to</code>) when the positive and negative forms require different handling.</p>
 </div></span>
   
 </li>
@@ -345,8 +328,7 @@ require different handling.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Declares that the matcher can be used in a block expectation.</p>
+    <span class="summary_desc"><div class='inline'><p>Declares that the matcher can be used in a block expectation.</p>
 </div></span>
   
 </li>
@@ -372,20 +354,19 @@ require different handling.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Convenience for defining methods on this matcher to create a fluent
+    <p>Convenience for defining methods on this matcher to create a fluent
 interface. The trick about fluent interfaces is that each method must
-return self in order to chain methods together. <code>chain</code> handles
-that for you. If the method is invoked and the
-<code>include_chain_clauses_in_custom_matcher_descriptions</code> config
-option hash been enabled, the chained method name and args will be added to
-the default description and failure message.</p>
+return self in order to chain methods together. <code>chain</code> handles that
+for you. If the method is invoked and the
+<code>include_chain_clauses_in_custom_matcher_descriptions</code> config option
+hash been enabled, the chained method name and args will be added to the
+default description and failure message.</p>
 
 <p>In the common case where you just want the chained method to store some
-value(s) for later use (e.g. in <code>match</code>), you can provide one or
-more attribute names instead of a block; the chained method will store its
-arguments in instance variables with those names, and the values will be
-exposed via getters.</p>
+value(s) for later use (e.g. in <code>match</code>), you can provide one or more
+attribute names instead of a block; the chained method will store its
+arguments in instance variables with those names, and the values will
+be exposed via getters.</p>
 
 
   </div>
@@ -464,9 +445,8 @@ exposed via getters.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Customize the description to use for one-liners. Only use this when the
-description generated by default doesn&#39;t suit your needs.</p>
+    <p>Customize the description to use for one-liners.  Only use this when
+the description generated by default doesn&#39;t suit your needs.</p>
 
 
   </div>
@@ -499,8 +479,7 @@ description generated by default doesn&#39;t suit your needs.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>actual the actual object (i.e. the value wrapped by <code>expect</code>)</p>
+        <div class='inline'><p>actual the actual object (i.e. the value wrapped by <code>expect</code>)</p>
 </div>
       
     </li>
@@ -539,8 +518,7 @@ description generated by default doesn&#39;t suit your needs.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Tells the matcher to diff the actual and expected values in the failure
+    <p>Tells the matcher to diff the actual and expected values in the failure
 message.</p>
 
 
@@ -581,10 +559,9 @@ message.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Customizes the failure messsage to use when this matcher is asked to
-positively match. Only use this when the message generated by default
-doesn&#39;t suit your needs.</p>
+    <p>Customizes the failure messsage to use when this matcher is
+asked to positively match. Only use this when the message
+generated by default doesn&#39;t suit your needs.</p>
 
 
   </div>
@@ -617,8 +594,7 @@ doesn&#39;t suit your needs.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>actual the actual object (i.e. the value wrapped by <code>expect</code>)</p>
+        <div class='inline'><p>actual the actual object (i.e. the value wrapped by <code>expect</code>)</p>
 </div>
       
     </li>
@@ -657,10 +633,9 @@ doesn&#39;t suit your needs.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Customize the failure messsage to use when this matcher is asked to
-negatively match. Only use this when the message generated by default
-doesn&#39;t suit your needs.</p>
+    <p>Customize the failure messsage to use when this matcher is asked
+to negatively match. Only use this when the message generated by
+default doesn&#39;t suit your needs.</p>
 
 
   </div>
@@ -693,8 +668,7 @@ doesn&#39;t suit your needs.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>actual the actual object (i.e. the value wrapped by <code>expect</code>)</p>
+        <div class='inline'><p>actual the actual object (i.e. the value wrapped by <code>expect</code>)</p>
 </div>
       
     </li>
@@ -733,17 +707,15 @@ doesn&#39;t suit your needs.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Stores the block that is used to determine whether this matcher passes or
-fails. The block should return a boolean value. When the matcher is passed
-to <code>expect(...).to</code> and the block returns <code>true</code>,
-then the expectation passes. Similarly, when the matcher is passed to
-<code>expect(...).not_to</code> and the block returns <code>false</code>,
-then the expectation passes.</p>
+    <p>Stores the block that is used to determine whether this matcher passes
+or fails. The block should return a boolean value. When the matcher is
+passed to <code>expect(...).to</code> and the block returns <code>true</code>, then the expectation
+passes. Similarly, when the matcher is passed to <code>expect(...).not_to</code> and the
+block returns <code>false</code>, then the expectation passes.</p>
 
-<p>By default the match block will swallow expectation errors (e.g. caused by
-using an expectation such as <code>expect(1).to eq 2</code>), if you with
-to allow these to bubble up, pass in the option
+<p>By default the match block will swallow expectation errors (e.g.
+caused by using an expectation such as <code>expect(1).to eq 2</code>), if you
+with to allow these to bubble up, pass in the option
 <code>:notify_expectation_failures =&gt; true</code>.</p>
 
 
@@ -783,8 +755,7 @@ to allow these to bubble up, pass in the option
       
       
         &mdash;
-        <div class='inline'>
-<p>for defining the behavior of the match block.</p>
+        <div class='inline'><p>for defining the behavior of the match block.</p>
 </div>
       
     </li>
@@ -802,8 +773,7 @@ to allow these to bubble up, pass in the option
       
       
         &mdash;
-        <div class='inline'>
-<p>actual the actual value (i.e. the value wrapped by <code>expect</code>)</p>
+        <div class='inline'><p>actual the actual value (i.e. the value wrapped by <code>expect</code>)</p>
 </div>
       
     </li>
@@ -862,9 +832,8 @@ to allow these to bubble up, pass in the option
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Use this instead of <code>match</code> when the block will raise an
-exception rather than returning false to indicate a failure.</p>
+    <p>Use this instead of <code>match</code> when the block will raise an exception
+rather than returning false to indicate a failure.</p>
 
 
   </div>
@@ -897,8 +866,7 @@ exception rather than returning false to indicate a failure.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>actual the actual object (i.e. the value wrapped by <code>expect</code>)</p>
+        <div class='inline'><p>actual the actual object (i.e. the value wrapped by <code>expect</code>)</p>
 </div>
       
     </li>
@@ -955,12 +923,10 @@ exception rather than returning false to indicate a failure.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Use this to define the block for a negative expectation
-(<code>expect(...).not_to</code>) when the positive and negative forms
-require different handling. This is rarely necessary, but can be helpful,
-for example, when specifying asynchronous processes that require different
-timeouts.</p>
+    <p>Use this to define the block for a negative expectation (<code>expect(...).not_to</code>)
+when the positive and negative forms require different handling. This
+is rarely necessary, but can be helpful, for example, when specifying
+asynchronous processes that require different timeouts.</p>
 
 
   </div>
@@ -978,8 +944,7 @@ timeouts.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>actual the actual value (i.e. the value wrapped by <code>expect</code>)</p>
+        <div class='inline'><p>actual the actual value (i.e. the value wrapped by <code>expect</code>)</p>
 </div>
       
     </li>
@@ -1036,10 +1001,10 @@ timeouts.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Declares that the matcher can be used in a block expectation. Users will
-not be able to use your matcher in a block expectation without declaring
-this. (e.g. <code>expect { do_something }.to matcher</code>).</p>
+    <p>Declares that the matcher can be used in a block expectation.
+Users will not be able to use your matcher in a block
+expectation without declaring this.
+(e.g. <code>expect { do_something }.to matcher</code>).</p>
 
 
   </div>
@@ -1073,9 +1038,9 @@ this. (e.g. <code>expect { do_something }.to matcher</code>).</p>
 </div>
 
     <div id="footer">
-  Generated on Thu May  4 20:27:56 2017 by
+  Generated on Thu Sep 21 22:42:28 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.4 (ruby-2.2.6).
+  0.8.7.4 (ruby-2.2.2).
 </div>
 
 <script>

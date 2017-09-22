@@ -107,11 +107,11 @@
   <strong>This class is part of a private API.</strong>
   You should avoid using this class if possible, as it may be removed or be changed in the future.
 </p>
-
-<p>Decorator that wraps a matcher and overrides <code>description</code> using
-the provided block in order to support an alias of a matcher. This is
-intended for use when composing matchers, so that you can use an expression
-like <code>include( a_value_within(0.1).of(3) )</code> rather than
+<p>Decorator that wraps a matcher and overrides <code>description</code>
+using the provided block in order to support an alias
+of a matcher. This is intended for use when composing
+matchers, so that you can use an expression like
+<code>include( a_value_within(0.1).of(3) )</code> rather than
 <code>include( be_within(0.1).of(3) )</code>, and have the corresponding
 description read naturally.</p>
 
@@ -153,8 +153,7 @@ description read naturally.</p>
   <span class="private note title">private</span>
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Provides the description of the aliased matcher.</p>
+    <span class="summary_desc"><div class='inline'><p>Provides the description of the aliased matcher.</p>
 </div></span>
   
 </li>
@@ -177,8 +176,7 @@ description read naturally.</p>
   <span class="private note title">private</span>
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Provides the failure_message of the aliased matcher.</p>
+    <span class="summary_desc"><div class='inline'><p>Provides the failure_message of the aliased matcher.</p>
 </div></span>
   
 </li>
@@ -201,8 +199,7 @@ description read naturally.</p>
   <span class="private note title">private</span>
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Provides the failure_message_when_negated of the aliased matcher.</p>
+    <span class="summary_desc"><div class='inline'><p>Provides the failure_message_when_negated of the aliased matcher.</p>
 </div></span>
   
 </li>
@@ -227,8 +224,7 @@ description read naturally.</p>
   <span class="private note title">private</span>
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>A new instance of AliasedMatcher.</p>
+    <span class="summary_desc"><div class='inline'><p>A new instance of AliasedMatcher.</p>
 </div></span>
   
 </li>
@@ -251,8 +247,7 @@ description read naturally.</p>
   <span class="private note title">private</span>
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Forward messages on to the wrapped matcher.</p>
+    <span class="summary_desc"><div class='inline'><p>Forward messages on to the wrapped matcher.</p>
 </div></span>
   
 </li>
@@ -296,7 +291,6 @@ description read naturally.</p>
   <strong>This method is part of a private API.</strong>
   You should avoid using this method if possible, as it may be removed or be changed in the future.
 </p>
-
 <p>Returns a new instance of AliasedMatcher</p>
 
 
@@ -351,11 +345,12 @@ description read naturally.</p>
   <strong>This method is part of a private API.</strong>
   You should avoid using this method if possible, as it may be removed or be changed in the future.
 </p>
-
-<p>Forward messages on to the wrapped matcher. Since many matchers provide a
-fluent interface (e.g. <code>a_value_within(0.1).of(3)</code>), we need to
-wrap the returned value if it responds to <code>description</code>, so that
-our override can be applied when it is eventually used.</p>
+<p>Forward messages on to the wrapped matcher.
+Since many matchers provide a fluent interface
+(e.g. <code>a_value_within(0.1).of(3)</code>), we need to wrap
+the returned value if it responds to <code>description</code>,
+so that our override can be applied when it is eventually
+used.</p>
 
 
   </div>
@@ -410,11 +405,10 @@ our override can be applied when it is eventually used.</p>
   <strong>This method is part of a private API.</strong>
   You should avoid using this method if possible, as it may be removed or be changed in the future.
 </p>
-
-<p>Provides the description of the aliased matcher. Aliased matchers are
-designed to behave identically to the original matcher except for the
-description and failure messages. The description is different to reflect
-the aliased name.</p>
+<p>Provides the description of the aliased matcher. Aliased matchers
+are designed to behave identically to the original matcher except
+for the description and failure messages. The description is different
+to reflect the aliased name.</p>
 
 
   </div>
@@ -458,11 +452,10 @@ the aliased name.</p>
   <strong>This method is part of a private API.</strong>
   You should avoid using this method if possible, as it may be removed or be changed in the future.
 </p>
-
-<p>Provides the failure_message of the aliased matcher. Aliased matchers are
-designed to behave identically to the original matcher except for the
-description and failure messages. The failure_message is different to
-reflect the aliased name.</p>
+<p>Provides the failure_message of the aliased matcher. Aliased matchers
+are designed to behave identically to the original matcher except
+for the description and failure messages. The failure_message is different
+to reflect the aliased name.</p>
 
 
   </div>
@@ -506,11 +499,10 @@ reflect the aliased name.</p>
   <strong>This method is part of a private API.</strong>
   You should avoid using this method if possible, as it may be removed or be changed in the future.
 </p>
-
-<p>Provides the failure_message_when_negated of the aliased matcher. Aliased
-matchers are designed to behave identically to the original matcher except
-for the description and failure messages. The failure_message_when_negated
-is different to reflect the aliased name.</p>
+<p>Provides the failure_message_when_negated of the aliased matcher. Aliased matchers
+are designed to behave identically to the original matcher except
+for the description and failure messages. The failure_message_when_negated is different
+to reflect the aliased name.</p>
 
 
   </div>
@@ -544,9 +536,9 @@ is different to reflect the aliased name.</p>
 </div>
 
     <div id="footer">
-  Generated on Thu May  4 20:27:58 2017 by
+  Generated on Thu Sep 21 22:42:33 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.4 (ruby-2.2.6).
+  0.8.7.4 (ruby-2.2.2).
 </div>
 
 <script>

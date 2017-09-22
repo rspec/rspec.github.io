@@ -104,15 +104,12 @@
     
   <div class="note notetag">
     <strong>Note:</strong>
-    <div class='inline'>
-<p>This class is not loaded at runtime by rspec-expectations. It exists purely
-to provide documentation for the matcher protocol.</p>
+    <div class='inline'><p>This class is not loaded at runtime by rspec-expectations. It exists
+purely to provide documentation for the matcher protocol.</p>
 </div>
   </div>
 
-
-<p>rspec-expectations can work with any matcher object that implements this
-protocol.</p>
+<p>rspec-expectations can work with any matcher object that implements this protocol.</p>
 
 
   </div>
@@ -152,8 +149,7 @@ protocol.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>This will only be called if <span class='object_link'><a href="#matches%3F-instance_method" title="RSpec::Matchers::MatcherProtocol#matches? (method)">#matches?</a></span> returns false.</p>
+    <span class="summary_desc"><div class='inline'><p>This will only be called if <span class='object_link'><a href="#matches%3F-instance_method" title="RSpec::Matchers::MatcherProtocol#matches? (method)">#matches?</a></span> returns false.</p>
 </div></span>
   
 </li>
@@ -176,8 +172,7 @@ protocol.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>True if this matcher matches the provided object.</p>
+    <span class="summary_desc"><div class='inline'><p>True if this matcher matches the provided object.</p>
 </div></span>
   
 </li>
@@ -209,8 +204,7 @@ protocol.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>The actual value for the purposes of a diff.</p>
+    <span class="summary_desc"><div class='inline'><p>The actual value for the purposes of a diff.</p>
 </div></span>
   
 </li>
@@ -233,8 +227,7 @@ protocol.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>The description is used for two things:.</p>
+    <span class="summary_desc"><div class='inline'><p>The description is used for two things:.</p>
 </div></span>
   
 </li>
@@ -257,10 +250,7 @@ protocol.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Indicates that this matcher provides <code>actual</code> and
-<code>expected</code> attributes, and that the values returned by these can
-be usefully diffed, which can be included in the output.</p>
+    <span class="summary_desc"><div class='inline'><p>Indicates that this matcher provides <code>actual</code> and <code>expected</code> attributes, and that the values returned by these can be usefully diffed, which can be included in the output.</p>
 </div></span>
   
 </li>
@@ -283,9 +273,7 @@ be usefully diffed, which can be included in the output.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>In a negative expectation such as <code>expect(x).not_to foo</code>, RSpec
-will call <code>foo.does_not_match?(x)</code> if this method is defined.</p>
+    <span class="summary_desc"><div class='inline'><p>In a negative expectation such as <code>expect(x).not_to foo</code>, RSpec will call <code>foo.does_not_match?(x)</code> if this method is defined.</p>
 </div></span>
   
 </li>
@@ -308,8 +296,7 @@ will call <code>foo.does_not_match?(x)</code> if this method is defined.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>The expected value for the purposes of a diff.</p>
+    <span class="summary_desc"><div class='inline'><p>The expected value for the purposes of a diff.</p>
 </div></span>
   
 </li>
@@ -332,10 +319,7 @@ will call <code>foo.does_not_match?(x)</code> if this method is defined.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Indicates that when this matcher is used in a block expectation expression,
-it expects the block to use a ruby construct that causes a call stack jump
-(such as raising an error or throwing a symbol).</p>
+    <span class="summary_desc"><div class='inline'><p>Indicates that when this matcher is used in a block expectation expression, it expects the block to use a ruby construct that causes a call stack jump (such as raising an error or throwing a symbol).</p>
 </div></span>
   
 </li>
@@ -358,8 +342,7 @@ it expects the block to use a ruby construct that causes a call stack jump
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>This will only be called when a negative match fails.</p>
+    <span class="summary_desc"><div class='inline'><p>This will only be called when a negative match fails.</p>
 </div></span>
   
 </li>
@@ -382,9 +365,7 @@ it expects the block to use a ruby construct that causes a call stack jump
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Indicates that this matcher can be used in a block expectation expression,
-such as <code>expect { foo }.to raise_error</code>.</p>
+    <span class="summary_desc"><div class='inline'><p>Indicates that this matcher can be used in a block expectation expression, such as <code>expect { foo }.to raise_error</code>.</p>
 </div></span>
   
 </li>
@@ -413,11 +394,9 @@ such as <code>expect { foo }.to raise_error</code>.</p>
     
   <div class="note notetag">
     <strong>Note:</strong>
-    <div class='inline'>
-<p>This method is required if <code>diffable?</code> returns true.</p>
+    <div class='inline'><p>This method is required if <code>diffable?</code> returns true.</p>
 </div>
   </div>
-
 
 <p>The actual value for the purposes of a diff.</p>
 
@@ -437,10 +416,9 @@ such as <code>expect { foo }.to raise_error</code>.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>If an object (rather than a string) is provided, RSpec will use the
-<code>pp</code> library to convert it to multi-line output in order to
-diff.</p>
+        <div class='inline'><p>If an object (rather than a string) is provided,
+RSpec will use the <code>pp</code> library to convert it to multi-line output in
+order to diff.</p>
 </div>
       
     </li>
@@ -475,16 +453,17 @@ diff.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>The description is used for two things:</p>
-<ul><li>
-<p>When using RSpec&#39;s one-liner syntax (e.g. <code>it { is_expected.to
-matcher }</code>), the description is used to generate the example&#39;s
-doc string since you have not provided one.</p>
-</li><li>
-<p>In a composed matcher expression, the description is used as part of the
-failure message (and description) of the outer matcher.</p>
-</li></ul>
+    <p>The description is used for two things:</p>
+
+<ul>
+<li>When using RSpec&#39;s one-liner syntax
+(e.g. <code>it { is_expected.to matcher }</code>), the description
+is used to generate the example&#39;s doc string since you
+have not provided one.</li>
+<li>In a composed matcher expression, the description is used
+as part of the failure message (and description) of the outer
+matcher.</li>
+</ul>
 
 
   </div>
@@ -502,8 +481,7 @@ failure message (and description) of the outer matcher.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>Description of the matcher.</p>
+        <div class='inline'><p>Description of the matcher.</p>
 </div>
       
     </li>
@@ -538,10 +516,9 @@ failure message (and description) of the outer matcher.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Indicates that this matcher provides <code>actual</code> and
-<code>expected</code> attributes, and that the values returned by these can
-be usefully diffed, which can be included in the output.</p>
+    <p>Indicates that this matcher provides <code>actual</code> and <code>expected</code> attributes,
+and that the values returned by these can be usefully diffed, which can
+be included in the output.</p>
 
 
   </div>
@@ -559,8 +536,7 @@ be usefully diffed, which can be included in the output.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>true if <code>actual</code> and <code>expected</code> can be diffed.</p>
+        <div class='inline'><p>true if <code>actual</code> and <code>expected</code> can be diffed.</p>
 </div>
       
     </li>
@@ -595,12 +571,10 @@ be usefully diffed, which can be included in the output.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>In a negative expectation such as <code>expect(x).not_to foo</code>, RSpec
-will call <code>foo.does_not_match?(x)</code> if this method is defined. If
-it&#39;s not defined it will fall back to using
-<code>!foo.matches?(x)</code>. This allows you to provide custom logic for
-the negative case.</p>
+    <p>In a negative expectation such as <code>expect(x).not_to foo</code>, RSpec will
+call <code>foo.does_not_match?(x)</code> if this method is defined. If it&#39;s not
+defined it will fall back to using <code>!foo.matches?(x)</code>. This allows you
+to provide custom logic for the negative case.</p>
 
 
   </div>
@@ -619,8 +593,7 @@ the negative case.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>The object being matched against.</p>
+        <div class='inline'><p>The object being matched against.</p>
 </div>
       
     </li>
@@ -638,10 +611,8 @@ the negative case.</p>
       
       
         
-        <div class='inline'>
-<p>For an expression like <code>expect(x).not_to matcher do...end</code>, the
-<code>do/end</code> block binds to <code>not_to</code>. It passes that
-block, if there is one, on to this method.</p>
+        <div class='inline'><p>For an expression like <code>expect(x).not_to matcher do...end</code>, the <code>do/end</code>
+block binds to <code>not_to</code>. It passes that block, if there is one, on to this method.</p>
 </div>
       
     </li>
@@ -658,8 +629,7 @@ block, if there is one, on to this method.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>true if this matcher does not match the provided object.</p>
+        <div class='inline'><p>true if this matcher does not match the provided object.</p>
 </div>
       
     </li>
@@ -697,11 +667,9 @@ block, if there is one, on to this method.</p>
     
   <div class="note notetag">
     <strong>Note:</strong>
-    <div class='inline'>
-<p>This method is required if <code>diffable?</code> returns true.</p>
+    <div class='inline'><p>This method is required if <code>diffable?</code> returns true.</p>
 </div>
   </div>
-
 
 <p>The expected value for the purposes of a diff.</p>
 
@@ -721,10 +689,9 @@ block, if there is one, on to this method.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>If an object (rather than a string) is provided, RSpec will use the
-<code>pp</code> library to convert it to multi-line output in order to
-diff.</p>
+        <div class='inline'><p>If an object (rather than a string) is provided,
+RSpec will use the <code>pp</code> library to convert it to multi-line output in
+order to diff.</p>
 </div>
       
     </li>
@@ -762,26 +729,22 @@ diff.</p>
     
   <div class="note notetag">
     <strong>Note:</strong>
-    <div class='inline'>
-<p>This method is very rarely used or needed.</p>
+    <div class='inline'><p>This method is very rarely used or needed.</p>
 </div>
   </div>
 
   <div class="note notetag">
     <strong>Note:</strong>
-    <div class='inline'>
-<p>If not defined, RSpec assumes a value of <code>false</code> for this
-method.</p>
+    <div class='inline'><p>If not defined, RSpec assumes a value of <code>false</code> for this method.</p>
 </div>
   </div>
 
+<p>Indicates that when this matcher is used in a block expectation
+expression, it expects the block to use a ruby construct that causes
+a call stack jump (such as raising an error or throwing a symbol).</p>
 
-<p>Indicates that when this matcher is used in a block expectation expression,
-it expects the block to use a ruby construct that causes a call stack jump
-(such as raising an error or throwing a symbol).</p>
-
-<p>This is used internally for compound block expressions, as matchers which
-expect call stack jumps must be treated with care to work properly.</p>
+<p>This is used internally for compound block expressions, as matchers
+which expect call stack jumps must be treated with care to work properly.</p>
 
 
   </div>
@@ -799,8 +762,7 @@ expect call stack jumps must be treated with care to work properly.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>true if the matcher expects a call stack jump</p>
+        <div class='inline'><p>true if the matcher expects a call stack jump</p>
 </div>
       
     </li>
@@ -835,8 +797,7 @@ expect call stack jumps must be treated with care to work properly.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>This will only be called if <span class='object_link'><a href="#matches%3F-instance_method" title="RSpec::Matchers::MatcherProtocol#matches? (method)">#matches?</a></span> returns false.</p>
+    <p>This will only be called if <span class='object_link'><a href="#matches%3F-instance_method" title="RSpec::Matchers::MatcherProtocol#matches? (method)">#matches?</a></span> returns false.</p>
 
 
   </div>
@@ -854,8 +815,7 @@ expect call stack jumps must be treated with care to work properly.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>Explanation for the failure.</p>
+        <div class='inline'><p>Explanation for the failure.</p>
 </div>
       
     </li>
@@ -893,13 +853,11 @@ expect call stack jumps must be treated with care to work properly.</p>
     
   <div class="note notetag">
     <strong>Note:</strong>
-    <div class='inline'>
-<p>This method is listed as optional because matchers do not have to support
-negation. But if your matcher does support negation, this is a required
-method – otherwise, you&#39;ll get a <code>NoMethodError</code>.</p>
+    <div class='inline'><p>This method is listed as optional because matchers do not have to
+support negation. But if your matcher does support negation, this is a
+required method -- otherwise, you&#39;ll get a <code>NoMethodError</code>.</p>
 </div>
   </div>
-
 
 <p>This will only be called when a negative match fails.</p>
 
@@ -919,8 +877,7 @@ method – otherwise, you&#39;ll get a <code>NoMethodError</code>.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>Explanation for the failure.</p>
+        <div class='inline'><p>Explanation for the failure.</p>
 </div>
       
     </li>
@@ -955,8 +912,7 @@ method – otherwise, you&#39;ll get a <code>NoMethodError</code>.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns true if this matcher matches the provided object.</p>
+    <p>Returns true if this matcher matches the provided object.</p>
 
 
   </div>
@@ -975,8 +931,7 @@ method – otherwise, you&#39;ll get a <code>NoMethodError</code>.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>The object being matched against.</p>
+        <div class='inline'><p>The object being matched against.</p>
 </div>
       
     </li>
@@ -994,10 +949,8 @@ method – otherwise, you&#39;ll get a <code>NoMethodError</code>.</p>
       
       
         
-        <div class='inline'>
-<p>For an expression like <code>expect(x).to matcher do...end</code>, the
-<code>do/end</code> block binds to <code>to</code>. It passes that block,
-if there is one, on to this method.</p>
+        <div class='inline'><p>For an expression like <code>expect(x).to matcher do...end</code>, the <code>do/end</code>
+block binds to <code>to</code>. It passes that block, if there is one, on to this method.</p>
 </div>
       
     </li>
@@ -1014,8 +967,7 @@ if there is one, on to this method.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>true if this matcher matches the provided object.</p>
+        <div class='inline'><p>true if this matcher matches the provided object.</p>
 </div>
       
     </li>
@@ -1053,17 +1005,14 @@ if there is one, on to this method.</p>
     
   <div class="note notetag">
     <strong>Note:</strong>
-    <div class='inline'>
-<p>If not defined, RSpec assumes a value of <code>false</code> for this
-method.</p>
+    <div class='inline'><p>If not defined, RSpec assumes a value of <code>false</code> for this method.</p>
 </div>
   </div>
 
-
 <p>Indicates that this matcher can be used in a block expectation expression,
-such as <code>expect { foo }.to raise_error</code>. Generally speaking,
-this is only needed for matchers which operate on a side effect of a block,
-rather than on a particular object.</p>
+such as <code>expect { foo }.to raise_error</code>. Generally speaking, this is
+only needed for matchers which operate on a side effect of a block, rather
+than on a particular object.</p>
 
 
   </div>
@@ -1081,8 +1030,7 @@ rather than on a particular object.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>true if this matcher can be used in block expressions.</p>
+        <div class='inline'><p>true if this matcher can be used in block expressions.</p>
 </div>
       
     </li>
@@ -1111,9 +1059,9 @@ rather than on a particular object.</p>
 </div>
 
     <div id="footer">
-  Generated on Thu May  4 20:27:59 2017 by
+  Generated on Thu Sep 21 22:42:33 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.4 (ruby-2.2.6).
+  0.8.7.4 (ruby-2.2.2).
 </div>
 
 <script>

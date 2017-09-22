@@ -105,19 +105,20 @@
   <strong>This class is part of a private API.</strong>
   You should avoid using this class if possible, as it may be removed or be changed in the future.
 </p>
-
 <p>Normally, we evaluate the matching sequentially. For an expression like
 <code>expect(x).to foo.and bar</code>, this becomes:</p>
 
-<p>expect(x).to foo  expect(x).to bar</p>
+<p>expect(x).to foo
+  expect(x).to bar</p>
 
-<p>For block expectations, we need to nest them instead, so that <code>expect
-{ x }.to foo.and bar</code> becomes:</p>
+<p>For block expectations, we need to nest them instead, so that
+<code>expect { x }.to foo.and bar</code> becomes:</p>
 
-<p>expect {  expect { x }.to foo  }.to bar</p>
+<p>expect {
+    expect { x }.to foo
+  }.to bar</p>
 
-<p>This is necessary so that the <code>expect</code> block is only executed
-once.</p>
+<p>This is necessary so that the <code>expect</code> block is only executed once.</p>
 
 
   </div>
@@ -159,8 +160,7 @@ once.</p>
   <span class="private note title">private</span>
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>A new instance of NestedEvaluator.</p>
+    <span class="summary_desc"><div class='inline'><p>A new instance of NestedEvaluator.</p>
 </div></span>
   
 </li>
@@ -209,7 +209,6 @@ once.</p>
   <strong>This method is part of a private API.</strong>
   You should avoid using this method if possible, as it may be removed or be changed in the future.
 </p>
-
 <p>Returns a new instance of NestedEvaluator</p>
 
 
@@ -325,9 +324,9 @@ once.</p>
 </div>
 
     <div id="footer">
-  Generated on Thu May  4 20:27:59 2017 by
+  Generated on Thu Sep 21 22:42:34 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.4 (ruby-2.2.6).
+  0.8.7.4 (ruby-2.2.2).
 </div>
 
 <script>

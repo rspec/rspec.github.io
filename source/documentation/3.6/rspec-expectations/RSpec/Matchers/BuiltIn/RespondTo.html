@@ -107,9 +107,8 @@
   <strong>This class is part of a private API.</strong>
   You should avoid using this class if possible, as it may be removed or be changed in the future.
 </p>
-
-<p>Provides the implementation for <code>respond_to</code>. Not intended to be
-instantiated directly.</p>
+<p>Provides the implementation for <code>respond_to</code>.
+Not intended to be instantiated directly.</p>
 
 
   </div>
@@ -160,8 +159,7 @@ instantiated directly.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>No-op.</p>
+    <span class="summary_desc"><div class='inline'><p>No-op.</p>
 </div></span>
   
 </li>
@@ -252,8 +250,7 @@ instantiated directly.</p>
   <span class="private note title">private</span>
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>A new instance of RespondTo.</p>
+    <span class="summary_desc"><div class='inline'><p>A new instance of RespondTo.</p>
 </div></span>
   
 </li>
@@ -276,8 +273,7 @@ instantiated directly.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Specifies the number of expected arguments.</p>
+    <span class="summary_desc"><div class='inline'><p>Specifies the number of expected arguments.</p>
 </div></span>
   
 </li>
@@ -302,8 +298,7 @@ instantiated directly.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Specifies that the method accepts any keyword, i.e.</p>
+    <span class="summary_desc"><div class='inline'><p>Specifies that the method accepts any keyword, i.e.</p>
 </div></span>
   
 </li>
@@ -328,8 +323,7 @@ instantiated directly.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Specifies keyword arguments, if any.</p>
+    <span class="summary_desc"><div class='inline'><p>Specifies keyword arguments, if any.</p>
 </div></span>
   
 </li>
@@ -354,8 +348,7 @@ instantiated directly.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Specifies that the number of arguments has no upper limit, i.e.</p>
+    <span class="summary_desc"><div class='inline'><p>Specifies that the number of arguments has no upper limit, i.e.</p>
 </div></span>
   
 </li>
@@ -416,7 +409,6 @@ instantiated directly.</p>
   <strong>This method is part of a private API.</strong>
   You should avoid using this method if possible, as it may be removed or be changed in the future.
 </p>
-
 <p>Returns a new instance of RespondTo</p>
 
 
@@ -476,8 +468,7 @@ instantiated directly.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>No-op. Intended to be used as syntactic sugar when using <code>with</code>.</p>
+    <p>No-op. Intended to be used as syntactic sugar when using <code>with</code>.</p>
 
 
   </div>
@@ -693,8 +684,7 @@ instantiated directly.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Specifies the number of expected arguments.</p>
+    <p>Specifies the number of expected arguments.</p>
 
 
   </div>
@@ -748,9 +738,8 @@ instantiated directly.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Specifies that the method accepts any keyword, i.e. the method has  a
-splatted keyword parameter of the form **kw_args.</p>
+    <p>Specifies that the method accepts any keyword, i.e. the method has
+  a splatted keyword parameter of the form **kw_args.</p>
 
 
   </div>
@@ -804,8 +793,7 @@ splatted keyword parameter of the form **kw_args.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Specifies keyword arguments, if any.</p>
+    <p>Specifies keyword arguments, if any.</p>
 
 
   </div>
@@ -819,8 +807,7 @@ splatted keyword parameter of the form **kw_args.</p>
       <pre class="example code"><code><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_obj'>obj</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_respond_to'>respond_to</span><span class='lparen'>(</span><span class='symbol'>:message</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_with_keywords'>with_keywords</span><span class='lparen'>(</span><span class='symbol'>:color</span><span class='comma'>,</span> <span class='symbol'>:shape</span><span class='rparen'>)</span></code></pre>
     
       
-        <p class="example_title"><div class='inline'>
-<p>with an expected number of arguments</p>
+        <p class="example_title"><div class='inline'><p>with an expected number of arguments</p>
 </div></p>
       
       <pre class="example code"><code><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_obj'>obj</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_respond_to'>respond_to</span><span class='lparen'>(</span><span class='symbol'>:message</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_with'>with</span><span class='lparen'>(</span><span class='int'>3</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_arguments'>arguments</span><span class='period'>.</span><span class='id identifier rubyid_and_keywords'>and_keywords</span><span class='lparen'>(</span><span class='symbol'>:color</span><span class='comma'>,</span> <span class='symbol'>:shape</span><span class='rparen'>)</span></code></pre>
@@ -866,9 +853,8 @@ splatted keyword parameter of the form **kw_args.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Specifies that the number of arguments has no upper limit, i.e. the  method
-has a splatted parameter of the form *args.</p>
+    <p>Specifies that the number of arguments has no upper limit, i.e. the
+  method has a splatted parameter of the form *args.</p>
 
 
   </div>
@@ -912,9 +898,9 @@ has a splatted parameter of the form *args.</p>
 </div>
 
     <div id="footer">
-  Generated on Thu May  4 20:27:59 2017 by
+  Generated on Thu Sep 21 22:42:34 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.4 (ruby-2.2.6).
+  0.8.7.4 (ruby-2.2.2).
 </div>
 
 <script>
