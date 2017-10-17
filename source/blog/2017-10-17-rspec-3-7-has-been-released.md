@@ -13,6 +13,9 @@ RSpec continues to be a community-driven project with contributors
 from all over the world. This release includes over 127 commits and 31
 merged pull requests from 27 different contributors!
 
+It's worth noting: this is a smaller release than usual, as we wanted to get our
+Rails System Testing integration to you as quickly as possible.
+
 Thank you to everyone who helped make this release happen!
 
 ## Notable Changes
