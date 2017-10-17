@@ -1,4 +1,4 @@
---
+---
 title: RSpec 3.7 has been released!
 author: Sam Phippen
 ---
