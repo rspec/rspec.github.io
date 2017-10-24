@@ -27,7 +27,7 @@ to say about the book:
 
 If you want to learn more about the book, check out this video Ian put together about it:
 
-<iframe class="centered" width="560" height="315" src="https://www.youtube.com/embed/-EbelD3CxAI" frameborder="0" allowfullscreen></iframe>
+<iframe class="centered youtube" width="560" height="315" src="https://www.youtube.com/embed/-EbelD3CxAI" frameborder="0" allowfullscreen></iframe>
 
 You can also
 [check](https://media.pragprog.com/titles/rspec3/intro.pdf)

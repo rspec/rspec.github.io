@@ -3,12 +3,12 @@
 section {
   @include outer-container;
   padding-top: 3em;
-  font-family: $verdana;
+
   h2 {
     font-size: 2.5em;
     padding: 1em;
-    font-family: $verdana;
   }
+
   article {
     @include span-columns(10);
     @include shift(1);
@@ -20,43 +20,42 @@ section {
 }
 
 div.people {
-  background-color: #182D40;
-  color: #E6AC3E;
+  background-color: #182d40;
+  color: #e6ac3e;
   text-align: center;
   padding: 50px 0;
 
-  .title, h4 {
+  .title,
+  h4 {
     font-size: 2em;
-    font-family: $verdana;
     padding: 1em;
     margin-bottom: 20px;
-    color: #F55E3D;
+    color: #f55e3d;
   }
 
-  .alumni-list
-  {
-    h4
-    {
+  .alumni-list {
+    h4 {
       padding-bottom: 0;
     }
 
-    p
-    {
+    p {
       padding-bottom: 1.5em;
     }
   }
 
   h4 {
     font-size: 1.5em;
-    color: #FFBC00;
+    color: #ffbc00;
   }
 
-  .team-list, .alumni-list {
+  .team-list,
+  .alumni-list {
     display: inline-block;
     text-align: center;
     width: 1023px;
     @include clearfix;
     @include outer-container;
+
     .box {
       @include border-top-radius(5px);
       @include border-bottom-radius(5px);
@@ -65,10 +64,12 @@ div.people {
 
       .desc {
         color: #000;
+
         div {
           margin-bottom: 10px;
         }
       }
+
       a img {
         @include size(25px);
         opacity: 0.4;
@@ -80,22 +81,24 @@ div.people {
   .team-list {
     .box {
       @include span-columns(3);
-      &:nth-of-type(1)
-      {
+
+      &:nth-of-type(1) {
         @include shift(1.5);
       }
-      &:nth-of-type(3n+1)
-      {
+
+      &:nth-of-type(3n+1) {
         @include shift(1.5);
         clear: left;
       }
     }
   }
+
   .alumni-list {
     .box {
       @include span-columns(2);
-      &:nth-of-type(1), &:nth-of-type(5n+1)
-      {
+
+      &:nth-of-type(1),
+      &:nth-of-type(5n+1) {
         @include shift(1);
       }
     }

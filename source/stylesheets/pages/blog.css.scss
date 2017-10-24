@@ -16,7 +16,8 @@
     font-family: Menlo,Monaco,"Andale Mono","lucida console","Courier New",monospace!important;
   }
 
-  ol, ul {
+  ol,
+  ul {
     list-style-position: outside;
     font-size: 1.1em;
     margin: 1em 0;
@@ -32,7 +33,7 @@
     padding-left: 1em;
   }
 
-  h3+ul {
+  h3 + ul {
     margin-top: -1em;
   }
 
@@ -46,22 +47,38 @@
     font-size: 3em;
     padding: 1em 0;
     text-align: center;
+
+    @media (max-width: 767px) {
+      font-size: 1.8em;
+    }
   }
 
   h2 {
     font-size: 2em;
+
+    @media (max-width: 767px) {
+      font-size: 1.5em;
+    }
   }
 
   h3 {
     text-transform: inherit;
     font-size: 120%;
     margin: 2.5em 0 1.5em 0;
+
+    @media (max-width: 767px) {
+      font-size: 100%;
+    }
   }
 
   h4 {
     text-transform: inherit;
     font-size: 120%;
     margin: 2.5em 0 1.5em 0;
+
+    @media (max-width: 767px) {
+      font-size: 100%;
+    }
   }
 
   h4::before {
@@ -72,9 +89,11 @@
     margin-top: -1em;
   }
 
-  small.date, h3.author {
+  small.date,
+  h3.author {
     text-align: right;
   }
+
   small.date {
     display: block;
     margin-top: -2em;
@@ -120,6 +139,7 @@
   h3 {
     margin: 1em 0 0;
   }
+
   small {
     margin: 0;
   }

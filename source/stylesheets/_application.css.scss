@@ -1,11 +1,10 @@
 //= normalize
 
+@import "normalize";
 @import "bourbon";
 @import "partials/variables";
 @import "bitters/bitters";
 @import "neat";
-
-
 @import "partials/header";
 @import "partials/footer";
 @import "partials/code";
@@ -26,4 +25,14 @@ img.needs-border {
 iframe.centered {
   display: block;
   margin: 20px auto;
+}
+
+@media (max-width: 767px) {
+  body {
+    word-wrap: break-word;
+  }
+
+  .youtube {
+    width: 100%;
+  }
 }
