@@ -27,7 +27,7 @@ Rails 5.1 では、System Test と呼ばれる新しいタイプのテストが�
 RSpec には以前から [Feature Spec](https://relishapp.com/rspec/rspec-rails/docs/feature-specs/feature-spec) という同様の機能がありました。
 しかし、Feature Spec と今回追加された System Spec（System Test の RSpec 版）には以下のような違いがあります。
 
-1. Feature Spec では、JavaScript が有効な Capybara ドライバー（Selenium や Poltergeist) を使った場合、
+1. Feature Spec では、JavaScript が有効な Capybara ドライバー（Selenium や Poltergeist）を使った場合、
    テストは Rails とは**別のプロセス**で実行されます。
    その結果、テストプロセスと Rails プロセス間でデータベースのトランザクションが共有されないため、
    RSpec 標準のデータベースロールバック機構を利用できず、
