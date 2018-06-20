@@ -2,7 +2,7 @@
 <!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"><![endif]-->
 <!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
 <!--[if IE 8]><html class="no-js lt-ie9" lang="en"><![endif]-->
-<!--[if gt IE 8]<!--><html class="no-js" lang="en"><!--<![endif]--><head><meta charset="UTF-8" /><title>RSpec 2.14 is released!</title><link href="/stylesheets/application.css" rel="stylesheet" type="text/css" /><link href="/stylesheets/normalize.css" rel="stylesheet" type="text/css" /><link href="/stylesheets/pages/blog.css" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" type="text/css" /><link href="/blog/feed.xml" rel="alternate" type="application/atom+xml" /></head><body class="blog"><header><nav><h1><a href="/">RSpec</a></h1><ul><li><a href="/about">About</a></li><li><a href="/documentation">Documentation</a></li><li><a href="/blog">Blog</a></li><li><a href="/upgrading-from-rspec-2">Upgrade</a></li><li><a href="/help">Get Help</a></li><li><a href="/contributing">Contributing</a></li></ul></nav></header><section><article class="blog_post"><h1>RSpec 2.14 is released!</h1><h3 class="author">Myron Marston</h3><small class="date">Jul  8, 2013</small><p>We've just released RSpec 2.14. It will be the last 2.x feature release
+<!--[if gt IE 8]<!--><html class="no-js" lang="en"><!--<![endif]--><head><meta charset="UTF-8" /><meta content="width=device-width, initial-scale=1" name="viewport" /><meta content="RSpec 2.14 is released!" property="og:title" /><meta content="http://rspec.info/blog/2013/07/rspec-2-14-is-released/" property="og:url" /><meta content="http://rspec.info/images/logo_ogp.png" property="og:image" /><meta content="summary" name="twitter:card" /><meta content="@rspec" name="twitter:site" /><title>RSpec 2.14 is released!</title><link href="/stylesheets/pages/blog.css" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" type="text/css" /><link href="/blog/feed.xml" rel="alternate" type="application/atom+xml" /></head><body class="blog"><header><nav><h1><img alt="Logo" src="/images/logo.png" /><a href="/">RSpec</a></h1><input class="hamburger-toggle" type="checkbox" /><div class="hamburger-icon"><div class="bar"></div><div class="bar"></div><div class="bar"></div></div><ul class="menu"><li><a href="/about">About</a></li><li><a href="/documentation">Documentation</a></li><li><a href="/blog">Blog</a></li><li><a href="/upgrading-from-rspec-2">Upgrade</a></li><li><a href="/help">Get Help</a></li><li><a href="/contributing">Contributing</a></li></ul></nav></header><section><article class="blog_post"><h1>RSpec 2.14 is released!</h1><h3 class="author">Myron Marston</h3><small class="date">Jul  8, 2013</small><p>We've just released RSpec 2.14. It will be the last 2.x feature release
 and is a recommended upgrade for all users. We're getting started on
 RSpec 3.  I'll be blogging about our plans for RSpec 3 next week, so
 check back soon :).</p>
@@ -19,7 +19,7 @@ so that it prints the groups with the largest mean example time.
 For example, here's the output from using <code>--profile 5</code> on rspec-core's
 suite:</p>
 
-<pre class="highlight plaintext"><code>Top 5 slowest examples (0.38945 seconds, 10.8% of total time):
+<div class="highlight"><pre class="highlight plaintext"><code>Top 5 slowest examples (0.38945 seconds, 10.8% of total time):
   RSpec::Core::Formatters::TextMateFormatter produces HTML identical to the one we designed manually
     0.10471 seconds ./spec/rspec/core/formatters/text_mate_formatter_spec.rb:64
   ::DRbCommandLine --drb-port without RSPEC_DRB environment variable set sets the DRb port
@@ -42,8 +42,7 @@ Top 5 slowest example groups:
     0.02016 seconds average (0.16127 seconds / 8 examples) ./spec/rspec/core/drb_command_line_spec.rb:4
   RSpec::Core::Runner
     0.01822 seconds average (0.10931 seconds / 6 examples) ./spec/rspec/core/runner_spec.rb:5
-</code></pre>
-
+</code></pre></div>
 <h3 id="core-new---warnings-flag-to-enable-rubys-warning-mode">Core: New <code>--warnings</code> flag to enable Ruby's warning mode</h3>
 
 <p>You can now pass the <code>--warnings</code> or <code>-w</code> flag to enable ruby's warning
@@ -56,7 +55,7 @@ be defined in any context, and could be used from any context. In 2.14,
 this has changed: shared example groups are now scoped to the context
 they are defined in. That means you can now do this:</p>
 
-<pre class="highlight ruby"><code><span class="n">describe</span> <span class="no">MySinatraApp1</span> <span class="k">do</span>
+<div class="highlight"><pre class="highlight ruby"><code><span class="n">describe</span> <span class="no">MySinatraApp1</span> <span class="k">do</span>
   <span class="n">shared_examples_for</span> <span class="s2">"error handling"</span> <span class="k">do</span>
     <span class="c1"># some examples would go here</span>
   <span class="k">end</span>
@@ -69,9 +68,8 @@ they are defined in. That means you can now do this:</p>
     <span class="n">include_examples</span> <span class="s2">"error handling"</span>
   <span class="k">end</span>
 <span class="k">end</span>
-</code></pre>
-
-<pre class="highlight ruby"><code><span class="n">describe</span> <span class="no">MySinatraApp2</span> <span class="k">do</span>
+</code></pre></div>
+<div class="highlight"><pre class="highlight ruby"><code><span class="n">describe</span> <span class="no">MySinatraApp2</span> <span class="k">do</span>
   <span class="n">shared_examples_for</span> <span class="s2">"error handling"</span> <span class="k">do</span>
     <span class="c1"># some different examples would go here</span>
   <span class="k">end</span>
@@ -84,8 +82,7 @@ they are defined in. That means you can now do this:</p>
     <span class="n">include_examples</span> <span class="s2">"error handling"</span>
   <span class="k">end</span>
 <span class="k">end</span>
-</code></pre>
-
+</code></pre></div>
 <p>Here there are two different <code>"error handling"</code> shared example
 groups, each scoped to (and used from) a different example group.
 As demonstrated here, shared example groups are available from
@@ -103,22 +100,20 @@ removal in 3.0. To help reduce the noisiness of the increased
 number of deprecations, there's a new option that can direct
 deprecation warnings to a file:</p>
 
-<pre class="highlight ruby"><code><span class="c1"># spec_helper.rb</span>
+<div class="highlight"><pre class="highlight ruby"><code><span class="c1"># spec_helper.rb</span>
 <span class="no">RSpec</span><span class="p">.</span><span class="nf">configure</span> <span class="k">do</span> <span class="o">|</span><span class="n">rspec</span><span class="o">|</span>
   <span class="n">rspec</span><span class="p">.</span><span class="nf">deprecation_stream</span> <span class="o">=</span> <span class="s1">'log/deprecations.log'</span>
   <span class="c1"># or</span>
   <span class="n">rspec</span><span class="p">.</span><span class="nf">deprecation_stream</span> <span class="o">=</span> <span class="no">File</span><span class="p">.</span><span class="nf">open</span><span class="p">(</span><span class="s2">"/path/to/file"</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">)</span>
 <span class="k">end</span>
-</code></pre>
-
+</code></pre></div>
 <p>Normally, deprecation warnings get printed to <code>stderr</code>. When
 you configure this, it'll send deprecation warnings to the
 configured file instead, and at the end of the spec run
 it will print out a message like:</p>
 
-<pre class="highlight plaintext"><code>2 deprecations logged to log/deprecations.log
-</code></pre>
-
+<div class="highlight"><pre class="highlight plaintext"><code>2 deprecations logged to log/deprecations.log
+</code></pre></div>
 <h3 id="mocks-new-message-expectation-syntax">Mocks: New message expectation syntax</h3>
 
 <p>In RSpec 2.11, we added a <a href="/blog/2012/06/rspecs-new-expectation-syntax">new syntax to
@@ -127,7 +122,7 @@ that removes a reliance on monkey-patching, avoiding certain
 kinds of problems related to proxy objects. In RSpec 2.14,
 we've extended that same syntax to rspec-mocks:</p>
 
-<pre class="highlight ruby"><code><span class="n">mailer</span> <span class="o">=</span> <span class="n">double</span><span class="p">(</span><span class="s2">"Mailer"</span><span class="p">)</span>
+<div class="highlight"><pre class="highlight ruby"><code><span class="n">mailer</span> <span class="o">=</span> <span class="n">double</span><span class="p">(</span><span class="s2">"Mailer"</span><span class="p">)</span>
 
 <span class="c1"># old syntax:</span>
 <span class="n">mailer</span><span class="p">.</span><span class="nf">stub</span><span class="p">(</span><span class="ss">:deliver_welcome_email</span><span class="p">)</span>
@@ -136,8 +131,7 @@ we've extended that same syntax to rspec-mocks:</p>
 <span class="c1"># new syntax</span>
 <span class="n">allow</span><span class="p">(</span><span class="n">mailer</span><span class="p">).</span><span class="nf">to</span> <span class="n">receive</span><span class="p">(</span><span class="ss">:deliver_welcome_email</span><span class="p">)</span>
 <span class="n">expect</span><span class="p">(</span><span class="n">mailer</span><span class="p">).</span><span class="nf">to</span> <span class="n">receive</span><span class="p">(</span><span class="ss">:deliver_welcome_email</span><span class="p">).</span><span class="nf">with</span><span class="p">(</span><span class="n">an_instance_of</span><span class="p">(</span><span class="no">User</span><span class="p">))</span>
-</code></pre>
-
+</code></pre></div>
 <p>For more details, read Sam Phippen's <a href="http://teaisaweso.me/blog/2013/05/27/rspecs-new-message-expectation-syntax/">announcement blog
 post</a>
 from the 2.14.0.rc1 release.</p>
@@ -148,20 +142,18 @@ from the 2.14.0.rc1 release.</p>
 rspec-mocks has required that you set a message expectation before
 the message is received:</p>
 
-<pre class="highlight ruby"><code><span class="n">mailer</span> <span class="o">=</span> <span class="n">double</span><span class="p">(</span><span class="s2">"Mailer"</span><span class="p">)</span>
+<div class="highlight"><pre class="highlight ruby"><code><span class="n">mailer</span> <span class="o">=</span> <span class="n">double</span><span class="p">(</span><span class="s2">"Mailer"</span><span class="p">)</span>
 <span class="n">expect</span><span class="p">(</span><span class="n">mailer</span><span class="p">).</span><span class="nf">to</span> <span class="n">receive</span><span class="p">(</span><span class="ss">:deliver_welcome_email</span><span class="p">).</span><span class="nf">with</span><span class="p">(</span><span class="n">an_instance_of</span><span class="p">(</span><span class="no">User</span><span class="p">))</span>
 <span class="no">UserCreationService</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">mailer</span><span class="p">).</span><span class="nf">create_user</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
-</code></pre>
-
+</code></pre></div>
 <p>In some situations, this ordering feels backwards (particularly if you
 try to organize your tests using an arrange/act/assert pattern). Spies
 allow you to assert that a message was received after the fact:</p>
 
-<pre class="highlight ruby"><code><span class="n">mailer</span> <span class="o">=</span> <span class="n">double</span><span class="p">(</span><span class="s2">"Mailer"</span><span class="p">,</span> <span class="ss">deliver_welcome_email: </span><span class="kp">nil</span><span class="p">)</span>
+<div class="highlight"><pre class="highlight ruby"><code><span class="n">mailer</span> <span class="o">=</span> <span class="n">double</span><span class="p">(</span><span class="s2">"Mailer"</span><span class="p">,</span> <span class="ss">deliver_welcome_email: </span><span class="kp">nil</span><span class="p">)</span>
 <span class="no">UserCreationService</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">mailer</span><span class="p">).</span><span class="nf">create_user</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
 <span class="n">expect</span><span class="p">(</span><span class="n">mailer</span><span class="p">).</span><span class="nf">to</span> <span class="n">have_received</span><span class="p">(</span><span class="ss">:deliver_welcome_email</span><span class="p">).</span><span class="nf">with</span><span class="p">(</span><span class="n">an_instance_of</span><span class="p">(</span><span class="no">User</span><span class="p">))</span>
-</code></pre>
-
+</code></pre></div>
 <p>Note that you first have to stub the message you will later expect
 so that rspec-mocks can spy on it. (There's no feasible performant
 way for rspec-mocks to automatically spy on all method calls).
@@ -169,11 +161,10 @@ Alternately, you can create your test double as a null object,
 (using <code>double().as_null_object</code>) which has the effect of
 auto-spying on all messages sent to that object:</p>
 
-<pre class="highlight ruby"><code><span class="n">mailer</span> <span class="o">=</span> <span class="n">double</span><span class="p">(</span><span class="s2">"Mailer"</span><span class="p">).</span><span class="nf">as_null_object</span>
+<div class="highlight"><pre class="highlight ruby"><code><span class="n">mailer</span> <span class="o">=</span> <span class="n">double</span><span class="p">(</span><span class="s2">"Mailer"</span><span class="p">).</span><span class="nf">as_null_object</span>
 <span class="no">UserCreationService</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="n">mailer</span><span class="p">).</span><span class="nf">create_user</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
 <span class="n">expect</span><span class="p">(</span><span class="n">mailer</span><span class="p">).</span><span class="nf">to</span> <span class="n">have_received</span><span class="p">(</span><span class="ss">:deliver_welcome_email</span><span class="p">).</span><span class="nf">with</span><span class="p">(</span><span class="n">an_instance_of</span><span class="p">(</span><span class="no">User</span><span class="p">))</span>
-</code></pre>
-
+</code></pre></div>
 <h2 id="docs">Docs</h2>
 
 <h3 id="rdoc">RDoc</h3>
@@ -457,5 +448,22 @@ spec/ directory. (Benjamin Fleischer)</li>
   ga('create', 'UA-59095215-1', 'auto');
   ga('send', 'pageview');
 
+</script>
+<script>
+  var SeedAndDewConfig = {};
+  (function() {
+    SeedAndDewConfig['adClass'] = "snd-ad";
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    SeedAndDewConfig['projectId'] = 'ef35b4ec-231e-4950-bd93-4c06fe3b2543';
+    SeedAndDewConfig['loadStartTime'] = performance.now();
+    SeedAndDewConfig['apiVersion'] = '2018-05-28'
+    SeedAndDewConfig['sessionId'] = Math.random().toString(36).substring(2, 15);
+    var snd = document.createElement('script');
+    snd.type = 'text/javascript';
+    snd.async = true;
+    snd.src = 'https://www.seedanddew.com/static/embed.min.js';
+    (document.getElementsByTagName('head')[0] ||
+    document.getElementsByTagName('body')[0]).appendChild(snd);
+  })();
 </script>
 </body></html>

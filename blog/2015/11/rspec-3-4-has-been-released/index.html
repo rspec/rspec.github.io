@@ -2,7 +2,7 @@
 <!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"><![endif]-->
 <!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
 <!--[if IE 8]><html class="no-js lt-ie9" lang="en"><![endif]-->
-<!--[if gt IE 8]<!--><html class="no-js" lang="en"><!--<![endif]--><head><meta charset="UTF-8" /><title>RSpec 3.4 has been released!</title><link href="/stylesheets/application.css" rel="stylesheet" type="text/css" /><link href="/stylesheets/normalize.css" rel="stylesheet" type="text/css" /><link href="/stylesheets/pages/blog.css" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" type="text/css" /><link href="/blog/feed.xml" rel="alternate" type="application/atom+xml" /></head><body class="blog"><header><nav><h1><a href="/">RSpec</a></h1><ul><li><a href="/about">About</a></li><li><a href="/documentation">Documentation</a></li><li><a href="/blog">Blog</a></li><li><a href="/upgrading-from-rspec-2">Upgrade</a></li><li><a href="/help">Get Help</a></li><li><a href="/contributing">Contributing</a></li></ul></nav></header><section><article class="blog_post"><ul class="langs"><li class="lang current_lang">en</li><li class="lang"><a href="/ja/blog/2015/11/rspec-3-4-has-been-released/">ja</a></li></ul><h1>RSpec 3.4 has been released!</h1><h3 class="author">Myron Marston</h3><small class="date">Nov 13, 2015</small><p>RSpec 3.4 has just been released! Given our commitment to
+<!--[if gt IE 8]<!--><html class="no-js" lang="en"><!--<![endif]--><head><meta charset="UTF-8" /><meta content="width=device-width, initial-scale=1" name="viewport" /><meta content="RSpec 3.4 has been released!" property="og:title" /><meta content="http://rspec.info/blog/2015/11/rspec-3-4-has-been-released/" property="og:url" /><meta content="http://rspec.info/images/logo_ogp.png" property="og:image" /><meta content="summary" name="twitter:card" /><meta content="@rspec" name="twitter:site" /><title>RSpec 3.4 has been released!</title><link href="/stylesheets/pages/blog.css" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" type="text/css" /><link href="/blog/feed.xml" rel="alternate" type="application/atom+xml" /></head><body class="blog"><header><nav><h1><img alt="Logo" src="/images/logo.png" /><a href="/">RSpec</a></h1><input class="hamburger-toggle" type="checkbox" /><div class="hamburger-icon"><div class="bar"></div><div class="bar"></div><div class="bar"></div></div><ul class="menu"><li><a href="/about">About</a></li><li><a href="/documentation">Documentation</a></li><li><a href="/blog">Blog</a></li><li><a href="/upgrading-from-rspec-2">Upgrade</a></li><li><a href="/help">Get Help</a></li><li><a href="/contributing">Contributing</a></li></ul></nav></header><section><article class="blog_post"><ul class="langs"><li class="lang current_lang">en</li><li class="lang"><a href="/ja/blog/2015/11/rspec-3-4-has-been-released/">ja</a></li></ul><h1>RSpec 3.4 has been released!</h1><h3 class="author">Myron Marston</h3><small class="date">Nov 13, 2015</small><p>RSpec 3.4 has just been released! Given our commitment to
 <a href="http://semver.org/">semantic versioning</a>, this should be a trivial
 upgrade for anyone already using any RSpec 3 release, but if we did introduce
 any regressions, please let us know, and we'll get a patch release
@@ -56,11 +56,10 @@ output. Before RSpec 3.4, this generally worked OK as long as your
 expectation fit on one line. If you formatted it across multiple lines, like
 this:</p>
 
-<pre class="highlight ruby"><code><span class="n">expect</span> <span class="p">{</span>
+<div class="highlight"><pre class="highlight ruby"><code><span class="n">expect</span> <span class="p">{</span>
   <span class="no">MyNamespace</span><span class="o">::</span><span class="no">MyClass</span><span class="p">.</span><span class="nf">some_long_method_name</span><span class="p">(</span><span class="ss">:with</span><span class="p">,</span> <span class="ss">:some</span><span class="p">,</span> <span class="ss">:arguments</span><span class="p">)</span>
 <span class="p">}.</span><span class="nf">to</span> <span class="n">raise_error</span><span class="p">(</span><span class="sr">/some error snippet/</span><span class="p">)</span>
-</code></pre>
-
+</code></pre></div>
 <p>…then the failure would just print the first line (<code>expect {</code>)
 since that's the stackframe included in the exception. In RSpec 3.4,
 we now load <a href="http://ruby-doc.org/stdlib-2.2.0/libdoc/ripper/rdoc/Ripper.html">Ripper</a>
@@ -113,22 +112,20 @@ back to the first stack frame. You shouldn't see
 we would combine each failure message into a single line. For example,
 this expectation:</p>
 
-<pre class="highlight ruby"><code><span class="n">expect</span><span class="p">(</span><span class="n">lyrics</span><span class="p">).</span><span class="nf">to</span> <span class="n">start_with</span><span class="p">(</span><span class="s2">"There must be some kind of way out of here"</span><span class="p">)</span>
+<div class="highlight"><pre class="highlight ruby"><code><span class="n">expect</span><span class="p">(</span><span class="n">lyrics</span><span class="p">).</span><span class="nf">to</span> <span class="n">start_with</span><span class="p">(</span><span class="s2">"There must be some kind of way out of here"</span><span class="p">)</span>
               <span class="p">.</span><span class="nf">and</span> <span class="kp">include</span><span class="p">(</span><span class="s2">"No reason to get excited"</span><span class="p">)</span>
-</code></pre>
-
+</code></pre></div>
 <p>…produced this hard-to-read failure:</p>
 
-<pre class="highlight plaintext"><code>1) All Along the Watchtower has the expected lyrics
+<div class="highlight"><pre class="highlight plaintext"><code>1) All Along the Watchtower has the expected lyrics
    Failure/Error: expect(lyrics).to start_with("There must be some kind of way out of here")
      expected "I stand up next to a mountain And I chop it down with the edge of my hand" to start with "There must be some kind of way out of here" and expected "I stand up next to a mountain And I chop it down with the edge of my hand" to include "No reason to get excited"
    # ./spec/example_spec.rb:20:in `block (2 levels) in &lt;top (required)&gt;'
-</code></pre>
-
+</code></pre></div>
 <p>In RSpec 3.4, we format separate each individual failure message
 so it's easier to read:</p>
 
-<pre class="highlight plaintext"><code>1) All Along the Watchtower has the expected lyrics
+<div class="highlight"><pre class="highlight plaintext"><code>1) All Along the Watchtower has the expected lyrics
    Failure/Error:
      expect(lyrics).to start_with("There must be some kind of way out of here")
                    .and include("No reason to get excited")
@@ -139,28 +136,25 @@ so it's easier to read:</p>
 
         expected "I stand up next to a mountain And I chop it down with the edge of my hand" to include "No reason to get excited"
    # ./spec/example_spec.rb:20:in `block (2 levels) in &lt;top (required)&gt;'
-</code></pre>
-
+</code></pre></div>
 <h3 id="expectations-add-withcaptures-to-match-matcher">Expectations: Add <code>with_captures</code> to <code>match</code> matcher</h3>
 
 <p>In RSpec 3.4, the <code>match</code> matcher has gained a new ability:
 you can specify regex captures. You can use the new <code>with_captures</code>
 method to specify ordered captures:</p>
 
-<pre class="highlight ruby"><code><span class="n">year_regex</span> <span class="o">=</span> <span class="sr">/(\d{4})\-(\d{2})\-(\d{2})/</span>
+<div class="highlight"><pre class="highlight ruby"><code><span class="n">year_regex</span> <span class="o">=</span> <span class="sr">/(\d{4})\-(\d{2})\-(\d{2})/</span>
 <span class="n">expect</span><span class="p">(</span><span class="n">year_regex</span><span class="p">).</span><span class="nf">to</span> <span class="n">match</span><span class="p">(</span><span class="s2">"2015-12-25"</span><span class="p">).</span><span class="nf">with_captures</span><span class="p">(</span><span class="s2">"2015"</span><span class="p">,</span> <span class="s2">"12"</span><span class="p">,</span> <span class="s2">"25"</span><span class="p">)</span>
-</code></pre>
-
+</code></pre></div>
 <p>…or to specify named captures:</p>
 
-<pre class="highlight ruby"><code><span class="n">year_regex</span> <span class="o">=</span> <span class="sr">/(?&lt;year&gt;\d{4})\-(?&lt;month&gt;\d{2})\-(?&lt;day&gt;\d{2})/</span>
+<div class="highlight"><pre class="highlight ruby"><code><span class="n">year_regex</span> <span class="o">=</span> <span class="sr">/(?&lt;year&gt;\d{4})\-(?&lt;month&gt;\d{2})\-(?&lt;day&gt;\d{2})/</span>
 <span class="n">expect</span><span class="p">(</span><span class="n">year_regex</span><span class="p">).</span><span class="nf">to</span> <span class="n">match</span><span class="p">(</span><span class="s2">"2015-12-25"</span><span class="p">).</span><span class="nf">with_captures</span><span class="p">(</span>
   <span class="ss">year: </span><span class="s2">"2015"</span><span class="p">,</span>
   <span class="ss">month: </span><span class="s2">"12"</span><span class="p">,</span>
   <span class="ss">day: </span><span class="s2">"25"</span>
 <span class="p">)</span>
-</code></pre>
-
+</code></pre></div>
 <p>Thanks to Sam Phippen and Jason Karns who collaborated on this new feature.</p>
 
 <h3 id="rails-new-haveenqueuedjob-matcher-for-activejob">Rails: New <code>have_enqueued_job</code> matcher for ActiveJob</h3>
@@ -170,7 +164,7 @@ that allows you to specify that a block of code enqueues a job. It
 supports a fluent interface that will look familiar if you're
 an rspec-mocks user:</p>
 
-<pre class="highlight ruby"><code><span class="n">expect</span> <span class="p">{</span>
+<div class="highlight"><pre class="highlight ruby"><code><span class="n">expect</span> <span class="p">{</span>
   <span class="no">HeavyLiftingJob</span><span class="p">.</span><span class="nf">perform_later</span>
 <span class="p">}.</span><span class="nf">to</span> <span class="n">have_enqueued_job</span>
 
@@ -197,8 +191,7 @@ an rspec-mocks user:</p>
 <span class="n">expect</span> <span class="p">{</span>
   <span class="no">HelloJob</span><span class="p">.</span><span class="nf">set</span><span class="p">(</span><span class="ss">wait_until: </span><span class="no">Date</span><span class="p">.</span><span class="nf">tomorrow</span><span class="p">.</span><span class="nf">noon</span><span class="p">,</span> <span class="ss">queue: </span><span class="s2">"low"</span><span class="p">).</span><span class="nf">perform_later</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
 <span class="p">}.</span><span class="nf">to</span> <span class="n">have_enqueued_job</span><span class="p">.</span><span class="nf">with</span><span class="p">(</span><span class="mi">42</span><span class="p">).</span><span class="nf">on_queue</span><span class="p">(</span><span class="s2">"low"</span><span class="p">).</span><span class="nf">at</span><span class="p">(</span><span class="no">Date</span><span class="p">.</span><span class="nf">tomorrow</span><span class="p">.</span><span class="nf">noon</span><span class="p">)</span>
-</code></pre>
-
+</code></pre></div>
 <p>Thanks to Wojciech Wnętrzak for implementing this feature!</p>
 
 <h2 id="stats">Stats</h2>
@@ -469,5 +462,22 @@ fail when mocking or stubbing a writer method on JRuby. (Myron Marston, #225)</l
   ga('create', 'UA-59095215-1', 'auto');
   ga('send', 'pageview');
 
+</script>
+<script>
+  var SeedAndDewConfig = {};
+  (function() {
+    SeedAndDewConfig['adClass'] = "snd-ad";
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    SeedAndDewConfig['projectId'] = 'ef35b4ec-231e-4950-bd93-4c06fe3b2543';
+    SeedAndDewConfig['loadStartTime'] = performance.now();
+    SeedAndDewConfig['apiVersion'] = '2018-05-28'
+    SeedAndDewConfig['sessionId'] = Math.random().toString(36).substring(2, 15);
+    var snd = document.createElement('script');
+    snd.type = 'text/javascript';
+    snd.async = true;
+    snd.src = 'https://www.seedanddew.com/static/embed.min.js';
+    (document.getElementsByTagName('head')[0] ||
+    document.getElementsByTagName('body')[0]).appendChild(snd);
+  })();
 </script>
 </body></html>

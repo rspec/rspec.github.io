@@ -2,7 +2,7 @@
 <!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"><![endif]-->
 <!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
 <!--[if IE 8]><html class="no-js lt-ie9" lang="en"><![endif]-->
-<!--[if gt IE 8]<!--><html class="no-js" lang="en"><!--<![endif]--><head><meta charset="UTF-8" /><title>RSpec 3.6 has been released!</title><link href="/stylesheets/application.css" rel="stylesheet" type="text/css" /><link href="/stylesheets/normalize.css" rel="stylesheet" type="text/css" /><link href="/stylesheets/pages/blog.css" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" type="text/css" /><link href="/blog/feed.xml" rel="alternate" type="application/atom+xml" /></head><body class="blog"><header><nav><h1><a href="/">RSpec</a></h1><ul><li><a href="/about">About</a></li><li><a href="/documentation">Documentation</a></li><li><a href="/blog">Blog</a></li><li><a href="/upgrading-from-rspec-2">Upgrade</a></li><li><a href="/help">Get Help</a></li><li><a href="/contributing">Contributing</a></li></ul></nav></header><section><article class="blog_post"><ul class="langs"><li class="lang current_lang">en</li><li class="lang"><a href="/ja/blog/2017/05/rspec-3-6-has-been-released/">ja</a></li></ul><h1>RSpec 3.6 has been released!</h1><h3 class="author">Sam Phippen, Myron Marston, Jon Rowe</h3><small class="date">May  4, 2017</small><p>RSpec 3.6 has just been released! Given our commitment to
+<!--[if gt IE 8]<!--><html class="no-js" lang="en"><!--<![endif]--><head><meta charset="UTF-8" /><meta content="width=device-width, initial-scale=1" name="viewport" /><meta content="RSpec 3.6 has been released!" property="og:title" /><meta content="http://rspec.info/blog/2017/05/rspec-3-6-has-been-released/" property="og:url" /><meta content="http://rspec.info/images/logo_ogp.png" property="og:image" /><meta content="summary" name="twitter:card" /><meta content="@rspec" name="twitter:site" /><title>RSpec 3.6 has been released!</title><link href="/stylesheets/pages/blog.css" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" type="text/css" /><link href="/blog/feed.xml" rel="alternate" type="application/atom+xml" /></head><body class="blog"><header><nav><h1><img alt="Logo" src="/images/logo.png" /><a href="/">RSpec</a></h1><input class="hamburger-toggle" type="checkbox" /><div class="hamburger-icon"><div class="bar"></div><div class="bar"></div><div class="bar"></div></div><ul class="menu"><li><a href="/about">About</a></li><li><a href="/documentation">Documentation</a></li><li><a href="/blog">Blog</a></li><li><a href="/upgrading-from-rspec-2">Upgrade</a></li><li><a href="/help">Get Help</a></li><li><a href="/contributing">Contributing</a></li></ul></nav></header><section><article class="blog_post"><ul class="langs"><li class="lang current_lang">en</li><li class="lang"><a href="/ja/blog/2017/05/rspec-3-6-has-been-released/">ja</a></li></ul><h1>RSpec 3.6 has been released!</h1><h3 class="author">Sam Phippen, Myron Marston, Jon Rowe</h3><small class="date">May  4, 2017</small><p>RSpec 3.6 has just been released! Given our commitment to
 <a href="http://semver.org/">semantic versioning</a>, this should be an easy
 upgrade for anyone already using RSpec 3, but if we did introduce
 any regressions, please let us know, and we'll get a patch release
@@ -49,11 +49,10 @@ detect when you've misconfigured RSpec to look for specs in the wrong place or
 with the wrong pattern. When no specs are found and <code>config.fail_if_no_examples</code>
 is set we consider this to be an error as opposed to passing the suite run.</p>
 
-<pre class="highlight ruby"><code><span class="no">RSpec</span><span class="p">.</span><span class="nf">configure</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
+<div class="highlight"><pre class="highlight ruby"><code><span class="no">RSpec</span><span class="p">.</span><span class="nf">configure</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
   <span class="n">config</span><span class="p">.</span><span class="nf">fail_if_no_examples</span> <span class="o">=</span> <span class="kp">true</span>
 <span class="k">end</span>
-</code></pre>
-
+</code></pre></div>
 <p>A special thanks to Ewa Czechowska for getting this in to core.</p>
 
 <h3 id="expectations-improved-failure-messages-for-the-change-and-satisfy-matchers">Expectations: Improved failure messages for the <code>change</code> and <code>satisfy</code> matchers</h3>
@@ -64,7 +63,7 @@ For the <code>satisfy</code> matcher you use a block to specify your pass/fail
 criteria.  In either case, the failure message has always been pretty
 generic.  For example, consider these specs:</p>
 
-<pre class="highlight ruby"><code><span class="no">RSpec</span><span class="p">.</span><span class="nf">describe</span> <span class="s2">"`change` and `satisfy` matchers"</span> <span class="k">do</span>
+<div class="highlight"><pre class="highlight ruby"><code><span class="no">RSpec</span><span class="p">.</span><span class="nf">describe</span> <span class="s2">"`change` and `satisfy` matchers"</span> <span class="k">do</span>
   <span class="n">example</span> <span class="s2">"`change` matcher"</span> <span class="k">do</span>
     <span class="n">a</span> <span class="o">=</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">1</span>
 
@@ -80,8 +79,7 @@ generic.  For example, consider these specs:</p>
             <span class="p">.</span><span class="nf">and</span> <span class="n">satisfy</span> <span class="p">{</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="n">x</span><span class="p">.</span><span class="nf">positive?</span> <span class="p">}</span>
   <span class="k">end</span>
 <span class="k">end</span>
-</code></pre>
-
+</code></pre></div>
 <p>Prior versions of RSpec would fail with messages like
 "expected result to have changed by 1, but was changed by 2"
 and "expected 2 to satisfy block".  In both cases, the failure
@@ -90,7 +88,7 @@ message is accurate, but does not help you distinguish <em>which</em>
 
 <p>Here's what the failure output looks like on RSpec 3.6:</p>
 
-<pre class="highlight plaintext"><code>Failures:
+<div class="highlight"><pre class="highlight plaintext"><code>Failures:
 
   1) `change` and `satisfy` matchers `change` matcher
      Failure/Error:
@@ -110,8 +108,7 @@ message is accurate, but does not help you distinguish <em>which</em>
 
        expected 2 to satisfy expression `x.odd?`
      # ./spec/example_spec.rb:13:in `block (2 levels) in &lt;top (required)&gt;'
-</code></pre>
-
+</code></pre></div>
 <p>Thanks to the great work of Yuji Nakayama, RSpec now uses
 <a href="http://ruby-doc.org/stdlib-2.4.0/libdoc/ripper/rdoc/Ripper.html">Ripper</a>
 to extract a snippet to include in the failure message. If we're not
@@ -133,7 +130,7 @@ example group (<code>describe</code>, <code>context</code>, etc). When doing so 
 matcher will only be available to examples in that example group and any nested
 groups:</p>
 
-<pre class="highlight ruby"><code><span class="no">RSpec</span><span class="p">.</span><span class="nf">describe</span> <span class="s1">'scoped matcher aliases'</span> <span class="k">do</span>
+<div class="highlight"><pre class="highlight ruby"><code><span class="no">RSpec</span><span class="p">.</span><span class="nf">describe</span> <span class="s1">'scoped matcher aliases'</span> <span class="k">do</span>
   <span class="n">describe</span> <span class="s1">'example group with a matcher alias'</span> <span class="k">do</span>
     <span class="n">alias_matcher</span> <span class="ss">:be_a_string_starting_with</span><span class="p">,</span> <span class="ss">:start_with</span>
 
@@ -149,8 +146,7 @@ groups:</p>
     <span class="k">end</span>
   <span class="k">end</span>
 <span class="k">end</span>
-</code></pre>
-
+</code></pre></div>
 <p>Thanks to Markus Reiter for contributing this feature.</p>
 
 <h3 id="mocks-withoutpartialdoubleverification">Mocks: <code>without_partial_double_verification</code></h3>
@@ -161,7 +157,7 @@ RSpec correctly emulate the interfaces on the objects in your tests.
 <code>without_partial_double_verification</code> allows you to turn off the verifying
 double behaviour for the duration of the execution of a block. For example:</p>
 
-<pre class="highlight ruby"><code><span class="k">class</span> <span class="nc">Widget</span>
+<div class="highlight"><pre class="highlight ruby"><code><span class="k">class</span> <span class="nc">Widget</span>
   <span class="k">def</span> <span class="nf">call</span><span class="p">(</span><span class="n">takes_an_arg</span><span class="p">)</span>
   <span class="k">end</span>
 <span class="k">end</span>
@@ -175,8 +171,7 @@ double behaviour for the duration of the execution of a block. For example:</p>
     <span class="k">end</span>
   <span class="k">end</span>
 <span class="k">end</span>
-</code></pre>
-
+</code></pre></div>
 <p>Here, this test would fail if the <code>without_partial_double_verification</code> call was
 not made, because we are stubbing the <code>call</code> method on the <code>Widget</code> object with
 an argument count that is different from the implementation. We added this feature
@@ -521,5 +516,22 @@ Justice, #1689)</li>
   ga('create', 'UA-59095215-1', 'auto');
   ga('send', 'pageview');
 
+</script>
+<script>
+  var SeedAndDewConfig = {};
+  (function() {
+    SeedAndDewConfig['adClass'] = "snd-ad";
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    SeedAndDewConfig['projectId'] = 'ef35b4ec-231e-4950-bd93-4c06fe3b2543';
+    SeedAndDewConfig['loadStartTime'] = performance.now();
+    SeedAndDewConfig['apiVersion'] = '2018-05-28'
+    SeedAndDewConfig['sessionId'] = Math.random().toString(36).substring(2, 15);
+    var snd = document.createElement('script');
+    snd.type = 'text/javascript';
+    snd.async = true;
+    snd.src = 'https://www.seedanddew.com/static/embed.min.js';
+    (document.getElementsByTagName('head')[0] ||
+    document.getElementsByTagName('body')[0]).appendChild(snd);
+  })();
 </script>
 </body></html>

@@ -2,7 +2,7 @@
 <!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"><![endif]-->
 <!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
 <!--[if IE 8]><html class="no-js lt-ie9" lang="en"><![endif]-->
-<!--[if gt IE 8]<!--><html class="no-js" lang="en"><!--<![endif]--><head><meta charset="UTF-8" /><title>RSpec 3.6 がリリースされました！</title><link href="/stylesheets/application.css" rel="stylesheet" type="text/css" /><link href="/stylesheets/normalize.css" rel="stylesheet" type="text/css" /><link href="/stylesheets/pages/blog.css" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" type="text/css" /><link href="/blog/feed.xml" rel="alternate" type="application/atom+xml" /></head><body class="blog"><header><nav><h1><a href="/">RSpec</a></h1><ul><li><a href="/about">About</a></li><li><a href="/documentation">Documentation</a></li><li><a href="/blog">Blog</a></li><li><a href="/upgrading-from-rspec-2">Upgrade</a></li><li><a href="/help">Get Help</a></li><li><a href="/contributing">Contributing</a></li></ul></nav></header><section><article class="blog_post"><ul class="langs"><li class="lang"><a href="/blog/2017/05/rspec-3-6-has-been-released/">en</a></li><li class="lang current_lang">ja</li></ul><h1>RSpec 3.6 がリリースされました！</h1><h3 class="author">Sam Phippen, Myron Marston, Jon Rowe, Yuji Nakayama</h3><small class="date">May  4, 2017</small><p>RSpec 3.6 がリリースされました！
+<!--[if gt IE 8]<!--><html class="no-js" lang="en"><!--<![endif]--><head><meta charset="UTF-8" /><meta content="width=device-width, initial-scale=1" name="viewport" /><meta content="RSpec 3.6 がリリースされました！" property="og:title" /><meta content="http://rspec.info/ja/blog/2017/05/rspec-3-6-has-been-released/" property="og:url" /><meta content="http://rspec.info/images/logo_ogp.png" property="og:image" /><meta content="summary" name="twitter:card" /><meta content="@rspec" name="twitter:site" /><title>RSpec 3.6 がリリースされました！</title><link href="/stylesheets/pages/blog.css" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" type="text/css" /><link href="/blog/feed.xml" rel="alternate" type="application/atom+xml" /></head><body class="blog"><header><nav><h1><img alt="Logo" src="/images/logo.png" /><a href="/">RSpec</a></h1><input class="hamburger-toggle" type="checkbox" /><div class="hamburger-icon"><div class="bar"></div><div class="bar"></div><div class="bar"></div></div><ul class="menu"><li><a href="/about">About</a></li><li><a href="/documentation">Documentation</a></li><li><a href="/blog">Blog</a></li><li><a href="/upgrading-from-rspec-2">Upgrade</a></li><li><a href="/help">Get Help</a></li><li><a href="/contributing">Contributing</a></li></ul></nav></header><section><article class="blog_post"><ul class="langs"><li class="lang"><a href="/blog/2017/05/rspec-3-6-has-been-released/">en</a></li><li class="lang current_lang">ja</li></ul><h1>RSpec 3.6 がリリースされました！</h1><h3 class="author">Sam Phippen, Myron Marston, Jon Rowe, Yuji Nakayama</h3><small class="date">May  4, 2017</small><p>RSpec 3.6 がリリースされました！
 私たちは <a href="http://semver.org/">semantic versioning</a> への準拠を約束しているので、
 既に RSpec 3 をお使いの場合、このバージョンへのアップグレードは簡単なはずです。
 しかし、もしバグを見つけた場合は教えてください。
@@ -49,11 +49,10 @@ RSpec 3.6 では、出力先が TTY の場合はカラー出力が自動的に�
 例えば RSpec の実行対象とする spec ファイルのパスのパターンを間違って設定してしまったような場合に、
 それを検出することができます。</p>
 
-<pre class="highlight ruby"><code><span class="no">RSpec</span><span class="p">.</span><span class="nf">configure</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
+<div class="highlight"><pre class="highlight ruby"><code><span class="no">RSpec</span><span class="p">.</span><span class="nf">configure</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
   <span class="n">config</span><span class="p">.</span><span class="nf">fail_if_no_examples</span> <span class="o">=</span> <span class="kp">true</span>
 <span class="k">end</span>
-</code></pre>
-
+</code></pre></div>
 <p>これを実装してくれた Ewa Czechowska に心から感謝します。</p>
 
 <h3 id="expectations-changesatisfy-">Expectations: <code>change</code>、<code>satisfy</code> マッチャの失敗時メッセージの改善</h3>
@@ -64,7 +63,7 @@ RSpec 3.6 では、出力先が TTY の場合はカラー出力が自動的に�
 これまで、これらのマッチャの失敗時のメッセージは非常に抽象的でした。
 例えば以下のような spec で、</p>
 
-<pre class="highlight ruby"><code><span class="no">RSpec</span><span class="p">.</span><span class="nf">describe</span> <span class="s2">"`change` and `satisfy` matchers"</span> <span class="k">do</span>
+<div class="highlight"><pre class="highlight ruby"><code><span class="no">RSpec</span><span class="p">.</span><span class="nf">describe</span> <span class="s2">"`change` and `satisfy` matchers"</span> <span class="k">do</span>
   <span class="n">example</span> <span class="s2">"`change` matcher"</span> <span class="k">do</span>
     <span class="n">a</span> <span class="o">=</span> <span class="n">b</span> <span class="o">=</span> <span class="mi">1</span>
 
@@ -80,8 +79,7 @@ RSpec 3.6 では、出力先が TTY の場合はカラー出力が自動的に�
             <span class="p">.</span><span class="nf">and</span> <span class="n">satisfy</span> <span class="p">{</span> <span class="o">|</span><span class="n">x</span><span class="o">|</span> <span class="n">x</span><span class="p">.</span><span class="nf">positive?</span> <span class="p">}</span>
   <span class="k">end</span>
 <span class="k">end</span>
-</code></pre>
-
+</code></pre></div>
 <p>これまでの失敗時のメッセージは
 "expected result to have changed by 1, but was changed by 2"
 や、
@@ -92,7 +90,7 @@ RSpec 3.6 では、出力先が TTY の場合はカラー出力が自動的に�
 
 <p>RSpec 3.6 では、失敗時の出力は以下のようになります。</p>
 
-<pre class="highlight plaintext"><code>Failures:
+<div class="highlight"><pre class="highlight plaintext"><code>Failures:
 
   1) `change` and `satisfy` matchers `change` matcher
      Failure/Error:
@@ -112,8 +110,7 @@ RSpec 3.6 では、出力先が TTY の場合はカラー出力が自動的に�
 
        expected 2 to satisfy expression `x.odd?`
      # ./spec/example_spec.rb:13:in `block (2 levels) in &lt;top (required)&gt;'
-</code></pre>
-
+</code></pre></div>
 <p>Yuji Nakayama による素晴らしい取り組みのおかげで、
 RSpec は <a href="http://ruby-doc.org/stdlib-2.4.0/libdoc/ripper/rdoc/Ripper.html">Ripper</a> を使って
 ブロックのスニペットを抽出し、失敗時のメッセージに含めるようになりました。
@@ -134,7 +131,7 @@ RSpec 3.6 からは、<code>alias_matcher</code> や <code>define_negated_matche
 example group（<code>describe</code> や <code>context</code> など）のスコープで呼び出せるようになり、
 それによって定義されたマッチャは、その example group 自身とその内側の example group のみで有効になります。</p>
 
-<pre class="highlight ruby"><code><span class="no">RSpec</span><span class="p">.</span><span class="nf">describe</span> <span class="s1">'scoped matcher aliases'</span> <span class="k">do</span>
+<div class="highlight"><pre class="highlight ruby"><code><span class="no">RSpec</span><span class="p">.</span><span class="nf">describe</span> <span class="s1">'scoped matcher aliases'</span> <span class="k">do</span>
   <span class="n">describe</span> <span class="s1">'example group with a matcher alias'</span> <span class="k">do</span>
     <span class="n">alias_matcher</span> <span class="ss">:be_a_string_starting_with</span><span class="p">,</span> <span class="ss">:start_with</span>
 
@@ -150,8 +147,7 @@ example group（<code>describe</code> や <code>context</code> など）のス�
     <span class="k">end</span>
   <span class="k">end</span>
 <span class="k">end</span>
-</code></pre>
-
+</code></pre></div>
 <p>この機能に貢献してくれた Markus Reiter、ありがとう。</p>
 
 <h3 id="mocks-withoutpartialdoubleverification">Mocks: <code>without_partial_double_verification</code></h3>
@@ -165,7 +161,7 @@ example group（<code>describe</code> や <code>context</code> など）のス�
 そのブロックの内側でこの挙動を無効化することができます。
 例えば、</p>
 
-<pre class="highlight ruby"><code><span class="k">class</span> <span class="nc">Widget</span>
+<div class="highlight"><pre class="highlight ruby"><code><span class="k">class</span> <span class="nc">Widget</span>
   <span class="k">def</span> <span class="nf">call</span><span class="p">(</span><span class="n">takes_an_arg</span><span class="p">)</span>
   <span class="k">end</span>
 <span class="k">end</span>
@@ -179,8 +175,7 @@ example group（<code>describe</code> や <code>context</code> など）のス�
     <span class="k">end</span>
   <span class="k">end</span>
 <span class="k">end</span>
-</code></pre>
-
+</code></pre></div>
 <p>もしこのテストで <code>without_partial_double_verification</code> を使わなかった場合、
 <code>Widget</code> クラスの <code>call</code> メソッドを本来の実装とは異なる数の引数でスタブしようとしているため、
 テストは失敗します。
@@ -526,5 +521,22 @@ Justice, #1689)</li>
   ga('create', 'UA-59095215-1', 'auto');
   ga('send', 'pageview');
 
+</script>
+<script>
+  var SeedAndDewConfig = {};
+  (function() {
+    SeedAndDewConfig['adClass'] = "snd-ad";
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    SeedAndDewConfig['projectId'] = 'ef35b4ec-231e-4950-bd93-4c06fe3b2543';
+    SeedAndDewConfig['loadStartTime'] = performance.now();
+    SeedAndDewConfig['apiVersion'] = '2018-05-28'
+    SeedAndDewConfig['sessionId'] = Math.random().toString(36).substring(2, 15);
+    var snd = document.createElement('script');
+    snd.type = 'text/javascript';
+    snd.async = true;
+    snd.src = 'https://www.seedanddew.com/static/embed.min.js';
+    (document.getElementsByTagName('head')[0] ||
+    document.getElementsByTagName('body')[0]).appendChild(snd);
+  })();
 </script>
 </body></html>

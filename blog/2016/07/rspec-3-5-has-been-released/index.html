@@ -2,7 +2,7 @@
 <!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"><![endif]-->
 <!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
 <!--[if IE 8]><html class="no-js lt-ie9" lang="en"><![endif]-->
-<!--[if gt IE 8]<!--><html class="no-js" lang="en"><!--<![endif]--><head><meta charset="UTF-8" /><title>RSpec 3.5 has been released!</title><link href="/stylesheets/application.css" rel="stylesheet" type="text/css" /><link href="/stylesheets/normalize.css" rel="stylesheet" type="text/css" /><link href="/stylesheets/pages/blog.css" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" type="text/css" /><link href="/blog/feed.xml" rel="alternate" type="application/atom+xml" /></head><body class="blog"><header><nav><h1><a href="/">RSpec</a></h1><ul><li><a href="/about">About</a></li><li><a href="/documentation">Documentation</a></li><li><a href="/blog">Blog</a></li><li><a href="/upgrading-from-rspec-2">Upgrade</a></li><li><a href="/help">Get Help</a></li><li><a href="/contributing">Contributing</a></li></ul></nav></header><section><article class="blog_post"><ul class="langs"><li class="lang current_lang">en</li><li class="lang"><a href="/ja/blog/2016/07/rspec-3-5-has-been-released/">ja</a></li></ul><h1>RSpec 3.5 has been released!</h1><h3 class="author">Sam Phippen, Myron Marston and Jon Rowe</h3><small class="date">Jul  1, 2016</small><p>RSpec 3.5 has just been released! Given our commitment to
+<!--[if gt IE 8]<!--><html class="no-js" lang="en"><!--<![endif]--><head><meta charset="UTF-8" /><meta content="width=device-width, initial-scale=1" name="viewport" /><meta content="RSpec 3.5 has been released!" property="og:title" /><meta content="http://rspec.info/blog/2016/07/rspec-3-5-has-been-released/" property="og:url" /><meta content="http://rspec.info/images/logo_ogp.png" property="og:image" /><meta content="summary" name="twitter:card" /><meta content="@rspec" name="twitter:site" /><title>RSpec 3.5 has been released!</title><link href="/stylesheets/pages/blog.css" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" type="text/css" /><link href="/blog/feed.xml" rel="alternate" type="application/atom+xml" /></head><body class="blog"><header><nav><h1><img alt="Logo" src="/images/logo.png" /><a href="/">RSpec</a></h1><input class="hamburger-toggle" type="checkbox" /><div class="hamburger-icon"><div class="bar"></div><div class="bar"></div><div class="bar"></div></div><ul class="menu"><li><a href="/about">About</a></li><li><a href="/documentation">Documentation</a></li><li><a href="/blog">Blog</a></li><li><a href="/upgrading-from-rspec-2">Upgrade</a></li><li><a href="/help">Get Help</a></li><li><a href="/contributing">Contributing</a></li></ul></nav></header><section><article class="blog_post"><ul class="langs"><li class="lang current_lang">en</li><li class="lang"><a href="/ja/blog/2016/07/rspec-3-5-has-been-released/">ja</a></li></ul><h1>RSpec 3.5 has been released!</h1><h3 class="author">Sam Phippen, Myron Marston and Jon Rowe</h3><small class="date">Jul  1, 2016</small><p>RSpec 3.5 has just been released! Given our commitment to
 <a href="http://semver.org/">semantic versioning</a>, this should be a trivial
 upgrade for anyone already using RSpec 3, but if we did introduce
 any regressions, please let us know, and we'll get a patch release
@@ -24,13 +24,12 @@ run isolated unit specs. Instead, that kind of setup logic can go in a file in
 <code>spec/support</code>. Spec files that need it can then require the support file and tag the
 example group to opt-in to any associated hooks and module inclusions, e.g.:</p>
 
-<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'support/db'</span>
+<div class="highlight"><pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'support/db'</span>
 
 <span class="no">RSpec</span><span class="p">.</span><span class="nf">describe</span> <span class="no">SomeClassThatUsesTheDB</span><span class="p">,</span> <span class="ss">:db</span> <span class="k">do</span>
   <span class="c1"># ...</span>
 <span class="k">end</span>
-</code></pre>
-
+</code></pre></div>
 <p>This works, but it's always felt sub-optimal that both the require and the <code>:db</code> tag
 are necessary to make this work. It's duplication that happens in every spec file that
 uses the DB. If I forget to put the <code>require 'support/db'</code> line in a spec file that uses
@@ -41,13 +40,12 @@ passes when run with the entire suite (because other spec files load the support
 <code>support/db</code> in each spec file that needs it, you can configure RSpec to load it if
 any examples tagged with <code>:db</code> are defined:</p>
 
-<pre class="highlight ruby"><code><span class="no">RSpec</span><span class="p">.</span><span class="nf">configure</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
+<div class="highlight"><pre class="highlight ruby"><code><span class="no">RSpec</span><span class="p">.</span><span class="nf">configure</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
   <span class="n">config</span><span class="p">.</span><span class="nf">when_first_matching_example_defined</span><span class="p">(</span><span class="ss">:db</span><span class="p">)</span> <span class="k">do</span>
     <span class="nb">require</span> <span class="s1">'support/db'</span>
   <span class="k">end</span>
 <span class="k">end</span>
-</code></pre>
-
+</code></pre></div>
 <p>This new <code>when_first_matching_example_defined</code> hook fires as soon as the first
 example with matching metadata is defined, allowing you to configure things to
 be loaded as needed based on metadata.  Of course, this new hook isn't limited to
@@ -58,12 +56,11 @@ just this use case, but it's one of the main ways we expect to see it used.</p>
 <p>One of the common uses for RSpec's metadata system is focus filtering. Before RSpec 3.5,
 you'd configure it like this:</p>
 
-<pre class="highlight ruby"><code><span class="no">RSpec</span><span class="p">.</span><span class="nf">configure</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
+<div class="highlight"><pre class="highlight ruby"><code><span class="no">RSpec</span><span class="p">.</span><span class="nf">configure</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
   <span class="n">config</span><span class="p">.</span><span class="nf">filter_run</span> <span class="ss">:focus</span>
   <span class="n">config</span><span class="p">.</span><span class="nf">run_all_when_everything_filtered</span> <span class="o">=</span> <span class="kp">true</span>
 <span class="k">end</span>
-</code></pre>
-
+</code></pre></div>
 <p>Then you can tag an example or group with <code>:focus</code> to have RSpec run just what you've tagged.
 When nothing is tagged with <code>:focus</code> you want RSpec to ignore this filter, so the
 <code>run_all_when_everything_filtered = true</code> option makes it do that.</p>
@@ -74,11 +71,10 @@ When nothing is tagged with <code>:focus</code> you want RSpec to ignore this fi
 We realized that it would make a lot more sense to be able to setup <code>:focus</code> as a
 <em>conditional</em> filter, so in RSpec 3.5 you can do that:</p>
 
-<pre class="highlight ruby"><code><span class="no">RSpec</span><span class="p">.</span><span class="nf">configure</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
+<div class="highlight"><pre class="highlight ruby"><code><span class="no">RSpec</span><span class="p">.</span><span class="nf">configure</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
   <span class="n">config</span><span class="p">.</span><span class="nf">filter_run_when_matching</span> <span class="ss">:focus</span>
 <span class="k">end</span>
-</code></pre>
-
+</code></pre></div>
 <p>With this configuration, the <code>:focus</code> filtering will only apply if any examples
 or groups are tagged with <code>:focus</code>. It also makes for shorter, simpler configuration!</p>
 
@@ -89,9 +85,8 @@ command line arguments. This provides a simple way to order things in a
 one-off manner. For example, for a particular spec run if you want your fast
 unit specs to run before your slow acceptance specs, you can run RSpec like so:</p>
 
-<pre class="highlight plaintext"><code>$ rspec spec/unit spec/acceptance --order defined
-</code></pre>
-
+<div class="highlight"><pre class="highlight plaintext"><code>$ rspec spec/unit spec/acceptance --order defined
+</code></pre></div>
 <p>The <code>--order defined</code> bit is only needed if you've configured RSpec to normally
 order things randomly (which we recommend as your default).</p>
 
@@ -101,7 +96,7 @@ order things randomly (which we recommend as your default).</p>
 for the purpose of sharing contextual helpers and hooks–for a long time. You define
 a shared context like this:</p>
 
-<pre class="highlight ruby"><code><span class="no">RSpec</span><span class="p">.</span><span class="nf">shared_context</span> <span class="s2">"DB support"</span> <span class="k">do</span>
+<div class="highlight"><pre class="highlight ruby"><code><span class="no">RSpec</span><span class="p">.</span><span class="nf">shared_context</span> <span class="s2">"DB support"</span> <span class="k">do</span>
   <span class="n">let</span><span class="p">(</span><span class="ss">:db</span><span class="p">)</span> <span class="p">{</span> <span class="no">MyORM</span><span class="p">.</span><span class="nf">database</span> <span class="p">}</span>
 
   <span class="c1"># Wrap each example in a transaction...</span>
@@ -118,18 +113,16 @@ a shared context like this:</p>
     <span class="n">db</span><span class="p">.</span><span class="nf">logger</span><span class="p">.</span><span class="nf">info</span> <span class="s2">"Ending example: </span><span class="si">#{</span><span class="n">ex</span><span class="p">.</span><span class="nf">metadata</span><span class="p">[</span><span class="ss">:full_description</span><span class="si">}</span><span class="s2">"</span>
   <span class="k">end</span>
 <span class="k">end</span>
-</code></pre>
-
+</code></pre></div>
 <p>To use this shared context, you can explicitly include it in a group with <code>include_context</code>:</p>
 
-<pre class="highlight ruby"><code><span class="no">RSpec</span><span class="p">.</span><span class="nf">describe</span> <span class="no">MyModel</span> <span class="k">do</span>
+<div class="highlight"><pre class="highlight ruby"><code><span class="no">RSpec</span><span class="p">.</span><span class="nf">describe</span> <span class="no">MyModel</span> <span class="k">do</span>
   <span class="n">include_context</span> <span class="s2">"DB support"</span>
 <span class="k">end</span>
-</code></pre>
-
+</code></pre></div>
 <p>We also supported a way of <em>implicitly</em> including the shared context in a group using matching metadata:</p>
 
-<pre class="highlight ruby"><code><span class="no">RSpec</span><span class="p">.</span><span class="nf">shared_context</span> <span class="s2">"DB support"</span><span class="p">,</span> <span class="ss">:db</span> <span class="k">do</span>
+<div class="highlight"><pre class="highlight ruby"><code><span class="no">RSpec</span><span class="p">.</span><span class="nf">shared_context</span> <span class="s2">"DB support"</span><span class="p">,</span> <span class="ss">:db</span> <span class="k">do</span>
   <span class="c1"># ...</span>
 <span class="k">end</span>
 
@@ -138,8 +131,7 @@ a shared context like this:</p>
 <span class="no">RSpec</span><span class="p">.</span><span class="nf">describe</span> <span class="no">MyModel</span><span class="p">,</span> <span class="ss">:db</span> <span class="k">do</span>
   <span class="c1"># ...</span>
 <span class="k">end</span>
-</code></pre>
-
+</code></pre></div>
 <p>This approach worked OK, but had several significant problems:</p>
 
 <ul>
@@ -161,11 +153,10 @@ example group (e.g. for a global <code>before</code> hook or a <code>let</code> 
 
 <p>You can now define shared context inclusions in your <code>RSpec.configure</code> block:</p>
 
-<pre class="highlight ruby"><code><span class="no">RSpec</span><span class="p">.</span><span class="nf">configure</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
+<div class="highlight"><pre class="highlight ruby"><code><span class="no">RSpec</span><span class="p">.</span><span class="nf">configure</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
   <span class="n">config</span><span class="p">.</span><span class="nf">include_context</span> <span class="s2">"DB support"</span><span class="p">,</span> <span class="ss">:db</span>
 <span class="k">end</span>
-</code></pre>
-
+</code></pre></div>
 <p>This aligns with the existing <code>config.include</code> API for module inclusions, provides
 a way to include shared contexts based on metadata that is less surprising, and
 makes it simple to include a shared context in all example groups (just don't
@@ -176,13 +167,12 @@ pass a metadata argument).</p>
 <p>We've also added a config option that lets you determine how shared context
 metadata is treated:</p>
 
-<pre class="highlight ruby"><code><span class="no">RSpec</span><span class="p">.</span><span class="nf">configure</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
+<div class="highlight"><pre class="highlight ruby"><code><span class="no">RSpec</span><span class="p">.</span><span class="nf">configure</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
   <span class="n">config</span><span class="p">.</span><span class="nf">shared_context_metadata_behavior</span> <span class="o">=</span> <span class="ss">:trigger_inclusion</span>
   <span class="c1"># or</span>
   <span class="n">config</span><span class="p">.</span><span class="nf">shared_context_metadata_behavior</span> <span class="o">=</span> <span class="ss">:apply_to_host_groups</span>
 <span class="k">end</span>
-</code></pre>
-
+</code></pre></div>
 <p>The former value (<code>:trigger_inclusion</code>) is the default and exists only for backwards
 compatibility. It treats metadata passed to <code>RSpec.shared_context</code> exactly how it was
 treated in RSpec 3.4 and before: it triggers inclusion in groups with matching metadata.
@@ -193,11 +183,10 @@ triggering inclusion in groups with matching metadata, it applies the metadata t
 groups.  For example, you could focus on all groups that use the DB by tagging your
 shared context:</p>
 
-<pre class="highlight ruby"><code><span class="no">RSpec</span><span class="p">.</span><span class="nf">shared_context</span> <span class="s2">"DB support"</span><span class="p">,</span> <span class="ss">:focus</span> <span class="k">do</span>
+<div class="highlight"><pre class="highlight ruby"><code><span class="no">RSpec</span><span class="p">.</span><span class="nf">shared_context</span> <span class="s2">"DB support"</span><span class="p">,</span> <span class="ss">:focus</span> <span class="k">do</span>
   <span class="c1"># ...</span>
 <span class="k">end</span>
-</code></pre>
-
+</code></pre></div>
 <h3 id="expectations-keyword-argument-support-for-the-respondto-matcher">Expectations: Keyword argument support for the <code>respond_to</code> matcher.</h3>
 
 <p>Keyword arguments have been a stable language feature for some time now but RSpec
@@ -207,18 +196,16 @@ has lacked support for placing expectations upon keyword arguments in a variety 
 using keyword arguments. You'll now be able to check a method's response signature for particular
 keyword(s) as well as a count of traditional arguments.</p>
 
-<pre class="highlight ruby"><code><span class="n">expect</span><span class="p">(</span><span class="n">my_object</span><span class="p">).</span><span class="nf">to</span> <span class="n">respond_to</span><span class="p">(</span><span class="ss">:find</span><span class="p">).</span><span class="nf">with_keywords</span><span class="p">(</span><span class="ss">:limit</span><span class="p">,</span> <span class="ss">:offset</span><span class="p">)</span>
+<div class="highlight"><pre class="highlight ruby"><code><span class="n">expect</span><span class="p">(</span><span class="n">my_object</span><span class="p">).</span><span class="nf">to</span> <span class="n">respond_to</span><span class="p">(</span><span class="ss">:find</span><span class="p">).</span><span class="nf">with_keywords</span><span class="p">(</span><span class="ss">:limit</span><span class="p">,</span> <span class="ss">:offset</span><span class="p">)</span>
 <span class="n">expect</span><span class="p">(</span><span class="n">my_object</span><span class="p">).</span><span class="nf">to</span> <span class="n">respond_to</span><span class="p">(</span><span class="ss">:find</span><span class="p">).</span><span class="nf">with</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span><span class="nf">argument</span><span class="p">.</span><span class="nf">and_keywords</span><span class="p">(</span><span class="ss">:limit</span><span class="p">,</span> <span class="ss">:offset</span><span class="p">)</span>
-</code></pre>
-
+</code></pre></div>
 <p>We're also expanding the matchers existing capabilities, adding the ability
  to check for a range of arguments, or unlimited arguments in addition to a specific
  number. e.g:</p>
 
-<pre class="highlight ruby"><code><span class="n">expect</span><span class="p">(</span><span class="n">my_object</span><span class="p">).</span><span class="nf">to</span> <span class="n">respond_to</span><span class="p">(</span><span class="ss">:build</span><span class="p">).</span><span class="nf">with</span><span class="p">(</span><span class="mi">2</span><span class="p">.</span><span class="nf">.</span><span class="mi">3</span><span class="p">).</span><span class="nf">arguments</span>
+<div class="highlight"><pre class="highlight ruby"><code><span class="n">expect</span><span class="p">(</span><span class="n">my_object</span><span class="p">).</span><span class="nf">to</span> <span class="n">respond_to</span><span class="p">(</span><span class="ss">:build</span><span class="p">).</span><span class="nf">with</span><span class="p">(</span><span class="mi">2</span><span class="o">..</span><span class="mi">3</span><span class="p">).</span><span class="nf">arguments</span>
 <span class="n">expect</span><span class="p">(</span><span class="n">my_object</span><span class="p">).</span><span class="nf">to</span> <span class="n">respond_to</span><span class="p">(</span><span class="ss">:build</span><span class="p">).</span><span class="nf">with_unlimited_arguments</span>
-</code></pre>
-
+</code></pre></div>
 <p>A big thank you to Rob Smith for the work you put into making this a part of RSpec.</p>
 
 <h3 id="expectations-minitest-integration-now-works-with-minitest-56">Expectations: Minitest integration now works with Minitest 5.6+</h3>
@@ -227,9 +214,8 @@ keyword(s) as well as a count of traditional arguments.</p>
 with other test frameworks.  We provide integration with Minitest.  Simply load
 our Minitest support after loading Minitest itself:</p>
 
-<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'rspec/expectations/minitest_integration'</span>
-</code></pre>
-
+<div class="highlight"><pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'rspec/expectations/minitest_integration'</span>
+</code></pre></div>
 <p>Unfortunately, Minitest 5.6 introduced its own <code>expect</code> method which conflicted with
 the <code>expect</code> method we provide and broke this integration. There's a fix for this in
 rspec-expectations 3.5.</p>
@@ -244,9 +230,8 @@ and broke things for users trying to use rspec-mocks with minitest. In rspec-moc
 we now provide first-class support for usage with Minitest.  Just require our integration
 file:</p>
 
-<pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'rspec/mocks/minitest_integration'</span>
-</code></pre>
-
+<div class="highlight"><pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'rspec/mocks/minitest_integration'</span>
+</code></pre></div>
 <h3 id="rails-support-for-rails-5">Rails: Support for Rails 5</h3>
 
 <p>The headline here is that RSpec 3.5.0 is compatible with Rails 5. As Rails 5
@@ -701,5 +686,22 @@ cause <code>SystemStackError</code>. (Yuji Nakayama, #270, #272)</li>
   ga('create', 'UA-59095215-1', 'auto');
   ga('send', 'pageview');
 
+</script>
+<script>
+  var SeedAndDewConfig = {};
+  (function() {
+    SeedAndDewConfig['adClass'] = "snd-ad";
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    SeedAndDewConfig['projectId'] = 'ef35b4ec-231e-4950-bd93-4c06fe3b2543';
+    SeedAndDewConfig['loadStartTime'] = performance.now();
+    SeedAndDewConfig['apiVersion'] = '2018-05-28'
+    SeedAndDewConfig['sessionId'] = Math.random().toString(36).substring(2, 15);
+    var snd = document.createElement('script');
+    snd.type = 'text/javascript';
+    snd.async = true;
+    snd.src = 'https://www.seedanddew.com/static/embed.min.js';
+    (document.getElementsByTagName('head')[0] ||
+    document.getElementsByTagName('body')[0]).appendChild(snd);
+  })();
 </script>
 </body></html>

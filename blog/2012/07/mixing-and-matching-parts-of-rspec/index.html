@@ -2,7 +2,7 @@
 <!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"><![endif]-->
 <!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
 <!--[if IE 8]><html class="no-js lt-ie9" lang="en"><![endif]-->
-<!--[if gt IE 8]<!--><html class="no-js" lang="en"><!--<![endif]--><head><meta charset="UTF-8" /><title>Mixing and Matching Parts of RSpec</title><link href="/stylesheets/application.css" rel="stylesheet" type="text/css" /><link href="/stylesheets/normalize.css" rel="stylesheet" type="text/css" /><link href="/stylesheets/pages/blog.css" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" type="text/css" /><link href="/blog/feed.xml" rel="alternate" type="application/atom+xml" /></head><body class="blog"><header><nav><h1><a href="/">RSpec</a></h1><ul><li><a href="/about">About</a></li><li><a href="/documentation">Documentation</a></li><li><a href="/blog">Blog</a></li><li><a href="/upgrading-from-rspec-2">Upgrade</a></li><li><a href="/help">Get Help</a></li><li><a href="/contributing">Contributing</a></li></ul></nav></header><section><article class="blog_post"><h1>Mixing and Matching Parts of RSpec</h1><h3 class="author">Myron Marston</h3><small class="date">Jul 23, 2012</small><p>RSpec was split into three subprojects for the last major release
+<!--[if gt IE 8]<!--><html class="no-js" lang="en"><!--<![endif]--><head><meta charset="UTF-8" /><meta content="width=device-width, initial-scale=1" name="viewport" /><meta content="Mixing and Matching Parts of RSpec" property="og:title" /><meta content="http://rspec.info/blog/2012/07/mixing-and-matching-parts-of-rspec/" property="og:url" /><meta content="http://rspec.info/images/logo_ogp.png" property="og:image" /><meta content="summary" name="twitter:card" /><meta content="@rspec" name="twitter:site" /><title>Mixing and Matching Parts of RSpec</title><link href="/stylesheets/pages/blog.css" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" type="text/css" /><link href="/blog/feed.xml" rel="alternate" type="application/atom+xml" /></head><body class="blog"><header><nav><h1><img alt="Logo" src="/images/logo.png" /><a href="/">RSpec</a></h1><input class="hamburger-toggle" type="checkbox" /><div class="hamburger-icon"><div class="bar"></div><div class="bar"></div><div class="bar"></div></div><ul class="menu"><li><a href="/about">About</a></li><li><a href="/documentation">Documentation</a></li><li><a href="/blog">Blog</a></li><li><a href="/upgrading-from-rspec-2">Upgrade</a></li><li><a href="/help">Get Help</a></li><li><a href="/contributing">Contributing</a></li></ul></nav></header><section><article class="blog_post"><h1>Mixing and Matching Parts of RSpec</h1><h3 class="author">Myron Marston</h3><small class="date">Jul 23, 2012</small><p>RSpec was split into three subprojects for the last major release
 (2.0):</p>
 
 <ul>
@@ -36,7 +36,7 @@ failure output provided by rspec-expectations, you can use the
 assertions from the standard library provided by
 <a href="http://ruby-doc.org/stdlib-1.9.3/libdoc/minitest/unit/rdoc/MiniTest/Assertions.html">MiniTest</a>:</p>
 
-<pre class="highlight ruby"><code><span class="c1"># rspec_and_minitest_assertions.rb</span>
+<div class="highlight"><pre class="highlight ruby"><code><span class="c1"># rspec_and_minitest_assertions.rb</span>
 <span class="nb">require</span> <span class="s1">'set'</span>
 
 <span class="no">RSpec</span><span class="p">.</span><span class="nf">configure</span> <span class="k">do</span> <span class="o">|</span><span class="n">rspec</span><span class="o">|</span>
@@ -56,11 +56,10 @@ assertions from the standard library provided by
     <span class="n">assert_include</span> <span class="n">set</span><span class="p">,</span> <span class="mi">5</span>
   <span class="k">end</span>
 <span class="k">end</span>
-</code></pre>
-
+</code></pre></div>
 <p>The output:</p>
 
-<pre class="highlight plaintext"><code>$ rspec rspec_and_minitest_assertions.rb 
+<div class="highlight"><pre class="highlight plaintext"><code>$ rspec rspec_and_minitest_assertions.rb 
 .F
 
 Failures:
@@ -77,13 +76,12 @@ Finished in 0.00093 seconds
 Failed examples:
 
 rspec ./rspec_and_minitest_assertions.rb:14 # Set a failing example
-</code></pre>
-
+</code></pre></div>
 <p><a href="https://github.com/sconover/wrong/">Wrong</a> is an interesting
 alternative that uses a single method (<code>assert</code> with a block) to
 provide detailed failure output:</p>
 
-<pre class="highlight ruby"><code><span class="c1"># rspec_and_wrong.rb</span>
+<div class="highlight"><pre class="highlight ruby"><code><span class="c1"># rspec_and_wrong.rb</span>
 <span class="nb">require</span> <span class="s1">'set'</span>
 <span class="nb">require</span> <span class="s1">'wrong'</span>
 
@@ -104,11 +102,10 @@ provide detailed failure output:</p>
     <span class="n">assert</span> <span class="p">{</span> <span class="n">set</span><span class="p">.</span><span class="nf">include?</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="p">}</span>
   <span class="k">end</span>
 <span class="k">end</span>
-</code></pre>
-
+</code></pre></div>
 <p>The output:</p>
 
-<pre class="highlight plaintext"><code>$ rspec rspec_and_wrong.rb
+<div class="highlight"><pre class="highlight plaintext"><code>$ rspec rspec_and_wrong.rb
 .F
 
 Failures:
@@ -126,8 +123,7 @@ Finished in 0.04012 seconds
 Failed examples:
 
 rspec ./rspec_and_wrong.rb:15 # Set a failing example
-</code></pre>
-
+</code></pre></div>
 <p>As demonstrated by these examples, you simply configure <code>expect_with</code> to
 use an alternate library. You can specify <code>:stdlib</code>, <code>:rspec</code> (to be
 explicit about using rspec-expectations) or any module; the module will
@@ -139,7 +135,7 @@ be mixed in to the example context.</p>
 the syntax and failure output of rspec-expectations, you
 can combine them:</p>
 
-<pre class="highlight ruby"><code><span class="c1"># minitest_and_rspec_expectations.rb</span>
+<div class="highlight"><pre class="highlight ruby"><code><span class="c1"># minitest_and_rspec_expectations.rb</span>
 <span class="nb">require</span> <span class="s1">'minitest/autorun'</span>
 <span class="nb">require</span> <span class="s1">'rspec/expectations'</span>
 <span class="nb">require</span> <span class="s1">'set'</span>
@@ -176,11 +172,10 @@ can combine them:</p>
     <span class="n">expect</span><span class="p">(</span><span class="n">set</span><span class="p">).</span><span class="nf">to</span> <span class="kp">include</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
   <span class="k">end</span>
 <span class="k">end</span>
-</code></pre>
-
+</code></pre></div>
 <p>The output:</p>
 
-<pre class="highlight plaintext"><code>$ ruby minitest_and_rspec_expectations.rb
+<div class="highlight"><pre class="highlight plaintext"><code>$ ruby minitest_and_rspec_expectations.rb
 Run options: --seed 12759
 
 # Running tests:
@@ -195,8 +190,7 @@ test_failing_expectation(TestSet)
 expected #&lt;Set: {3, 4}&gt; to include 5
 
 2 tests, 2 assertions, 1 failures, 0 errors, 0 skips
-</code></pre>
-
+</code></pre></div>
 <p>Let's take the integration code bit-by-bit:</p>
 
 <ul>
@@ -229,7 +223,7 @@ README</a>,
 beautiful and tiny. However, rspec-mocks has many more features, and
 if you like those features, you can easily use it with MiniTest:</p>
 
-<pre class="highlight ruby"><code><span class="c1"># minitest_and_rspec_mocks.rb</span>
+<div class="highlight"><pre class="highlight ruby"><code><span class="c1"># minitest_and_rspec_mocks.rb</span>
 <span class="nb">require</span> <span class="s1">'minitest/autorun'</span>
 <span class="nb">require</span> <span class="s1">'rspec/mocks'</span>
 
@@ -262,11 +256,10 @@ if you like those features, you can easily use it with MiniTest:</p>
     <span class="n">assert_equal</span> <span class="s2">"bar"</span><span class="p">,</span> <span class="no">Object</span><span class="p">.</span><span class="nf">foo</span>
   <span class="k">end</span>
 <span class="k">end</span>
-</code></pre>
-
+</code></pre></div>
 <p>The output:</p>
 
-<pre class="highlight plaintext"><code>$ ruby minitest_and_rspec_mocks.rb 
+<div class="highlight"><pre class="highlight plaintext"><code>$ ruby minitest_and_rspec_mocks.rb 
 Run options: --seed 27480
 
 # Running tests:
@@ -299,8 +292,7 @@ RSpec::Mocks::MockExpectationError: (Mock).bar(any args)
     minitest_and_rspec_mocks.rb:10:in `block in &lt;main&gt;'
 
 3 tests, 1 assertions, 0 failures, 1 errors, 0 skips
-</code></pre>
-
+</code></pre></div>
 <p>The integration here is a little more manual, but it's not bad:</p>
 
 <ul>
@@ -322,7 +314,7 @@ In fact, many RSpec users prefer
 <a href="http://gofreerange.com/mocha/docs/">Mocha</a> to rspec-mocks,
 and the two can integrate just fine:</p>
 
-<pre class="highlight ruby"><code><span class="c1"># rspec_and_mocha.rb</span>
+<div class="highlight"><pre class="highlight ruby"><code><span class="c1"># rspec_and_mocha.rb</span>
 <span class="no">RSpec</span><span class="p">.</span><span class="nf">configure</span> <span class="k">do</span> <span class="o">|</span><span class="n">rspec</span><span class="o">|</span>
   <span class="n">rspec</span><span class="p">.</span><span class="nf">mock_with</span> <span class="ss">:mocha</span>
 <span class="k">end</span>
@@ -345,11 +337,10 @@ and the two can integrate just fine:</p>
     <span class="n">expect</span><span class="p">(</span><span class="n">foo</span><span class="p">.</span><span class="nf">bar</span><span class="p">).</span><span class="nf">to</span> <span class="n">eq</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
   <span class="k">end</span>
 <span class="k">end</span>
-</code></pre>
-
+</code></pre></div>
 <p>The output:</p>
 
-<pre class="highlight plaintext"><code>rspec rspec_and_mocha.rb 
+<div class="highlight"><pre class="highlight plaintext"><code>rspec rspec_and_mocha.rb 
 .F.
 
 Failures:
@@ -368,8 +359,7 @@ Finished in 0.00388 seconds
 Failed examples:
 
 rspec ./rspec_and_mocha.rb:12 # RSpec and Mocha a failing mock
-</code></pre>
-
+</code></pre></div>
 <p>You can similarly configure <code>mock_with :flexmock</code> or
 <code>mock_with :rr</code> to use one of those mocking libraries.  I didn't
 include those examples here because they're configured in the
@@ -410,5 +400,22 @@ stack that best meets your needs.</p>
   ga('create', 'UA-59095215-1', 'auto');
   ga('send', 'pageview');
 
+</script>
+<script>
+  var SeedAndDewConfig = {};
+  (function() {
+    SeedAndDewConfig['adClass'] = "snd-ad";
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    SeedAndDewConfig['projectId'] = 'ef35b4ec-231e-4950-bd93-4c06fe3b2543';
+    SeedAndDewConfig['loadStartTime'] = performance.now();
+    SeedAndDewConfig['apiVersion'] = '2018-05-28'
+    SeedAndDewConfig['sessionId'] = Math.random().toString(36).substring(2, 15);
+    var snd = document.createElement('script');
+    snd.type = 'text/javascript';
+    snd.async = true;
+    snd.src = 'https://www.seedanddew.com/static/embed.min.js';
+    (document.getElementsByTagName('head')[0] ||
+    document.getElementsByTagName('body')[0]).appendChild(snd);
+  })();
 </script>
 </body></html>

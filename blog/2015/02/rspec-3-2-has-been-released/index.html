@@ -2,7 +2,7 @@
 <!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"><![endif]-->
 <!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
 <!--[if IE 8]><html class="no-js lt-ie9" lang="en"><![endif]-->
-<!--[if gt IE 8]<!--><html class="no-js" lang="en"><!--<![endif]--><head><meta charset="UTF-8" /><title>RSpec 3.2 has been released!</title><link href="/stylesheets/application.css" rel="stylesheet" type="text/css" /><link href="/stylesheets/normalize.css" rel="stylesheet" type="text/css" /><link href="/stylesheets/pages/blog.css" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" type="text/css" /><link href="/blog/feed.xml" rel="alternate" type="application/atom+xml" /></head><body class="blog"><header><nav><h1><a href="/">RSpec</a></h1><ul><li><a href="/about">About</a></li><li><a href="/documentation">Documentation</a></li><li><a href="/blog">Blog</a></li><li><a href="/upgrading-from-rspec-2">Upgrade</a></li><li><a href="/help">Get Help</a></li><li><a href="/contributing">Contributing</a></li></ul></nav></header><section><article class="blog_post"><h1>RSpec 3.2 has been released!</h1><h3 class="author">Myron Marston</h3><small class="date">Feb  3, 2015</small><p>RSpec 3.2 has just been released! Given our commitment to
+<!--[if gt IE 8]<!--><html class="no-js" lang="en"><!--<![endif]--><head><meta charset="UTF-8" /><meta content="width=device-width, initial-scale=1" name="viewport" /><meta content="RSpec 3.2 has been released!" property="og:title" /><meta content="http://rspec.info/blog/2015/02/rspec-3-2-has-been-released/" property="og:url" /><meta content="http://rspec.info/images/logo_ogp.png" property="og:image" /><meta content="summary" name="twitter:card" /><meta content="@rspec" name="twitter:site" /><title>RSpec 3.2 has been released!</title><link href="/stylesheets/pages/blog.css" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" type="text/css" /><link href="/blog/feed.xml" rel="alternate" type="application/atom+xml" /></head><body class="blog"><header><nav><h1><img alt="Logo" src="/images/logo.png" /><a href="/">RSpec</a></h1><input class="hamburger-toggle" type="checkbox" /><div class="hamburger-icon"><div class="bar"></div><div class="bar"></div><div class="bar"></div></div><ul class="menu"><li><a href="/about">About</a></li><li><a href="/documentation">Documentation</a></li><li><a href="/blog">Blog</a></li><li><a href="/upgrading-from-rspec-2">Upgrade</a></li><li><a href="/help">Get Help</a></li><li><a href="/contributing">Contributing</a></li></ul></nav></header><section><article class="blog_post"><h1>RSpec 3.2 has been released!</h1><h3 class="author">Myron Marston</h3><small class="date">Feb  3, 2015</small><p>RSpec 3.2 has just been released! Given our commitment to
 <a href="http://semver.org/">semantic versioning</a>, this should be a trivial
 upgrade for anyone already using RSpec 3.0 or 3.1, but if we did introduce
 any regressions, please let us know, and we'll get a patch release
@@ -51,7 +51,7 @@ includes the failure that occurred while executing the example.</p>
 <p>RSpec has a number of metadata-based features that, before now,
 would only apply to example groups, not individual examples:</p>
 
-<pre class="highlight ruby"><code><span class="no">RSpec</span><span class="p">.</span><span class="nf">configure</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
+<div class="highlight"><pre class="highlight ruby"><code><span class="no">RSpec</span><span class="p">.</span><span class="nf">configure</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
   <span class="c1"># 1. Filtered module inclusion: examples in groups tagged with `:uses_time`</span>
   <span class="c1">#    will have access to the instance methods of `TimeHelpers`</span>
   <span class="n">config</span><span class="p">.</span><span class="nf">include</span> <span class="no">TimeHelpers</span><span class="p">,</span> <span class="ss">:uses_time</span>
@@ -68,8 +68,7 @@ would only apply to example groups, not individual examples:</p>
   <span class="n">let</span><span class="p">(</span><span class="ss">:redis</span><span class="p">)</span> <span class="p">{</span> <span class="no">Redis</span><span class="p">.</span><span class="nf">connect</span><span class="p">(</span><span class="no">ENV</span><span class="p">[</span><span class="s1">'REDIS_URL'</span><span class="p">])</span> <span class="p">}</span>
   <span class="n">before</span> <span class="p">{</span> <span class="n">redis</span><span class="p">.</span><span class="nf">flushdb</span> <span class="p">}</span>
 <span class="k">end</span>
-</code></pre>
-
+</code></pre></div>
 <p>In each of these cases, individual examples tagged with the
 appropriate metadata would not have these constructs applied to them,
 which could be easy to forget. That's changing in RSpec 3.2: we now
@@ -108,7 +107,7 @@ internal state.</p>
 it's also useful for testing 3rd party RSpec extensions. We now offer
 it as a new public API:</p>
 
-<pre class="highlight ruby"><code><span class="c1"># You have to require this file to make this API available...</span>
+<div class="highlight"><pre class="highlight ruby"><code><span class="c1"># You have to require this file to make this API available...</span>
 <span class="nb">require</span> <span class="s1">'rspec/core/sandbox'</span>
 
 <span class="no">RSpec</span><span class="p">.</span><span class="nf">configure</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
@@ -116,8 +115,7 @@ it as a new public API:</p>
     <span class="no">RSpec</span><span class="o">::</span><span class="no">Core</span><span class="o">::</span><span class="no">Sandbox</span><span class="p">.</span><span class="nf">sandboxed</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ex</span><span class="p">)</span>
   <span class="k">end</span>
 <span class="k">end</span>
-</code></pre>
-
+</code></pre></div>
 <p>Thanks to Tyler Ball for <a href="https://github.com/rspec/rspec-core/pull/1808">implementing
 this</a>.</p>
 
@@ -145,7 +143,7 @@ issues like these, you may want to give them another try.</p>
 <p>The custom matcher DSL has a <code>chain</code> method that makes it easy to
 add fluent interfaces to your matchers:</p>
 
-<pre class="highlight ruby"><code><span class="no">RSpec</span><span class="o">::</span><span class="no">Matchers</span><span class="p">.</span><span class="nf">define</span> <span class="ss">:be_bigger_than</span> <span class="k">do</span> <span class="o">|</span><span class="n">min</span><span class="o">|</span>
+<div class="highlight"><pre class="highlight ruby"><code><span class="no">RSpec</span><span class="o">::</span><span class="no">Matchers</span><span class="p">.</span><span class="nf">define</span> <span class="ss">:be_bigger_than</span> <span class="k">do</span> <span class="o">|</span><span class="n">min</span><span class="o">|</span>
   <span class="n">chain</span> <span class="ss">:but_smaller_than</span> <span class="k">do</span> <span class="o">|</span><span class="n">max</span><span class="o">|</span>
     <span class="vi">@max</span> <span class="o">=</span> <span class="n">max</span>
   <span class="k">end</span>
@@ -157,22 +155,20 @@ add fluent interfaces to your matchers:</p>
 
 <span class="c1"># usage:</span>
 <span class="n">expect</span><span class="p">(</span><span class="mi">10</span><span class="p">).</span><span class="nf">to</span> <span class="n">be_bigger_than</span><span class="p">(</span><span class="mi">5</span><span class="p">).</span><span class="nf">but_smaller_than</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span>
-</code></pre>
-
+</code></pre></div>
 <p>As this example shows, the most common use of <code>chain</code> it to accept an
 additional argument that is used in the <code>match</code> logic somehow. Tom
 Stuart <a href="https://github.com/rspec/rspec-expectations/pull/644">suggested and
 implemented</a> an
 improvement that allows you to shorten the matcher definition to:</p>
 
-<pre class="highlight ruby"><code><span class="no">RSpec</span><span class="o">::</span><span class="no">Matchers</span><span class="p">.</span><span class="nf">define</span> <span class="ss">:be_bigger_than</span> <span class="k">do</span> <span class="o">|</span><span class="n">min</span><span class="o">|</span>
+<div class="highlight"><pre class="highlight ruby"><code><span class="no">RSpec</span><span class="o">::</span><span class="no">Matchers</span><span class="p">.</span><span class="nf">define</span> <span class="ss">:be_bigger_than</span> <span class="k">do</span> <span class="o">|</span><span class="n">min</span><span class="o">|</span>
   <span class="n">chain</span> <span class="ss">:but_smaller_than</span><span class="p">,</span> <span class="ss">:max</span>
   <span class="n">match</span> <span class="k">do</span> <span class="o">|</span><span class="n">value</span><span class="o">|</span>
     <span class="n">value</span> <span class="o">&gt;</span> <span class="n">min</span> <span class="o">&amp;&amp;</span> <span class="n">value</span> <span class="o">&lt;</span> <span class="n">max</span>
   <span class="k">end</span>
 <span class="k">end</span>
-</code></pre>
-
+</code></pre></div>
 <p>The second argument to <code>chain</code> – <code>:max</code> – is used to define a <code>max</code>
 attribute that gets set to the argument passed to <code>but_smaller_than</code>.</p>
 
@@ -183,24 +179,21 @@ attribute that gets set to the argument passed to <code>but_smaller_than</code>.
 <p>RSpec 3.0 shipped with a new <code>output</code> matcher that allows you to specify
 expected output to either <code>stdout</code> or <code>stderr</code>:</p>
 
-<pre class="highlight ruby"><code><span class="n">expect</span> <span class="p">{</span> <span class="nb">print</span> <span class="s1">'foo'</span> <span class="p">}.</span><span class="nf">to</span> <span class="n">output</span><span class="p">(</span><span class="s1">'foo'</span><span class="p">).</span><span class="nf">to_stdout</span>
+<div class="highlight"><pre class="highlight ruby"><code><span class="n">expect</span> <span class="p">{</span> <span class="nb">print</span> <span class="s1">'foo'</span> <span class="p">}.</span><span class="nf">to</span> <span class="n">output</span><span class="p">(</span><span class="s1">'foo'</span><span class="p">).</span><span class="nf">to_stdout</span>
 <span class="n">expect</span> <span class="p">{</span> <span class="nb">warn</span>  <span class="s1">'foo'</span> <span class="p">}.</span><span class="nf">to</span> <span class="n">output</span><span class="p">(</span><span class="sr">/foo/</span><span class="p">).</span><span class="nf">to_stderr</span>
-</code></pre>
-
+</code></pre></div>
 <p>The mechanism used for these matchers – temporarily replacing <code>$stdout</code>
 or <code>$stderr</code> with a <code>StringIO</code> for the duration of the block – is pretty simple but does
 not work when you spawn subprocesses that output to one of these
 streams. For example, this fails:</p>
 
-<pre class="highlight ruby"><code><span class="n">expect</span> <span class="p">{</span> <span class="nb">system</span><span class="p">(</span><span class="s1">'echo foo'</span><span class="p">)</span> <span class="p">}.</span><span class="nf">to</span> <span class="n">output</span><span class="p">(</span><span class="s2">"foo</span><span class="se">\n</span><span class="s2">"</span><span class="p">).</span><span class="nf">to_stdout</span>
-</code></pre>
-
+<div class="highlight"><pre class="highlight ruby"><code><span class="n">expect</span> <span class="p">{</span> <span class="nb">system</span><span class="p">(</span><span class="s1">'echo foo'</span><span class="p">)</span> <span class="p">}.</span><span class="nf">to</span> <span class="n">output</span><span class="p">(</span><span class="s2">"foo</span><span class="se">\n</span><span class="s2">"</span><span class="p">).</span><span class="nf">to_stdout</span>
+</code></pre></div>
 <p>In RSpec 3.2, you can replace <code>to_stdout</code> with
 <code>to_stdout_from_any_process</code> and this expectation will work.</p>
 
-<pre class="highlight ruby"><code><span class="n">expect</span> <span class="p">{</span> <span class="nb">system</span><span class="p">(</span><span class="s1">'echo foo'</span><span class="p">)</span> <span class="p">}.</span><span class="nf">to</span> <span class="n">output</span><span class="p">(</span><span class="s2">"foo</span><span class="se">\n</span><span class="s2">"</span><span class="p">).</span><span class="nf">to_stdout_from_any_process</span>
-</code></pre>
-
+<div class="highlight"><pre class="highlight ruby"><code><span class="n">expect</span> <span class="p">{</span> <span class="nb">system</span><span class="p">(</span><span class="s1">'echo foo'</span><span class="p">)</span> <span class="p">}.</span><span class="nf">to</span> <span class="n">output</span><span class="p">(</span><span class="s2">"foo</span><span class="se">\n</span><span class="s2">"</span><span class="p">).</span><span class="nf">to_stdout_from_any_process</span>
+</code></pre></div>
 <p>This uses an alternate mechanism, where <code>$stdout</code> is temporarily
 reopened to a temp file, that works with subprocesses. Unfortunately,
 it's also much, much slower – in our
@@ -216,7 +209,7 @@ it's 30 times slower! For this reason, you have to opt-in to it using
 <p>When defining a custom matcher using the DSL, there are situations
 where it would be nice to accept a block:</p>
 
-<pre class="highlight ruby"><code><span class="no">RSpec</span><span class="o">::</span><span class="no">Matchers</span><span class="p">.</span><span class="nf">define</span> <span class="ss">:be_sorted_by</span> <span class="k">do</span> <span class="o">|&amp;</span><span class="n">blk</span><span class="o">|</span>
+<div class="highlight"><pre class="highlight ruby"><code><span class="no">RSpec</span><span class="o">::</span><span class="no">Matchers</span><span class="p">.</span><span class="nf">define</span> <span class="ss">:be_sorted_by</span> <span class="k">do</span> <span class="o">|&amp;</span><span class="n">blk</span><span class="o">|</span>
   <span class="n">match</span> <span class="k">do</span> <span class="o">|</span><span class="n">array</span><span class="o">|</span>
     <span class="n">array</span><span class="p">.</span><span class="nf">each_cons</span><span class="p">(</span><span class="mi">2</span><span class="p">).</span><span class="nf">all?</span> <span class="k">do</span> <span class="o">|</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="o">|</span>
       <span class="p">(</span><span class="n">blk</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">&lt;=&gt;</span> <span class="n">blk</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="n">b</span><span class="p">))</span> <span class="o">&lt;=</span> <span class="mi">0</span>
@@ -226,8 +219,7 @@ where it would be nice to accept a block:</p>
 
 <span class="c1"># intended usage:</span>
 <span class="n">expect</span><span class="p">(</span><span class="n">users</span><span class="p">).</span><span class="nf">to</span> <span class="n">be_sorted_by</span><span class="p">(</span><span class="o">&amp;</span><span class="ss">:email</span><span class="p">)</span>
-</code></pre>
-
+</code></pre></div>
 <p>Unfortunately, Ruby restrictions do not allow us to support this. The
 <code>define</code> block is executed using <code>class_exec</code>, which ensures it is
 evaluated in the context of a new matcher class, while also allowing us
@@ -238,23 +230,21 @@ passed to <code>class_exec</code> is the one to be evaluated (in this case, the
 <p>In prior versions of RSpec, the block passed to <code>be_sorted_by</code> would be
 silently ignored. In RSpec 3.2, we now issue a warning:</p>
 
-<pre class="highlight plaintext"><code>WARNING: Your `be_sorted_by` custom matcher receives a block argument (`blk`), but
+<div class="highlight"><pre class="highlight plaintext"><code>WARNING: Your `be_sorted_by` custom matcher receives a block argument (`blk`), but
 due to limitations in ruby, RSpec cannot provide the block. Instead, use the
 `block_arg` method to access the block. Called from path/to/file.rb:line_number.
-</code></pre>
-
+</code></pre></div>
 <p>…which tells you an alternate way to accomplish this: the new <code>block_arg</code>
 method, available from within a custom matcher:</p>
 
-<pre class="highlight ruby"><code><span class="no">RSpec</span><span class="o">::</span><span class="no">Matchers</span><span class="p">.</span><span class="nf">define</span> <span class="ss">:be_sorted_by</span> <span class="k">do</span>
+<div class="highlight"><pre class="highlight ruby"><code><span class="no">RSpec</span><span class="o">::</span><span class="no">Matchers</span><span class="p">.</span><span class="nf">define</span> <span class="ss">:be_sorted_by</span> <span class="k">do</span>
   <span class="n">match</span> <span class="k">do</span> <span class="o">|</span><span class="n">array</span><span class="o">|</span>
     <span class="n">array</span><span class="p">.</span><span class="nf">each_cons</span><span class="p">(</span><span class="mi">2</span><span class="p">).</span><span class="nf">all?</span> <span class="k">do</span> <span class="o">|</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="o">|</span>
       <span class="p">(</span><span class="n">block_arg</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="o">&lt;=&gt;</span> <span class="n">block_arg</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="n">b</span><span class="p">))</span> <span class="o">&lt;=</span> <span class="mi">0</span>
     <span class="k">end</span>
   <span class="k">end</span>
 <span class="k">end</span>
-</code></pre>
-
+</code></pre></div>
 <p>Thanks to Mike Dalton for
 <a href="https://github.com/rspec/rspec-expectations/pull/645">implementing</a> this improvement.</p>
 
@@ -262,18 +252,16 @@ method, available from within a custom matcher:</p>
 
 <p>RSpec has had an <code>any_args</code> matcher for a long time:</p>
 
-<pre class="highlight ruby"><code><span class="n">expect</span><span class="p">(</span><span class="n">test_double</span><span class="p">).</span><span class="nf">to</span> <span class="n">receive</span><span class="p">(</span><span class="ss">:message</span><span class="p">).</span><span class="nf">with</span><span class="p">(</span><span class="n">any_args</span><span class="p">)</span>
-</code></pre>
-
+<div class="highlight"><pre class="highlight ruby"><code><span class="n">expect</span><span class="p">(</span><span class="n">test_double</span><span class="p">).</span><span class="nf">to</span> <span class="n">receive</span><span class="p">(</span><span class="ss">:message</span><span class="p">).</span><span class="nf">with</span><span class="p">(</span><span class="n">any_args</span><span class="p">)</span>
+</code></pre></div>
 <p>The <code>any_args</code> matcher behaves exactly like it reads: it allows any
 arguments (including none) to match the message expectation. In RSpec
 3.1 and before, <code>any_args</code> could only be used as a stand-alone argument
 to <code>with</code>. In RSpec 3.2, we treat it as an arg splat, so you can now
 use it anywhere in an argument list:</p>
 
-<pre class="highlight ruby"><code><span class="n">expect</span><span class="p">(</span><span class="n">test_double</span><span class="p">).</span><span class="nf">to</span> <span class="n">receive</span><span class="p">(</span><span class="ss">:message</span><span class="p">).</span><span class="nf">with</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">any_args</span><span class="p">)</span>
-</code></pre>
-
+<div class="highlight"><pre class="highlight ruby"><code><span class="n">expect</span><span class="p">(</span><span class="n">test_double</span><span class="p">).</span><span class="nf">to</span> <span class="n">receive</span><span class="p">(</span><span class="ss">:message</span><span class="p">).</span><span class="nf">with</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">any_args</span><span class="p">)</span>
+</code></pre></div>
 <p>This would match calls like <code>test_double.message(1, 2)</code> or
 <code>test_double.message(1, 2, 3, 4)</code>.</p>
 
@@ -284,25 +272,23 @@ that you get for failures from particular matchers. However, message
 expectation failures have never included a diff. For example, consider
 this failing message expectation:</p>
 
-<pre class="highlight ruby"><code><span class="n">test_double</span> <span class="o">=</span> <span class="n">double</span>
+<div class="highlight"><pre class="highlight ruby"><code><span class="n">test_double</span> <span class="o">=</span> <span class="n">double</span>
 <span class="n">expect</span><span class="p">(</span><span class="n">test_double</span><span class="p">).</span><span class="nf">to</span> <span class="n">receive</span><span class="p">(</span><span class="ss">:foo</span><span class="p">).</span><span class="nf">with</span><span class="p">(</span><span class="sx">%w[ 1 2 3 4 ]</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">))</span>
 <span class="n">test_double</span><span class="p">.</span><span class="nf">foo</span><span class="p">(</span><span class="sx">%w[ 1 2 5 4 ]</span><span class="p">.</span><span class="nf">join</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">))</span>
-</code></pre>
-
+</code></pre></div>
 <p>In RSpec 3.1 and before, this failed with:</p>
 
-<pre class="highlight plaintext"><code>Failure/Error: test_double.foo(%w[ 1 2 5 4 ].join("\n"))
+<div class="highlight"><pre class="highlight plaintext"><code>Failure/Error: test_double.foo(%w[ 1 2 5 4 ].join("\n"))
   Double received :foo with unexpected arguments
     expected: ("1\n2\n3\n4")
          got: ("1\n2\n5\n4")
-</code></pre>
-
+</code></pre></div>
 <p>RSpec 3.2 now includes diffs in message expectation failures when
 appropriate (generally when multi-line strings are involved or when
 the pretty-print output of the objects are multi-line). In 3.2, this
 fails with:</p>
 
-<pre class="highlight plaintext"><code>Failure/Error: test_double.foo(%w[ 1 2 5 4 ].join("\n"))
+<div class="highlight"><pre class="highlight plaintext"><code>Failure/Error: test_double.foo(%w[ 1 2 5 4 ].join("\n"))
   Double received :foo with unexpected arguments
     expected: ("1\n2\n3\n4")
          got: ("1\n2\n5\n4")
@@ -313,8 +299,7 @@ fails with:</p>
   -3
   +5
    4
-</code></pre>
-
+</code></pre></div>
 <p>Thanks to Pete Higgins for <a href="https://github.com/rspec/rspec-mocks/issues/434">originally suggesting</a>
 this feature, and for <a href="https://github.com/rspec/rspec-support/pull/36">extracting our differ</a>
 from rspec-expectation to rspec-support, and thanks to Sam Phippen for
@@ -331,10 +316,9 @@ we forgot to support an optional name for these types.  In RSpec 3.2,
 these double types now support an optional name. Just pass a second
 argument (after the interface argument, but before any stubs):</p>
 
-<pre class="highlight ruby"><code><span class="n">book_1</span> <span class="o">=</span> <span class="n">instance_double</span><span class="p">(</span><span class="no">Book</span><span class="p">,</span> <span class="s2">"The Brothers Karamozov"</span><span class="p">,</span> <span class="ss">author: </span><span class="s2">"Fyodor Dostoyevsky"</span><span class="p">)</span>
+<div class="highlight"><pre class="highlight ruby"><code><span class="n">book_1</span> <span class="o">=</span> <span class="n">instance_double</span><span class="p">(</span><span class="no">Book</span><span class="p">,</span> <span class="s2">"The Brothers Karamozov"</span><span class="p">,</span> <span class="ss">author: </span><span class="s2">"Fyodor Dostoyevsky"</span><span class="p">)</span>
 <span class="n">book_2</span> <span class="o">=</span> <span class="n">instance_double</span><span class="p">(</span><span class="no">Book</span><span class="p">,</span> <span class="s2">"Lord of the Rings"</span><span class="p">,</span> <span class="ss">author: </span><span class="s2">"J.R.R. Tolkien"</span><span class="p">)</span>
-</code></pre>
-
+</code></pre></div>
 <p>Thanks to Cezary Baginski for <a href="https://github.com/rspec/rspec-mocks/pull/826">implementing</a> this.</p>
 
 <h3 id="rails-instance-doubles-support-dynamic-column-methods-defined-by-activerecord">Rails: Instance Doubles Support Dynamic Column Methods Defined by ActiveRecord</h3>
@@ -721,5 +705,22 @@ in Rails 4.1 and 4.2. (Aaron Kromer, #1295)</li>
   ga('create', 'UA-59095215-1', 'auto');
   ga('send', 'pageview');
 
+</script>
+<script>
+  var SeedAndDewConfig = {};
+  (function() {
+    SeedAndDewConfig['adClass'] = "snd-ad";
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    SeedAndDewConfig['projectId'] = 'ef35b4ec-231e-4950-bd93-4c06fe3b2543';
+    SeedAndDewConfig['loadStartTime'] = performance.now();
+    SeedAndDewConfig['apiVersion'] = '2018-05-28'
+    SeedAndDewConfig['sessionId'] = Math.random().toString(36).substring(2, 15);
+    var snd = document.createElement('script');
+    snd.type = 'text/javascript';
+    snd.async = true;
+    snd.src = 'https://www.seedanddew.com/static/embed.min.js';
+    (document.getElementsByTagName('head')[0] ||
+    document.getElementsByTagName('body')[0]).appendChild(snd);
+  })();
 </script>
 </body></html>

@@ -2,7 +2,7 @@
 <!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"><![endif]-->
 <!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
 <!--[if IE 8]><html class="no-js lt-ie9" lang="en"><![endif]-->
-<!--[if gt IE 8]<!--><html class="no-js" lang="en"><!--<![endif]--><head><meta charset="UTF-8" /><title>RSpec 2.13 is released!</title><link href="/stylesheets/application.css" rel="stylesheet" type="text/css" /><link href="/stylesheets/normalize.css" rel="stylesheet" type="text/css" /><link href="/stylesheets/pages/blog.css" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" type="text/css" /><link href="/blog/feed.xml" rel="alternate" type="application/atom+xml" /></head><body class="blog"><header><nav><h1><a href="/">RSpec</a></h1><ul><li><a href="/about">About</a></li><li><a href="/documentation">Documentation</a></li><li><a href="/blog">Blog</a></li><li><a href="/upgrading-from-rspec-2">Upgrade</a></li><li><a href="/help">Get Help</a></li><li><a href="/contributing">Contributing</a></li></ul></nav></header><section><article class="blog_post"><h1>RSpec 2.13 is released!</h1><h3 class="author">Myron Marston</h3><small class="date">Feb 23, 2013</small><p>I've just released RSpec 2.13. It's a minor release containing a few
+<!--[if gt IE 8]<!--><html class="no-js" lang="en"><!--<![endif]--><head><meta charset="UTF-8" /><meta content="width=device-width, initial-scale=1" name="viewport" /><meta content="RSpec 2.13 is released!" property="og:title" /><meta content="http://rspec.info/blog/2013/02/rspec-2-13-is-released/" property="og:url" /><meta content="http://rspec.info/images/logo_ogp.png" property="og:image" /><meta content="summary" name="twitter:card" /><meta content="@rspec" name="twitter:site" /><title>RSpec 2.13 is released!</title><link href="/stylesheets/pages/blog.css" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" type="text/css" /><link href="/blog/feed.xml" rel="alternate" type="application/atom+xml" /></head><body class="blog"><header><nav><h1><img alt="Logo" src="/images/logo.png" /><a href="/">RSpec</a></h1><input class="hamburger-toggle" type="checkbox" /><div class="hamburger-icon"><div class="bar"></div><div class="bar"></div><div class="bar"></div></div><ul class="menu"><li><a href="/about">About</a></li><li><a href="/documentation">Documentation</a></li><li><a href="/blog">Blog</a></li><li><a href="/upgrading-from-rspec-2">Upgrade</a></li><li><a href="/help">Get Help</a></li><li><a href="/contributing">Contributing</a></li></ul></nav></header><section><article class="blog_post"><h1>RSpec 2.13 is released!</h1><h3 class="author">Myron Marston</h3><small class="date">Feb 23, 2013</small><p>I've just released RSpec 2.13. It's a minor release containing a few
 backward-compatible enhancements and lots of bug fixes. It is a
 recommended upgrade for all users.</p>
 
@@ -18,24 +18,22 @@ to have it print more than 10 examples.</p>
 
 <p>To print off the 15 slowest examples, you could use:</p>
 
-<pre class="highlight plaintext"><code>rspec --profile 15
-</code></pre>
-
+<div class="highlight"><pre class="highlight plaintext"><code>rspec --profile 15
+</code></pre></div>
 <h3 id="let-and-subject-declarations-can-use-super"><code>let</code> and <code>subject</code> declarations can use <code>super</code></h3>
 
 <p>Users have requested this for a while. This allows to override a <code>let</code> or <code>subject</code>
 declaration in a nested group while delegating to the original definition from the
 parent group. Just use <code>super()</code>:</p>
 
-<pre class="highlight ruby"><code><span class="n">describe</span> <span class="no">Array</span> <span class="k">do</span>
+<div class="highlight"><pre class="highlight ruby"><code><span class="n">describe</span> <span class="no">Array</span> <span class="k">do</span>
   <span class="n">let</span><span class="p">(</span><span class="ss">:numbers</span><span class="p">)</span> <span class="p">{</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span> <span class="p">}</span>
 
   <span class="n">context</span> <span class="s2">"when evens are filtered out"</span> <span class="k">do</span>
     <span class="n">let</span><span class="p">(</span><span class="ss">:numbers</span><span class="p">)</span> <span class="p">{</span> <span class="k">super</span><span class="p">().</span><span class="nf">reject</span><span class="p">(</span><span class="o">&amp;</span><span class="ss">:even?</span><span class="p">)</span> <span class="p">}</span>
   <span class="k">end</span>
 <span class="k">end</span>
-</code></pre>
-
+</code></pre></div>
 <p>Note that to use this feature, you <em>must</em> use explicit parens
 in the call to <code>super</code>; otherwise ruby will give you an ugly
 <code>implicit argument passing of super from method defined by
@@ -45,27 +43,25 @@ define_method() is not supported</code> error.</p>
 
 <p>This is best illustrated by an example:</p>
 
-<pre class="highlight ruby"><code><span class="c1"># The existing `be_within` matcher (which still works):</span>
+<div class="highlight"><pre class="highlight ruby"><code><span class="c1"># The existing `be_within` matcher (which still works):</span>
 <span class="n">expect</span><span class="p">(</span><span class="n">account</span><span class="p">.</span><span class="nf">balance</span><span class="p">).</span><span class="nf">to</span> <span class="n">be_within</span><span class="p">(</span><span class="mi">10</span><span class="p">).</span><span class="nf">of</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
 
 <span class="c1"># Now you can do this, too:</span>
 <span class="n">expect</span><span class="p">(</span><span class="n">account</span><span class="p">.</span><span class="nf">balance</span><span class="p">).</span><span class="nf">to</span> <span class="n">be_within</span><span class="p">(</span><span class="mi">2</span><span class="p">).</span><span class="nf">percent_of</span><span class="p">(</span><span class="mi">500</span><span class="p">)</span>
-</code></pre>
-
+</code></pre></div>
 <h3 id="include-matcher-can-accept-a-list-of-matchers"><code>include</code> matcher can accept a list of matchers</h3>
 
 <p>This is handy when you want to verify something about the
 items in a list rather that simply verifying the items' identity.</p>
 
-<pre class="highlight ruby"><code><span class="no">RSpec</span><span class="o">::</span><span class="no">Matchers</span><span class="p">.</span><span class="nf">define</span> <span class="ss">:a_user_named</span> <span class="k">do</span> <span class="o">|</span><span class="nb">name</span><span class="o">|</span>
+<div class="highlight"><pre class="highlight ruby"><code><span class="no">RSpec</span><span class="o">::</span><span class="no">Matchers</span><span class="p">.</span><span class="nf">define</span> <span class="ss">:a_user_named</span> <span class="k">do</span> <span class="o">|</span><span class="nb">name</span><span class="o">|</span>
   <span class="n">match</span> <span class="k">do</span> <span class="o">|</span><span class="n">user</span><span class="o">|</span>
     <span class="n">user</span><span class="p">.</span><span class="nf">name</span> <span class="o">==</span> <span class="nb">name</span>
   <span class="k">end</span>
 <span class="k">end</span>
 
 <span class="n">expect</span><span class="p">(</span><span class="n">users</span><span class="p">).</span><span class="nf">to</span> <span class="kp">include</span><span class="p">(</span><span class="n">a_user_named</span><span class="p">(</span><span class="s2">"Coen"</span><span class="p">),</span> <span class="n">a_user_named</span><span class="p">(</span><span class="s2">"Daphne"</span><span class="p">))</span>
-</code></pre>
-
+</code></pre></div>
 <h2 id="docs">Docs</h2>
 
 <h3 id="rdoc">RDoc</h3>
@@ -236,5 +232,22 @@ migrations. (Andy Lindeman)</li>
   ga('create', 'UA-59095215-1', 'auto');
   ga('send', 'pageview');
 
+</script>
+<script>
+  var SeedAndDewConfig = {};
+  (function() {
+    SeedAndDewConfig['adClass'] = "snd-ad";
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    SeedAndDewConfig['projectId'] = 'ef35b4ec-231e-4950-bd93-4c06fe3b2543';
+    SeedAndDewConfig['loadStartTime'] = performance.now();
+    SeedAndDewConfig['apiVersion'] = '2018-05-28'
+    SeedAndDewConfig['sessionId'] = Math.random().toString(36).substring(2, 15);
+    var snd = document.createElement('script');
+    snd.type = 'text/javascript';
+    snd.async = true;
+    snd.src = 'https://www.seedanddew.com/static/embed.min.js';
+    (document.getElementsByTagName('head')[0] ||
+    document.getElementsByTagName('body')[0]).appendChild(snd);
+  })();
 </script>
 </body></html>

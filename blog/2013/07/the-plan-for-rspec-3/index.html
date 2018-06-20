@@ -2,7 +2,7 @@
 <!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"><![endif]-->
 <!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
 <!--[if IE 8]><html class="no-js lt-ie9" lang="en"><![endif]-->
-<!--[if gt IE 8]<!--><html class="no-js" lang="en"><!--<![endif]--><head><meta charset="UTF-8" /><title>The Plan for RSpec 3</title><link href="/stylesheets/application.css" rel="stylesheet" type="text/css" /><link href="/stylesheets/normalize.css" rel="stylesheet" type="text/css" /><link href="/stylesheets/pages/blog.css" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" type="text/css" /><link href="/blog/feed.xml" rel="alternate" type="application/atom+xml" /></head><body class="blog"><header><nav><h1><a href="/">RSpec</a></h1><ul><li><a href="/about">About</a></li><li><a href="/documentation">Documentation</a></li><li><a href="/blog">Blog</a></li><li><a href="/upgrading-from-rspec-2">Upgrade</a></li><li><a href="/help">Get Help</a></li><li><a href="/contributing">Contributing</a></li></ul></nav></header><section><article class="blog_post"><h1>The Plan for RSpec 3</h1><h3 class="author">Myron Marston</h3><small class="date">Jul 15, 2013</small><p>Update: <a href="http://nilp.hatenablog.com/entry/2013/07/16/131641">There's a Japanese translation of
+<!--[if gt IE 8]<!--><html class="no-js" lang="en"><!--<![endif]--><head><meta charset="UTF-8" /><meta content="width=device-width, initial-scale=1" name="viewport" /><meta content="The Plan for RSpec 3" property="og:title" /><meta content="http://rspec.info/blog/2013/07/the-plan-for-rspec-3/" property="og:url" /><meta content="http://rspec.info/images/logo_ogp.png" property="og:image" /><meta content="summary" name="twitter:card" /><meta content="@rspec" name="twitter:site" /><title>The Plan for RSpec 3</title><link href="/stylesheets/pages/blog.css" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" type="text/css" /><link href="/blog/feed.xml" rel="alternate" type="application/atom+xml" /></head><body class="blog"><header><nav><h1><img alt="Logo" src="/images/logo.png" /><a href="/">RSpec</a></h1><input class="hamburger-toggle" type="checkbox" /><div class="hamburger-icon"><div class="bar"></div><div class="bar"></div><div class="bar"></div></div><ul class="menu"><li><a href="/about">About</a></li><li><a href="/documentation">Documentation</a></li><li><a href="/blog">Blog</a></li><li><a href="/upgrading-from-rspec-2">Upgrade</a></li><li><a href="/help">Get Help</a></li><li><a href="/contributing">Contributing</a></li></ul></nav></header><section><article class="blog_post"><h1>The Plan for RSpec 3</h1><h3 class="author">Myron Marston</h3><small class="date">Jul 15, 2013</small><p>Update: <a href="http://nilp.hatenablog.com/entry/2013/07/16/131641">There's a Japanese translation of
 this</a> available
 now.</p>
 
@@ -203,7 +203,7 @@ DSL methods (<code>describe</code>, <code>shared_examples_for</code>, etc) onto
 <code>main</code> and <code>Module</code>, instead requiring you to prefix these
 methods with <code>RSpec.</code>:</p>
 
-<pre class="highlight ruby"><code><span class="no">RSpec</span><span class="p">.</span><span class="nf">describe</span> <span class="no">MyClass</span> <span class="k">do</span>
+<div class="highlight"><pre class="highlight ruby"><code><span class="no">RSpec</span><span class="p">.</span><span class="nf">describe</span> <span class="no">MyClass</span> <span class="k">do</span>
   <span class="c1"># Within an example group you'll still be able to use</span>
   <span class="c1"># a bare `describe`:</span>
   <span class="n">describe</span> <span class="s2">"#some_method"</span> <span class="k">do</span>
@@ -216,8 +216,7 @@ methods with <code>RSpec.</code>:</p>
 
 <span class="no">RSpec</span><span class="p">.</span><span class="nf">shared_examples_for</span> <span class="s2">"some behavior"</span> <span class="k">do</span>
 <span class="k">end</span>
-</code></pre>
-
+</code></pre></div>
 <p>The net result will be a set of config options (one for
 <code>rspec-expectations</code>, one for <code>rspec-mocks</code> and one for <code>rspec-core</code>), that
 will provide a zero-monkey-patching mode for RSpec. (We may also
@@ -253,11 +252,10 @@ This kind of composability is quite useful and we plan to extend
 it to all matchers in RSpec 3. For example, you could use an expression
 like:</p>
 
-<pre class="highlight ruby"><code><span class="n">expect</span> <span class="p">{</span> <span class="o">|</span><span class="n">b</span><span class="o">|</span>
+<div class="highlight"><pre class="highlight ruby"><code><span class="n">expect</span> <span class="p">{</span> <span class="o">|</span><span class="n">b</span><span class="o">|</span>
   <span class="n">some_object</span><span class="p">.</span><span class="nf">do_something</span><span class="p">(</span><span class="o">&amp;</span><span class="n">b</span><span class="p">)</span>
 <span class="p">}.</span><span class="nf">to</span> <span class="n">yield_with_args</span><span class="p">(</span><span class="kp">include</span><span class="p">(</span><span class="n">match</span><span class="p">(</span><span class="sr">/foo/</span><span class="p">),</span> <span class="n">match</span><span class="p">(</span><span class="sr">/bar/</span><span class="p">)))</span>
-</code></pre>
-
+</code></pre></div>
 <p>This expresses a detailed expectation: "I expect
 <code>some_object.do_something</code> to yield with a collection that
 includes a string matching <code>/foo/</code> and a string matching <code>/bar/</code>".</p>
@@ -265,12 +263,11 @@ includes a string matching <code>/foo/</code> and a string matching <code>/bar/<
 <p>We're also considering adding matcher aliases that read better when
 composed in this fashion, so that you could write this as:</p>
 
-<pre class="highlight ruby"><code><span class="n">expect</span> <span class="p">{</span> <span class="o">|</span><span class="n">b</span><span class="o">|</span>
+<div class="highlight"><pre class="highlight ruby"><code><span class="n">expect</span> <span class="p">{</span> <span class="o">|</span><span class="n">b</span><span class="o">|</span>
   <span class="n">some_object</span><span class="p">.</span><span class="nf">do_something</span><span class="p">(</span><span class="o">&amp;</span><span class="n">b</span><span class="p">)</span>
 <span class="p">}.</span><span class="nf">to</span> <span class="n">yield_with_args</span><span class="p">(</span><span class="n">a_collection_including</span><span class="p">(</span><span class="n">a_string_matching</span><span class="p">(</span><span class="sr">/foo/</span><span class="p">),</span>
                                             <span class="n">a_string_matching</span><span class="p">(</span><span class="sr">/bar/</span><span class="p">)))</span>
-</code></pre>
-
+</code></pre></div>
 <p>For more details, or to weigh in on this issue, take a look at the
 <a href="https://github.com/rspec/rspec-expectations/issues/280">github issue</a>.</p>
 
@@ -310,7 +307,7 @@ when users inadvertently define their own <code>example</code> method. In RSpec 
 we're removing the <code>example</code> method, opting to yield the example from
 each DSL method that runs in the context of an example:</p>
 
-<pre class="highlight ruby"><code><span class="n">describe</span> <span class="no">MyClass</span> <span class="k">do</span>
+<div class="highlight"><pre class="highlight ruby"><code><span class="n">describe</span> <span class="no">MyClass</span> <span class="k">do</span>
   <span class="n">before</span><span class="p">(</span><span class="ss">:each</span><span class="p">)</span> <span class="p">{</span> <span class="o">|</span><span class="n">example</span><span class="o">|</span> <span class="p">}</span>
   <span class="n">subject</span>       <span class="p">{</span> <span class="o">|</span><span class="n">ex</span><span class="o">|</span> <span class="p">}</span>
   <span class="n">let</span><span class="p">(</span><span class="ss">:user</span><span class="p">)</span>    <span class="p">{</span> <span class="o">|</span><span class="n">ex</span><span class="o">|</span> <span class="no">User</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="n">ex</span><span class="p">.</span><span class="nf">metadata</span><span class="p">[</span><span class="ss">:user_id</span><span class="p">])</span> <span class="p">}</span>
@@ -321,8 +318,7 @@ each DSL method that runs in the context of an example:</p>
     <span class="c1"># do something with `example`</span>
   <span class="k">end</span>
 <span class="k">end</span>
-</code></pre>
-
+</code></pre></div>
 <p>We're aware that this may cause upgrade headaches for users who
 rely on gems that use the <code>example</code> API (such as Capybara).
 We're discussing ways to make the upgrade smoother, both for users
@@ -355,11 +351,10 @@ the block, there was no way to accomplish this.  In RSpec 3, we're
 correcting this oversight, and the receiver will be yielded as
 the first block argument:</p>
 
-<pre class="highlight ruby"><code><span class="n">allow_any_instance_of</span><span class="p">(</span><span class="no">User</span><span class="p">).</span><span class="nf">to</span> <span class="n">receive</span><span class="p">(</span><span class="ss">:age</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">user</span><span class="o">|</span>
+<div class="highlight"><pre class="highlight ruby"><code><span class="n">allow_any_instance_of</span><span class="p">(</span><span class="no">User</span><span class="p">).</span><span class="nf">to</span> <span class="n">receive</span><span class="p">(</span><span class="ss">:age</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">user</span><span class="o">|</span>
   <span class="p">((</span><span class="no">Date</span><span class="p">.</span><span class="nf">today</span> <span class="o">-</span> <span class="n">user</span><span class="p">.</span><span class="nf">birthdate</span><span class="p">)</span> <span class="o">/</span> <span class="mi">365</span><span class="p">).</span><span class="nf">floor</span>
 <span class="k">end</span>
-</code></pre>
-
+</code></pre></div>
 <p>For backwards compatibility, we'll be adding a config option to disable
 this behavior.</p>
 
@@ -468,5 +463,22 @@ step forward and help in this area!</li>
   ga('create', 'UA-59095215-1', 'auto');
   ga('send', 'pageview');
 
+</script>
+<script>
+  var SeedAndDewConfig = {};
+  (function() {
+    SeedAndDewConfig['adClass'] = "snd-ad";
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    SeedAndDewConfig['projectId'] = 'ef35b4ec-231e-4950-bd93-4c06fe3b2543';
+    SeedAndDewConfig['loadStartTime'] = performance.now();
+    SeedAndDewConfig['apiVersion'] = '2018-05-28'
+    SeedAndDewConfig['sessionId'] = Math.random().toString(36).substring(2, 15);
+    var snd = document.createElement('script');
+    snd.type = 'text/javascript';
+    snd.async = true;
+    snd.src = 'https://www.seedanddew.com/static/embed.min.js';
+    (document.getElementsByTagName('head')[0] ||
+    document.getElementsByTagName('body')[0]).appendChild(snd);
+  })();
 </script>
 </body></html>

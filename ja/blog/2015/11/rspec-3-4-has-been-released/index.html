@@ -2,7 +2,7 @@
 <!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"><![endif]-->
 <!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
 <!--[if IE 8]><html class="no-js lt-ie9" lang="en"><![endif]-->
-<!--[if gt IE 8]<!--><html class="no-js" lang="en"><!--<![endif]--><head><meta charset="UTF-8" /><title>RSpec 3.4 がリリースされました！</title><link href="/stylesheets/application.css" rel="stylesheet" type="text/css" /><link href="/stylesheets/normalize.css" rel="stylesheet" type="text/css" /><link href="/stylesheets/pages/blog.css" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" type="text/css" /><link href="/blog/feed.xml" rel="alternate" type="application/atom+xml" /></head><body class="blog"><header><nav><h1><a href="/">RSpec</a></h1><ul><li><a href="/about">About</a></li><li><a href="/documentation">Documentation</a></li><li><a href="/blog">Blog</a></li><li><a href="/upgrading-from-rspec-2">Upgrade</a></li><li><a href="/help">Get Help</a></li><li><a href="/contributing">Contributing</a></li></ul></nav></header><section><article class="blog_post"><ul class="langs"><li class="lang"><a href="/blog/2015/11/rspec-3-4-has-been-released/">en</a></li><li class="lang current_lang">ja</li></ul><h1>RSpec 3.4 がリリースされました！</h1><h3 class="author">Yuji Nakayama</h3><small class="date">Nov 13, 2015</small><p>RSpec 3.4 がリリースされました！
+<!--[if gt IE 8]<!--><html class="no-js" lang="en"><!--<![endif]--><head><meta charset="UTF-8" /><meta content="width=device-width, initial-scale=1" name="viewport" /><meta content="RSpec 3.4 がリリースされました！" property="og:title" /><meta content="http://rspec.info/ja/blog/2015/11/rspec-3-4-has-been-released/" property="og:url" /><meta content="http://rspec.info/images/logo_ogp.png" property="og:image" /><meta content="summary" name="twitter:card" /><meta content="@rspec" name="twitter:site" /><title>RSpec 3.4 がリリースされました！</title><link href="/stylesheets/pages/blog.css" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" type="text/css" /><link href="/blog/feed.xml" rel="alternate" type="application/atom+xml" /></head><body class="blog"><header><nav><h1><img alt="Logo" src="/images/logo.png" /><a href="/">RSpec</a></h1><input class="hamburger-toggle" type="checkbox" /><div class="hamburger-icon"><div class="bar"></div><div class="bar"></div><div class="bar"></div></div><ul class="menu"><li><a href="/about">About</a></li><li><a href="/documentation">Documentation</a></li><li><a href="/blog">Blog</a></li><li><a href="/upgrading-from-rspec-2">Upgrade</a></li><li><a href="/help">Get Help</a></li><li><a href="/contributing">Contributing</a></li></ul></nav></header><section><article class="blog_post"><ul class="langs"><li class="lang"><a href="/blog/2015/11/rspec-3-4-has-been-released/">en</a></li><li class="lang current_lang">ja</li></ul><h1>RSpec 3.4 がリリースされました！</h1><h3 class="author">Yuji Nakayama</h3><small class="date">Nov 13, 2015</small><p>RSpec 3.4 がリリースされました！
 私たちは <a href="http://semver.org/">semantic versioning</a> に準拠する方針を掲げているため、
 このリリースはすでに RSpec 3 を使っている方にとってなにか対応が必要になるものではありません。
 しかし、もし私たちがバグを作り込んでしまっていた場合は教えてください。
@@ -52,11 +52,10 @@ Sam Livingston-Gray は <a href="https://twitter.com/geeksam/status/656858995932
 RSpec 3.4 以前では、エクスペクテーションが1行に収まっている場合は問題ありませんでしたが、
 以下のように複数行で記述した場合、</p>
 
-<pre class="highlight ruby"><code><span class="n">expect</span> <span class="p">{</span>
+<div class="highlight"><pre class="highlight ruby"><code><span class="n">expect</span> <span class="p">{</span>
   <span class="no">MyNamespace</span><span class="o">::</span><span class="no">MyClass</span><span class="p">.</span><span class="nf">some_long_method_name</span><span class="p">(</span><span class="ss">:with</span><span class="p">,</span> <span class="ss">:some</span><span class="p">,</span> <span class="ss">:arguments</span><span class="p">)</span>
 <span class="p">}.</span><span class="nf">to</span> <span class="n">raise_error</span><span class="p">(</span><span class="sr">/some error snippet/</span><span class="p">)</span>
-</code></pre>
-
+</code></pre></div>
 <p>最初の1行目（<code>expect {</code>）しか表示されませんでした。
 なぜなら例外オブジェクトには、スタックフレームとしてそれだけの情報しか含まれていないからです。
 RSpec 3.4 では、
@@ -103,21 +102,19 @@ RSpec 3.4 以前のこの実装はかなり単純で、
 rspec-expectations 3.4 では、複合エクスペクテーション（<em>compound expectations</em>）の失敗メッセージが改善されました。
 これまでは複数の失敗メッセージを単純に1行に連結しており、例えば以下のようなエクスペクテーションの場合、</p>
 
-<pre class="highlight ruby"><code><span class="n">expect</span><span class="p">(</span><span class="n">lyrics</span><span class="p">).</span><span class="nf">to</span> <span class="n">start_with</span><span class="p">(</span><span class="s2">"There must be some kind of way out of here"</span><span class="p">)</span>
+<div class="highlight"><pre class="highlight ruby"><code><span class="n">expect</span><span class="p">(</span><span class="n">lyrics</span><span class="p">).</span><span class="nf">to</span> <span class="n">start_with</span><span class="p">(</span><span class="s2">"There must be some kind of way out of here"</span><span class="p">)</span>
               <span class="p">.</span><span class="nf">and</span> <span class="kp">include</span><span class="p">(</span><span class="s2">"No reason to get excited"</span><span class="p">)</span>
-</code></pre>
-
+</code></pre></div>
 <p>このような読みにくいメッセージが出力されてしまっていました。</p>
 
-<pre class="highlight plaintext"><code>1) All Along the Watchtower has the expected lyrics
+<div class="highlight"><pre class="highlight plaintext"><code>1) All Along the Watchtower has the expected lyrics
    Failure/Error: expect(lyrics).to start_with("There must be some kind of way out of here")
      expected "I stand up next to a mountain And I chop it down with the edge of my hand" to start with "There must be some kind of way out of here" and expected "I stand up next to a mountain And I chop it down with the edge of my hand" to include "No reason to get excited"
    # ./spec/example_spec.rb:20:in `block (2 levels) in &lt;top (required)&gt;'
-</code></pre>
-
+</code></pre></div>
 <p>RSpec 3.4 では、それぞれのメッセージが個別に表示されるようになり、読みやすくなりました。</p>
 
-<pre class="highlight plaintext"><code>1) All Along the Watchtower has the expected lyrics
+<div class="highlight"><pre class="highlight plaintext"><code>1) All Along the Watchtower has the expected lyrics
    Failure/Error:
      expect(lyrics).to start_with("There must be some kind of way out of here")
                    .and include("No reason to get excited")
@@ -128,27 +125,24 @@ rspec-expectations 3.4 では、複合エクスペクテーション（<em>compo
 
         expected "I stand up next to a mountain And I chop it down with the edge of my hand" to include "No reason to get excited"
    # ./spec/example_spec.rb:20:in `block (2 levels) in &lt;top (required)&gt;'
-</code></pre>
-
+</code></pre></div>
 <h3 id="expectations-match--withcaptures-">Expectations: <code>match</code> マッチャへの <code>with_captures</code> の追加</h3>
 
 <p>RSpec 3.4 では、<code>match</code> マッチャに新しい機能が追加され、正規表現のキャプチャを指定することができるようになりました。
 新しい <code>with_captures</code> メソッドを使って、このようにインデックスベースのキャプチャを指定することができます。</p>
 
-<pre class="highlight ruby"><code><span class="n">year_regex</span> <span class="o">=</span> <span class="sr">/(\d{4})\-(\d{2})\-(\d{2})/</span>
+<div class="highlight"><pre class="highlight ruby"><code><span class="n">year_regex</span> <span class="o">=</span> <span class="sr">/(\d{4})\-(\d{2})\-(\d{2})/</span>
 <span class="n">expect</span><span class="p">(</span><span class="n">year_regex</span><span class="p">).</span><span class="nf">to</span> <span class="n">match</span><span class="p">(</span><span class="s2">"2015-12-25"</span><span class="p">).</span><span class="nf">with_captures</span><span class="p">(</span><span class="s2">"2015"</span><span class="p">,</span> <span class="s2">"12"</span><span class="p">,</span> <span class="s2">"25"</span><span class="p">)</span>
-</code></pre>
-
+</code></pre></div>
 <p>また、名前付きキャプチャを指定することも可能です。</p>
 
-<pre class="highlight ruby"><code><span class="n">year_regex</span> <span class="o">=</span> <span class="sr">/(?&lt;year&gt;\d{4})\-(?&lt;month&gt;\d{2})\-(?&lt;day&gt;\d{2})/</span>
+<div class="highlight"><pre class="highlight ruby"><code><span class="n">year_regex</span> <span class="o">=</span> <span class="sr">/(?&lt;year&gt;\d{4})\-(?&lt;month&gt;\d{2})\-(?&lt;day&gt;\d{2})/</span>
 <span class="n">expect</span><span class="p">(</span><span class="n">year_regex</span><span class="p">).</span><span class="nf">to</span> <span class="n">match</span><span class="p">(</span><span class="s2">"2015-12-25"</span><span class="p">).</span><span class="nf">with_captures</span><span class="p">(</span>
   <span class="ss">year: </span><span class="s2">"2015"</span><span class="p">,</span>
   <span class="ss">month: </span><span class="s2">"12"</span><span class="p">,</span>
   <span class="ss">day: </span><span class="s2">"25"</span>
 <span class="p">)</span>
-</code></pre>
-
+</code></pre></div>
 <p>Sam Phippen と、この実装にあたって協力してくれた Jason Karns、ありがとう。</p>
 
 <h3 id="rails-activejob--haveenqueuedjob-">Rails: ActiveJob のための新しい <code>have_enqueued_job</code> マッチャ</h3>
@@ -158,7 +152,7 @@ rspec-rails 3.4 では、任意のコードがジョブをキューに加える�
 このマッチャはメソッドチェーンによるインターフェースを持っており、
 rspec-mock を使ったことがあれば見覚えがあるのではないでしょうか。</p>
 
-<pre class="highlight ruby"><code><span class="n">expect</span> <span class="p">{</span>
+<div class="highlight"><pre class="highlight ruby"><code><span class="n">expect</span> <span class="p">{</span>
   <span class="no">HeavyLiftingJob</span><span class="p">.</span><span class="nf">perform_later</span>
 <span class="p">}.</span><span class="nf">to</span> <span class="n">have_enqueued_job</span>
 
@@ -185,8 +179,7 @@ rspec-mock を使ったことがあれば見覚えがあるのではないでし
 <span class="n">expect</span> <span class="p">{</span>
   <span class="no">HelloJob</span><span class="p">.</span><span class="nf">set</span><span class="p">(</span><span class="ss">wait_until: </span><span class="no">Date</span><span class="p">.</span><span class="nf">tomorrow</span><span class="p">.</span><span class="nf">noon</span><span class="p">,</span> <span class="ss">queue: </span><span class="s2">"low"</span><span class="p">).</span><span class="nf">perform_later</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
 <span class="p">}.</span><span class="nf">to</span> <span class="n">have_enqueued_job</span><span class="p">.</span><span class="nf">with</span><span class="p">(</span><span class="mi">42</span><span class="p">).</span><span class="nf">on_queue</span><span class="p">(</span><span class="s2">"low"</span><span class="p">).</span><span class="nf">at</span><span class="p">(</span><span class="no">Date</span><span class="p">.</span><span class="nf">tomorrow</span><span class="p">.</span><span class="nf">noon</span><span class="p">)</span>
-</code></pre>
-
+</code></pre></div>
 <p>この機能を実装してくれた Wojciech Wnętrzak、ありがとう！</p>
 
 <h2 id="section-3">統計</h2>
@@ -462,5 +455,22 @@ RSpec の検証付きダブルで writer メソッドをモックやスタブし
   ga('create', 'UA-59095215-1', 'auto');
   ga('send', 'pageview');
 
+</script>
+<script>
+  var SeedAndDewConfig = {};
+  (function() {
+    SeedAndDewConfig['adClass'] = "snd-ad";
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    SeedAndDewConfig['projectId'] = 'ef35b4ec-231e-4950-bd93-4c06fe3b2543';
+    SeedAndDewConfig['loadStartTime'] = performance.now();
+    SeedAndDewConfig['apiVersion'] = '2018-05-28'
+    SeedAndDewConfig['sessionId'] = Math.random().toString(36).substring(2, 15);
+    var snd = document.createElement('script');
+    snd.type = 'text/javascript';
+    snd.async = true;
+    snd.src = 'https://www.seedanddew.com/static/embed.min.js';
+    (document.getElementsByTagName('head')[0] ||
+    document.getElementsByTagName('body')[0]).appendChild(snd);
+  })();
 </script>
 </body></html>

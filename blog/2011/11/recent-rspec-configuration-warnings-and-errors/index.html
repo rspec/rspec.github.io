@@ -2,7 +2,7 @@
 <!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"><![endif]-->
 <!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
 <!--[if IE 8]><html class="no-js lt-ie9" lang="en"><![endif]-->
-<!--[if gt IE 8]<!--><html class="no-js" lang="en"><!--<![endif]--><head><meta charset="UTF-8" /><title>Recent RSpec Configuration Warnings and Errors</title><link href="/stylesheets/application.css" rel="stylesheet" type="text/css" /><link href="/stylesheets/normalize.css" rel="stylesheet" type="text/css" /><link href="/stylesheets/pages/blog.css" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" type="text/css" /><link href="/blog/feed.xml" rel="alternate" type="application/atom+xml" /></head><body class="blog"><header><nav><h1><a href="/">RSpec</a></h1><ul><li><a href="/about">About</a></li><li><a href="/documentation">Documentation</a></li><li><a href="/blog">Blog</a></li><li><a href="/upgrading-from-rspec-2">Upgrade</a></li><li><a href="/help">Get Help</a></li><li><a href="/contributing">Contributing</a></li></ul></nav></header><section><article class="blog_post"><h1>Recent RSpec Configuration Warnings and Errors</h1><h3 class="author">Myron Marston</h3><small class="date">Nov  4, 2011</small><p>RSpec 2.6 introduced a deprecation warning when using <code>RSpec.configure {
+<!--[if gt IE 8]<!--><html class="no-js" lang="en"><!--<![endif]--><head><meta charset="UTF-8" /><meta content="width=device-width, initial-scale=1" name="viewport" /><meta content="Recent RSpec Configuration Warnings and Errors" property="og:title" /><meta content="http://rspec.info/blog/2011/11/recent-rspec-configuration-warnings-and-errors/" property="og:url" /><meta content="http://rspec.info/images/logo_ogp.png" property="og:image" /><meta content="summary" name="twitter:card" /><meta content="@rspec" name="twitter:site" /><title>Recent RSpec Configuration Warnings and Errors</title><link href="/stylesheets/pages/blog.css" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" type="text/css" /><link href="/blog/feed.xml" rel="alternate" type="application/atom+xml" /></head><body class="blog"><header><nav><h1><img alt="Logo" src="/images/logo.png" /><a href="/">RSpec</a></h1><input class="hamburger-toggle" type="checkbox" /><div class="hamburger-icon"><div class="bar"></div><div class="bar"></div><div class="bar"></div></div><ul class="menu"><li><a href="/about">About</a></li><li><a href="/documentation">Documentation</a></li><li><a href="/blog">Blog</a></li><li><a href="/upgrading-from-rspec-2">Upgrade</a></li><li><a href="/help">Get Help</a></li><li><a href="/contributing">Contributing</a></li></ul></nav></header><section><article class="blog_post"><h1>Recent RSpec Configuration Warnings and Errors</h1><h3 class="author">Myron Marston</h3><small class="date">Nov  4, 2011</small><p>RSpec 2.6 introduced a deprecation warning when using <code>RSpec.configure {
 ... }</code> after defining an example group.  In RSpec 2.7, this warning was
 removed, and now an error is raised when particular configuration
 settings (<code>expect_with</code> and <code>mock_with</code>) are set after defining an
@@ -37,7 +37,7 @@ but love the runner.</p>
 
 <p>RSpec 2 allows you to configure which you want to use:</p>
 
-<pre class="highlight ruby"><code><span class="c1"># spec_helper.rb</span>
+<div class="highlight"><pre class="highlight ruby"><code><span class="c1"># spec_helper.rb</span>
 <span class="no">RSpec</span><span class="p">.</span><span class="nf">configure</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
   <span class="n">config</span><span class="p">.</span><span class="nf">expect_with</span> <span class="ss">:stdlib</span>
 <span class="k">end</span>
@@ -48,8 +48,7 @@ but love the runner.</p>
   <span class="c1"># not strictly necessary; this is the default config anyway</span>
   <span class="n">config</span><span class="p">.</span><span class="nf">expect_with</span> <span class="ss">:rspec</span>
 <span class="k">end</span>
-</code></pre>
-
+</code></pre></div>
 <p>Both rspec-expectations and the standard library assertions are
 available as modules–<code>RSpec::Matchers</code> and <code>Test::Unit::Assertions</code>,
 respectively.  RSpec 2.0 to 2.5 included the appropriate module into
@@ -80,7 +79,7 @@ trying to figure out why <code>super</code> would infinitely recurse on itself.<
 
 <p>I eventually managed to boil the problem down to a simple rspec-less example:</p>
 
-<pre class="highlight ruby"><code><span class="c1"># example.rb</span>
+<div class="highlight"><pre class="highlight ruby"><code><span class="c1"># example.rb</span>
 <span class="k">module</span> <span class="nn">MyModule</span>
   <span class="k">def</span> <span class="nf">some_method</span><span class="p">;</span> <span class="k">super</span><span class="p">;</span> <span class="k">end</span>
 <span class="k">end</span>
@@ -97,8 +96,7 @@ trying to figure out why <code>super</code> would infinitely recurse on itself.<
 <span class="no">MyBaseClass</span><span class="p">.</span><span class="nf">send</span><span class="p">(</span><span class="ss">:include</span><span class="p">,</span> <span class="no">MyModule</span><span class="p">)</span>
 
 <span class="no">MySubClass</span><span class="p">.</span><span class="nf">new</span><span class="p">.</span><span class="nf">some_method</span>
-</code></pre>
-
+</code></pre></div>
 <p>If you run this on ruby 1.8, you will (correctly) get a <code>NoMethodError</code>.
 On ruby 1.9, you get infinite recursion and a <code>SystemStackError</code>. Here's
 my short explanation of the conditions that trigger this bug:</p>
@@ -253,15 +251,14 @@ need to create a secondary helper file for your isolated, fast specs.</p>
 
 <p>Here's one way to do it:</p>
 
-<pre class="highlight ruby"><code><span class="c1"># spec/fast_spec_helper.rb</span>
+<div class="highlight"><pre class="highlight ruby"><code><span class="c1"># spec/fast_spec_helper.rb</span>
 <span class="nb">require</span> <span class="s1">'rspec'</span>
 
 <span class="no">RSpec</span><span class="p">.</span><span class="nf">configure</span> <span class="k">do</span> <span class="o">|</span><span class="n">c</span><span class="o">|</span>
   <span class="n">c</span><span class="p">.</span><span class="nf">mock_with</span> <span class="ss">:mocha</span>
 <span class="k">end</span>
-</code></pre>
-
-<pre class="highlight ruby"><code><span class="c1"># spec/spec_helper.rb</span>
+</code></pre></div>
+<div class="highlight"><pre class="highlight ruby"><code><span class="c1"># spec/spec_helper.rb</span>
 <span class="nb">require</span> <span class="s1">'fast_spec_helper'</span>
 
 <span class="c1"># load rails or whatever to get your full app environment booted</span>
@@ -269,22 +266,19 @@ need to create a secondary helper file for your isolated, fast specs.</p>
 <span class="no">RSpec</span><span class="p">.</span><span class="nf">configure</span> <span class="k">do</span> <span class="o">|</span><span class="n">c</span><span class="o">|</span>
   <span class="c1"># other RSpec configuration</span>
 <span class="k">end</span>
-</code></pre>
-
-<pre class="highlight ruby"><code><span class="c1"># spec/lib/my_class_spec.rb</span>
+</code></pre></div>
+<div class="highlight"><pre class="highlight ruby"><code><span class="c1"># spec/lib/my_class_spec.rb</span>
 <span class="nb">require</span> <span class="s1">'fast_spec_helper'</span>
 
 <span class="n">describe</span> <span class="no">MyClass</span> <span class="k">do</span>
 <span class="k">end</span>
-</code></pre>
-
-<pre class="highlight ruby"><code><span class="c1"># spec/controllers/my_controller_spec.rb</span>
+</code></pre></div>
+<div class="highlight"><pre class="highlight ruby"><code><span class="c1"># spec/controllers/my_controller_spec.rb</span>
 <span class="nb">require</span> <span class="s1">'spec_helper'</span>
 
 <span class="n">describe</span> <span class="no">MyController</span> <span class="k">do</span>
 <span class="k">end</span>
-</code></pre>
-
+</code></pre></div>
 <p>I know this goes against the "don't load spec_helper" approach a bit,
 but the important thing is that the rails/sinatra/whatever environment
 is not fully loaded in the isolated specs.  We're using
@@ -339,5 +333,22 @@ fixed.</p>
   ga('create', 'UA-59095215-1', 'auto');
   ga('send', 'pageview');
 
+</script>
+<script>
+  var SeedAndDewConfig = {};
+  (function() {
+    SeedAndDewConfig['adClass'] = "snd-ad";
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    SeedAndDewConfig['projectId'] = 'ef35b4ec-231e-4950-bd93-4c06fe3b2543';
+    SeedAndDewConfig['loadStartTime'] = performance.now();
+    SeedAndDewConfig['apiVersion'] = '2018-05-28'
+    SeedAndDewConfig['sessionId'] = Math.random().toString(36).substring(2, 15);
+    var snd = document.createElement('script');
+    snd.type = 'text/javascript';
+    snd.async = true;
+    snd.src = 'https://www.seedanddew.com/static/embed.min.js';
+    (document.getElementsByTagName('head')[0] ||
+    document.getElementsByTagName('body')[0]).appendChild(snd);
+  })();
 </script>
 </body></html>

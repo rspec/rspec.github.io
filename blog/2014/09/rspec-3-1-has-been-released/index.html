@@ -2,7 +2,7 @@
 <!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"><![endif]-->
 <!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
 <!--[if IE 8]><html class="no-js lt-ie9" lang="en"><![endif]-->
-<!--[if gt IE 8]<!--><html class="no-js" lang="en"><!--<![endif]--><head><meta charset="UTF-8" /><title>RSpec 3.1 has been released!</title><link href="/stylesheets/application.css" rel="stylesheet" type="text/css" /><link href="/stylesheets/normalize.css" rel="stylesheet" type="text/css" /><link href="/stylesheets/pages/blog.css" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" type="text/css" /><link href="/blog/feed.xml" rel="alternate" type="application/atom+xml" /></head><body class="blog"><header><nav><h1><a href="/">RSpec</a></h1><ul><li><a href="/about">About</a></li><li><a href="/documentation">Documentation</a></li><li><a href="/blog">Blog</a></li><li><a href="/upgrading-from-rspec-2">Upgrade</a></li><li><a href="/help">Get Help</a></li><li><a href="/contributing">Contributing</a></li></ul></nav></header><section><article class="blog_post"><h1>RSpec 3.1 has been released!</h1><h3 class="author">Myron Marston</h3><small class="date">Sep  4, 2014</small><p>RSpec 3.1 has just been released! Given our commitment to
+<!--[if gt IE 8]<!--><html class="no-js" lang="en"><!--<![endif]--><head><meta charset="UTF-8" /><meta content="width=device-width, initial-scale=1" name="viewport" /><meta content="RSpec 3.1 has been released!" property="og:title" /><meta content="http://rspec.info/blog/2014/09/rspec-3-1-has-been-released/" property="og:url" /><meta content="http://rspec.info/images/logo_ogp.png" property="og:image" /><meta content="summary" name="twitter:card" /><meta content="@rspec" name="twitter:site" /><title>RSpec 3.1 has been released!</title><link href="/stylesheets/pages/blog.css" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" type="text/css" /><link href="http://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" type="text/css" /><link href="/blog/feed.xml" rel="alternate" type="application/atom+xml" /></head><body class="blog"><header><nav><h1><img alt="Logo" src="/images/logo.png" /><a href="/">RSpec</a></h1><input class="hamburger-toggle" type="checkbox" /><div class="hamburger-icon"><div class="bar"></div><div class="bar"></div><div class="bar"></div></div><ul class="menu"><li><a href="/about">About</a></li><li><a href="/documentation">Documentation</a></li><li><a href="/blog">Blog</a></li><li><a href="/upgrading-from-rspec-2">Upgrade</a></li><li><a href="/help">Get Help</a></li><li><a href="/contributing">Contributing</a></li></ul></nav></header><section><article class="blog_post"><h1>RSpec 3.1 has been released!</h1><h3 class="author">Myron Marston</h3><small class="date">Sep  4, 2014</small><p>RSpec 3.1 has just been released! Given our commitment to
 <a href="http://semver.org/">semantic versioning</a>, this should be a trivial
 upgrade for anyone already using RSpec 3.0, but if we did introduce
 any regressions, please let us know, and we'll get a patch release
@@ -27,21 +27,19 @@ included backtraces, but lines from RSpec itself will continue to be
 excluded. Of course, if you want still gems to be excluded, you can easily
 add this pattern back yourself:</p>
 
-<pre class="highlight ruby"><code><span class="c1"># spec/spec_helper.rb</span>
+<div class="highlight"><pre class="highlight ruby"><code><span class="c1"># spec/spec_helper.rb</span>
 <span class="no">RSpec</span><span class="p">.</span><span class="nf">configure</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
   <span class="n">config</span><span class="p">.</span><span class="nf">backtrace_exclusion_patterns</span> <span class="o">&lt;&lt;</span> <span class="sr">/gems/</span>
 <span class="k">end</span>
-</code></pre>
-
+</code></pre></div>
 <p>In addition, we've added a new API to make it easy to filter out one
 or more specific gems:</p>
 
-<pre class="highlight ruby"><code><span class="c1"># spec/spec_helper.rb</span>
+<div class="highlight"><pre class="highlight ruby"><code><span class="c1"># spec/spec_helper.rb</span>
 <span class="no">RSpec</span><span class="p">.</span><span class="nf">configure</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
   <span class="n">config</span><span class="p">.</span><span class="nf">filter_gems_from_backtrace</span> <span class="s2">"rack"</span><span class="p">,</span> <span class="s2">"rake"</span>
 <span class="k">end</span>
-</code></pre>
-
+</code></pre></div>
 <h3 id="core-new---exclude-pattern-option">Core: New <code>--exclude-pattern</code> option</h3>
 
 <p>RSpec 3.1 has a new <code>--exclude-pattern</code> option that is the inverse of
@@ -49,21 +47,19 @@ or more specific gems:</p>
 for example, you can load and run all spec files except those from
 a particular directory:</p>
 
-<pre class="highlight ruby"><code><span class="n">rspec</span> <span class="o">--</span><span class="n">pattern</span> <span class="s2">"spec/**/*_spec.rb"</span> <span class="o">--</span><span class="n">exclude</span><span class="o">-</span><span class="n">pattern</span> <span class="s2">"spec/acceptance/**/*_spec.rb"</span>
-</code></pre>
-
+<div class="highlight"><pre class="highlight ruby"><code><span class="n">rspec</span> <span class="o">--</span><span class="n">pattern</span> <span class="s2">"spec/**/*_spec.rb"</span> <span class="o">--</span><span class="n">exclude</span><span class="o">-</span><span class="n">pattern</span> <span class="s2">"spec/acceptance/**/*_spec.rb"</span>
+</code></pre></div>
 <p>The rake task definition API supports this option now, too, so it is
 easy to define tasks that run all specs but those from one directory:</p>
 
-<pre class="highlight ruby"><code><span class="c1"># Rakefile</span>
+<div class="highlight"><pre class="highlight ruby"><code><span class="c1"># Rakefile</span>
 <span class="nb">require</span> <span class="s1">'rspec/core/rake_task'</span>
 
 <span class="n">desc</span> <span class="s2">"Run all but the acceptance specs"</span>
 <span class="no">RSpec</span><span class="o">::</span><span class="no">Core</span><span class="o">::</span><span class="no">RakeTask</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="ss">:all_but_acceptance</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">t</span><span class="o">|</span>
   <span class="n">t</span><span class="p">.</span><span class="nf">exclude_pattern</span> <span class="o">=</span> <span class="s2">"spec/acceptance/**/*_spec.rb"</span>
 <span class="k">end</span>
-</code></pre>
-
+</code></pre></div>
 <p>Thanks to John Gesimondo for suggesting and
 <a href="https://github.com/rspec/rspec-core/pull/1651">implementing</a>
 this new feature!</p>
@@ -105,28 +101,25 @@ settings in <code>spec_helper.rb</code>.</p>
 
 <p>This new matcher makes it easy to match an object based on its attributes:</p>
 
-<pre class="highlight ruby"><code><span class="no">Person</span> <span class="o">=</span> <span class="no">Struct</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="ss">:name</span><span class="p">,</span> <span class="ss">:age</span><span class="p">)</span>
+<div class="highlight"><pre class="highlight ruby"><code><span class="no">Person</span> <span class="o">=</span> <span class="no">Struct</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="ss">:name</span><span class="p">,</span> <span class="ss">:age</span><span class="p">)</span>
 <span class="n">person</span> <span class="o">=</span> <span class="no">Person</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s2">"Coen"</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 <span class="n">expect</span><span class="p">(</span><span class="n">person</span><span class="p">).</span><span class="nf">to</span> <span class="n">have_attributes</span><span class="p">(</span><span class="ss">name: </span><span class="s2">"Coen"</span><span class="p">,</span> <span class="ss">age: </span><span class="mi">3</span><span class="p">)</span>
-</code></pre>
-
+</code></pre></div>
 <p>It's also aliased to <code>an_object_having_attributes</code>, which is particularly
 useful in composed matcher expressions:</p>
 
-<pre class="highlight ruby"><code><span class="n">people</span> <span class="o">=</span> <span class="p">[</span><span class="no">Person</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s2">"Coen"</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="no">Person</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s2">"Daphne"</span><span class="p">,</span> <span class="mi">2</span><span class="p">)]</span>
+<div class="highlight"><pre class="highlight ruby"><code><span class="n">people</span> <span class="o">=</span> <span class="p">[</span><span class="no">Person</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s2">"Coen"</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="no">Person</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span><span class="s2">"Daphne"</span><span class="p">,</span> <span class="mi">2</span><span class="p">)]</span>
 <span class="n">expect</span><span class="p">(</span><span class="n">people</span><span class="p">).</span><span class="nf">to</span> <span class="n">match</span><span class="p">([</span>
   <span class="n">an_object_having_attributes</span><span class="p">(</span><span class="ss">name: </span><span class="s2">"Coen"</span><span class="p">,</span>   <span class="ss">age: </span><span class="mi">3</span><span class="p">),</span>
   <span class="n">an_object_having_attributes</span><span class="p">(</span><span class="ss">name: </span><span class="s2">"Daphne"</span><span class="p">,</span> <span class="ss">age: </span><span class="mi">2</span><span class="p">)</span>
 <span class="p">])</span>
-</code></pre>
-
+</code></pre></div>
 <p>It can also be used as an argument matcher for a message expectation:</p>
 
-<pre class="highlight ruby"><code><span class="n">expect</span><span class="p">(</span><span class="n">email_gateway</span><span class="p">).</span><span class="nf">to</span> <span class="n">receive</span><span class="p">(</span><span class="ss">:send_receipt</span><span class="p">).</span><span class="nf">with</span><span class="p">(</span>
+<div class="highlight"><pre class="highlight ruby"><code><span class="n">expect</span><span class="p">(</span><span class="n">email_gateway</span><span class="p">).</span><span class="nf">to</span> <span class="n">receive</span><span class="p">(</span><span class="ss">:send_receipt</span><span class="p">).</span><span class="nf">with</span><span class="p">(</span>
   <span class="n">an_object_having_attributes</span><span class="p">(</span><span class="ss">email: </span><span class="s2">"foo@example.com"</span><span class="p">)</span>
 <span class="p">)</span>
-</code></pre>
-
+</code></pre></div>
 <p>Thanks to Adam Farhi for
 <a href="https://github.com/rspec/rspec-expectations/pull/571">implementing</a>
 this new matcher.</p>
@@ -140,18 +133,17 @@ changes that needed to be made to ensure the block is only executed
 once as one would expect. We've addressed this in 3.1, which allows an
 expression like:</p>
 
-<pre class="highlight ruby"><code><span class="n">x</span> <span class="o">=</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span>
+<div class="highlight"><pre class="highlight ruby"><code><span class="n">x</span> <span class="o">=</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="n">expect</span> <span class="p">{</span>
   <span class="n">x</span> <span class="o">+=</span> <span class="mi">1</span>
   <span class="n">y</span> <span class="o">+=</span> <span class="mi">2</span>
 <span class="p">}.</span><span class="nf">to</span> <span class="n">change</span> <span class="p">{</span> <span class="n">x</span> <span class="p">}.</span><span class="nf">to</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span><span class="nf">and</span> <span class="n">change</span> <span class="p">{</span> <span class="n">y</span> <span class="p">}.</span><span class="nf">to</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-</code></pre>
-
+</code></pre></div>
 <h3 id="expectations-new-definenegatedmatcher-api">Expectations: New <code>define_negated_matcher</code> API</h3>
 
 <p>This new API provides a means to define a negated version of an existing matcher:</p>
 
-<pre class="highlight ruby"><code><span class="c1"># define a negated form of `include`...</span>
+<div class="highlight"><pre class="highlight ruby"><code><span class="c1"># define a negated form of `include`...</span>
 <span class="no">RSpec</span><span class="o">::</span><span class="no">Matchers</span><span class="p">.</span><span class="nf">define_negated_matcher</span> <span class="ss">:exclude</span><span class="p">,</span> <span class="ss">:include</span>
 
 <span class="c1"># ...which allows you to write:</span>
@@ -159,18 +151,16 @@ expression like:</p>
 
 <span class="c1"># ...rather than:</span>
 <span class="n">expect</span><span class="p">(</span><span class="n">odd_numbers</span><span class="p">).</span><span class="nf">not_to</span> <span class="kp">include</span><span class="p">(</span><span class="mi">14</span><span class="p">)</span>
-</code></pre>
-
+</code></pre></div>
 <p>On its own, this doesn't buy you much. However, it really comes in handy
 when dealing with composed or compound matcher expressions:</p>
 
-<pre class="highlight ruby"><code><span class="n">adults</span> <span class="o">=</span> <span class="no">Town</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="s2">"Springfield"</span><span class="p">).</span><span class="nf">adults</span>
+<div class="highlight"><pre class="highlight ruby"><code><span class="n">adults</span> <span class="o">=</span> <span class="no">Town</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="s2">"Springfield"</span><span class="p">).</span><span class="nf">adults</span>
 <span class="n">marge</span>  <span class="o">=</span> <span class="no">Character</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="s2">"Marge"</span><span class="p">)</span>
 <span class="n">bart</span>   <span class="o">=</span> <span class="no">Character</span><span class="p">.</span><span class="nf">find</span><span class="p">(</span><span class="s2">"Bart"</span><span class="p">)</span>
 
 <span class="n">expect</span><span class="p">(</span><span class="n">adults</span><span class="p">).</span><span class="nf">to</span> <span class="kp">include</span><span class="p">(</span><span class="n">marge</span><span class="p">).</span><span class="nf">and</span> <span class="n">exclude</span><span class="p">(</span><span class="n">bart</span><span class="p">)</span>
-</code></pre>
-
+</code></pre></div>
 <p>Thanks to Adam Farhi for helping with the
 <a href="https://github.com/rspec/rspec-expectations/pull/618">implementation</a>
 of this feature.</p>
@@ -180,7 +170,7 @@ of this feature.</p>
 <p>The custom matcher DSL allows you to define a fluent interface using
 <code>chain</code>:</p>
 
-<pre class="highlight ruby"><code><span class="no">RSpec</span><span class="o">::</span><span class="no">Matchers</span><span class="p">.</span><span class="nf">define</span> <span class="ss">:be_smaller_than</span> <span class="k">do</span> <span class="o">|</span><span class="n">max</span><span class="o">|</span>
+<div class="highlight"><pre class="highlight ruby"><code><span class="no">RSpec</span><span class="o">::</span><span class="no">Matchers</span><span class="p">.</span><span class="nf">define</span> <span class="ss">:be_smaller_than</span> <span class="k">do</span> <span class="o">|</span><span class="n">max</span><span class="o">|</span>
   <span class="n">chain</span> <span class="ss">:and_bigger_than</span> <span class="k">do</span> <span class="o">|</span><span class="n">min</span><span class="o">|</span>
     <span class="vi">@min</span> <span class="o">=</span> <span class="n">min</span>
   <span class="k">end</span>
@@ -192,29 +182,25 @@ of this feature.</p>
 
 <span class="c1"># usage:</span>
 <span class="n">expect</span><span class="p">(</span><span class="mi">10</span><span class="p">).</span><span class="nf">to</span> <span class="n">be_smaller_than</span><span class="p">(</span><span class="mi">20</span><span class="p">).</span><span class="nf">and_bigger_than</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-</code></pre>
-
+</code></pre></div>
 <p>In RSpec 2.x and 3.0, the chained part was not included in failure messages:</p>
 
-<pre class="highlight plaintext"><code>Failure/Error: expect(5).to be_smaller_than(10).and_bigger_than(7)
+<div class="highlight"><pre class="highlight plaintext"><code>Failure/Error: expect(5).to be_smaller_than(10).and_bigger_than(7)
   expected 5 to be smaller than 10
-</code></pre>
-
+</code></pre></div>
 <p>RSpec 3.1 can include the chained part in the failure message:</p>
 
-<pre class="highlight plaintext"><code>Failure/Error: expect(5).to be_smaller_than(10).and_bigger_than(7)
+<div class="highlight"><pre class="highlight plaintext"><code>Failure/Error: expect(5).to be_smaller_than(10).and_bigger_than(7)
   expected 5 to be smaller than 10 and bigger than 7
-</code></pre>
-
+</code></pre></div>
 <p>…but only if you enable this behavior with a config option:</p>
 
-<pre class="highlight ruby"><code><span class="no">RSpec</span><span class="p">.</span><span class="nf">configure</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
+<div class="highlight"><pre class="highlight ruby"><code><span class="no">RSpec</span><span class="p">.</span><span class="nf">configure</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
   <span class="n">config</span><span class="p">.</span><span class="nf">expect_with</span> <span class="ss">:rspec</span> <span class="k">do</span> <span class="o">|</span><span class="n">expectations</span><span class="o">|</span>
     <span class="n">expectations</span><span class="p">.</span><span class="nf">include_chain_clauses_in_custom_matcher_descriptions</span> <span class="o">=</span> <span class="kp">true</span>
   <span class="k">end</span>
 <span class="k">end</span>
-</code></pre>
-
+</code></pre></div>
 <p>This config option defaults to <code>false</code> for backwards compatibility.
 We plan to always enable it in RSpec 4.</p>
 
@@ -227,11 +213,10 @@ this improvement!</p>
 <p>RSpec 2.14 added support for using test doubles as spies, which allow
 you to set an expectation that a message was received after the fact:</p>
 
-<pre class="highlight ruby"><code><span class="n">spy</span> <span class="o">=</span> <span class="n">double</span><span class="p">(</span><span class="ss">:foo</span> <span class="o">=&gt;</span> <span class="kp">nil</span><span class="p">)</span>
+<div class="highlight"><pre class="highlight ruby"><code><span class="n">spy</span> <span class="o">=</span> <span class="n">double</span><span class="p">(</span><span class="ss">:foo</span> <span class="o">=&gt;</span> <span class="kp">nil</span><span class="p">)</span>
 <span class="c1"># do something with spy</span>
 <span class="n">expect</span><span class="p">(</span><span class="n">spy</span><span class="p">).</span><span class="nf">to</span> <span class="n">have_received</span><span class="p">(</span><span class="ss">:foo</span><span class="p">)</span>
-</code></pre>
-
+</code></pre></div>
 <p>Note that we stubbed <code>foo</code> here. This is necessary because doubles are
 strict by default – meaning that they will raise an error when they
 receive an unexpected message. Unfortunately, this forces a bit of
@@ -241,20 +226,18 @@ once before and expecting it was received after).</p>
 <p>You can get around this by using <code>as_null_object</code> which makes a double
 "loose" rather than strict, allowing it to receive any message:</p>
 
-<pre class="highlight ruby"><code><span class="n">spy</span> <span class="o">=</span> <span class="n">double</span><span class="p">.</span><span class="nf">as_null_object</span>
+<div class="highlight"><pre class="highlight ruby"><code><span class="n">spy</span> <span class="o">=</span> <span class="n">double</span><span class="p">.</span><span class="nf">as_null_object</span>
 <span class="c1"># do something with spy</span>
 <span class="n">expect</span><span class="p">(</span><span class="n">spy</span><span class="p">).</span><span class="nf">to</span> <span class="n">have_received</span><span class="p">(</span><span class="ss">:foo</span><span class="p">)</span>
-</code></pre>
-
+</code></pre></div>
 <p>This pattern is useful enough that in RSpec 3.1, we've added new methods
 to declare spies:</p>
 
-<pre class="highlight ruby"><code><span class="n">spy</span><span class="p">(.</span><span class="nf">.</span><span class="o">.</span><span class="p">)</span>          <span class="c1"># equivalent to double(...).as_null_object</span>
-<span class="n">instance_spy</span><span class="p">(.</span><span class="nf">.</span><span class="o">.</span><span class="p">)</span> <span class="c1"># equivalent to instance_double(...).as_null_object</span>
-<span class="n">class_spy</span><span class="p">(.</span><span class="nf">.</span><span class="o">.</span><span class="p">)</span>    <span class="c1"># equivalent to class_double(...).as_null_object</span>
-<span class="n">object_spy</span><span class="p">(.</span><span class="nf">.</span><span class="o">.</span><span class="p">)</span>   <span class="c1"># equivalent to object_double(...).as_null_object</span>
-</code></pre>
-
+<div class="highlight"><pre class="highlight ruby"><code><span class="n">spy</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>          <span class="c1"># equivalent to double(...).as_null_object</span>
+<span class="n">instance_spy</span><span class="p">(</span><span class="o">...</span><span class="p">)</span> <span class="c1"># equivalent to instance_double(...).as_null_object</span>
+<span class="n">class_spy</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>    <span class="c1"># equivalent to class_double(...).as_null_object</span>
+<span class="n">object_spy</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>   <span class="c1"># equivalent to object_double(...).as_null_object</span>
+</code></pre></div>
 <p>Thanks to Justin Searls for <a href="https://github.com/rspec/rspec-mocks/issues/636">bringing
 up this issue</a> and
 Sam Phippen for
@@ -268,11 +251,10 @@ particular object just for the duration of the current example. The
 original method is yielded to your block as the first argument (before
 the args of the actual method call).</p>
 
-<pre class="highlight ruby"><code><span class="n">allow</span><span class="p">(</span><span class="n">api_client</span><span class="p">).</span><span class="nf">to</span> <span class="n">receive</span><span class="p">(</span><span class="ss">:fetch_users</span><span class="p">).</span><span class="nf">and_wrap_original</span> <span class="k">do</span> <span class="o">|</span><span class="n">original_method</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="o">|</span>
+<div class="highlight"><pre class="highlight ruby"><code><span class="n">allow</span><span class="p">(</span><span class="n">api_client</span><span class="p">).</span><span class="nf">to</span> <span class="n">receive</span><span class="p">(</span><span class="ss">:fetch_users</span><span class="p">).</span><span class="nf">and_wrap_original</span> <span class="k">do</span> <span class="o">|</span><span class="n">original_method</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="o">|</span>
   <span class="n">original_method</span><span class="p">.</span><span class="nf">call</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">).</span><span class="nf">first</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="c1"># truncate the response to the first 10 users</span>
 <span class="k">end</span>
-</code></pre>
-
+</code></pre></div>
 <p>Thanks to Jon Rowe for
 <a href="https://github.com/rspec/rspec-mocks/pull/762">implementing</a> this
 feature.</p>
@@ -533,5 +515,22 @@ settings in the generated <code>rails_helper</code>. (Aaron Kromer, #1150)</li>
   ga('create', 'UA-59095215-1', 'auto');
   ga('send', 'pageview');
 
+</script>
+<script>
+  var SeedAndDewConfig = {};
+  (function() {
+    SeedAndDewConfig['adClass'] = "snd-ad";
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    SeedAndDewConfig['projectId'] = 'ef35b4ec-231e-4950-bd93-4c06fe3b2543';
+    SeedAndDewConfig['loadStartTime'] = performance.now();
+    SeedAndDewConfig['apiVersion'] = '2018-05-28'
+    SeedAndDewConfig['sessionId'] = Math.random().toString(36).substring(2, 15);
+    var snd = document.createElement('script');
+    snd.type = 'text/javascript';
+    snd.async = true;
+    snd.src = 'https://www.seedanddew.com/static/embed.min.js';
+    (document.getElementsByTagName('head')[0] ||
+    document.getElementsByTagName('body')[0]).appendChild(snd);
+  })();
 </script>
 </body></html>
