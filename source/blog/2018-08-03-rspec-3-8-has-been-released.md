@@ -1,6 +1,6 @@
 ---
 title: RSpec 3.8 has been released!
-author: Myron Marston
+author: Myron Marston and Jon Rowe
 ---
 
 RSpec 3.8 has just been released! Given our commitment to
@@ -27,7 +27,7 @@ RSpec has supported a `--bisect` feature since
 [RSpec 3.3](/blog/2015/06/rspec-3-3-has-been-released/#core-bisect).
 This feature is useful when your test suite has an ordering
 dependency--that is, the suite only fails when the tests are run
-in a specific order.  `--bisect` will repeatedly run smaller and
+in a specific order. `--bisect` will repeatedly run smaller and
 smaller subsets of your suite in order to narrow it down to the
 minimal set of specs needed to reproduce the failures.
 
@@ -67,7 +67,7 @@ source control). In RSpec 3.8, we've expanded this feature to
 support the [XDG Base Directory
 Specification](https://specifications.freedesktop.org/basedir-spec/latest/),
 which defines a standard way for tools to locate the global personal
-options file.  This gives users complete control over where this
+options file. This gives users complete control over where this
 file is located rather than forcing it to live in their home directory.
 
 To use this feature, simply set the `$XDG_CONFIG_HOME` environment
@@ -81,11 +81,38 @@ Thanks to Magnus Bergmark for implementing this feature!
 
 ### Expectations: Formatted output length is now configurable
 
-TODO (Sam/Benoit): write this up since you authored this feature
+When setting expectations on large objects their string representations can become
+rather unwieldy and can clutter the console output. In RSpec 3.6, we started
+truncating these objects to address this issue, but did not make it easily configurable.
 
-### Rails: ?
+In RSpec 3.8, you can now configure it:
 
-TODO (Sam/Benoit/Jon): figure out what is notable
+~~~ ruby
+RSpec.configure do |config|
+  config.expect_with :rspec do |expectations|
+    expectations.max_formatted_output_length = 200
+  end
+end
+~~~
+
+You can also disable the truncation entirely by setting the config option to `nil`.
+
+### Rails:  `have_http_status` matcher upgraded to support Rails 5.2
+
+A change in Rails 5.2 caused RSpec's `have_http_status` matcher to issue deprecation
+warnings. In RSpec 3.9, these warnings have been removed.
+
+### Rails: View specs `stub_template` performance improved.
+
+Thanks to Simon Coffey for implementing caching for `stub_template`
+that prevents unnecessary recreation of templates. This improves performance
+by reducing the amount of allocation and setup performed.
+
+### Rails: `rails_helper.rb` improvements
+
+Thank you to Koichi ITO and Alessandro Rodi for improving our generated
+`rails_helper.rb` with improved messages when migrations are pending,
+and bringing us in line with Rails standards.
 
 ## Stats:
 
