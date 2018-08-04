@@ -100,7 +100,7 @@ You can also disable the truncation entirely by setting the config option to `ni
 ### Rails:  `have_http_status` matcher upgraded to support Rails 5.2
 
 A change in Rails 5.2 caused RSpec's `have_http_status` matcher to issue deprecation
-warnings. In RSpec 3.9, these warnings have been removed.
+warnings. In RSpec 3.8, these warnings have been removed.
 
 ### Rails: View specs `stub_template` performance improved.
 
