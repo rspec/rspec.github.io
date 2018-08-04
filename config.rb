@@ -111,9 +111,9 @@ end
 
 case ENV['TARGET'].to_s
 when /prod/i
-  deploy_to 'https://github.com/rspec/rspec.github.io.git'
+  deploy_to 'git@github.com:rspec/rspec.github.io.git'
 else
-  deploy_to 'https://github.com/RSpec-Staging/rspec-staging.github.io.git'
+  deploy_to 'git@github.com:RSpec-Staging/rspec-staging.github.io.git'
   ignore 'CNAME'
 end
 
