@@ -14,8 +14,8 @@ has joined the RSpec team since the last release. Welcome to the team, Benoit!
 We know you'll do great things :).
 
 RSpec continues to be a community-driven project with contributors
-from all over the world. This release includes over xxx commits and yyy
-merged pull requests from zzz different contributors!
+from all over the world. This release includes 369 commits and 98
+merged pull requests from 52 different contributors!
 
 Thank you to everyone who helped make this release happen!
 
@@ -116,7 +116,65 @@ and bringing us in line with Rails standards.
 
 ## Stats:
 
-TODO: generate
+### Combined:
+
+* **Total Commits**: 369
+* **Merged pull requests**: 98
+* **52 contributors**: Ace Dimasuhid, Alessandro Rodi, Alexander
+Panasyuk, Alyssa Ross, Andrew, Andrew Vit, Benoit Tigeot, Brad Charna,
+Brian Kephart, Christophe Bliard, Craig J. Bass, Daniel Colson, Douglas
+Lovell, Eric Hayes, Garett Arrowood, Gary Bernhardt, Gustav Munkby,
+James Crisp, Joel Taylor, Jon Rowe, Kenichi Kamiya, Koichi ITO, Lairan,
+Laura Paakkinen, Laurent Cobos, Magnus Bergmark, Matt Brictson, Maxim
+Krizhanovsky, Myron Marston, Nikola Đuza, Oleg Pudeyev, Olivier Lacan,
+Olle Jonsson, Pablo Brasero, Paul McMahon, Regan Chan, Sam Phippen,
+Sergiy Yarinovskiy, Shane Cavanaugh, Shia, Simon Coffey, Sorah Fukumori,
+Systho, Szijjártó-Nagy Misu, Tom Chen, Xavier Shay, Yuji Nakayama,
+arjan0307, joker1007, lsarni, n.epifanov, pavel
+
+### rspec-core:
+
+* **Total Commits**: 94
+* **Merged pull requests**: 24
+* **17 contributors**: Alyssa Ross, Andrew Vit, Benoit Tigeot, Garett
+Arrowood, Gary Bernhardt, Jon Rowe, Kenichi Kamiya, Koichi ITO, Magnus
+Bergmark, Myron Marston, Oleg Pudeyev, Olle Jonsson, Sam Phippen, Sorah
+Fukumori, Systho, Xavier Shay, arjan0307
+
+### rspec-expectations:
+
+* **Total Commits**: 52
+* **Merged pull requests**: 15
+* **13 contributors**: Ace Dimasuhid, Alyssa Ross, Benoit Tigeot, James
+Crisp, Jon Rowe, Kenichi Kamiya, Myron Marston, Pablo Brasero, Sam
+Phippen, Xavier Shay, Yuji Nakayama, joker1007, n.epifanov
+
+### rspec-mocks:
+
+* **Total Commits**: 47
+* **Merged pull requests**: 16
+* **13 contributors**: Alexander Panasyuk, Alyssa Ross, Andrew, Benoit
+Tigeot, James Crisp, Jon Rowe, Kenichi Kamiya, Maxim Krizhanovsky, Myron
+Marston, Olle Jonsson, Sam Phippen, Sergiy Yarinovskiy, Xavier Shay
+
+### rspec-rails:
+
+* **Total Commits**: 132
+* **Merged pull requests**: 27
+* **29 contributors**: Alessandro Rodi, Benoit Tigeot, Brad Charna,
+Brian Kephart, Christophe Bliard, Daniel Colson, Douglas Lovell, Eric
+Hayes, Joel Taylor, Jon Rowe, Kenichi Kamiya, Koichi ITO, Lairan, Laura
+Paakkinen, Laurent Cobos, Matt Brictson, Myron Marston, Nikola Đuza,
+Olivier Lacan, Paul McMahon, Regan Chan, Sam Phippen, Shane Cavanaugh,
+Shia, Simon Coffey, Szijjártó-Nagy Misu, Tom Chen, lsarni, pavel
+
+### rspec-support:
+
+* **Total Commits**: 44
+* **Merged pull requests**: 16
+* **10 contributors**: Alyssa Ross, Benoit Tigeot, Craig J. Bass, Gustav
+Munkby, James Crisp, Jon Rowe, Kenichi Kamiya, Myron Marston, Sam
+Phippen, Xavier Shay
 
 ## Docs
 
@@ -134,6 +192,106 @@ TODO: generate
 * [rspec-mocks](http://relishapp.com/rspec/rspec-mocks)
 * [rspec-rails](http://relishapp.com/rspec/rspec-rails)
 
-## Release notes:
+## Release Notes
 
-TODO: generate
+### rspec-core-3.8.0
+[Full Changelog](http://github.com/rspec/rspec-core/compare/v3.7.1...v3.8.0)
+
+Enhancements:
+
+* Improve shell escaping used by `RSpec::Core::RakeTask` and `--bisect` so
+  that it works on `Pathname` objects. (Andrew Vit, #2479)
+* Nicely format errors encountered while loading files specified
+  by `--require` option.  (Myron Marston, #2504)
+* Significantly improve the performance of `--bisect` on platforms that
+  support forking by replacing the shell-based runner with one that uses
+  forking so that RSpec and the application environment can be booted only
+  once, instead of once per spec run. (Myron Marston, #2511)
+* Provide a configuration API to pick which bisect runner is used for
+  `--bisect`. Pick a runner via `config.bisect_runner = :shell` or
+  `config.bisect_runner = :fork` in a file loaded by a `--require`
+  option passed at the command line or set in `.rspec`. (Myron Marston, #2511)
+* Support the [XDG Base Directory
+  Specification](https://specifications.freedesktop.org/basedir-spec/latest/)
+  for the global options file. `~/.rspec` is still supported when no
+  options file is found in `$XDG_CONFIG_HOME/rspec/options` (Magnus Bergmark, #2538)
+* Extract `RSpec.world.prepare_example_filtering` that sets up the
+  example filtering for custom RSpec runners. (Oleg Pudeyev, #2552)
+
+Bug Fixes:
+
+* Prevent an `ArgumentError` when truncating backtraces with two identical
+  backtraces. (Systho, #2515, Benoit Tigeot, #2539)
+
+
+### rspec-expectations-3.8.0
+[Full Changelog](http://github.com/rspec/rspec-expectations/compare/v3.7.0...v3.8.0)
+
+Enhancements:
+
+* Improve failure message of `change(receiver, :message)` by including the
+  receiver as `SomeClass#some_message`. (Tomohiro Hashidate, #1005)
+* Improve `change` matcher so that it can correctly detect changes in
+  deeply nested mutable objects (such as arrays-of-hashes-of-arrays).
+  The improved logic uses the before/after `hash` value to see if the
+  object has been mutated, rather than shallow duping the object.
+  (Myron Marston, #1034)
+* Improve `include` matcher so that pseudo-hash objects (e.g. objects
+  that decorate a hash using a `SimpleDelegator` or similar) are treated
+  as a hash, as long as they implement `to_hash`. (Pablo Brasero, #1012)
+* Add `max_formatted_output_length=` to configuration, allowing changing
+  the length at which we truncate large output strings.
+  (Sam Phippen #951, Benoit Tigeot #1056)
+* Improve error message when passing a matcher that doesn't support block
+  expectations to a block based `expect`. (@nicktime, #1066)
+
+
+### rspec-mocks-3.8.0
+[Full Changelog](http://github.com/rspec/rspec-mocks/compare/v3.7.0...v3.8.0)
+
+Bug Fixes:
+
+* Issue error when encountering invalid "counted" negative message expectations.
+  (Sergiy Yarinovskiy, #1212)
+* Ensure `allow_any_instance_of` and `expect_any_instance_of` can be temporarily
+  supressed. (Jon Rowe, #1228)
+* Ensure `expect_any_instance_of(double).to_not have_received(:some_method)`
+  fails gracefully (as its not supported) rather than issuing a `NoMethodError`.
+  (Maxim Krizhanovsky, #1231)
+
+
+### rspec-rails-3.8.0
+[Full Changelog](http://github.com/rspec/rspec-rails/compare/v3.7.2...v3.8.0)
+
+Enhancements:
+
+* Improved message when migrations are pending in the default `rails_helper.rb`
+  (Koichi ITO, #1924)
+* `have_http_status` matcher now supports Rails 5.2 style response symbols
+  (Douglas Lovell, #1951)
+* Change generated Rails helper to match Rails standards for Rails.root
+  (Alessandro Rodi, #1960)
+* At support for asserting enqueued jobs have no wait period attached.
+  (Brad Charna, #1977)
+* Cache instances of `ActionView::Template` used in `stub_template` resulting
+  in increased performance due to less allocations and setup. (Simon Coffey, #1979)
+* Rails scaffold generator now respects longer namespaces (e.g. api/v1/\<thing\>).
+  (Laura Paakkinen, #1958)
+
+Bug Fixes:
+
+* Escape quotation characters when producing method names for system spec
+  screenshots. (Shane Cavanaugh, #1955)
+* Use relative path for resolving fixtures when `fixture_path` is not set.
+  (Laurent Cobos, #1943)
+* Allow custom template resolvers in view specs. (@ahorek, #1941)
+
+
+### rspec-support-3.8.0
+[Full Changelog](http://github.com/rspec/rspec-support/compare/v3.7.1...v3.8.0)
+
+Bug Fixes:
+
+* Order hash keys before diffing to improve diff accuracy when using mocked calls.
+  (James Crisp, #334)
+
