@@ -5,13 +5,13 @@
 <title>
   Class: RSpec::Mocks::ConstantMutator
   
-    &mdash; Documentation by YARD 0.9.15
+    &mdash; Documentation by YARD 0.9.16
   
 </title>
 
-  <link rel="stylesheet" href="/stylesheets/docs/style.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="/documentation/3.8/rspec-mocks/css/style.css" type="text/css" charset="utf-8" />
 
-  <link rel="stylesheet" href="/stylesheets/docs/common.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="/documentation/3.8/rspec-mocks/css/common.css" type="text/css" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
   pathId = "RSpec::Mocks::ConstantMutator";
@@ -19,9 +19,9 @@
 </script>
 
 
-  <script type="text/javascript" charset="utf-8" src="/javascripts/docs/jquery.js"></script>
+  <script type="text/javascript" charset="utf-8" src="/documentation/3.8/rspec-mocks/js/jquery.js"></script>
 
-  <script type="text/javascript" charset="utf-8" src="/javascripts/docs/app.js"></script>
+  <script type="text/javascript" charset="utf-8" src="/documentation/3.8/rspec-mocks/js/app.js"></script>
 
 
   </head>
@@ -105,8 +105,7 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    
-<p>Provides a means to stub constants.</p>
+    <p>Provides a means to stub constants.</p>
 
 
   </div>
@@ -146,8 +145,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Hides a constant.</p>
+    <span class="summary_desc"><div class='inline'><p>Hides a constant.</p>
 </div></span>
   
 </li>
@@ -170,11 +168,7 @@
   <span class="private note title">private</span>
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Used internally by the constant stubbing to raise a helpful error when a
-constant like “A::B::C” is stubbed and A::B is not a module (and thus,
-it&#39;s impossible to define “A::B::C” since only modules can have nested
-constants).</p>
+    <span class="summary_desc"><div class='inline'><p>Used internally by the constant stubbing to raise a helpful error when a constant like &quot;A::B::C&quot; is stubbed and A::B is not a module (and thus, it&#39;s impossible to define &quot;A::B::C&quot; since only modules can have nested constants).</p>
 </div></span>
   
 </li>
@@ -197,8 +191,7 @@ constants).</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Stubs a constant.</p>
+    <span class="summary_desc"><div class='inline'><p>Stubs a constant.</p>
 </div></span>
   
 </li>
@@ -228,13 +221,12 @@ constants).</p>
     
   <div class="note notetag">
     <strong>Note:</strong>
-    <div class='inline'>
-<p>It&#39;s recommended that you use <code>hide_const</code> in your examples.
-This is an alternate public API that is provided so you can hide constants
-in other contexts (e.g. helper classes).</p>
+    <div class='inline'><p>It&#39;s recommended that you use <code>hide_const</code> in your
+examples. This is an alternate public API that is provided
+so you can hide constants in other contexts (e.g. helper
+classes).</p>
 </div>
   </div>
-
 
 <p>Hides a constant.</p>
 
@@ -255,9 +247,8 @@ in other contexts (e.g. helper classes).</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>The fully qualified name of the constant. The current constant scoping at
-the point of call is not considered.</p>
+        <div class='inline'><p>The fully qualified name of the constant.
+The current constant scoping at the point of call is not considered.</p>
 </div>
       
     </li>
@@ -310,11 +301,10 @@ the point of call is not considered.</p>
   <strong>This method is part of a private API.</strong>
   You should avoid using this method if possible, as it may be removed or be changed in the future.
 </p>
-
-<p>Used internally by the constant stubbing to raise a helpful error when a
-constant like “A::B::C” is stubbed and A::B is not a module (and thus,
-it&#39;s impossible to define “A::B::C” since only modules can have nested
-constants).</p>
+<p>Used internally by the constant stubbing to raise a helpful
+error when a constant like &quot;A::B::C&quot; is stubbed and A::B is
+not a module (and thus, it&#39;s impossible to define &quot;A::B::C&quot;
+since only modules can have nested constants).</p>
 
 
   </div>
@@ -363,13 +353,12 @@ constants).</p>
     
   <div class="note notetag">
     <strong>Note:</strong>
-    <div class='inline'>
-<p>It&#39;s recommended that you use <code>stub_const</code> in your examples.
-This is an alternate public API that is provided so you can stub constants
-in other contexts (e.g. helper classes).</p>
+    <div class='inline'><p>It&#39;s recommended that you use <code>stub_const</code> in your
+examples. This is an alternate public API that is provided
+so you can stub constants in other contexts (e.g. helper
+classes).</p>
 </div>
   </div>
-
 
 <p>Stubs a constant.</p>
 
@@ -390,9 +379,8 @@ in other contexts (e.g. helper classes).</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>The fully qualified name of the constant. The current constant scoping at
-the point of call is not considered.</p>
+        <div class='inline'><p>The fully qualified name of the constant. The current
+constant scoping at the point of call is not considered.</p>
 </div>
       
     </li>
@@ -407,9 +395,8 @@ the point of call is not considered.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>The value to make the constant refer to. When the example completes, the
-constant will be restored to its prior state.</p>
+        <div class='inline'><p>The value to make the constant refer to. When the
+example completes, the constant will be restored to its prior state.</p>
 </div>
       
     </li>
@@ -426,8 +413,7 @@ constant will be restored to its prior state.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>Stubbing options.</p>
+        <div class='inline'><p>Stubbing options.</p>
 </div>
       
     </li>
@@ -451,10 +437,10 @@ constant will be restored to its prior state.</p>
             
           </span>
           
-            &mdash; <div class='inline'>
-<p>Determines what nested constants, if any, will be transferred from the
-original value of the constant to the new value of the constant. This only
-works if both the original and new values are modules (or classes).</p>
+            &mdash; <div class='inline'><p>Determines
+what nested constants, if any, will be transferred from the original value
+of the constant to the new value of the constant. This only works if both
+the original and new values are modules (or classes).</p>
 </div>
           
         </li>
@@ -473,8 +459,7 @@ works if both the original and new values are modules (or classes).</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>the stubbed value of the constant</p>
+        <div class='inline'><p>the stubbed value of the constant</p>
 </div>
       
     </li>
@@ -536,9 +521,9 @@ works if both the original and new values are modules (or classes).</p>
 </div>
 
       <div id="footer">
-  Generated on Sat Aug  4 13:01:55 2018 by
+  Generated on Fri Sep 14 00:02:10 2018 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.15 (ruby-2.4.2).
+  0.9.16 (ruby-2.5.1).
 </div>
 
 <script>

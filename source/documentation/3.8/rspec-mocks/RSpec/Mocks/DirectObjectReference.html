@@ -5,13 +5,13 @@
 <title>
   Class: RSpec::Mocks::DirectObjectReference
   
-    &mdash; Documentation by YARD 0.9.15
+    &mdash; Documentation by YARD 0.9.16
   
 </title>
 
-  <link rel="stylesheet" href="/stylesheets/docs/style.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="/documentation/3.8/rspec-mocks/css/style.css" type="text/css" charset="utf-8" />
 
-  <link rel="stylesheet" href="/stylesheets/docs/common.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="/documentation/3.8/rspec-mocks/css/common.css" type="text/css" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
   pathId = "RSpec::Mocks::DirectObjectReference";
@@ -19,9 +19,9 @@
 </script>
 
 
-  <script type="text/javascript" charset="utf-8" src="/javascripts/docs/jquery.js"></script>
+  <script type="text/javascript" charset="utf-8" src="/documentation/3.8/rspec-mocks/js/jquery.js"></script>
 
-  <script type="text/javascript" charset="utf-8" src="/javascripts/docs/app.js"></script>
+  <script type="text/javascript" charset="utf-8" src="/documentation/3.8/rspec-mocks/js/app.js"></script>
 
 
   </head>
@@ -100,11 +100,11 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    
-<p>An implementation of rspec-mocks&#39; reference interface. Used when an
-object is passed to <span class='object_link'><a href="ExampleMethods.html#object_double-instance_method" title="RSpec::Mocks::ExampleMethods#object_double (method)">ExampleMethods#object_double</a></span>, or an anonymous class
-or module is passed to <span class='object_link'><a href="ExampleMethods.html#instance_double-instance_method" title="RSpec::Mocks::ExampleMethods#instance_double (method)">ExampleMethods#instance_double</a></span> or
-<span class='object_link'><a href="ExampleMethods.html#class_double-instance_method" title="RSpec::Mocks::ExampleMethods#class_double (method)">ExampleMethods#class_double</a></span>. Represents a reference to that object.</p>
+    <p>An implementation of rspec-mocks&#39; reference interface.
+Used when an object is passed to <span class='object_link'><a href="ExampleMethods.html#object_double-instance_method" title="RSpec::Mocks::ExampleMethods#object_double (method)">ExampleMethods#object_double</a></span>, or
+an anonymous class or module is passed to <span class='object_link'><a href="ExampleMethods.html#instance_double-instance_method" title="RSpec::Mocks::ExampleMethods#instance_double (method)">ExampleMethods#instance_double</a></span>
+or <span class='object_link'><a href="ExampleMethods.html#class_double-instance_method" title="RSpec::Mocks::ExampleMethods#class_double (method)">ExampleMethods#class_double</a></span>.
+Represents a reference to that object.</p>
 
 
   </div>
@@ -151,9 +151,7 @@ or module is passed to <span class='object_link'><a href="ExampleMethods.html#in
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Defined for interface parity with the other object reference
-implementations.</p>
+    <span class="summary_desc"><div class='inline'><p>Defined for interface parity with the other object reference implementations.</p>
 </div></span>
   
 </li>
@@ -176,8 +174,7 @@ implementations.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Always returns true for an object as the class is defined.</p>
+    <span class="summary_desc"><div class='inline'><p>Always returns true for an object as the class is defined.</p>
 </div></span>
   
 </li>
@@ -200,8 +197,7 @@ implementations.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>The object&#39;s description (via <code>#inspect</code>).</p>
+    <span class="summary_desc"><div class='inline'><p>The object&#39;s description (via <code>#inspect</code>).</p>
 </div></span>
   
 </li>
@@ -226,8 +222,7 @@ implementations.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>A new instance of DirectObjectReference.</p>
+    <span class="summary_desc"><div class='inline'><p>A new instance of DirectObjectReference.</p>
 </div></span>
   
 </li>
@@ -250,8 +245,7 @@ implementations.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>The target of the verifying double (the object itself).</p>
+    <span class="summary_desc"><div class='inline'><p>The target of the verifying double (the object itself).</p>
 </div></span>
   
 </li>
@@ -274,9 +268,7 @@ implementations.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Yields if the reference target is loaded, providing a generic mechanism to
-optionally run a bit of code only when a reference&#39;s target is loaded.</p>
+    <span class="summary_desc"><div class='inline'><p>Yields if the reference target is loaded, providing a generic mechanism to optionally run a bit of code only when a reference&#39;s target is loaded.</p>
 </div></span>
   
 </li>
@@ -299,8 +291,7 @@ optionally run a bit of code only when a reference&#39;s target is loaded.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns a new instance of DirectObjectReference</p>
+    <p>Returns a new instance of DirectObjectReference</p>
 
 
   </div>
@@ -319,8 +310,7 @@ optionally run a bit of code only when a reference&#39;s target is loaded.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>the object to which this refers</p>
+        <div class='inline'><p>the object to which this refers</p>
 </div>
       
     </li>
@@ -367,11 +357,9 @@ optionally run a bit of code only when a reference&#39;s target is loaded.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Defined for interface parity with the other object reference
-implementations. Raises an <code>ArgumentError</code> to indicate that
-<code>as_stubbed_const</code> is invalid when passing an object argument to
-<code>object_double</code>.</p>
+    <p>Defined for interface parity with the other object reference
+implementations. Raises an <code>ArgumentError</code> to indicate that <code>as_stubbed_const</code>
+is invalid when passing an object argument to <code>object_double</code>.</p>
 
 
   </div>
@@ -426,8 +414,7 @@ implementations. Raises an <code>ArgumentError</code> to indicate that
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Always returns true for an object as the class is defined.</p>
+    <p>Always returns true for an object as the class is defined.</p>
 
 
   </div>
@@ -480,8 +467,7 @@ implementations. Raises an <code>ArgumentError</code> to indicate that
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns the object&#39;s description (via <code>#inspect</code>).</p>
+    <p>Returns the object&#39;s description (via <code>#inspect</code>).</p>
 
 
   </div>
@@ -499,8 +485,7 @@ implementations. Raises an <code>ArgumentError</code> to indicate that
       
       
         &mdash;
-        <div class='inline'>
-<p>the object&#39;s description (via <code>#inspect</code>).</p>
+        <div class='inline'><p>the object&#39;s description (via <code>#inspect</code>).</p>
 </div>
       
     </li>
@@ -539,8 +524,7 @@ implementations. Raises an <code>ArgumentError</code> to indicate that
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>The target of the verifying double (the object itself).</p>
+    <p>The target of the verifying double (the object itself).</p>
 
 
   </div>
@@ -593,12 +577,12 @@ implementations. Raises an <code>ArgumentError</code> to indicate that
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Yields if the reference target is loaded, providing a generic mechanism to
-optionally run a bit of code only when a reference&#39;s target is loaded.</p>
+    <p>Yields if the reference target is loaded, providing a generic mechanism
+to optionally run a bit of code only when a reference&#39;s target is
+loaded.</p>
 
-<p>This specific implementation always yields because direct references are
-always loaded.</p>
+<p>This specific implementation always yields because direct references
+are always loaded.</p>
 
 
   </div>
@@ -616,8 +600,7 @@ always loaded.</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>the target of this reference.</p>
+        <div class='inline'><p>the target of this reference.</p>
 </div>
       
     </li>
@@ -650,9 +633,9 @@ always loaded.</p>
 </div>
 
       <div id="footer">
-  Generated on Sat Aug  4 13:01:56 2018 by
+  Generated on Fri Sep 14 00:02:10 2018 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.15 (ruby-2.4.2).
+  0.9.16 (ruby-2.5.1).
 </div>
 
 <script>
