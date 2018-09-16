@@ -5,13 +5,13 @@
 <title>
   Module: RSpec::Mocks::TestDouble
   
-    &mdash; Documentation by YARD 0.9.15
+    &mdash; Documentation by YARD 0.9.16
   
 </title>
 
-  <link rel="stylesheet" href="/stylesheets/docs/style.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="/documentation/3.8/rspec-mocks/css/style.css" type="text/css" charset="utf-8" />
 
-  <link rel="stylesheet" href="/stylesheets/docs/common.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="/documentation/3.8/rspec-mocks/css/common.css" type="text/css" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
   pathId = "RSpec::Mocks::TestDouble";
@@ -19,9 +19,9 @@
 </script>
 
 
-  <script type="text/javascript" charset="utf-8" src="/javascripts/docs/jquery.js"></script>
+  <script type="text/javascript" charset="utf-8" src="/documentation/3.8/rspec-mocks/js/jquery.js"></script>
 
-  <script type="text/javascript" charset="utf-8" src="/javascripts/docs/app.js"></script>
+  <script type="text/javascript" charset="utf-8" src="/documentation/3.8/rspec-mocks/js/app.js"></script>
 
 
   </head>
@@ -89,10 +89,9 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    
-<p>Implements the methods needed for a pure test double. RSpec::Mocks::Double
-includes this module, and it is provided for cases where you want a pure
-test double without subclassing RSpec::Mocks::Double.</p>
+    <p>Implements the methods needed for a pure test double.  RSpec::Mocks::Double
+includes this module, and it is provided for cases where you want a
+pure test double without subclassing RSpec::Mocks::Double.</p>
 
 
   </div>
@@ -132,9 +131,7 @@ test double without subclassing RSpec::Mocks::Double.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>This allows for comparing the mock to other objects that proxy such as
-ActiveRecords belongs_to proxy objects.</p>
+    <span class="summary_desc"><div class='inline'><p>This allows for comparing the mock to other objects that proxy such as ActiveRecords belongs_to proxy objects.</p>
 </div></span>
   
 </li>
@@ -157,8 +154,7 @@ ActiveRecords belongs_to proxy objects.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Tells the object to respond to all messages.</p>
+    <span class="summary_desc"><div class='inline'><p>Tells the object to respond to all messages.</p>
 </div></span>
   
 </li>
@@ -181,9 +177,7 @@ ActiveRecords belongs_to proxy objects.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Override for default freeze implementation to prevent freezing of test
-doubles.</p>
+    <span class="summary_desc"><div class='inline'><p>Override for default freeze implementation to prevent freezing of test doubles.</p>
 </div></span>
   
 </li>
@@ -206,9 +200,7 @@ doubles.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Creates a new test double with a <code>name</code> (that will be used in
-error messages only).</p>
+    <span class="summary_desc"><div class='inline'><p>Creates a new test double with a <code>name</code> (that will be used in error messages only).</p>
 </div></span>
   
 </li>
@@ -231,8 +223,7 @@ error messages only).</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Returns true if this object has received <code>as_null_object</code>.</p>
+    <span class="summary_desc"><div class='inline'><p>Returns true if this object has received <code>as_null_object</code>.</p>
 </div></span>
   
 </li>
@@ -372,10 +363,10 @@ error messages only).</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>This allows for comparing the mock to other objects that proxy such as
-ActiveRecords belongs_to proxy objects. By making the other object run the
-comparison, we&#39;re sure the call gets delegated to the proxy target.</p>
+    <p>This allows for comparing the mock to other objects that proxy such as
+ActiveRecords belongs_to proxy objects. By making the other object run
+the comparison, we&#39;re sure the call gets delegated to the proxy
+target.</p>
 
 
   </div>
@@ -415,9 +406,9 @@ comparison, we&#39;re sure the call gets delegated to the proxy target.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Tells the object to respond to all messages. If specific stub values are
-declared, they&#39;ll work as expected. If not, the receiver is returned.</p>
+    <p>Tells the object to respond to all messages. If specific stub values
+are declared, they&#39;ll work as expected. If not, the receiver is
+returned.</p>
 
 
   </div>
@@ -457,8 +448,7 @@ declared, they&#39;ll work as expected. If not, the receiver is returned.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Override for default freeze implementation to prevent freezing of test
+    <p>Override for default freeze implementation to prevent freezing of test
 doubles.</p>
 
 
@@ -501,9 +491,8 @@ doubles.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Creates a new test double with a <code>name</code> (that will be used in
-error messages only)</p>
+    <p>Creates a new test double with a <code>name</code> (that will be used in error
+messages only)</p>
 
 
   </div>
@@ -557,8 +546,7 @@ error messages only)</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns true if this object has received <code>as_null_object</code></p>
+    <p>Returns true if this object has received <code>as_null_object</code></p>
 
 
   </div>
@@ -605,9 +593,9 @@ error messages only)</p>
 </div>
 
       <div id="footer">
-  Generated on Sat Aug  4 13:01:54 2018 by
+  Generated on Fri Sep 14 00:02:10 2018 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.15 (ruby-2.4.2).
+  0.9.16 (ruby-2.5.1).
 </div>
 
 <script>

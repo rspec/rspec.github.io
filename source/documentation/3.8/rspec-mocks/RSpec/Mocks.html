@@ -5,13 +5,13 @@
 <title>
   Module: RSpec::Mocks
   
-    &mdash; Documentation by YARD 0.9.15
+    &mdash; Documentation by YARD 0.9.16
   
 </title>
 
-  <link rel="stylesheet" href="/stylesheets/docs/style.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="/documentation/3.8/rspec-mocks/css/style.css" type="text/css" charset="utf-8" />
 
-  <link rel="stylesheet" href="/stylesheets/docs/common.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="/documentation/3.8/rspec-mocks/css/common.css" type="text/css" charset="utf-8" />
 
 <script type="text/javascript" charset="utf-8">
   pathId = "RSpec::Mocks";
@@ -19,9 +19,9 @@
 </script>
 
 
-  <script type="text/javascript" charset="utf-8" src="/javascripts/docs/jquery.js"></script>
+  <script type="text/javascript" charset="utf-8" src="/documentation/3.8/rspec-mocks/js/jquery.js"></script>
 
-  <script type="text/javascript" charset="utf-8" src="/javascripts/docs/app.js"></script>
+  <script type="text/javascript" charset="utf-8" src="/documentation/3.8/rspec-mocks/js/app.js"></script>
 
 
   </head>
@@ -86,11 +86,10 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    
-<p>Contains top-level utility methods. While this contains a few public
-methods, these are not generally meant to be called from a test or example.
-They exist primarily for integration with test frameworks (such as
-rspec-core).</p>
+    <p>Contains top-level utility methods. While this contains a few
+public methods, these are not generally meant to be called from
+a test or example. They exist primarily for integration with
+test frameworks (such as rspec-core).</p>
 
 
   </div>
@@ -122,8 +121,7 @@ rspec-core).</p>
         <dt id="MockExpectationError-constant" class="">MockExpectationError =
           <div class="docstring">
   <div class="discussion">
-    
-<p>Raised when a message expectation is not satisfied.</p>
+    <p>Raised when a message expectation is not satisfied.</p>
 
 
   </div>
@@ -138,9 +136,8 @@ rspec-core).</p>
         <dt id="ExpiredTestDoubleError-constant" class="">ExpiredTestDoubleError =
           <div class="docstring">
   <div class="discussion">
-    
-<p>Raised when a test double is used after it has been torn down (typically at
-the end of an rspec-core example).</p>
+    <p>Raised when a test double is used after it has been torn
+down (typically at the end of an rspec-core example).</p>
 
 
   </div>
@@ -155,9 +152,7 @@ the end of an rspec-core example).</p>
         <dt id="OutsideOfExampleError-constant" class="">OutsideOfExampleError =
           <div class="docstring">
   <div class="discussion">
-    
-<p>Raised when doubles or partial doubles are used outside of the per-test
-lifecycle.</p>
+    <p>Raised when doubles or partial doubles are used outside of the per-test lifecycle.</p>
 
 
   </div>
@@ -172,10 +167,9 @@ lifecycle.</p>
         <dt id="MockExpectationAlreadyInvokedError-constant" class="">MockExpectationAlreadyInvokedError =
           <div class="docstring">
   <div class="discussion">
-    
-<p>Raised when an expectation customization method (e.g. <code>with</code>,
-<code>and_return</code>) is called on a message expectation which has
-already been invoked.</p>
+    <p>Raised when an expectation customization method (e.g. <code>with</code>,
+<code>and_return</code>) is called on a message expectation which has already been
+invoked.</p>
 
 
   </div>
@@ -190,11 +184,9 @@ already been invoked.</p>
         <dt id="CannotSupportArgMutationsError-constant" class="deprecated">CannotSupportArgMutationsError =
           <div class="docstring">
   <div class="discussion">
-    <div class="note deprecated"><strong>Deprecated.</strong> <div class='inline'>
-<p>We no longer raise this error but the constant remains until RSpec 4 for
-SemVer reasons.</p>
+    <div class="note deprecated"><strong>Deprecated.</strong> <div class='inline'><p>We no longer raise this error but the constant remains until
+RSpec 4 for SemVer reasons.</p>
 </div></div>
-
 <p>Raised for situations that RSpec cannot support due to mutations made
 externally on arguments that RSpec is holding onto to use for later
 comparisons.</p>
@@ -243,8 +235,7 @@ comparisons.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Adds an allowance (stub) on <code>subject</code>.</p>
+    <span class="summary_desc"><div class='inline'><p>Adds an allowance (stub) on <code>subject</code>.</p>
 </div></span>
   
 </li>
@@ -267,9 +258,7 @@ comparisons.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Mocks specific configuration, as distinct from
-<code>RSpec.configuration</code> which is core RSpec configuration.</p>
+    <span class="summary_desc"><div class='inline'><p>Mocks specific configuration, as distinct from <code>RSpec.configuration</code> which is core RSpec configuration.</p>
 </div></span>
   
 </li>
@@ -292,8 +281,7 @@ comparisons.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Sets a message expectation on <code>subject</code>.</p>
+    <span class="summary_desc"><div class='inline'><p>Sets a message expectation on <code>subject</code>.</p>
 </div></span>
   
 </li>
@@ -316,8 +304,7 @@ comparisons.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Performs per-test/example setup.</p>
+    <span class="summary_desc"><div class='inline'><p>Performs per-test/example setup.</p>
 </div></span>
   
 </li>
@@ -340,9 +327,7 @@ comparisons.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Cleans up all test double state (including any methods that were redefined
-on partial doubles).</p>
+    <span class="summary_desc"><div class='inline'><p>Cleans up all test double state (including any methods that were redefined on partial doubles).</p>
 </div></span>
   
 </li>
@@ -365,8 +350,7 @@ on partial doubles).</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Verifies any message expectations that were set during the test or example.</p>
+    <span class="summary_desc"><div class='inline'><p>Verifies any message expectations that were set during the test or example.</p>
 </div></span>
   
 </li>
@@ -389,8 +373,7 @@ on partial doubles).</p>
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Call the passed block and verify mocks after it has executed.</p>
+    <span class="summary_desc"><div class='inline'><p>Call the passed block and verify mocks after it has executed.</p>
 </div></span>
   
 </li>
@@ -416,8 +399,7 @@ on partial doubles).</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Adds an allowance (stub) on <code>subject</code></p>
+    <p>Adds an allowance (stub) on <code>subject</code></p>
 
 
   </div>
@@ -428,9 +410,7 @@ on partial doubles).</p>
     <p class="tag_title">Examples:</p>
     
       
-        <p class="example_title"><div class='inline'>
-<p>Defines the implementation of <code>foo</code> on <code>bar</code>, using
-the passed block</p>
+        <p class="example_title"><div class='inline'><p>Defines the implementation of <code>foo</code> on <code>bar</code>, using the passed block</p>
 </div></p>
       
       <pre class="example code"><code><span class='id identifier rubyid_x'>x</span> <span class='op'>=</span> <span class='int'>0</span>
@@ -450,8 +430,7 @@ the passed block</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>the subject to which the message will be added</p>
+        <div class='inline'><p>the subject to which the message will be added</p>
 </div>
       
     </li>
@@ -466,8 +445,8 @@ the passed block</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>a symbol, representing the message that will be added.</p>
+        <div class='inline'><p>a symbol, representing the message that will be
+added.</p>
 </div>
       
     </li>
@@ -484,8 +463,8 @@ the passed block</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>a hash of options, :expected_from is used to set the original call site</p>
+        <div class='inline'><p>a hash of options, :expected_from is used to set the
+original call site</p>
 </div>
       
     </li>
@@ -503,8 +482,7 @@ the passed block</p>
       
       
         
-        <div class='inline'>
-<p>an optional implementation for the allowance</p>
+        <div class='inline'><p>an optional implementation for the allowance</p>
 </div>
       
     </li>
@@ -543,9 +521,8 @@ the passed block</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Mocks specific configuration, as distinct from
-<code>RSpec.configuration</code> which is core RSpec configuration.</p>
+    <p>Mocks specific configuration, as distinct from <code>RSpec.configuration</code>
+which is core RSpec configuration.</p>
 
 
   </div>
@@ -585,8 +562,7 @@ the passed block</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Sets a message expectation on <code>subject</code>.</p>
+    <p>Sets a message expectation on <code>subject</code>.</p>
 
 
   </div>
@@ -597,9 +573,7 @@ the passed block</p>
     <p class="tag_title">Examples:</p>
     
       
-        <p class="example_title"><div class='inline'>
-<p>Expect the message <code>foo</code> to receive <code>bar</code>, then call
-it</p>
+        <p class="example_title"><div class='inline'><p>Expect the message <code>foo</code> to receive <code>bar</code>, then call it</p>
 </div></p>
       
       <pre class="example code"><code><span class='const'><span class='object_link'><a href="../RSpec.html" title="RSpec (module)">RSpec</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="" title="RSpec::Mocks (module)">Mocks</a></span></span><span class='period'>.</span><span class='id identifier rubyid_expect_message'>expect_message</span><span class='lparen'>(</span><span class='id identifier rubyid_bar'>bar</span><span class='comma'>,</span> <span class='symbol'>:foo</span><span class='rparen'>)</span>
@@ -619,8 +593,7 @@ it</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>the subject on which the message will be expected</p>
+        <div class='inline'><p>the subject on which the message will be expected</p>
 </div>
       
     </li>
@@ -635,8 +608,8 @@ it</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>a symbol, representing the message that will be expected.</p>
+        <div class='inline'><p>a symbol, representing the message that will be
+expected.</p>
 </div>
       
     </li>
@@ -653,8 +626,8 @@ it</p>
       
       
         &mdash;
-        <div class='inline'>
-<p>a hash of options, :expected_from is used to set the original call site</p>
+        <div class='inline'><p>a hash of options, :expected_from is used to set the
+original call site</p>
 </div>
       
     </li>
@@ -672,8 +645,7 @@ it</p>
       
       
         
-        <div class='inline'>
-<p>an optional implementation for the expectation</p>
+        <div class='inline'><p>an optional implementation for the expectation</p>
 </div>
       
     </li>
@@ -712,9 +684,8 @@ it</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Performs per-test/example setup. This should be called before an test or
-example begins.</p>
+    <p>Performs per-test/example setup. This should be called before
+an test or example begins.</p>
 
 
   </div>
@@ -754,10 +725,9 @@ example begins.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Cleans up all test double state (including any methods that were redefined
-on partial doubles). This <em>must</em> be called after each example, even
-if an error was raised during the example.</p>
+    <p>Cleans up all test double state (including any methods that were
+redefined on partial doubles). This <em>must</em> be called after
+each example, even if an error was raised during the example.</p>
 
 
   </div>
@@ -801,9 +771,8 @@ if an error was raised during the example.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Verifies any message expectations that were set during the test or example.
-This should be called at the end of an example.</p>
+    <p>Verifies any message expectations that were set during the
+test or example. This should be called at the end of an example.</p>
 
 
   </div>
@@ -843,8 +812,7 @@ This should be called at the end of an example.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Call the passed block and verify mocks after it has executed. This allows
+    <p>Call the passed block and verify mocks after it has executed. This allows
 mock usage in arbitrary places, such as a <code>before(:all)</code> hook.</p>
 
 
@@ -893,9 +861,9 @@ mock usage in arbitrary places, such as a <code>before(:all)</code> hook.</p>
 </div>
 
       <div id="footer">
-  Generated on Sat Aug  4 13:01:53 2018 by
+  Generated on Fri Sep 14 00:02:09 2018 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.15 (ruby-2.4.2).
+  0.9.16 (ruby-2.5.1).
 </div>
 
 <script>
