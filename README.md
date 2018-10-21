@@ -8,9 +8,11 @@ Source for [rspec.info](http://rspec.info/).
 ### Using Docker
 
 Create the machine:
+
 `docker build . -t rspec.info`
 
 Start the server:
+
 `docker run -it -p 4567:4567 rspec.info middleman server`
 
 ### Manual setup
