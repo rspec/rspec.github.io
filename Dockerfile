@@ -27,5 +27,5 @@ RUN middleman build
 
 EXPOSE 4567
 
-CMD middleman server
+CMD /bin/sh
 

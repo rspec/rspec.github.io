@@ -7,8 +7,11 @@ Source for [rspec.info](http://rspec.info/).
 
 ### Using Docker
 
-* `docker build . -t rspec.info`
-* `docker run -p 4567:4567 rspec.info`
+Create the machine:
+`docker build . -t rspec.info`
+
+Start the server:
+`docker run -it -p 4567:4567 rspec.info middleman server`
 
 ### Manual setup
 
@@ -18,11 +21,11 @@ Requires a recent version of Ruby (2.1.x), bundler and imagemagick (to generate 
 * `bundle install`
 * `middleman build`
 
-## Developing
+Start the server:
 
 * `middleman server`
 
-## Deploying
+Deploy:
 
 * `middleman deploy` (for http://rspec-staging.github.io/)
 * `TARGET=prod middleman deploy` (for http://rspec.info/)
