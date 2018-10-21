@@ -365,7 +365,7 @@ input[type="submit"] {
   text-shadow: 0 1px 0 #1b4f9a;
   background-clip: padding-box;
   font-size: 1.05em; }
-  /* line 137, /Users/jon/.rvm/gems/ruby-2.5.1@RSpec-www/gems/bourbon-4.2.2/app/assets/stylesheets/_bourbon-deprecated-upcoming.scss */
+  /* line 137, /Users/jon/.rvm/gems/ruby-2.5.3@RSpec-www/gems/bourbon-4.2.2/app/assets/stylesheets/_bourbon-deprecated-upcoming.scss */
   button:hover:not(:disabled),
   input[type="submit"]:hover:not(:disabled) {
     background-color: #3c71bb;
@@ -373,13 +373,13 @@ input[type="submit"] {
     background-image: linear-gradient(#3c71bb, #255aa5);
     box-shadow: inset 0 1px 0 0 #628cc8;
     cursor: pointer; }
-  /* line 154, /Users/jon/.rvm/gems/ruby-2.5.1@RSpec-www/gems/bourbon-4.2.2/app/assets/stylesheets/_bourbon-deprecated-upcoming.scss */
+  /* line 154, /Users/jon/.rvm/gems/ruby-2.5.3@RSpec-www/gems/bourbon-4.2.2/app/assets/stylesheets/_bourbon-deprecated-upcoming.scss */
   button:active:not(:disabled),
   input[type="submit"]:active:not(:disabled), button:focus:not(:disabled),
   input[type="submit"]:focus:not(:disabled) {
     border: 1px solid #2459a6;
     box-shadow: inset 0 0 8px 4px #235397, inset 0 0 8px 4px #235397; }
-  /* line 59, /Users/jon/.rvm/gems/ruby-2.5.1@RSpec-www/gems/bourbon-4.2.2/app/assets/stylesheets/_bourbon-deprecated-upcoming.scss */
+  /* line 59, /Users/jon/.rvm/gems/ruby-2.5.3@RSpec-www/gems/bourbon-4.2.2/app/assets/stylesheets/_bourbon-deprecated-upcoming.scss */
   button:disabled,
   input[type="submit"]:disabled {
     cursor: not-allowed;
@@ -689,11 +689,11 @@ dl {
     #flash_success a:hover {
       color: black; }
 
-/* line 4, /Users/jon/.rvm/gems/ruby-2.5.1@RSpec-www/gems/neat-1.7.2/app/assets/stylesheets/grid/_box-sizing.scss */
+/* line 4, /Users/jon/.rvm/gems/ruby-2.5.3@RSpec-www/gems/neat-1.7.2/app/assets/stylesheets/grid/_box-sizing.scss */
 html {
   box-sizing: border-box; }
 
-/* line 9, /Users/jon/.rvm/gems/ruby-2.5.1@RSpec-www/gems/neat-1.7.2/app/assets/stylesheets/grid/_box-sizing.scss */
+/* line 9, /Users/jon/.rvm/gems/ruby-2.5.3@RSpec-www/gems/neat-1.7.2/app/assets/stylesheets/grid/_box-sizing.scss */
 *, *::after, *::before {
   box-sizing: inherit; }
 
@@ -1198,17 +1198,19 @@ section {
     text-decoration: underline; }
   /* line 16, /Users/jon/Code/Gems/rspec-website/source/stylesheets/pages/documentation.css.scss */
   .version-dropdown > a {
-    padding: 4px 10px; }
-  /* line 21, /Users/jon/Code/Gems/rspec-website/source/stylesheets/pages/documentation.css.scss */
+    padding: 4px 10px;
+    z-index: 1; }
+  /* line 22, /Users/jon/Code/Gems/rspec-website/source/stylesheets/pages/documentation.css.scss */
   .version-dropdown > ul {
     display: none;
     left: 0;
     padding: 0 10px;
     position: absolute;
-    top: -18px; }
-  /* line 31, /Users/jon/Code/Gems/rspec-website/source/stylesheets/pages/documentation.css.scss */
+    top: -18px;
+    z-index: 2; }
+  /* line 33, /Users/jon/Code/Gems/rspec-website/source/stylesheets/pages/documentation.css.scss */
   .version-dropdown:hover ul {
     display: block; }
-  /* line 35, /Users/jon/Code/Gems/rspec-website/source/stylesheets/pages/documentation.css.scss */
+  /* line 37, /Users/jon/Code/Gems/rspec-website/source/stylesheets/pages/documentation.css.scss */
   .version-dropdown:hover > a {
     display: none; }
