@@ -3,7 +3,7 @@ rspec-website
 
 Source for rspec.info.
 
-Requires a recent version of Ruby (2.1.x), bundler and imagemagick (to generate favicons).
+Requires a recent version of Ruby (> 2.1.x, tested on 2.5.3), bundler and imagemagick (to generate favicons).
 
 ## Setup
 
@@ -19,7 +19,3 @@ Requires a recent version of Ruby (2.1.x), bundler and imagemagick (to generate 
 
 * `middleman deploy` (for http://rspec-staging.github.io/)
 * `TARGET=prod middleman deploy` (for http://rspec.info/)
-
-## To Do:
-
-* [ ] Actually implement the rest of the homepage
