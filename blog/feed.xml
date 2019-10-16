@@ -5,10 +5,267 @@
   <id>http://rspec.info/blog</id>
   <link href="http://rspec.info/blog"/>
   <link href="http://rspec.info/blog/feed.xml" rel="self"/>
-  <updated>2018-09-23T00:00:00Z</updated>
+  <updated>2019-10-16T00:00:00Z</updated>
   <author>
     <name>The RSpec Core Team</name>
   </author>
+  <entry>
+    <title>RSpec 3.9 has been released, and RSpec team changes.</title>
+    <link rel="alternate" href="http://rspec.info/blog/2019/10/rspec-3-9-has-been-released/"/>
+    <id>http://rspec.info/blog/2019/10/rspec-3-9-has-been-released/</id>
+    <published>2019-10-16T00:00:00Z</published>
+    <updated>2019-10-16T20:51:56+01:00</updated>
+    <author>
+      <name>Jon Rowe</name>
+    </author>
+    <content type="html">&lt;p&gt;RSpec 3.9 has just been released! As the RSpec project follows
+&lt;a href="http://semver.org/"&gt;semantic versioning&lt;/a&gt;, anyone already using RSpec 3
+should be able to upgrade to this version seemlessly, but if we have
+introduced a regression please let us know, and we'll get a patch
+release out to sort it out as soon as possible.&lt;/p&gt;
+
+&lt;p&gt;We're sad to announce that [Penelope Zone][https://github.com/samphippen] has
+retired from the project, leaving myself, [Jon Rowe][https://github.com/jonrowe] as
+the sole lead maintainer going forward, but its not all bad news, we welcome our
+newest core team member [Phil Pirozhkov][https://github.com/].&lt;/p&gt;
+
+&lt;p&gt;Thank you Penelope for all your hard word over the years and welcome Phil!&lt;/p&gt;
+
+&lt;p&gt;This is the last release in which the RSpec gems, &lt;code&gt;rspec&lt;/code&gt;, &lt;code&gt;rspec-core&lt;/code&gt;,
+&lt;code&gt;rspec-expectations&lt;/code&gt; and &lt;code&gt;rspec-mocks&lt;/code&gt; will be in sync with &lt;code&gt;rspec-rails&lt;/code&gt;.
+We'll be launched &lt;code&gt;rspec-rails&lt;/code&gt; 4 soon which will be classed as an extension
+gem and not kept in sync version wise with the core gems, which will allow
+us to keep &lt;code&gt;rspec-rails&lt;/code&gt; in sync with Rails versions, more on that soon.&lt;/p&gt;
+
+&lt;p&gt;RSpec continues to receive contributions from all over the world, we had
+369 commits and 98 merged pull requests from 52 different contributors
+who helped make this release happen. Thank you all :)&lt;/p&gt;
+
+&lt;h2 id="notable-changes"&gt;Notable Changes&lt;/h2&gt;
+
+&lt;h3 id="core-improved-error-handling"&gt;Core: Improved error handling&lt;/h3&gt;
+
+&lt;p&gt;If RSpec encounters an error whilst loading support files, it will now
+skip loading specs files removing later confusing errors due to the earlier
+error(s). Additionally when available &lt;code&gt;did_you_mean&lt;/code&gt; suggestions will be
+shown for any &lt;code&gt;LoadError&lt;/code&gt;s that are encountered.&lt;/p&gt;
+
+&lt;h3 id="core-command-line-interface-improvement---example-matches"&gt;Core: Command Line Interface improvement, &lt;code&gt;--example-matches&lt;/code&gt;&lt;/h3&gt;
+
+&lt;p&gt;With the release of 3.9 you can now use &lt;code&gt;--example-matches&lt;/code&gt; to filter your
+examples via a regular expression, useful if you only know part of an example
+name or have specs with a common theme across a number of different files.&lt;/p&gt;
+
+&lt;h3 id="core-new-formatter"&gt;Core: New Formatter&lt;/h3&gt;
+
+&lt;p&gt;In 3.9 you will find a new built in formatter option, the failure list formatter,
+which can be used via the command line as &lt;code&gt;--format f&lt;/code&gt; or &lt;code&gt;--format failure_list&lt;/code&gt;,
+or via the &lt;code&gt;RSpec::Configuration#formatter&lt;/code&gt; method. This new formatter produces
+output in a more minimalist "quick fix" style output.&lt;/p&gt;
+
+&lt;h3 id="expectations-respondtonew"&gt;Expectations: respond_to(:new)&lt;/h3&gt;
+
+&lt;p&gt;The &lt;code&gt;respond_to&lt;/code&gt; matcher now special cases &lt;code&gt;:new&lt;/code&gt; and checks &lt;code&gt;:initialize&lt;/code&gt;
+if its a standard class method.&lt;/p&gt;
+
+&lt;h3 id="expectations-empty-diff-warning"&gt;Expectations: Empty diff warning&lt;/h3&gt;
+
+&lt;p&gt;Prior to 3.9 when you had matchers that failed but the items under test
+produced the same inspect output you'd get a confusing diff were both
+sides look the same, we now detect this scenario and issue a warning.&lt;/p&gt;
+
+&lt;h3 id="mocks-improved-thread-safety"&gt;Mocks: Improved thread safety&lt;/h3&gt;
+
+&lt;p&gt;A bonus for people running parralleised specs, 3.9 brings some improvements
+to our threaded behaviour by adding mutexes to avoid deadlocking errors.&lt;/p&gt;
+
+&lt;h3 id="rails-railshelperrb-improvements"&gt;Rails: &lt;code&gt;rails_helper.rb&lt;/code&gt; improvements&lt;/h3&gt;
+
+&lt;p&gt;A minor tweak in 3.9 brining the generated &lt;code&gt;rails_helper.rb&lt;/code&gt; inline
+with Ruby semantics and using &lt;code&gt;__dir__&lt;/code&gt; rather than &lt;code&gt;__FILE__&lt;/code&gt; on
+newer Rubies.&lt;/p&gt;
+
+&lt;h3 id="rails-new-email-matchers"&gt;Rails: New email matchers&lt;/h3&gt;
+
+&lt;p&gt;Add a new &lt;code&gt;have_enqueued_mail&lt;/code&gt; matcher for making it easier to assert
+on mailer specific active jobs.&lt;/p&gt;
+
+&lt;h3 id="rails-new-generators"&gt;Rails: New generators&lt;/h3&gt;
+
+&lt;p&gt;Version 3.9 brings a couple of new generator scaffolds, you can now
+generate system specs on Rails 5.1 and above, generate specs for generators
+and add routes when generating controller specs.&lt;/p&gt;
+
+&lt;h2 id="stats"&gt;Stats:&lt;/h2&gt;
+
+&lt;h3 id="combined"&gt;Combined:&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Total Commits&lt;/strong&gt;: 322&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Merged pull requests&lt;/strong&gt;: 59&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;54 contributors&lt;/strong&gt;: Aaron Kromer, Alex Haynes, Alireza Bashiri, Andy Waite,
+Benoit Tigeot, Bobby McDonald, Chris, Christophe Bliard, ConSou, David Rodríguez,
+Douglas Lovell, Eito Katagiri, Emric, Fred Snyder, Giovanni Kock Bonetti, Grey
+Baker, Jack Wink, Jamie English, Joel Lubrano, Jon Rowe, Juanito Fatas, Keiji,
+Kevin, Kevin Kuchta, Kieran O'Grady, Kohei Sugi, Laura Paakkinen, Manuel
+Schnitzer, Matijs van Zuijlen, Michel Ocon, Myron Marston, Nazar Matus, Nick
+LaMuro, OKURA Masafumi, Olle Jonsson, Orien Madgwick, Patrick Boatner, Penelope
+Zone, Pete Johns, Phil Pirozhkov, Philippe Hardardt, Rafe Rosen, Romain Tartière,
+Ryan Lue, Sam Joseph, Samuel Williams, Taichi Ishitani, Takumi Kaji,
+Thomas Walpole, Tom Grimley, Viktor Fonic, Yoshimi, aymeric-ledorze, 三上大河&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id="rspec-core"&gt;rspec-core:&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Total Commits&lt;/strong&gt;: 92&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Merged pull requests&lt;/strong&gt;: 13&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;22 contributors&lt;/strong&gt;: Alex Haynes, Andy Waite, Benoit Tigeot, Chris, Christophe
+Bliard, David Rodríguez, Jon Rowe, Juanito Fatas, Keiji, Matijs van Zuijlen,
+Myron Marston, Nick LaMuro, Olle Jonsson, Orien Madgwick, Pete Johns,
+Phil Pirozhkov, Philippe Hardardt, Romain Tartière, Sam Joseph, Samuel Williams,
+Viktor Fonic, Yoshimi&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id="rspec-expectations"&gt;rspec-expectations:&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Total Commits&lt;/strong&gt;: 60&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Merged pull requests&lt;/strong&gt;: 7&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;15 contributors&lt;/strong&gt;: Benoit Tigeot, Eito Katagiri, Fred Snyder, Jack Wink,
+Jamie English, Jon Rowe, Juanito Fatas, Matijs van Zuijlen, Myron Marston,
+Nazar Matus, Olle Jonsson, Orien Madgwick, Pete Johns, Phil Pirozhkov,
+Taichi Ishitani&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id="rspec-mocks"&gt;rspec-mocks:&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Total Commits&lt;/strong&gt;: 38&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Merged pull requests&lt;/strong&gt;: 2&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;10 contributors&lt;/strong&gt;: Alireza Bashiri, Benoit Tigeot, Jon Rowe, Juanito Fatas,
+Kevin, Matijs van Zuijlen, Myron Marston, Olle Jonsson, Orien Madgwick,
+Patrick Boatner&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id="rspec-rails"&gt;rspec-rails:&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Total Commits&lt;/strong&gt;: 103&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Merged pull requests&lt;/strong&gt;: 17&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;27 contributors&lt;/strong&gt;: Aaron Kromer, Benoit Tigeot, Bobby McDonald, ConSou,
+Douglas Lovell, Emric, Giovanni Kock Bonetti, Grey Baker, Joel Lubrano, Jon Rowe,
+Kevin Kuchta, Kieran O'Grady, Kohei Sugi, Laura Paakkinen, Manuel Schnitzer,
+Michel Ocon, Myron Marston, OKURA Masafumi, Olle Jonsson, Orien Madgwick,
+Penelope Zone, Rafe Rosen, Ryan Lue, Takumi Kaji, Thomas Walpole, Tom Grimley,
+aymeric-ledorze&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id="rspec-support"&gt;rspec-support:&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Total Commits&lt;/strong&gt;: 29&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Merged pull requests&lt;/strong&gt;: 20&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;4 contributors&lt;/strong&gt;: Benoit Tigeot, Jon Rowe, Myron Marston, 三上大河&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id="docs"&gt;Docs&lt;/h2&gt;
+
+&lt;h3 id="api-docs"&gt;API Docs&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href="/documentation/3.9/rspec-core/"&gt;rspec-core&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="/documentation/3.9/rspec-expectations/"&gt;rspec-expectations&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="/documentation/3.9/rspec-mocks/"&gt;rspec-mocks&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="/documentation/3.9/rspec-rails/"&gt;rspec-rails&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id="cucumber-features"&gt;Cucumber Features&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href="http://relishapp.com/rspec/rspec-core"&gt;rspec-core&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="http://relishapp.com/rspec/rspec-expectations"&gt;rspec-expectations&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="http://relishapp.com/rspec/rspec-mocks"&gt;rspec-mocks&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href="http://relishapp.com/rspec/rspec-rails"&gt;rspec-rails&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id="release-notes"&gt;Release Notes&lt;/h2&gt;
+
+&lt;h3 id="rspec-core-390"&gt;rspec-core-3.9.0&lt;/h3&gt;
+&lt;p&gt;&lt;a href="http://github.com/rspec/rspec-core/compare/v3.8.2...v3.9.0"&gt;Full Changelog&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Enhancements:
+* Improve the handling of errors during loading support files, if a file
+  errors before loading specs, RSpec will now skip loading the specs.
+  (David Rodríguez, #2568)
+* Add support for –example-matches to run examples by regular expression.
+  (Sam Joseph, Matt Rider, @okothkongo1, #2586)
+* Add &lt;code&gt;did_you_mean&lt;/code&gt; suggestions for file names encountering a &lt;code&gt;LoadError&lt;/code&gt;
+  outside of examples. (@obromios, #2601)
+* Add a minimalist quick fix style formatter, only outputs failures as
+  &lt;code&gt;file:line:message&lt;/code&gt;. (Romain Tartière, #2614)
+* Convert string number values to integer when used for &lt;code&gt;RSpec::Configuration#fail_fast&lt;/code&gt;
+  (Viktor Fonic, #2634)
+* Issue warning when invalid values are used for &lt;code&gt;RSpec::Configuration#fail_fast&lt;/code&gt;
+  (Viktor Fonic, #2634)
+* Add support for running the Rake task in a clean environment.
+  (Jon Rowe, #2632)
+* Indent messages by there example group / example in the documentation formatter.
+  (Samuel Williams, #2649)&lt;/p&gt;
+
+&lt;h3 id="rspec-expectations-390"&gt;rspec-expectations-3.9.0&lt;/h3&gt;
+&lt;p&gt;&lt;a href="http://github.com/rspec/rspec-expectations/compare/v3.8.5...v3.9.0"&gt;Full Changelog&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Enhancements:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;The &lt;code&gt;respond_to&lt;/code&gt; matcher now uses the signature from &lt;code&gt;initialize&lt;/code&gt; to validate checks
+for &lt;code&gt;new&lt;/code&gt; (unless &lt;code&gt;new&lt;/code&gt; is non standard). (Jon Rowe, #1072)&lt;/li&gt;
+  &lt;li&gt;Generated descriptions for matchers now use &lt;code&gt;is expected to&lt;/code&gt; rather than &lt;code&gt;should&lt;/code&gt; in
+line with our preferred DSL. (Pete Johns, #1080, rspec/rspec-core#2572)&lt;/li&gt;
+  &lt;li&gt;Add the ability to re-raise expectation errors when matching
+with &lt;code&gt;match_when_negated&lt;/code&gt; blocks. (Jon Rowe, #1130)&lt;/li&gt;
+  &lt;li&gt;Add a warning when an empty diff is produce due to identical inspect output.
+(Benoit Tigeot, #1126)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id="rspec-mocks-390"&gt;rspec-mocks-3.9.0&lt;/h3&gt;
+&lt;p&gt;&lt;a href="http://github.com/rspec/rspec-mocks/compare/v3.8.2...v3.9.0"&gt;Full Changelog&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Enhancements:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Improve thread safety of message expectations by using Mutex to prevent
+deadlocking errors. (Ry Biesemeyer, #1236)&lt;/li&gt;
+  &lt;li&gt;Add the ability to use &lt;code&gt;time&lt;/code&gt; as an alias for &lt;code&gt;times&lt;/code&gt;. For example:
+&lt;code&gt;expect(Class).to receive(:method).exactly(1).time&lt;/code&gt;.
+(Pistos, Benoit Tigeot, #1271)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id="rspec-rails-390"&gt;rspec-rails-3.9.0&lt;/h3&gt;
+&lt;p&gt;&lt;a href="http://github.com/rspec/rspec-rails/compare/v3.8.2...v3.9.0"&gt;Full Changelog&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Enhancements&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Use &lt;code&gt;__dir__&lt;/code&gt; instead of &lt;code&gt;__FILE__&lt;/code&gt; in generated &lt;code&gt;rails_helper.rb&lt;/code&gt; where
+supported. (OKURA Masafumi, #2048)&lt;/li&gt;
+  &lt;li&gt;Add &lt;code&gt;have_enqueued&lt;/code&gt; matcher as a "super" matcher to the &lt;code&gt;ActiveJob&lt;/code&gt; matchers
+making it easier to match on &lt;code&gt;ActiveJob&lt;/code&gt; delivered emails. (Joel Lubrano, #2047)&lt;/li&gt;
+  &lt;li&gt;Add generator for system specs on Rails 5.1 and above. (Andrzej Sliwa, #1933)&lt;/li&gt;
+  &lt;li&gt;Add generator for generator specs. (@ConSou, #2085)&lt;/li&gt;
+  &lt;li&gt;Add option to generate routes when generating controller specs. (David Revelo, #2134)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Bug Fixes:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Make the &lt;code&gt;ActiveJob&lt;/code&gt; matchers fail when multiple jobs are queued for negated
+matches. e.g. `expect { job; job; }.to_not have_enqueued_job.
+(Emric Istanful, #2069)&lt;/li&gt;
+&lt;/ul&gt;
+</content>
+  </entry>
   <entry>
     <title>Jon Rowe and Sam Phippen are RSpec's new leads</title>
     <link rel="alternate" href="http://rspec.info/blog/2018/09/jon-rowe-and-sam-phippen-are-rspecs-new-leads/"/>
@@ -1152,57 +1409,6 @@ Justice, #1689)&lt;/li&gt;
 &lt;ul&gt;
   &lt;li&gt;Prevent truncated formatted object output from mangling console codes. (#294, Anson Kelly)&lt;/li&gt;
 &lt;/ul&gt;
-</content>
-  </entry>
-  <entry>
-    <title>Now in Beta: Effective Testing with RSpec 3</title>
-    <link rel="alternate" href="http://rspec.info/blog/2017/02/now-in-beta-effective-testing-with-rspec-3/"/>
-    <id>http://rspec.info/blog/2017/02/now-in-beta-effective-testing-with-rspec-3/</id>
-    <published>2017-02-15T00:00:00Z</published>
-    <updated>2017-05-13T13:09:48+01:00</updated>
-    <author>
-      <name>Myron Marston</name>
-    </author>
-    <content type="html">&lt;p&gt;Six years ago, &lt;a href="https://pragprog.com/book/achbd/the-rspec-book"&gt;The RSpec Book&lt;/a&gt;
-introduced thousands of people to RSpec and helped them get the most out of the
-framework. Since that time, RSpec has continued to evolve. RSpec 3 brought many
-changes to help developers build and test better Ruby programs. The RSpec Book,
-now quite out of date, does not cover these changes.  Readers have been
-asking: &lt;em&gt;is there going to be a new book?&lt;/em&gt;&lt;/p&gt;
-
-&lt;p&gt;In fact, &lt;a href="https://twitter.com/undees"&gt;Ian Dees&lt;/a&gt; and I have been hard at work on
-a brand new book for over two years. Ian brings with him a wealth of experience
-from using RSpec since 2006. He has a keen ability to translate technical
-concepts into easy-to-read, enjoyable books, such as the PragProg titles &lt;a href="https://pragprog.com/book/7lang/seven-more-languages-in-seven-weeks"&gt;Seven
-More Languages in Seven
-Weeks&lt;/a&gt; and
-&lt;a href="https://pragprog.com/book/dhwcr/cucumber-recipes"&gt;Cucumber Recipes&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;I've been the lead maintainer of RSpec since 2012.  I've built many of RSpec's
-notable additions in recent years, including composable matchers, the &lt;code&gt;--bisect&lt;/code&gt;
-and &lt;code&gt;--only-failures&lt;/code&gt; options, and the &lt;code&gt;:aggregate_failures&lt;/code&gt; features. Together,
-we've written a book we're very proud of, and we're happy to announce it is now in beta:&lt;/p&gt;
-
-&lt;div class="rspec-3-book"&gt;
-  &lt;a href="https://pragprog.com/book/rspec3/effective-testing-with-rspec-3"&gt;
-    &lt;img alt="Cover image for Effective Testing with RSpec 3" class="cover-xlarge b-lazy book-cover" height="228" id="title-book-cover-rspec3" itemprop="image" src="/images/rspec3_book_beta.jpg" title="Cover image for Effective Testing with RSpec 3" width="190" /&gt;
-  &lt;/a&gt;
-&lt;/div&gt;
-
-&lt;p&gt;We've written &lt;a href="https://pragprog.com/book/rspec3/effective-testing-with-rspec-3"&gt;Effective Testing with RSpec 3: Build Ruby Apps with
-Confidence&lt;/a&gt; to
-be &lt;em&gt;the&lt;/em&gt; definitive guide to modern RSpec. If you're new to RSpec, it's a
-perfect introduction. If you've used RSpec before, but haven't kept up with the
-recent changes, this book will get you up to speed, covering new features through
-the soon-to-be-released RSpec 3.6.&lt;/p&gt;
-
-&lt;p&gt;Our book goes far beyond the RSpec documentation, walking through
-building a real-world JSON API and then diving deep into each part
-of RSpec. The theme of &lt;em&gt;effective testing&lt;/em&gt;–using practices to get
-more &lt;em&gt;value&lt;/em&gt; out of your specs than the cost of writing them–is woven
-throughout.&lt;/p&gt;
-
-&lt;p&gt;If you're interested in the book, you can purchase the beta eBook now!&lt;/p&gt;
 </content>
   </entry>
 </feed>
