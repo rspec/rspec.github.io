@@ -1,12 +1,30 @@
 footer {
-  height: 78px;
-  width: 100%;
   background-color: $footer-color;
   margin-top: 100px;
   padding: 13px;
   text-align: center;
+  width: 100%;
 
   span {
     margin-left: 3px;
+  }
+
+  a {
+    background: black;
+    border-radius: 5px;
+    color: white;
+    display: inline-block;
+    height: 5em;
+    margin: 0 1em;
+    padding: 0.5em 1em;
+
+    img {
+      display: inline;
+    }
+
+    &:hover, &:active, &:visited {
+      box-shadow: 2px 2px #AAA;
+      color: white;
+    }
   }
 }

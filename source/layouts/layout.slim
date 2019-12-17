@@ -56,5 +56,14 @@ html.no-js lang="en"
           li = link_to 'Get Help', '/help'
           li = link_to 'Contributing', '/contributing'
     = yield
+    footer
+      div
+        = "Created with the assistance of Ninefold"
+        = image_tag 'brutus-half.png', alt: "Brutus"
+      br
+      a href="https://dnsimple.link/resolving-rspec" target='_blank'
+        = "Resolving with"
+        br
+        = image_tag "https://cdn.dnsimple.com/assets/resolving-with-us/logo-dark.png", alt: "DNSimple", style: "width:100px;"
     = partial 'google_analytics'
     = partial 'seed_and_dew'
