@@ -1,12 +1,11 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<!DOCTYPE html>
+<html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>
   File: README
   
-    &mdash; Documentation by YARD 0.8.7.6
+    &mdash; Documentation by YARD 0.9.22
   
 </title>
 
@@ -16,10 +15,9 @@
 
   <link rel="stylesheet" href="/documentation/3.9/rspec-rails/css/rspec.css" type="text/css" charset="utf-8" />
 
-<script type="text/javascript" charset="utf-8">
-  hasFrames = window.top.frames.main ? true : false;
+<script type="text/javascript">
+  pathId = "README";
   relpath = '';
-  framesUrl = "frames.html#!file.README.html";
 </script>
 
 
@@ -30,40 +28,37 @@
 
   </head>
   <body>
-    <div id="header">
-      <div id="menu">
+    <div class="nav_wrap">
+      <iframe id="nav" src="file_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
   
     <a href="_index.html">Index</a> &raquo; 
     <span class="title">File: README</span>
   
-
-  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
 </div>
 
-      <div id="search">
+        <div id="search">
   
     <a class="full_list_link" id="class_list_link"
         href="class_list.html">
-      Class List
-    </a>
-  
-    <a class="full_list_link" id="method_list_link"
-        href="method_list.html">
-      Method List
-    </a>
-  
-    <a class="full_list_link" id="file_list_link"
-        href="file_list.html">
-      File List
+
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
     </a>
   
 </div>
-      <div class="clear"></div>
-    </div>
+        <div class="clear"></div>
+      </div>
 
-    <iframe id="search_frame"></iframe>
-
-    <div id="content"><div id='filecontents'><h1>rspec-rails <a href="https://travis-ci.org/rspec/rspec-rails"><img src="https://secure.travis-ci.org/rspec/rspec-rails.svg?branch=master" alt="Build Status"></a> <a href="https://codeclimate.com/github/rspec/rspec-rails"><img src="https://codeclimate.com/github/rspec/rspec-rails.svg" alt="Code Climate"></a> <a href="gem-version"><img src="https://badge.fury.io/rb/rspec-rails.svg" alt="Gem Version"></a></h1>
+      <div id="content"><div id='filecontents'><h1>rspec-rails <a href="https://travis-ci.org/rspec/rspec-rails"><img src="https://secure.travis-ci.org/rspec/rspec-rails.svg?branch=master" alt="Build Status"></a> <a href="https://codeclimate.com/github/rspec/rspec-rails"><img src="https://codeclimate.com/github/rspec/rspec-rails.svg" alt="Code Climate"></a> <a href="gem-version"><img src="https://badge.fury.io/rb/rspec-rails.svg" alt="Gem Version"></a></h1>
 
 <p><code>rspec-rails</code> brings the <a href="https://rspec.info/">RSpec</a> testing framework to <a href="https://rubyonrails.org/">Ruby on Rails</a>
 as a drop-in alternative to its default testing framework, Minitest.</p>
@@ -83,7 +78,7 @@ of your app’s <code>Gemfile</code>:</p>
 
 <pre class="code ruby"><code class="ruby"><span class='comment'># Run against the latest stable release
 </span><span class='id identifier rubyid_group'>group</span> <span class='symbol'>:development</span><span class='comma'>,</span> <span class='symbol'>:test</span> <span class='kw'>do</span>
- <span class='id identifier rubyid_gem'>gem</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>rspec-rails</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>~&gt; 3.8</span><span class='tstring_end'>&#39;</span></span>
+ <span class='id identifier rubyid_gem'>gem</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>rspec-rails</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>~&gt; 3.9</span><span class='tstring_end'>&#39;</span></span>
 <span class='kw'>end</span>
 
 <span class='comment'># Or, run against the master branch
@@ -178,7 +173,7 @@ and use that instead (Rails 4+ only):</p>
 <p>In RSpec, application behavior is described
 <strong>first in (almost) plain English, then again in test code</strong>, like so:</p>
 
-<pre class="code ruby"><code class="ruby"><span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_describe'>describe</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Post</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>do</span>           <span class='comment'>#
+<pre class="code ruby"><code class="ruby"><span class='const'><span class='object_link'><a href="RSpec.html" title="RSpec (module)">RSpec</a></span></span><span class='period'>.</span><span class='id identifier rubyid_describe'>describe</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Post</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>do</span>           <span class='comment'>#
 </span>  <span class='id identifier rubyid_context'>context</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>before publication</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>do</span>  <span class='comment'># (almost) plain English
 </span>    <span class='id identifier rubyid_it'>it</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>cannot have comments</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>do</span>   <span class='comment'>#
 </span>      <span class='id identifier rubyid_expect'>expect</span> <span class='lbrace'>{</span> <span class='const'>Post</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='period'>.</span><span class='id identifier rubyid_comments'>comments</span><span class='period'>.</span><span class='id identifier rubyid_create!'>create!</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_raise_error'>raise_error</span><span class='lparen'>(</span><span class='const'>ActiveRecord</span><span class='op'>::</span><span class='const'>RecordInvalid</span><span class='rparen'>)</span>  <span class='comment'># test code
@@ -440,10 +435,10 @@ anywhere other than system specs and feature specs.)</li>
 </ul>
 </div></div>
 
-    <div id="footer">
-  Generated on Tue Oct  8 11:39:25 2019 by
+      <div id="footer">
+  Generated on Thu Jan  2 16:20:06 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.8.7.6 (ruby-2.6.5).
+  0.9.22 (ruby-2.7.0).
 </div>
 
 <script>
@@ -457,5 +452,6 @@ anywhere other than system specs and feature specs.)</li>
 
 </script>
 
+    </div>
   </body>
 </html>
