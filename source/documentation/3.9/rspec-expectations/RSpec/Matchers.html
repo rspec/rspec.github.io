@@ -1135,7 +1135,7 @@ best to find a more positive name for the negated form, such as
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#raise_error-instance_method" title="#raise_error (instance method)">#<strong>raise_error</strong>(error = nil, message = nil, &amp;block)  &#x21d2; Object </a>
+      <a href="#raise_error-instance_method" title="#raise_error (instance method)">#<strong>raise_error</strong>(error = BuiltIn::RaiseError::UndefinedValue, message = nil, &amp;block)  &#x21d2; Object </a>
     
 
     
@@ -1416,8 +1416,6 @@ best to find a more positive name for the negated form, such as
       <pre class="lines">
 
 
-956
-957
 958
 959
 960
@@ -1425,10 +1423,12 @@ best to find a more positive name for the negated form, such as
 962
 963
 964
-965</pre>
+965
+966
+967</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/matchers.rb', line 956</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/matchers.rb', line 958</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_method_missing'>method_missing</span><span class='lparen'>(</span><span class='id identifier rubyid_method'>method</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
   <span class='kw'>case</span> <span class='id identifier rubyid_method'>method</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span>
@@ -1584,12 +1584,12 @@ looks for a <code>configuration</code> method on the mixin
       <pre class="lines">
 
 
-946
-947
-948</pre>
+948
+949
+950</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/matchers.rb', line 946</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/matchers.rb', line 948</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_configuration'>configuration</span>
   <span class='const'><span class='object_link'><a href="Expectations.html" title="RSpec::Expectations (module)">Expectations</a></span></span><span class='period'>.</span><span class='id identifier rubyid_configuration'><span class='object_link'><a href="Expectations.html#configuration-class_method" title="RSpec::Expectations.configuration (method)">configuration</a></span></span>
@@ -3433,7 +3433,7 @@ standard stream will be captured.</p>
       <div class="method_details ">
   <h3 class="signature " id="raise_error-instance_method">
   
-    #<strong>raise_error</strong>(error = nil, message = nil, &amp;block)  &#x21d2; <tt>Object</tt> 
+    #<strong>raise_error</strong>(error = BuiltIn::RaiseError::UndefinedValue, message = nil, &amp;block)  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -3463,8 +3463,10 @@ Pass an optional block to perform extra verifications on the exception matched</
       <pre class="example code"><code><span class='id identifier rubyid_expect'>expect</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_do_something_risky'>do_something_risky</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_raise_error'>raise_error</span>
 <span class='id identifier rubyid_expect'>expect</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_do_something_risky'>do_something_risky</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_raise_error'>raise_error</span><span class='lparen'>(</span><span class='const'>PoorRiskDecisionError</span><span class='rparen'>)</span>
 <span class='id identifier rubyid_expect'>expect</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_do_something_risky'>do_something_risky</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_raise_error'>raise_error</span><span class='lparen'>(</span><span class='const'>PoorRiskDecisionError</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_error'>error</span><span class='op'>|</span> <span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_error'>error</span><span class='period'>.</span><span class='id identifier rubyid_data'>data</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_eq'>eq</span> <span class='int'>42</span> <span class='rbrace'>}</span>
+<span class='id identifier rubyid_expect'>expect</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_do_something_risky'>do_something_risky</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_raise_error'>raise_error</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_error'>error</span><span class='op'>|</span> <span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_error'>error</span><span class='period'>.</span><span class='id identifier rubyid_data'>data</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_eq'>eq</span> <span class='int'>42</span> <span class='rbrace'>}</span>
 <span class='id identifier rubyid_expect'>expect</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_do_something_risky'>do_something_risky</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_raise_error'>raise_error</span><span class='lparen'>(</span><span class='const'>PoorRiskDecisionError</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>that was too risky</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
 <span class='id identifier rubyid_expect'>expect</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_do_something_risky'>do_something_risky</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_raise_error'>raise_error</span><span class='lparen'>(</span><span class='const'>PoorRiskDecisionError</span><span class='comma'>,</span> <span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>oo ri</span><span class='regexp_end'>/</span></span><span class='rparen'>)</span>
+<span class='id identifier rubyid_expect'>expect</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_do_something_risky'>do_something_risky</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_raise_error'>raise_error</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>that was too risky</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
 
 <span class='id identifier rubyid_expect'>expect</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_do_something_risky'>do_something_risky</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_not_to'>not_to</span> <span class='id identifier rubyid_raise_error'>raise_error</span></code></pre>
     
@@ -3477,14 +3479,14 @@ Pass an optional block to perform extra verifications on the exception matched</
       <pre class="lines">
 
 
-768
-769
-770</pre>
+770
+771
+772</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/matchers.rb', line 768</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/matchers.rb', line 770</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_raise_error'>raise_error</span><span class='lparen'>(</span><span class='id identifier rubyid_error'>error</span><span class='op'>=</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='id identifier rubyid_message'>message</span><span class='op'>=</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_raise_error'>raise_error</span><span class='lparen'>(</span><span class='id identifier rubyid_error'>error</span><span class='op'>=</span><span class='const'>BuiltIn</span><span class='op'>::</span><span class='const'>RaiseError</span><span class='op'>::</span><span class='const'>UndefinedValue</span><span class='comma'>,</span> <span class='id identifier rubyid_message'>message</span><span class='op'>=</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
   <span class='const'><span class='object_link'><a href="Matchers/BuiltIn.html" title="RSpec::Matchers::BuiltIn (module)">BuiltIn</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Matchers/BuiltIn/RaiseError.html" title="RSpec::Matchers::BuiltIn::RaiseError (class)">RaiseError</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Matchers/BuiltIn/RaiseError.html#initialize-instance_method" title="RSpec::Matchers::BuiltIn::RaiseError#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_error'>error</span><span class='comma'>,</span> <span class='id identifier rubyid_message'>message</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
@@ -3530,12 +3532,12 @@ provided. Names can be Strings or Symbols.</p>
       <pre class="lines">
 
 
-787
-788
-789</pre>
+789
+790
+791</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/matchers.rb', line 787</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/matchers.rb', line 789</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_respond_to'>respond_to</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_names'>names</span><span class='rparen'>)</span>
   <span class='const'><span class='object_link'><a href="Matchers/BuiltIn.html" title="RSpec::Matchers::BuiltIn (module)">BuiltIn</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Matchers/BuiltIn/RespondTo.html" title="RSpec::Matchers::BuiltIn::RespondTo (class)">RespondTo</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Matchers/BuiltIn/RespondTo.html#initialize-instance_method" title="RSpec::Matchers::BuiltIn::RespondTo#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_names'>names</span><span class='rparen'>)</span>
@@ -3583,13 +3585,13 @@ provided. Names can be Strings or Symbols.</p>
       <pre class="lines">
 
 
-973
-974
 975
-976</pre>
+976
+977
+978</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/matchers.rb', line 973</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/matchers.rb', line 975</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='id identifier rubyid_method'>method</span><span class='comma'>,</span> <span class='op'>*</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_method'>method</span> <span class='op'>=</span> <span class='id identifier rubyid_method'>method</span><span class='period'>.</span><span class='id identifier rubyid_to_s'>to_s</span>
@@ -3667,12 +3669,12 @@ a custom matcher, which would likely make your specs more expressive.</p>
       <pre class="lines">
 
 
-808
-809
-810</pre>
+810
+811
+812</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/matchers.rb', line 808</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/matchers.rb', line 810</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_satisfy'>satisfy</span><span class='lparen'>(</span><span class='id identifier rubyid_description'>description</span><span class='op'>=</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
   <span class='const'><span class='object_link'><a href="Matchers/BuiltIn.html" title="RSpec::Matchers::BuiltIn (module)">BuiltIn</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Matchers/BuiltIn/Satisfy.html" title="RSpec::Matchers::BuiltIn::Satisfy (class)">Satisfy</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Matchers/BuiltIn/Satisfy.html#initialize-instance_method" title="RSpec::Matchers::BuiltIn::Satisfy#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_description'>description</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
@@ -3724,12 +3726,12 @@ of the actual string. In the case of an array, matches against the first
       <pre class="lines">
 
 
-823
-824
-825</pre>
+825
+826
+827</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/matchers.rb', line 823</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/matchers.rb', line 825</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_start_with'>start_with</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_expected'>expected</span><span class='rparen'>)</span>
   <span class='const'><span class='object_link'><a href="Matchers/BuiltIn.html" title="RSpec::Matchers::BuiltIn (module)">BuiltIn</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Matchers/BuiltIn/StartWith.html" title="RSpec::Matchers::BuiltIn::StartWith (class)">StartWith</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Matchers/BuiltIn/StartOrEndWith.html#initialize-instance_method" title="RSpec::Matchers::BuiltIn::StartOrEndWith#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_expected'>expected</span><span class='rparen'>)</span>
@@ -3787,12 +3789,12 @@ specified Symbol with the specified arg.</p>
       <pre class="lines">
 
 
-845
-846
-847</pre>
+847
+848
+849</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/matchers.rb', line 845</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/matchers.rb', line 847</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_throw_symbol'>throw_symbol</span><span class='lparen'>(</span><span class='id identifier rubyid_expected_symbol'>expected_symbol</span><span class='op'>=</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='id identifier rubyid_expected_arg'>expected_arg</span><span class='op'>=</span><span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='const'><span class='object_link'><a href="Matchers/BuiltIn.html" title="RSpec::Matchers::BuiltIn (module)">BuiltIn</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Matchers/BuiltIn/ThrowSymbol.html" title="RSpec::Matchers::BuiltIn::ThrowSymbol (class)">ThrowSymbol</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Matchers/BuiltIn/ThrowSymbol.html#initialize-instance_method" title="RSpec::Matchers::BuiltIn::ThrowSymbol#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_expected_symbol'>expected_symbol</span><span class='comma'>,</span> <span class='id identifier rubyid_expected_arg'>expected_arg</span><span class='rparen'>)</span>
@@ -3849,12 +3851,12 @@ of whether or not arguments are yielded.</p>
       <pre class="lines">
 
 
-866
-867
-868</pre>
+868
+869
+870</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/matchers.rb', line 866</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/matchers.rb', line 868</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_yield_control'>yield_control</span>
   <span class='const'><span class='object_link'><a href="Matchers/BuiltIn.html" title="RSpec::Matchers::BuiltIn (module)">BuiltIn</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Matchers/BuiltIn/YieldControl.html" title="RSpec::Matchers::BuiltIn::YieldControl (class)">YieldControl</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Matchers/BuiltIn/YieldControl.html#initialize-instance_method" title="RSpec::Matchers::BuiltIn::YieldControl#initialize (method)">new</a></span></span>
@@ -3917,12 +3919,12 @@ operator, the matcher will pass.</p>
       <pre class="lines">
 
 
-935
-936
-937</pre>
+937
+938
+939</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/matchers.rb', line 935</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/matchers.rb', line 937</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_yield_successive_args'>yield_successive_args</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
   <span class='const'><span class='object_link'><a href="Matchers/BuiltIn.html" title="RSpec::Matchers::BuiltIn (module)">BuiltIn</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Matchers/BuiltIn/YieldSuccessiveArgs.html" title="RSpec::Matchers::BuiltIn::YieldSuccessiveArgs (class)">YieldSuccessiveArgs</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Matchers/BuiltIn/YieldSuccessiveArgs.html#initialize-instance_method" title="RSpec::Matchers::BuiltIn::YieldSuccessiveArgs#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
@@ -3999,12 +4001,12 @@ operator, the matcher will pass.</p>
       <pre class="lines">
 
 
-914
-915
-916</pre>
+916
+917
+918</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/matchers.rb', line 914</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/matchers.rb', line 916</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_yield_with_args'>yield_with_args</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
   <span class='const'><span class='object_link'><a href="Matchers/BuiltIn.html" title="RSpec::Matchers::BuiltIn (module)">BuiltIn</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Matchers/BuiltIn/YieldWithArgs.html" title="RSpec::Matchers::BuiltIn::YieldWithArgs (class)">YieldWithArgs</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Matchers/BuiltIn/YieldWithArgs.html#initialize-instance_method" title="RSpec::Matchers::BuiltIn::YieldWithArgs#initialize (method)">new</a></span></span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
@@ -4069,12 +4071,12 @@ no arguments. Fails if it does not yield, or yields with arguments.</p>
       <pre class="lines">
 
 
-884
-885
-886</pre>
+886
+887
+888</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/matchers.rb', line 884</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/matchers.rb', line 886</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_yield_with_no_args'>yield_with_no_args</span>
   <span class='const'><span class='object_link'><a href="Matchers/BuiltIn.html" title="RSpec::Matchers::BuiltIn (module)">BuiltIn</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Matchers/BuiltIn/YieldWithNoArgs.html" title="RSpec::Matchers::BuiltIn::YieldWithNoArgs (class)">YieldWithNoArgs</a></span></span><span class='period'>.</span><span class='id identifier rubyid_new'><span class='object_link'><a href="Matchers/BuiltIn/BaseMatcher.html#initialize-instance_method" title="RSpec::Matchers::BuiltIn::BaseMatcher#initialize (method)">new</a></span></span>
@@ -4089,9 +4091,9 @@ no arguments. Fails if it does not yield, or yields with arguments.</p>
 </div>
 
       <div id="footer">
-  Generated on Tue Oct  8 11:36:13 2019 by
+  Generated on Sun Jan 19 14:08:05 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.16 (ruby-2.6.5).
+  0.9.16 (ruby-2.5.1).
 </div>
 
 <script>

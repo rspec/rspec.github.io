@@ -121,6 +121,39 @@ rubocop:disable RescueException</p>
   
 
 </div>
+  
+    <h2>
+      Constant Summary
+      <small><a href="#" class="constants_summary_toggle">collapse</a></small>
+    </h2>
+
+    <dl class="constants">
+      
+        <dt id="UndefinedValue-constant" class="">UndefinedValue =
+          <div class="docstring">
+  <div class="discussion">
+    <p class="note private">
+  <strong>This constant is part of a private API.</strong>
+  You should avoid using this constant if possible, as it may be removed or be changed in the future.
+</p>
+<p>Used as a sentinel value to be able to tell when the user did not pass an
+argument. We can&#39;t use <code>nil</code> for that because we need to warn when <code>nil</code> is
+passed in a different way. It&#39;s an Object, not a Module, since Module&#39;s <code>===</code>
+does not evaluate to true when compared to itself.</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div>
+        </dt>
+        <dd><pre class="code"><span class='const'>Object</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span></pre></dd>
+      
+    </dl>
+  
+
 
 
 
@@ -226,7 +259,7 @@ rubocop:disable RescueException</p>
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(expected_error_or_message = nil, expected_message = nil, &amp;block)  &#x21d2; RaiseError </a>
+      <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(expected_error_or_message, expected_message, &amp;block)  &#x21d2; RaiseError </a>
     
 
     
@@ -291,7 +324,7 @@ rubocop:disable RescueException</p>
     <div class="method_details first">
   <h3 class="signature first" id="initialize-instance_method">
   
-    #<strong>initialize</strong>(expected_error_or_message = nil, expected_message = nil, &amp;block)  &#x21d2; <tt><span class='object_link'><a href="" title="RSpec::Matchers::BuiltIn::RaiseError (class)">RaiseError</a></span></tt> 
+    #<strong>initialize</strong>(expected_error_or_message, expected_message, &amp;block)  &#x21d2; <tt><span class='object_link'><a href="" title="RSpec::Matchers::BuiltIn::RaiseError (class)">RaiseError</a></span></tt> 
   
 
   
@@ -317,12 +350,6 @@ rubocop:disable RescueException</p>
       <pre class="lines">
 
 
-12
-13
-14
-15
-16
-17
 18
 19
 20
@@ -333,18 +360,26 @@ rubocop:disable RescueException</p>
 25
 26
 27
-28</pre>
+28
+29
+30
+31
+32
+33
+34
+35</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/matchers/built_in/raise_error.rb', line 12</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/matchers/built_in/raise_error.rb', line 18</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_expected_error_or_message'>expected_error_or_message</span><span class='op'>=</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='id identifier rubyid_expected_message'>expected_message</span><span class='op'>=</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_expected_error_or_message'>expected_error_or_message</span><span class='comma'>,</span> <span class='id identifier rubyid_expected_message'>expected_message</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
   <span class='ivar'>@block</span> <span class='op'>=</span> <span class='id identifier rubyid_block'>block</span>
   <span class='ivar'>@actual_error</span> <span class='op'>=</span> <span class='kw'>nil</span>
-  <span class='ivar'>@warn_about_bare_error</span> <span class='op'>=</span> <span class='id identifier rubyid_expected_error_or_message'>expected_error_or_message</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
+  <span class='ivar'>@warn_about_bare_error</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="#UndefinedValue-constant" title="RSpec::Matchers::BuiltIn::RaiseError::UndefinedValue (constant)">UndefinedValue</a></span></span> <span class='op'>===</span> <span class='id identifier rubyid_expected_error_or_message'>expected_error_or_message</span>
+  <span class='ivar'>@warn_about_nil_error</span> <span class='op'>=</span> <span class='id identifier rubyid_expected_error_or_message'>expected_error_or_message</span><span class='period'>.</span><span class='id identifier rubyid_nil?'>nil?</span>
 
   <span class='kw'>case</span> <span class='id identifier rubyid_expected_error_or_message'>expected_error_or_message</span>
-  <span class='kw'>when</span> <span class='kw'>nil</span>
+  <span class='kw'>when</span> <span class='kw'>nil</span><span class='comma'>,</span> <span class='const'><span class='object_link'><a href="#UndefinedValue-constant" title="RSpec::Matchers::BuiltIn::RaiseError::UndefinedValue (constant)">UndefinedValue</a></span></span>
     <span class='ivar'>@expected_error</span> <span class='op'>=</span> <span class='const'>Exception</span>
     <span class='ivar'>@expected_message</span> <span class='op'>=</span> <span class='id identifier rubyid_expected_message'>expected_message</span>
   <span class='kw'>when</span> <span class='const'>String</span>
@@ -408,12 +443,12 @@ rubocop:disable RescueException</p>
       <pre class="lines">
 
 
-97
-98
-99</pre>
+107
+108
+109</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/matchers/built_in/raise_error.rb', line 97</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/matchers/built_in/raise_error.rb', line 107</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_description'>description</span>
   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>raise </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_expected_error'>expected_error</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
@@ -464,12 +499,12 @@ rubocop:disable RescueException</p>
       <pre class="lines">
 
 
-79
-80
-81</pre>
+89
+90
+91</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/matchers/built_in/raise_error.rb', line 79</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/matchers/built_in/raise_error.rb', line 89</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_expects_call_stack_jump?'>expects_call_stack_jump?</span>
   <span class='kw'>true</span>
@@ -520,12 +555,12 @@ rubocop:disable RescueException</p>
       <pre class="lines">
 
 
-85
-86
-87</pre>
+95
+96
+97</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/matchers/built_in/raise_error.rb', line 85</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/matchers/built_in/raise_error.rb', line 95</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_failure_message'>failure_message</span>
   <span class='ivar'>@eval_block</span> <span class='op'>?</span> <span class='ivar'>@actual_error</span><span class='period'>.</span><span class='id identifier rubyid_message'>message</span> <span class='op'>:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>expected </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_expected_error'>expected_error</span><span class='embexpr_end'>}</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_given_error'>given_error</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
@@ -576,12 +611,12 @@ rubocop:disable RescueException</p>
       <pre class="lines">
 
 
-91
-92
-93</pre>
+101
+102
+103</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/matchers/built_in/raise_error.rb', line 91</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/matchers/built_in/raise_error.rb', line 101</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_failure_message_when_negated'>failure_message_when_negated</span>
   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>expected no </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_expected_error'>expected_error</span><span class='embexpr_end'>}</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_given_error'>given_error</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
@@ -616,15 +651,15 @@ rubocop:disable RescueException</p>
       <pre class="lines">
 
 
-32
-33
-34
-35
-36
-37</pre>
+39
+40
+41
+42
+43
+44</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/matchers/built_in/raise_error.rb', line 32</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/matchers/built_in/raise_error.rb', line 39</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_with_message'>with_message</span><span class='lparen'>(</span><span class='id identifier rubyid_expected_message'>expected_message</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_raise_message_already_set'>raise_message_already_set</span> <span class='kw'>if</span> <span class='ivar'>@expected_message</span>
@@ -642,9 +677,9 @@ rubocop:disable RescueException</p>
 </div>
 
       <div id="footer">
-  Generated on Tue Oct  8 11:36:15 2019 by
+  Generated on Sun Jan 19 14:08:07 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.16 (ruby-2.6.5).
+  0.9.16 (ruby-2.5.1).
 </div>
 
 <script>
