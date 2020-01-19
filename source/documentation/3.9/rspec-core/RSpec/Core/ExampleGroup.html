@@ -836,13 +836,13 @@ group block.</p>
       <pre class="lines">
 
 
-693
-694
-695
-696</pre>
+704
+705
+706
+707</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/core/example_group.rb', line 693</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/example_group.rb', line 704</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_inspect_output'>inspect_output</span><span class='op'>=</span><span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='ivar'>@__inspect_output</span> <span class='op'>=</span> <span class='id identifier rubyid_inspect_output'>inspect_output</span> <span class='op'>||</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>(no description provided)</span><span class='tstring_end'>&#39;</span></span>
@@ -876,20 +876,20 @@ group block.</p>
       <pre class="lines">
 
 
-744
-745
-746
-747
-748
-749
-750
-751
-752
-753
-754</pre>
+755
+756
+757
+758
+759
+760
+761
+762
+763
+764
+765</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/core/example_group.rb', line 744</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/example_group.rb', line 755</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_method_missing'>method_missing</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
   <span class='kw'>if</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
@@ -939,13 +939,13 @@ group block.</p>
       <pre class="lines">
 
 
-356
-357
-358
-359</pre>
+367
+368
+369
+370</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/core/example_group.rb', line 356</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/example_group.rb', line 367</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_add_example'>add_example</span><span class='lparen'>(</span><span class='id identifier rubyid_example'>example</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_reset_memoized'>reset_memoized</span>
@@ -995,12 +995,12 @@ hook is currently executing.</p>
       <pre class="lines">
 
 
-531
-532
-533</pre>
+542
+543
+544</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/core/example_group.rb', line 531</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/example_group.rb', line 542</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_currently_executing_a_context_hook?'>currently_executing_a_context_hook?</span>
   <span class='ivar'>@currently_executing_a_context_hook</span>
@@ -1077,9 +1077,9 @@ hook is currently executing.</p>
     
       <span class="overload">.<strong>example</strong>(&amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
     
-      <span class="overload">.<strong>example</strong>(doc_string, *metadata_keys, metadata = {})  &#x21d2; <tt>void</tt> </span>
+      <span class="overload">.<strong>example</strong>(doc_string, *metadata)  &#x21d2; <tt>void</tt> </span>
     
-      <span class="overload">.<strong>example</strong>(doc_string, *metadata_keys, metadata = {}, &amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
+      <span class="overload">.<strong>example</strong>(doc_string, *metadata, &amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
     
   
 
@@ -1157,7 +1157,7 @@ hook is currently executing.</p>
     
       
       <li class="overload_item">
-        <span class="signature">.<strong>example</strong>(doc_string, *metadata_keys, metadata = {})  &#x21d2; <tt>void</tt> </span>
+        <span class="signature">.<strong>example</strong>(doc_string, *metadata)  &#x21d2; <tt>void</tt> </span>
         <div class="docstring">
   <div class="discussion">
     
@@ -1188,30 +1188,13 @@ hook is currently executing.</p>
         <span class='name'>metadata</span>
       
       
-        <span class='type'>(<tt>Hash</tt>)</span>
-      
-      
-        <em class="default">(defaults to: <tt>{}</tt>)</em>
-      
-      
-        &mdash;
-        <div class='inline'><p>Metadata for the example.</p>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>metadata_keys</span>
-      
-      
-        <span class='type'>(<tt>Array&lt;Symbol&gt;</tt>)</span>
+        <span class='type'>(<tt>Array&lt;Symbol&gt;</tt>, <tt>Hash</tt>)</span>
       
       
       
         &mdash;
-        <div class='inline'><p>Metadata tags for the example.
-Will be transformed into hash entries with <code>true</code> values.</p>
+        <div class='inline'><p>Metadata for the example.
+Symbols will be transformed into hash entries with <code>true</code> values.</p>
 </div>
       
     </li>
@@ -1224,7 +1207,7 @@ Will be transformed into hash entries with <code>true</code> values.</p>
     
       
       <li class="overload_item">
-        <span class="signature">.<strong>example</strong>(doc_string, *metadata_keys, metadata = {}, &amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
+        <span class="signature">.<strong>example</strong>(doc_string, *metadata, &amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
         <div class="docstring">
   <div class="discussion">
     
@@ -1255,30 +1238,13 @@ Will be transformed into hash entries with <code>true</code> values.</p>
         <span class='name'>metadata</span>
       
       
-        <span class='type'>(<tt>Hash</tt>)</span>
-      
-      
-        <em class="default">(defaults to: <tt>{}</tt>)</em>
-      
-      
-        &mdash;
-        <div class='inline'><p>Metadata for the example.</p>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>metadata_keys</span>
-      
-      
-        <span class='type'>(<tt>Array&lt;Symbol&gt;</tt>)</span>
+        <span class='type'>(<tt>Array&lt;Symbol&gt;</tt>, <tt>Hash</tt>)</span>
       
       
       
         &mdash;
-        <div class='inline'><p>Metadata tags for the example.
-Will be transformed into hash entries with <code>true</code> values.</p>
+        <div class='inline'><p>Metadata for the example.
+Symbols will be transformed into hash entries with <code>true</code> values.</p>
 </div>
       
     </li>
@@ -1330,10 +1296,10 @@ Will be transformed into hash entries with <code>true</code> values.</p>
       <pre class="lines">
 
 
-155</pre>
+158</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/core/example_group.rb', line 155</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/example_group.rb', line 158</span>
 
 <span class='id identifier rubyid_define_example_method'>define_example_method</span> <span class='symbol'>:example</span></pre>
     </td>
@@ -1349,9 +1315,9 @@ Will be transformed into hash entries with <code>true</code> values.</p>
     
       <span class="overload">.<strong>fexample</strong>(&amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
     
-      <span class="overload">.<strong>fexample</strong>(doc_string, *metadata_keys, metadata = {})  &#x21d2; <tt>void</tt> </span>
+      <span class="overload">.<strong>fexample</strong>(doc_string, *metadata)  &#x21d2; <tt>void</tt> </span>
     
-      <span class="overload">.<strong>fexample</strong>(doc_string, *metadata_keys, metadata = {}, &amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
+      <span class="overload">.<strong>fexample</strong>(doc_string, *metadata, &amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
     
   
 
@@ -1429,7 +1395,7 @@ Will be transformed into hash entries with <code>true</code> values.</p>
     
       
       <li class="overload_item">
-        <span class="signature">.<strong>fexample</strong>(doc_string, *metadata_keys, metadata = {})  &#x21d2; <tt>void</tt> </span>
+        <span class="signature">.<strong>fexample</strong>(doc_string, *metadata)  &#x21d2; <tt>void</tt> </span>
         <div class="docstring">
   <div class="discussion">
     
@@ -1460,30 +1426,13 @@ Will be transformed into hash entries with <code>true</code> values.</p>
         <span class='name'>metadata</span>
       
       
-        <span class='type'>(<tt>Hash</tt>)</span>
-      
-      
-        <em class="default">(defaults to: <tt>{}</tt>)</em>
-      
-      
-        &mdash;
-        <div class='inline'><p>Metadata for the example.</p>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>metadata_keys</span>
-      
-      
-        <span class='type'>(<tt>Array&lt;Symbol&gt;</tt>)</span>
+        <span class='type'>(<tt>Array&lt;Symbol&gt;</tt>, <tt>Hash</tt>)</span>
       
       
       
         &mdash;
-        <div class='inline'><p>Metadata tags for the example.
-Will be transformed into hash entries with <code>true</code> values.</p>
+        <div class='inline'><p>Metadata for the example.
+Symbols will be transformed into hash entries with <code>true</code> values.</p>
 </div>
       
     </li>
@@ -1496,7 +1445,7 @@ Will be transformed into hash entries with <code>true</code> values.</p>
     
       
       <li class="overload_item">
-        <span class="signature">.<strong>fexample</strong>(doc_string, *metadata_keys, metadata = {}, &amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
+        <span class="signature">.<strong>fexample</strong>(doc_string, *metadata, &amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
         <div class="docstring">
   <div class="discussion">
     
@@ -1527,30 +1476,13 @@ Will be transformed into hash entries with <code>true</code> values.</p>
         <span class='name'>metadata</span>
       
       
-        <span class='type'>(<tt>Hash</tt>)</span>
-      
-      
-        <em class="default">(defaults to: <tt>{}</tt>)</em>
-      
-      
-        &mdash;
-        <div class='inline'><p>Metadata for the example.</p>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>metadata_keys</span>
-      
-      
-        <span class='type'>(<tt>Array&lt;Symbol&gt;</tt>)</span>
+        <span class='type'>(<tt>Array&lt;Symbol&gt;</tt>, <tt>Hash</tt>)</span>
       
       
       
         &mdash;
-        <div class='inline'><p>Metadata tags for the example.
-Will be transformed into hash entries with <code>true</code> values.</p>
+        <div class='inline'><p>Metadata for the example.
+Symbols will be transformed into hash entries with <code>true</code> values.</p>
 </div>
       
     </li>
@@ -1609,10 +1541,10 @@ Will be transformed into hash entries with <code>true</code> values.</p>
       <pre class="lines">
 
 
-174</pre>
+177</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/core/example_group.rb', line 174</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/example_group.rb', line 177</span>
 
 <span class='id identifier rubyid_define_example_method'>define_example_method</span> <span class='symbol'>:fexample</span><span class='comma'>,</span> <span class='symbol'>:focus</span> <span class='op'>=&gt;</span> <span class='kw'>true</span></pre>
     </td>
@@ -1628,9 +1560,9 @@ Will be transformed into hash entries with <code>true</code> values.</p>
     
       <span class="overload">.<strong>fit</strong>(&amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
     
-      <span class="overload">.<strong>fit</strong>(doc_string, *metadata_keys, metadata = {})  &#x21d2; <tt>void</tt> </span>
+      <span class="overload">.<strong>fit</strong>(doc_string, *metadata)  &#x21d2; <tt>void</tt> </span>
     
-      <span class="overload">.<strong>fit</strong>(doc_string, *metadata_keys, metadata = {}, &amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
+      <span class="overload">.<strong>fit</strong>(doc_string, *metadata, &amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
     
   
 
@@ -1708,7 +1640,7 @@ Will be transformed into hash entries with <code>true</code> values.</p>
     
       
       <li class="overload_item">
-        <span class="signature">.<strong>fit</strong>(doc_string, *metadata_keys, metadata = {})  &#x21d2; <tt>void</tt> </span>
+        <span class="signature">.<strong>fit</strong>(doc_string, *metadata)  &#x21d2; <tt>void</tt> </span>
         <div class="docstring">
   <div class="discussion">
     
@@ -1739,30 +1671,13 @@ Will be transformed into hash entries with <code>true</code> values.</p>
         <span class='name'>metadata</span>
       
       
-        <span class='type'>(<tt>Hash</tt>)</span>
-      
-      
-        <em class="default">(defaults to: <tt>{}</tt>)</em>
-      
-      
-        &mdash;
-        <div class='inline'><p>Metadata for the example.</p>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>metadata_keys</span>
-      
-      
-        <span class='type'>(<tt>Array&lt;Symbol&gt;</tt>)</span>
+        <span class='type'>(<tt>Array&lt;Symbol&gt;</tt>, <tt>Hash</tt>)</span>
       
       
       
         &mdash;
-        <div class='inline'><p>Metadata tags for the example.
-Will be transformed into hash entries with <code>true</code> values.</p>
+        <div class='inline'><p>Metadata for the example.
+Symbols will be transformed into hash entries with <code>true</code> values.</p>
 </div>
       
     </li>
@@ -1775,7 +1690,7 @@ Will be transformed into hash entries with <code>true</code> values.</p>
     
       
       <li class="overload_item">
-        <span class="signature">.<strong>fit</strong>(doc_string, *metadata_keys, metadata = {}, &amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
+        <span class="signature">.<strong>fit</strong>(doc_string, *metadata, &amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
         <div class="docstring">
   <div class="discussion">
     
@@ -1806,30 +1721,13 @@ Will be transformed into hash entries with <code>true</code> values.</p>
         <span class='name'>metadata</span>
       
       
-        <span class='type'>(<tt>Hash</tt>)</span>
-      
-      
-        <em class="default">(defaults to: <tt>{}</tt>)</em>
-      
-      
-        &mdash;
-        <div class='inline'><p>Metadata for the example.</p>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>metadata_keys</span>
-      
-      
-        <span class='type'>(<tt>Array&lt;Symbol&gt;</tt>)</span>
+        <span class='type'>(<tt>Array&lt;Symbol&gt;</tt>, <tt>Hash</tt>)</span>
       
       
       
         &mdash;
-        <div class='inline'><p>Metadata tags for the example.
-Will be transformed into hash entries with <code>true</code> values.</p>
+        <div class='inline'><p>Metadata for the example.
+Symbols will be transformed into hash entries with <code>true</code> values.</p>
 </div>
       
     </li>
@@ -1888,10 +1786,10 @@ Will be transformed into hash entries with <code>true</code> values.</p>
       <pre class="lines">
 
 
-177</pre>
+180</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/core/example_group.rb', line 177</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/example_group.rb', line 180</span>
 
 <span class='id identifier rubyid_define_example_method'>define_example_method</span> <span class='symbol'>:fit</span><span class='comma'>,</span>      <span class='symbol'>:focus</span> <span class='op'>=&gt;</span> <span class='kw'>true</span></pre>
     </td>
@@ -1907,9 +1805,9 @@ Will be transformed into hash entries with <code>true</code> values.</p>
     
       <span class="overload">.<strong>focus</strong>(&amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
     
-      <span class="overload">.<strong>focus</strong>(doc_string, *metadata_keys, metadata = {})  &#x21d2; <tt>void</tt> </span>
+      <span class="overload">.<strong>focus</strong>(doc_string, *metadata)  &#x21d2; <tt>void</tt> </span>
     
-      <span class="overload">.<strong>focus</strong>(doc_string, *metadata_keys, metadata = {}, &amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
+      <span class="overload">.<strong>focus</strong>(doc_string, *metadata, &amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
     
   
 
@@ -1987,7 +1885,7 @@ Will be transformed into hash entries with <code>true</code> values.</p>
     
       
       <li class="overload_item">
-        <span class="signature">.<strong>focus</strong>(doc_string, *metadata_keys, metadata = {})  &#x21d2; <tt>void</tt> </span>
+        <span class="signature">.<strong>focus</strong>(doc_string, *metadata)  &#x21d2; <tt>void</tt> </span>
         <div class="docstring">
   <div class="discussion">
     
@@ -2018,30 +1916,13 @@ Will be transformed into hash entries with <code>true</code> values.</p>
         <span class='name'>metadata</span>
       
       
-        <span class='type'>(<tt>Hash</tt>)</span>
-      
-      
-        <em class="default">(defaults to: <tt>{}</tt>)</em>
-      
-      
-        &mdash;
-        <div class='inline'><p>Metadata for the example.</p>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>metadata_keys</span>
-      
-      
-        <span class='type'>(<tt>Array&lt;Symbol&gt;</tt>)</span>
+        <span class='type'>(<tt>Array&lt;Symbol&gt;</tt>, <tt>Hash</tt>)</span>
       
       
       
         &mdash;
-        <div class='inline'><p>Metadata tags for the example.
-Will be transformed into hash entries with <code>true</code> values.</p>
+        <div class='inline'><p>Metadata for the example.
+Symbols will be transformed into hash entries with <code>true</code> values.</p>
 </div>
       
     </li>
@@ -2054,7 +1935,7 @@ Will be transformed into hash entries with <code>true</code> values.</p>
     
       
       <li class="overload_item">
-        <span class="signature">.<strong>focus</strong>(doc_string, *metadata_keys, metadata = {}, &amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
+        <span class="signature">.<strong>focus</strong>(doc_string, *metadata, &amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
         <div class="docstring">
   <div class="discussion">
     
@@ -2085,30 +1966,13 @@ Will be transformed into hash entries with <code>true</code> values.</p>
         <span class='name'>metadata</span>
       
       
-        <span class='type'>(<tt>Hash</tt>)</span>
-      
-      
-        <em class="default">(defaults to: <tt>{}</tt>)</em>
-      
-      
-        &mdash;
-        <div class='inline'><p>Metadata for the example.</p>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>metadata_keys</span>
-      
-      
-        <span class='type'>(<tt>Array&lt;Symbol&gt;</tt>)</span>
+        <span class='type'>(<tt>Array&lt;Symbol&gt;</tt>, <tt>Hash</tt>)</span>
       
       
       
         &mdash;
-        <div class='inline'><p>Metadata tags for the example.
-Will be transformed into hash entries with <code>true</code> values.</p>
+        <div class='inline'><p>Metadata for the example.
+Symbols will be transformed into hash entries with <code>true</code> values.</p>
 </div>
       
     </li>
@@ -2167,10 +2031,10 @@ Will be transformed into hash entries with <code>true</code> values.</p>
       <pre class="lines">
 
 
-171</pre>
+174</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/core/example_group.rb', line 171</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/example_group.rb', line 174</span>
 
 <span class='id identifier rubyid_define_example_method'>define_example_method</span> <span class='symbol'>:focus</span><span class='comma'>,</span>    <span class='symbol'>:focus</span> <span class='op'>=&gt;</span> <span class='kw'>true</span></pre>
     </td>
@@ -2186,9 +2050,9 @@ Will be transformed into hash entries with <code>true</code> values.</p>
     
       <span class="overload">.<strong>fspecify</strong>(&amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
     
-      <span class="overload">.<strong>fspecify</strong>(doc_string, *metadata_keys, metadata = {})  &#x21d2; <tt>void</tt> </span>
+      <span class="overload">.<strong>fspecify</strong>(doc_string, *metadata)  &#x21d2; <tt>void</tt> </span>
     
-      <span class="overload">.<strong>fspecify</strong>(doc_string, *metadata_keys, metadata = {}, &amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
+      <span class="overload">.<strong>fspecify</strong>(doc_string, *metadata, &amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
     
   
 
@@ -2266,7 +2130,7 @@ Will be transformed into hash entries with <code>true</code> values.</p>
     
       
       <li class="overload_item">
-        <span class="signature">.<strong>fspecify</strong>(doc_string, *metadata_keys, metadata = {})  &#x21d2; <tt>void</tt> </span>
+        <span class="signature">.<strong>fspecify</strong>(doc_string, *metadata)  &#x21d2; <tt>void</tt> </span>
         <div class="docstring">
   <div class="discussion">
     
@@ -2297,30 +2161,13 @@ Will be transformed into hash entries with <code>true</code> values.</p>
         <span class='name'>metadata</span>
       
       
-        <span class='type'>(<tt>Hash</tt>)</span>
-      
-      
-        <em class="default">(defaults to: <tt>{}</tt>)</em>
-      
-      
-        &mdash;
-        <div class='inline'><p>Metadata for the example.</p>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>metadata_keys</span>
-      
-      
-        <span class='type'>(<tt>Array&lt;Symbol&gt;</tt>)</span>
+        <span class='type'>(<tt>Array&lt;Symbol&gt;</tt>, <tt>Hash</tt>)</span>
       
       
       
         &mdash;
-        <div class='inline'><p>Metadata tags for the example.
-Will be transformed into hash entries with <code>true</code> values.</p>
+        <div class='inline'><p>Metadata for the example.
+Symbols will be transformed into hash entries with <code>true</code> values.</p>
 </div>
       
     </li>
@@ -2333,7 +2180,7 @@ Will be transformed into hash entries with <code>true</code> values.</p>
     
       
       <li class="overload_item">
-        <span class="signature">.<strong>fspecify</strong>(doc_string, *metadata_keys, metadata = {}, &amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
+        <span class="signature">.<strong>fspecify</strong>(doc_string, *metadata, &amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
         <div class="docstring">
   <div class="discussion">
     
@@ -2364,30 +2211,13 @@ Will be transformed into hash entries with <code>true</code> values.</p>
         <span class='name'>metadata</span>
       
       
-        <span class='type'>(<tt>Hash</tt>)</span>
-      
-      
-        <em class="default">(defaults to: <tt>{}</tt>)</em>
-      
-      
-        &mdash;
-        <div class='inline'><p>Metadata for the example.</p>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>metadata_keys</span>
-      
-      
-        <span class='type'>(<tt>Array&lt;Symbol&gt;</tt>)</span>
+        <span class='type'>(<tt>Array&lt;Symbol&gt;</tt>, <tt>Hash</tt>)</span>
       
       
       
         &mdash;
-        <div class='inline'><p>Metadata tags for the example.
-Will be transformed into hash entries with <code>true</code> values.</p>
+        <div class='inline'><p>Metadata for the example.
+Symbols will be transformed into hash entries with <code>true</code> values.</p>
 </div>
       
     </li>
@@ -2446,10 +2276,10 @@ Will be transformed into hash entries with <code>true</code> values.</p>
       <pre class="lines">
 
 
-180</pre>
+183</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/core/example_group.rb', line 180</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/example_group.rb', line 183</span>
 
 <span class='id identifier rubyid_define_example_method'>define_example_method</span> <span class='symbol'>:fspecify</span><span class='comma'>,</span> <span class='symbol'>:focus</span> <span class='op'>=&gt;</span> <span class='kw'>true</span></pre>
     </td>
@@ -2501,12 +2331,12 @@ this at the command line to re-run this exact example group.</p>
       <pre class="lines">
 
 
-662
-663
-664</pre>
+673
+674
+675</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/core/example_group.rb', line 662</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/example_group.rb', line 673</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_id'>id</span>
   <span class='const'><span class='object_link'><a href="Metadata.html" title="RSpec::Core::Metadata (module)">Metadata</a></span></span><span class='period'>.</span><span class='id identifier rubyid_id_from'>id_from</span><span class='lparen'>(</span><span class='id identifier rubyid_metadata'>metadata</span><span class='rparen'>)</span>
@@ -2551,12 +2381,12 @@ context.</p>
       <pre class="lines">
 
 
-332
-333
-334</pre>
+343
+344
+345</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/core/example_group.rb', line 332</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/example_group.rb', line 343</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_include_context'>include_context</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_find_and_eval_shared'>find_and_eval_shared</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>context</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_caller'>caller</span><span class='period'>.</span><span class='id identifier rubyid_first'>first</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
@@ -2601,12 +2431,12 @@ context.</p>
       <pre class="lines">
 
 
-342
-343
-344</pre>
+353
+354
+355</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/core/example_group.rb', line 342</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/example_group.rb', line 353</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_include_examples'>include_examples</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_find_and_eval_shared'>find_and_eval_shared</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>examples</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_caller'>caller</span><span class='period'>.</span><span class='id identifier rubyid_first'>first</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
@@ -2624,9 +2454,9 @@ context.</p>
     
       <span class="overload">.<strong>it</strong>(&amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
     
-      <span class="overload">.<strong>it</strong>(doc_string, *metadata_keys, metadata = {})  &#x21d2; <tt>void</tt> </span>
+      <span class="overload">.<strong>it</strong>(doc_string, *metadata)  &#x21d2; <tt>void</tt> </span>
     
-      <span class="overload">.<strong>it</strong>(doc_string, *metadata_keys, metadata = {}, &amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
+      <span class="overload">.<strong>it</strong>(doc_string, *metadata, &amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
     
   
 
@@ -2705,7 +2535,7 @@ This is the primary API to define a code example.</p>
     
       
       <li class="overload_item">
-        <span class="signature">.<strong>it</strong>(doc_string, *metadata_keys, metadata = {})  &#x21d2; <tt>void</tt> </span>
+        <span class="signature">.<strong>it</strong>(doc_string, *metadata)  &#x21d2; <tt>void</tt> </span>
         <div class="docstring">
   <div class="discussion">
     
@@ -2736,30 +2566,13 @@ This is the primary API to define a code example.</p>
         <span class='name'>metadata</span>
       
       
-        <span class='type'>(<tt>Hash</tt>)</span>
-      
-      
-        <em class="default">(defaults to: <tt>{}</tt>)</em>
-      
-      
-        &mdash;
-        <div class='inline'><p>Metadata for the example.</p>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>metadata_keys</span>
-      
-      
-        <span class='type'>(<tt>Array&lt;Symbol&gt;</tt>)</span>
+        <span class='type'>(<tt>Array&lt;Symbol&gt;</tt>, <tt>Hash</tt>)</span>
       
       
       
         &mdash;
-        <div class='inline'><p>Metadata tags for the example.
-Will be transformed into hash entries with <code>true</code> values.</p>
+        <div class='inline'><p>Metadata for the example.
+Symbols will be transformed into hash entries with <code>true</code> values.</p>
 </div>
       
     </li>
@@ -2772,7 +2585,7 @@ Will be transformed into hash entries with <code>true</code> values.</p>
     
       
       <li class="overload_item">
-        <span class="signature">.<strong>it</strong>(doc_string, *metadata_keys, metadata = {}, &amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
+        <span class="signature">.<strong>it</strong>(doc_string, *metadata, &amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
         <div class="docstring">
   <div class="discussion">
     
@@ -2803,30 +2616,13 @@ Will be transformed into hash entries with <code>true</code> values.</p>
         <span class='name'>metadata</span>
       
       
-        <span class='type'>(<tt>Hash</tt>)</span>
-      
-      
-        <em class="default">(defaults to: <tt>{}</tt>)</em>
-      
-      
-        &mdash;
-        <div class='inline'><p>Metadata for the example.</p>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>metadata_keys</span>
-      
-      
-        <span class='type'>(<tt>Array&lt;Symbol&gt;</tt>)</span>
+        <span class='type'>(<tt>Array&lt;Symbol&gt;</tt>, <tt>Hash</tt>)</span>
       
       
       
         &mdash;
-        <div class='inline'><p>Metadata tags for the example.
-Will be transformed into hash entries with <code>true</code> values.</p>
+        <div class='inline'><p>Metadata for the example.
+Symbols will be transformed into hash entries with <code>true</code> values.</p>
 </div>
       
     </li>
@@ -2878,10 +2674,10 @@ Will be transformed into hash entries with <code>true</code> values.</p>
       <pre class="lines">
 
 
-158</pre>
+161</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/core/example_group.rb', line 158</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/example_group.rb', line 161</span>
 
 <span class='id identifier rubyid_define_example_method'>define_example_method</span> <span class='symbol'>:it</span></pre>
     </td>
@@ -2944,9 +2740,9 @@ Will be transformed into hash entries with <code>true</code> values.</p>
     
       <span class="overload">.<strong>pending</strong>(&amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
     
-      <span class="overload">.<strong>pending</strong>(doc_string, *metadata_keys, metadata = {})  &#x21d2; <tt>void</tt> </span>
+      <span class="overload">.<strong>pending</strong>(doc_string, *metadata)  &#x21d2; <tt>void</tt> </span>
     
-      <span class="overload">.<strong>pending</strong>(doc_string, *metadata_keys, metadata = {}, &amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
+      <span class="overload">.<strong>pending</strong>(doc_string, *metadata, &amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
     
   
 
@@ -3024,7 +2820,7 @@ Will be transformed into hash entries with <code>true</code> values.</p>
     
       
       <li class="overload_item">
-        <span class="signature">.<strong>pending</strong>(doc_string, *metadata_keys, metadata = {})  &#x21d2; <tt>void</tt> </span>
+        <span class="signature">.<strong>pending</strong>(doc_string, *metadata)  &#x21d2; <tt>void</tt> </span>
         <div class="docstring">
   <div class="discussion">
     
@@ -3055,30 +2851,13 @@ Will be transformed into hash entries with <code>true</code> values.</p>
         <span class='name'>metadata</span>
       
       
-        <span class='type'>(<tt>Hash</tt>)</span>
-      
-      
-        <em class="default">(defaults to: <tt>{}</tt>)</em>
-      
-      
-        &mdash;
-        <div class='inline'><p>Metadata for the example.</p>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>metadata_keys</span>
-      
-      
-        <span class='type'>(<tt>Array&lt;Symbol&gt;</tt>)</span>
+        <span class='type'>(<tt>Array&lt;Symbol&gt;</tt>, <tt>Hash</tt>)</span>
       
       
       
         &mdash;
-        <div class='inline'><p>Metadata tags for the example.
-Will be transformed into hash entries with <code>true</code> values.</p>
+        <div class='inline'><p>Metadata for the example.
+Symbols will be transformed into hash entries with <code>true</code> values.</p>
 </div>
       
     </li>
@@ -3091,7 +2870,7 @@ Will be transformed into hash entries with <code>true</code> values.</p>
     
       
       <li class="overload_item">
-        <span class="signature">.<strong>pending</strong>(doc_string, *metadata_keys, metadata = {}, &amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
+        <span class="signature">.<strong>pending</strong>(doc_string, *metadata, &amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
         <div class="docstring">
   <div class="discussion">
     
@@ -3122,30 +2901,13 @@ Will be transformed into hash entries with <code>true</code> values.</p>
         <span class='name'>metadata</span>
       
       
-        <span class='type'>(<tt>Hash</tt>)</span>
-      
-      
-        <em class="default">(defaults to: <tt>{}</tt>)</em>
-      
-      
-        &mdash;
-        <div class='inline'><p>Metadata for the example.</p>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>metadata_keys</span>
-      
-      
-        <span class='type'>(<tt>Array&lt;Symbol&gt;</tt>)</span>
+        <span class='type'>(<tt>Array&lt;Symbol&gt;</tt>, <tt>Hash</tt>)</span>
       
       
       
         &mdash;
-        <div class='inline'><p>Metadata tags for the example.
-Will be transformed into hash entries with <code>true</code> values.</p>
+        <div class='inline'><p>Metadata for the example.
+Symbols will be transformed into hash entries with <code>true</code> values.</p>
 </div>
       
     </li>
@@ -3204,10 +2966,10 @@ Will be transformed into hash entries with <code>true</code> values.</p>
       <pre class="lines">
 
 
-195</pre>
+198</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/core/example_group.rb', line 195</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/example_group.rb', line 198</span>
 
 <span class='id identifier rubyid_define_example_method'>define_example_method</span> <span class='symbol'>:pending</span><span class='comma'>,</span>  <span class='symbol'>:pending</span> <span class='op'>=&gt;</span> <span class='kw'>true</span></pre>
     </td>
@@ -3240,13 +3002,13 @@ Will be transformed into hash entries with <code>true</code> values.</p>
       <pre class="lines">
 
 
-362
-363
-364
-365</pre>
+373
+374
+375
+376</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/core/example_group.rb', line 362</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/example_group.rb', line 373</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_remove_example'>remove_example</span><span class='lparen'>(</span><span class='id identifier rubyid_example'>example</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_reset_memoized'>reset_memoized</span>
@@ -3282,17 +3044,6 @@ Will be transformed into hash entries with <code>true</code> values.</p>
       <pre class="lines">
 
 
-588
-589
-590
-591
-592
-593
-594
-595
-596
-597
-598
 599
 600
 601
@@ -3303,10 +3054,21 @@ Will be transformed into hash entries with <code>true</code> values.</p>
 606
 607
 608
-609</pre>
+609
+610
+611
+612
+613
+614
+615
+616
+617
+618
+619
+620</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/core/example_group.rb', line 588</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/example_group.rb', line 599</span>
 
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_run'>run</span><span class='lparen'>(</span><span class='id identifier rubyid_reporter'>reporter</span><span class='op'>=</span><span class='const'>RSpec</span><span class='op'>::</span><span class='const'>Core</span><span class='op'>::</span><span class='const'>NullReporter</span><span class='rparen'>)</span>
   <span class='kw'>return</span> <span class='kw'>if</span> <span class='const'><span class='object_link'><a href="../../RSpec.html" title="RSpec (module)">RSpec</a></span></span><span class='period'>.</span><span class='id identifier rubyid_world'>world</span><span class='period'>.</span><span class='id identifier rubyid_wants_to_quit'>wants_to_quit</span>
@@ -3343,9 +3105,9 @@ Will be transformed into hash entries with <code>true</code> values.</p>
     
       <span class="overload">.<strong>skip</strong>(&amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
     
-      <span class="overload">.<strong>skip</strong>(doc_string, *metadata_keys, metadata = {})  &#x21d2; <tt>void</tt> </span>
+      <span class="overload">.<strong>skip</strong>(doc_string, *metadata)  &#x21d2; <tt>void</tt> </span>
     
-      <span class="overload">.<strong>skip</strong>(doc_string, *metadata_keys, metadata = {}, &amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
+      <span class="overload">.<strong>skip</strong>(doc_string, *metadata, &amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
     
   
 
@@ -3423,7 +3185,7 @@ Will be transformed into hash entries with <code>true</code> values.</p>
     
       
       <li class="overload_item">
-        <span class="signature">.<strong>skip</strong>(doc_string, *metadata_keys, metadata = {})  &#x21d2; <tt>void</tt> </span>
+        <span class="signature">.<strong>skip</strong>(doc_string, *metadata)  &#x21d2; <tt>void</tt> </span>
         <div class="docstring">
   <div class="discussion">
     
@@ -3454,30 +3216,13 @@ Will be transformed into hash entries with <code>true</code> values.</p>
         <span class='name'>metadata</span>
       
       
-        <span class='type'>(<tt>Hash</tt>)</span>
-      
-      
-        <em class="default">(defaults to: <tt>{}</tt>)</em>
-      
-      
-        &mdash;
-        <div class='inline'><p>Metadata for the example.</p>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>metadata_keys</span>
-      
-      
-        <span class='type'>(<tt>Array&lt;Symbol&gt;</tt>)</span>
+        <span class='type'>(<tt>Array&lt;Symbol&gt;</tt>, <tt>Hash</tt>)</span>
       
       
       
         &mdash;
-        <div class='inline'><p>Metadata tags for the example.
-Will be transformed into hash entries with <code>true</code> values.</p>
+        <div class='inline'><p>Metadata for the example.
+Symbols will be transformed into hash entries with <code>true</code> values.</p>
 </div>
       
     </li>
@@ -3490,7 +3235,7 @@ Will be transformed into hash entries with <code>true</code> values.</p>
     
       
       <li class="overload_item">
-        <span class="signature">.<strong>skip</strong>(doc_string, *metadata_keys, metadata = {}, &amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
+        <span class="signature">.<strong>skip</strong>(doc_string, *metadata, &amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
         <div class="docstring">
   <div class="discussion">
     
@@ -3521,30 +3266,13 @@ Will be transformed into hash entries with <code>true</code> values.</p>
         <span class='name'>metadata</span>
       
       
-        <span class='type'>(<tt>Hash</tt>)</span>
-      
-      
-        <em class="default">(defaults to: <tt>{}</tt>)</em>
-      
-      
-        &mdash;
-        <div class='inline'><p>Metadata for the example.</p>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>metadata_keys</span>
-      
-      
-        <span class='type'>(<tt>Array&lt;Symbol&gt;</tt>)</span>
+        <span class='type'>(<tt>Array&lt;Symbol&gt;</tt>, <tt>Hash</tt>)</span>
       
       
       
         &mdash;
-        <div class='inline'><p>Metadata tags for the example.
-Will be transformed into hash entries with <code>true</code> values.</p>
+        <div class='inline'><p>Metadata for the example.
+Symbols will be transformed into hash entries with <code>true</code> values.</p>
 </div>
       
     </li>
@@ -3603,10 +3331,10 @@ Will be transformed into hash entries with <code>true</code> values.</p>
       <pre class="lines">
 
 
-192</pre>
+195</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/core/example_group.rb', line 192</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/example_group.rb', line 195</span>
 
 <span class='id identifier rubyid_define_example_method'>define_example_method</span> <span class='symbol'>:skip</span><span class='comma'>,</span>     <span class='symbol'>:skip</span> <span class='op'>=&gt;</span> <span class='kw'>true</span></pre>
     </td>
@@ -3622,9 +3350,9 @@ Will be transformed into hash entries with <code>true</code> values.</p>
     
       <span class="overload">.<strong>specify</strong>(&amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
     
-      <span class="overload">.<strong>specify</strong>(doc_string, *metadata_keys, metadata = {})  &#x21d2; <tt>void</tt> </span>
+      <span class="overload">.<strong>specify</strong>(doc_string, *metadata)  &#x21d2; <tt>void</tt> </span>
     
-      <span class="overload">.<strong>specify</strong>(doc_string, *metadata_keys, metadata = {}, &amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
+      <span class="overload">.<strong>specify</strong>(doc_string, *metadata, &amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
     
   
 
@@ -3710,7 +3438,7 @@ Useful for when your docstring does not read well off of <code>it</code>.</p>
     
       
       <li class="overload_item">
-        <span class="signature">.<strong>specify</strong>(doc_string, *metadata_keys, metadata = {})  &#x21d2; <tt>void</tt> </span>
+        <span class="signature">.<strong>specify</strong>(doc_string, *metadata)  &#x21d2; <tt>void</tt> </span>
         <div class="docstring">
   <div class="discussion">
     
@@ -3741,30 +3469,13 @@ Useful for when your docstring does not read well off of <code>it</code>.</p>
         <span class='name'>metadata</span>
       
       
-        <span class='type'>(<tt>Hash</tt>)</span>
-      
-      
-        <em class="default">(defaults to: <tt>{}</tt>)</em>
-      
-      
-        &mdash;
-        <div class='inline'><p>Metadata for the example.</p>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>metadata_keys</span>
-      
-      
-        <span class='type'>(<tt>Array&lt;Symbol&gt;</tt>)</span>
+        <span class='type'>(<tt>Array&lt;Symbol&gt;</tt>, <tt>Hash</tt>)</span>
       
       
       
         &mdash;
-        <div class='inline'><p>Metadata tags for the example.
-Will be transformed into hash entries with <code>true</code> values.</p>
+        <div class='inline'><p>Metadata for the example.
+Symbols will be transformed into hash entries with <code>true</code> values.</p>
 </div>
       
     </li>
@@ -3777,7 +3488,7 @@ Will be transformed into hash entries with <code>true</code> values.</p>
     
       
       <li class="overload_item">
-        <span class="signature">.<strong>specify</strong>(doc_string, *metadata_keys, metadata = {}, &amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
+        <span class="signature">.<strong>specify</strong>(doc_string, *metadata, &amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
         <div class="docstring">
   <div class="discussion">
     
@@ -3808,30 +3519,13 @@ Will be transformed into hash entries with <code>true</code> values.</p>
         <span class='name'>metadata</span>
       
       
-        <span class='type'>(<tt>Hash</tt>)</span>
-      
-      
-        <em class="default">(defaults to: <tt>{}</tt>)</em>
-      
-      
-        &mdash;
-        <div class='inline'><p>Metadata for the example.</p>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>metadata_keys</span>
-      
-      
-        <span class='type'>(<tt>Array&lt;Symbol&gt;</tt>)</span>
+        <span class='type'>(<tt>Array&lt;Symbol&gt;</tt>, <tt>Hash</tt>)</span>
       
       
       
         &mdash;
-        <div class='inline'><p>Metadata tags for the example.
-Will be transformed into hash entries with <code>true</code> values.</p>
+        <div class='inline'><p>Metadata for the example.
+Symbols will be transformed into hash entries with <code>true</code> values.</p>
 </div>
       
     </li>
@@ -3883,10 +3577,10 @@ Will be transformed into hash entries with <code>true</code> values.</p>
       <pre class="lines">
 
 
-167</pre>
+170</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/core/example_group.rb', line 167</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/example_group.rb', line 170</span>
 
 <span class='id identifier rubyid_define_example_method'>define_example_method</span> <span class='symbol'>:specify</span></pre>
     </td>
@@ -3902,9 +3596,9 @@ Will be transformed into hash entries with <code>true</code> values.</p>
     
       <span class="overload">.<strong>xexample</strong>(&amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
     
-      <span class="overload">.<strong>xexample</strong>(doc_string, *metadata_keys, metadata = {})  &#x21d2; <tt>void</tt> </span>
+      <span class="overload">.<strong>xexample</strong>(doc_string, *metadata)  &#x21d2; <tt>void</tt> </span>
     
-      <span class="overload">.<strong>xexample</strong>(doc_string, *metadata_keys, metadata = {}, &amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
+      <span class="overload">.<strong>xexample</strong>(doc_string, *metadata, &amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
     
   
 
@@ -3982,7 +3676,7 @@ Will be transformed into hash entries with <code>true</code> values.</p>
     
       
       <li class="overload_item">
-        <span class="signature">.<strong>xexample</strong>(doc_string, *metadata_keys, metadata = {})  &#x21d2; <tt>void</tt> </span>
+        <span class="signature">.<strong>xexample</strong>(doc_string, *metadata)  &#x21d2; <tt>void</tt> </span>
         <div class="docstring">
   <div class="discussion">
     
@@ -4013,30 +3707,13 @@ Will be transformed into hash entries with <code>true</code> values.</p>
         <span class='name'>metadata</span>
       
       
-        <span class='type'>(<tt>Hash</tt>)</span>
-      
-      
-        <em class="default">(defaults to: <tt>{}</tt>)</em>
-      
-      
-        &mdash;
-        <div class='inline'><p>Metadata for the example.</p>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>metadata_keys</span>
-      
-      
-        <span class='type'>(<tt>Array&lt;Symbol&gt;</tt>)</span>
+        <span class='type'>(<tt>Array&lt;Symbol&gt;</tt>, <tt>Hash</tt>)</span>
       
       
       
         &mdash;
-        <div class='inline'><p>Metadata tags for the example.
-Will be transformed into hash entries with <code>true</code> values.</p>
+        <div class='inline'><p>Metadata for the example.
+Symbols will be transformed into hash entries with <code>true</code> values.</p>
 </div>
       
     </li>
@@ -4049,7 +3726,7 @@ Will be transformed into hash entries with <code>true</code> values.</p>
     
       
       <li class="overload_item">
-        <span class="signature">.<strong>xexample</strong>(doc_string, *metadata_keys, metadata = {}, &amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
+        <span class="signature">.<strong>xexample</strong>(doc_string, *metadata, &amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
         <div class="docstring">
   <div class="discussion">
     
@@ -4080,30 +3757,13 @@ Will be transformed into hash entries with <code>true</code> values.</p>
         <span class='name'>metadata</span>
       
       
-        <span class='type'>(<tt>Hash</tt>)</span>
-      
-      
-        <em class="default">(defaults to: <tt>{}</tt>)</em>
-      
-      
-        &mdash;
-        <div class='inline'><p>Metadata for the example.</p>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>metadata_keys</span>
-      
-      
-        <span class='type'>(<tt>Array&lt;Symbol&gt;</tt>)</span>
+        <span class='type'>(<tt>Array&lt;Symbol&gt;</tt>, <tt>Hash</tt>)</span>
       
       
       
         &mdash;
-        <div class='inline'><p>Metadata tags for the example.
-Will be transformed into hash entries with <code>true</code> values.</p>
+        <div class='inline'><p>Metadata for the example.
+Symbols will be transformed into hash entries with <code>true</code> values.</p>
 </div>
       
     </li>
@@ -4162,10 +3822,10 @@ Will be transformed into hash entries with <code>true</code> values.</p>
       <pre class="lines">
 
 
-183</pre>
+186</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/core/example_group.rb', line 183</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/example_group.rb', line 186</span>
 
 <span class='id identifier rubyid_define_example_method'>define_example_method</span> <span class='symbol'>:xexample</span><span class='comma'>,</span> <span class='symbol'>:skip</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Temporarily skipped with xexample</span><span class='tstring_end'>&#39;</span></span></pre>
     </td>
@@ -4181,9 +3841,9 @@ Will be transformed into hash entries with <code>true</code> values.</p>
     
       <span class="overload">.<strong>xit</strong>(&amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
     
-      <span class="overload">.<strong>xit</strong>(doc_string, *metadata_keys, metadata = {})  &#x21d2; <tt>void</tt> </span>
+      <span class="overload">.<strong>xit</strong>(doc_string, *metadata)  &#x21d2; <tt>void</tt> </span>
     
-      <span class="overload">.<strong>xit</strong>(doc_string, *metadata_keys, metadata = {}, &amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
+      <span class="overload">.<strong>xit</strong>(doc_string, *metadata, &amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
     
   
 
@@ -4261,7 +3921,7 @@ Will be transformed into hash entries with <code>true</code> values.</p>
     
       
       <li class="overload_item">
-        <span class="signature">.<strong>xit</strong>(doc_string, *metadata_keys, metadata = {})  &#x21d2; <tt>void</tt> </span>
+        <span class="signature">.<strong>xit</strong>(doc_string, *metadata)  &#x21d2; <tt>void</tt> </span>
         <div class="docstring">
   <div class="discussion">
     
@@ -4292,30 +3952,13 @@ Will be transformed into hash entries with <code>true</code> values.</p>
         <span class='name'>metadata</span>
       
       
-        <span class='type'>(<tt>Hash</tt>)</span>
-      
-      
-        <em class="default">(defaults to: <tt>{}</tt>)</em>
-      
-      
-        &mdash;
-        <div class='inline'><p>Metadata for the example.</p>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>metadata_keys</span>
-      
-      
-        <span class='type'>(<tt>Array&lt;Symbol&gt;</tt>)</span>
+        <span class='type'>(<tt>Array&lt;Symbol&gt;</tt>, <tt>Hash</tt>)</span>
       
       
       
         &mdash;
-        <div class='inline'><p>Metadata tags for the example.
-Will be transformed into hash entries with <code>true</code> values.</p>
+        <div class='inline'><p>Metadata for the example.
+Symbols will be transformed into hash entries with <code>true</code> values.</p>
 </div>
       
     </li>
@@ -4328,7 +3971,7 @@ Will be transformed into hash entries with <code>true</code> values.</p>
     
       
       <li class="overload_item">
-        <span class="signature">.<strong>xit</strong>(doc_string, *metadata_keys, metadata = {}, &amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
+        <span class="signature">.<strong>xit</strong>(doc_string, *metadata, &amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
         <div class="docstring">
   <div class="discussion">
     
@@ -4359,30 +4002,13 @@ Will be transformed into hash entries with <code>true</code> values.</p>
         <span class='name'>metadata</span>
       
       
-        <span class='type'>(<tt>Hash</tt>)</span>
-      
-      
-        <em class="default">(defaults to: <tt>{}</tt>)</em>
-      
-      
-        &mdash;
-        <div class='inline'><p>Metadata for the example.</p>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>metadata_keys</span>
-      
-      
-        <span class='type'>(<tt>Array&lt;Symbol&gt;</tt>)</span>
+        <span class='type'>(<tt>Array&lt;Symbol&gt;</tt>, <tt>Hash</tt>)</span>
       
       
       
         &mdash;
-        <div class='inline'><p>Metadata tags for the example.
-Will be transformed into hash entries with <code>true</code> values.</p>
+        <div class='inline'><p>Metadata for the example.
+Symbols will be transformed into hash entries with <code>true</code> values.</p>
 </div>
       
     </li>
@@ -4441,10 +4067,10 @@ Will be transformed into hash entries with <code>true</code> values.</p>
       <pre class="lines">
 
 
-186</pre>
+189</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/core/example_group.rb', line 186</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/example_group.rb', line 189</span>
 
 <span class='id identifier rubyid_define_example_method'>define_example_method</span> <span class='symbol'>:xit</span><span class='comma'>,</span>      <span class='symbol'>:skip</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Temporarily skipped with xit</span><span class='tstring_end'>&#39;</span></span></pre>
     </td>
@@ -4460,9 +4086,9 @@ Will be transformed into hash entries with <code>true</code> values.</p>
     
       <span class="overload">.<strong>xspecify</strong>(&amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
     
-      <span class="overload">.<strong>xspecify</strong>(doc_string, *metadata_keys, metadata = {})  &#x21d2; <tt>void</tt> </span>
+      <span class="overload">.<strong>xspecify</strong>(doc_string, *metadata)  &#x21d2; <tt>void</tt> </span>
     
-      <span class="overload">.<strong>xspecify</strong>(doc_string, *metadata_keys, metadata = {}, &amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
+      <span class="overload">.<strong>xspecify</strong>(doc_string, *metadata, &amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
     
   
 
@@ -4540,7 +4166,7 @@ Will be transformed into hash entries with <code>true</code> values.</p>
     
       
       <li class="overload_item">
-        <span class="signature">.<strong>xspecify</strong>(doc_string, *metadata_keys, metadata = {})  &#x21d2; <tt>void</tt> </span>
+        <span class="signature">.<strong>xspecify</strong>(doc_string, *metadata)  &#x21d2; <tt>void</tt> </span>
         <div class="docstring">
   <div class="discussion">
     
@@ -4571,30 +4197,13 @@ Will be transformed into hash entries with <code>true</code> values.</p>
         <span class='name'>metadata</span>
       
       
-        <span class='type'>(<tt>Hash</tt>)</span>
-      
-      
-        <em class="default">(defaults to: <tt>{}</tt>)</em>
-      
-      
-        &mdash;
-        <div class='inline'><p>Metadata for the example.</p>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>metadata_keys</span>
-      
-      
-        <span class='type'>(<tt>Array&lt;Symbol&gt;</tt>)</span>
+        <span class='type'>(<tt>Array&lt;Symbol&gt;</tt>, <tt>Hash</tt>)</span>
       
       
       
         &mdash;
-        <div class='inline'><p>Metadata tags for the example.
-Will be transformed into hash entries with <code>true</code> values.</p>
+        <div class='inline'><p>Metadata for the example.
+Symbols will be transformed into hash entries with <code>true</code> values.</p>
 </div>
       
     </li>
@@ -4607,7 +4216,7 @@ Will be transformed into hash entries with <code>true</code> values.</p>
     
       
       <li class="overload_item">
-        <span class="signature">.<strong>xspecify</strong>(doc_string, *metadata_keys, metadata = {}, &amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
+        <span class="signature">.<strong>xspecify</strong>(doc_string, *metadata, &amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
         <div class="docstring">
   <div class="discussion">
     
@@ -4638,30 +4247,13 @@ Will be transformed into hash entries with <code>true</code> values.</p>
         <span class='name'>metadata</span>
       
       
-        <span class='type'>(<tt>Hash</tt>)</span>
-      
-      
-        <em class="default">(defaults to: <tt>{}</tt>)</em>
-      
-      
-        &mdash;
-        <div class='inline'><p>Metadata for the example.</p>
-</div>
-      
-    </li>
-  
-    <li>
-      
-        <span class='name'>metadata_keys</span>
-      
-      
-        <span class='type'>(<tt>Array&lt;Symbol&gt;</tt>)</span>
+        <span class='type'>(<tt>Array&lt;Symbol&gt;</tt>, <tt>Hash</tt>)</span>
       
       
       
         &mdash;
-        <div class='inline'><p>Metadata tags for the example.
-Will be transformed into hash entries with <code>true</code> values.</p>
+        <div class='inline'><p>Metadata for the example.
+Symbols will be transformed into hash entries with <code>true</code> values.</p>
 </div>
       
     </li>
@@ -4720,10 +4312,10 @@ Will be transformed into hash entries with <code>true</code> values.</p>
       <pre class="lines">
 
 
-189</pre>
+192</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/core/example_group.rb', line 189</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/example_group.rb', line 192</span>
 
 <span class='id identifier rubyid_define_example_method'>define_example_method</span> <span class='symbol'>:xspecify</span><span class='comma'>,</span> <span class='symbol'>:skip</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Temporarily skipped with xspecify</span><span class='tstring_end'>&#39;</span></span></pre>
     </td>
@@ -4795,9 +4387,9 @@ Returns nil if the subject is not a class or module.</p>
 </div>
 
       <div id="footer">
-  Generated on Tue Oct  8 11:36:08 2019 by
+  Generated on Sun Jan 19 14:07:57 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.16 (ruby-2.6.5).
+  0.9.16 (ruby-2.5.1).
 </div>
 
 <script>
