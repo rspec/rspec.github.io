@@ -89,8 +89,8 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>This module is included in <span class='object_link'><a href="ExampleGroup.html" title="RSpec::Core::ExampleGroup (class)">ExampleGroup</a></span>, making the methods
-available to be called from within example blocks.</p>
+    
+<p>This module is included in <span class='object_link'><a href="ExampleGroup.html" title="RSpec::Core::ExampleGroup (class)">ExampleGroup</a></span>, making the methods available to be called from within example blocks.</p>
 
 
   </div>
@@ -147,7 +147,8 @@ available to be called from within example blocks.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Wraps the <code>subject</code> in <code>expect</code> to make it the target of an expectation.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Wraps the <code>subject</code> in <code>expect</code> to make it the target of an expectation.</p>
 </div></span>
   
 </li>
@@ -170,7 +171,8 @@ available to be called from within example blocks.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>When <code>should</code> is called with no explicit receiver, the call is delegated to the object returned by <code>subject</code>.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>When <code>should</code> is called with no explicit receiver, the call is delegated to the object returned by <code>subject</code>.</p>
 </div></span>
   
 </li>
@@ -193,7 +195,8 @@ available to be called from within example blocks.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Just like <code>should</code>, <code>should_not</code> delegates to the subject (implicit or explicit) of the example group.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Just like <code>should</code>, <code>should_not</code> delegates to the subject (implicit or explicit) of the example group.</p>
 </div></span>
   
 </li>
@@ -244,12 +247,13 @@ available to be called from within example blocks.</p>
     
   <div class="note notetag">
     <strong>Note:</strong>
-    <div class='inline'><p>This only works if you are using rspec-expectations.</p>
+    <div class='inline'>
+<p>This only works if you are using rspec-expectations.</p>
 </div>
   </div>
 
-<p>Wraps the <code>subject</code> in <code>expect</code> to make it the target of an expectation.
-Designed to read nicely for one-liners.</p>
+
+<p>Wraps the <code>subject</code> in <code>expect</code> to make it the target of an expectation. Designed to read nicely for one-liners.</p>
 
 
   </div>
@@ -315,20 +319,20 @@ Designed to read nicely for one-liners.</p>
     
   <div class="note notetag">
     <strong>Note:</strong>
-    <div class='inline'><p>This only works if you are using rspec-expectations.</p>
+    <div class='inline'>
+<p>This only works if you are using rspec-expectations.</p>
 </div>
   </div>
 
   <div class="note notetag">
     <strong>Note:</strong>
-    <div class='inline'><p>If you are using RSpec&#39;s newer expect-based syntax you may
-want to use <code>is_expected.to</code> instead of <code>should</code>.</p>
+    <div class='inline'>
+<p>If you are using RSpec&#39;s newer expect-based syntax you may want to use <code>is_expected.to</code> instead of <code>should</code>.</p>
 </div>
   </div>
 
-<p>When <code>should</code> is called with no explicit receiver, the call is
-delegated to the object returned by <code>subject</code>. Combined with an
-implicit subject this supports very concise expressions.</p>
+
+<p>When <code>should</code> is called with no explicit receiver, the call is delegated to the object returned by <code>subject</code>. Combined with an implicit subject this supports very concise expressions.</p>
 
 
   </div>
@@ -391,19 +395,20 @@ implicit subject this supports very concise expressions.</p>
     
   <div class="note notetag">
     <strong>Note:</strong>
-    <div class='inline'><p>This only works if you are using rspec-expectations.</p>
+    <div class='inline'>
+<p>This only works if you are using rspec-expectations.</p>
 </div>
   </div>
 
   <div class="note notetag">
     <strong>Note:</strong>
-    <div class='inline'><p>If you are using RSpec&#39;s newer expect-based syntax you may
-want to use <code>is_expected.to_not</code> instead of <code>should_not</code>.</p>
+    <div class='inline'>
+<p>If you are using RSpec&#39;s newer expect-based syntax you may want to use <code>is_expected.to_not</code> instead of <code>should_not</code>.</p>
 </div>
   </div>
 
-<p>Just like <code>should</code>, <code>should_not</code> delegates to the subject (implicit or
-explicit) of the example group.</p>
+
+<p>Just like <code>should</code>, <code>should_not</code> delegates to the subject (implicit or explicit) of the example group.</p>
 
 
   </div>
@@ -466,28 +471,24 @@ explicit) of the example group.</p>
     
   <div class="note notetag">
     <strong>Note:</strong>
-    <div class='inline'><p><code>subject</code> was contributed by Joe Ferris to support the one-liner
-syntax embraced by shoulda matchers:</p>
+    <div class='inline'>
+<p><code>subject</code> was contributed by Joe Ferris to support the one-liner syntax embraced by shoulda matchers:</p>
 
 <pre class="code ruby"><code class="ruby"><span class='const'><span class='object_link'><a href="../../RSpec.html" title="RSpec (module)">RSpec</a></span></span><span class='period'>.</span><span class='id identifier rubyid_describe'>describe</span> <span class='const'>Widget</span> <span class='kw'>do</span>
-  <span class='id identifier rubyid_it'>it</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_is_expected'>is_expected</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_validate_presence_of'>validate_presence_of</span><span class='lparen'>(</span><span class='symbol'>:name</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
-  <span class='comment'># or
-</span>  <span class='id identifier rubyid_it'>it</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_should'>should</span> <span class='id identifier rubyid_validate_presence_of'>validate_presence_of</span><span class='lparen'>(</span><span class='symbol'>:name</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
+  <span class='id identifier rubyid_it'>it</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_is_expected'>is_expected</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_validate_presence_of'>validate_presence_of</span><span class='lparen'>(</span><span class='symbol'>:name</span><span class='rparen'>)</span> <span class='rbrace'>}</span>  <span class='comment'># or
+</span>
+  <span class='id identifier rubyid_it'>it</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_should'>should</span> <span class='id identifier rubyid_validate_presence_of'>validate_presence_of</span><span class='lparen'>(</span><span class='symbol'>:name</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
 <span class='kw'>end</span>
 </code></pre>
 
-<p>While the examples below demonstrate how to use <code>subject</code>
-explicitly in examples, we recommend that you define a method with
-an intention revealing name instead.</p>
+<p>While the examples below demonstrate how to use <code>subject</code> explicitly in examples, we recommend that you define a method with an intention revealing name instead.</p>
 </div>
   </div>
 
   <div class="note notetag">
     <strong>Note:</strong>
-    <div class='inline'><p>Because <code>subject</code> is designed to create state that is reset
-between each example, and <code>before(:context)</code> is designed to setup
-state that is shared across <em>all</em> examples in an example group,
-<code>subject</code> is <em>not</em> intended to be used in a <code>before(:context)</code> hook.</p>
+    <div class='inline'>
+<p>Because <code>subject</code> is designed to create state that is reset between each example, and <code>before(:context)</code> is designed to setup state that is shared across <em>all</em> examples in an example group, <code>subject</code> is <em>not</em> intended to be used in a <code>before(:context)</code> hook.</p>
 </div>
   </div>
 
@@ -506,24 +507,24 @@ state that is shared across <em>all</em> examples in an example group,
 </span><span class='const'><span class='object_link'><a href="../../RSpec.html" title="RSpec (module)">RSpec</a></span></span><span class='period'>.</span><span class='id identifier rubyid_describe'>describe</span> <span class='const'>Person</span> <span class='kw'>do</span>
   <span class='id identifier rubyid_subject'>subject</span> <span class='lbrace'>{</span> <span class='const'>Person</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='symbol'>:birthdate</span> <span class='op'>=&gt;</span> <span class='int'>19</span><span class='period'>.</span><span class='id identifier rubyid_years'>years</span><span class='period'>.</span><span class='id identifier rubyid_ago'>ago</span><span class='rparen'>)</span> <span class='rbrace'>}</span>
   <span class='id identifier rubyid_it'>it</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>should be eligible to vote</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
-    <span class='id identifier rubyid_subject'>subject</span><span class='period'>.</span><span class='id identifier rubyid_should'>should</span> <span class='id identifier rubyid_be_eligible_to_vote'>be_eligible_to_vote</span>
-    <span class='comment'># ^ ^ explicit reference to subject not recommended
-</span>  <span class='kw'>end</span>
+    <span class='id identifier rubyid_subject'>subject</span><span class='period'>.</span><span class='id identifier rubyid_should'>should</span> <span class='id identifier rubyid_be_eligible_to_vote'>be_eligible_to_vote</span>    <span class='comment'># ^ ^ explicit reference to subject not recommended
+</span>
+  <span class='kw'>end</span>
 <span class='kw'>end</span>
 
 <span class='comment'># Implicit subject =&gt; { Person.new }.
 </span><span class='const'><span class='object_link'><a href="../../RSpec.html" title="RSpec (module)">RSpec</a></span></span><span class='period'>.</span><span class='id identifier rubyid_describe'>describe</span> <span class='const'>Person</span> <span class='kw'>do</span>
   <span class='id identifier rubyid_it'>it</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>should be eligible to vote</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
-    <span class='id identifier rubyid_subject'>subject</span><span class='period'>.</span><span class='id identifier rubyid_should'>should</span> <span class='id identifier rubyid_be_eligible_to_vote'>be_eligible_to_vote</span>
-    <span class='comment'># ^ ^ explicit reference to subject not recommended
-</span>  <span class='kw'>end</span>
+    <span class='id identifier rubyid_subject'>subject</span><span class='period'>.</span><span class='id identifier rubyid_should'>should</span> <span class='id identifier rubyid_be_eligible_to_vote'>be_eligible_to_vote</span>    <span class='comment'># ^ ^ explicit reference to subject not recommended
+</span>
+  <span class='kw'>end</span>
 <span class='kw'>end</span>
 
 <span class='comment'># One-liner syntax - expectation is set on the subject.
 </span><span class='const'><span class='object_link'><a href="../../RSpec.html" title="RSpec (module)">RSpec</a></span></span><span class='period'>.</span><span class='id identifier rubyid_describe'>describe</span> <span class='const'>Person</span> <span class='kw'>do</span>
-  <span class='id identifier rubyid_it'>it</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_is_expected'>is_expected</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_be_eligible_to_vote'>be_eligible_to_vote</span> <span class='rbrace'>}</span>
-  <span class='comment'># or
-</span>  <span class='id identifier rubyid_it'>it</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_should'>should</span> <span class='id identifier rubyid_be_eligible_to_vote'>be_eligible_to_vote</span> <span class='rbrace'>}</span>
+  <span class='id identifier rubyid_it'>it</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_is_expected'>is_expected</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_be_eligible_to_vote'>be_eligible_to_vote</span> <span class='rbrace'>}</span>  <span class='comment'># or
+</span>
+  <span class='id identifier rubyid_it'>it</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_should'>should</span> <span class='id identifier rubyid_be_eligible_to_vote'>be_eligible_to_vote</span> <span class='rbrace'>}</span>
 <span class='kw'>end</span></code></pre>
     
   </div>
@@ -572,7 +573,7 @@ state that is shared across <em>all</em> examples in an example group,
 </div>
 
       <div id="footer">
-  Generated on Thu Jan  2 16:17:32 2020 by
+  Generated on Wed Jan 29 15:52:38 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.22 (ruby-2.7.0).
 </div>

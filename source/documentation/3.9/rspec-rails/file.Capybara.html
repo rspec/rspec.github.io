@@ -5,7 +5,7 @@
 <title>
   File: Capybara
   
-    &mdash; Documentation by YARD 0.9.22
+    &mdash; Documentation by YARD 0.9.24
   
 </title>
 
@@ -58,90 +58,86 @@
         <div class="clear"></div>
       </div>
 
-      <div id="content"><div id='filecontents'><p>rspec-rails supports integration with Capybara out of the box by adding
-its Capybara::DSL (visit/page) and Capybara::RSpecMatchers to the
-examples in the applicable directories, which differ slightly between
-Capybara 1.x and Capybara &gt;= 2.x.</p>
+      <div id="content"><div id='filecontents'>
+<p>rspec-rails supports integration with Capybara out of the box by adding its Capybara::DSL (visit/page) and Capybara::RSpecMatchers to the examples in the applicable directories, which differ slightly between Capybara 1.x and Capybara &gt;= 2.x.</p>
 
-<h2>Capybara::DSL</h2>
+<h2 id="label-Capybara-3A-3ADSL">Capybara::DSL</h2>
 
-<p>Adds the <code>visit</code> and <code>page</code> methods, which work together to simulate a
-GET request and provide access to the result (via <code>page</code>).</p>
+<p>Adds the <code>visit</code> and <code>page</code> methods, which work together to simulate a GET request and provide access to the result (via <code>page</code>).</p>
 
-<h2>Capybara::RSpecMatchers</h2>
+<h2 id="label-Capybara-3A-3ARSpecMatchers">Capybara::RSpecMatchers</h2>
 
 <p>Exposes matchers used to specify expected HTML content (e.g. <code>should_not have_selector</code> will work correctly).</p>
 
-<h2>Capybara 1.x</h2>
+<h2 id="label-Capybara+1.x">Capybara 1.x</h2>
 
 <p>Capybara::DSL is added to examples in:</p>
-
-<ul>
-<li>spec/requests    # included by Capybara</li>
-<li>spec/controllers</li>
-</ul>
+<ul><li>
+<p>spec/requests # included by Capybara</p>
+</li><li>
+<p>spec/controllers</p>
+</li></ul>
 
 <p>Capybara::RSpecMatchers is added to examples in:</p>
+<ul><li>
+<p>spec/requests # included by Capybara</p>
+</li><li>
+<p>spec/controllers</p>
+</li><li>
+<p>spec/views</p>
+</li><li>
+<p>spec/helpers</p>
+</li><li>
+<p>spec/mailers</p>
+</li></ul>
 
-<ul>
-<li>spec/requests    # included by Capybara</li>
-<li>spec/controllers</li>
-<li>spec/views</li>
-<li>spec/helpers</li>
-<li>spec/mailers</li>
-</ul>
-
-<h2>Capybara 2.0</h2>
+<h2 id="label-Capybara+2.0">Capybara 2.0</h2>
 
 <p>To use Capybara 2.0, you need rspec-rails-2.11.1 or greater.</p>
 
 <p>Capybara::DSL is added to examples in:</p>
-
-<ul>
-<li>spec/features</li>
-</ul>
-
-<p>Capybara::RSpecMatchers is added to examples in:</p>
-
-<ul>
-<li>spec/features</li>
-<li>spec/controllers</li>
-<li>spec/views</li>
-<li>spec/helpers</li>
-<li>spec/mailers</li>
-</ul>
-
-<h2>Upgrading to Capybara-2.0</h2>
-
-<p>Many users have been confused by the co-existence of the the
-Capybara::DSL (visit/page) alongside the rack-test DSL
-(get|post|put|delete|head/response.body) in examples in spec/requests
-and spec/controllers. As of rspec-rails-2.11.1 and capybara-2.0.0.beta2, these
-are separated as follows:</p>
-
-<ul>
-<li>Capybara::DSL is included <code>spec/features</code></li>
-<li>rack-test DSL is included in <code>spec/requests</code> and <code>spec/controllers</code></li>
-</ul>
+<ul><li>
+<p>spec/features</p>
+</li></ul>
 
 <p>Capybara::RSpecMatchers is added to examples in:</p>
+<ul><li>
+<p>spec/features</p>
+</li><li>
+<p>spec/controllers</p>
+</li><li>
+<p>spec/views</p>
+</li><li>
+<p>spec/helpers</p>
+</li><li>
+<p>spec/mailers</p>
+</li></ul>
 
-<ul>
-<li>spec/features</li>
-<li>spec/controllers</li>
-<li>spec/views</li>
-<li>spec/helpers</li>
-<li>spec/mailers</li>
-</ul>
+<h2 id="label-Upgrading+to+Capybara-2.0">Upgrading to Capybara-2.0</h2>
 
-<p>If you&#39;re upgrading to Capybara-2.0 and you used visit/page in
-spec/requests you&#39;ll want to move those examples to spec/features and
-they should just work.</p>
+<p>Many users have been confused by the co-existence of the the Capybara::DSL (visit/page) alongside the rack-test DSL (get|post|put|delete|head/response.body) in examples in spec/requests and spec/controllers. As of rspec-rails-2.11.1 and capybara-2.0.0.beta2, these are separated as follows:</p>
+<ul><li>
+<p>Capybara::DSL is included <code>spec/features</code></p>
+</li><li>
+<p>rack-test DSL is included in <code>spec/requests</code> and <code>spec/controllers</code></p>
+</li></ul>
 
-<p>If you want to leave those examples in spec/requests, you can include
-Capybara::DSL in those examples yourself as follows, but this is
-absolutely not recommended as you will be overriding the intended
-behavior and accepting the risks associated with doing so:</p>
+<p>Capybara::RSpecMatchers is added to examples in:</p>
+<ul><li>
+<p>spec/features</p>
+</li><li>
+<p>spec/controllers</p>
+</li><li>
+<p>spec/views</p>
+</li><li>
+<p>spec/helpers</p>
+</li><li>
+<p>spec/mailers</p>
+</li></ul>
+
+<p>If you&#39;re upgrading to Capybara-2.0 and you used visit/page in spec/requests you&#39;ll want to move those examples to spec/features and they should just work.</p>
+
+<p>If you want to leave those examples in spec/requests, you can include Capybara::DSL in those examples yourself as follows, but this is absolutely not recommended as you will be overriding the intended behavior and accepting the risks associated with doing so:</p>
 
 <pre class="code ruby"><code class="ruby"><span class='comment'># not recommended!
 </span><span class='const'><span class='object_link'><a href="RSpec.html" title="RSpec (module)">RSpec</a></span></span><span class='period'>.</span><span class='id identifier rubyid_configure'>configure</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_c'>c</span><span class='op'>|</span>
@@ -151,9 +147,9 @@ behavior and accepting the risks associated with doing so:</p>
 </div></div>
 
       <div id="footer">
-  Generated on Thu Jan  2 16:20:06 2020 by
+  Generated on Wed Jan 29 15:53:26 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.22 (ruby-2.7.0).
+  0.9.24 (ruby-2.7.0).
 </div>
 
 <script>

@@ -100,8 +100,8 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>Represents the result of executing an example.
-Behaves like a hash for backwards compatibility.</p>
+    
+<p>Represents the result of executing an example. Behaves like a hash for backwards compatibility.</p>
 
 
   </div>
@@ -136,7 +136,8 @@ Behaves like a hash for backwards compatibility.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>The failure, if there was one.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>The failure, if there was one.</p>
 </div></span>
   
 </li>
@@ -162,7 +163,8 @@ Behaves like a hash for backwards compatibility.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>When the example finished.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>When the example finished.</p>
 </div></span>
   
 </li>
@@ -188,7 +190,8 @@ Behaves like a hash for backwards compatibility.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>The exception triggered while executing the pending example.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>The exception triggered while executing the pending example.</p>
 </div></span>
   
 </li>
@@ -216,7 +219,8 @@ Behaves like a hash for backwards compatibility.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>For examples tagged with <code>:pending</code>, this indicates whether or not it now passes.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>For examples tagged with <code>:pending</code>, this indicates whether or not it now passes.</p>
 </div></span>
   
 </li>
@@ -242,7 +246,8 @@ Behaves like a hash for backwards compatibility.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>The reason the example was pending, or nil if the example was not pending.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>The reason the example was pending, or nil if the example was not pending.</p>
 </div></span>
   
 </li>
@@ -268,7 +273,8 @@ Behaves like a hash for backwards compatibility.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>How long the example took in seconds.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>How long the example took in seconds.</p>
 </div></span>
   
 </li>
@@ -294,7 +300,8 @@ Behaves like a hash for backwards compatibility.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>When the example started.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>When the example started.</p>
 </div></span>
   
 </li>
@@ -320,7 +327,8 @@ Behaves like a hash for backwards compatibility.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p><code>:passed</code>, <code>:failed</code> or <code>:pending</code>.</p>
+    <span class="summary_desc"><div class='inline'>
+<p><code>:passed</code>, <code>:failed</code> or <code>:pending</code>.</p>
 </div></span>
   
 </li>
@@ -356,7 +364,8 @@ Behaves like a hash for backwards compatibility.</p>
   <span class="private note title">private</span>
 
   
-    <span class="summary_desc"><div class='inline'><p>Populates finished_at and run_time if it has not yet been set.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Populates finished_at and run_time if it has not yet been set.</p>
 </div></span>
   
 </li>
@@ -379,7 +388,8 @@ Behaves like a hash for backwards compatibility.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Indicates if the example was completely skipped (typically done via <code>:skip</code> metadata or the <code>skip</code> method).</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Indicates if the example was completely skipped (typically done via <code>:skip</code> metadata or the <code>skip</code> method).</p>
 </div></span>
   
 </li>
@@ -402,7 +412,8 @@ Behaves like a hash for backwards compatibility.</p>
   <span class="private note title">private</span>
 
   
-    <span class="summary_desc"><div class='inline'><p>Records the finished status of the example.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Records the finished status of the example.</p>
 </div></span>
   
 </li>
@@ -434,7 +445,8 @@ Behaves like a hash for backwards compatibility.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns The failure, if there was one.</p>
+    
+<p>Returns The failure, if there was one.</p>
 
 
   </div>
@@ -452,7 +464,8 @@ Behaves like a hash for backwards compatibility.</p>
       
       
         &mdash;
-        <div class='inline'><p>The failure, if there was one.</p>
+        <div class='inline'>
+<p>The failure, if there was one.</p>
 </div>
       
     </li>
@@ -493,7 +506,8 @@ Behaves like a hash for backwards compatibility.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns When the example finished.</p>
+    
+<p>Returns When the example finished.</p>
 
 
   </div>
@@ -511,7 +525,8 @@ Behaves like a hash for backwards compatibility.</p>
       
       
         &mdash;
-        <div class='inline'><p>When the example finished.</p>
+        <div class='inline'>
+<p>When the example finished.</p>
 </div>
       
     </li>
@@ -552,10 +567,8 @@ Behaves like a hash for backwards compatibility.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns The exception triggered while
-executing the pending example. If no exception was triggered
-it would no longer get a status of <code>:pending</code> unless it was
-tagged with <code>:skip</code>.</p>
+    
+<p>Returns The exception triggered while executing the pending example. If no exception was triggered it would no longer get a status of <code>:pending</code> unless it was tagged with <code>:skip</code>.</p>
 
 
   </div>
@@ -573,10 +586,8 @@ tagged with <code>:skip</code>.</p>
       
       
         &mdash;
-        <div class='inline'><p>The exception triggered while
-executing the pending example. If no exception was triggered
-it would no longer get a status of <code>:pending</code> unless it was
-tagged with <code>:skip</code>.</p>
+        <div class='inline'>
+<p>The exception triggered while executing the pending example. If no exception was triggered it would no longer get a status of <code>:pending</code> unless it was tagged with <code>:skip</code>.</p>
 </div>
       
     </li>
@@ -621,8 +632,8 @@ tagged with <code>:skip</code>.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns For examples tagged with <code>:pending</code>,
-this indicates whether or not it now passes.</p>
+    
+<p>Returns For examples tagged with <code>:pending</code>, this indicates whether or not it now passes.</p>
 
 
   </div>
@@ -640,8 +651,8 @@ this indicates whether or not it now passes.</p>
       
       
         &mdash;
-        <div class='inline'><p>For examples tagged with <code>:pending</code>,
-this indicates whether or not it now passes.</p>
+        <div class='inline'>
+<p>For examples tagged with <code>:pending</code>, this indicates whether or not it now passes.</p>
 </div>
       
     </li>
@@ -682,8 +693,8 @@ this indicates whether or not it now passes.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns The reason the example was pending,
-or nil if the example was not pending.</p>
+    
+<p>Returns The reason the example was pending, or nil if the example was not pending.</p>
 
 
   </div>
@@ -701,8 +712,8 @@ or nil if the example was not pending.</p>
       
       
         &mdash;
-        <div class='inline'><p>The reason the example was pending,
-or nil if the example was not pending.</p>
+        <div class='inline'>
+<p>The reason the example was pending, or nil if the example was not pending.</p>
 </div>
       
     </li>
@@ -743,7 +754,8 @@ or nil if the example was not pending.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns How long the example took in seconds.</p>
+    
+<p>Returns How long the example took in seconds.</p>
 
 
   </div>
@@ -761,7 +773,8 @@ or nil if the example was not pending.</p>
       
       
         &mdash;
-        <div class='inline'><p>How long the example took in seconds.</p>
+        <div class='inline'>
+<p>How long the example took in seconds.</p>
 </div>
       
     </li>
@@ -802,7 +815,8 @@ or nil if the example was not pending.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns When the example started.</p>
+    
+<p>Returns When the example started.</p>
 
 
   </div>
@@ -820,7 +834,8 @@ or nil if the example was not pending.</p>
       
       
         &mdash;
-        <div class='inline'><p>When the example started.</p>
+        <div class='inline'>
+<p>When the example started.</p>
 </div>
       
     </li>
@@ -861,7 +876,8 @@ or nil if the example was not pending.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns <code>:passed</code>, <code>:failed</code> or <code>:pending</code>.</p>
+    
+<p>Returns <code>:passed</code>, <code>:failed</code> or <code>:pending</code>.</p>
 
 
   </div>
@@ -879,7 +895,8 @@ or nil if the example was not pending.</p>
       
       
         &mdash;
-        <div class='inline'><p><code>:passed</code>, <code>:failed</code> or <code>:pending</code>.</p>
+        <div class='inline'>
+<p><code>:passed</code>, <code>:failed</code> or <code>:pending</code>.</p>
 </div>
       
     </li>
@@ -929,6 +946,7 @@ or nil if the example was not pending.</p>
   <strong>This method is part of a private API.</strong>
   You should avoid using this method if possible, as it may be removed or be changed in the future.
 </p>
+
 <p>Populates finished_at and run_time if it has not yet been set</p>
 
 
@@ -969,11 +987,8 @@ or nil if the example was not pending.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns Indicates if the example was completely skipped
-(typically done via <code>:skip</code> metadata or the <code>skip</code> method). Skipped examples
-will have a <code>:pending</code> result. A <code>:pending</code> result can also come from examples
-that were marked as <code>:pending</code>, which causes them to be run, and produces a
-<code>:failed</code> result if the example passes.</p>
+    
+<p>Returns Indicates if the example was completely skipped (typically done via <code>:skip</code> metadata or the <code>skip</code> method). Skipped examples will have a <code>:pending</code> result. A <code>:pending</code> result can also come from examples that were marked as <code>:pending</code>, which causes them to be run, and produces a <code>:failed</code> result if the example passes.</p>
 
 
   </div>
@@ -991,11 +1006,8 @@ that were marked as <code>:pending</code>, which causes them to be run, and prod
       
       
         &mdash;
-        <div class='inline'><p>Indicates if the example was completely skipped
-(typically done via <code>:skip</code> metadata or the <code>skip</code> method). Skipped examples
-will have a <code>:pending</code> result. A <code>:pending</code> result can also come from examples
-that were marked as <code>:pending</code>, which causes them to be run, and produces a
-<code>:failed</code> result if the example passes.</p>
+        <div class='inline'>
+<p>Indicates if the example was completely skipped (typically done via <code>:skip</code> metadata or the <code>skip</code> method). Skipped examples will have a <code>:pending</code> result. A <code>:pending</code> result can also come from examples that were marked as <code>:pending</code>, which causes them to be run, and produces a <code>:failed</code> result if the example passes.</p>
 </div>
       
     </li>
@@ -1038,6 +1050,7 @@ that were marked as <code>:pending</code>, which causes them to be run, and prod
   <strong>This method is part of a private API.</strong>
   You should avoid using this method if possible, as it may be removed or be changed in the future.
 </p>
+
 <p>Records the finished status of the example.</p>
 
 
@@ -1074,7 +1087,7 @@ that were marked as <code>:pending</code>, which causes them to be run, and prod
 </div>
 
       <div id="footer">
-  Generated on Thu Jan  2 16:17:32 2020 by
+  Generated on Wed Jan 29 15:52:41 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.22 (ruby-2.7.0).
 </div>

@@ -5,7 +5,7 @@
 <title>
   Module: RSpec::Rails::Matchers::RoutingMatchers
   
-    &mdash; Documentation by YARD 0.9.22
+    &mdash; Documentation by YARD 0.9.24
   
 </title>
 
@@ -96,7 +96,8 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>Matchers to help with specs for routing code.</p>
+    
+<p>Matchers to help with specs for routing code.</p>
 
 
   </div>
@@ -146,7 +147,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Passes if the route expression is recognized by the Rails router based on the declarations in <code>config/routes.rb</code>.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Passes if the route expression is recognized by the Rails router based on the declarations in <code>config/routes.rb</code>.</p>
 </div></span>
   
 </li>
@@ -169,7 +171,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Delegates to <code>assert_recognizes</code>.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Delegates to <code>assert_recognizes</code>.</p>
 </div></span>
   
 </li>
@@ -196,9 +199,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Passes if the route expression is recognized by the Rails router based on
-the declarations in <code>config/routes.rb</code>. Delegates to
-<code>RouteSet#recognize_path</code>.</p>
+    
+<p>Passes if the route expression is recognized by the Rails router based on the declarations in <code>config/routes.rb</code>. Delegates to <code>RouteSet#recognize_path</code>.</p>
 
 
   </div>
@@ -209,7 +211,8 @@ the declarations in <code>config/routes.rb</code>. Delegates to
     <p class="tag_title">Examples:</p>
     
       
-        <p class="example_title"><div class='inline'><p>You can use route helpers provided by rspec-rails.</p>
+        <p class="example_title"><div class='inline'>
+<p>You can use route helpers provided by rspec-rails.</p>
 </div></p>
       
       <pre class="example code"><code><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='symbol'>:get</span>  <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>/a/path</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_be_routable'>be_routable</span>
@@ -251,8 +254,8 @@ the declarations in <code>config/routes.rb</code>. Delegates to
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Delegates to <code>assert_recognizes</code>. Supports short-hand controller/action
-declarations (e.g. <code>&quot;controller#action&quot;</code>).</p>
+    
+<p>Delegates to <code>assert_recognizes</code>. Supports short-hand controller/action declarations (e.g. <code>&quot;controller#action&quot;</code>).</p>
 
 
   </div>
@@ -307,9 +310,9 @@ declarations (e.g. <code>&quot;controller#action&quot;</code>).</p>
 </div>
 
       <div id="footer">
-  Generated on Thu Jan  2 16:20:07 2020 by
+  Generated on Wed Jan 29 15:53:27 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.22 (ruby-2.7.0).
+  0.9.24 (ruby-2.7.0).
 </div>
 
 <script>

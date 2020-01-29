@@ -5,7 +5,7 @@
 <title>
   Module: RSpec::Rails::ControllerExampleGroup::ClassMethods
   
-    &mdash; Documentation by YARD 0.9.22
+    &mdash; Documentation by YARD 0.9.24
   
 </title>
 
@@ -86,7 +86,8 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>Class-level DSL for controller specs.</p>
+    
+<p>Class-level DSL for controller specs.</p>
 
 
   </div>
@@ -126,7 +127,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Supports a simple DSL for specifying behavior of ApplicationController.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Supports a simple DSL for specifying behavior of ApplicationController.</p>
 </div></span>
   
 </li>
@@ -149,7 +151,8 @@
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Specifies the routeset that will be used for the example group.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Specifies the routeset that will be used for the example group.</p>
 </div></span>
   
 </li>
@@ -178,22 +181,15 @@
     
   <div class="note notetag">
     <strong>Note:</strong>
-    <div class='inline'><p>Due to Ruby 1.8 scoping rules in anonymous subclasses, constants
-defined in <code>ApplicationController</code> must be fully qualified (e.g.
-<code>ApplicationController::AccessDenied</code>) in the block passed to the
-<code>controller</code> method. Any instance methods, filters, etc, that are
-defined in <code>ApplicationController</code>, however, are accessible from
-within the block.</p>
+    <div class='inline'>
+<p>Due to Ruby 1.8 scoping rules in anonymous subclasses, constants defined in <code>ApplicationController</code> must be fully qualified (e.g. <code>ApplicationController::AccessDenied</code>) in the block passed to the <code>controller</code> method. Any instance methods, filters, etc, that are defined in <code>ApplicationController</code>, however, are accessible from within the block.</p>
 </div>
   </div>
 
-<p>Supports a simple DSL for specifying behavior of ApplicationController.
-Creates an anonymous subclass of ApplicationController and evals the
-<code>body</code> in that context. Also sets up implicit routes for this
-controller, that are separate from those defined in &quot;config/routes.rb&quot;.</p>
 
-<p>If you would like to spec a subclass of ApplicationController, call
-controller like so:</p>
+<p>Supports a simple DSL for specifying behavior of ApplicationController. Creates an anonymous subclass of ApplicationController and evals the <code>body</code> in that context. Also sets up implicit routes for this controller, that are separate from those defined in “config/routes.rb”.</p>
+
+<p>If you would like to spec a subclass of ApplicationController, call controller like so:</p>
 
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_controller'>controller</span><span class='lparen'>(</span><span class='const'>ApplicationControllerSubclass</span><span class='rparen'>)</span> <span class='kw'>do</span>
   <span class='comment'># ....
@@ -349,8 +345,8 @@ controller like so:</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Specifies the routeset that will be used for the example group. This
-is most useful when testing Rails engines.</p>
+    
+<p>Specifies the routeset that will be used for the example group. This is most useful when testing Rails engines.</p>
 
 
   </div>
@@ -400,9 +396,9 @@ is most useful when testing Rails engines.</p>
 </div>
 
       <div id="footer">
-  Generated on Thu Jan  2 16:20:07 2020 by
+  Generated on Wed Jan 29 15:53:28 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.22 (ruby-2.7.0).
+  0.9.24 (ruby-2.7.0).
 </div>
 
 <script>

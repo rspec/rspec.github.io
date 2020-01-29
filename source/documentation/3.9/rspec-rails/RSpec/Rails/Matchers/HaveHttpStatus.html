@@ -5,7 +5,7 @@
 <title>
   Module: RSpec::Rails::Matchers::HaveHttpStatus
   
-    &mdash; Documentation by YARD 0.9.22
+    &mdash; Documentation by YARD 0.9.24
   
 </title>
 
@@ -95,6 +95,7 @@
   <strong>This module is part of a private API.</strong>
   You should avoid using this module if possible, as it may be removed or be changed in the future.
 </p>
+
 <p>Namespace for various implementations of <code>have_http_status</code>.</p>
 
 
@@ -145,7 +146,8 @@
   <span class="private note title">private</span>
 
   
-    <span class="summary_desc"><div class='inline'><p>Conversion function to coerce the provided object into an <code>ActionDispatch::TestResponse</code>.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Conversion function to coerce the provided object into an <code>ActionDispatch::TestResponse</code>.</p>
 </div></span>
   
 </li>
@@ -168,7 +170,8 @@
   <span class="private note title">private</span>
 
   
-    <span class="summary_desc"><div class='inline'><p>Instantiates an instance of the proper matcher based on the provided <code>target</code>.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Instantiates an instance of the proper matcher based on the provided <code>target</code>.</p>
 </div></span>
   
 </li>
@@ -200,7 +203,8 @@
   <span class="private note title">private</span>
 
   
-    <span class="summary_desc"><div class='inline'><p>A formatted failure message if <code>@invalid_response</code> is present, <code>nil</code> otherwise.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>A formatted failure message if <code>@invalid_response</code> is present, <code>nil</code> otherwise.</p>
 </div></span>
   
 </li>
@@ -230,8 +234,8 @@
   <strong>This method is part of a private API.</strong>
   You should avoid using this method if possible, as it may be removed or be changed in the future.
 </p>
-<p>Conversion function to coerce the provided object into an
-<code>ActionDispatch::TestResponse</code>.</p>
+
+<p>Conversion function to coerce the provided object into an <code>ActionDispatch::TestResponse</code>.</p>
 
 
   </div>
@@ -250,7 +254,8 @@
       
       
         &mdash;
-        <div class='inline'><p>object to convert to a response</p>
+        <div class='inline'>
+<p>object to convert to a response</p>
 </div>
       
     </li>
@@ -307,11 +312,11 @@
     <span class='op'>::</span><span class='const'>ActionDispatch</span><span class='op'>::</span><span class='const'>TestResponse</span><span class='period'>.</span><span class='id identifier rubyid_from_response'>from_response</span><span class='lparen'>(</span><span class='id identifier rubyid_obj'>obj</span><span class='rparen'>)</span>
   <span class='kw'>elsif</span> <span class='op'>::</span><span class='const'>ActionDispatch</span><span class='op'>::</span><span class='const'>TestResponse</span> <span class='op'>===</span> <span class='id identifier rubyid_obj'>obj</span>
     <span class='id identifier rubyid_obj'>obj</span>
-  <span class='kw'>elsif</span> <span class='id identifier rubyid_obj'>obj</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:status_code</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_obj'>obj</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:response_headers</span><span class='rparen'>)</span>
-    <span class='comment'># Acts As Capybara Session
+  <span class='kw'>elsif</span> <span class='id identifier rubyid_obj'>obj</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:status_code</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_obj'>obj</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:response_headers</span><span class='rparen'>)</span>    <span class='comment'># Acts As Capybara Session
 </span>    <span class='comment'># Hack to support `Capybara::Session` without having to load
 </span>    <span class='comment'># Capybara or catch `NameError`s for the undefined constants
-</span>    <span class='id identifier rubyid_obj'>obj</span> <span class='op'>=</span> <span class='const'>ActionDispatch</span><span class='op'>::</span><span class='const'>Response</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='period'>.</span><span class='id identifier rubyid_tap'>tap</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_resp'>resp</span><span class='op'>|</span>
+</span>
+    <span class='id identifier rubyid_obj'>obj</span> <span class='op'>=</span> <span class='const'>ActionDispatch</span><span class='op'>::</span><span class='const'>Response</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='period'>.</span><span class='id identifier rubyid_tap'>tap</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_resp'>resp</span><span class='op'>|</span>
       <span class='id identifier rubyid_resp'>resp</span><span class='period'>.</span><span class='id identifier rubyid_status'>status</span>  <span class='op'>=</span> <span class='id identifier rubyid_obj'>obj</span><span class='period'>.</span><span class='id identifier rubyid_status_code'>status_code</span>
       <span class='id identifier rubyid_resp'>resp</span><span class='period'>.</span><span class='id identifier rubyid_headers'>headers</span><span class='period'>.</span><span class='id identifier rubyid_clear'>clear</span>
       <span class='id identifier rubyid_resp'>resp</span><span class='period'>.</span><span class='id identifier rubyid_headers'>headers</span><span class='period'>.</span><span class='id identifier rubyid_merge!'>merge!</span><span class='lparen'>(</span><span class='id identifier rubyid_obj'>obj</span><span class='period'>.</span><span class='id identifier rubyid_response_headers'>response_headers</span><span class='rparen'>)</span>
@@ -343,8 +348,8 @@
   <strong>This method is part of a private API.</strong>
   You should avoid using this method if possible, as it may be removed or be changed in the future.
 </p>
-<p>Instantiates an instance of the proper matcher based on the provided
-<code>target</code>.</p>
+
+<p>Instantiates an instance of the proper matcher based on the provided <code>target</code>.</p>
 
 
   </div>
@@ -363,7 +368,8 @@
       
       
         &mdash;
-        <div class='inline'><p>expected http status or code</p>
+        <div class='inline'>
+<p>expected http status or code</p>
 </div>
       
     </li>
@@ -381,7 +387,8 @@
       
       
         
-        <div class='inline'><p>response matcher instance</p>
+        <div class='inline'>
+<p>response matcher instance</p>
 </div>
       
     </li>
@@ -442,8 +449,8 @@
   <strong>This method is part of a private API.</strong>
   You should avoid using this method if possible, as it may be removed or be changed in the future.
 </p>
-<p>Returns a formatted failure message if
-<code>@invalid_response</code> is present, <code>nil</code> otherwise.</p>
+
+<p>Returns a formatted failure message if <code>@invalid_response</code> is present, <code>nil</code> otherwise.</p>
 
 
   </div>
@@ -461,8 +468,8 @@
       
       
         &mdash;
-        <div class='inline'><p>a formatted failure message if
-<code>@invalid_response</code> is present, <code>nil</code> otherwise</p>
+        <div class='inline'>
+<p>a formatted failure message if <code>@invalid_response</code> is present, <code>nil</code> otherwise</p>
 </div>
       
     </li>
@@ -499,9 +506,9 @@
 </div>
 
       <div id="footer">
-  Generated on Thu Jan  2 16:20:07 2020 by
+  Generated on Wed Jan 29 15:53:27 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.22 (ruby-2.7.0).
+  0.9.24 (ruby-2.7.0).
 </div>
 
 <script>

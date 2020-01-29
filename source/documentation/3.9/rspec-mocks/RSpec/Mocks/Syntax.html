@@ -335,13 +335,13 @@ provided by rspec-mocks.</p>
     <td>
       <pre class="code"><span class="info file"># File 'lib/rspec/mocks/syntax.rb', line 181</span>
 
-<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_default_should_syntax_host'>default_should_syntax_host</span>
-  <span class='comment'># JRuby 1.7.4 introduces a regression whereby `defined?(::BasicObject) =&gt; nil`
+<span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_default_should_syntax_host'>default_should_syntax_host</span>  <span class='comment'># JRuby 1.7.4 introduces a regression whereby `defined?(::BasicObject) =&gt; nil`
 </span>  <span class='comment'># yet `BasicObject` still exists and patching onto ::Object breaks things
 </span>  <span class='comment'># e.g. SimpleDelegator expectations won&#39;t work
 </span>  <span class='comment'>#
 </span>  <span class='comment'># See: https://github.com/jruby/jruby/issues/814
-</span>  <span class='kw'>if</span> <span class='kw'>defined?</span><span class='lparen'>(</span><span class='const'>JRUBY_VERSION</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='const'>JRUBY_VERSION</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>1.7.4</span><span class='tstring_end'>&#39;</span></span> <span class='op'>&amp;&amp;</span> <span class='const'>RUBY_VERSION</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span> <span class='op'>&gt;</span> <span class='float'>1.8</span>
+</span>
+  <span class='kw'>if</span> <span class='kw'>defined?</span><span class='lparen'>(</span><span class='const'>JRUBY_VERSION</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='const'>JRUBY_VERSION</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>1.7.4</span><span class='tstring_end'>&#39;</span></span> <span class='op'>&amp;&amp;</span> <span class='const'>RUBY_VERSION</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span> <span class='op'>&gt;</span> <span class='float'>1.8</span>
     <span class='kw'>return</span> <span class='op'>::</span><span class='const'><span class='object_link'><a href="../../BasicObject.html" title="BasicObject (class)">BasicObject</a></span></span>
   <span class='kw'>end</span>
 
@@ -893,7 +893,7 @@ provided by rspec-mocks.</p>
 </div>
 
       <div id="footer">
-  Generated on Thu Jan  2 16:18:09 2020 by
+  Generated on Wed Jan 29 15:53:11 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.22 (ruby-2.7.0).
 </div>

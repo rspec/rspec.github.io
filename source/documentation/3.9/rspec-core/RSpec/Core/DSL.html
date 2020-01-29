@@ -84,17 +84,12 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>DSL defines methods to group examples, most notably <code>describe</code>,
-and exposes them as class methods of <span class='object_link'><a href="../../RSpec.html" title="RSpec (module)">RSpec</a></span>. They can also be
-exposed globally (on <code>main</code> and instances of <code>Module</code>) through
-the <span class='object_link'><a href="Configuration.html" title="RSpec::Core::Configuration (class)">Configuration</a></span> option <code>expose_dsl_globally</code>.</p>
+    
+<p>DSL defines methods to group examples, most notably <code>describe</code>, and exposes them as class methods of <span class='object_link'><a href="../../RSpec.html" title="RSpec (module)">RSpec</a></span>. They can also be exposed globally (on <code>main</code> and instances of <code>Module</code>) through the <span class='object_link'><a href="Configuration.html" title="RSpec::Core::Configuration (class)">Configuration</a></span> option <code>expose_dsl_globally</code>.</p>
 
-<p>By default the methods <code>describe</code>, <code>context</code> and <code>example_group</code>
-are exposed. These methods define a named context for one or
-more examples. The given block is evaluated in the context of
-a generated subclass of <span class='object_link'><a href="ExampleGroup.html" title="RSpec::Core::ExampleGroup (class)">ExampleGroup</a></span>.</p>
+<p>By default the methods <code>describe</code>, <code>context</code> and <code>example_group</code> are exposed. These methods define a named context for one or more examples. The given block is evaluated in the context of a generated subclass of <span class='object_link'><a href="ExampleGroup.html" title="RSpec::Core::ExampleGroup (class)">ExampleGroup</a></span>.</p>
 
-<h2>Examples:</h2>
+<h2 id="label-Examples-3A">Examples:</h2>
 
 <pre class="code ruby"><code class="ruby"><span class='const'><span class='object_link'><a href="../../RSpec.html" title="RSpec (module)">RSpec</a></span></span><span class='period'>.</span><span class='id identifier rubyid_describe'>describe</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>something</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
   <span class='id identifier rubyid_context'>context</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>when something is a certain way</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
@@ -152,7 +147,8 @@ a generated subclass of <span class='object_link'><a href="ExampleGroup.html" ti
   <span class="private note title">private</span>
 
   
-    <span class="summary_desc"><div class='inline'><p>Adds the describe method to Module and the top level binding.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Adds the describe method to Module and the top level binding.</p>
 </div></span>
   
 </li>
@@ -175,7 +171,8 @@ a generated subclass of <span class='object_link'><a href="ExampleGroup.html" ti
   <span class="private note title">private</span>
 
   
-    <span class="summary_desc"><div class='inline'><p>Removes the describe method from Module and the top level binding.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Removes the describe method from Module and the top level binding.</p>
 </div></span>
   
 </li>
@@ -205,6 +202,7 @@ a generated subclass of <span class='object_link'><a href="ExampleGroup.html" ti
   <strong>This method is part of a private API.</strong>
   You should avoid using this method if possible, as it may be removed or be changed in the future.
 </p>
+
 <p>Adds the describe method to Module and the top level binding.</p>
 
 
@@ -261,6 +259,7 @@ a generated subclass of <span class='object_link'><a href="ExampleGroup.html" ti
   <strong>This method is part of a private API.</strong>
   You should avoid using this method if possible, as it may be removed or be changed in the future.
 </p>
+
 <p>Removes the describe method from Module and the top level binding.</p>
 
 
@@ -307,7 +306,7 @@ a generated subclass of <span class='object_link'><a href="ExampleGroup.html" ti
 </div>
 
       <div id="footer">
-  Generated on Thu Jan  2 16:17:31 2020 by
+  Generated on Wed Jan 29 15:52:37 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.22 (ruby-2.7.0).
 </div>

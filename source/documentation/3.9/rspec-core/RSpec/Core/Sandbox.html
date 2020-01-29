@@ -87,14 +87,13 @@
     
   <div class="note notetag">
     <strong>Note:</strong>
-    <div class='inline'><p>This module is not normally available. You must require
-<code>rspec/core/sandbox</code> to load it.</p>
+    <div class='inline'>
+<p>This module is not normally available. You must require <code>rspec/core/sandbox</code> to load it.</p>
 </div>
   </div>
 
-<p>A sandbox isolates the enclosed code into an environment that looks &#39;new&#39;
-meaning globally accessed objects are reset for the duration of the
-sandbox.</p>
+
+<p>A sandbox isolates the enclosed code into an environment that looks &#39;new&#39; meaning globally accessed objects are reset for the duration of the sandbox.</p>
 
 
   </div>
@@ -134,7 +133,8 @@ sandbox.</p>
   
 
   
-    <span class="summary_desc"><div class='inline'><p>Execute a provided block with RSpec global objects (configuration, world) reset.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Execute a provided block with RSpec global objects (configuration, world) reset.</p>
 </div></span>
   
 </li>
@@ -160,11 +160,10 @@ sandbox.</p>
   
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Execute a provided block with RSpec global objects (configuration,
-world) reset.  This is used to test RSpec with RSpec.</p>
+    
+<p>Execute a provided block with RSpec global objects (configuration, world) reset. This is used to test RSpec with RSpec.</p>
 
-<p>When calling this the configuration is passed into the provided block.
-Use this to set custom configs for your sandboxed examples.</p>
+<p>When calling this the configuration is passed into the provided block. Use this to set custom configs for your sandboxed examples.</p>
 
 <pre class="code ruby"><code class="ruby"><span class='const'><span class='object_link'><a href="" title="RSpec::Core::Sandbox (module)">Sandbox</a></span></span><span class='period'>.</span><span class='id identifier rubyid_sandboxed'>sandboxed</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_config'>config</span><span class='op'>|</span>
   <span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_before'>before</span><span class='lparen'>(</span><span class='symbol'>:context</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='const'><span class='object_link'><a href="../../RSpec.html" title="RSpec (module)">RSpec</a></span></span><span class='period'>.</span><span class='id identifier rubyid_current_example'><span class='object_link'><a href="../../RSpec.html#current_example-class_method" title="RSpec.current_example (method)">current_example</a></span></span> <span class='op'>=</span> <span class='kw'>nil</span> <span class='rbrace'>}</span>
@@ -225,7 +224,7 @@ Use this to set custom configs for your sandboxed examples.</p>
 </div>
 
       <div id="footer">
-  Generated on Thu Jan  2 16:17:32 2020 by
+  Generated on Wed Jan 29 15:52:38 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.22 (ruby-2.7.0).
 </div>
