@@ -88,8 +88,7 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    
-<p>Container module for Rails specific matchers.</p>
+    <p>Container module for Rails specific matchers.</p>
 
 
   </div>
@@ -141,8 +140,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Passes if actual is an instance of <code>model_class</code> and returns <code>true</code> for <code>new_record?</code>.</p>
+    <span class="summary_desc"><div class='inline'><p>Passes if actual is an instance of <code>model_class</code> and returns <code>true</code> for <code>new_record?</code>.</p>
 </div></span>
   
 </li>
@@ -165,8 +163,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Passes if actual returns <code>true</code> for <code>new_record?</code>.</p>
+    <span class="summary_desc"><div class='inline'><p>Passes if actual returns <code>true</code> for <code>new_record?</code>.</p>
 </div></span>
   
 </li>
@@ -189,8 +186,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Passes if the given model instance&#39;s <code>valid?</code> method is true, meaning all of the <code>ActiveModel::Validations</code> passed and no errors exist.</p>
+    <span class="summary_desc"><div class='inline'><p>Passes if the given model instance&#39;s <code>valid?</code> method is true, meaning all of the <code>ActiveModel::Validations</code> passed and no errors exist.</p>
 </div></span>
   
 </li>
@@ -213,8 +209,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Passes if a job has been enqueued.</p>
+    <span class="summary_desc"><div class='inline'><p>Passes if a job has been enqueued.</p>
 </div></span>
   
 </li>
@@ -239,8 +234,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Passes if a job has been enqueued inside block.</p>
+    <span class="summary_desc"><div class='inline'><p>Passes if a job has been enqueued inside block.</p>
 </div></span>
   
 </li>
@@ -265,8 +259,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Passes if an email has been enqueued inside block.</p>
+    <span class="summary_desc"><div class='inline'><p>Passes if an email has been enqueued inside block.</p>
 </div></span>
   
 </li>
@@ -289,8 +282,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Passes if <code>response</code> has a matching HTTP status code.</p>
+    <span class="summary_desc"><div class='inline'><p>Passes if <code>response</code> has a matching HTTP status code.</p>
 </div></span>
   
 </li>
@@ -316,10 +308,12 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Passes if actual is an instance of <code>model_class</code> and returns <code>true</code> for <code>new_record?</code>. Typically used to specify instance variables assigned to views by controller actions</p>
+    <p>Passes if actual is an instance of <code>model_class</code> and returns <code>true</code> for
+<code>new_record?</code>. Typically used to specify instance variables assigned to
+views by controller actions</p>
 
-<p>Use the <code>with</code> method to specify the specific attributes to match on the new record.</p>
+<p>Use the <code>with</code> method to specify the specific attributes to match on the
+new record.</p>
 
 
   </div>
@@ -371,8 +365,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Passes if actual returns <code>true</code> for <code>new_record?</code>.</p>
+    <p>Passes if actual returns <code>true</code> for <code>new_record?</code>.</p>
 
 
   </div>
@@ -421,8 +414,9 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Passes if the given model instance&#39;s <code>valid?</code> method is true, meaning all of the <code>ActiveModel::Validations</code> passed and no errors exist. If a message is not given, a default message is shown listing each error.</p>
+    <p>Passes if the given model instance&#39;s <code>valid?</code> method is true, meaning
+all of the <code>ActiveModel::Validations</code> passed and no errors exist. If a
+message is not given, a default message is shown listing each error.</p>
 
 
   </div>
@@ -471,8 +465,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Passes if a job has been enqueued. May chain at_least, at_most or exactly to specify a number of times.</p>
+    <p>Passes if a job has been enqueued. May chain at_least, at_most or exactly to specify a number of times.</p>
 
 
   </div>
@@ -550,8 +543,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Passes if a job has been enqueued inside block. May chain at_least, at_most or exactly to specify a number of times.</p>
+    <p>Passes if a job has been enqueued inside block. May chain at_least, at_most or exactly to specify a number of times.</p>
 
 
   </div>
@@ -645,8 +637,11 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Passes if an email has been enqueued inside block. May chain with to specify expected arguments. May chain at_least, at_most or exactly to specify a number of times. May chain at to specify a send time. May chain on_queue to specify a queue.</p>
+    <p>Passes if an email has been enqueued inside block.
+May chain with to specify expected arguments.
+May chain at_least, at_most or exactly to specify a number of times.
+May chain at to specify a send time.
+May chain on_queue to specify a queue.</p>
 
 
   </div>
@@ -722,23 +717,21 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Passes if <code>response</code> has a matching HTTP status code.</p>
+    <p>Passes if <code>response</code> has a matching HTTP status code.</p>
 
 <p>The following symbolic status codes are allowed:</p>
-<ul><li>
-<p><code>Rack::Utils::SYMBOL_TO_STATUS_CODE</code></p>
-</li><li>
-<p>One of the defined <code>ActionDispatch::TestResponse</code> aliases:</p>
-</li><li>
-<p><code>:error</code></p>
-</li><li>
-<p><code>:missing</code></p>
-</li><li>
-<p><code>:redirect</code></p>
-</li><li>
-<p><code>:success</code></p>
-</li></ul>
+
+<ul>
+<li><code>Rack::Utils::SYMBOL_TO_STATUS_CODE</code></li>
+<li>One of the defined <code>ActionDispatch::TestResponse</code> aliases:
+
+<ul>
+<li><code>:error</code></li>
+<li><code>:missing</code></li>
+<li><code>:redirect</code></li>
+<li><code>:success</code></li>
+</ul></li>
+</ul>
 
 
   </div>
@@ -749,8 +742,7 @@
     <p class="tag_title">Examples:</p>
     
       
-        <p class="example_title"><div class='inline'>
-<p>Accepts numeric and symbol statuses</p>
+        <p class="example_title"><div class='inline'><p>Accepts numeric and symbol statuses</p>
 </div></p>
       
       <pre class="example code"><code><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_have_http_status'>have_http_status</span><span class='lparen'>(</span><span class='int'>404</span><span class='rparen'>)</span>
@@ -761,8 +753,7 @@
 <span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_have_http_status'>have_http_status</span><span class='lparen'>(</span><span class='symbol'>:redirect</span><span class='rparen'>)</span></code></pre>
     
       
-        <p class="example_title"><div class='inline'>
-<p>Works with standard <code>response</code> objects and Capybara&#39;s <code>page</code></p>
+        <p class="example_title"><div class='inline'><p>Works with standard <code>response</code> objects and Capybara&#39;s <code>page</code></p>
 </div></p>
       
       <pre class="example code"><code><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_have_http_status'>have_http_status</span><span class='lparen'>(</span><span class='int'>404</span><span class='rparen'>)</span>
@@ -821,7 +812,7 @@
 </div>
 
       <div id="footer">
-  Generated on Wed Jan 29 15:53:26 2020 by
+  Generated on Wed Feb 26 16:49:48 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.24 (ruby-2.7.0).
 </div>

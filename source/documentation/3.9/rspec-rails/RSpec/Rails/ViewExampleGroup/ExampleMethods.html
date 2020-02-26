@@ -91,8 +91,7 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    
-<p>DSL exposed to view specs.</p>
+    <p>DSL exposed to view specs.</p>
 
 
   </div>
@@ -132,8 +131,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Provides access to the params hash that will be available within the view.</p>
+    <span class="summary_desc"><div class='inline'><p>Provides access to the params hash that will be available within the view.</p>
 </div></span>
   
 </li>
@@ -156,8 +154,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Delegates to ActionView::Base#render, so see documentation on that for more info.</p>
+    <span class="summary_desc"><div class='inline'><p>Delegates to ActionView::Base#render, so see documentation on that for more info.</p>
 </div></span>
   
 </li>
@@ -180,8 +177,7 @@
   
 
   
-    <span class="summary_desc"><strong>Deprecated.</strong> <div class='inline'>
-<p>Use <code>rendered</code> instead.</p>
+    <span class="summary_desc"><strong>Deprecated.</strong> <div class='inline'><p>Use <code>rendered</code> instead.</p>
 </div></span>
   
 </li>
@@ -204,8 +200,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Simulates the presence of a template on the file system by adding a Rails&#39; FixtureResolver to the front of the view_paths list.</p>
+    <span class="summary_desc"><div class='inline'><p>Simulates the presence of a template on the file system by adding a Rails&#39; FixtureResolver to the front of the view_paths list.</p>
 </div></span>
   
 </li>
@@ -228,8 +223,7 @@
   
 
   
-    <span class="summary_desc"><strong>Deprecated.</strong> <div class='inline'>
-<p>Use <code>view</code> instead.</p>
+    <span class="summary_desc"><strong>Deprecated.</strong> <div class='inline'><p>Use <code>view</code> instead.</p>
 </div></span>
   
 </li>
@@ -252,8 +246,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>The instance of <code>ActionView::Base</code> that is used to render the template.</p>
+    <span class="summary_desc"><div class='inline'><p>The instance of <code>ActionView::Base</code> that is used to render the template.</p>
 </div></span>
   
 </li>
@@ -280,8 +273,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Provides access to the params hash that will be available within the view.</p>
+    <p>Provides access to the params hash that will be available within the
+view.</p>
 
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_params'>params</span><span class='lbracket'>[</span><span class='symbol'>:foo</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>bar</span><span class='tstring_end'>&#39;</span></span>
 </code></pre>
@@ -332,10 +325,11 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Delegates to ActionView::Base#render, so see documentation on that for more info.</p>
+    <p>Delegates to ActionView::Base#render, so see documentation on that
+for more info.</p>
 
-<p>The only addition is that you can call render with no arguments, and RSpec will pass the top level description to render:</p>
+<p>The only addition is that you can call render with no arguments, and
+RSpec will pass the top level description to render:</p>
 
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_describe'>describe</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>widgets/new.html.erb</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
   <span class='id identifier rubyid_it'>it</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>shows all the widgets</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
@@ -385,8 +379,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <div class="note deprecated"><strong>Deprecated.</strong> <div class='inline'>
-<p>Use <code>rendered</code> instead.</p>
+    <div class="note deprecated"><strong>Deprecated.</strong> <div class='inline'><p>Use <code>rendered</code> instead.</p>
 </div></div>
 
 
@@ -449,8 +442,10 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Simulates the presence of a template on the file system by adding a Rails&#39; FixtureResolver to the front of the view_paths list. Designed to help isolate view examples from partials rendered by the view template that is the subject of the example.</p>
+    <p>Simulates the presence of a template on the file system by adding a
+Rails&#39; FixtureResolver to the front of the view_paths list. Designed to
+help isolate view examples from partials rendered by the view template
+that is the subject of the example.</p>
 
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_stub_template'>stub_template</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>widgets/_widget.html.erb</span><span class='tstring_end'>&quot;</span></span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>This content.</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
 </code></pre>
@@ -493,8 +488,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <div class="note deprecated"><strong>Deprecated.</strong> <div class='inline'>
-<p>Use <code>view</code> instead.</p>
+    <div class="note deprecated"><strong>Deprecated.</strong> <div class='inline'><p>Use <code>view</code> instead.</p>
 </div></div>
 
 
@@ -537,8 +531,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>The instance of <code>ActionView::Base</code> that is used to render the template. Use this to stub methods <em>before</em> calling <code>render</code>.</p>
+    <p>The instance of <code>ActionView::Base</code> that is used to render the template.
+Use this to stub methods <em>before</em> calling <code>render</code>.</p>
 
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_describe'>describe</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>widgets/new.html.erb</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
   <span class='id identifier rubyid_it'>it</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>shows all the widgets</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
@@ -581,7 +575,7 @@
 </div>
 
       <div id="footer">
-  Generated on Wed Jan 29 15:53:27 2020 by
+  Generated on Wed Feb 26 16:49:48 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.24 (ruby-2.7.0).
 </div>
