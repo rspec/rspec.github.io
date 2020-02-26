@@ -5,7 +5,7 @@
 <title>
   Module: RSpec::Core::SharedExampleGroup
   
-    &mdash; Documentation by YARD 0.9.22
+    &mdash; Documentation by YARD 0.9.24
   
 </title>
 
@@ -89,12 +89,19 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    
-<p>Shared example groups let you define common context and/or common examples that you wish to use in multiple example groups.</p>
+    <p>Shared example groups let you define common context and/or common
+examples that you wish to use in multiple example groups.</p>
 
-<p>When defined, the shared group block is stored for later evaluation. It can later be included in an example group either explicitly (using <code>include_examples</code>, <code>include_context</code> or <code>it_behaves_like</code>) or implicitly (via matching metadata).</p>
+<p>When defined, the shared group block is stored for later evaluation.
+It can later be included in an example group either explicitly
+(using <code>include_examples</code>, <code>include_context</code> or <code>it_behaves_like</code>)
+or implicitly (via matching metadata).</p>
 
-<p>Named shared example groups are scoped based on where they are defined. Shared groups defined in an example group are available for inclusion in that example group or any child example groups, but not in any parent or sibling example groups. Shared example groups defined at the top level can be included from any example group.</p>
+<p>Named shared example groups are scoped based on where they are
+defined. Shared groups defined in an example group are available
+for inclusion in that example group or any child example groups,
+but not in any parent or sibling example groups. Shared example
+groups defined at the top level can be included from any example group.</p>
 
 
   </div>
@@ -130,7 +137,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#shared_examples-instance_method" title="#shared_examples (instance method)">#<strong>shared_examples</strong>(name, *args, &amp;block)  &#x21d2; void </a>
+      <a href="#shared_examples-instance_method" title="#shared_examples (instance method)">#<strong>shared_examples</strong>(name, *args, &amp;block)  &#x21d2; Object </a>
     
 
     
@@ -146,8 +153,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Stores the block for later use.</p>
+    <span class="summary_desc"><div class='inline'><p>Stores the block for later use.</p>
 </div></span>
   
 </li>
@@ -166,9 +172,9 @@
   <h3 class="signature first" id="shared_examples-instance_method">
   
     
-      <span class="overload">#<strong>shared_examples</strong>(name, &amp;block)  &#x21d2; <tt>void</tt> </span>
+      <span class="overload">#<strong>shared_examples</strong>(name, &amp;block)  &#x21d2; <tt>Object</tt> </span>
     
-      <span class="overload">#<strong>shared_examples</strong>(name, metadata, &amp;block)  &#x21d2; <tt>void</tt> </span>
+      <span class="overload">#<strong>shared_examples</strong>(name, metadata, &amp;block)  &#x21d2; <tt>Object</tt> </span>
     
   
 
@@ -181,8 +187,9 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Stores the block for later use. The block will be evaluated in the context of an example group via <code>include_examples</code>, <code>include_context</code>, or <code>it_behaves_like</code>.</p>
+    <p>Stores the block for later use. The block will be evaluated
+in the context of an example group via <code>include_examples</code>,
+<code>include_context</code>, or <code>it_behaves_like</code>.</p>
 
 
   </div>
@@ -212,7 +219,7 @@
     
       
       <li class="overload_item">
-        <span class="signature">#<strong>shared_examples</strong>(name, &amp;block)  &#x21d2; <tt>void</tt> </span>
+        <span class="signature">#<strong>shared_examples</strong>(name, &amp;block)  &#x21d2; <tt>Object</tt> </span>
         <div class="docstring">
   <div class="discussion">
     
@@ -233,8 +240,8 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>identifer to use when looking up this shared group</p>
+        <div class='inline'><p>identifer to use when looking up
+this shared group</p>
 </div>
       
     </li>
@@ -249,8 +256,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>The block to be eval&#39;d</p>
+        <div class='inline'><p>The block to be eval&#39;d</p>
 </div>
       
     </li>
@@ -263,7 +269,7 @@
     
       
       <li class="overload_item">
-        <span class="signature">#<strong>shared_examples</strong>(name, metadata, &amp;block)  &#x21d2; <tt>void</tt> </span>
+        <span class="signature">#<strong>shared_examples</strong>(name, metadata, &amp;block)  &#x21d2; <tt>Object</tt> </span>
         <div class="docstring">
   <div class="discussion">
     
@@ -284,8 +290,8 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>identifer to use when looking up this shared group</p>
+        <div class='inline'><p>identifer to use when looking up
+this shared group</p>
 </div>
       
     </li>
@@ -300,8 +306,9 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>metadata to attach to this group; any example group or example with matching metadata will automatically include this shared example group.</p>
+        <div class='inline'><p>metadata to attach to this
+group; any example group or example with matching metadata will
+automatically include this shared example group.</p>
 </div>
       
     </li>
@@ -316,8 +323,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>The block to be eval&#39;d</p>
+        <div class='inline'><p>The block to be eval&#39;d</p>
 </div>
       
     </li>
@@ -382,9 +388,9 @@
 </div>
 
       <div id="footer">
-  Generated on Wed Jan 29 15:52:39 2020 by
+  Generated on Wed Feb 26 15:20:57 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.22 (ruby-2.7.0).
+  0.9.24 (ruby-2.7.0).
 </div>
 
 <script>

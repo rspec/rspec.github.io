@@ -5,7 +5,7 @@
 <title>
   Class: RSpec::Core::ExampleGroup
   
-    &mdash; Documentation by YARD 0.9.22
+    &mdash; Documentation by YARD 0.9.24
   
 </title>
 
@@ -110,8 +110,8 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    
-<p>ExampleGroup and <span class='object_link'><a href="Example.html" title="RSpec::Core::Example (class)">Example</a></span> are the main structural elements of rspec-core. Consider this example:</p>
+    <p>ExampleGroup and <span class='object_link'><a href="Example.html" title="RSpec::Core::Example (class)">Example</a></span> are the main structural elements of
+rspec-core. Consider this example:</p>
 
 <pre class="code ruby"><code class="ruby"><span class='const'><span class='object_link'><a href="../../RSpec.html" title="RSpec (module)">RSpec</a></span></span><span class='period'>.</span><span class='id identifier rubyid_describe'>describe</span> <span class='const'>Thing</span> <span class='kw'>do</span>
   <span class='id identifier rubyid_it'>it</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>does something</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
@@ -119,11 +119,20 @@
 <span class='kw'>end</span>
 </code></pre>
 
-<p>The object returned by <code>describe Thing</code> is a subclass of ExampleGroup. The object returned by <code>it &quot;does something&quot;</code> is an instance of Example, which serves as a wrapper for an instance of the ExampleGroup in which it is declared.</p>
+<p>The object returned by <code>describe Thing</code> is a subclass of ExampleGroup.
+The object returned by <code>it &quot;does something&quot;</code> is an instance of Example,
+which serves as a wrapper for an instance of the ExampleGroup in which it
+is declared.</p>
 
-<p>Example group bodies (e.g. <code>describe</code> or <code>context</code> blocks) are evaluated in the context of a new subclass of ExampleGroup. Individual examples are evaluated in the context of an instance of the specific ExampleGroup subclass to which they belong.</p>
+<p>Example group bodies (e.g. <code>describe</code> or <code>context</code> blocks) are evaluated
+in the context of a new subclass of ExampleGroup. Individual examples are
+evaluated in the context of an instance of the specific ExampleGroup
+subclass to which they belong.</p>
 
-<p>Besides the class methods defined here, there are other interesting macros defined in <span class='object_link'><a href="Hooks.html" title="RSpec::Core::Hooks (module)">Hooks</a></span>, <span class='object_link'><a href="MemoizedHelpers/ClassMethods.html" title="RSpec::Core::MemoizedHelpers::ClassMethods (module)">MemoizedHelpers::ClassMethods</a></span> and <span class='object_link'><a href="SharedExampleGroup.html" title="RSpec::Core::SharedExampleGroup (module)">SharedExampleGroup</a></span>. There are additional instance methods available to your examples defined in <span class='object_link'><a href="MemoizedHelpers.html" title="RSpec::Core::MemoizedHelpers (module)">MemoizedHelpers</a></span> and <span class='object_link'><a href="Pending.html" title="RSpec::Core::Pending (module)">Pending</a></span>.</p>
+<p>Besides the class methods defined here, there are other interesting macros
+defined in <span class='object_link'><a href="Hooks.html" title="RSpec::Core::Hooks (module)">Hooks</a></span>, <span class='object_link'><a href="MemoizedHelpers/ClassMethods.html" title="RSpec::Core::MemoizedHelpers::ClassMethods (module)">MemoizedHelpers::ClassMethods</a></span> and
+<span class='object_link'><a href="SharedExampleGroup.html" title="RSpec::Core::SharedExampleGroup (module)">SharedExampleGroup</a></span>. There are additional instance methods available to
+your examples defined in <span class='object_link'><a href="MemoizedHelpers.html" title="RSpec::Core::MemoizedHelpers (module)">MemoizedHelpers</a></span> and <span class='object_link'><a href="Pending.html" title="RSpec::Core::Pending (module)">Pending</a></span>.</p>
 
 
   </div>
@@ -143,8 +152,9 @@
         <dt id="WrongScopeError-constant" class="">WrongScopeError =
           <div class="docstring">
   <div class="discussion">
-    
-<p>Raised when an RSpec API is called in the wrong scope, such as <code>before</code> being called from within an example rather than from within an example group block.</p>
+    <p>Raised when an RSpec API is called in the wrong scope, such as <code>before</code>
+being called from within an example rather than from within an example
+group block.</p>
 
 
   </div>
@@ -190,8 +200,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>The current example group description.</p>
+    <span class="summary_desc"><div class='inline'><p>The current example group description.</p>
 </div></span>
   
 </li>
@@ -200,7 +209,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#metadata-class_method" title="metadata (class method)">.<strong>metadata</strong>  &#x21d2; void </a>
+      <a href="#metadata-class_method" title="metadata (class method)">.<strong>metadata</strong>  &#x21d2; Object </a>
     
 
     
@@ -214,8 +223,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>The <a href="Metadata">Metadata</a> object associated with this group.</p>
+    <span class="summary_desc"><div class='inline'><p>The <a href="Metadata">Metadata</a> object associated with this group.</p>
 </div></span>
   
 </li>
@@ -224,7 +232,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#described_class-instance_method" title="#described_class (instance method)">#<strong>described_class</strong>  &#x21d2; void </a>
+      <a href="#described_class-instance_method" title="#described_class (instance method)">#<strong>described_class</strong>  &#x21d2; Object </a>
     
 
     
@@ -238,8 +246,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Returns the class or module passed to the <code>describe</code> method (or alias).</p>
+    <span class="summary_desc"><div class='inline'><p>Returns the class or module passed to the <code>describe</code> method (or alias).</p>
 </div></span>
   
 </li>
@@ -257,7 +264,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#example-class_method" title="example (class method)">.<strong>example</strong> {|Example| ... } &#x21d2; void </a>
+      <a href="#example-class_method" title="example (class method)">.<strong>example</strong> {|Example| ... } &#x21d2; Object </a>
     
 
     
@@ -271,8 +278,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Defines an example within a group.</p>
+    <span class="summary_desc"><div class='inline'><p>Defines an example within a group.</p>
 </div></span>
   
 </li>
@@ -281,7 +287,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#fexample-class_method" title="fexample (class method)">.<strong>fexample</strong> {|Example| ... } &#x21d2; void </a>
+      <a href="#fexample-class_method" title="fexample (class method)">.<strong>fexample</strong> {|Example| ... } &#x21d2; Object </a>
     
 
     
@@ -295,8 +301,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Shortcut to define an example with <code>:focus =&gt; true</code>.</p>
+    <span class="summary_desc"><div class='inline'><p>Shortcut to define an example with <code>:focus =&gt; true</code>.</p>
 </div></span>
   
 </li>
@@ -305,7 +310,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#fit-class_method" title="fit (class method)">.<strong>fit</strong> {|Example| ... } &#x21d2; void </a>
+      <a href="#fit-class_method" title="fit (class method)">.<strong>fit</strong> {|Example| ... } &#x21d2; Object </a>
     
 
     
@@ -319,8 +324,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Shortcut to define an example with <code>:focus =&gt; true</code>.</p>
+    <span class="summary_desc"><div class='inline'><p>Shortcut to define an example with <code>:focus =&gt; true</code>.</p>
 </div></span>
   
 </li>
@@ -329,7 +333,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#focus-class_method" title="focus (class method)">.<strong>focus</strong> {|Example| ... } &#x21d2; void </a>
+      <a href="#focus-class_method" title="focus (class method)">.<strong>focus</strong> {|Example| ... } &#x21d2; Object </a>
     
 
     
@@ -343,8 +347,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Shortcut to define an example with <code>:focus =&gt; true</code>.</p>
+    <span class="summary_desc"><div class='inline'><p>Shortcut to define an example with <code>:focus =&gt; true</code>.</p>
 </div></span>
   
 </li>
@@ -353,7 +356,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#fspecify-class_method" title="fspecify (class method)">.<strong>fspecify</strong> {|Example| ... } &#x21d2; void </a>
+      <a href="#fspecify-class_method" title="fspecify (class method)">.<strong>fspecify</strong> {|Example| ... } &#x21d2; Object </a>
     
 
     
@@ -367,8 +370,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Shortcut to define an example with <code>:focus =&gt; true</code>.</p>
+    <span class="summary_desc"><div class='inline'><p>Shortcut to define an example with <code>:focus =&gt; true</code>.</p>
 </div></span>
   
 </li>
@@ -377,7 +379,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#it-class_method" title="it (class method)">.<strong>it</strong> {|Example| ... } &#x21d2; void </a>
+      <a href="#it-class_method" title="it (class method)">.<strong>it</strong> {|Example| ... } &#x21d2; Object </a>
     
 
     
@@ -391,8 +393,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Defines an example within a group.</p>
+    <span class="summary_desc"><div class='inline'><p>Defines an example within a group.</p>
 </div></span>
   
 </li>
@@ -401,7 +402,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#pending-class_method" title="pending (class method)">.<strong>pending</strong> {|Example| ... } &#x21d2; void </a>
+      <a href="#pending-class_method" title="pending (class method)">.<strong>pending</strong> {|Example| ... } &#x21d2; Object </a>
     
 
     
@@ -415,8 +416,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Shortcut to define an example with <code>:pending =&gt; true</code>.</p>
+    <span class="summary_desc"><div class='inline'><p>Shortcut to define an example with <code>:pending =&gt; true</code>.</p>
 </div></span>
   
 </li>
@@ -425,7 +425,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#skip-class_method" title="skip (class method)">.<strong>skip</strong> {|Example| ... } &#x21d2; void </a>
+      <a href="#skip-class_method" title="skip (class method)">.<strong>skip</strong> {|Example| ... } &#x21d2; Object </a>
     
 
     
@@ -439,8 +439,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Shortcut to define an example with <code>:skip =&gt; true</code>.</p>
+    <span class="summary_desc"><div class='inline'><p>Shortcut to define an example with <code>:skip =&gt; true</code>.</p>
 </div></span>
   
 </li>
@@ -449,7 +448,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#specify-class_method" title="specify (class method)">.<strong>specify</strong> {|Example| ... } &#x21d2; void </a>
+      <a href="#specify-class_method" title="specify (class method)">.<strong>specify</strong> {|Example| ... } &#x21d2; Object </a>
     
 
     
@@ -463,8 +462,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Defines an example within a group.</p>
+    <span class="summary_desc"><div class='inline'><p>Defines an example within a group.</p>
 </div></span>
   
 </li>
@@ -473,7 +471,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#xexample-class_method" title="xexample (class method)">.<strong>xexample</strong> {|Example| ... } &#x21d2; void </a>
+      <a href="#xexample-class_method" title="xexample (class method)">.<strong>xexample</strong> {|Example| ... } &#x21d2; Object </a>
     
 
     
@@ -487,8 +485,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Shortcut to define an example with <code>:skip =&gt; &#39;Temporarily skipped with xexample&#39;</code>.</p>
+    <span class="summary_desc"><div class='inline'><p>Shortcut to define an example with <code>:skip =&gt; &#39;Temporarily skipped with xexample&#39;</code>.</p>
 </div></span>
   
 </li>
@@ -497,7 +494,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#xit-class_method" title="xit (class method)">.<strong>xit</strong> {|Example| ... } &#x21d2; void </a>
+      <a href="#xit-class_method" title="xit (class method)">.<strong>xit</strong> {|Example| ... } &#x21d2; Object </a>
     
 
     
@@ -511,8 +508,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Shortcut to define an example with <code>:skip =&gt; &#39;Temporarily skipped with xit&#39;</code>.</p>
+    <span class="summary_desc"><div class='inline'><p>Shortcut to define an example with <code>:skip =&gt; &#39;Temporarily skipped with xit&#39;</code>.</p>
 </div></span>
   
 </li>
@@ -521,7 +517,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#xspecify-class_method" title="xspecify (class method)">.<strong>xspecify</strong> {|Example| ... } &#x21d2; void </a>
+      <a href="#xspecify-class_method" title="xspecify (class method)">.<strong>xspecify</strong> {|Example| ... } &#x21d2; Object </a>
     
 
     
@@ -535,8 +531,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Shortcut to define an example with <code>:skip =&gt; &#39;Temporarily skipped with xspecify&#39;</code>.</p>
+    <span class="summary_desc"><div class='inline'><p>Shortcut to define an example with <code>:skip =&gt; &#39;Temporarily skipped with xspecify&#39;</code>.</p>
 </div></span>
   
 </li>
@@ -554,7 +549,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#add_example-class_method" title="add_example (class method)">.<strong>add_example</strong>(example)  &#x21d2; void </a>
+      <a href="#add_example-class_method" title="add_example (class method)">.<strong>add_example</strong>(example)  &#x21d2; Object </a>
     
 
     
@@ -568,8 +563,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Adds an example to the example group.</p>
+    <span class="summary_desc"><div class='inline'><p>Adds an example to the example group.</p>
 </div></span>
   
 </li>
@@ -578,7 +572,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#include_context-class_method" title="include_context (class method)">.<strong>include_context</strong>(name, *args, &amp;block)  &#x21d2; void </a>
+      <a href="#include_context-class_method" title="include_context (class method)">.<strong>include_context</strong>(name, *args, &amp;block)  &#x21d2; Object </a>
     
 
     
@@ -592,8 +586,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Includes shared content mapped to <code>name</code> directly in the group in which it is declared, as opposed to <code>it_behaves_like</code>, which creates a nested group.</p>
+    <span class="summary_desc"><div class='inline'><p>Includes shared content mapped to <code>name</code> directly in the group in which it is declared, as opposed to <code>it_behaves_like</code>, which creates a nested group.</p>
 </div></span>
   
 </li>
@@ -602,7 +595,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#include_examples-class_method" title="include_examples (class method)">.<strong>include_examples</strong>(name, *args, &amp;block)  &#x21d2; void </a>
+      <a href="#include_examples-class_method" title="include_examples (class method)">.<strong>include_examples</strong>(name, *args, &amp;block)  &#x21d2; Object </a>
     
 
     
@@ -616,8 +609,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Includes shared content mapped to <code>name</code> directly in the group in which it is declared, as opposed to <code>it_behaves_like</code>, which creates a nested group.</p>
+    <span class="summary_desc"><div class='inline'><p>Includes shared content mapped to <code>name</code> directly in the group in which it is declared, as opposed to <code>it_behaves_like</code>, which creates a nested group.</p>
 </div></span>
   
 </li>
@@ -626,7 +618,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#remove_example-class_method" title="remove_example (class method)">.<strong>remove_example</strong>(example)  &#x21d2; void </a>
+      <a href="#remove_example-class_method" title="remove_example (class method)">.<strong>remove_example</strong>(example)  &#x21d2; Object </a>
     
 
     
@@ -640,8 +632,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Removes an example from the example group.</p>
+    <span class="summary_desc"><div class='inline'><p>Removes an example from the example group.</p>
 </div></span>
   
 </li>
@@ -673,8 +664,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Returns true if a <code>before(:context)</code> or <code>after(:context)</code> hook is currently executing.</p>
+    <span class="summary_desc"><div class='inline'><p>Returns true if a <code>before(:context)</code> or <code>after(:context)</code> hook is currently executing.</p>
 </div></span>
   
 </li>
@@ -697,8 +687,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>The unique id of this example group.</p>
+    <span class="summary_desc"><div class='inline'><p>The unique id of this example group.</p>
 </div></span>
   
 </li>
@@ -707,7 +696,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#run-class_method" title="run (class method)">.<strong>run</strong>(reporter = RSpec::Core::NullReporter)  &#x21d2; void </a>
+      <a href="#run-class_method" title="run (class method)">.<strong>run</strong>(reporter = RSpec::Core::NullReporter)  &#x21d2; Object </a>
     
 
     
@@ -721,8 +710,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Runs all the examples in this group.</p>
+    <span class="summary_desc"><div class='inline'><p>Runs all the examples in this group.</p>
 </div></span>
   
 </li>
@@ -756,8 +744,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>A new instance of ExampleGroup.</p>
+    <span class="summary_desc"><div class='inline'><p>A new instance of ExampleGroup.</p>
 </div></span>
   
 </li>
@@ -835,8 +822,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns a new instance of ExampleGroup.</p>
+    <p>Returns a new instance of ExampleGroup.</p>
 
 
   </div>
@@ -878,7 +864,7 @@
     <div class="method_details first">
   <h3 class="signature first" id="method_missing-instance_method">
   
-    #<strong>method_missing</strong>(name, *args)  &#x21d2; <tt>void</tt>  <span class="extras">(private)</span>
+    #<strong>method_missing</strong>(name, *args)  &#x21d2; <tt>Object</tt>  <span class="extras">(private)</span>
   
 
   
@@ -931,7 +917,7 @@
       <div class="method_details first">
   <h3 class="signature first" id="add_example-class_method">
   
-    .<strong>add_example</strong>(example)  &#x21d2; <tt>void</tt> 
+    .<strong>add_example</strong>(example)  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -939,8 +925,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Adds an example to the example group</p>
+    <p>Adds an example to the example group</p>
 
 
   </div>
@@ -982,8 +967,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns true if a <code>before(:context)</code> or <code>after(:context)</code> hook is currently executing.</p>
+    <p>Returns true if a <code>before(:context)</code> or <code>after(:context)</code>
+hook is currently executing.</p>
 
 
   </div>
@@ -1036,8 +1021,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns the current example group description.</p>
+    <p>Returns the current example group description.</p>
 
 
   </div>
@@ -1055,8 +1039,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>the current example group description</p>
+        <div class='inline'><p>the current example group description</p>
 </div>
       
     </li>
@@ -1090,13 +1073,13 @@
   <h3 class="signature " id="example-class_method">
   
     
-      <span class="overload">.<strong>example</strong>  &#x21d2; <tt>void</tt> </span>
+      <span class="overload">.<strong>example</strong>  &#x21d2; <tt>Object</tt> </span>
     
-      <span class="overload">.<strong>example</strong>(&amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
+      <span class="overload">.<strong>example</strong>(&amp;example_implementation)  &#x21d2; <tt>Object</tt> </span>
     
-      <span class="overload">.<strong>example</strong>(doc_string, *metadata_keys, metadata = {})  &#x21d2; <tt>void</tt> </span>
+      <span class="overload">.<strong>example</strong>(doc_string, *metadata_keys, metadata = {})  &#x21d2; <tt>Object</tt> </span>
     
-      <span class="overload">.<strong>example</strong>(doc_string, *metadata_keys, metadata = {}, &amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
+      <span class="overload">.<strong>example</strong>(doc_string, *metadata_keys, metadata = {}, &amp;example_implementation)  &#x21d2; <tt>Object</tt> </span>
     
   
 
@@ -1105,8 +1088,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Defines an example within a group.</p>
+    <p>Defines an example within a group.</p>
 
 
   </div>
@@ -1141,7 +1123,7 @@
       
       
       <li class="overload_item">
-        <span class="signature">.<strong>example</strong>(&amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
+        <span class="signature">.<strong>example</strong>(&amp;example_implementation)  &#x21d2; <tt>Object</tt> </span>
         <div class="docstring">
   <div class="discussion">
     
@@ -1162,8 +1144,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>The implementation of the example.</p>
+        <div class='inline'><p>The implementation of the example.</p>
 </div>
       
     </li>
@@ -1176,7 +1157,7 @@
     
       
       <li class="overload_item">
-        <span class="signature">.<strong>example</strong>(doc_string, *metadata_keys, metadata = {})  &#x21d2; <tt>void</tt> </span>
+        <span class="signature">.<strong>example</strong>(doc_string, *metadata_keys, metadata = {})  &#x21d2; <tt>Object</tt> </span>
         <div class="docstring">
   <div class="discussion">
     
@@ -1197,8 +1178,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>The example&#39;s doc string.</p>
+        <div class='inline'><p>The example&#39;s doc string.</p>
 </div>
       
     </li>
@@ -1215,8 +1195,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>Metadata for the example.</p>
+        <div class='inline'><p>Metadata for the example.</p>
 </div>
       
     </li>
@@ -1231,8 +1210,8 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>Metadata tags for the example. Will be transformed into hash entries with <code>true</code> values.</p>
+        <div class='inline'><p>Metadata tags for the example.
+Will be transformed into hash entries with <code>true</code> values.</p>
 </div>
       
     </li>
@@ -1245,7 +1224,7 @@
     
       
       <li class="overload_item">
-        <span class="signature">.<strong>example</strong>(doc_string, *metadata_keys, metadata = {}, &amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
+        <span class="signature">.<strong>example</strong>(doc_string, *metadata_keys, metadata = {}, &amp;example_implementation)  &#x21d2; <tt>Object</tt> </span>
         <div class="docstring">
   <div class="discussion">
     
@@ -1266,8 +1245,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>The example&#39;s doc string.</p>
+        <div class='inline'><p>The example&#39;s doc string.</p>
 </div>
       
     </li>
@@ -1284,8 +1262,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>Metadata for the example.</p>
+        <div class='inline'><p>Metadata for the example.</p>
 </div>
       
     </li>
@@ -1300,8 +1277,8 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>Metadata tags for the example. Will be transformed into hash entries with <code>true</code> values.</p>
+        <div class='inline'><p>Metadata tags for the example.
+Will be transformed into hash entries with <code>true</code> values.</p>
 </div>
       
     </li>
@@ -1316,8 +1293,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>The implementation of the example.</p>
+        <div class='inline'><p>The implementation of the example.</p>
 </div>
       
     </li>
@@ -1341,8 +1317,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>the example object</p>
+        <div class='inline'><p>the example object</p>
 </div>
       
     </li>
@@ -1370,13 +1345,13 @@
   <h3 class="signature " id="fexample-class_method">
   
     
-      <span class="overload">.<strong>fexample</strong>  &#x21d2; <tt>void</tt> </span>
+      <span class="overload">.<strong>fexample</strong>  &#x21d2; <tt>Object</tt> </span>
     
-      <span class="overload">.<strong>fexample</strong>(&amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
+      <span class="overload">.<strong>fexample</strong>(&amp;example_implementation)  &#x21d2; <tt>Object</tt> </span>
     
-      <span class="overload">.<strong>fexample</strong>(doc_string, *metadata_keys, metadata = {})  &#x21d2; <tt>void</tt> </span>
+      <span class="overload">.<strong>fexample</strong>(doc_string, *metadata_keys, metadata = {})  &#x21d2; <tt>Object</tt> </span>
     
-      <span class="overload">.<strong>fexample</strong>(doc_string, *metadata_keys, metadata = {}, &amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
+      <span class="overload">.<strong>fexample</strong>(doc_string, *metadata_keys, metadata = {}, &amp;example_implementation)  &#x21d2; <tt>Object</tt> </span>
     
   
 
@@ -1385,8 +1360,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Shortcut to define an example with <code>:focus =&gt; true</code>.</p>
+    <p>Shortcut to define an example with <code>:focus =&gt; true</code>.</p>
 
 
   </div>
@@ -1421,7 +1395,7 @@
       
       
       <li class="overload_item">
-        <span class="signature">.<strong>fexample</strong>(&amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
+        <span class="signature">.<strong>fexample</strong>(&amp;example_implementation)  &#x21d2; <tt>Object</tt> </span>
         <div class="docstring">
   <div class="discussion">
     
@@ -1442,8 +1416,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>The implementation of the example.</p>
+        <div class='inline'><p>The implementation of the example.</p>
 </div>
       
     </li>
@@ -1456,7 +1429,7 @@
     
       
       <li class="overload_item">
-        <span class="signature">.<strong>fexample</strong>(doc_string, *metadata_keys, metadata = {})  &#x21d2; <tt>void</tt> </span>
+        <span class="signature">.<strong>fexample</strong>(doc_string, *metadata_keys, metadata = {})  &#x21d2; <tt>Object</tt> </span>
         <div class="docstring">
   <div class="discussion">
     
@@ -1477,8 +1450,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>The example&#39;s doc string.</p>
+        <div class='inline'><p>The example&#39;s doc string.</p>
 </div>
       
     </li>
@@ -1495,8 +1467,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>Metadata for the example.</p>
+        <div class='inline'><p>Metadata for the example.</p>
 </div>
       
     </li>
@@ -1511,8 +1482,8 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>Metadata tags for the example. Will be transformed into hash entries with <code>true</code> values.</p>
+        <div class='inline'><p>Metadata tags for the example.
+Will be transformed into hash entries with <code>true</code> values.</p>
 </div>
       
     </li>
@@ -1525,7 +1496,7 @@
     
       
       <li class="overload_item">
-        <span class="signature">.<strong>fexample</strong>(doc_string, *metadata_keys, metadata = {}, &amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
+        <span class="signature">.<strong>fexample</strong>(doc_string, *metadata_keys, metadata = {}, &amp;example_implementation)  &#x21d2; <tt>Object</tt> </span>
         <div class="docstring">
   <div class="discussion">
     
@@ -1546,8 +1517,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>The example&#39;s doc string.</p>
+        <div class='inline'><p>The example&#39;s doc string.</p>
 </div>
       
     </li>
@@ -1564,8 +1534,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>Metadata for the example.</p>
+        <div class='inline'><p>Metadata for the example.</p>
 </div>
       
     </li>
@@ -1580,8 +1549,8 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>Metadata tags for the example. Will be transformed into hash entries with <code>true</code> values.</p>
+        <div class='inline'><p>Metadata tags for the example.
+Will be transformed into hash entries with <code>true</code> values.</p>
 </div>
       
     </li>
@@ -1596,8 +1565,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>The implementation of the example.</p>
+        <div class='inline'><p>The implementation of the example.</p>
 </div>
       
     </li>
@@ -1621,8 +1589,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>the example object</p>
+        <div class='inline'><p>the example object</p>
 </div>
       
     </li>
@@ -1657,13 +1624,13 @@
   <h3 class="signature " id="fit-class_method">
   
     
-      <span class="overload">.<strong>fit</strong>  &#x21d2; <tt>void</tt> </span>
+      <span class="overload">.<strong>fit</strong>  &#x21d2; <tt>Object</tt> </span>
     
-      <span class="overload">.<strong>fit</strong>(&amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
+      <span class="overload">.<strong>fit</strong>(&amp;example_implementation)  &#x21d2; <tt>Object</tt> </span>
     
-      <span class="overload">.<strong>fit</strong>(doc_string, *metadata_keys, metadata = {})  &#x21d2; <tt>void</tt> </span>
+      <span class="overload">.<strong>fit</strong>(doc_string, *metadata_keys, metadata = {})  &#x21d2; <tt>Object</tt> </span>
     
-      <span class="overload">.<strong>fit</strong>(doc_string, *metadata_keys, metadata = {}, &amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
+      <span class="overload">.<strong>fit</strong>(doc_string, *metadata_keys, metadata = {}, &amp;example_implementation)  &#x21d2; <tt>Object</tt> </span>
     
   
 
@@ -1672,8 +1639,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Shortcut to define an example with <code>:focus =&gt; true</code>.</p>
+    <p>Shortcut to define an example with <code>:focus =&gt; true</code>.</p>
 
 
   </div>
@@ -1708,7 +1674,7 @@
       
       
       <li class="overload_item">
-        <span class="signature">.<strong>fit</strong>(&amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
+        <span class="signature">.<strong>fit</strong>(&amp;example_implementation)  &#x21d2; <tt>Object</tt> </span>
         <div class="docstring">
   <div class="discussion">
     
@@ -1729,8 +1695,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>The implementation of the example.</p>
+        <div class='inline'><p>The implementation of the example.</p>
 </div>
       
     </li>
@@ -1743,7 +1708,7 @@
     
       
       <li class="overload_item">
-        <span class="signature">.<strong>fit</strong>(doc_string, *metadata_keys, metadata = {})  &#x21d2; <tt>void</tt> </span>
+        <span class="signature">.<strong>fit</strong>(doc_string, *metadata_keys, metadata = {})  &#x21d2; <tt>Object</tt> </span>
         <div class="docstring">
   <div class="discussion">
     
@@ -1764,8 +1729,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>The example&#39;s doc string.</p>
+        <div class='inline'><p>The example&#39;s doc string.</p>
 </div>
       
     </li>
@@ -1782,8 +1746,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>Metadata for the example.</p>
+        <div class='inline'><p>Metadata for the example.</p>
 </div>
       
     </li>
@@ -1798,8 +1761,8 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>Metadata tags for the example. Will be transformed into hash entries with <code>true</code> values.</p>
+        <div class='inline'><p>Metadata tags for the example.
+Will be transformed into hash entries with <code>true</code> values.</p>
 </div>
       
     </li>
@@ -1812,7 +1775,7 @@
     
       
       <li class="overload_item">
-        <span class="signature">.<strong>fit</strong>(doc_string, *metadata_keys, metadata = {}, &amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
+        <span class="signature">.<strong>fit</strong>(doc_string, *metadata_keys, metadata = {}, &amp;example_implementation)  &#x21d2; <tt>Object</tt> </span>
         <div class="docstring">
   <div class="discussion">
     
@@ -1833,8 +1796,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>The example&#39;s doc string.</p>
+        <div class='inline'><p>The example&#39;s doc string.</p>
 </div>
       
     </li>
@@ -1851,8 +1813,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>Metadata for the example.</p>
+        <div class='inline'><p>Metadata for the example.</p>
 </div>
       
     </li>
@@ -1867,8 +1828,8 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>Metadata tags for the example. Will be transformed into hash entries with <code>true</code> values.</p>
+        <div class='inline'><p>Metadata tags for the example.
+Will be transformed into hash entries with <code>true</code> values.</p>
 </div>
       
     </li>
@@ -1883,8 +1844,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>The implementation of the example.</p>
+        <div class='inline'><p>The implementation of the example.</p>
 </div>
       
     </li>
@@ -1908,8 +1868,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>the example object</p>
+        <div class='inline'><p>the example object</p>
 </div>
       
     </li>
@@ -1944,13 +1903,13 @@
   <h3 class="signature " id="focus-class_method">
   
     
-      <span class="overload">.<strong>focus</strong>  &#x21d2; <tt>void</tt> </span>
+      <span class="overload">.<strong>focus</strong>  &#x21d2; <tt>Object</tt> </span>
     
-      <span class="overload">.<strong>focus</strong>(&amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
+      <span class="overload">.<strong>focus</strong>(&amp;example_implementation)  &#x21d2; <tt>Object</tt> </span>
     
-      <span class="overload">.<strong>focus</strong>(doc_string, *metadata_keys, metadata = {})  &#x21d2; <tt>void</tt> </span>
+      <span class="overload">.<strong>focus</strong>(doc_string, *metadata_keys, metadata = {})  &#x21d2; <tt>Object</tt> </span>
     
-      <span class="overload">.<strong>focus</strong>(doc_string, *metadata_keys, metadata = {}, &amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
+      <span class="overload">.<strong>focus</strong>(doc_string, *metadata_keys, metadata = {}, &amp;example_implementation)  &#x21d2; <tt>Object</tt> </span>
     
   
 
@@ -1959,8 +1918,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Shortcut to define an example with <code>:focus =&gt; true</code>.</p>
+    <p>Shortcut to define an example with <code>:focus =&gt; true</code>.</p>
 
 
   </div>
@@ -1995,7 +1953,7 @@
       
       
       <li class="overload_item">
-        <span class="signature">.<strong>focus</strong>(&amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
+        <span class="signature">.<strong>focus</strong>(&amp;example_implementation)  &#x21d2; <tt>Object</tt> </span>
         <div class="docstring">
   <div class="discussion">
     
@@ -2016,8 +1974,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>The implementation of the example.</p>
+        <div class='inline'><p>The implementation of the example.</p>
 </div>
       
     </li>
@@ -2030,7 +1987,7 @@
     
       
       <li class="overload_item">
-        <span class="signature">.<strong>focus</strong>(doc_string, *metadata_keys, metadata = {})  &#x21d2; <tt>void</tt> </span>
+        <span class="signature">.<strong>focus</strong>(doc_string, *metadata_keys, metadata = {})  &#x21d2; <tt>Object</tt> </span>
         <div class="docstring">
   <div class="discussion">
     
@@ -2051,8 +2008,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>The example&#39;s doc string.</p>
+        <div class='inline'><p>The example&#39;s doc string.</p>
 </div>
       
     </li>
@@ -2069,8 +2025,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>Metadata for the example.</p>
+        <div class='inline'><p>Metadata for the example.</p>
 </div>
       
     </li>
@@ -2085,8 +2040,8 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>Metadata tags for the example. Will be transformed into hash entries with <code>true</code> values.</p>
+        <div class='inline'><p>Metadata tags for the example.
+Will be transformed into hash entries with <code>true</code> values.</p>
 </div>
       
     </li>
@@ -2099,7 +2054,7 @@
     
       
       <li class="overload_item">
-        <span class="signature">.<strong>focus</strong>(doc_string, *metadata_keys, metadata = {}, &amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
+        <span class="signature">.<strong>focus</strong>(doc_string, *metadata_keys, metadata = {}, &amp;example_implementation)  &#x21d2; <tt>Object</tt> </span>
         <div class="docstring">
   <div class="discussion">
     
@@ -2120,8 +2075,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>The example&#39;s doc string.</p>
+        <div class='inline'><p>The example&#39;s doc string.</p>
 </div>
       
     </li>
@@ -2138,8 +2092,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>Metadata for the example.</p>
+        <div class='inline'><p>Metadata for the example.</p>
 </div>
       
     </li>
@@ -2154,8 +2107,8 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>Metadata tags for the example. Will be transformed into hash entries with <code>true</code> values.</p>
+        <div class='inline'><p>Metadata tags for the example.
+Will be transformed into hash entries with <code>true</code> values.</p>
 </div>
       
     </li>
@@ -2170,8 +2123,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>The implementation of the example.</p>
+        <div class='inline'><p>The implementation of the example.</p>
 </div>
       
     </li>
@@ -2195,8 +2147,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>the example object</p>
+        <div class='inline'><p>the example object</p>
 </div>
       
     </li>
@@ -2231,13 +2182,13 @@
   <h3 class="signature " id="fspecify-class_method">
   
     
-      <span class="overload">.<strong>fspecify</strong>  &#x21d2; <tt>void</tt> </span>
+      <span class="overload">.<strong>fspecify</strong>  &#x21d2; <tt>Object</tt> </span>
     
-      <span class="overload">.<strong>fspecify</strong>(&amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
+      <span class="overload">.<strong>fspecify</strong>(&amp;example_implementation)  &#x21d2; <tt>Object</tt> </span>
     
-      <span class="overload">.<strong>fspecify</strong>(doc_string, *metadata_keys, metadata = {})  &#x21d2; <tt>void</tt> </span>
+      <span class="overload">.<strong>fspecify</strong>(doc_string, *metadata_keys, metadata = {})  &#x21d2; <tt>Object</tt> </span>
     
-      <span class="overload">.<strong>fspecify</strong>(doc_string, *metadata_keys, metadata = {}, &amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
+      <span class="overload">.<strong>fspecify</strong>(doc_string, *metadata_keys, metadata = {}, &amp;example_implementation)  &#x21d2; <tt>Object</tt> </span>
     
   
 
@@ -2246,8 +2197,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Shortcut to define an example with <code>:focus =&gt; true</code>.</p>
+    <p>Shortcut to define an example with <code>:focus =&gt; true</code>.</p>
 
 
   </div>
@@ -2282,7 +2232,7 @@
       
       
       <li class="overload_item">
-        <span class="signature">.<strong>fspecify</strong>(&amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
+        <span class="signature">.<strong>fspecify</strong>(&amp;example_implementation)  &#x21d2; <tt>Object</tt> </span>
         <div class="docstring">
   <div class="discussion">
     
@@ -2303,8 +2253,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>The implementation of the example.</p>
+        <div class='inline'><p>The implementation of the example.</p>
 </div>
       
     </li>
@@ -2317,7 +2266,7 @@
     
       
       <li class="overload_item">
-        <span class="signature">.<strong>fspecify</strong>(doc_string, *metadata_keys, metadata = {})  &#x21d2; <tt>void</tt> </span>
+        <span class="signature">.<strong>fspecify</strong>(doc_string, *metadata_keys, metadata = {})  &#x21d2; <tt>Object</tt> </span>
         <div class="docstring">
   <div class="discussion">
     
@@ -2338,8 +2287,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>The example&#39;s doc string.</p>
+        <div class='inline'><p>The example&#39;s doc string.</p>
 </div>
       
     </li>
@@ -2356,8 +2304,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>Metadata for the example.</p>
+        <div class='inline'><p>Metadata for the example.</p>
 </div>
       
     </li>
@@ -2372,8 +2319,8 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>Metadata tags for the example. Will be transformed into hash entries with <code>true</code> values.</p>
+        <div class='inline'><p>Metadata tags for the example.
+Will be transformed into hash entries with <code>true</code> values.</p>
 </div>
       
     </li>
@@ -2386,7 +2333,7 @@
     
       
       <li class="overload_item">
-        <span class="signature">.<strong>fspecify</strong>(doc_string, *metadata_keys, metadata = {}, &amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
+        <span class="signature">.<strong>fspecify</strong>(doc_string, *metadata_keys, metadata = {}, &amp;example_implementation)  &#x21d2; <tt>Object</tt> </span>
         <div class="docstring">
   <div class="discussion">
     
@@ -2407,8 +2354,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>The example&#39;s doc string.</p>
+        <div class='inline'><p>The example&#39;s doc string.</p>
 </div>
       
     </li>
@@ -2425,8 +2371,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>Metadata for the example.</p>
+        <div class='inline'><p>Metadata for the example.</p>
 </div>
       
     </li>
@@ -2441,8 +2386,8 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>Metadata tags for the example. Will be transformed into hash entries with <code>true</code> values.</p>
+        <div class='inline'><p>Metadata tags for the example.
+Will be transformed into hash entries with <code>true</code> values.</p>
 </div>
       
     </li>
@@ -2457,8 +2402,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>The implementation of the example.</p>
+        <div class='inline'><p>The implementation of the example.</p>
 </div>
       
     </li>
@@ -2482,8 +2426,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>the example object</p>
+        <div class='inline'><p>the example object</p>
 </div>
       
     </li>
@@ -2525,8 +2468,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns the unique id of this example group. Pass this at the command line to re-run this exact example group.</p>
+    <p>Returns the unique id of this example group. Pass
+this at the command line to re-run this exact example group.</p>
 
 
   </div>
@@ -2544,8 +2487,8 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>the unique id of this example group. Pass this at the command line to re-run this exact example group.</p>
+        <div class='inline'><p>the unique id of this example group. Pass
+this at the command line to re-run this exact example group.</p>
 </div>
       
     </li>
@@ -2576,7 +2519,7 @@
       <div class="method_details ">
   <h3 class="signature " id="include_context-class_method">
   
-    .<strong>include_context</strong>(name, *args, &amp;block)  &#x21d2; <tt>void</tt> 
+    .<strong>include_context</strong>(name, *args, &amp;block)  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -2584,8 +2527,10 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Includes shared content mapped to <code>name</code> directly in the group in which it is declared, as opposed to <code>it_behaves_like</code>, which creates a nested group. If given a block, that block is also eval&#39;d in the current context.</p>
+    <p>Includes shared content mapped to <code>name</code> directly in the group in which
+it is declared, as opposed to <code>it_behaves_like</code>, which creates a nested
+group. If given a block, that block is also eval&#39;d in the current
+context.</p>
 
 
   </div>
@@ -2624,7 +2569,7 @@
       <div class="method_details ">
   <h3 class="signature " id="include_examples-class_method">
   
-    .<strong>include_examples</strong>(name, *args, &amp;block)  &#x21d2; <tt>void</tt> 
+    .<strong>include_examples</strong>(name, *args, &amp;block)  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -2632,8 +2577,10 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Includes shared content mapped to <code>name</code> directly in the group in which it is declared, as opposed to <code>it_behaves_like</code>, which creates a nested group. If given a block, that block is also eval&#39;d in the current context.</p>
+    <p>Includes shared content mapped to <code>name</code> directly in the group in which
+it is declared, as opposed to <code>it_behaves_like</code>, which creates a nested
+group. If given a block, that block is also eval&#39;d in the current
+context.</p>
 
 
   </div>
@@ -2673,13 +2620,13 @@
   <h3 class="signature " id="it-class_method">
   
     
-      <span class="overload">.<strong>it</strong>  &#x21d2; <tt>void</tt> </span>
+      <span class="overload">.<strong>it</strong>  &#x21d2; <tt>Object</tt> </span>
     
-      <span class="overload">.<strong>it</strong>(&amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
+      <span class="overload">.<strong>it</strong>(&amp;example_implementation)  &#x21d2; <tt>Object</tt> </span>
     
-      <span class="overload">.<strong>it</strong>(doc_string, *metadata_keys, metadata = {})  &#x21d2; <tt>void</tt> </span>
+      <span class="overload">.<strong>it</strong>(doc_string, *metadata_keys, metadata = {})  &#x21d2; <tt>Object</tt> </span>
     
-      <span class="overload">.<strong>it</strong>(doc_string, *metadata_keys, metadata = {}, &amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
+      <span class="overload">.<strong>it</strong>(doc_string, *metadata_keys, metadata = {}, &amp;example_implementation)  &#x21d2; <tt>Object</tt> </span>
     
   
 
@@ -2688,8 +2635,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Defines an example within a group. This is the primary API to define a code example.</p>
+    <p>Defines an example within a group.
+This is the primary API to define a code example.</p>
 
 
   </div>
@@ -2724,7 +2671,7 @@
       
       
       <li class="overload_item">
-        <span class="signature">.<strong>it</strong>(&amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
+        <span class="signature">.<strong>it</strong>(&amp;example_implementation)  &#x21d2; <tt>Object</tt> </span>
         <div class="docstring">
   <div class="discussion">
     
@@ -2745,8 +2692,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>The implementation of the example.</p>
+        <div class='inline'><p>The implementation of the example.</p>
 </div>
       
     </li>
@@ -2759,7 +2705,7 @@
     
       
       <li class="overload_item">
-        <span class="signature">.<strong>it</strong>(doc_string, *metadata_keys, metadata = {})  &#x21d2; <tt>void</tt> </span>
+        <span class="signature">.<strong>it</strong>(doc_string, *metadata_keys, metadata = {})  &#x21d2; <tt>Object</tt> </span>
         <div class="docstring">
   <div class="discussion">
     
@@ -2780,8 +2726,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>The example&#39;s doc string.</p>
+        <div class='inline'><p>The example&#39;s doc string.</p>
 </div>
       
     </li>
@@ -2798,8 +2743,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>Metadata for the example.</p>
+        <div class='inline'><p>Metadata for the example.</p>
 </div>
       
     </li>
@@ -2814,8 +2758,8 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>Metadata tags for the example. Will be transformed into hash entries with <code>true</code> values.</p>
+        <div class='inline'><p>Metadata tags for the example.
+Will be transformed into hash entries with <code>true</code> values.</p>
 </div>
       
     </li>
@@ -2828,7 +2772,7 @@
     
       
       <li class="overload_item">
-        <span class="signature">.<strong>it</strong>(doc_string, *metadata_keys, metadata = {}, &amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
+        <span class="signature">.<strong>it</strong>(doc_string, *metadata_keys, metadata = {}, &amp;example_implementation)  &#x21d2; <tt>Object</tt> </span>
         <div class="docstring">
   <div class="discussion">
     
@@ -2849,8 +2793,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>The example&#39;s doc string.</p>
+        <div class='inline'><p>The example&#39;s doc string.</p>
 </div>
       
     </li>
@@ -2867,8 +2810,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>Metadata for the example.</p>
+        <div class='inline'><p>Metadata for the example.</p>
 </div>
       
     </li>
@@ -2883,8 +2825,8 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>Metadata tags for the example. Will be transformed into hash entries with <code>true</code> values.</p>
+        <div class='inline'><p>Metadata tags for the example.
+Will be transformed into hash entries with <code>true</code> values.</p>
 </div>
       
     </li>
@@ -2899,8 +2841,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>The implementation of the example.</p>
+        <div class='inline'><p>The implementation of the example.</p>
 </div>
       
     </li>
@@ -2924,8 +2865,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>the example object</p>
+        <div class='inline'><p>the example object</p>
 </div>
       
     </li>
@@ -2952,7 +2892,7 @@
       <div class="method_details ">
   <h3 class="signature " id="metadata-class_method">
   
-    .<strong>metadata</strong>  &#x21d2; <tt>void</tt> 
+    .<strong>metadata</strong>  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -2960,8 +2900,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>The <a href="Metadata">Metadata</a> object associated with this group.</p>
+    <p>The <a href="Metadata">Metadata</a> object associated with this group.</p>
 
 
   </div>
@@ -3001,13 +2940,13 @@
   <h3 class="signature " id="pending-class_method">
   
     
-      <span class="overload">.<strong>pending</strong>  &#x21d2; <tt>void</tt> </span>
+      <span class="overload">.<strong>pending</strong>  &#x21d2; <tt>Object</tt> </span>
     
-      <span class="overload">.<strong>pending</strong>(&amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
+      <span class="overload">.<strong>pending</strong>(&amp;example_implementation)  &#x21d2; <tt>Object</tt> </span>
     
-      <span class="overload">.<strong>pending</strong>(doc_string, *metadata_keys, metadata = {})  &#x21d2; <tt>void</tt> </span>
+      <span class="overload">.<strong>pending</strong>(doc_string, *metadata_keys, metadata = {})  &#x21d2; <tt>Object</tt> </span>
     
-      <span class="overload">.<strong>pending</strong>(doc_string, *metadata_keys, metadata = {}, &amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
+      <span class="overload">.<strong>pending</strong>(doc_string, *metadata_keys, metadata = {}, &amp;example_implementation)  &#x21d2; <tt>Object</tt> </span>
     
   
 
@@ -3016,8 +2955,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Shortcut to define an example with <code>:pending =&gt; true</code></p>
+    <p>Shortcut to define an example with <code>:pending =&gt; true</code></p>
 
 
   </div>
@@ -3052,7 +2990,7 @@
       
       
       <li class="overload_item">
-        <span class="signature">.<strong>pending</strong>(&amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
+        <span class="signature">.<strong>pending</strong>(&amp;example_implementation)  &#x21d2; <tt>Object</tt> </span>
         <div class="docstring">
   <div class="discussion">
     
@@ -3073,8 +3011,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>The implementation of the example.</p>
+        <div class='inline'><p>The implementation of the example.</p>
 </div>
       
     </li>
@@ -3087,7 +3024,7 @@
     
       
       <li class="overload_item">
-        <span class="signature">.<strong>pending</strong>(doc_string, *metadata_keys, metadata = {})  &#x21d2; <tt>void</tt> </span>
+        <span class="signature">.<strong>pending</strong>(doc_string, *metadata_keys, metadata = {})  &#x21d2; <tt>Object</tt> </span>
         <div class="docstring">
   <div class="discussion">
     
@@ -3108,8 +3045,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>The example&#39;s doc string.</p>
+        <div class='inline'><p>The example&#39;s doc string.</p>
 </div>
       
     </li>
@@ -3126,8 +3062,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>Metadata for the example.</p>
+        <div class='inline'><p>Metadata for the example.</p>
 </div>
       
     </li>
@@ -3142,8 +3077,8 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>Metadata tags for the example. Will be transformed into hash entries with <code>true</code> values.</p>
+        <div class='inline'><p>Metadata tags for the example.
+Will be transformed into hash entries with <code>true</code> values.</p>
 </div>
       
     </li>
@@ -3156,7 +3091,7 @@
     
       
       <li class="overload_item">
-        <span class="signature">.<strong>pending</strong>(doc_string, *metadata_keys, metadata = {}, &amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
+        <span class="signature">.<strong>pending</strong>(doc_string, *metadata_keys, metadata = {}, &amp;example_implementation)  &#x21d2; <tt>Object</tt> </span>
         <div class="docstring">
   <div class="discussion">
     
@@ -3177,8 +3112,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>The example&#39;s doc string.</p>
+        <div class='inline'><p>The example&#39;s doc string.</p>
 </div>
       
     </li>
@@ -3195,8 +3129,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>Metadata for the example.</p>
+        <div class='inline'><p>Metadata for the example.</p>
 </div>
       
     </li>
@@ -3211,8 +3144,8 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>Metadata tags for the example. Will be transformed into hash entries with <code>true</code> values.</p>
+        <div class='inline'><p>Metadata tags for the example.
+Will be transformed into hash entries with <code>true</code> values.</p>
 </div>
       
     </li>
@@ -3227,8 +3160,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>The implementation of the example.</p>
+        <div class='inline'><p>The implementation of the example.</p>
 </div>
       
     </li>
@@ -3252,8 +3184,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>the example object</p>
+        <div class='inline'><p>the example object</p>
 </div>
       
     </li>
@@ -3287,7 +3218,7 @@
       <div class="method_details ">
   <h3 class="signature " id="remove_example-class_method">
   
-    .<strong>remove_example</strong>(example)  &#x21d2; <tt>void</tt> 
+    .<strong>remove_example</strong>(example)  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -3295,8 +3226,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Removes an example from the example group</p>
+    <p>Removes an example from the example group</p>
 
 
   </div>
@@ -3330,7 +3260,7 @@
       <div class="method_details ">
   <h3 class="signature " id="run-class_method">
   
-    .<strong>run</strong>(reporter = RSpec::Core::NullReporter)  &#x21d2; <tt>void</tt> 
+    .<strong>run</strong>(reporter = RSpec::Core::NullReporter)  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -3338,8 +3268,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Runs all the examples in this group.</p>
+    <p>Runs all the examples in this group.</p>
 
 
   </div>
@@ -3410,13 +3339,13 @@
   <h3 class="signature " id="skip-class_method">
   
     
-      <span class="overload">.<strong>skip</strong>  &#x21d2; <tt>void</tt> </span>
+      <span class="overload">.<strong>skip</strong>  &#x21d2; <tt>Object</tt> </span>
     
-      <span class="overload">.<strong>skip</strong>(&amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
+      <span class="overload">.<strong>skip</strong>(&amp;example_implementation)  &#x21d2; <tt>Object</tt> </span>
     
-      <span class="overload">.<strong>skip</strong>(doc_string, *metadata_keys, metadata = {})  &#x21d2; <tt>void</tt> </span>
+      <span class="overload">.<strong>skip</strong>(doc_string, *metadata_keys, metadata = {})  &#x21d2; <tt>Object</tt> </span>
     
-      <span class="overload">.<strong>skip</strong>(doc_string, *metadata_keys, metadata = {}, &amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
+      <span class="overload">.<strong>skip</strong>(doc_string, *metadata_keys, metadata = {}, &amp;example_implementation)  &#x21d2; <tt>Object</tt> </span>
     
   
 
@@ -3425,8 +3354,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Shortcut to define an example with <code>:skip =&gt; true</code></p>
+    <p>Shortcut to define an example with <code>:skip =&gt; true</code></p>
 
 
   </div>
@@ -3461,7 +3389,7 @@
       
       
       <li class="overload_item">
-        <span class="signature">.<strong>skip</strong>(&amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
+        <span class="signature">.<strong>skip</strong>(&amp;example_implementation)  &#x21d2; <tt>Object</tt> </span>
         <div class="docstring">
   <div class="discussion">
     
@@ -3482,8 +3410,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>The implementation of the example.</p>
+        <div class='inline'><p>The implementation of the example.</p>
 </div>
       
     </li>
@@ -3496,7 +3423,7 @@
     
       
       <li class="overload_item">
-        <span class="signature">.<strong>skip</strong>(doc_string, *metadata_keys, metadata = {})  &#x21d2; <tt>void</tt> </span>
+        <span class="signature">.<strong>skip</strong>(doc_string, *metadata_keys, metadata = {})  &#x21d2; <tt>Object</tt> </span>
         <div class="docstring">
   <div class="discussion">
     
@@ -3517,8 +3444,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>The example&#39;s doc string.</p>
+        <div class='inline'><p>The example&#39;s doc string.</p>
 </div>
       
     </li>
@@ -3535,8 +3461,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>Metadata for the example.</p>
+        <div class='inline'><p>Metadata for the example.</p>
 </div>
       
     </li>
@@ -3551,8 +3476,8 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>Metadata tags for the example. Will be transformed into hash entries with <code>true</code> values.</p>
+        <div class='inline'><p>Metadata tags for the example.
+Will be transformed into hash entries with <code>true</code> values.</p>
 </div>
       
     </li>
@@ -3565,7 +3490,7 @@
     
       
       <li class="overload_item">
-        <span class="signature">.<strong>skip</strong>(doc_string, *metadata_keys, metadata = {}, &amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
+        <span class="signature">.<strong>skip</strong>(doc_string, *metadata_keys, metadata = {}, &amp;example_implementation)  &#x21d2; <tt>Object</tt> </span>
         <div class="docstring">
   <div class="discussion">
     
@@ -3586,8 +3511,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>The example&#39;s doc string.</p>
+        <div class='inline'><p>The example&#39;s doc string.</p>
 </div>
       
     </li>
@@ -3604,8 +3528,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>Metadata for the example.</p>
+        <div class='inline'><p>Metadata for the example.</p>
 </div>
       
     </li>
@@ -3620,8 +3543,8 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>Metadata tags for the example. Will be transformed into hash entries with <code>true</code> values.</p>
+        <div class='inline'><p>Metadata tags for the example.
+Will be transformed into hash entries with <code>true</code> values.</p>
 </div>
       
     </li>
@@ -3636,8 +3559,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>The implementation of the example.</p>
+        <div class='inline'><p>The implementation of the example.</p>
 </div>
       
     </li>
@@ -3661,8 +3583,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>the example object</p>
+        <div class='inline'><p>the example object</p>
 </div>
       
     </li>
@@ -3697,13 +3618,13 @@
   <h3 class="signature " id="specify-class_method">
   
     
-      <span class="overload">.<strong>specify</strong>  &#x21d2; <tt>void</tt> </span>
+      <span class="overload">.<strong>specify</strong>  &#x21d2; <tt>Object</tt> </span>
     
-      <span class="overload">.<strong>specify</strong>(&amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
+      <span class="overload">.<strong>specify</strong>(&amp;example_implementation)  &#x21d2; <tt>Object</tt> </span>
     
-      <span class="overload">.<strong>specify</strong>(doc_string, *metadata_keys, metadata = {})  &#x21d2; <tt>void</tt> </span>
+      <span class="overload">.<strong>specify</strong>(doc_string, *metadata_keys, metadata = {})  &#x21d2; <tt>Object</tt> </span>
     
-      <span class="overload">.<strong>specify</strong>(doc_string, *metadata_keys, metadata = {}, &amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
+      <span class="overload">.<strong>specify</strong>(doc_string, *metadata_keys, metadata = {}, &amp;example_implementation)  &#x21d2; <tt>Object</tt> </span>
     
   
 
@@ -3712,8 +3633,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Defines an example within a group. Useful for when your docstring does not read well off of <code>it</code>.</p>
+    <p>Defines an example within a group.
+Useful for when your docstring does not read well off of <code>it</code>.</p>
 
 
   </div>
@@ -3755,7 +3676,7 @@
       
       
       <li class="overload_item">
-        <span class="signature">.<strong>specify</strong>(&amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
+        <span class="signature">.<strong>specify</strong>(&amp;example_implementation)  &#x21d2; <tt>Object</tt> </span>
         <div class="docstring">
   <div class="discussion">
     
@@ -3776,8 +3697,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>The implementation of the example.</p>
+        <div class='inline'><p>The implementation of the example.</p>
 </div>
       
     </li>
@@ -3790,7 +3710,7 @@
     
       
       <li class="overload_item">
-        <span class="signature">.<strong>specify</strong>(doc_string, *metadata_keys, metadata = {})  &#x21d2; <tt>void</tt> </span>
+        <span class="signature">.<strong>specify</strong>(doc_string, *metadata_keys, metadata = {})  &#x21d2; <tt>Object</tt> </span>
         <div class="docstring">
   <div class="discussion">
     
@@ -3811,8 +3731,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>The example&#39;s doc string.</p>
+        <div class='inline'><p>The example&#39;s doc string.</p>
 </div>
       
     </li>
@@ -3829,8 +3748,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>Metadata for the example.</p>
+        <div class='inline'><p>Metadata for the example.</p>
 </div>
       
     </li>
@@ -3845,8 +3763,8 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>Metadata tags for the example. Will be transformed into hash entries with <code>true</code> values.</p>
+        <div class='inline'><p>Metadata tags for the example.
+Will be transformed into hash entries with <code>true</code> values.</p>
 </div>
       
     </li>
@@ -3859,7 +3777,7 @@
     
       
       <li class="overload_item">
-        <span class="signature">.<strong>specify</strong>(doc_string, *metadata_keys, metadata = {}, &amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
+        <span class="signature">.<strong>specify</strong>(doc_string, *metadata_keys, metadata = {}, &amp;example_implementation)  &#x21d2; <tt>Object</tt> </span>
         <div class="docstring">
   <div class="discussion">
     
@@ -3880,8 +3798,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>The example&#39;s doc string.</p>
+        <div class='inline'><p>The example&#39;s doc string.</p>
 </div>
       
     </li>
@@ -3898,8 +3815,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>Metadata for the example.</p>
+        <div class='inline'><p>Metadata for the example.</p>
 </div>
       
     </li>
@@ -3914,8 +3830,8 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>Metadata tags for the example. Will be transformed into hash entries with <code>true</code> values.</p>
+        <div class='inline'><p>Metadata tags for the example.
+Will be transformed into hash entries with <code>true</code> values.</p>
 </div>
       
     </li>
@@ -3930,8 +3846,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>The implementation of the example.</p>
+        <div class='inline'><p>The implementation of the example.</p>
 </div>
       
     </li>
@@ -3955,8 +3870,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>the example object</p>
+        <div class='inline'><p>the example object</p>
 </div>
       
     </li>
@@ -3984,13 +3898,13 @@
   <h3 class="signature " id="xexample-class_method">
   
     
-      <span class="overload">.<strong>xexample</strong>  &#x21d2; <tt>void</tt> </span>
+      <span class="overload">.<strong>xexample</strong>  &#x21d2; <tt>Object</tt> </span>
     
-      <span class="overload">.<strong>xexample</strong>(&amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
+      <span class="overload">.<strong>xexample</strong>(&amp;example_implementation)  &#x21d2; <tt>Object</tt> </span>
     
-      <span class="overload">.<strong>xexample</strong>(doc_string, *metadata_keys, metadata = {})  &#x21d2; <tt>void</tt> </span>
+      <span class="overload">.<strong>xexample</strong>(doc_string, *metadata_keys, metadata = {})  &#x21d2; <tt>Object</tt> </span>
     
-      <span class="overload">.<strong>xexample</strong>(doc_string, *metadata_keys, metadata = {}, &amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
+      <span class="overload">.<strong>xexample</strong>(doc_string, *metadata_keys, metadata = {}, &amp;example_implementation)  &#x21d2; <tt>Object</tt> </span>
     
   
 
@@ -3999,8 +3913,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Shortcut to define an example with <code>:skip =&gt; &#39;Temporarily skipped with xexample&#39;</code>.</p>
+    <p>Shortcut to define an example with <code>:skip =&gt; &#39;Temporarily skipped with xexample&#39;</code>.</p>
 
 
   </div>
@@ -4035,7 +3948,7 @@
       
       
       <li class="overload_item">
-        <span class="signature">.<strong>xexample</strong>(&amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
+        <span class="signature">.<strong>xexample</strong>(&amp;example_implementation)  &#x21d2; <tt>Object</tt> </span>
         <div class="docstring">
   <div class="discussion">
     
@@ -4056,8 +3969,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>The implementation of the example.</p>
+        <div class='inline'><p>The implementation of the example.</p>
 </div>
       
     </li>
@@ -4070,7 +3982,7 @@
     
       
       <li class="overload_item">
-        <span class="signature">.<strong>xexample</strong>(doc_string, *metadata_keys, metadata = {})  &#x21d2; <tt>void</tt> </span>
+        <span class="signature">.<strong>xexample</strong>(doc_string, *metadata_keys, metadata = {})  &#x21d2; <tt>Object</tt> </span>
         <div class="docstring">
   <div class="discussion">
     
@@ -4091,8 +4003,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>The example&#39;s doc string.</p>
+        <div class='inline'><p>The example&#39;s doc string.</p>
 </div>
       
     </li>
@@ -4109,8 +4020,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>Metadata for the example.</p>
+        <div class='inline'><p>Metadata for the example.</p>
 </div>
       
     </li>
@@ -4125,8 +4035,8 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>Metadata tags for the example. Will be transformed into hash entries with <code>true</code> values.</p>
+        <div class='inline'><p>Metadata tags for the example.
+Will be transformed into hash entries with <code>true</code> values.</p>
 </div>
       
     </li>
@@ -4139,7 +4049,7 @@
     
       
       <li class="overload_item">
-        <span class="signature">.<strong>xexample</strong>(doc_string, *metadata_keys, metadata = {}, &amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
+        <span class="signature">.<strong>xexample</strong>(doc_string, *metadata_keys, metadata = {}, &amp;example_implementation)  &#x21d2; <tt>Object</tt> </span>
         <div class="docstring">
   <div class="discussion">
     
@@ -4160,8 +4070,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>The example&#39;s doc string.</p>
+        <div class='inline'><p>The example&#39;s doc string.</p>
 </div>
       
     </li>
@@ -4178,8 +4087,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>Metadata for the example.</p>
+        <div class='inline'><p>Metadata for the example.</p>
 </div>
       
     </li>
@@ -4194,8 +4102,8 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>Metadata tags for the example. Will be transformed into hash entries with <code>true</code> values.</p>
+        <div class='inline'><p>Metadata tags for the example.
+Will be transformed into hash entries with <code>true</code> values.</p>
 </div>
       
     </li>
@@ -4210,8 +4118,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>The implementation of the example.</p>
+        <div class='inline'><p>The implementation of the example.</p>
 </div>
       
     </li>
@@ -4235,8 +4142,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>the example object</p>
+        <div class='inline'><p>the example object</p>
 </div>
       
     </li>
@@ -4271,13 +4177,13 @@
   <h3 class="signature " id="xit-class_method">
   
     
-      <span class="overload">.<strong>xit</strong>  &#x21d2; <tt>void</tt> </span>
+      <span class="overload">.<strong>xit</strong>  &#x21d2; <tt>Object</tt> </span>
     
-      <span class="overload">.<strong>xit</strong>(&amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
+      <span class="overload">.<strong>xit</strong>(&amp;example_implementation)  &#x21d2; <tt>Object</tt> </span>
     
-      <span class="overload">.<strong>xit</strong>(doc_string, *metadata_keys, metadata = {})  &#x21d2; <tt>void</tt> </span>
+      <span class="overload">.<strong>xit</strong>(doc_string, *metadata_keys, metadata = {})  &#x21d2; <tt>Object</tt> </span>
     
-      <span class="overload">.<strong>xit</strong>(doc_string, *metadata_keys, metadata = {}, &amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
+      <span class="overload">.<strong>xit</strong>(doc_string, *metadata_keys, metadata = {}, &amp;example_implementation)  &#x21d2; <tt>Object</tt> </span>
     
   
 
@@ -4286,8 +4192,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Shortcut to define an example with <code>:skip =&gt; &#39;Temporarily skipped with xit&#39;</code>.</p>
+    <p>Shortcut to define an example with <code>:skip =&gt; &#39;Temporarily skipped with xit&#39;</code>.</p>
 
 
   </div>
@@ -4322,7 +4227,7 @@
       
       
       <li class="overload_item">
-        <span class="signature">.<strong>xit</strong>(&amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
+        <span class="signature">.<strong>xit</strong>(&amp;example_implementation)  &#x21d2; <tt>Object</tt> </span>
         <div class="docstring">
   <div class="discussion">
     
@@ -4343,8 +4248,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>The implementation of the example.</p>
+        <div class='inline'><p>The implementation of the example.</p>
 </div>
       
     </li>
@@ -4357,7 +4261,7 @@
     
       
       <li class="overload_item">
-        <span class="signature">.<strong>xit</strong>(doc_string, *metadata_keys, metadata = {})  &#x21d2; <tt>void</tt> </span>
+        <span class="signature">.<strong>xit</strong>(doc_string, *metadata_keys, metadata = {})  &#x21d2; <tt>Object</tt> </span>
         <div class="docstring">
   <div class="discussion">
     
@@ -4378,8 +4282,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>The example&#39;s doc string.</p>
+        <div class='inline'><p>The example&#39;s doc string.</p>
 </div>
       
     </li>
@@ -4396,8 +4299,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>Metadata for the example.</p>
+        <div class='inline'><p>Metadata for the example.</p>
 </div>
       
     </li>
@@ -4412,8 +4314,8 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>Metadata tags for the example. Will be transformed into hash entries with <code>true</code> values.</p>
+        <div class='inline'><p>Metadata tags for the example.
+Will be transformed into hash entries with <code>true</code> values.</p>
 </div>
       
     </li>
@@ -4426,7 +4328,7 @@
     
       
       <li class="overload_item">
-        <span class="signature">.<strong>xit</strong>(doc_string, *metadata_keys, metadata = {}, &amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
+        <span class="signature">.<strong>xit</strong>(doc_string, *metadata_keys, metadata = {}, &amp;example_implementation)  &#x21d2; <tt>Object</tt> </span>
         <div class="docstring">
   <div class="discussion">
     
@@ -4447,8 +4349,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>The example&#39;s doc string.</p>
+        <div class='inline'><p>The example&#39;s doc string.</p>
 </div>
       
     </li>
@@ -4465,8 +4366,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>Metadata for the example.</p>
+        <div class='inline'><p>Metadata for the example.</p>
 </div>
       
     </li>
@@ -4481,8 +4381,8 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>Metadata tags for the example. Will be transformed into hash entries with <code>true</code> values.</p>
+        <div class='inline'><p>Metadata tags for the example.
+Will be transformed into hash entries with <code>true</code> values.</p>
 </div>
       
     </li>
@@ -4497,8 +4397,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>The implementation of the example.</p>
+        <div class='inline'><p>The implementation of the example.</p>
 </div>
       
     </li>
@@ -4522,8 +4421,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>the example object</p>
+        <div class='inline'><p>the example object</p>
 </div>
       
     </li>
@@ -4558,13 +4456,13 @@
   <h3 class="signature " id="xspecify-class_method">
   
     
-      <span class="overload">.<strong>xspecify</strong>  &#x21d2; <tt>void</tt> </span>
+      <span class="overload">.<strong>xspecify</strong>  &#x21d2; <tt>Object</tt> </span>
     
-      <span class="overload">.<strong>xspecify</strong>(&amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
+      <span class="overload">.<strong>xspecify</strong>(&amp;example_implementation)  &#x21d2; <tt>Object</tt> </span>
     
-      <span class="overload">.<strong>xspecify</strong>(doc_string, *metadata_keys, metadata = {})  &#x21d2; <tt>void</tt> </span>
+      <span class="overload">.<strong>xspecify</strong>(doc_string, *metadata_keys, metadata = {})  &#x21d2; <tt>Object</tt> </span>
     
-      <span class="overload">.<strong>xspecify</strong>(doc_string, *metadata_keys, metadata = {}, &amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
+      <span class="overload">.<strong>xspecify</strong>(doc_string, *metadata_keys, metadata = {}, &amp;example_implementation)  &#x21d2; <tt>Object</tt> </span>
     
   
 
@@ -4573,8 +4471,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Shortcut to define an example with <code>:skip =&gt; &#39;Temporarily skipped with xspecify&#39;</code>.</p>
+    <p>Shortcut to define an example with <code>:skip =&gt; &#39;Temporarily skipped with xspecify&#39;</code>.</p>
 
 
   </div>
@@ -4609,7 +4506,7 @@
       
       
       <li class="overload_item">
-        <span class="signature">.<strong>xspecify</strong>(&amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
+        <span class="signature">.<strong>xspecify</strong>(&amp;example_implementation)  &#x21d2; <tt>Object</tt> </span>
         <div class="docstring">
   <div class="discussion">
     
@@ -4630,8 +4527,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>The implementation of the example.</p>
+        <div class='inline'><p>The implementation of the example.</p>
 </div>
       
     </li>
@@ -4644,7 +4540,7 @@
     
       
       <li class="overload_item">
-        <span class="signature">.<strong>xspecify</strong>(doc_string, *metadata_keys, metadata = {})  &#x21d2; <tt>void</tt> </span>
+        <span class="signature">.<strong>xspecify</strong>(doc_string, *metadata_keys, metadata = {})  &#x21d2; <tt>Object</tt> </span>
         <div class="docstring">
   <div class="discussion">
     
@@ -4665,8 +4561,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>The example&#39;s doc string.</p>
+        <div class='inline'><p>The example&#39;s doc string.</p>
 </div>
       
     </li>
@@ -4683,8 +4578,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>Metadata for the example.</p>
+        <div class='inline'><p>Metadata for the example.</p>
 </div>
       
     </li>
@@ -4699,8 +4593,8 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>Metadata tags for the example. Will be transformed into hash entries with <code>true</code> values.</p>
+        <div class='inline'><p>Metadata tags for the example.
+Will be transformed into hash entries with <code>true</code> values.</p>
 </div>
       
     </li>
@@ -4713,7 +4607,7 @@
     
       
       <li class="overload_item">
-        <span class="signature">.<strong>xspecify</strong>(doc_string, *metadata_keys, metadata = {}, &amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
+        <span class="signature">.<strong>xspecify</strong>(doc_string, *metadata_keys, metadata = {}, &amp;example_implementation)  &#x21d2; <tt>Object</tt> </span>
         <div class="docstring">
   <div class="discussion">
     
@@ -4734,8 +4628,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>The example&#39;s doc string.</p>
+        <div class='inline'><p>The example&#39;s doc string.</p>
 </div>
       
     </li>
@@ -4752,8 +4645,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>Metadata for the example.</p>
+        <div class='inline'><p>Metadata for the example.</p>
 </div>
       
     </li>
@@ -4768,8 +4660,8 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>Metadata tags for the example. Will be transformed into hash entries with <code>true</code> values.</p>
+        <div class='inline'><p>Metadata tags for the example.
+Will be transformed into hash entries with <code>true</code> values.</p>
 </div>
       
     </li>
@@ -4784,8 +4676,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>The implementation of the example.</p>
+        <div class='inline'><p>The implementation of the example.</p>
 </div>
       
     </li>
@@ -4809,8 +4700,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>the example object</p>
+        <div class='inline'><p>the example object</p>
 </div>
       
     </li>
@@ -4850,7 +4740,7 @@
       <div class="method_details first">
   <h3 class="signature first" id="described_class-instance_method">
   
-    #<strong>described_class</strong>  &#x21d2; <tt>void</tt> 
+    #<strong>described_class</strong>  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -4858,8 +4748,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns the class or module passed to the <code>describe</code> method (or alias). Returns nil if the subject is not a class or module.</p>
+    <p>Returns the class or module passed to the <code>describe</code> method (or alias).
+Returns nil if the subject is not a class or module.</p>
 
 
   </div>
@@ -4905,9 +4795,9 @@
 </div>
 
       <div id="footer">
-  Generated on Wed Jan 29 15:52:50 2020 by
+  Generated on Wed Feb 26 15:20:59 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.22 (ruby-2.7.0).
+  0.9.24 (ruby-2.7.0).
 </div>
 
 <script>

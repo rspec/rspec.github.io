@@ -5,7 +5,7 @@
 <title>
   Class: RSpec::Core::Configuration
   
-    &mdash; Documentation by YARD 0.9.22
+    &mdash; Documentation by YARD 0.9.24
   
 </title>
 
@@ -105,27 +105,28 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    
-<p>Stores runtime configuration information.</p>
+    <p>Stores runtime configuration information.</p>
 
-<p>Configuration options are loaded from multiple files and joined together with command-line switches and the <code>SPEC_OPTS</code> environment variable.</p>
+<p>Configuration options are loaded from multiple files and joined together
+with command-line switches and the <code>SPEC_OPTS</code> environment variable.</p>
 
-<p>Precedence order (where later entries overwrite earlier entries on conflicts):</p>
-<ul><li>
-<p>Global (<code>$XDG_CONFIG_HOME/rspec/options</code>, or <code>~/.rspec</code> if it does not exist)</p>
-</li><li>
-<p>Project-specific (<code>./.rspec</code>)</p>
-</li><li>
-<p>Local (<code>./.rspec-local</code>)</p>
-</li><li>
-<p>Command-line options</p>
-</li><li>
-<p><code>SPEC_OPTS</code></p>
-</li></ul>
+<p>Precedence order (where later entries overwrite earlier entries on
+conflicts):</p>
 
-<p>For example, an option set in the local file will override an option set in your global file.</p>
+<ul>
+<li>Global (<code>$XDG_CONFIG_HOME/rspec/options</code>, or <code>~/.rspec</code> if it does
+not exist)</li>
+<li>Project-specific (<code>./.rspec</code>)</li>
+<li>Local (<code>./.rspec-local</code>)</li>
+<li>Command-line options</li>
+<li><code>SPEC_OPTS</code></li>
+</ul>
 
-<p>The global, project-specific and local files can all be overridden with a separate custom file using the –options command-line parameter.</p>
+<p>For example, an option set in the local file will override an option set
+in your global file.</p>
+
+<p>The global, project-specific and local files can all be overridden with a
+separate custom file using the --options command-line parameter.</p>
 
 
   </div>
@@ -136,8 +137,7 @@
     <p class="tag_title">Examples:</p>
     
       
-        <p class="example_title"><div class='inline'>
-<p>Standard settings</p>
+        <p class="example_title"><div class='inline'><p>Standard settings</p>
 </div></p>
       
       <pre class="example code"><code><span class='const'><span class='object_link'><a href="../../RSpec.html" title="RSpec (module)">RSpec</a></span></span><span class='period'>.</span><span class='id identifier rubyid_configure'><span class='object_link'><a href="../../RSpec.html#configure-class_method" title="RSpec.configure (method)">configure</a></span></span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_c'>c</span><span class='op'>|</span>
@@ -147,8 +147,7 @@
 <span class='kw'>end</span></code></pre>
     
       
-        <p class="example_title"><div class='inline'>
-<p>Hooks</p>
+        <p class="example_title"><div class='inline'><p>Hooks</p>
 </div></p>
       
       <pre class="example code"><code><span class='const'><span class='object_link'><a href="../../RSpec.html" title="RSpec (module)">RSpec</a></span></span><span class='period'>.</span><span class='id identifier rubyid_configure'><span class='object_link'><a href="../../RSpec.html#configure-class_method" title="RSpec.configure (method)">configure</a></span></span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_c'>c</span><span class='op'>|</span>
@@ -196,8 +195,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Determines which bisect runner implementation gets used to run subsets of the suite during a bisection.</p>
+    <span class="summary_desc"><div class='inline'><p>Determines which bisect runner implementation gets used to run subsets of the suite during a bisection.</p>
 </div></span>
   
 </li>
@@ -223,8 +221,9 @@
   
 
   
-    <span class="summary_desc"><strong>Deprecated.</strong> <div class='inline'>
-<p>No longer recommended because of complex behavior. Instead, rely on the fact that TTYs will display color by default, or set <span class='object_link'><a href="#color_mode-instance_method" title="RSpec::Core::Configuration#color_mode (method)">#color_mode</a></span> to :on to display color on a non-TTY output.</p>
+    <span class="summary_desc"><strong>Deprecated.</strong> <div class='inline'><p>No longer recommended because of complex behavior. Instead,
+rely on the fact that TTYs will display color by default, or set
+<span class='object_link'><a href="#color_mode-instance_method" title="RSpec::Core::Configuration#color_mode (method)">#color_mode</a></span> to :on to display color on a non-TTY output.</p>
 </div></span>
   
 </li>
@@ -250,8 +249,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>The mode for determining whether to display output in color.</p>
+    <span class="summary_desc"><div class='inline'><p>The mode for determining whether to display output in color.</p>
 </div></span>
   
 </li>
@@ -277,8 +275,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>The default output color.</p>
+    <span class="summary_desc"><div class='inline'><p>The default output color.</p>
 </div></span>
   
 </li>
@@ -304,8 +301,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Path to use if no path is provided to the <code>rspec</code> command (default: <code>&quot;spec&quot;</code>).</p>
+    <span class="summary_desc"><div class='inline'><p>Path to use if no path is provided to the <code>rspec</code> command (default: <code>&quot;spec&quot;</code>).</p>
 </div></span>
   
 </li>
@@ -331,8 +327,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Color used to print details.</p>
+    <span class="summary_desc"><div class='inline'><p>Color used to print details.</p>
 </div></span>
   
 </li>
@@ -358,8 +353,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Run examples over DRb (default: <code>false</code>).</p>
+    <span class="summary_desc"><div class='inline'><p>Run examples over DRb (default: <code>false</code>).</p>
 </div></span>
   
 </li>
@@ -368,7 +362,7 @@
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#drb_port-instance_method" title="#drb_port (instance method)">#<strong>drb_port</strong>  &#x21d2; void </a>
+      <a href="#drb_port-instance_method" title="#drb_port (instance method)">#<strong>drb_port</strong>  &#x21d2; Object </a>
     
 
     
@@ -385,8 +379,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>The drb_port (default: nil).</p>
+    <span class="summary_desc"><div class='inline'><p>The drb_port (default: nil).</p>
 </div></span>
   
 </li>
@@ -395,7 +388,7 @@
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#dry_run-instance_method" title="#dry_run (instance method)">#<strong>dry_run</strong>  &#x21d2; void </a>
+      <a href="#dry_run-instance_method" title="#dry_run (instance method)">#<strong>dry_run</strong>  &#x21d2; Object </a>
     
 
     
@@ -412,8 +405,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Prints the formatter output of your suite without running any examples or hooks.</p>
+    <span class="summary_desc"><div class='inline'><p>Prints the formatter output of your suite without running any examples or hooks.</p>
 </div></span>
   
 </li>
@@ -422,7 +414,7 @@
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#error_stream-instance_method" title="#error_stream (instance method)">#<strong>error_stream</strong>  &#x21d2; void </a>
+      <a href="#error_stream-instance_method" title="#error_stream (instance method)">#<strong>error_stream</strong>  &#x21d2; Object </a>
     
 
     
@@ -439,8 +431,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Default: <code>$stderr</code>.</p>
+    <span class="summary_desc"><div class='inline'><p>Default: <code>$stderr</code>.</p>
 </div></span>
   
 </li>
@@ -449,7 +440,7 @@
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#example_status_persistence_file_path-instance_method" title="#example_status_persistence_file_path (instance method)">#<strong>example_status_persistence_file_path</strong>  &#x21d2; void </a>
+      <a href="#example_status_persistence_file_path-instance_method" title="#example_status_persistence_file_path (instance method)">#<strong>example_status_persistence_file_path</strong>  &#x21d2; Object </a>
     
 
     
@@ -466,8 +457,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>The file path to use for persisting example statuses.</p>
+    <span class="summary_desc"><div class='inline'><p>The file path to use for persisting example statuses.</p>
 </div></span>
   
 </li>
@@ -493,8 +483,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Exclude files matching this pattern.</p>
+    <span class="summary_desc"><div class='inline'><p>Exclude files matching this pattern.</p>
 </div></span>
   
 </li>
@@ -503,7 +492,7 @@
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#fail_fast-instance_method" title="#fail_fast (instance method)">#<strong>fail_fast</strong>  &#x21d2; void </a>
+      <a href="#fail_fast-instance_method" title="#fail_fast (instance method)">#<strong>fail_fast</strong>  &#x21d2; Object </a>
     
 
     
@@ -520,8 +509,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>If specified, indicates the number of failures required before cleaning up and exit (default: <code>nil</code>).</p>
+    <span class="summary_desc"><div class='inline'><p>If specified, indicates the number of failures required before cleaning up and exit (default: <code>nil</code>).</p>
 </div></span>
   
 </li>
@@ -547,8 +535,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Whether or not to fail when there are no RSpec examples (default: false).</p>
+    <span class="summary_desc"><div class='inline'><p>Whether or not to fail when there are no RSpec examples (default: false).</p>
 </div></span>
   
 </li>
@@ -574,8 +561,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Color to use to indicate failure.</p>
+    <span class="summary_desc"><div class='inline'><p>Color to use to indicate failure.</p>
 </div></span>
   
 </li>
@@ -601,8 +587,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>The exit code to return if there are any failures (default: 1).</p>
+    <span class="summary_desc"><div class='inline'><p>The exit code to return if there are any failures (default: 1).</p>
 </div></span>
   
 </li>
@@ -630,8 +615,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>The spec files RSpec will run.</p>
+    <span class="summary_desc"><div class='inline'><p>The spec files RSpec will run.</p>
 </div></span>
   
 </li>
@@ -657,8 +641,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Color used when a pending example is fixed.</p>
+    <span class="summary_desc"><div class='inline'><p>Color used when a pending example is fixed.</p>
 </div></span>
   
 </li>
@@ -686,8 +669,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Returns dirs that have been prepended to the load path by the <code>-I</code> command line option.</p>
+    <span class="summary_desc"><div class='inline'><p>Returns dirs that have been prepended to the load path by the <code>-I</code> command line option.</p>
 </div></span>
   
 </li>
@@ -696,7 +678,7 @@
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#max_displayed_failure_line_count-instance_method" title="#max_displayed_failure_line_count (instance method)">#<strong>max_displayed_failure_line_count</strong>  &#x21d2; void </a>
+      <a href="#max_displayed_failure_line_count-instance_method" title="#max_displayed_failure_line_count (instance method)">#<strong>max_displayed_failure_line_count</strong>  &#x21d2; Object </a>
     
 
     
@@ -713,8 +695,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Maximum count of failed source lines to display in the failure reports.</p>
+    <span class="summary_desc"><div class='inline'><p>Maximum count of failed source lines to display in the failure reports.</p>
 </div></span>
   
 </li>
@@ -723,7 +704,7 @@
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#only_failures-instance_method" title="#only_failures (instance method)">#<strong>only_failures</strong>  &#x21d2; void </a>
+      <a href="#only_failures-instance_method" title="#only_failures (instance method)">#<strong>only_failures</strong>  &#x21d2; Object </a>
     
 
     
@@ -744,8 +725,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Indicates if the <code>--only-failures</code> (or <code>--next-failure</code>) flag is being used.</p>
+    <span class="summary_desc"><div class='inline'><p>Indicates if the <code>--only-failures</code> (or <code>--next-failure</code>) flag is being used.</p>
 </div></span>
   
 </li>
@@ -771,8 +751,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Determines where RSpec will send its output.</p>
+    <span class="summary_desc"><div class='inline'><p>Determines where RSpec will send its output.</p>
 </div></span>
   
 </li>
@@ -798,8 +777,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Load files matching this pattern (default: <code>&#39;**{,/<strong>/*</strong>}/*_spec.rb&#39;</code>).</p>
+    <span class="summary_desc"><div class='inline'><p>Load files matching this pattern (default: <code>&#39;**{,/*/**}/*_spec.rb&#39;</code>).</p>
 </div></span>
   
 </li>
@@ -825,8 +803,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Color to use to print pending examples.</p>
+    <span class="summary_desc"><div class='inline'><p>Color to use to print pending examples.</p>
 </div></span>
   
 </li>
@@ -835,7 +812,7 @@
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#profile_examples-instance_method" title="#profile_examples (instance method)">#<strong>profile_examples</strong>  &#x21d2; void </a>
+      <a href="#profile_examples-instance_method" title="#profile_examples (instance method)">#<strong>profile_examples</strong>  &#x21d2; Object </a>
     
 
     
@@ -852,8 +829,7 @@
   <span class="private note title">private</span>
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Defaults <code>profile_examples</code> to 10 examples when <code>@profile_examples</code> is <code>true</code>.</p>
+    <span class="summary_desc"><div class='inline'><p>Defaults <code>profile_examples</code> to 10 examples when <code>@profile_examples</code> is <code>true</code>.</p>
 </div></span>
   
 </li>
@@ -879,8 +855,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Specifies which directories contain the source code for your project.</p>
+    <span class="summary_desc"><div class='inline'><p>Specifies which directories contain the source code for your project.</p>
 </div></span>
   
 </li>
@@ -908,8 +883,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Indicates files configured to be required.</p>
+    <span class="summary_desc"><div class='inline'><p>Indicates files configured to be required.</p>
 </div></span>
   
 </li>
@@ -918,7 +892,7 @@
       <li class="public deprecated">
   <span class="summary_signature">
     
-      <a href="#run_all_when_everything_filtered-instance_method" title="#run_all_when_everything_filtered (instance method)">#<strong>run_all_when_everything_filtered</strong>  &#x21d2; void </a>
+      <a href="#run_all_when_everything_filtered-instance_method" title="#run_all_when_everything_filtered (instance method)">#<strong>run_all_when_everything_filtered</strong>  &#x21d2; Object </a>
     
 
     
@@ -935,8 +909,8 @@
   
 
   
-    <span class="summary_desc"><strong>Deprecated.</strong> <div class='inline'>
-<p>Use <span class='object_link'><a href="#filter_run_when_matching-instance_method" title="RSpec::Core::Configuration#filter_run_when_matching (method)">#filter_run_when_matching</a></span> instead for the specific filters that you want to be ignored if none match.</p>
+    <span class="summary_desc"><strong>Deprecated.</strong> <div class='inline'><p>Use <span class='object_link'><a href="#filter_run_when_matching-instance_method" title="RSpec::Core::Configuration#filter_run_when_matching (method)">#filter_run_when_matching</a></span> instead for the specific
+filters that you want to be ignored if none match.</p>
 </div></span>
   
 </li>
@@ -945,7 +919,7 @@
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#shared_context_metadata_behavior-instance_method" title="#shared_context_metadata_behavior (instance method)">#<strong>shared_context_metadata_behavior</strong>  &#x21d2; void </a>
+      <a href="#shared_context_metadata_behavior-instance_method" title="#shared_context_metadata_behavior (instance method)">#<strong>shared_context_metadata_behavior</strong>  &#x21d2; Object </a>
     
 
     
@@ -962,8 +936,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Configures how RSpec treats metadata passed as part of a shared example group definition.</p>
+    <span class="summary_desc"><div class='inline'><p>Configures how RSpec treats metadata passed as part of a shared example group definition.</p>
 </div></span>
   
 </li>
@@ -972,7 +945,7 @@
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#silence_filter_announcements-instance_method" title="#silence_filter_announcements (instance method)">#<strong>silence_filter_announcements</strong>  &#x21d2; void </a>
+      <a href="#silence_filter_announcements-instance_method" title="#silence_filter_announcements (instance method)">#<strong>silence_filter_announcements</strong>  &#x21d2; Object </a>
     
 
     
@@ -989,8 +962,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Don&#39;t print filter info i.e.</p>
+    <span class="summary_desc"><div class='inline'><p>Don&#39;t print filter info i.e.</p>
 </div></span>
   
 </li>
@@ -1016,8 +988,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Color to use to indicate success.</p>
+    <span class="summary_desc"><div class='inline'><p>Color to use to indicate success.</p>
 </div></span>
   
 </li>
@@ -1026,7 +997,7 @@
       <li class="public ">
   <span class="summary_signature">
     
-      <a href="#threadsafe-instance_method" title="#threadsafe (instance method)">#<strong>threadsafe</strong>  &#x21d2; void </a>
+      <a href="#threadsafe-instance_method" title="#threadsafe (instance method)">#<strong>threadsafe</strong>  &#x21d2; Object </a>
     
 
     
@@ -1043,8 +1014,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Use threadsafe options where available.</p>
+    <span class="summary_desc"><div class='inline'><p>Use threadsafe options where available.</p>
 </div></span>
   
 </li>
@@ -1066,7 +1036,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#add_formatter-instance_method" title="#add_formatter (instance method)">#<strong>add_formatter</strong>(formatter, output = output_wrapper)  &#x21d2; void </a>
+      <a href="#add_formatter-instance_method" title="#add_formatter (instance method)">#<strong>add_formatter</strong>(formatter, output = output_wrapper)  &#x21d2; Object </a>
     
 
     
@@ -1082,8 +1052,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Adds a formatter to the set RSpec will use for this run.</p>
+    <span class="summary_desc"><div class='inline'><p>Adds a formatter to the set RSpec will use for this run.</p>
 </div></span>
   
 </li>
@@ -1092,7 +1061,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#add_setting-instance_method" title="#add_setting (instance method)">#<strong>add_setting</strong>(name, opts = {})  &#x21d2; void </a>
+      <a href="#add_setting-instance_method" title="#add_setting (instance method)">#<strong>add_setting</strong>(name, opts = {})  &#x21d2; Object </a>
     
 
     
@@ -1106,8 +1075,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Adds a custom setting to the RSpec.configuration object.</p>
+    <span class="summary_desc"><div class='inline'><p>Adds a custom setting to the RSpec.configuration object.</p>
 </div></span>
   
 </li>
@@ -1116,7 +1084,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#after-instance_method" title="#after (instance method)">#<strong>after</strong>(scope = nil, *meta, &amp;block)  &#x21d2; void </a>
+      <a href="#after-instance_method" title="#after (instance method)">#<strong>after</strong>(scope = nil, *meta, &amp;block)  &#x21d2; Object </a>
     
 
     
@@ -1132,8 +1100,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Defines a <code>after</code> hook.</p>
+    <span class="summary_desc"><div class='inline'><p>Defines a <code>after</code> hook.</p>
 </div></span>
   
 </li>
@@ -1142,7 +1109,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#alias_example_group_to-instance_method" title="#alias_example_group_to (instance method)">#<strong>alias_example_group_to</strong>(new_name, *args)  &#x21d2; void </a>
+      <a href="#alias_example_group_to-instance_method" title="#alias_example_group_to (instance method)">#<strong>alias_example_group_to</strong>(new_name, *args)  &#x21d2; Object </a>
     
 
     
@@ -1156,8 +1123,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Creates a method that defines an example group with the provided metadata.</p>
+    <span class="summary_desc"><div class='inline'><p>Creates a method that defines an example group with the provided metadata.</p>
 </div></span>
   
 </li>
@@ -1166,7 +1132,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#alias_example_to-instance_method" title="#alias_example_to (instance method)">#<strong>alias_example_to</strong>(name, *args)  &#x21d2; void </a>
+      <a href="#alias_example_to-instance_method" title="#alias_example_to (instance method)">#<strong>alias_example_to</strong>(name, *args)  &#x21d2; Object </a>
     
 
     
@@ -1180,8 +1146,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Creates a method that delegates to <code>example</code> including the submitted <code>args</code>.</p>
+    <span class="summary_desc"><div class='inline'><p>Creates a method that delegates to <code>example</code> including the submitted <code>args</code>.</p>
 </div></span>
   
 </li>
@@ -1190,7 +1155,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#alias_it_behaves_like_to-instance_method" title="#alias_it_behaves_like_to (instance method)">#<strong>alias_it_behaves_like_to</strong>(new_name, report_label = &#39;&#39;)  &#x21d2; void </a>
+      <a href="#alias_it_behaves_like_to-instance_method" title="#alias_it_behaves_like_to (instance method)">#<strong>alias_it_behaves_like_to</strong>(new_name, report_label = &#39;&#39;)  &#x21d2; Object </a>
     
 
     
@@ -1206,8 +1171,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Define an alias for it_should_behave_like that allows different language (like “it_has_behavior” or “it_behaves_like”) to be employed when including shared examples.</p>
+    <span class="summary_desc"><div class='inline'><p>Define an alias for it_should_behave_like that allows different language (like &quot;it_has_behavior&quot; or &quot;it_behaves_like&quot;) to be employed when including shared examples.</p>
 </div></span>
   
 </li>
@@ -1216,7 +1180,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#append_after-instance_method" title="#append_after (instance method)">#<strong>append_after</strong>(scope = nil, *meta, &amp;block)  &#x21d2; void </a>
+      <a href="#append_after-instance_method" title="#append_after (instance method)">#<strong>append_after</strong>(scope = nil, *meta, &amp;block)  &#x21d2; Object </a>
     
 
     
@@ -1230,8 +1194,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Adds <code>block</code> to the end of the list of <code>after</code> blocks in the same scope (<code>:example</code>, <code>:context</code>, or <code>:suite</code>), in contrast to <span class='object_link'><a href="#after-instance_method" title="RSpec::Core::Configuration#after (method)">#after</a></span>, which adds the hook to the start of the list.</p>
+    <span class="summary_desc"><div class='inline'><p>Adds <code>block</code> to the end of the list of <code>after</code> blocks in the same scope (<code>:example</code>, <code>:context</code>, or <code>:suite</code>), in contrast to <span class='object_link'><a href="#after-instance_method" title="RSpec::Core::Configuration#after (method)">#after</a></span>, which adds the hook to the start of the list.</p>
 </div></span>
   
 </li>
@@ -1240,7 +1203,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#around-instance_method" title="#around (instance method)">#<strong>around</strong>(scope = nil, *meta, &amp;block)  &#x21d2; void </a>
+      <a href="#around-instance_method" title="#around (instance method)">#<strong>around</strong>(scope = nil, *meta, &amp;block)  &#x21d2; Object </a>
     
 
     
@@ -1254,8 +1217,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Registers <code>block</code> as an <code>around</code> hook.</p>
+    <span class="summary_desc"><div class='inline'><p>Registers <code>block</code> as an <code>around</code> hook.</p>
 </div></span>
   
 </li>
@@ -1278,8 +1240,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Regexps used to exclude lines from backtraces.</p>
+    <span class="summary_desc"><div class='inline'><p>Regexps used to exclude lines from backtraces.</p>
 </div></span>
   
 </li>
@@ -1288,7 +1249,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#backtrace_exclusion_patterns=-instance_method" title="#backtrace_exclusion_patterns= (instance method)">#<strong>backtrace_exclusion_patterns=</strong>(patterns)  &#x21d2; void </a>
+      <a href="#backtrace_exclusion_patterns=-instance_method" title="#backtrace_exclusion_patterns= (instance method)">#<strong>backtrace_exclusion_patterns=</strong>(patterns)  &#x21d2; Object </a>
     
 
     
@@ -1302,8 +1263,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Set regular expressions used to exclude lines in backtrace.</p>
+    <span class="summary_desc"><div class='inline'><p>Set regular expressions used to exclude lines in backtrace.</p>
 </div></span>
   
 </li>
@@ -1326,8 +1286,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Regexps used to include lines in backtraces.</p>
+    <span class="summary_desc"><div class='inline'><p>Regexps used to include lines in backtraces.</p>
 </div></span>
   
 </li>
@@ -1336,7 +1295,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#backtrace_inclusion_patterns=-instance_method" title="#backtrace_inclusion_patterns= (instance method)">#<strong>backtrace_inclusion_patterns=</strong>(patterns)  &#x21d2; void </a>
+      <a href="#backtrace_inclusion_patterns=-instance_method" title="#backtrace_inclusion_patterns= (instance method)">#<strong>backtrace_inclusion_patterns=</strong>(patterns)  &#x21d2; Object </a>
     
 
     
@@ -1350,8 +1309,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Set regular expressions used to include lines in backtrace.</p>
+    <span class="summary_desc"><div class='inline'><p>Set regular expressions used to include lines in backtrace.</p>
 </div></span>
   
 </li>
@@ -1360,7 +1318,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#before-instance_method" title="#before (instance method)">#<strong>before</strong>(scope = nil, *meta, &amp;block)  &#x21d2; void </a>
+      <a href="#before-instance_method" title="#before (instance method)">#<strong>before</strong>(scope = nil, *meta, &amp;block)  &#x21d2; Object </a>
     
 
     
@@ -1376,8 +1334,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Defines a <code>before</code> hook.</p>
+    <span class="summary_desc"><div class='inline'><p>Defines a <code>before</code> hook.</p>
 </div></span>
   
 </li>
@@ -1400,8 +1357,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Check if color is enabled for a particular output.</p>
+    <span class="summary_desc"><div class='inline'><p>Check if color is enabled for a particular output.</p>
 </div></span>
   
 </li>
@@ -1410,7 +1366,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#default_formatter-instance_method" title="#default_formatter (instance method)">#<strong>default_formatter</strong>  &#x21d2; void </a>
+      <a href="#default_formatter-instance_method" title="#default_formatter (instance method)">#<strong>default_formatter</strong>  &#x21d2; Object </a>
     
 
     
@@ -1424,8 +1380,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>The formatter that will be used if no formatter has been set.</p>
+    <span class="summary_desc"><div class='inline'><p>The formatter that will be used if no formatter has been set.</p>
 </div></span>
   
 </li>
@@ -1434,7 +1389,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#default_formatter=-instance_method" title="#default_formatter= (instance method)">#<strong>default_formatter=</strong>(value)  &#x21d2; void </a>
+      <a href="#default_formatter=-instance_method" title="#default_formatter= (instance method)">#<strong>default_formatter=</strong>(value)  &#x21d2; Object </a>
     
 
     
@@ -1448,8 +1403,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Sets a fallback formatter to use if none other has been set.</p>
+    <span class="summary_desc"><div class='inline'><p>Sets a fallback formatter to use if none other has been set.</p>
 </div></span>
   
 </li>
@@ -1458,7 +1412,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#define_derived_metadata-instance_method" title="#define_derived_metadata (instance method)">#<strong>define_derived_metadata</strong>(*filters) {|metadata| ... } &#x21d2; void </a>
+      <a href="#define_derived_metadata-instance_method" title="#define_derived_metadata (instance method)">#<strong>define_derived_metadata</strong>(*filters) {|metadata| ... } &#x21d2; Object </a>
     
 
     
@@ -1472,8 +1426,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Defines a callback that can assign derived metadata values.</p>
+    <span class="summary_desc"><div class='inline'><p>Defines a callback that can assign derived metadata values.</p>
 </div></span>
   
 </li>
@@ -1496,8 +1449,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Determines where deprecation warnings are printed.</p>
+    <span class="summary_desc"><div class='inline'><p>Determines where deprecation warnings are printed.</p>
 </div></span>
   
 </li>
@@ -1506,7 +1458,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#deprecation_stream=-instance_method" title="#deprecation_stream= (instance method)">#<strong>deprecation_stream=</strong>(value)  &#x21d2; void </a>
+      <a href="#deprecation_stream=-instance_method" title="#deprecation_stream= (instance method)">#<strong>deprecation_stream=</strong>(value)  &#x21d2; Object </a>
     
 
     
@@ -1520,8 +1472,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Determines where deprecation warnings are printed.</p>
+    <span class="summary_desc"><div class='inline'><p>Determines where deprecation warnings are printed.</p>
 </div></span>
   
 </li>
@@ -1530,7 +1481,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#disable_monkey_patching!-instance_method" title="#disable_monkey_patching! (instance method)">#<strong>disable_monkey_patching!</strong>  &#x21d2; void </a>
+      <a href="#disable_monkey_patching!-instance_method" title="#disable_monkey_patching! (instance method)">#<strong>disable_monkey_patching!</strong>  &#x21d2; Object </a>
     
 
     
@@ -1544,8 +1495,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Enables zero monkey patching mode for RSpec.</p>
+    <span class="summary_desc"><div class='inline'><p>Enables zero monkey patching mode for RSpec.</p>
 </div></span>
   
 </li>
@@ -1554,7 +1504,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#exclusion_filter-instance_method" title="#exclusion_filter (instance method)">#<strong>exclusion_filter</strong>  &#x21d2; void </a>
+      <a href="#exclusion_filter-instance_method" title="#exclusion_filter (instance method)">#<strong>exclusion_filter</strong>  &#x21d2; Object </a>
     
 
     
@@ -1568,8 +1518,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Returns the <code>exclusion_filter</code>.</p>
+    <span class="summary_desc"><div class='inline'><p>Returns the <code>exclusion_filter</code>.</p>
 </div></span>
   
 </li>
@@ -1578,7 +1527,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#exclusion_filter=-instance_method" title="#exclusion_filter= (instance method)">#<strong>exclusion_filter=</strong>(filter)  &#x21d2; void </a>
+      <a href="#exclusion_filter=-instance_method" title="#exclusion_filter= (instance method)">#<strong>exclusion_filter=</strong>(filter)  &#x21d2; Object </a>
     
 
     
@@ -1592,8 +1541,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Clears and reassigns the <code>exclusion_filter</code>.</p>
+    <span class="summary_desc"><div class='inline'><p>Clears and reassigns the <code>exclusion_filter</code>.</p>
 </div></span>
   
 </li>
@@ -1602,7 +1550,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#expect_with-instance_method" title="#expect_with (instance method)">#<strong>expect_with</strong>(*frameworks)  &#x21d2; void </a>
+      <a href="#expect_with-instance_method" title="#expect_with (instance method)">#<strong>expect_with</strong>(*frameworks)  &#x21d2; Object </a>
     
 
     
@@ -1616,8 +1564,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Sets the expectation framework module(s) to be included in each example group.</p>
+    <span class="summary_desc"><div class='inline'><p>Sets the expectation framework module(s) to be included in each example group.</p>
 </div></span>
   
 </li>
@@ -1626,7 +1573,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#expectation_framework=-instance_method" title="#expectation_framework= (instance method)">#<strong>expectation_framework=</strong>(framework)  &#x21d2; void </a>
+      <a href="#expectation_framework=-instance_method" title="#expectation_framework= (instance method)">#<strong>expectation_framework=</strong>(framework)  &#x21d2; Object </a>
     
 
     
@@ -1640,8 +1587,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Delegates to expect_with(framework).</p>
+    <span class="summary_desc"><div class='inline'><p>Delegates to expect_with(framework).</p>
 </div></span>
   
 </li>
@@ -1650,7 +1596,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#expectation_frameworks-instance_method" title="#expectation_frameworks (instance method)">#<strong>expectation_frameworks</strong>  &#x21d2; void </a>
+      <a href="#expectation_frameworks-instance_method" title="#expectation_frameworks (instance method)">#<strong>expectation_frameworks</strong>  &#x21d2; Object </a>
     
 
     
@@ -1664,8 +1610,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Returns the configured expectation framework adapter module(s).</p>
+    <span class="summary_desc"><div class='inline'><p>Returns the configured expectation framework adapter module(s).</p>
 </div></span>
   
 </li>
@@ -1674,7 +1619,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#expose_current_running_example_as-instance_method" title="#expose_current_running_example_as (instance method)">#<strong>expose_current_running_example_as</strong>(method_name)  &#x21d2; void </a>
+      <a href="#expose_current_running_example_as-instance_method" title="#expose_current_running_example_as (instance method)">#<strong>expose_current_running_example_as</strong>(method_name)  &#x21d2; Object </a>
     
 
     
@@ -1688,8 +1633,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Exposes the current running example via the named helper method.</p>
+    <span class="summary_desc"><div class='inline'><p>Exposes the current running example via the named helper method.</p>
 </div></span>
   
 </li>
@@ -1698,7 +1642,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#expose_dsl_globally=-instance_method" title="#expose_dsl_globally= (instance method)">#<strong>expose_dsl_globally=</strong>(value)  &#x21d2; void </a>
+      <a href="#expose_dsl_globally=-instance_method" title="#expose_dsl_globally= (instance method)">#<strong>expose_dsl_globally=</strong>(value)  &#x21d2; Object </a>
     
 
     
@@ -1712,8 +1656,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Use this to expose the core RSpec DSL via <code>Module</code> and the <code>main</code> object.</p>
+    <span class="summary_desc"><div class='inline'><p>Use this to expose the core RSpec DSL via <code>Module</code> and the <code>main</code> object.</p>
 </div></span>
   
 </li>
@@ -1736,8 +1679,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Indicates if the DSL has been exposed off of modules and <code>main</code>.</p>
+    <span class="summary_desc"><div class='inline'><p>Indicates if the DSL has been exposed off of modules and <code>main</code>.</p>
 </div></span>
   
 </li>
@@ -1746,7 +1688,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#extend-instance_method" title="#extend (instance method)">#<strong>extend</strong>(mod, *filters)  &#x21d2; void </a>
+      <a href="#extend-instance_method" title="#extend (instance method)">#<strong>extend</strong>(mod, *filters)  &#x21d2; Object </a>
     
 
     
@@ -1760,8 +1702,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Tells RSpec to extend example groups with <code>mod</code>.</p>
+    <span class="summary_desc"><div class='inline'><p>Tells RSpec to extend example groups with <code>mod</code>.</p>
 </div></span>
   
 </li>
@@ -1770,7 +1711,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#filter_gems_from_backtrace-instance_method" title="#filter_gems_from_backtrace (instance method)">#<strong>filter_gems_from_backtrace</strong>(*gem_names)  &#x21d2; void </a>
+      <a href="#filter_gems_from_backtrace-instance_method" title="#filter_gems_from_backtrace (instance method)">#<strong>filter_gems_from_backtrace</strong>(*gem_names)  &#x21d2; Object </a>
     
 
     
@@ -1784,8 +1725,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Adds <span class='object_link'><a href="#backtrace_exclusion_patterns-instance_method" title="RSpec::Core::Configuration#backtrace_exclusion_patterns (method)">#backtrace_exclusion_patterns</a></span> that will filter lines from the named gems from backtraces.</p>
+    <span class="summary_desc"><div class='inline'><p>Adds <span class='object_link'><a href="#backtrace_exclusion_patterns-instance_method" title="RSpec::Core::Configuration#backtrace_exclusion_patterns (method)">#backtrace_exclusion_patterns</a></span> that will filter lines from the named gems from backtraces.</p>
 </div></span>
   
 </li>
@@ -1794,7 +1734,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#filter_run_excluding-instance_method" title="#filter_run_excluding (instance method)">#<strong>filter_run_excluding</strong>(*args)  &#x21d2; void </a>
+      <a href="#filter_run_excluding-instance_method" title="#filter_run_excluding (instance method)">#<strong>filter_run_excluding</strong>(*args)  &#x21d2; Object </a>
     
 
     
@@ -1808,8 +1748,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Adds key/value pairs to the <code>exclusion_filter</code>.</p>
+    <span class="summary_desc"><div class='inline'><p>Adds key/value pairs to the <code>exclusion_filter</code>.</p>
 </div></span>
   
 </li>
@@ -1818,7 +1757,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#filter_run_including-instance_method" title="#filter_run_including (instance method)">#<strong>filter_run_including</strong>(*args)  &#x21d2; void </a>
+      <a href="#filter_run_including-instance_method" title="#filter_run_including (instance method)">#<strong>filter_run_including</strong>(*args)  &#x21d2; Object </a>
     
 
     
@@ -1834,8 +1773,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Adds key/value pairs to the <code>inclusion_filter</code>.</p>
+    <span class="summary_desc"><div class='inline'><p>Adds key/value pairs to the <code>inclusion_filter</code>.</p>
 </div></span>
   
 </li>
@@ -1844,7 +1782,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#filter_run_when_matching-instance_method" title="#filter_run_when_matching (instance method)">#<strong>filter_run_when_matching</strong>(*args)  &#x21d2; void </a>
+      <a href="#filter_run_when_matching-instance_method" title="#filter_run_when_matching (instance method)">#<strong>filter_run_when_matching</strong>(*args)  &#x21d2; Object </a>
     
 
     
@@ -1858,8 +1796,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Applies the provided filter only if any of examples match, in constrast to <span class='object_link'><a href="#filter_run-instance_method" title="RSpec::Core::Configuration#filter_run (method)">#filter_run</a></span>, which always applies even if no examples match, in which case no examples will be run.</p>
+    <span class="summary_desc"><div class='inline'><p>Applies the provided filter only if any of examples match, in constrast to <span class='object_link'><a href="#filter_run-instance_method" title="RSpec::Core::Configuration#filter_run (method)">#filter_run</a></span>, which always applies even if no examples match, in which case no examples will be run.</p>
 </div></span>
   
 </li>
@@ -1868,7 +1805,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#format_docstrings-instance_method" title="#format_docstrings (instance method)">#<strong>format_docstrings</strong>(&amp;block)  &#x21d2; void </a>
+      <a href="#format_docstrings-instance_method" title="#format_docstrings (instance method)">#<strong>format_docstrings</strong>(&amp;block)  &#x21d2; Object </a>
     
 
     
@@ -1882,8 +1819,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Formats the docstring output using the block provided.</p>
+    <span class="summary_desc"><div class='inline'><p>Formats the docstring output using the block provided.</p>
 </div></span>
   
 </li>
@@ -1906,8 +1842,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Returns a duplicate of the formatters currently loaded in the <code>FormatterLoader</code> for introspection.</p>
+    <span class="summary_desc"><div class='inline'><p>Returns a duplicate of the formatters currently loaded in the <code>FormatterLoader</code> for introspection.</p>
 </div></span>
   
 </li>
@@ -1916,7 +1851,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#full_backtrace=-instance_method" title="#full_backtrace= (instance method)">#<strong>full_backtrace=</strong>(true_or_false)  &#x21d2; void </a>
+      <a href="#full_backtrace=-instance_method" title="#full_backtrace= (instance method)">#<strong>full_backtrace=</strong>(true_or_false)  &#x21d2; Object </a>
     
 
     
@@ -1930,8 +1865,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Toggle full backtrace.</p>
+    <span class="summary_desc"><div class='inline'><p>Toggle full backtrace.</p>
 </div></span>
   
 </li>
@@ -1954,8 +1888,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Check if full backtrace is enabled.</p>
+    <span class="summary_desc"><div class='inline'><p>Check if full backtrace is enabled.</p>
 </div></span>
   
 </li>
@@ -1978,8 +1911,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Full description filter.</p>
+    <span class="summary_desc"><div class='inline'><p>Full description filter.</p>
 </div></span>
   
 </li>
@@ -1988,7 +1920,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#full_description=-instance_method" title="#full_description= (instance method)">#<strong>full_description=</strong>(description)  &#x21d2; void </a>
+      <a href="#full_description=-instance_method" title="#full_description= (instance method)">#<strong>full_description=</strong>(description)  &#x21d2; Object </a>
     
 
     
@@ -2002,8 +1934,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Run examples matching on <code>description</code> in all files to run.</p>
+    <span class="summary_desc"><div class='inline'><p>Run examples matching on <code>description</code> in all files to run.</p>
 </div></span>
   
 </li>
@@ -2012,7 +1943,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#include-instance_method" title="#include (instance method)">#<strong>include</strong>(mod, *filters)  &#x21d2; void </a>
+      <a href="#include-instance_method" title="#include (instance method)">#<strong>include</strong>(mod, *filters)  &#x21d2; Object </a>
     
 
     
@@ -2026,8 +1957,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Tells RSpec to include <code>mod</code> in example groups.</p>
+    <span class="summary_desc"><div class='inline'><p>Tells RSpec to include <code>mod</code> in example groups.</p>
 </div></span>
   
 </li>
@@ -2036,7 +1966,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#include_context-instance_method" title="#include_context (instance method)">#<strong>include_context</strong>(shared_group_name, *filters)  &#x21d2; void </a>
+      <a href="#include_context-instance_method" title="#include_context (instance method)">#<strong>include_context</strong>(shared_group_name, *filters)  &#x21d2; Object </a>
     
 
     
@@ -2050,8 +1980,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Tells RSpec to include the named shared example group in example groups.</p>
+    <span class="summary_desc"><div class='inline'><p>Tells RSpec to include the named shared example group in example groups.</p>
 </div></span>
   
 </li>
@@ -2060,7 +1989,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#inclusion_filter-instance_method" title="#inclusion_filter (instance method)">#<strong>inclusion_filter</strong>  &#x21d2; void </a>
+      <a href="#inclusion_filter-instance_method" title="#inclusion_filter (instance method)">#<strong>inclusion_filter</strong>  &#x21d2; Object </a>
     
 
     
@@ -2076,8 +2005,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Returns the <code>inclusion_filter</code>.</p>
+    <span class="summary_desc"><div class='inline'><p>Returns the <code>inclusion_filter</code>.</p>
 </div></span>
   
 </li>
@@ -2086,7 +2014,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#inclusion_filter=-instance_method" title="#inclusion_filter= (instance method)">#<strong>inclusion_filter=</strong>(filter)  &#x21d2; void </a>
+      <a href="#inclusion_filter=-instance_method" title="#inclusion_filter= (instance method)">#<strong>inclusion_filter=</strong>(filter)  &#x21d2; Object </a>
     
 
     
@@ -2102,8 +2030,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Clears and reassigns the <code>inclusion_filter</code>.</p>
+    <span class="summary_desc"><div class='inline'><p>Clears and reassigns the <code>inclusion_filter</code>.</p>
 </div></span>
   
 </li>
@@ -2128,8 +2055,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Build an object to store runtime configuration options and set defaults.</p>
+    <span class="summary_desc"><div class='inline'><p>Build an object to store runtime configuration options and set defaults.</p>
 </div></span>
   
 </li>
@@ -2152,8 +2078,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Returns the configured mock framework adapter module.</p>
+    <span class="summary_desc"><div class='inline'><p>Returns the configured mock framework adapter module.</p>
 </div></span>
   
 </li>
@@ -2162,7 +2087,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#mock_framework=-instance_method" title="#mock_framework= (instance method)">#<strong>mock_framework=</strong>(framework)  &#x21d2; void </a>
+      <a href="#mock_framework=-instance_method" title="#mock_framework= (instance method)">#<strong>mock_framework=</strong>(framework)  &#x21d2; Object </a>
     
 
     
@@ -2176,8 +2101,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Delegates to mock_framework=(framework).</p>
+    <span class="summary_desc"><div class='inline'><p>Delegates to mock_framework=(framework).</p>
 </div></span>
   
 </li>
@@ -2186,7 +2110,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#mock_with-instance_method" title="#mock_with (instance method)">#<strong>mock_with</strong>(framework)  &#x21d2; void </a>
+      <a href="#mock_with-instance_method" title="#mock_with (instance method)">#<strong>mock_with</strong>(framework)  &#x21d2; Object </a>
     
 
     
@@ -2200,8 +2124,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Sets the mock framework adapter module.</p>
+    <span class="summary_desc"><div class='inline'><p>Sets the mock framework adapter module.</p>
 </div></span>
   
 </li>
@@ -2210,7 +2133,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#on_example_group_definition-instance_method" title="#on_example_group_definition (instance method)">#<strong>on_example_group_definition</strong>(&amp;block)  &#x21d2; void </a>
+      <a href="#on_example_group_definition-instance_method" title="#on_example_group_definition (instance method)">#<strong>on_example_group_definition</strong>(&amp;block)  &#x21d2; Object </a>
     
 
     
@@ -2224,8 +2147,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Invokes block before defining an example group.</p>
+    <span class="summary_desc"><div class='inline'><p>Invokes block before defining an example group.</p>
 </div></span>
   
 </li>
@@ -2234,7 +2156,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#on_example_group_definition_callbacks-instance_method" title="#on_example_group_definition_callbacks (instance method)">#<strong>on_example_group_definition_callbacks</strong>  &#x21d2; void </a>
+      <a href="#on_example_group_definition_callbacks-instance_method" title="#on_example_group_definition_callbacks (instance method)">#<strong>on_example_group_definition_callbacks</strong>  &#x21d2; Object </a>
     
 
     
@@ -2248,8 +2170,7 @@
   <span class="private note title">private</span>
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Returns an array of blocks to call before defining an example group.</p>
+    <span class="summary_desc"><div class='inline'><p>Returns an array of blocks to call before defining an example group.</p>
 </div></span>
   
 </li>
@@ -2258,7 +2179,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#order=-instance_method" title="#order= (instance method)">#<strong>order=</strong>(value)  &#x21d2; void </a>
+      <a href="#order=-instance_method" title="#order= (instance method)">#<strong>order=</strong>(value)  &#x21d2; Object </a>
     
 
     
@@ -2272,8 +2193,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Sets the default global ordering strategy.</p>
+    <span class="summary_desc"><div class='inline'><p>Sets the default global ordering strategy.</p>
 </div></span>
   
 </li>
@@ -2282,7 +2202,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#prepend-instance_method" title="#prepend (instance method)">#<strong>prepend</strong>(mod, *filters)  &#x21d2; void </a>
+      <a href="#prepend-instance_method" title="#prepend (instance method)">#<strong>prepend</strong>(mod, *filters)  &#x21d2; Object </a>
     
 
     
@@ -2296,8 +2216,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Tells RSpec to prepend example groups with <code>mod</code>.</p>
+    <span class="summary_desc"><div class='inline'><p>Tells RSpec to prepend example groups with <code>mod</code>.</p>
 </div></span>
   
 </li>
@@ -2306,7 +2225,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#prepend_before-instance_method" title="#prepend_before (instance method)">#<strong>prepend_before</strong>(scope = nil, *meta, &amp;block)  &#x21d2; void </a>
+      <a href="#prepend_before-instance_method" title="#prepend_before (instance method)">#<strong>prepend_before</strong>(scope = nil, *meta, &amp;block)  &#x21d2; Object </a>
     
 
     
@@ -2320,8 +2239,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Adds <code>block</code> to the start of the list of <code>before</code> blocks in the same scope (<code>:example</code>, <code>:context</code>, or <code>:suite</code>), in contrast to <span class='object_link'><a href="#before-instance_method" title="RSpec::Core::Configuration#before (method)">#before</a></span>, which adds the hook to the end of the list.</p>
+    <span class="summary_desc"><div class='inline'><p>Adds <code>block</code> to the start of the list of <code>before</code> blocks in the same scope (<code>:example</code>, <code>:context</code>, or <code>:suite</code>), in contrast to <span class='object_link'><a href="#before-instance_method" title="RSpec::Core::Configuration#before (method)">#before</a></span>, which adds the hook to the end of the list.</p>
 </div></span>
   
 </li>
@@ -2330,7 +2248,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#raise_errors_for_deprecations!-instance_method" title="#raise_errors_for_deprecations! (instance method)">#<strong>raise_errors_for_deprecations!</strong>  &#x21d2; void </a>
+      <a href="#raise_errors_for_deprecations!-instance_method" title="#raise_errors_for_deprecations! (instance method)">#<strong>raise_errors_for_deprecations!</strong>  &#x21d2; Object </a>
     
 
     
@@ -2344,8 +2262,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Turns deprecation warnings into errors, in order to surface the full backtrace of the call site.</p>
+    <span class="summary_desc"><div class='inline'><p>Turns deprecation warnings into errors, in order to surface the full backtrace of the call site.</p>
 </div></span>
   
 </li>
@@ -2354,7 +2271,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#raise_on_warning=-instance_method" title="#raise_on_warning= (instance method)">#<strong>raise_on_warning=</strong>(value)  &#x21d2; void </a>
+      <a href="#raise_on_warning=-instance_method" title="#raise_on_warning= (instance method)">#<strong>raise_on_warning=</strong>(value)  &#x21d2; Object </a>
     
 
     
@@ -2368,8 +2285,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Turns warnings into errors.</p>
+    <span class="summary_desc"><div class='inline'><p>Turns warnings into errors.</p>
 </div></span>
   
 </li>
@@ -2378,7 +2294,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#register_ordering-instance_method" title="#register_ordering (instance method)">#<strong>register_ordering</strong>(name) {|list| ... } &#x21d2; void </a>
+      <a href="#register_ordering-instance_method" title="#register_ordering (instance method)">#<strong>register_ordering</strong>(name) {|list| ... } &#x21d2; Object </a>
     
 
     
@@ -2392,8 +2308,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Registers a named ordering strategy that can later be used to order an example group&#39;s subgroups by adding <code>:order =&gt; &lt;name&gt;</code> metadata to the example group.</p>
+    <span class="summary_desc"><div class='inline'><p>Registers a named ordering strategy that can later be used to order an example group&#39;s subgroups by adding <code>:order =&gt; &lt;name&gt;</code> metadata to the example group.</p>
 </div></span>
   
 </li>
@@ -2416,8 +2331,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>The currently configured reporter.</p>
+    <span class="summary_desc"><div class='inline'><p>The currently configured reporter.</p>
 </div></span>
   
 </li>
@@ -2426,7 +2340,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#seed-instance_method" title="#seed (instance method)">#<strong>seed</strong>  &#x21d2; void </a>
+      <a href="#seed-instance_method" title="#seed (instance method)">#<strong>seed</strong>  &#x21d2; Object </a>
     
 
     
@@ -2440,8 +2354,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Seed for random ordering (default: generated randomly each run).</p>
+    <span class="summary_desc"><div class='inline'><p>Seed for random ordering (default: generated randomly each run).</p>
 </div></span>
   
 </li>
@@ -2450,7 +2363,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#seed=-instance_method" title="#seed= (instance method)">#<strong>seed=</strong>(value)  &#x21d2; void </a>
+      <a href="#seed=-instance_method" title="#seed= (instance method)">#<strong>seed=</strong>(value)  &#x21d2; Object </a>
     
 
     
@@ -2464,8 +2377,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Sets the seed value and sets the default global ordering to random.</p>
+    <span class="summary_desc"><div class='inline'><p>Sets the seed value and sets the default global ordering to random.</p>
 </div></span>
   
 </li>
@@ -2474,7 +2386,7 @@
         <li class="public deprecated">
   <span class="summary_signature">
     
-      <a href="#treat_symbols_as_metadata_keys_with_true_values=-instance_method" title="#treat_symbols_as_metadata_keys_with_true_values= (instance method)">#<strong>treat_symbols_as_metadata_keys_with_true_values=</strong>(_value)  &#x21d2; void </a>
+      <a href="#treat_symbols_as_metadata_keys_with_true_values=-instance_method" title="#treat_symbols_as_metadata_keys_with_true_values= (instance method)">#<strong>treat_symbols_as_metadata_keys_with_true_values=</strong>(_value)  &#x21d2; Object </a>
     
 
     
@@ -2488,8 +2400,9 @@
   
 
   
-    <span class="summary_desc"><strong>Deprecated.</strong> <div class='inline'>
-<p>This config option was added in RSpec 2 to pave the way for this being the default behavior in RSpec 3. Now this option is a no-op.</p>
+    <span class="summary_desc"><strong>Deprecated.</strong> <div class='inline'><p>This config option was added in RSpec 2 to pave the way
+for this being the default behavior in RSpec 3. Now this option is
+a no-op.</p>
 </div></span>
   
 </li>
@@ -2498,7 +2411,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#warnings=-instance_method" title="#warnings= (instance method)">#<strong>warnings=</strong>(value)  &#x21d2; void </a>
+      <a href="#warnings=-instance_method" title="#warnings= (instance method)">#<strong>warnings=</strong>(value)  &#x21d2; Object </a>
     
 
     
@@ -2512,8 +2425,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Set Ruby warnings on or off.</p>
+    <span class="summary_desc"><div class='inline'><p>Set Ruby warnings on or off.</p>
 </div></span>
   
 </li>
@@ -2536,8 +2448,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Whether or not ruby warnings are enabled.</p>
+    <span class="summary_desc"><div class='inline'><p>Whether or not ruby warnings are enabled.</p>
 </div></span>
   
 </li>
@@ -2546,7 +2457,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#when_first_matching_example_defined-instance_method" title="#when_first_matching_example_defined (instance method)">#<strong>when_first_matching_example_defined</strong>(*filters)  &#x21d2; void </a>
+      <a href="#when_first_matching_example_defined-instance_method" title="#when_first_matching_example_defined (instance method)">#<strong>when_first_matching_example_defined</strong>(*filters)  &#x21d2; Object </a>
     
 
     
@@ -2560,8 +2471,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Defines a callback that runs after the first example with matching metadata is defined.</p>
+    <span class="summary_desc"><div class='inline'><p>Defines a callback that runs after the first example with matching metadata is defined.</p>
 </div></span>
   
 </li>
@@ -2591,8 +2501,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Build an object to store runtime configuration options and set defaults</p>
+    <p>Build an object to store runtime configuration options and set defaults</p>
 
 
   </div>
@@ -2746,18 +2655,27 @@
     
   <div class="note notetag">
     <strong>Note:</strong>
-    <div class='inline'>
-<p>This option will only be used by <code>--bisect</code> if you set it in a file loaded via <code>--require</code>.</p>
+    <div class='inline'><p>This option will only be used by <code>--bisect</code> if you set it in a file
+loaded via <code>--require</code>.</p>
 </div>
   </div>
 
+<p>Determines which bisect runner implementation gets used to run subsets
+of the suite during a bisection. Your choices are:</p>
 
-<p>Determines which bisect runner implementation gets used to run subsets of the suite during a bisection. Your choices are:</p>
-<ul><li>
-<p><code>:shell</code>: Performs a spec run by shelling out, booting RSpec and your application environment each time. This runner is the most widely compatible runner, but is not as fast. On platforms that do not support forking, this is the default.</p>
-</li><li>
-<p><code>:fork</code>: Pre-boots RSpec and your application environment in a parent process, and then forks a child process for each spec run. This runner tends to be significantly faster than the <code>:shell</code> runner but cannot be used in some situations. On platforms that support forking, this is the default. If you use this runner, you should ensure that all of your one-time setup logic goes in a <code>before(:suite)</code> hook instead of getting run at the top-level of a file loaded by <code>--require</code>.</p>
-</li></ul>
+<ul>
+<li><code>:shell</code>: Performs a spec run by shelling out, booting RSpec and your
+application environment each time. This runner is the most widely
+compatible runner, but is not as fast. On platforms that do not
+support forking, this is the default.</li>
+<li><code>:fork</code>: Pre-boots RSpec and your application environment in a parent
+process, and then forks a child process for each spec run. This runner
+tends to be significantly faster than the <code>:shell</code> runner but cannot
+be used in some situations. On platforms that support forking, this
+is the default. If you use this runner, you should ensure that all
+of your one-time setup logic goes in a <code>before(:suite)</code> hook instead
+of getting run at the top-level of a file loaded by <code>--require</code>.</li>
+</ul>
 
 
   </div>
@@ -2812,11 +2730,13 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <div class="note deprecated"><strong>Deprecated.</strong> <div class='inline'>
-<p>No longer recommended because of complex behavior. Instead, rely on the fact that TTYs will display color by default, or set <span class='object_link'><a href="#color_mode-instance_method" title="RSpec::Core::Configuration#color_mode (method)">#color_mode</a></span> to :on to display color on a non-TTY output.</p>
+    <div class="note deprecated"><strong>Deprecated.</strong> <div class='inline'><p>No longer recommended because of complex behavior. Instead,
+rely on the fact that TTYs will display color by default, or set
+<span class='object_link'><a href="#color_mode-instance_method" title="RSpec::Core::Configuration#color_mode (method)">#color_mode</a></span> to :on to display color on a non-TTY output.</p>
 </div></div>
-
-<p>Enables color output if the output is a TTY. As of RSpec 3.6, this is the default behavior and this option is retained only for backwards compatibility.</p>
+<p>Enables color output if the output is a TTY.  As of RSpec 3.6, this is
+the default behavior and this option is retained only for backwards
+compatibility.</p>
 
 
   </div>
@@ -2880,15 +2800,14 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>The mode for determining whether to display output in color. One of:</p>
-<ul><li>
-<p>:automatic - the output will be in color if the output is a TTY (the  default)</p>
-</li><li>
-<p>:on - the output will be in color, whether or not the output is a TTY</p>
-</li><li>
-<p>:off - the output will not be in color</p>
-</li></ul>
+    <p>The mode for determining whether to display output in color. One of:</p>
+
+<ul>
+<li>:automatic - the output will be in color if the output is a TTY (the
+default)</li>
+<li>:on - the output will be in color, whether or not the output is a TTY</li>
+<li>:off - the output will not be in color</li>
+</ul>
 
 
   </div>
@@ -2950,8 +2869,9 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>The default output color. Defaults to <code>:white</code> but can be set to one of the following: <code>[:black, :white, :red, :green, :yellow, :blue, :magenta, :cyan]</code></p>
+    <p>The default output color. Defaults to <code>:white</code> but can be set to one of
+the following: <code>[:black, :white, :red, :green, :yellow, :blue,
+:magenta, :cyan]</code></p>
 
 
   </div>
@@ -3005,13 +2925,14 @@
     
   <div class="note notetag">
     <strong>Note:</strong>
-    <div class='inline'>
-<p>Other scripts invoking <code>rspec</code> indirectly will ignore this setting.</p>
+    <div class='inline'><p>Other scripts invoking <code>rspec</code> indirectly will ignore this
+setting.</p>
 </div>
   </div>
 
-
-<p>Path to use if no path is provided to the <code>rspec</code> command (default: <code>&quot;spec&quot;</code>). Allows you to just type <code>rspec</code> instead of <code>rspec spec</code> to run all the examples in the <code>spec</code> directory.</p>
+<p>Path to use if no path is provided to the <code>rspec</code> command (default:
+<code>&quot;spec&quot;</code>). Allows you to just type <code>rspec</code> instead of <code>rspec spec</code> to
+run all the examples in the <code>spec</code> directory.</p>
 
 
   </div>
@@ -3062,8 +2983,9 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Color used to print details. Defaults to <code>:cyan</code> but can be set to one of the following: <code>[:black, :white, :red, :green, :yellow, :blue, :magenta, :cyan]</code></p>
+    <p>Color used to print details.  Defaults to <code>:cyan</code> but can be set to one
+of the following: <code>[:black, :white, :red, :green, :yellow, :blue,
+:magenta, :cyan]</code></p>
 
 
   </div>
@@ -3114,8 +3036,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Run examples over DRb (default: <code>false</code>). RSpec doesn&#39;t supply the DRb server, but you can use tools like spork.</p>
+    <p>Run examples over DRb (default: <code>false</code>). RSpec doesn&#39;t supply the DRb
+server, but you can use tools like spork.</p>
 
 
   </div>
@@ -3158,7 +3080,7 @@
       <div class="method_details ">
   <h3 class="signature " id="drb_port-instance_method">
   
-    #<strong>drb_port</strong>  &#x21d2; <tt>void</tt> 
+    #<strong>drb_port</strong>  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -3166,8 +3088,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>The drb_port (default: nil).</p>
+    <p>The drb_port (default: nil).</p>
 
 
   </div>
@@ -3197,7 +3118,7 @@
       <div class="method_details ">
   <h3 class="signature " id="dry_run-instance_method">
   
-    #<strong>dry_run</strong>  &#x21d2; <tt>void</tt> 
+    #<strong>dry_run</strong>  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -3205,8 +3126,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Prints the formatter output of your suite without running any examples or hooks.</p>
+    <p>Prints the formatter output of your suite without running any
+examples or hooks.</p>
 
 
   </div>
@@ -3236,7 +3157,7 @@
       <div class="method_details ">
   <h3 class="signature " id="error_stream-instance_method">
   
-    #<strong>error_stream</strong>  &#x21d2; <tt>void</tt> 
+    #<strong>error_stream</strong>  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -3244,8 +3165,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Default: <code>$stderr</code>.</p>
+    <p>Default: <code>$stderr</code>.</p>
 
 
   </div>
@@ -3278,7 +3198,7 @@
     
       <span class="overload">#<strong>example_status_persistence_file_path</strong>  &#x21d2; <tt>String</tt> </span>
     
-      <span class="overload">#<strong>example_status_persistence_file_path=</strong>(value)  &#x21d2; <tt>void</tt> </span>
+      <span class="overload">#<strong>example_status_persistence_file_path=</strong>(value)  &#x21d2; <tt>Object</tt> </span>
     
   
 
@@ -3287,8 +3207,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>The file path to use for persisting example statuses. Necessary for the <code>--only-failures</code> and <code>--next-failure</code> CLI options.</p>
+    <p>The file path to use for persisting example statuses. Necessary for the
+<code>--only-failures</code> and <code>--next-failure</code> CLI options.</p>
 
 
   </div>
@@ -3303,8 +3223,7 @@
         <span class="signature">#<strong>example_status_persistence_file_path</strong>  &#x21d2; <tt>String</tt> </span>
         <div class="docstring">
   <div class="discussion">
-    
-<p>Returns the file path.</p>
+    <p>Returns the file path.</p>
 
 
   </div>
@@ -3322,8 +3241,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>the file path</p>
+        <div class='inline'><p>the file path</p>
 </div>
       
     </li>
@@ -3335,7 +3253,7 @@
     
       
       <li class="overload_item">
-        <span class="signature">#<strong>example_status_persistence_file_path=</strong>(value)  &#x21d2; <tt>void</tt> </span>
+        <span class="signature">#<strong>example_status_persistence_file_path=</strong>(value)  &#x21d2; <tt>Object</tt> </span>
         <div class="docstring">
   <div class="discussion">
     
@@ -3356,8 +3274,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>the file path</p>
+        <div class='inline'><p>the file path</p>
 </div>
       
     </li>
@@ -3401,8 +3318,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Exclude files matching this pattern.</p>
+    <p>Exclude files matching this pattern.</p>
 
 
   </div>
@@ -3445,7 +3361,7 @@
       <div class="method_details ">
   <h3 class="signature " id="fail_fast-instance_method">
   
-    #<strong>fail_fast</strong>  &#x21d2; <tt>void</tt> 
+    #<strong>fail_fast</strong>  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -3453,8 +3369,9 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>If specified, indicates the number of failures required before cleaning up and exit (default: <code>nil</code>). Can also be <code>true</code> to fail and exit on first failure</p>
+    <p>If specified, indicates the number of failures required before cleaning
+up and exit (default: <code>nil</code>). Can also be <code>true</code> to fail and exit on first
+failure</p>
 
 
   </div>
@@ -3492,8 +3409,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Whether or not to fail when there are no RSpec examples (default: false).</p>
+    <p>Whether or not to fail when there are no RSpec examples (default: false).</p>
 
 
   </div>
@@ -3544,8 +3460,9 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Color to use to indicate failure. Defaults to <code>:red</code> but can be set to one of the following: <code>[:black, :white, :red, :green, :yellow, :blue, :magenta, :cyan]</code></p>
+    <p>Color to use to indicate failure.  Defaults to <code>:red</code> but can be set to
+one of the following: <code>[:black, :white, :red, :green, :yellow, :blue,
+:magenta, :cyan]</code></p>
 
 
   </div>
@@ -3596,8 +3513,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>The exit code to return if there are any failures (default: 1).</p>
+    <p>The exit code to return if there are any failures (default: 1).</p>
 
 
   </div>
@@ -3648,8 +3564,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>The spec files RSpec will run.</p>
+    <p>The spec files RSpec will run.</p>
 
 
   </div>
@@ -3667,8 +3582,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>specified files about to run</p>
+        <div class='inline'><p>specified files about to run</p>
 </div>
       
     </li>
@@ -3709,8 +3623,9 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Color used when a pending example is fixed. Defaults to <code>:blue</code> but can be set to one of the following: <code>[:black, :white, :red, :green, :yellow, :blue, :magenta, :cyan]</code></p>
+    <p>Color used when a pending example is fixed. Defaults to <code>:blue</code> but can
+be set to one of the following: <code>[:black, :white, :red, :green,
+:yellow, :blue, :magenta, :cyan]</code></p>
 
 
   </div>
@@ -3761,8 +3676,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns dirs that have been prepended to the load path by the <code>-I</code> command line option.</p>
+    <p>Returns dirs that have been prepended to the load path by the <code>-I</code>
+command line option.</p>
 
 
   </div>
@@ -3805,7 +3720,7 @@
       <div class="method_details ">
   <h3 class="signature " id="max_displayed_failure_line_count-instance_method">
   
-    #<strong>max_displayed_failure_line_count</strong>  &#x21d2; <tt>void</tt> 
+    #<strong>max_displayed_failure_line_count</strong>  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -3813,8 +3728,9 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Maximum count of failed source lines to display in the failure reports. (default <code>10</code>). return [Integer]</p>
+    <p>Maximum count of failed source lines to display in the failure reports.
+(default <code>10</code>).
+return [Integer]</p>
 
 
   </div>
@@ -3844,7 +3760,7 @@
       <div class="method_details ">
   <h3 class="signature " id="only_failures-instance_method">
   
-    #<strong>only_failures</strong>  &#x21d2; <tt>void</tt>  <span class="extras">(readonly)</span>
+    #<strong>only_failures</strong>  &#x21d2; <tt>Object</tt>  <span class="extras">(readonly)</span>
   
 
   
@@ -3856,8 +3772,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Indicates if the <code>--only-failures</code> (or <code>--next-failure</code>) flag is being used.</p>
+    <p>Indicates if the <code>--only-failures</code> (or <code>--next-failure</code>) flag is being used.</p>
 
 
   </div>
@@ -3895,8 +3810,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Determines where RSpec will send its output. Default: <code>$stdout</code>.</p>
+    <p>Determines where RSpec will send its output.
+Default: <code>$stdout</code>.</p>
 
 
   </div>
@@ -3947,8 +3862,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Load files matching this pattern (default: <code>&#39;**{,/<strong>/*</strong>}/*_spec.rb&#39;</code>).</p>
+    <p>Load files matching this pattern (default: <code>&#39;**{,/*/**}/*_spec.rb&#39;</code>).</p>
 
 
   </div>
@@ -3999,8 +3913,9 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Color to use to print pending examples. Defaults to <code>:yellow</code> but can be set to one of the following: <code>[:black, :white, :red, :green, :yellow, :blue, :magenta, :cyan]</code></p>
+    <p>Color to use to print pending examples.  Defaults to <code>:yellow</code> but can
+be set to one of the following: <code>[:black, :white, :red, :green,
+:yellow, :blue, :magenta, :cyan]</code></p>
 
 
   </div>
@@ -4043,7 +3958,7 @@
       <div class="method_details ">
   <h3 class="signature " id="profile_examples-instance_method">
   
-    #<strong>profile_examples</strong>  &#x21d2; <tt>void</tt> 
+    #<strong>profile_examples</strong>  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -4055,8 +3970,8 @@
   <strong>This method is part of a private API.</strong>
   You should avoid using this method if possible, as it may be removed or be changed in the future.
 </p>
-
-<p>Defaults <code>profile_examples</code> to 10 examples when <code>@profile_examples</code> is <code>true</code>.</p>
+<p>Defaults <code>profile_examples</code> to 10 examples when <code>@profile_examples</code> is
+<code>true</code>.</p>
 
 
   </div>
@@ -4094,8 +4009,12 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Specifies which directories contain the source code for your project. When a failure occurs, RSpec looks through the backtrace to find a a line of source to print. It first looks for a line coming from one of the project source directories so that, for example, it prints the expectation or assertion call rather than the source code from the expectation or assertion framework.</p>
+    <p>Specifies which directories contain the source code for your project.
+When a failure occurs, RSpec looks through the backtrace to find a
+a line of source to print. It first looks for a line coming from
+one of the project source directories so that, for example, it prints
+the expectation or assertion call rather than the source code from
+the expectation or assertion framework.</p>
 
 
   </div>
@@ -4146,8 +4065,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Indicates files configured to be required.</p>
+    <p>Indicates files configured to be required.</p>
 
 
   </div>
@@ -4190,7 +4108,7 @@
       <div class="method_details ">
   <h3 class="signature " id="run_all_when_everything_filtered-instance_method">
   
-    #<strong>run_all_when_everything_filtered</strong>  &#x21d2; <tt>void</tt> 
+    #<strong>run_all_when_everything_filtered</strong>  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -4198,11 +4116,11 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    <div class="note deprecated"><strong>Deprecated.</strong> <div class='inline'>
-<p>Use <span class='object_link'><a href="#filter_run_when_matching-instance_method" title="RSpec::Core::Configuration#filter_run_when_matching (method)">#filter_run_when_matching</a></span> instead for the specific filters that you want to be ignored if none match.</p>
+    <div class="note deprecated"><strong>Deprecated.</strong> <div class='inline'><p>Use <span class='object_link'><a href="#filter_run_when_matching-instance_method" title="RSpec::Core::Configuration#filter_run_when_matching (method)">#filter_run_when_matching</a></span> instead for the specific
+filters that you want to be ignored if none match.</p>
 </div></div>
-
-<p>Run all examples if none match the configured filters (default: <code>false</code>).</p>
+<p>Run all examples if none match the configured filters
+(default: <code>false</code>).</p>
 
 
   </div>
@@ -4235,7 +4153,7 @@
     
       <span class="overload">#<strong>shared_context_metadata_behavior</strong>  &#x21d2; <tt>:trigger_inclusion</tt>, <tt>:apply_to_host_groups</tt> </span>
     
-      <span class="overload">#<strong>shared_context_metadata_behavior=</strong>(value)  &#x21d2; <tt>void</tt> </span>
+      <span class="overload">#<strong>shared_context_metadata_behavior=</strong>(value)  &#x21d2; <tt>Object</tt> </span>
     
   
 
@@ -4244,8 +4162,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Configures how RSpec treats metadata passed as part of a shared example group definition. For example, given this shared example group definition:</p>
+    <p>Configures how RSpec treats metadata passed as part of a shared example
+group definition. For example, given this shared example group definition:</p>
 
 <pre class="code ruby"><code class="ruby"><span class='const'><span class='object_link'><a href="../../RSpec.html" title="RSpec (module)">RSpec</a></span></span><span class='period'>.</span><span class='id identifier rubyid_shared_context'>shared_context</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>uses DB</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:db</span> <span class='op'>=&gt;</span> <span class='kw'>true</span> <span class='kw'>do</span>
   <span class='id identifier rubyid_around'>around</span><span class='lparen'>(</span><span class='symbol'>:example</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_ex'>ex</span><span class='op'>|</span>
@@ -4254,28 +4172,35 @@
 <span class='kw'>end</span>
 </code></pre>
 
-<p>…there are two ways RSpec can treat the <code>:db =&gt; true</code> metadata, each of which has a corresponding config option:</p>
-<ol><li>
-<p><code>:trigger_inclusion</code>: this shared context will be implicitly included  in any groups (or examples) that have <code>:db =&gt; true</code> metadata.</p>
-</li><li>
-<p><code>:apply_to_host_groups</code>: the metadata will be inherited by the metadata  hash of all host groups and examples.</p>
-</li></ol>
+<p>...there are two ways RSpec can treat the <code>:db =&gt; true</code> metadata, each
+of which has a corresponding config option:</p>
 
-<p><code>:trigger_inclusion</code> is the legacy behavior from before RSpec 3.5 but should be considered deprecated. Instead, you can explicitly include a group with <code>include_context</code>:</p>
+<ol>
+<li><code>:trigger_inclusion</code>: this shared context will be implicitly included
+in any groups (or examples) that have <code>:db =&gt; true</code> metadata.</li>
+<li><code>:apply_to_host_groups</code>: the metadata will be inherited by the metadata
+hash of all host groups and examples.</li>
+</ol>
+
+<p><code>:trigger_inclusion</code> is the legacy behavior from before RSpec 3.5 but should
+be considered deprecated. Instead, you can explicitly include a group with
+<code>include_context</code>:</p>
 
 <pre class="code ruby"><code class="ruby"><span class='const'><span class='object_link'><a href="../../RSpec.html" title="RSpec (module)">RSpec</a></span></span><span class='period'>.</span><span class='id identifier rubyid_describe'>describe</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>My model</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
   <span class='id identifier rubyid_include_context'>include_context</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>uses DB</span><span class='tstring_end'>&quot;</span></span>
 <span class='kw'>end</span>
 </code></pre>
 
-<p>…or you can configure RSpec to include the context based on matching metadata using an API that mirrors configured module inclusion:</p>
+<p>...or you can configure RSpec to include the context based on matching metadata
+using an API that mirrors configured module inclusion:</p>
 
 <pre class="code ruby"><code class="ruby"><span class='const'><span class='object_link'><a href="../../RSpec.html" title="RSpec (module)">RSpec</a></span></span><span class='period'>.</span><span class='id identifier rubyid_configure'><span class='object_link'><a href="../../RSpec.html#configure-class_method" title="RSpec.configure (method)">configure</a></span></span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_rspec'>rspec</span><span class='op'>|</span>
   <span class='id identifier rubyid_rspec'>rspec</span><span class='period'>.</span><span class='id identifier rubyid_include_context'>include_context</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>uses DB</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:db</span> <span class='op'>=&gt;</span> <span class='kw'>true</span>
 <span class='kw'>end</span>
 </code></pre>
 
-<p><code>:apply_to_host_groups</code> is a new feature of RSpec 3.5 and will be the only supported behavior in RSpec 4.</p>
+<p><code>:apply_to_host_groups</code> is a new feature of RSpec 3.5 and will be the only
+supported behavior in RSpec 4.</p>
 
 
   </div>
@@ -4290,8 +4215,7 @@
         <span class="signature">#<strong>shared_context_metadata_behavior</strong>  &#x21d2; <tt>:trigger_inclusion</tt>, <tt>:apply_to_host_groups</tt> </span>
         <div class="docstring">
   <div class="discussion">
-    
-<p>Returns the configured behavior.</p>
+    <p>Returns the configured behavior.</p>
 
 
   </div>
@@ -4309,8 +4233,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>the configured behavior</p>
+        <div class='inline'><p>the configured behavior</p>
 </div>
       
     </li>
@@ -4322,7 +4245,7 @@
     
       
       <li class="overload_item">
-        <span class="signature">#<strong>shared_context_metadata_behavior=</strong>(value)  &#x21d2; <tt>void</tt> </span>
+        <span class="signature">#<strong>shared_context_metadata_behavior=</strong>(value)  &#x21d2; <tt>Object</tt> </span>
         <div class="docstring">
   <div class="discussion">
     
@@ -4343,8 +4266,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>sets the configured behavior</p>
+        <div class='inline'><p>sets the configured behavior</p>
 </div>
       
     </li>
@@ -4380,7 +4302,7 @@
       <div class="method_details ">
   <h3 class="signature " id="silence_filter_announcements-instance_method">
   
-    #<strong>silence_filter_announcements</strong>  &#x21d2; <tt>void</tt> 
+    #<strong>silence_filter_announcements</strong>  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -4388,8 +4310,9 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Don&#39;t print filter info i.e. “Run options: include :focus=&gt;true” (default <code>false</code>). return [Boolean]</p>
+    <p>Don&#39;t print filter info i.e. &quot;Run options: include :focus=&gt;true&quot;
+(default <code>false</code>).
+return [Boolean]</p>
 
 
   </div>
@@ -4427,8 +4350,9 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Color to use to indicate success. Defaults to <code>:green</code> but can be set to one of the following: <code>[:black, :white, :red, :green, :yellow, :blue, :magenta, :cyan]</code></p>
+    <p>Color to use to indicate success.  Defaults to <code>:green</code> but can be set
+to one of the following: <code>[:black, :white, :red, :green, :yellow,
+:blue, :magenta, :cyan]</code></p>
 
 
   </div>
@@ -4471,7 +4395,7 @@
       <div class="method_details ">
   <h3 class="signature " id="threadsafe-instance_method">
   
-    #<strong>threadsafe</strong>  &#x21d2; <tt>void</tt> 
+    #<strong>threadsafe</strong>  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -4479,8 +4403,9 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Use threadsafe options where available. Currently this will place a mutex around memoized values such as let blocks. return [Boolean]</p>
+    <p>Use threadsafe options where available.
+Currently this will place a mutex around memoized values such as let blocks.
+return [Boolean]</p>
 
 
   </div>
@@ -4516,9 +4441,9 @@
   <h3 class="signature first" id="add_formatter-instance_method">
   
     
-      <span class="overload">#<strong>add_formatter</strong>(formatter)  &#x21d2; <tt>void</tt> </span>
+      <span class="overload">#<strong>add_formatter</strong>(formatter)  &#x21d2; <tt>Object</tt> </span>
     
-      <span class="overload">#<strong>add_formatter</strong>(formatter, output)  &#x21d2; <tt>void</tt> </span>
+      <span class="overload">#<strong>add_formatter</strong>(formatter, output)  &#x21d2; <tt>Object</tt> </span>
     
   
 
@@ -4531,8 +4456,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Adds a formatter to the set RSpec will use for this run.</p>
+    <p>Adds a formatter to the set RSpec will use for this run.</p>
 
 
   </div>
@@ -4551,8 +4475,11 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>formatter to use. Can be any of the string values supported from the CLI (<code>p</code>/<code>progress</code>, <code>d</code>/<code>doc</code>/<code>documentation</code>, <code>h</code>/<code>html</code>, or <code>j</code>/<code>json</code>), any class that implements the formatter protocol and has registered itself with RSpec as a formatter, or a formatter instance.</p>
+        <div class='inline'><p>formatter to use. Can be any of the
+string values supported from the CLI (<code>p</code>/<code>progress</code>,
+<code>d</code>/<code>doc</code>/<code>documentation</code>, <code>h</code>/<code>html</code>, or <code>j</code>/<code>json</code>), any
+class that implements the formatter protocol and has registered
+itself with RSpec as a formatter, or a formatter instance.</p>
 </div>
       
     </li>
@@ -4569,8 +4496,9 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>where the formatter will write its output. Can be an IO object or a string path to a file. If not provided, the configured <code>output_stream</code> (<code>$stdout</code>, by default) will be used.</p>
+        <div class='inline'><p>where the formatter will write its output.
+Can be an IO object or a string path to a file. If not provided,
+the configured <code>output_stream</code> (<code>$stdout</code>, by default) will be used.</p>
 </div>
       
     </li>
@@ -4610,9 +4538,9 @@
   <h3 class="signature " id="add_setting-instance_method">
   
     
-      <span class="overload">#<strong>add_setting</strong>(name)  &#x21d2; <tt>void</tt> </span>
+      <span class="overload">#<strong>add_setting</strong>(name)  &#x21d2; <tt>Object</tt> </span>
     
-      <span class="overload">#<strong>add_setting</strong>(name, opts)  &#x21d2; <tt>void</tt> </span>
+      <span class="overload">#<strong>add_setting</strong>(name, opts)  &#x21d2; <tt>Object</tt> </span>
     
   
 
@@ -4621,13 +4549,13 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Adds a custom setting to the RSpec.configuration object.</p>
+    <p>Adds a custom setting to the RSpec.configuration object.</p>
 
 <pre class="code ruby"><code class="ruby"><span class='const'><span class='object_link'><a href="../../RSpec.html" title="RSpec (module)">RSpec</a></span></span><span class='period'>.</span><span class='id identifier rubyid_configuration'><span class='object_link'><a href="../../RSpec.html#configuration-class_method" title="RSpec.configuration (method)">configuration</a></span></span><span class='period'>.</span><span class='id identifier rubyid_add_setting'>add_setting</span> <span class='symbol'>:foo</span>
 </code></pre>
 
-<p>Used internally and by extension frameworks like rspec-rails, so they can add config settings that are domain specific. For example:</p>
+<p>Used internally and by extension frameworks like rspec-rails, so they
+can add config settings that are domain specific. For example:</p>
 
 <pre class="code ruby"><code class="ruby"><span class='const'><span class='object_link'><a href="../../RSpec.html" title="RSpec (module)">RSpec</a></span></span><span class='period'>.</span><span class='id identifier rubyid_configure'><span class='object_link'><a href="../../RSpec.html#configure-class_method" title="RSpec.configure (method)">configure</a></span></span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_c'>c</span><span class='op'>|</span>
   <span class='id identifier rubyid_c'>c</span><span class='period'>.</span><span class='id identifier rubyid_add_setting'>add_setting</span> <span class='symbol'>:use_transactional_fixtures</span><span class='comma'>,</span>
@@ -4636,7 +4564,8 @@
 <span class='kw'>end</span>
 </code></pre>
 
-<p><code>add_setting</code> creates three methods on the configuration object, a setter, a getter, and a predicate:</p>
+<p><code>add_setting</code> creates three methods on the configuration object, a
+setter, a getter, and a predicate:</p>
 
 <pre class="code ruby"><code class="ruby"><span class='const'><span class='object_link'><a href="../../RSpec.html" title="RSpec (module)">RSpec</a></span></span><span class='period'>.</span><span class='id identifier rubyid_configuration'><span class='object_link'><a href="../../RSpec.html#configuration-class_method" title="RSpec.configuration (method)">configuration</a></span></span><span class='period'>.</span><span class='id identifier rubyid_foo'>foo</span><span class='op'>=</span><span class='lparen'>(</span><span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span>
 <span class='const'><span class='object_link'><a href="../../RSpec.html" title="RSpec (module)">RSpec</a></span></span><span class='period'>.</span><span class='id identifier rubyid_configuration'><span class='object_link'><a href="../../RSpec.html#configuration-class_method" title="RSpec.configuration (method)">configuration</a></span></span><span class='period'>.</span><span class='id identifier rubyid_foo'>foo</span>
@@ -4662,8 +4591,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>a customizable set of options</p>
+        <div class='inline'><p>a customizable set of options</p>
 </div>
       
     </li>
@@ -4685,8 +4613,7 @@
             
           </span>
           
-            &mdash; <div class='inline'>
-<p>Set a default value for the generated getter and predicate methods:</p>
+            &mdash; <div class='inline'><p>Set a default value for the generated getter and predicate methods:</p>
 
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_add_setting'>add_setting</span><span class='lparen'>(</span><span class='symbol'>:foo</span><span class='comma'>,</span> <span class='symbol'>:default</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>default value</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
 </code></pre>
@@ -4701,8 +4628,8 @@
             
           </span>
           
-            &mdash; <div class='inline'>
-<p>Use <code>:alias_with</code> to alias the setter, getter, and predicate to another name, or names:</p>
+            &mdash; <div class='inline'><p>Use <code>:alias_with</code> to alias the setter, getter, and predicate to
+another name, or names:</p>
 
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_add_setting'>add_setting</span><span class='lparen'>(</span><span class='symbol'>:foo</span><span class='comma'>,</span> <span class='symbol'>:alias_with</span> <span class='op'>=&gt;</span> <span class='symbol'>:bar</span><span class='rparen'>)</span>
 <span class='id identifier rubyid_add_setting'>add_setting</span><span class='lparen'>(</span><span class='symbol'>:foo</span><span class='comma'>,</span> <span class='symbol'>:alias_with</span> <span class='op'>=&gt;</span> <span class='lbracket'>[</span><span class='symbol'>:bar</span><span class='comma'>,</span> <span class='symbol'>:baz</span><span class='rbracket'>]</span><span class='rparen'>)</span>
@@ -4747,7 +4674,7 @@
       <div class="method_details ">
   <h3 class="signature " id="after-instance_method">
   
-    #<strong>after</strong>(scope = nil, *meta, &amp;block)  &#x21d2; <tt>void</tt> 
+    #<strong>after</strong>(scope = nil, *meta, &amp;block)  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -4759,10 +4686,11 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Defines a <code>after</code> hook. See <span class='object_link'><a href="Hooks.html#after-instance_method" title="RSpec::Core::Hooks#after (method)">Hooks#after</a></span> for full docs.</p>
+    <p>Defines a <code>after</code> hook. See <span class='object_link'><a href="Hooks.html#after-instance_method" title="RSpec::Core::Hooks#after (method)">Hooks#after</a></span> for full docs.</p>
 
-<p>This method differs from <span class='object_link'><a href="Hooks.html#after-instance_method" title="RSpec::Core::Hooks#after (method)">Hooks#after</a></span> in only one way: it supports the <code>:suite</code> scope. Hooks with the <code>:suite</code> scope will be run once after the last example of the entire suite is executed.</p>
+<p>This method differs from <span class='object_link'><a href="Hooks.html#after-instance_method" title="RSpec::Core::Hooks#after (method)">Hooks#after</a></span> in only one way: it supports
+the <code>:suite</code> scope. Hooks with the <code>:suite</code> scope will be run once after
+the last example of the entire suite is executed.</p>
 
 
   </div>
@@ -4827,7 +4755,7 @@
       <div class="method_details ">
   <h3 class="signature " id="alias_example_group_to-instance_method">
   
-    #<strong>alias_example_group_to</strong>(new_name, *args)  &#x21d2; <tt>void</tt> 
+    #<strong>alias_example_group_to</strong>(new_name, *args)  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -4838,13 +4766,14 @@
     
   <div class="note notetag">
     <strong>Note:</strong>
-    <div class='inline'>
-<p>The defined aliased will also be added to the top level (e.g. <code>main</code> and from within modules) if <code>expose_dsl_globally</code> is set to true.</p>
+    <div class='inline'><p>The defined aliased will also be added to the top level
+(e.g. <code>main</code> and from within modules) if
+<code>expose_dsl_globally</code> is set to true.</p>
 </div>
   </div>
 
-
-<p>Creates a method that defines an example group with the provided metadata. Can be used to define example group/metadata shortcuts.</p>
+<p>Creates a method that defines an example group with the provided
+metadata. Can be used to define example group/metadata shortcuts.</p>
 
 
   </div>
@@ -4911,7 +4840,7 @@
       <div class="method_details ">
   <h3 class="signature " id="alias_example_to-instance_method">
   
-    #<strong>alias_example_to</strong>(name, *args)  &#x21d2; <tt>void</tt> 
+    #<strong>alias_example_to</strong>(name, *args)  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -4922,20 +4851,22 @@
     
   <div class="note notetag">
     <strong>Note:</strong>
-    <div class='inline'>
-<p>The specific example alias below (<code>pending</code>) is already defined for you.</p>
+    <div class='inline'><p>The specific example alias below (<code>pending</code>) is already
+defined for you.</p>
 </div>
   </div>
 
   <div class="note notetag">
     <strong>Note:</strong>
-    <div class='inline'>
-<p>Use with caution. This extends the language used in your specs, but does not add any additional documentation. We use this in RSpec to define methods like <code>focus</code> and <code>xit</code>, but we also add docs for those methods.</p>
+    <div class='inline'><p>Use with caution. This extends the language used in your
+specs, but does not add any additional documentation. We use this
+in RSpec to define methods like <code>focus</code> and <code>xit</code>, but we also add
+docs for those methods.</p>
 </div>
   </div>
 
-
-<p>Creates a method that delegates to <code>example</code> including the submitted <code>args</code>. Used internally to add variants of <code>example</code> like <code>pending</code>:</p>
+<p>Creates a method that delegates to <code>example</code> including the submitted
+<code>args</code>. Used internally to add variants of <code>example</code> like <code>pending</code>:</p>
 
 
   </div>
@@ -4980,8 +4911,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>example name alias</p>
+        <div class='inline'><p>example name alias</p>
 </div>
       
     </li>
@@ -4996,8 +4926,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>metadata for the generated example</p>
+        <div class='inline'><p>metadata for the generated example</p>
 </div>
       
     </li>
@@ -5031,7 +4960,7 @@
       <div class="method_details ">
   <h3 class="signature " id="alias_it_behaves_like_to-instance_method">
   
-    #<strong>alias_it_behaves_like_to</strong>(new_name, report_label = &#39;&#39;)  &#x21d2; <tt>void</tt> 
+    #<strong>alias_it_behaves_like_to</strong>(new_name, report_label = &#39;&#39;)  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -5046,13 +4975,16 @@
     
   <div class="note notetag">
     <strong>Note:</strong>
-    <div class='inline'>
-<p>Use with caution. This extends the language used in your specs, but does not add any additional documentation. We use this in RSpec to define <code>it_should_behave_like</code> (for backward compatibility), but we also add docs for that method.</p>
+    <div class='inline'><p>Use with caution. This extends the language used in your
+specs, but does not add any additional documentation. We use this
+in RSpec to define <code>it_should_behave_like</code> (for backward
+compatibility), but we also add docs for that method.</p>
 </div>
   </div>
 
-
-<p>Define an alias for it_should_behave_like that allows different language (like “it_has_behavior” or “it_behaves_like”) to be employed when including shared examples.</p>
+<p>Define an alias for it_should_behave_like that allows different
+language (like &quot;it_has_behavior&quot; or &quot;it_behaves_like&quot;) to be
+employed when including shared examples.</p>
 
 
   </div>
@@ -5107,7 +5039,7 @@
       <div class="method_details ">
   <h3 class="signature " id="append_after-instance_method">
   
-    #<strong>append_after</strong>(scope = nil, *meta, &amp;block)  &#x21d2; <tt>void</tt> 
+    #<strong>append_after</strong>(scope = nil, *meta, &amp;block)  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -5115,12 +5047,15 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Adds <code>block</code> to the end of the list of <code>after</code> blocks in the same scope (<code>:example</code>, <code>:context</code>, or <code>:suite</code>), in contrast to <span class='object_link'><a href="#after-instance_method" title="RSpec::Core::Configuration#after (method)">#after</a></span>, which adds the hook to the start of the list.</p>
+    <p>Adds <code>block</code> to the end of the list of <code>after</code> blocks in the same
+scope (<code>:example</code>, <code>:context</code>, or <code>:suite</code>), in contrast to <span class='object_link'><a href="#after-instance_method" title="RSpec::Core::Configuration#after (method)">#after</a></span>,
+which adds the hook to the start of the list.</p>
 
 <p>See <span class='object_link'><a href="Hooks.html#after-instance_method" title="RSpec::Core::Hooks#after (method)">Hooks#after</a></span> for full <code>after</code> hook docs.</p>
 
-<p>This method differs from <span class='object_link'><a href="Hooks.html#append_after-instance_method" title="RSpec::Core::Hooks#append_after (method)">Hooks#append_after</a></span> in only one way: it supports the <code>:suite</code> scope. Hooks with the <code>:suite</code> scope will be run once after the last example of the entire suite is executed.</p>
+<p>This method differs from <span class='object_link'><a href="Hooks.html#append_after-instance_method" title="RSpec::Core::Hooks#append_after (method)">Hooks#append_after</a></span> in only one way: it supports
+the <code>:suite</code> scope. Hooks with the <code>:suite</code> scope will be run once after
+the last example of the entire suite is executed.</p>
 
 
   </div>
@@ -5185,7 +5120,7 @@
       <div class="method_details ">
   <h3 class="signature " id="around-instance_method">
   
-    #<strong>around</strong>(scope = nil, *meta, &amp;block)  &#x21d2; <tt>void</tt> 
+    #<strong>around</strong>(scope = nil, *meta, &amp;block)  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -5193,8 +5128,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Registers <code>block</code> as an <code>around</code> hook.</p>
+    <p>Registers <code>block</code> as an <code>around</code> hook.</p>
 
 <p>See <span class='object_link'><a href="Hooks.html#around-instance_method" title="RSpec::Core::Hooks#around (method)">Hooks#around</a></span> for full <code>around</code> hook docs.</p>
 
@@ -5250,14 +5184,17 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Regexps used to exclude lines from backtraces.</p>
+    <p>Regexps used to exclude lines from backtraces.</p>
 
-<p>Excludes lines from ruby (and jruby) source, installed gems, anything in any “bin” directory, and any of the RSpec libs (outside gem installs) by default.</p>
+<p>Excludes lines from ruby (and jruby) source, installed gems, anything
+in any &quot;bin&quot; directory, and any of the RSpec libs (outside gem
+installs) by default.</p>
 
 <p>You can modify the list via the getter, or replace it with the setter.</p>
 
-<p>To override this behaviour and display a full backtrace, use <code>--backtrace</code> on the command line, in a <code>.rspec</code> file, or in the <code>rspec_options</code> attribute of RSpec&#39;s rake task.</p>
+<p>To override this behaviour and display a full backtrace, use
+<code>--backtrace</code> on the command line, in a <code>.rspec</code> file, or in the
+<code>rspec_options</code> attribute of RSpec&#39;s rake task.</p>
 
 
   </div>
@@ -5302,7 +5239,7 @@
       <div class="method_details ">
   <h3 class="signature " id="backtrace_exclusion_patterns=-instance_method">
   
-    #<strong>backtrace_exclusion_patterns=</strong>(patterns)  &#x21d2; <tt>void</tt> 
+    #<strong>backtrace_exclusion_patterns=</strong>(patterns)  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -5310,8 +5247,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Set regular expressions used to exclude lines in backtrace.</p>
+    <p>Set regular expressions used to exclude lines in backtrace.</p>
 
 
   </div>
@@ -5330,8 +5266,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>set backtrace_formatter exlusion_patterns</p>
+        <div class='inline'><p>set backtrace_formatter exlusion_patterns</p>
 </div>
       
     </li>
@@ -5371,12 +5306,12 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Regexps used to include lines in backtraces.</p>
+    <p>Regexps used to include lines in backtraces.</p>
 
 <p>Defaults to [Regexp.new Dir.getwd].</p>
 
-<p>Lines that match an exclusion <em>and</em> an inclusion pattern will be included.</p>
+<p>Lines that match an exclusion <em>and</em> an inclusion pattern
+will be included.</p>
 
 <p>You can modify the list via the getter, or replace it with the setter.</p>
 
@@ -5423,7 +5358,7 @@
       <div class="method_details ">
   <h3 class="signature " id="backtrace_inclusion_patterns=-instance_method">
   
-    #<strong>backtrace_inclusion_patterns=</strong>(patterns)  &#x21d2; <tt>void</tt> 
+    #<strong>backtrace_inclusion_patterns=</strong>(patterns)  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -5431,8 +5366,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Set regular expressions used to include lines in backtrace.</p>
+    <p>Set regular expressions used to include lines in backtrace.</p>
 
 
   </div>
@@ -5464,7 +5398,7 @@
       <div class="method_details ">
   <h3 class="signature " id="before-instance_method">
   
-    #<strong>before</strong>(scope = nil, *meta, &amp;block)  &#x21d2; <tt>void</tt> 
+    #<strong>before</strong>(scope = nil, *meta, &amp;block)  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -5476,10 +5410,11 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Defines a <code>before</code> hook. See <span class='object_link'><a href="Hooks.html#before-instance_method" title="RSpec::Core::Hooks#before (method)">Hooks#before</a></span> for full docs.</p>
+    <p>Defines a <code>before</code> hook. See <span class='object_link'><a href="Hooks.html#before-instance_method" title="RSpec::Core::Hooks#before (method)">Hooks#before</a></span> for full docs.</p>
 
-<p>This method differs from <span class='object_link'><a href="Hooks.html#before-instance_method" title="RSpec::Core::Hooks#before (method)">Hooks#before</a></span> in only one way: it supports the <code>:suite</code> scope. Hooks with the <code>:suite</code> scope will be run once before the first example of the entire suite is executed.</p>
+<p>This method differs from <span class='object_link'><a href="Hooks.html#before-instance_method" title="RSpec::Core::Hooks#before (method)">Hooks#before</a></span> in only one way: it supports
+the <code>:suite</code> scope. Hooks with the <code>:suite</code> scope will be run once before
+the first example of the entire suite is executed.</p>
 
 
   </div>
@@ -5552,8 +5487,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Check if color is enabled for a particular output.</p>
+    <p>Check if color is enabled for a particular output.</p>
 
 
   </div>
@@ -5574,8 +5508,8 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>an output stream to use, defaults to the current <code>output_stream</code></p>
+        <div class='inline'><p>an output stream to use, defaults to the current
+<code>output_stream</code></p>
 </div>
       
     </li>
@@ -5630,7 +5564,7 @@
       <div class="method_details ">
   <h3 class="signature " id="default_formatter-instance_method">
   
-    #<strong>default_formatter</strong>  &#x21d2; <tt>void</tt> 
+    #<strong>default_formatter</strong>  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -5638,8 +5572,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>The formatter that will be used if no formatter has been set. Defaults to &#39;progress&#39;.</p>
+    <p>The formatter that will be used if no formatter has been set.
+Defaults to &#39;progress&#39;.</p>
 
 
   </div>
@@ -5671,7 +5605,7 @@
       <div class="method_details ">
   <h3 class="signature " id="default_formatter=-instance_method">
   
-    #<strong>default_formatter=</strong>(value)  &#x21d2; <tt>void</tt> 
+    #<strong>default_formatter=</strong>(value)  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -5679,8 +5613,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Sets a fallback formatter to use if none other has been set.</p>
+    <p>Sets a fallback formatter to use if none other has been set.</p>
 
 
   </div>
@@ -5723,7 +5656,7 @@
       <div class="method_details ">
   <h3 class="signature " id="define_derived_metadata-instance_method">
   
-    #<strong>define_derived_metadata</strong>(*filters) {|metadata| ... } &#x21d2; <tt>void</tt> 
+    #<strong>define_derived_metadata</strong>(*filters) {|metadata| ... } &#x21d2; <tt>Object</tt> 
   
 
   
@@ -5731,8 +5664,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Defines a callback that can assign derived metadata values.</p>
+    <p>Defines a callback that can assign derived metadata values.</p>
 
 
   </div>
@@ -5765,8 +5697,10 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>metadata filters that determine which example or group metadata hashes the callback will be triggered for. If none are given, the callback will be run against the metadata hashes of all groups and examples.</p>
+        <div class='inline'><p>metadata filters that determine
+which example or group metadata hashes the callback will be triggered
+for. If none are given, the callback will be run against the metadata
+hashes of all groups and examples.</p>
 </div>
       
     </li>
@@ -5786,8 +5720,8 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>original metadata hash from an example or group. Mutate this in your block as needed.</p>
+        <div class='inline'><p>original metadata hash from an example or
+group. Mutate this in your block as needed.</p>
 </div>
       
     </li>
@@ -5828,8 +5762,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Determines where deprecation warnings are printed. Defaults to <code>$stderr</code>.</p>
+    <p>Determines where deprecation warnings are printed.
+Defaults to <code>$stderr</code>.</p>
 
 
   </div>
@@ -5847,8 +5781,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>IO or filename to write to</p>
+        <div class='inline'><p>IO or filename to write to</p>
 </div>
       
     </li>
@@ -5875,7 +5808,7 @@
       <div class="method_details ">
   <h3 class="signature " id="deprecation_stream=-instance_method">
   
-    #<strong>deprecation_stream=</strong>(value)  &#x21d2; <tt>void</tt> 
+    #<strong>deprecation_stream=</strong>(value)  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -5883,8 +5816,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Determines where deprecation warnings are printed.</p>
+    <p>Determines where deprecation warnings are printed.</p>
 
 
   </div>
@@ -5903,8 +5835,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>IO to write to or filename to write to</p>
+        <div class='inline'><p>IO to write to or filename to write to</p>
 </div>
       
     </li>
@@ -5952,7 +5883,7 @@
       <div class="method_details ">
   <h3 class="signature " id="disable_monkey_patching!-instance_method">
   
-    #<strong>disable_monkey_patching!</strong>  &#x21d2; <tt>void</tt> 
+    #<strong>disable_monkey_patching!</strong>  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -5963,20 +5894,27 @@
     
   <div class="note notetag">
     <strong>Note:</strong>
-    <div class='inline'>
-<p>It configures rspec-mocks and rspec-expectations only if the user is using those (either explicitly or implicitly by not setting <code>mock_with</code> or <code>expect_with</code> to anything else).</p>
+    <div class='inline'><p>It configures rspec-mocks and rspec-expectations only
+if the user is using those (either explicitly or implicitly
+by not setting <code>mock_with</code> or <code>expect_with</code> to anything else).</p>
 </div>
   </div>
 
   <div class="note notetag">
     <strong>Note:</strong>
-    <div class='inline'>
-<p>If the user uses this options with <code>mock_with :mocha</code> (or similiar) they will still have monkey patching active in their test environment from mocha.</p>
+    <div class='inline'><p>If the user uses this options with <code>mock_with :mocha</code>
+(or similiar) they will still have monkey patching active
+in their test environment from mocha.</p>
 </div>
   </div>
 
-
-<p>Enables zero monkey patching mode for RSpec. It removes monkey patching of the top-level DSL methods (<code>describe</code>, <code>shared_examples_for</code>, etc) onto <code>main</code> and <code>Module</code>, instead requiring you to prefix these methods with <code>RSpec.</code>. It enables expect-only syntax for rspec-mocks and rspec-expectations. It simply disables monkey patching on whatever pieces of RSpec the user is using.</p>
+<p>Enables zero monkey patching mode for RSpec. It removes monkey
+patching of the top-level DSL methods (<code>describe</code>,
+<code>shared_examples_for</code>, etc) onto <code>main</code> and <code>Module</code>, instead
+requiring you to prefix these methods with <code>RSpec.</code>. It enables
+expect-only syntax for rspec-mocks and rspec-expectations. It
+simply disables monkey patching on whatever pieces of RSpec
+the user is using.</p>
 
 
   </div>
@@ -6040,7 +5978,7 @@
       <div class="method_details ">
   <h3 class="signature " id="exclusion_filter-instance_method">
   
-    #<strong>exclusion_filter</strong>  &#x21d2; <tt>void</tt> 
+    #<strong>exclusion_filter</strong>  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -6048,8 +5986,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns the <code>exclusion_filter</code>. If none has been set, returns an empty hash.</p>
+    <p>Returns the <code>exclusion_filter</code>. If none has been set, returns an empty
+hash.</p>
 
 
   </div>
@@ -6081,7 +6019,7 @@
       <div class="method_details ">
   <h3 class="signature " id="exclusion_filter=-instance_method">
   
-    #<strong>exclusion_filter=</strong>(filter)  &#x21d2; <tt>void</tt> 
+    #<strong>exclusion_filter=</strong>(filter)  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -6089,12 +6027,13 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Clears and reassigns the <code>exclusion_filter</code>. Set to <code>nil</code> if you don&#39;t want any exclusion filter at all.</p>
+    <p>Clears and reassigns the <code>exclusion_filter</code>. Set to <code>nil</code> if you don&#39;t
+want any exclusion filter at all.</p>
 
-<h3 id="label-Warning">Warning</h3>
+<h3>Warning</h3>
 
-<p>This overrides any exclusion filters/tags set on the command line or in configuration files.</p>
+<p>This overrides any exclusion filters/tags set on the command line or in
+configuration files.</p>
 
 
   </div>
@@ -6128,7 +6067,7 @@
       <div class="method_details ">
   <h3 class="signature " id="expect_with-instance_method">
   
-    #<strong>expect_with</strong>(*frameworks)  &#x21d2; <tt>void</tt> 
+    #<strong>expect_with</strong>(*frameworks)  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -6136,10 +6075,11 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Sets the expectation framework module(s) to be included in each example group.</p>
+    <p>Sets the expectation framework module(s) to be included in each example
+group.</p>
 
-<p><code>frameworks</code> can be <code>:rspec</code>, <code>:test_unit</code>, <code>:minitest</code>, a custom module, or any combination thereof:</p>
+<p><code>frameworks</code> can be <code>:rspec</code>, <code>:test_unit</code>, <code>:minitest</code>, a custom
+module, or any combination thereof:</p>
 
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_expect_with'>expect_with</span> <span class='symbol'>:rspec</span>
 <span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_expect_with'>expect_with</span> <span class='symbol'>:test_unit</span>
@@ -6148,11 +6088,13 @@
 <span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_expect_with'>expect_with</span> <span class='const'>OtherExpectationFramework</span>
 </code></pre>
 
-<p>RSpec will translate <code>:rspec</code>, <code>:minitest</code>, and <code>:test_unit</code> into the appropriate modules.</p>
+<p>RSpec will translate <code>:rspec</code>, <code>:minitest</code>, and <code>:test_unit</code> into the
+appropriate modules.</p>
 
-<h2 id="label-Configuration">Configuration</h2>
+<h2>Configuration</h2>
 
-<p>If the module responds to <code>configuration</code>, <code>expect_with</code> will yield the <code>configuration</code> object if given a block:</p>
+<p>If the module responds to <code>configuration</code>, <code>expect_with</code> will
+yield the <code>configuration</code> object if given a block:</p>
 
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_expect_with'>expect_with</span> <span class='const'>OtherExpectationFramework</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_custom_config'>custom_config</span><span class='op'>|</span>
   <span class='id identifier rubyid_custom_config'>custom_config</span><span class='period'>.</span><span class='id identifier rubyid_custom_setting'>custom_setting</span> <span class='op'>=</span> <span class='kw'>true</span>
@@ -6265,7 +6207,7 @@
       <div class="method_details ">
   <h3 class="signature " id="expectation_framework=-instance_method">
   
-    #<strong>expectation_framework=</strong>(framework)  &#x21d2; <tt>void</tt> 
+    #<strong>expectation_framework=</strong>(framework)  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -6273,8 +6215,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Delegates to expect_with(framework).</p>
+    <p>Delegates to expect_with(framework).</p>
 
 
   </div>
@@ -6306,7 +6247,7 @@
       <div class="method_details ">
   <h3 class="signature " id="expectation_frameworks-instance_method">
   
-    #<strong>expectation_frameworks</strong>  &#x21d2; <tt>void</tt> 
+    #<strong>expectation_frameworks</strong>  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -6314,8 +6255,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns the configured expectation framework adapter module(s)</p>
+    <p>Returns the configured expectation framework adapter module(s)</p>
 
 
   </div>
@@ -6361,7 +6301,7 @@
       <div class="method_details ">
   <h3 class="signature " id="expose_current_running_example_as-instance_method">
   
-    #<strong>expose_current_running_example_as</strong>(method_name)  &#x21d2; <tt>void</tt> 
+    #<strong>expose_current_running_example_as</strong>(method_name)  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -6369,8 +6309,13 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Exposes the current running example via the named helper method. RSpec 2.x exposed this via <code>example</code>, but in RSpec 3.0, the example is instead exposed via an arg yielded to <code>it</code>, <code>before</code>, <code>let</code>, etc. However, some extension gems (such as Capybara) depend on the RSpec 2.x&#39;s <code>example</code> method, so this config option can be used to maintain compatibility.</p>
+    <p>Exposes the current running example via the named
+helper method. RSpec 2.x exposed this via <code>example</code>,
+but in RSpec 3.0, the example is instead exposed via
+an arg yielded to <code>it</code>, <code>before</code>, <code>let</code>, etc. However,
+some extension gems (such as Capybara) depend on the
+RSpec 2.x&#39;s <code>example</code> method, so this config option
+can be used to maintain compatibility.</p>
 
 
   </div>
@@ -6407,8 +6352,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>the name of the helper method</p>
+        <div class='inline'><p>the name of the helper method</p>
 </div>
       
     </li>
@@ -6450,7 +6394,7 @@
       <div class="method_details ">
   <h3 class="signature " id="expose_dsl_globally=-instance_method">
   
-    #<strong>expose_dsl_globally=</strong>(value)  &#x21d2; <tt>void</tt> 
+    #<strong>expose_dsl_globally=</strong>(value)  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -6458,8 +6402,10 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Use this to expose the core RSpec DSL via <code>Module</code> and the <code>main</code> object. It will be set automatically but you can override it to remove the DSL. Default: true</p>
+    <p>Use this to expose the core RSpec DSL via <code>Module</code> and the <code>main</code>
+object. It will be set automatically but you can override it to
+remove the DSL.
+Default: true</p>
 
 
   </div>
@@ -6511,8 +6457,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Indicates if the DSL has been exposed off of modules and <code>main</code>. Default: true</p>
+    <p>Indicates if the DSL has been exposed off of modules and <code>main</code>.
+Default: true</p>
 
 
   </div>
@@ -6557,7 +6503,7 @@
       <div class="method_details ">
   <h3 class="signature " id="extend-instance_method">
   
-    #<strong>extend</strong>(mod, *filters)  &#x21d2; <tt>void</tt> 
+    #<strong>extend</strong>(mod, *filters)  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -6565,10 +6511,13 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Tells RSpec to extend example groups with <code>mod</code>. Methods defined in <code>mod</code> are exposed to example groups (not examples). Use <code>filters</code> to constrain the groups to extend.</p>
+    <p>Tells RSpec to extend example groups with <code>mod</code>. Methods defined in
+<code>mod</code> are exposed to example groups (not examples). Use <code>filters</code> to
+constrain the groups to extend.</p>
 
-<p>Similar to <code>include</code>, but behavior is added to example groups, which are classes, rather than the examples, which are instances of those classes.</p>
+<p>Similar to <code>include</code>, but behavior is added to example groups, which
+are classes, rather than the examples, which are instances of those
+classes.</p>
 
 
   </div>
@@ -6638,7 +6587,7 @@
       <div class="method_details ">
   <h3 class="signature " id="filter_gems_from_backtrace-instance_method">
   
-    #<strong>filter_gems_from_backtrace</strong>(*gem_names)  &#x21d2; <tt>void</tt> 
+    #<strong>filter_gems_from_backtrace</strong>(*gem_names)  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -6649,13 +6598,17 @@
     
   <div class="note notetag">
     <strong>Note:</strong>
-    <div class='inline'>
-<p>The patterns this adds will match the named gems in their common locations (e.g. system gems, vendored with bundler, installed as a :git dependency with bundler, etc) but is not guaranteed to work for all possible gem locations. For example, if you have the gem source in a directory with a completely unrelated name, and use bundler&#39;s :path option, this will not filter it.</p>
+    <div class='inline'><p>The patterns this adds will match the named gems in their common
+locations (e.g. system gems, vendored with bundler, installed as a
+:git dependency with bundler, etc) but is not guaranteed to work for
+all possible gem locations. For example, if you have the gem source
+in a directory with a completely unrelated name, and use bundler&#39;s
+:path option, this will not filter it.</p>
 </div>
   </div>
 
-
-<p>Adds <span class='object_link'><a href="#backtrace_exclusion_patterns-instance_method" title="RSpec::Core::Configuration#backtrace_exclusion_patterns (method)">#backtrace_exclusion_patterns</a></span> that will filter lines from the named gems from backtraces.</p>
+<p>Adds <span class='object_link'><a href="#backtrace_exclusion_patterns-instance_method" title="RSpec::Core::Configuration#backtrace_exclusion_patterns (method)">#backtrace_exclusion_patterns</a></span> that will filter lines from
+the named gems from backtraces.</p>
 
 
   </div>
@@ -6684,8 +6637,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>Names of the gems to filter</p>
+        <div class='inline'><p>Names of the gems to filter</p>
 </div>
       
     </li>
@@ -6721,7 +6673,7 @@
       <div class="method_details ">
   <h3 class="signature " id="filter_run_excluding-instance_method">
   
-    #<strong>filter_run_excluding</strong>(*args)  &#x21d2; <tt>void</tt> 
+    #<strong>filter_run_excluding</strong>(*args)  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -6729,12 +6681,14 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Adds key/value pairs to the <code>exclusion_filter</code>. If <code>args</code> includes any symbols that are not part of the hash, each symbol is treated as a key in the hash with the value <code>true</code>.</p>
+    <p>Adds key/value pairs to the <code>exclusion_filter</code>. If <code>args</code>
+includes any symbols that are not part of the hash, each symbol
+is treated as a key in the hash with the value <code>true</code>.</p>
 
-<h3 id="label-Note">Note</h3>
+<h3>Note</h3>
 
-<p>Filters set using this method can be overridden from the command line or config files (e.g. <code>.rspec</code>).</p>
+<p>Filters set using this method can be overridden from the command line
+or config files (e.g. <code>.rspec</code>).</p>
 
 
   </div>
@@ -6797,7 +6751,7 @@
       <div class="method_details ">
   <h3 class="signature " id="filter_run_including-instance_method">
   
-    #<strong>filter_run_including</strong>(*args)  &#x21d2; <tt>void</tt> 
+    #<strong>filter_run_including</strong>(*args)  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -6809,12 +6763,14 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Adds key/value pairs to the <code>inclusion_filter</code>. If <code>args</code> includes any symbols that are not part of the hash, each symbol is treated as a key in the hash with the value <code>true</code>.</p>
+    <p>Adds key/value pairs to the <code>inclusion_filter</code>. If <code>args</code>
+includes any symbols that are not part of the hash, each symbol
+is treated as a key in the hash with the value <code>true</code>.</p>
 
-<h3 id="label-Note">Note</h3>
+<h3>Note</h3>
 
-<p>Filters set using this method can be overridden from the command line or config files (e.g. <code>.rspec</code>).</p>
+<p>Filters set using this method can be overridden from the command line
+or config files (e.g. <code>.rspec</code>).</p>
 
 
   </div>
@@ -6877,7 +6833,7 @@
       <div class="method_details ">
   <h3 class="signature " id="filter_run_when_matching-instance_method">
   
-    #<strong>filter_run_when_matching</strong>(*args)  &#x21d2; <tt>void</tt> 
+    #<strong>filter_run_when_matching</strong>(*args)  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -6885,8 +6841,15 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Applies the provided filter only if any of examples match, in constrast to <span class='object_link'><a href="#filter_run-instance_method" title="RSpec::Core::Configuration#filter_run (method)">#filter_run</a></span>, which always applies even if no examples match, in which case no examples will be run. This allows you to leave configured filters in place that are intended only for temporary use. The most common example is focus filtering: <code>config.filter_run_when_matching :focus</code>. With that configured, you can temporarily focus an example or group by tagging it with <code>:focus</code> metadata, or prefixing it with an <code>f</code> (as in <code>fdescribe</code>, <code>fcontext</code> and <code>fit</code>) since those are aliases for <code>describe</code>/<code>context</code>/<code>it</code> with <code>:focus</code> metadata.</p>
+    <p>Applies the provided filter only if any of examples match, in constrast
+to <span class='object_link'><a href="#filter_run-instance_method" title="RSpec::Core::Configuration#filter_run (method)">#filter_run</a></span>, which always applies even if no examples match, in
+which case no examples will be run. This allows you to leave configured
+filters in place that are intended only for temporary use. The most common
+example is focus filtering: <code>config.filter_run_when_matching :focus</code>.
+With that configured, you can temporarily focus an example or group
+by tagging it with <code>:focus</code> metadata, or prefixing it with an <code>f</code>
+(as in <code>fdescribe</code>, <code>fcontext</code> and <code>fit</code>) since those are aliases for
+<code>describe</code>/<code>context</code>/<code>it</code> with <code>:focus</code> metadata.</p>
 
 
   </div>
@@ -6922,7 +6885,7 @@
       <div class="method_details ">
   <h3 class="signature " id="format_docstrings-instance_method">
   
-    #<strong>format_docstrings</strong>(&amp;block)  &#x21d2; <tt>void</tt> 
+    #<strong>format_docstrings</strong>(&amp;block)  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -6930,8 +6893,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Formats the docstring output using the block provided.</p>
+    <p>Formats the docstring output using the block provided.</p>
 
 
   </div>
@@ -6983,8 +6945,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns a duplicate of the formatters currently loaded in the <code>FormatterLoader</code> for introspection.</p>
+    <p>Returns a duplicate of the formatters currently loaded in
+the <code>FormatterLoader</code> for introspection.</p>
 
 <p>Note as this is a duplicate, any mutations will be disregarded.</p>
 
@@ -7004,8 +6966,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>the formatters currently loaded</p>
+        <div class='inline'><p>the formatters currently loaded</p>
 </div>
       
     </li>
@@ -7036,7 +6997,7 @@
       <div class="method_details ">
   <h3 class="signature " id="full_backtrace=-instance_method">
   
-    #<strong>full_backtrace=</strong>(true_or_false)  &#x21d2; <tt>void</tt> 
+    #<strong>full_backtrace=</strong>(true_or_false)  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -7044,8 +7005,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Toggle full backtrace.</p>
+    <p>Toggle full backtrace.</p>
 
 
   </div>
@@ -7085,8 +7045,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Check if full backtrace is enabled.</p>
+    <p>Check if full backtrace is enabled.</p>
 
 
   </div>
@@ -7104,8 +7063,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>is full backtrace enabled</p>
+        <div class='inline'><p>is full backtrace enabled</p>
 </div>
       
     </li>
@@ -7144,8 +7102,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns full description filter.</p>
+    <p>Returns full description filter.</p>
 
 
   </div>
@@ -7163,8 +7120,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>full description filter</p>
+        <div class='inline'><p>full description filter</p>
 </div>
       
     </li>
@@ -7195,7 +7151,7 @@
       <div class="method_details ">
   <h3 class="signature " id="full_description=-instance_method">
   
-    #<strong>full_description=</strong>(description)  &#x21d2; <tt>void</tt> 
+    #<strong>full_description=</strong>(description)  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -7203,8 +7159,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Run examples matching on <code>description</code> in all files to run.</p>
+    <p>Run examples matching on <code>description</code> in all files to run.</p>
 
 
   </div>
@@ -7223,8 +7178,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>the pattern to filter on</p>
+        <div class='inline'><p>the pattern to filter on</p>
 </div>
       
     </li>
@@ -7256,7 +7210,7 @@
       <div class="method_details ">
   <h3 class="signature " id="include-instance_method">
   
-    #<strong>include</strong>(mod, *filters)  &#x21d2; <tt>void</tt> 
+    #<strong>include</strong>(mod, *filters)  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -7267,13 +7221,18 @@
     
   <div class="note notetag">
     <strong>Note:</strong>
-    <div class='inline'>
-<p>Filtered module inclusions can also be applied to individual examples that have matching metadata. Just like Ruby&#39;s object model is that every object has a singleton class which has only a single instance, RSpec&#39;s model is that every example has a singleton example group containing just the one example.</p>
+    <div class='inline'><p>Filtered module inclusions can also be applied to
+individual examples that have matching metadata. Just like
+Ruby&#39;s object model is that every object has a singleton class
+which has only a single instance, RSpec&#39;s model is that every
+example has a singleton example group containing just the one
+example.</p>
 </div>
   </div>
 
-
-<p>Tells RSpec to include <code>mod</code> in example groups. Methods defined in <code>mod</code> are exposed to examples (not example groups). Use <code>filters</code> to constrain the groups or examples in which to include the module.</p>
+<p>Tells RSpec to include <code>mod</code> in example groups. Methods defined in
+<code>mod</code> are exposed to examples (not example groups). Use <code>filters</code> to
+constrain the groups or examples in which to include the module.</p>
 
 
   </div>
@@ -7352,7 +7311,7 @@
       <div class="method_details ">
   <h3 class="signature " id="include_context-instance_method">
   
-    #<strong>include_context</strong>(shared_group_name, *filters)  &#x21d2; <tt>void</tt> 
+    #<strong>include_context</strong>(shared_group_name, *filters)  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -7363,13 +7322,18 @@
     
   <div class="note notetag">
     <strong>Note:</strong>
-    <div class='inline'>
-<p>Filtered context inclusions can also be applied to individual examples that have matching metadata. Just like Ruby&#39;s object model is that every object has a singleton class which has only a single instance, RSpec&#39;s model is that every example has a singleton example group containing just the one example.</p>
+    <div class='inline'><p>Filtered context inclusions can also be applied to
+individual examples that have matching metadata. Just like
+Ruby&#39;s object model is that every object has a singleton class
+which has only a single instance, RSpec&#39;s model is that every
+example has a singleton example group containing just the one
+example.</p>
 </div>
   </div>
 
-
-<p>Tells RSpec to include the named shared example group in example groups. Use <code>filters</code> to constrain the groups or examples in which to include the example group.</p>
+<p>Tells RSpec to include the named shared example group in example groups.
+Use <code>filters</code> to constrain the groups or examples in which to include
+the example group.</p>
 
 
   </div>
@@ -7440,7 +7404,7 @@
       <div class="method_details ">
   <h3 class="signature " id="inclusion_filter-instance_method">
   
-    #<strong>inclusion_filter</strong>  &#x21d2; <tt>void</tt> 
+    #<strong>inclusion_filter</strong>  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -7452,8 +7416,8 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns the <code>inclusion_filter</code>. If none has been set, returns an empty hash.</p>
+    <p>Returns the <code>inclusion_filter</code>. If none has been set, returns an empty
+hash.</p>
 
 
   </div>
@@ -7485,7 +7449,7 @@
       <div class="method_details ">
   <h3 class="signature " id="inclusion_filter=-instance_method">
   
-    #<strong>inclusion_filter=</strong>(filter)  &#x21d2; <tt>void</tt> 
+    #<strong>inclusion_filter=</strong>(filter)  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -7497,12 +7461,13 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Clears and reassigns the <code>inclusion_filter</code>. Set to <code>nil</code> if you don&#39;t want any inclusion filter at all.</p>
+    <p>Clears and reassigns the <code>inclusion_filter</code>. Set to <code>nil</code> if you don&#39;t
+want any inclusion filter at all.</p>
 
-<h3 id="label-Warning">Warning</h3>
+<h3>Warning</h3>
 
-<p>This overrides any inclusion filters/tags set on the command line or in configuration files.</p>
+<p>This overrides any inclusion filters/tags set on the command line or in
+configuration files.</p>
 
 
   </div>
@@ -7544,8 +7509,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns the configured mock framework adapter module.</p>
+    <p>Returns the configured mock framework adapter module.</p>
 
 
   </div>
@@ -7604,7 +7568,7 @@
       <div class="method_details ">
   <h3 class="signature " id="mock_framework=-instance_method">
   
-    #<strong>mock_framework=</strong>(framework)  &#x21d2; <tt>void</tt> 
+    #<strong>mock_framework=</strong>(framework)  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -7612,8 +7576,7 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Delegates to mock_framework=(framework).</p>
+    <p>Delegates to mock_framework=(framework).</p>
 
 
   </div>
@@ -7645,7 +7608,7 @@
       <div class="method_details ">
   <h3 class="signature " id="mock_with-instance_method">
   
-    #<strong>mock_with</strong>(framework)  &#x21d2; <tt>void</tt> 
+    #<strong>mock_with</strong>(framework)  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -7653,16 +7616,18 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Sets the mock framework adapter module.</p>
+    <p>Sets the mock framework adapter module.</p>
 
 <p><code>framework</code> can be a Symbol or a Module.</p>
 
-<p>Given any of <code>:rspec</code>, <code>:mocha</code>, <code>:flexmock</code>, or <code>:rr</code>, configures the named framework.</p>
+<p>Given any of <code>:rspec</code>, <code>:mocha</code>, <code>:flexmock</code>, or <code>:rr</code>, configures the
+named framework.</p>
 
-<p>Given <code>:nothing</code>, configures no framework. Use this if you don&#39;t use any mocking framework to save a little bit of overhead.</p>
+<p>Given <code>:nothing</code>, configures no framework. Use this if you don&#39;t use
+any mocking framework to save a little bit of overhead.</p>
 
-<p>Given a Module, includes that module in every example group. The module should adhere to RSpec&#39;s mock framework adapter API:</p>
+<p>Given a Module, includes that module in every example group. The module
+should adhere to RSpec&#39;s mock framework adapter API:</p>
 
 <pre class="code ruby"><code class="ruby">setup_mocks_for_rspec
   - called before each example
@@ -7675,7 +7640,8 @@ teardown_mocks_for_rspec
   - called after verify_mocks_for_rspec (even if there are errors)
 </code></pre>
 
-<p>If the module responds to <code>configuration</code> and <code>mock_with</code> receives a block, it will yield the configuration object to the block e.g.</p>
+<p>If the module responds to <code>configuration</code> and <code>mock_with</code> receives a
+block, it will yield the configuration object to the block e.g.</p>
 
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_mock_with'>mock_with</span> <span class='const'>OtherMockFrameworkAdapter</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_mod_config'>mod_config</span><span class='op'>|</span>
   <span class='id identifier rubyid_mod_config'>mod_config</span><span class='period'>.</span><span class='id identifier rubyid_custom_setting'>custom_setting</span> <span class='op'>=</span> <span class='kw'>true</span>
@@ -7768,7 +7734,7 @@ teardown_mocks_for_rspec
       <div class="method_details ">
   <h3 class="signature " id="on_example_group_definition-instance_method">
   
-    #<strong>on_example_group_definition</strong>(&amp;block)  &#x21d2; <tt>void</tt> 
+    #<strong>on_example_group_definition</strong>(&amp;block)  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -7776,8 +7742,7 @@ teardown_mocks_for_rspec
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Invokes block before defining an example group</p>
+    <p>Invokes block before defining an example group</p>
 
 
   </div>
@@ -7809,7 +7774,7 @@ teardown_mocks_for_rspec
       <div class="method_details ">
   <h3 class="signature " id="on_example_group_definition_callbacks-instance_method">
   
-    #<strong>on_example_group_definition_callbacks</strong>  &#x21d2; <tt>void</tt> 
+    #<strong>on_example_group_definition_callbacks</strong>  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -7821,7 +7786,6 @@ teardown_mocks_for_rspec
   <strong>This method is part of a private API.</strong>
   You should avoid using this method if possible, as it may be removed or be changed in the future.
 </p>
-
 <p>Returns an array of blocks to call before defining an example group</p>
 
 
@@ -7854,7 +7818,7 @@ teardown_mocks_for_rspec
       <div class="method_details ">
   <h3 class="signature " id="order=-instance_method">
   
-    #<strong>order=</strong>(value)  &#x21d2; <tt>void</tt> 
+    #<strong>order=</strong>(value)  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -7862,8 +7826,10 @@ teardown_mocks_for_rspec
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Sets the default global ordering strategy. By default this can be one of <code>:defined</code>, <code>:random</code>, but is customizable through the <code>register_ordering</code> API. If order is set to <code>&#39;rand:&lt;seed&gt;&#39;</code>, the seed will also be set.</p>
+    <p>Sets the default global ordering strategy. By default this can be one
+of <code>:defined</code>, <code>:random</code>, but is customizable through the
+<code>register_ordering</code> API. If order is set to <code>&#39;rand:&lt;seed&gt;&#39;</code>,
+the seed will also be set.</p>
 
 
   </div>
@@ -7898,7 +7864,7 @@ teardown_mocks_for_rspec
       <div class="method_details ">
   <h3 class="signature " id="prepend-instance_method">
   
-    #<strong>prepend</strong>(mod, *filters)  &#x21d2; <tt>void</tt> 
+    #<strong>prepend</strong>(mod, *filters)  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -7906,10 +7872,12 @@ teardown_mocks_for_rspec
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Tells RSpec to prepend example groups with <code>mod</code>. Methods defined in <code>mod</code> are exposed to examples (not example groups). Use <code>filters</code> to constrain the groups in which to prepend the module.</p>
+    <p>Tells RSpec to prepend example groups with <code>mod</code>. Methods defined in
+<code>mod</code> are exposed to examples (not example groups). Use <code>filters</code> to
+constrain the groups in which to prepend the module.</p>
 
-<p>Similar to <code>include</code>, but module is included before the example group&#39;s class in the ancestor chain.</p>
+<p>Similar to <code>include</code>, but module is included before the example group&#39;s class
+in the ancestor chain.</p>
 
 
   </div>
@@ -7982,7 +7950,7 @@ teardown_mocks_for_rspec
       <div class="method_details ">
   <h3 class="signature " id="prepend_before-instance_method">
   
-    #<strong>prepend_before</strong>(scope = nil, *meta, &amp;block)  &#x21d2; <tt>void</tt> 
+    #<strong>prepend_before</strong>(scope = nil, *meta, &amp;block)  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -7990,12 +7958,15 @@ teardown_mocks_for_rspec
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Adds <code>block</code> to the start of the list of <code>before</code> blocks in the same scope (<code>:example</code>, <code>:context</code>, or <code>:suite</code>), in contrast to <span class='object_link'><a href="#before-instance_method" title="RSpec::Core::Configuration#before (method)">#before</a></span>, which adds the hook to the end of the list.</p>
+    <p>Adds <code>block</code> to the start of the list of <code>before</code> blocks in the same
+scope (<code>:example</code>, <code>:context</code>, or <code>:suite</code>), in contrast to <span class='object_link'><a href="#before-instance_method" title="RSpec::Core::Configuration#before (method)">#before</a></span>,
+which adds the hook to the end of the list.</p>
 
 <p>See <span class='object_link'><a href="Hooks.html#before-instance_method" title="RSpec::Core::Hooks#before (method)">Hooks#before</a></span> for full <code>before</code> hook docs.</p>
 
-<p>This method differs from <span class='object_link'><a href="Hooks.html#prepend_before-instance_method" title="RSpec::Core::Hooks#prepend_before (method)">Hooks#prepend_before</a></span> in only one way: it supports the <code>:suite</code> scope. Hooks with the <code>:suite</code> scope will be run once before the first example of the entire suite is executed.</p>
+<p>This method differs from <span class='object_link'><a href="Hooks.html#prepend_before-instance_method" title="RSpec::Core::Hooks#prepend_before (method)">Hooks#prepend_before</a></span> in only one way: it supports
+the <code>:suite</code> scope. Hooks with the <code>:suite</code> scope will be run once before
+the first example of the entire suite is executed.</p>
 
 
   </div>
@@ -8060,7 +8031,7 @@ teardown_mocks_for_rspec
       <div class="method_details ">
   <h3 class="signature " id="raise_errors_for_deprecations!-instance_method">
   
-    #<strong>raise_errors_for_deprecations!</strong>  &#x21d2; <tt>void</tt> 
+    #<strong>raise_errors_for_deprecations!</strong>  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -8068,8 +8039,10 @@ teardown_mocks_for_rspec
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Turns deprecation warnings into errors, in order to surface the full backtrace of the call site. This can be useful when you need more context to address a deprecation than the single-line call site normally provided.</p>
+    <p>Turns deprecation warnings into errors, in order to surface
+the full backtrace of the call site. This can be useful when
+you need more context to address a deprecation than the
+single-line call site normally provided.</p>
 
 
   </div>
@@ -8112,7 +8085,7 @@ teardown_mocks_for_rspec
       <div class="method_details ">
   <h3 class="signature " id="raise_on_warning=-instance_method">
   
-    #<strong>raise_on_warning=</strong>(value)  &#x21d2; <tt>void</tt> 
+    #<strong>raise_on_warning=</strong>(value)  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -8120,8 +8093,8 @@ teardown_mocks_for_rspec
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Turns warnings into errors. This can be useful when you want RSpec to run in a &#39;strict&#39; no warning situation.</p>
+    <p>Turns warnings into errors. This can be useful when
+you want RSpec to run in a &#39;strict&#39; no warning situation.</p>
 
 
   </div>
@@ -8172,7 +8145,7 @@ teardown_mocks_for_rspec
       <div class="method_details ">
   <h3 class="signature " id="register_ordering-instance_method">
   
-    #<strong>register_ordering</strong>(name) {|list| ... } &#x21d2; <tt>void</tt> 
+    #<strong>register_ordering</strong>(name) {|list| ... } &#x21d2; <tt>Object</tt> 
   
 
   
@@ -8183,13 +8156,15 @@ teardown_mocks_for_rspec
     
   <div class="note notetag">
     <strong>Note:</strong>
-    <div class='inline'>
-<p>Pass the symbol <code>:global</code> to set the ordering strategy that will be used to order the top-level example groups and any example groups that do not have declared <code>:order</code> metadata.</p>
+    <div class='inline'><p>Pass the symbol <code>:global</code> to set the ordering strategy that
+will be used to order the top-level example groups and any example
+groups that do not have declared <code>:order</code> metadata.</p>
 </div>
   </div>
 
-
-<p>Registers a named ordering strategy that can later be used to order an example group&#39;s subgroups by adding <code>:order =&gt; &lt;name&gt;</code> metadata to the example group.</p>
+<p>Registers a named ordering strategy that can later be
+used to order an example group&#39;s subgroups by adding
+<code>:order =&gt; &lt;name&gt;</code> metadata to the example group.</p>
 
 
   </div>
@@ -8242,8 +8217,7 @@ teardown_mocks_for_rspec
       
       
         &mdash;
-        <div class='inline'>
-<p>The name of the ordering.</p>
+        <div class='inline'><p>The name of the ordering.</p>
 </div>
       
     </li>
@@ -8261,8 +8235,7 @@ teardown_mocks_for_rspec
       
       
         
-        <div class='inline'>
-<p>Block that will order the given examples or example groups</p>
+        <div class='inline'><p>Block that will order the given examples or example groups</p>
 </div>
       
     </li>
@@ -8281,8 +8254,7 @@ teardown_mocks_for_rspec
       
       
         &mdash;
-        <div class='inline'>
-<p>The examples or groups to order</p>
+        <div class='inline'><p>The examples or groups to order</p>
 </div>
       
     </li>
@@ -8299,8 +8271,7 @@ teardown_mocks_for_rspec
       
       
         &mdash;
-        <div class='inline'>
-<p>The re-ordered examples or groups</p>
+        <div class='inline'><p>The re-ordered examples or groups</p>
 </div>
       
     </li>
@@ -8335,8 +8306,7 @@ teardown_mocks_for_rspec
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns the currently configured reporter.</p>
+    <p>Returns the currently configured reporter.</p>
 
 
   </div>
@@ -8354,8 +8324,7 @@ teardown_mocks_for_rspec
       
       
         &mdash;
-        <div class='inline'>
-<p>the currently configured reporter</p>
+        <div class='inline'><p>the currently configured reporter</p>
 </div>
       
     </li>
@@ -8404,7 +8373,7 @@ teardown_mocks_for_rspec
       <div class="method_details ">
   <h3 class="signature " id="seed-instance_method">
   
-    #<strong>seed</strong>  &#x21d2; <tt>void</tt> 
+    #<strong>seed</strong>  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -8412,12 +8381,17 @@ teardown_mocks_for_rspec
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Seed for random ordering (default: generated randomly each run).</p>
+    <p>Seed for random ordering (default: generated randomly each run).</p>
 
-<p>When you run specs with <code>--order random</code>, RSpec generates a random seed for the randomization and prints it to the <code>output_stream</code> (assuming you&#39;re using RSpec&#39;s built-in formatters). If you discover an ordering dependency (i.e. examples fail intermittently depending on order), set this (on Configuration or on the command line with <code>--seed</code>) to run using the same seed while you debug the issue.</p>
+<p>When you run specs with <code>--order random</code>, RSpec generates a random seed
+for the randomization and prints it to the <code>output_stream</code> (assuming
+you&#39;re using RSpec&#39;s built-in formatters). If you discover an ordering
+dependency (i.e. examples fail intermittently depending on order), set
+this (on Configuration or on the command line with <code>--seed</code>) to run
+using the same seed while you debug the issue.</p>
 
-<p>We recommend, actually, that you use the command line approach so you don&#39;t accidentally leave the seed encoded.</p>
+<p>We recommend, actually, that you use the command line approach so you
+don&#39;t accidentally leave the seed encoded.</p>
 
 
   </div>
@@ -8445,7 +8419,7 @@ teardown_mocks_for_rspec
       <div class="method_details ">
   <h3 class="signature " id="seed=-instance_method">
   
-    #<strong>seed=</strong>(value)  &#x21d2; <tt>void</tt> 
+    #<strong>seed=</strong>(value)  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -8453,8 +8427,7 @@ teardown_mocks_for_rspec
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Sets the seed value and sets the default global ordering to random.</p>
+    <p>Sets the seed value and sets the default global ordering to random.</p>
 
 
   </div>
@@ -8482,7 +8455,7 @@ teardown_mocks_for_rspec
       <div class="method_details ">
   <h3 class="signature " id="treat_symbols_as_metadata_keys_with_true_values=-instance_method">
   
-    #<strong>treat_symbols_as_metadata_keys_with_true_values=</strong>(_value)  &#x21d2; <tt>void</tt> 
+    #<strong>treat_symbols_as_metadata_keys_with_true_values=</strong>(_value)  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -8490,8 +8463,9 @@ teardown_mocks_for_rspec
   
 </h3><div class="docstring">
   <div class="discussion">
-    <div class="note deprecated"><strong>Deprecated.</strong> <div class='inline'>
-<p>This config option was added in RSpec 2 to pave the way for this being the default behavior in RSpec 3. Now this option is a no-op.</p>
+    <div class="note deprecated"><strong>Deprecated.</strong> <div class='inline'><p>This config option was added in RSpec 2 to pave the way
+for this being the default behavior in RSpec 3. Now this option is
+a no-op.</p>
 </div></div>
 
 
@@ -8534,7 +8508,7 @@ teardown_mocks_for_rspec
       <div class="method_details ">
   <h3 class="signature " id="warnings=-instance_method">
   
-    #<strong>warnings=</strong>(value)  &#x21d2; <tt>void</tt> 
+    #<strong>warnings=</strong>(value)  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -8542,8 +8516,7 @@ teardown_mocks_for_rspec
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Set Ruby warnings on or off.</p>
+    <p>Set Ruby warnings on or off.</p>
 
 
   </div>
@@ -8583,8 +8556,7 @@ teardown_mocks_for_rspec
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Returns Whether or not ruby warnings are enabled.</p>
+    <p>Returns Whether or not ruby warnings are enabled.</p>
 
 
   </div>
@@ -8602,8 +8574,7 @@ teardown_mocks_for_rspec
       
       
         &mdash;
-        <div class='inline'>
-<p>Whether or not ruby warnings are enabled.</p>
+        <div class='inline'><p>Whether or not ruby warnings are enabled.</p>
 </div>
       
     </li>
@@ -8634,7 +8605,7 @@ teardown_mocks_for_rspec
       <div class="method_details ">
   <h3 class="signature " id="when_first_matching_example_defined-instance_method">
   
-    #<strong>when_first_matching_example_defined</strong>(*filters)  &#x21d2; <tt>void</tt> 
+    #<strong>when_first_matching_example_defined</strong>(*filters)  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -8642,10 +8613,14 @@ teardown_mocks_for_rspec
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Defines a callback that runs after the first example with matching metadata is defined. If no examples are defined with matching metadata, it will not get called at all.</p>
+    <p>Defines a callback that runs after the first example with matching
+metadata is defined. If no examples are defined with matching metadata,
+it will not get called at all.</p>
 
-<p>This can be used to ensure some setup is performed (such as bootstrapping a DB or loading a specific file that adds significantly to the boot time) if needed (as indicated by the presence of an example with matching metadata) but avoided otherwise.</p>
+<p>This can be used to ensure some setup is performed (such as bootstrapping
+a DB or loading a specific file that adds significantly to the boot time)
+if needed (as indicated by the presence of an example with matching metadata)
+but avoided otherwise.</p>
 
 
   </div>
@@ -8720,9 +8695,9 @@ teardown_mocks_for_rspec
 </div>
 
       <div id="footer">
-  Generated on Wed Jan 29 15:52:48 2020 by
+  Generated on Wed Feb 26 15:20:59 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.22 (ruby-2.7.0).
+  0.9.24 (ruby-2.7.0).
 </div>
 
 <script>

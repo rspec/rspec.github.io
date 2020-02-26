@@ -5,7 +5,7 @@
 <title>
   Module: RSpec::Core::MemoizedHelpers::ClassMethods
   
-    &mdash; Documentation by YARD 0.9.22
+    &mdash; Documentation by YARD 0.9.24
   
 </title>
 
@@ -89,8 +89,9 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    
-<p>This module is extended onto <span class='object_link'><a href="../ExampleGroup.html" title="RSpec::Core::ExampleGroup (class)">ExampleGroup</a></span>, making the methods available to be called from within example group blocks. You can think of them as being analagous to class macros.</p>
+    <p>This module is extended onto <span class='object_link'><a href="../ExampleGroup.html" title="RSpec::Core::ExampleGroup (class)">ExampleGroup</a></span>, making the methods
+available to be called from within example group blocks.
+You can think of them as being analagous to class macros.</p>
 
 
   </div>
@@ -116,7 +117,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#let-instance_method" title="#let (instance method)">#<strong>let</strong>(name, &amp;block)  &#x21d2; void </a>
+      <a href="#let-instance_method" title="#let (instance method)">#<strong>let</strong>(name, &amp;block)  &#x21d2; Object </a>
     
 
     
@@ -130,8 +131,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Generates a method whose return value is memoized after the first call.</p>
+    <span class="summary_desc"><div class='inline'><p>Generates a method whose return value is memoized after the first call.</p>
 </div></span>
   
 </li>
@@ -140,7 +140,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#let!-instance_method" title="#let! (instance method)">#<strong>let!</strong>(name, &amp;block)  &#x21d2; void </a>
+      <a href="#let!-instance_method" title="#let! (instance method)">#<strong>let!</strong>(name, &amp;block)  &#x21d2; Object </a>
     
 
     
@@ -154,8 +154,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Just like <code>let</code>, except the block is invoked by an implicit <code>before</code> hook.</p>
+    <span class="summary_desc"><div class='inline'><p>Just like <code>let</code>, except the block is invoked by an implicit <code>before</code> hook.</p>
 </div></span>
   
 </li>
@@ -164,7 +163,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#subject-instance_method" title="#subject (instance method)">#<strong>subject</strong>(name = nil, &amp;block)  &#x21d2; void </a>
+      <a href="#subject-instance_method" title="#subject (instance method)">#<strong>subject</strong>(name = nil, &amp;block)  &#x21d2; Object </a>
     
 
     
@@ -178,8 +177,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Declares a <code>subject</code> for an example group which can then be wrapped with <code>expect</code> using <code>is_expected</code> to make it the target of an expectation in a concise, one-line example.</p>
+    <span class="summary_desc"><div class='inline'><p>Declares a <code>subject</code> for an example group which can then be wrapped with <code>expect</code> using <code>is_expected</code> to make it the target of an expectation in a concise, one-line example.</p>
 </div></span>
   
 </li>
@@ -188,7 +186,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#subject!-instance_method" title="#subject! (instance method)">#<strong>subject!</strong>(name = nil, &amp;block)  &#x21d2; void </a>
+      <a href="#subject!-instance_method" title="#subject! (instance method)">#<strong>subject!</strong>(name = nil, &amp;block)  &#x21d2; Object </a>
     
 
     
@@ -202,8 +200,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Just like <code>subject</code>, except the block is invoked by an implicit <code>before</code> hook.</p>
+    <span class="summary_desc"><div class='inline'><p>Just like <code>subject</code>, except the block is invoked by an implicit <code>before</code> hook.</p>
 </div></span>
   
 </li>
@@ -221,7 +218,7 @@
       <div class="method_details first">
   <h3 class="signature first" id="let-instance_method">
   
-    #<strong>let</strong>(name, &amp;block)  &#x21d2; <tt>void</tt> 
+    #<strong>let</strong>(name, &amp;block)  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -232,27 +229,33 @@
     
   <div class="note notetag">
     <strong>Note:</strong>
-    <div class='inline'>
-<p><code>let</code> <em>can</em> enhance readability when used sparingly (1,2, or maybe 3 declarations) in any given example group, but that can quickly degrade with overuse. YMMV.</p>
+    <div class='inline'><p><code>let</code> <em>can</em> enhance readability when used sparingly (1,2, or
+maybe 3 declarations) in any given example group, but that can
+quickly degrade with overuse. YMMV.</p>
 </div>
   </div>
 
   <div class="note notetag">
     <strong>Note:</strong>
-    <div class='inline'>
-<p><code>let</code> can be configured to be threadsafe or not. If it is threadsafe, it will take longer to access the value. If it is not threadsafe, it may behave in surprising ways in examples that spawn separate threads. Specify this on <code>RSpec.configure</code></p>
+    <div class='inline'><p><code>let</code> can be configured to be threadsafe or not.
+If it is threadsafe, it will take longer to access the value.
+If it is not threadsafe, it may behave in surprising ways in examples
+that spawn separate threads. Specify this on <code>RSpec.configure</code></p>
 </div>
   </div>
 
   <div class="note notetag">
     <strong>Note:</strong>
-    <div class='inline'>
-<p>Because <code>let</code> is designed to create state that is reset between each example, and <code>before(:context)</code> is designed to setup state that is shared across <em>all</em> examples in an example group, <code>let</code> is <em>not</em> intended to be used in a <code>before(:context)</code> hook.</p>
+    <div class='inline'><p>Because <code>let</code> is designed to create state that is reset between
+each example, and <code>before(:context)</code> is designed to setup state that
+is shared across <em>all</em> examples in an example group, <code>let</code> is <em>not</em>
+intended to be used in a <code>before(:context)</code> hook.</p>
 </div>
   </div>
 
-
-<p>Generates a method whose return value is memoized after the first call. Useful for reducing duplication between examples that assign values to the same local variable.</p>
+<p>Generates a method whose return value is memoized after the first
+call. Useful for reducing duplication between examples that assign
+values to the same local variable.</p>
 
 
   </div>
@@ -369,7 +372,7 @@
       <div class="method_details ">
   <h3 class="signature " id="let!-instance_method">
   
-    #<strong>let!</strong>(name, &amp;block)  &#x21d2; <tt>void</tt> 
+    #<strong>let!</strong>(name, &amp;block)  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -377,8 +380,9 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Just like <code>let</code>, except the block is invoked by an implicit <code>before</code> hook. This serves a dual purpose of setting up state and providing a memoized reference to that state.</p>
+    <p>Just like <code>let</code>, except the block is invoked by an implicit <code>before</code>
+hook. This serves a dual purpose of setting up state and providing a
+memoized reference to that state.</p>
 
 
   </div>
@@ -467,7 +471,7 @@
       <div class="method_details ">
   <h3 class="signature " id="subject-instance_method">
   
-    #<strong>subject</strong>(name = nil, &amp;block)  &#x21d2; <tt>void</tt> 
+    #<strong>subject</strong>(name = nil, &amp;block)  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -478,15 +482,21 @@
     
   <div class="note notetag">
     <strong>Note:</strong>
-    <div class='inline'>
-<p><code>subject</code> can be configured to be threadsafe or not. If it is threadsafe, it will take longer to access the value. If it is not threadsafe, it may behave in surprising ways in examples that spawn separate threads. Specify this on <code>RSpec.configure</code></p>
+    <div class='inline'><p><code>subject</code> can be configured to be threadsafe or not.
+If it is threadsafe, it will take longer to access the value.
+If it is not threadsafe, it may behave in surprising ways in examples
+that spawn separate threads. Specify this on <code>RSpec.configure</code></p>
 </div>
   </div>
 
+<p>Declares a <code>subject</code> for an example group which can then be wrapped
+with <code>expect</code> using <code>is_expected</code> to make it the target of an
+expectation in a concise, one-line example.</p>
 
-<p>Declares a <code>subject</code> for an example group which can then be wrapped with <code>expect</code> using <code>is_expected</code> to make it the target of an expectation in a concise, one-line example.</p>
-
-<p>Given a <code>name</code>, defines a method with that name which returns the <code>subject</code>. This lets you declare the subject once and access it implicitly in one-liners and explicitly using an intention revealing name.</p>
+<p>Given a <code>name</code>, defines a method with that name which returns the
+<code>subject</code>. This lets you declare the subject once and access it
+implicitly in one-liners and explicitly using an intention revealing
+name.</p>
 
 <p>When given a <code>name</code>, calling <code>super</code> in the block is not supported.</p>
 
@@ -530,8 +540,8 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>used to define an accessor with an intention revealing name</p>
+        <div class='inline'><p>used to define an accessor with an
+intention revealing name</p>
 </div>
       
     </li>
@@ -546,8 +556,7 @@
       
       
         &mdash;
-        <div class='inline'>
-<p>defines the value to be returned by <code>subject</code> in examples</p>
+        <div class='inline'><p>defines the value to be returned by <code>subject</code> in examples</p>
 </div>
       
     </li>
@@ -608,7 +617,7 @@
       <div class="method_details ">
   <h3 class="signature " id="subject!-instance_method">
   
-    #<strong>subject!</strong>(name = nil, &amp;block)  &#x21d2; <tt>void</tt> 
+    #<strong>subject!</strong>(name = nil, &amp;block)  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -616,8 +625,9 @@
   
 </h3><div class="docstring">
   <div class="discussion">
-    
-<p>Just like <code>subject</code>, except the block is invoked by an implicit <code>before</code> hook. This serves a dual purpose of setting up state and providing a memoized reference to that state.</p>
+    <p>Just like <code>subject</code>, except the block is invoked by an implicit
+<code>before</code> hook. This serves a dual purpose of setting up state and
+providing a memoized reference to that state.</p>
 
 
   </div>
@@ -708,9 +718,9 @@
 </div>
 
       <div id="footer">
-  Generated on Wed Jan 29 15:52:38 2020 by
+  Generated on Wed Feb 26 15:20:57 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.22 (ruby-2.7.0).
+  0.9.24 (ruby-2.7.0).
 </div>
 
 <script>

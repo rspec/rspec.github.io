@@ -5,7 +5,7 @@
 <title>
   Module: RSpec::Core::MemoizedHelpers
   
-    &mdash; Documentation by YARD 0.9.22
+    &mdash; Documentation by YARD 0.9.24
   
 </title>
 
@@ -89,8 +89,8 @@
 
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    
-<p>This module is included in <span class='object_link'><a href="ExampleGroup.html" title="RSpec::Core::ExampleGroup (class)">ExampleGroup</a></span>, making the methods available to be called from within example blocks.</p>
+    <p>This module is included in <span class='object_link'><a href="ExampleGroup.html" title="RSpec::Core::ExampleGroup (class)">ExampleGroup</a></span>, making the methods
+available to be called from within example blocks.</p>
 
 
   </div>
@@ -133,7 +133,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#is_expected-instance_method" title="#is_expected (instance method)">#<strong>is_expected</strong>  &#x21d2; void </a>
+      <a href="#is_expected-instance_method" title="#is_expected (instance method)">#<strong>is_expected</strong>  &#x21d2; Object </a>
     
 
     
@@ -147,8 +147,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Wraps the <code>subject</code> in <code>expect</code> to make it the target of an expectation.</p>
+    <span class="summary_desc"><div class='inline'><p>Wraps the <code>subject</code> in <code>expect</code> to make it the target of an expectation.</p>
 </div></span>
   
 </li>
@@ -157,7 +156,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#should-instance_method" title="#should (instance method)">#<strong>should</strong>(matcher = nil, message = nil)  &#x21d2; void </a>
+      <a href="#should-instance_method" title="#should (instance method)">#<strong>should</strong>(matcher = nil, message = nil)  &#x21d2; Object </a>
     
 
     
@@ -171,8 +170,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>When <code>should</code> is called with no explicit receiver, the call is delegated to the object returned by <code>subject</code>.</p>
+    <span class="summary_desc"><div class='inline'><p>When <code>should</code> is called with no explicit receiver, the call is delegated to the object returned by <code>subject</code>.</p>
 </div></span>
   
 </li>
@@ -181,7 +179,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#should_not-instance_method" title="#should_not (instance method)">#<strong>should_not</strong>(matcher = nil, message = nil)  &#x21d2; void </a>
+      <a href="#should_not-instance_method" title="#should_not (instance method)">#<strong>should_not</strong>(matcher = nil, message = nil)  &#x21d2; Object </a>
     
 
     
@@ -195,8 +193,7 @@
   
 
   
-    <span class="summary_desc"><div class='inline'>
-<p>Just like <code>should</code>, <code>should_not</code> delegates to the subject (implicit or explicit) of the example group.</p>
+    <span class="summary_desc"><div class='inline'><p>Just like <code>should</code>, <code>should_not</code> delegates to the subject (implicit or explicit) of the example group.</p>
 </div></span>
   
 </li>
@@ -205,7 +202,7 @@
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#subject-instance_method" title="#subject (instance method)">#<strong>subject</strong>  &#x21d2; void </a>
+      <a href="#subject-instance_method" title="#subject (instance method)">#<strong>subject</strong>  &#x21d2; Object </a>
     
 
     
@@ -236,7 +233,7 @@
       <div class="method_details first">
   <h3 class="signature first" id="is_expected-instance_method">
   
-    #<strong>is_expected</strong>  &#x21d2; <tt>void</tt> 
+    #<strong>is_expected</strong>  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -247,13 +244,12 @@
     
   <div class="note notetag">
     <strong>Note:</strong>
-    <div class='inline'>
-<p>This only works if you are using rspec-expectations.</p>
+    <div class='inline'><p>This only works if you are using rspec-expectations.</p>
 </div>
   </div>
 
-
-<p>Wraps the <code>subject</code> in <code>expect</code> to make it the target of an expectation. Designed to read nicely for one-liners.</p>
+<p>Wraps the <code>subject</code> in <code>expect</code> to make it the target of an expectation.
+Designed to read nicely for one-liners.</p>
 
 
   </div>
@@ -308,7 +304,7 @@
       <div class="method_details ">
   <h3 class="signature " id="should-instance_method">
   
-    #<strong>should</strong>(matcher = nil, message = nil)  &#x21d2; <tt>void</tt> 
+    #<strong>should</strong>(matcher = nil, message = nil)  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -319,20 +315,20 @@
     
   <div class="note notetag">
     <strong>Note:</strong>
-    <div class='inline'>
-<p>This only works if you are using rspec-expectations.</p>
+    <div class='inline'><p>This only works if you are using rspec-expectations.</p>
 </div>
   </div>
 
   <div class="note notetag">
     <strong>Note:</strong>
-    <div class='inline'>
-<p>If you are using RSpec&#39;s newer expect-based syntax you may want to use <code>is_expected.to</code> instead of <code>should</code>.</p>
+    <div class='inline'><p>If you are using RSpec&#39;s newer expect-based syntax you may
+want to use <code>is_expected.to</code> instead of <code>should</code>.</p>
 </div>
   </div>
 
-
-<p>When <code>should</code> is called with no explicit receiver, the call is delegated to the object returned by <code>subject</code>. Combined with an implicit subject this supports very concise expressions.</p>
+<p>When <code>should</code> is called with no explicit receiver, the call is
+delegated to the object returned by <code>subject</code>. Combined with an
+implicit subject this supports very concise expressions.</p>
 
 
   </div>
@@ -384,7 +380,7 @@
       <div class="method_details ">
   <h3 class="signature " id="should_not-instance_method">
   
-    #<strong>should_not</strong>(matcher = nil, message = nil)  &#x21d2; <tt>void</tt> 
+    #<strong>should_not</strong>(matcher = nil, message = nil)  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -395,20 +391,19 @@
     
   <div class="note notetag">
     <strong>Note:</strong>
-    <div class='inline'>
-<p>This only works if you are using rspec-expectations.</p>
+    <div class='inline'><p>This only works if you are using rspec-expectations.</p>
 </div>
   </div>
 
   <div class="note notetag">
     <strong>Note:</strong>
-    <div class='inline'>
-<p>If you are using RSpec&#39;s newer expect-based syntax you may want to use <code>is_expected.to_not</code> instead of <code>should_not</code>.</p>
+    <div class='inline'><p>If you are using RSpec&#39;s newer expect-based syntax you may
+want to use <code>is_expected.to_not</code> instead of <code>should_not</code>.</p>
 </div>
   </div>
 
-
-<p>Just like <code>should</code>, <code>should_not</code> delegates to the subject (implicit or explicit) of the example group.</p>
+<p>Just like <code>should</code>, <code>should_not</code> delegates to the subject (implicit or
+explicit) of the example group.</p>
 
 
   </div>
@@ -460,7 +455,7 @@
       <div class="method_details ">
   <h3 class="signature " id="subject-instance_method">
   
-    #<strong>subject</strong>  &#x21d2; <tt>void</tt> 
+    #<strong>subject</strong>  &#x21d2; <tt>Object</tt> 
   
 
   
@@ -471,8 +466,8 @@
     
   <div class="note notetag">
     <strong>Note:</strong>
-    <div class='inline'>
-<p><code>subject</code> was contributed by Joe Ferris to support the one-liner syntax embraced by shoulda matchers:</p>
+    <div class='inline'><p><code>subject</code> was contributed by Joe Ferris to support the one-liner
+syntax embraced by shoulda matchers:</p>
 
 <pre class="code ruby"><code class="ruby"><span class='const'><span class='object_link'><a href="../../RSpec.html" title="RSpec (module)">RSpec</a></span></span><span class='period'>.</span><span class='id identifier rubyid_describe'>describe</span> <span class='const'>Widget</span> <span class='kw'>do</span>
   <span class='id identifier rubyid_it'>it</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_is_expected'>is_expected</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_validate_presence_of'>validate_presence_of</span><span class='lparen'>(</span><span class='symbol'>:name</span><span class='rparen'>)</span> <span class='rbrace'>}</span>  <span class='comment'># or
@@ -481,14 +476,18 @@
 <span class='kw'>end</span>
 </code></pre>
 
-<p>While the examples below demonstrate how to use <code>subject</code> explicitly in examples, we recommend that you define a method with an intention revealing name instead.</p>
+<p>While the examples below demonstrate how to use <code>subject</code>
+explicitly in examples, we recommend that you define a method with
+an intention revealing name instead.</p>
 </div>
   </div>
 
   <div class="note notetag">
     <strong>Note:</strong>
-    <div class='inline'>
-<p>Because <code>subject</code> is designed to create state that is reset between each example, and <code>before(:context)</code> is designed to setup state that is shared across <em>all</em> examples in an example group, <code>subject</code> is <em>not</em> intended to be used in a <code>before(:context)</code> hook.</p>
+    <div class='inline'><p>Because <code>subject</code> is designed to create state that is reset
+between each example, and <code>before(:context)</code> is designed to setup
+state that is shared across <em>all</em> examples in an example group,
+<code>subject</code> is <em>not</em> intended to be used in a <code>before(:context)</code> hook.</p>
 </div>
   </div>
 
@@ -573,9 +572,9 @@
 </div>
 
       <div id="footer">
-  Generated on Wed Jan 29 15:52:38 2020 by
+  Generated on Wed Feb 26 15:20:57 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.22 (ruby-2.7.0).
+  0.9.24 (ruby-2.7.0).
 </div>
 
 <script>
