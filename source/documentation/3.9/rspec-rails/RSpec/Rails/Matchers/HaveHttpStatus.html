@@ -307,11 +307,11 @@
     <span class='op'>::</span><span class='const'>ActionDispatch</span><span class='op'>::</span><span class='const'>TestResponse</span><span class='period'>.</span><span class='id identifier rubyid_from_response'>from_response</span><span class='lparen'>(</span><span class='id identifier rubyid_obj'>obj</span><span class='rparen'>)</span>
   <span class='kw'>elsif</span> <span class='op'>::</span><span class='const'>ActionDispatch</span><span class='op'>::</span><span class='const'>TestResponse</span> <span class='op'>===</span> <span class='id identifier rubyid_obj'>obj</span>
     <span class='id identifier rubyid_obj'>obj</span>
-  <span class='kw'>elsif</span> <span class='id identifier rubyid_obj'>obj</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:status_code</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_obj'>obj</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:response_headers</span><span class='rparen'>)</span>    <span class='comment'># Acts As Capybara Session
+  <span class='kw'>elsif</span> <span class='id identifier rubyid_obj'>obj</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:status_code</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_obj'>obj</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:response_headers</span><span class='rparen'>)</span>
+    <span class='comment'># Acts As Capybara Session
 </span>    <span class='comment'># Hack to support `Capybara::Session` without having to load
 </span>    <span class='comment'># Capybara or catch `NameError`s for the undefined constants
-</span>
-    <span class='id identifier rubyid_obj'>obj</span> <span class='op'>=</span> <span class='const'>ActionDispatch</span><span class='op'>::</span><span class='const'>Response</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='period'>.</span><span class='id identifier rubyid_tap'>tap</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_resp'>resp</span><span class='op'>|</span>
+</span>    <span class='id identifier rubyid_obj'>obj</span> <span class='op'>=</span> <span class='const'>ActionDispatch</span><span class='op'>::</span><span class='const'>Response</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='period'>.</span><span class='id identifier rubyid_tap'>tap</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_resp'>resp</span><span class='op'>|</span>
       <span class='id identifier rubyid_resp'>resp</span><span class='period'>.</span><span class='id identifier rubyid_status'>status</span>  <span class='op'>=</span> <span class='id identifier rubyid_obj'>obj</span><span class='period'>.</span><span class='id identifier rubyid_status_code'>status_code</span>
       <span class='id identifier rubyid_resp'>resp</span><span class='period'>.</span><span class='id identifier rubyid_headers'>headers</span><span class='period'>.</span><span class='id identifier rubyid_clear'>clear</span>
       <span class='id identifier rubyid_resp'>resp</span><span class='period'>.</span><span class='id identifier rubyid_headers'>headers</span><span class='period'>.</span><span class='id identifier rubyid_merge!'>merge!</span><span class='lparen'>(</span><span class='id identifier rubyid_obj'>obj</span><span class='period'>.</span><span class='id identifier rubyid_response_headers'>response_headers</span><span class='rparen'>)</span>
@@ -499,9 +499,9 @@
 </div>
 
       <div id="footer">
-  Generated on Wed Feb 26 16:49:48 2020 by
+  Generated on Fri Mar  6 10:53:45 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.24 (ruby-2.7.0).
+  0.9.24 (ruby-2.6.3).
 </div>
 
 <script>

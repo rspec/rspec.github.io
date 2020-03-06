@@ -2574,11 +2574,11 @@ a no-op.</p>
     <td>
       <pre class="code"><span class="info file"># File 'lib/rspec/core/configuration.rb', line 500</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span>  <span class='comment'># rubocop:disable Style/GlobalVars
-</span>
-  <span class='ivar'>@start_time</span> <span class='op'>=</span> <span class='gvar'>$_rspec_core_load_started_at</span> <span class='op'>||</span> <span class='op'>::</span><span class='const'><span class='object_link'><a href="../../RSpec.html" title="RSpec (module)">RSpec</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Core.html" title="RSpec::Core (module)">Core</a></span></span><span class='op'>::</span><span class='const'>Time</span><span class='period'>.</span><span class='id identifier rubyid_now'>now</span>  <span class='comment'># rubocop:enable Style/GlobalVars
-</span>
-  <span class='ivar'>@expectation_frameworks</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span>
+  <span class='comment'># rubocop:disable Style/GlobalVars
+</span>  <span class='ivar'>@start_time</span> <span class='op'>=</span> <span class='gvar'>$_rspec_core_load_started_at</span> <span class='op'>||</span> <span class='op'>::</span><span class='const'><span class='object_link'><a href="../../RSpec.html" title="RSpec (module)">RSpec</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Core.html" title="RSpec::Core (module)">Core</a></span></span><span class='op'>::</span><span class='const'>Time</span><span class='period'>.</span><span class='id identifier rubyid_now'>now</span>
+  <span class='comment'># rubocop:enable Style/GlobalVars
+</span>  <span class='ivar'>@expectation_frameworks</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
   <span class='ivar'>@include_modules</span> <span class='op'>=</span> <span class='const'>FilterableItemRepository</span><span class='op'>::</span><span class='const'>QueryOptimized</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='symbol'>:any?</span><span class='rparen'>)</span>
   <span class='ivar'>@extend_modules</span>  <span class='op'>=</span> <span class='const'>FilterableItemRepository</span><span class='op'>::</span><span class='const'>QueryOptimized</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='symbol'>:any?</span><span class='rparen'>)</span>
   <span class='ivar'>@prepend_modules</span> <span class='op'>=</span> <span class='const'>FilterableItemRepository</span><span class='op'>::</span><span class='const'>QueryOptimized</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='symbol'>:any?</span><span class='rparen'>)</span>
@@ -6530,9 +6530,9 @@ classes.</p>
       
       <pre class="example code"><code>
 <span class='kw'>module</span> <span class='const'>UiHelpers</span>
-  <span class='kw'>def</span> <span class='id identifier rubyid_run_in_browser'>run_in_browser</span>    <span class='comment'># ...
-</span>
-  <span class='kw'>end</span>
+  <span class='kw'>def</span> <span class='id identifier rubyid_run_in_browser'>run_in_browser</span>
+    <span class='comment'># ...
+</span>  <span class='kw'>end</span>
 <span class='kw'>end</span>
 
 <span class='const'><span class='object_link'><a href="../../RSpec.html" title="RSpec (module)">RSpec</a></span></span><span class='period'>.</span><span class='id identifier rubyid_configure'><span class='object_link'><a href="../../RSpec.html#configure-class_method" title="RSpec.configure (method)">configure</a></span></span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_config'>config</span><span class='op'>|</span>
@@ -8353,10 +8353,10 @@ used to order an example group&#39;s subgroups by adding
     <td>
       <pre class="code"><span class="info file"># File 'lib/rspec/core/configuration.rb', line 1024</span>
 
-<span class='kw'>def</span> <span class='id identifier rubyid_reporter'>reporter</span>  <span class='comment'># @reporter_buffer should only ever be set in this method to cover
+<span class='kw'>def</span> <span class='id identifier rubyid_reporter'>reporter</span>
+  <span class='comment'># @reporter_buffer should only ever be set in this method to cover
 </span>  <span class='comment'># initialization of @reporter.
-</span>
-  <span class='ivar'>@reporter_buffer</span> <span class='op'>||</span> <span class='ivar'>@reporter</span> <span class='op'>||=</span>
+</span>  <span class='ivar'>@reporter_buffer</span> <span class='op'>||</span> <span class='ivar'>@reporter</span> <span class='op'>||=</span>
     <span class='kw'>begin</span>
       <span class='ivar'>@reporter_buffer</span> <span class='op'>=</span> <span class='const'>DeprecationReporterBuffer</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
       <span class='id identifier rubyid_formatter_loader'>formatter_loader</span><span class='period'>.</span><span class='id identifier rubyid_prepare_default'>prepare_default</span> <span class='id identifier rubyid_output_wrapper'>output_wrapper</span><span class='comma'>,</span> <span class='id identifier rubyid_deprecation_stream'>deprecation_stream</span>
@@ -8695,9 +8695,9 @@ but avoided otherwise.</p>
 </div>
 
       <div id="footer">
-  Generated on Wed Feb 26 16:49:22 2020 by
+  Generated on Fri Mar  6 10:53:25 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.24 (ruby-2.7.0).
+  0.9.24 (ruby-2.6.3).
 </div>
 
 <script>

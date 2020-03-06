@@ -267,9 +267,9 @@ by including the method and the class in a module, which is then
 included in your spec:</p>
 
 <pre class="code ruby"><code class="ruby"><span class='kw'>module</span> <span class='const'>CustomGameMatchers</span>
-  <span class='kw'>class</span> <span class='const'>BeInZone</span>    <span class='comment'># ...
-</span>
-  <span class='kw'>end</span>
+  <span class='kw'>class</span> <span class='const'>BeInZone</span>
+    <span class='comment'># ...
+</span>  <span class='kw'>end</span>
 
   <span class='kw'>def</span> <span class='id identifier rubyid_be_in_zone'>be_in_zone</span><span class='lparen'>(</span><span class='id identifier rubyid_expected'>expected</span><span class='rparen'>)</span>
     <span class='comment'># ...
@@ -277,9 +277,9 @@ included in your spec:</p>
 <span class='kw'>end</span>
 
 <span class='id identifier rubyid_describe'>describe</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Player behaviour</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
-  <span class='id identifier rubyid_include'>include</span> <span class='const'>CustomGameMatchers</span>  <span class='comment'># ...
-</span>
-<span class='kw'>end</span>
+  <span class='id identifier rubyid_include'>include</span> <span class='const'>CustomGameMatchers</span>
+  <span class='comment'># ...
+</span><span class='kw'>end</span>
 </code></pre>
 
 <p>or you can include in globally in a spec_helper.rb file <tt>require</tt>d
@@ -3307,9 +3307,9 @@ that splatted out as individual items.</p>
     <p class="tag_title">Examples:</p>
     
       
-      <pre class="example code"><code><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_results'>results</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_contain_exactly'>contain_exactly</span><span class='lparen'>(</span><span class='int'>1</span><span class='comma'>,</span> <span class='int'>2</span><span class='rparen'>)</span><span class='comment'># is identical to:
-</span>
-<span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_results'>results</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_match_array'>match_array</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='int'>1</span><span class='comma'>,</span> <span class='int'>2</span><span class='rbracket'>]</span><span class='rparen'>)</span></code></pre>
+      <pre class="example code"><code><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_results'>results</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_contain_exactly'>contain_exactly</span><span class='lparen'>(</span><span class='int'>1</span><span class='comma'>,</span> <span class='int'>2</span><span class='rparen'>)</span>
+<span class='comment'># is identical to:
+</span><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_results'>results</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_match_array'>match_array</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='int'>1</span><span class='comma'>,</span> <span class='int'>2</span><span class='rbracket'>]</span><span class='rparen'>)</span></code></pre>
     
   </div>
 
@@ -4089,9 +4089,9 @@ no arguments. Fails if it does not yield, or yields with arguments.</p>
 </div>
 
       <div id="footer">
-  Generated on Wed Feb 26 16:49:31 2020 by
+  Generated on Fri Mar  6 10:53:32 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.24 (ruby-2.7.0).
+  0.9.24 (ruby-2.6.3).
 </div>
 
 <script>
