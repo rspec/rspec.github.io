@@ -5,7 +5,7 @@
 <title>
   File: Changelog
   
-    &mdash; Documentation by YARD 0.9.16
+    &mdash; Documentation by YARD 0.9.24
   
 </title>
 
@@ -13,7 +13,7 @@
 
   <link rel="stylesheet" href="/documentation/3.9/rspec-core/css/common.css" type="text/css" charset="utf-8" />
 
-<script type="text/javascript" charset="utf-8">
+<script type="text/javascript">
   pathId = "Changelog";
   relpath = '';
 </script>
@@ -56,28 +56,43 @@
         <div class="clear"></div>
       </div>
 
-      <div id="content"><div id='filecontents'><h3>3.9.0 / 2019-10-07</h3>
+      <div id="content"><div id='filecontents'><h3>3.9.1 / 2019-12-28</h3>
+
+<p><a href="http://github.com/rspec/rspec-core/compare/v3.9.0...v3.9.1">Full Changelog</a></p>
+
+<p>Bug Fixes:</p>
+
+<ul>
+<li>Prevent bisect command from blocking when number of specs exceeds file
+descriptor limit on OSX or Linux. (Benoit Tigeot, #2669)</li>
+<li>Prevent warnings being issued on Ruby 2.7.0. (Jon Rowe, #2680)</li>
+</ul>
+
+<h3>3.9.0 / 2019-10-07</h3>
 
 <p><a href="http://github.com/rspec/rspec-core/compare/v3.8.2...v3.9.0">Full Changelog</a></p>
 
-<p>Enhancements:
-* Improve the handling of errors during loading support files, if a file
-  errors before loading specs, RSpec will now skip loading the specs.
-  (David Rodríguez, #2568)
-* Add support for --example-matches to run examples by regular expression.
-  (Sam Joseph, Matt Rider, @okothkongo1, #2586)
-* Add <code>did_you_mean</code> suggestions for file names encountering a <code>LoadError</code>
-  outside of examples. (@obromios, #2601)
-* Add a minimalist quick fix style formatter, only outputs failures as
-  <code>file:line:message</code>. (Romain Tartière, #2614)
-* Convert string number values to integer when used for <code>RSpec::Configuration#fail_fast</code>
-  (Viktor Fonic, #2634)
-* Issue warning when invalid values are used for <code>RSpec::Configuration#fail_fast</code>
-  (Viktor Fonic, #2634)
-* Add support for running the Rake task in a clean environment.
-  (Jon Rowe, #2632)
-* Indent messages by there example group / example in the documentation formatter.
-  (Samuel Williams, #2649)</p>
+<p>Enhancements:</p>
+
+<ul>
+<li>Improve the handling of errors during loading support files, if a file
+errors before loading specs, RSpec will now skip loading the specs.
+(David Rodríguez, #2568)</li>
+<li>Add support for --example-matches to run examples by regular expression.
+(Sam Joseph, Matt Rider, @okothkongo1, #2586)</li>
+<li>Add <code>did_you_mean</code> suggestions for file names encountering a <code>LoadError</code>
+outside of examples. (@obromios, #2601)</li>
+<li>Add a minimalist quick fix style formatter, only outputs failures as
+<code>file:line:message</code>. (Romain Tartière, #2614)</li>
+<li>Convert string number values to integer when used for <code>RSpec::Configuration#fail_fast</code>
+(Viktor Fonic, #2634)</li>
+<li>Issue warning when invalid values are used for <code>RSpec::Configuration#fail_fast</code>
+(Viktor Fonic, #2634)</li>
+<li>Add support for running the Rake task in a clean environment.
+(Jon Rowe, #2632)</li>
+<li>Indent messages by there example group / example in the documentation formatter.
+(Samuel Williams, #2649)</li>
+</ul>
 
 <h3>3.8.2 / 2019-06-29</h3>
 
@@ -2575,11 +2590,17 @@ all versions of ZenTest and/or autotest</li>
 
 <p><a href="http://github.com/rspec/rspec-core/compare/v2.2.0...v2.2.1">Full Changelog</a></p>
 
-<p>Bug fixes
-* alias_method instead of override Kernel#method_missing (John Wilger)
-* changed --autotest to --tty in generated command (MIKAMI Yoshiyuki)
-* revert change to debugger (had introduced conflict with Rails)
-    * also restored --debugger/-debug option</p>
+<p>Bug fixes</p>
+
+<ul>
+<li>alias_method instead of override Kernel#method_missing (John Wilger)</li>
+<li>changed --autotest to --tty in generated command (MIKAMI Yoshiyuki)</li>
+<li>revert change to debugger (had introduced conflict with Rails)
+
+<ul>
+<li>also restored --debugger/-debug option</li>
+</ul></li>
+</ul>
 
 <h3>2.2.0 / 2010-11-28</h3>
 
@@ -2764,9 +2785,9 @@ after(:suite) hooks</li>
 </div></div>
 
       <div id="footer">
-  Generated on Tue Oct  8 11:36:06 2019 by
+  Generated on Fri Mar  6 15:02:11 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.16 (ruby-2.6.5).
+  0.9.24 (ruby-2.6.3).
 </div>
 
 <script>
