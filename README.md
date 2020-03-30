@@ -11,6 +11,15 @@ Requires a recent version of Ruby (> 2.1.x, tested on 2.5.3), bundler and imagem
 * `bundle install`
 * `middleman build`
 
+## Install rspec-docs-template yard plugin
+
+This plugin is needed when you run Rakefile command to generate documentation from
+`rspec-dev` or `rspec-rails`.
+
+From this repository:
+
+`gem build yard-rspec-docs-template.gemspec`
+
 ## Local Developing
 
 Run
