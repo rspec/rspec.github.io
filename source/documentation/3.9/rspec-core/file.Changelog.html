@@ -56,7 +56,23 @@
         <div class="clear"></div>
       </div>
 
-      <div id="content"><div id='filecontents'><h3>3.9.1 / 2019-12-28</h3>
+      <div id="content"><div id='filecontents'><h3>Development</h3>
+
+<p><a href="http://github.com/rspec/rspec-core/compare/v3.9.1...master">Full Changelog</a></p>
+
+<p>Bug Fixes:</p>
+
+<ul>
+<li>Emit a warning when <code>around</code> hook is used with <code>:context</code> scope
+(Phil Pirozhkov, #2687)</li>
+<li>Prevent invalid implementations of <code>Exception#cause</code> from being treated as a
+valid cause (and causing strange errors) in <code>RSpec::Core::Formatters::ExceptionPresenter</code>.
+(Jon Rowe, #2703)</li>
+<li>Correctly detect patterns when <code>rspec_opts</code> is an array in <code>RSpec::Core::RakeTask</code>.
+(Marc-André Lafortune, #2704)</li>
+</ul>
+
+<h3>3.9.1 / 2019-12-28</h3>
 
 <p><a href="http://github.com/rspec/rspec-core/compare/v3.9.0...v3.9.1">Full Changelog</a></p>
 
@@ -2785,9 +2801,9 @@ after(:suite) hooks</li>
 </div></div>
 
       <div id="footer">
-  Generated on Fri Mar  6 15:02:11 2020 by
+  Generated on Sun Apr  5 11:17:10 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.24 (ruby-2.6.3).
+  0.9.24 (ruby-2.7.0).
 </div>
 
 <script>

@@ -1846,14 +1846,14 @@ the instance of <span class='object_link'><a href="ExampleGroup.html" title="RSp
                   <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Expected example to fail since it is pending, but it passed.</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span>
                   <span class='lbracket'>[</span><span class='id identifier rubyid_location'>location</span><span class='rbracket'>]</span>
           <span class='kw'>end</span>
-        <span class='kw'>rescue</span> <span class='const'><span class='object_link'><a href="Pending.html" title="RSpec::Core::Pending (module)">Pending</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Pending/SkipDeclaredInExample.html" title="RSpec::Core::Pending::SkipDeclaredInExample (class)">SkipDeclaredInExample</a></span></span> <span class='op'>=&gt;</span> <span class='id identifier rubyid__'>_</span>
-          <span class='comment'># The &quot;=&gt; _&quot; is normally useless but on JRuby it is a workaround
+        <span class='kw'>rescue</span> <span class='const'><span class='object_link'><a href="Pending.html" title="RSpec::Core::Pending (module)">Pending</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Pending/SkipDeclaredInExample.html" title="RSpec::Core::Pending::SkipDeclaredInExample (class)">SkipDeclaredInExample</a></span></span> <span class='op'>=&gt;</span> <span class='id identifier rubyid__'>_</span>          <span class='comment'># The &quot;=&gt; _&quot; is normally useless but on JRuby it is a workaround
 </span>          <span class='comment'># for a bug that prevents us from getting backtraces:
 </span>          <span class='comment'># https://github.com/jruby/jruby/issues/4467
 </span>          <span class='comment'>#
 </span>          <span class='comment'># no-op, required metadata has already been set by the `skip`
 </span>          <span class='comment'># method.
-</span>        <span class='kw'>rescue</span> <span class='const'>AllExceptionsExcludingDangerousOnesOnRubiesThatAllowIt</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_e'>e</span>
+</span>
+        <span class='kw'>rescue</span> <span class='const'>AllExceptionsExcludingDangerousOnesOnRubiesThatAllowIt</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_e'>e</span>
           <span class='id identifier rubyid_set_exception'>set_exception</span><span class='lparen'>(</span><span class='id identifier rubyid_e'>e</span><span class='rparen'>)</span>
         <span class='kw'>ensure</span>
           <span class='id identifier rubyid_run_after_example'>run_after_example</span>
@@ -1940,9 +1940,9 @@ The <span class='object_link'><a href="Example/ExecutionResult.html" title="RSpe
 </div>
 
       <div id="footer">
-  Generated on Fri Mar  6 15:02:12 2020 by
+  Generated on Sun Apr  5 11:17:11 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.24 (ruby-2.6.3).
+  0.9.24 (ruby-2.7.0).
 </div>
 
 <script>

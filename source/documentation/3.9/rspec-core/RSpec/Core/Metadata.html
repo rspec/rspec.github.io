@@ -279,11 +279,11 @@ run (e.g. <code>filter_run_including</code>, <code>filter_run_excluding</code>, 
   <span class='id identifier rubyid_line'>line</span> <span class='op'>=</span> <span class='id identifier rubyid_line'>line</span><span class='period'>.</span><span class='id identifier rubyid_sub'>sub</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>\A([^:]+:\d+)$</span><span class='regexp_end'>/</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>\\1</span><span class='tstring_end'>&#39;</span></span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span><span class='rparen'>)</span>
   <span class='kw'>return</span> <span class='kw'>nil</span> <span class='kw'>if</span> <span class='id identifier rubyid_line'>line</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>-e:1</span><span class='tstring_end'>&#39;</span></span><span class='period'>.</span><span class='id identifier rubyid_freeze'>freeze</span>
   <span class='id identifier rubyid_line'>line</span>
-<span class='kw'>rescue</span> <span class='const'>SecurityError</span>
-  <span class='comment'># :nocov:
-</span>  <span class='kw'>nil</span>
-  <span class='comment'># :nocov:
-</span><span class='kw'>end</span></pre>
+<span class='kw'>rescue</span> <span class='const'>SecurityError</span>  <span class='comment'># :nocov:
+</span>
+  <span class='kw'>nil</span>  <span class='comment'># :nocov:
+</span>
+<span class='kw'>end</span></pre>
     </td>
   </tr>
 </table>
@@ -341,9 +341,9 @@ before and the character after the string if any.</p>
 </div>
 
       <div id="footer">
-  Generated on Fri Mar  6 15:02:11 2020 by
+  Generated on Sun Apr  5 11:17:10 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.24 (ruby-2.6.3).
+  0.9.24 (ruby-2.7.0).
 </div>
 
 <script>

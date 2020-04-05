@@ -253,7 +253,7 @@ or teardown logic.</p>
     
       <span class="overload">#<strong>after</strong>(scope, &amp;block)  &#x21d2; <tt>void</tt> </span>
     
-      <span class="overload">#<strong>after</strong>(scope, conditions, &amp;block)  &#x21d2; <tt>void</tt> </span>
+      <span class="overload">#<strong>after</strong>(scope, *conditions, &amp;block)  &#x21d2; <tt>void</tt> </span>
     
       <span class="overload">#<strong>after</strong>(conditions, &amp;block)  &#x21d2; <tt>void</tt> </span>
     
@@ -362,7 +362,7 @@ they are run in reverse order of that in which they are declared. Also
     
       
       <li class="overload_item">
-        <span class="signature">#<strong>after</strong>(scope, conditions, &amp;block)  &#x21d2; <tt>void</tt> </span>
+        <span class="signature">#<strong>after</strong>(scope, *conditions, &amp;block)  &#x21d2; <tt>void</tt> </span>
         <div class="docstring">
   <div class="discussion">
     
@@ -394,14 +394,16 @@ they are run in reverse order of that in which they are declared. Also
         <span class='name'>conditions</span>
       
       
-        <span class='type'>(<tt>Hash</tt>)</span>
+        <span class='type'>(<tt>Array&lt;Symbol&gt;</tt>, <tt>Hash</tt>)</span>
       
       
       
         &mdash;
-        <div class='inline'><p>constrains this hook to examples matching these conditions e.g.
+        <div class='inline'><p>constrains this hook to
+examples matching these conditions e.g.
 <code>after(:example, :ui =&gt; true) { ... }</code> will only run with examples
-or groups declared with <code>:ui =&gt; true</code>.</p>
+or groups declared with <code>:ui =&gt; true</code>. Symbols will be transformed
+into hash entries with <code>true</code> values.</p>
 </div>
       
     </li>
@@ -474,12 +476,12 @@ or groups declared with <code>:ui =&gt; true</code>.</p>
       <pre class="lines">
 
 
-273
-274
-275</pre>
+275
+276
+277</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/core/hooks.rb', line 273</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/hooks.rb', line 275</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_after'>after</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_hooks'>hooks</span><span class='period'>.</span><span class='id identifier rubyid_register'>register</span> <span class='symbol'>:prepend</span><span class='comma'>,</span> <span class='symbol'>:after</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span>
@@ -517,12 +519,12 @@ scope (<code>:example</code>, <code>:context</code>, or <code>:suite</code>).</p
       <pre class="lines">
 
 
-283
-284
-285</pre>
+285
+286
+287</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/core/hooks.rb', line 283</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/hooks.rb', line 285</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_append_after'>append_after</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_hooks'>hooks</span><span class='period'>.</span><span class='id identifier rubyid_register'>register</span> <span class='symbol'>:append</span><span class='comma'>,</span> <span class='symbol'>:after</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span>
@@ -540,7 +542,7 @@ scope (<code>:example</code>, <code>:context</code>, or <code>:suite</code>).</p
     
       <span class="overload">#<strong>around</strong>(scope, &amp;block)  &#x21d2; <tt>void</tt> </span>
     
-      <span class="overload">#<strong>around</strong>(scope, conditions, &amp;block)  &#x21d2; <tt>void</tt> </span>
+      <span class="overload">#<strong>around</strong>(scope, *conditions, &amp;block)  &#x21d2; <tt>void</tt> </span>
     
       <span class="overload">#<strong>around</strong>(conditions, &amp;block)  &#x21d2; <tt>void</tt> </span>
     
@@ -575,9 +577,9 @@ after the example. It is your responsibility to run the example:</p>
 
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_around'>around</span><span class='lparen'>(</span><span class='symbol'>:example</span><span class='rparen'>)</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_ex'>ex</span><span class='op'>|</span>
   <span class='comment'># Do some stuff before.
-</span>  <span class='id identifier rubyid_ex'>ex</span><span class='period'>.</span><span class='id identifier rubyid_run'>run</span>
-  <span class='comment'># Do some stuff after.
-</span><span class='kw'>end</span>
+</span>  <span class='id identifier rubyid_ex'>ex</span><span class='period'>.</span><span class='id identifier rubyid_run'>run</span>  <span class='comment'># Do some stuff after.
+</span>
+<span class='kw'>end</span>
 </code></pre>
 
 <p>The yielded example aliases <code>run</code> with <code>call</code>, which lets you treat it
@@ -643,7 +645,7 @@ present for syntax parity with <code>before</code> and <code>after</code>, but
     
       
       <li class="overload_item">
-        <span class="signature">#<strong>around</strong>(scope, conditions, &amp;block)  &#x21d2; <tt>void</tt> </span>
+        <span class="signature">#<strong>around</strong>(scope, *conditions, &amp;block)  &#x21d2; <tt>void</tt> </span>
         <div class="docstring">
   <div class="discussion">
     
@@ -676,14 +678,16 @@ present for syntax parity with <code>before</code> and <code>after</code>, but
         <span class='name'>conditions</span>
       
       
-        <span class='type'>(<tt>Hash</tt>)</span>
+        <span class='type'>(<tt>Array&lt;Symbol&gt;</tt>, <tt>Hash</tt>)</span>
       
       
       
         &mdash;
-        <div class='inline'><p>constrains this hook to examples matching
-these conditions e.g. <code>around(:example, :ui =&gt; true) { ... }</code> will
-only run with examples or groups declared with <code>:ui =&gt; true</code>.</p>
+        <div class='inline'><p>constrains this hook to
+examples matching these conditions e.g.
+<code>around(:example, :ui =&gt; true) { ... }</code> will only run with examples
+or groups declared with <code>:ui =&gt; true</code>. Symbols will be transformed
+into hash entries with <code>true</code> values.</p>
 </div>
       
     </li>
@@ -756,12 +760,12 @@ only run with examples or groups declared with <code>:ui =&gt; true</code>.</p>
       <pre class="lines">
 
 
-340
-341
-342</pre>
+344
+345
+346</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/core/hooks.rb', line 340</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/hooks.rb', line 344</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_around'>around</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_hooks'>hooks</span><span class='period'>.</span><span class='id identifier rubyid_register'>register</span> <span class='symbol'>:prepend</span><span class='comma'>,</span> <span class='symbol'>:around</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span>
@@ -779,7 +783,7 @@ only run with examples or groups declared with <code>:ui =&gt; true</code>.</p>
     
       <span class="overload">#<strong>before</strong>(scope, &amp;block)  &#x21d2; <tt>void</tt> </span>
     
-      <span class="overload">#<strong>before</strong>(scope, conditions, &amp;block)  &#x21d2; <tt>void</tt> </span>
+      <span class="overload">#<strong>before</strong>(scope, *conditions, &amp;block)  &#x21d2; <tt>void</tt> </span>
     
       <span class="overload">#<strong>before</strong>(conditions, &amp;block)  &#x21d2; <tt>void</tt> </span>
     
@@ -1028,7 +1032,7 @@ you are on your own to clean up in an <code>after(:context)</code> block.</p>
     
       
       <li class="overload_item">
-        <span class="signature">#<strong>before</strong>(scope, conditions, &amp;block)  &#x21d2; <tt>void</tt> </span>
+        <span class="signature">#<strong>before</strong>(scope, *conditions, &amp;block)  &#x21d2; <tt>void</tt> </span>
         <div class="docstring">
   <div class="discussion">
     
@@ -1060,14 +1064,16 @@ you are on your own to clean up in an <code>after(:context)</code> block.</p>
         <span class='name'>conditions</span>
       
       
-        <span class='type'>(<tt>Hash</tt>)</span>
+        <span class='type'>(<tt>Array&lt;Symbol&gt;</tt>, <tt>Hash</tt>)</span>
       
       
       
         &mdash;
-        <div class='inline'><p>constrains this hook to examples matching these conditions e.g.
+        <div class='inline'><p>constrains this hook to
+examples matching these conditions e.g.
 <code>before(:example, :ui =&gt; true) { ... }</code> will only run with examples
-or groups declared with <code>:ui =&gt; true</code>.</p>
+or groups declared with <code>:ui =&gt; true</code>. Symbols will be transformed
+into hash entries with <code>true</code> values.</p>
 </div>
       
     </li>
@@ -1140,12 +1146,12 @@ or groups declared with <code>:ui =&gt; true</code>.</p>
       <pre class="lines">
 
 
-198
 199
-200</pre>
+200
+201</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/core/hooks.rb', line 198</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/hooks.rb', line 199</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_before'>before</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_hooks'>hooks</span><span class='period'>.</span><span class='id identifier rubyid_register'>register</span> <span class='symbol'>:append</span><span class='comma'>,</span> <span class='symbol'>:before</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span>
@@ -1183,12 +1189,12 @@ scope (<code>:example</code>, <code>:context</code>, or <code>:suite</code>).</p
       <pre class="lines">
 
 
-208
 209
-210</pre>
+210
+211</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/core/hooks.rb', line 208</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/hooks.rb', line 209</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_prepend_before'>prepend_before</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_hooks'>hooks</span><span class='period'>.</span><span class='id identifier rubyid_register'>register</span> <span class='symbol'>:prepend</span><span class='comma'>,</span> <span class='symbol'>:before</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span>
@@ -1203,9 +1209,9 @@ scope (<code>:example</code>, <code>:context</code>, or <code>:suite</code>).</p
 </div>
 
       <div id="footer">
-  Generated on Fri Mar  6 15:02:11 2020 by
+  Generated on Sun Apr  5 11:17:10 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.24 (ruby-2.6.3).
+  0.9.24 (ruby-2.7.0).
 </div>
 
 <script>
