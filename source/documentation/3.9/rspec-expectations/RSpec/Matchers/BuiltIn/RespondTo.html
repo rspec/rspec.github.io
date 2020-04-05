@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
   Class: RSpec::Matchers::BuiltIn::RespondTo
   
@@ -9,9 +10,9 @@
   
 </title>
 
-  <link rel="stylesheet" href="/documentation/3.9/rspec-expectations/css/style.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="/documentation/3.9/rspec-expectations/css/style.css" type="text/css" />
 
-  <link rel="stylesheet" href="/documentation/3.9/rspec-expectations/css/common.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="/documentation/3.9/rspec-expectations/css/common.css" type="text/css" />
 
 <script type="text/javascript">
   pathId = "RSpec::Matchers::BuiltIn::RespondTo";
@@ -230,6 +231,29 @@ Not intended to be instantiated directly.</p>
         <li class="public ">
   <span class="summary_signature">
     
+      <a href="#ignoring_method_signature_failure!-instance_method" title="#ignoring_method_signature_failure! (instance method)">#<strong>ignoring_method_signature_failure!</strong>  &#x21d2; Object </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+  <span class="private note title">private</span>
+
+  
+    <span class="summary_desc"><div class='inline'><p>Used by other matchers to suppress a check.</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
       <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(*names)  &#x21d2; RespondTo </a>
     
 
@@ -419,21 +443,23 @@ Not intended to be instantiated directly.</p>
       <pre class="lines">
 
 
-10
-11
 12
 13
 14
 15
-16</pre>
+16
+17
+18
+19</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/matchers/built_in/respond_to.rb', line 10</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/matchers/built_in/respond_to.rb', line 12</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_names'>names</span><span class='rparen'>)</span>
   <span class='ivar'>@names</span> <span class='op'>=</span> <span class='id identifier rubyid_names'>names</span>
   <span class='ivar'>@expected_arity</span> <span class='op'>=</span> <span class='kw'>nil</span>
   <span class='ivar'>@expected_keywords</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
+  <span class='ivar'>@ignoring_method_signature_failure</span> <span class='op'>=</span> <span class='kw'>false</span>
   <span class='ivar'>@unlimited_arguments</span> <span class='op'>=</span> <span class='kw'>nil</span>
   <span class='ivar'>@arbitrary_keywords</span> <span class='op'>=</span> <span class='kw'>nil</span>
 <span class='kw'>end</span></pre>
@@ -486,12 +512,12 @@ Not intended to be instantiated directly.</p>
       <pre class="lines">
 
 
-70
-71
-72</pre>
+73
+74
+75</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/matchers/built_in/respond_to.rb', line 70</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/matchers/built_in/respond_to.rb', line 73</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_argument'>argument</span>
   <span class='kw'>self</span>
@@ -542,12 +568,12 @@ Not intended to be instantiated directly.</p>
       <pre class="lines">
 
 
-99
-100
-101</pre>
+102
+103
+104</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/matchers/built_in/respond_to.rb', line 99</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/matchers/built_in/respond_to.rb', line 102</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_description'>description</span>
   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>respond to </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_pp_names'>pp_names</span><span class='embexpr_end'>}</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_with_arity'>with_arity</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
@@ -598,12 +624,12 @@ Not intended to be instantiated directly.</p>
       <pre class="lines">
 
 
-87
-88
-89</pre>
+90
+91
+92</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/matchers/built_in/respond_to.rb', line 87</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/matchers/built_in/respond_to.rb', line 90</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_failure_message'>failure_message</span>
   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>expected </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_actual_formatted'>actual_formatted</span><span class='embexpr_end'>}</span><span class='tstring_content'> to respond to </span><span class='embexpr_beg'>#{</span><span class='ivar'>@failing_method_names</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span> <span class='lbrace'>{</span> <span class='op'>|</span><span class='id identifier rubyid_name'>name</span><span class='op'>|</span> <span class='id identifier rubyid_description_of'>description_of</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>, </span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span><span class='embexpr_end'>}</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_with_arity'>with_arity</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
@@ -654,15 +680,59 @@ Not intended to be instantiated directly.</p>
       <pre class="lines">
 
 
-93
-94
-95</pre>
+96
+97
+98</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/matchers/built_in/respond_to.rb', line 93</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/matchers/built_in/respond_to.rb', line 96</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_failure_message_when_negated'>failure_message_when_negated</span>
   <span class='id identifier rubyid_failure_message'>failure_message</span><span class='period'>.</span><span class='id identifier rubyid_sub'>sub</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>to respond to</span><span class='regexp_end'>/</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>not to respond to</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <h3 class="signature " id="ignoring_method_signature_failure!-instance_method">
+  
+    #<strong>ignoring_method_signature_failure!</strong>  &#x21d2; <tt>Object</tt> 
+  
+
+  
+
+  
+</h3><div class="docstring">
+  <div class="discussion">
+    <p class="note private">
+  <strong>This method is part of a private API.</strong>
+  You should avoid using this method if possible, as it may be removed or be changed in the future.
+</p>
+<p>Used by other matchers to suppress a check</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+108
+109
+110</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/matchers/built_in/respond_to.rb', line 108</span>
+
+<span class='kw'>def</span> <span class='id identifier rubyid_ignoring_method_signature_failure!'>ignoring_method_signature_failure!</span>
+  <span class='ivar'>@ignoring_method_signature_failure</span> <span class='op'>=</span> <span class='kw'>true</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -702,13 +772,13 @@ Not intended to be instantiated directly.</p>
       <pre class="lines">
 
 
-23
-24
-25
-26</pre>
+26
+27
+28
+29</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/matchers/built_in/respond_to.rb', line 23</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/matchers/built_in/respond_to.rb', line 26</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_with'>with</span><span class='lparen'>(</span><span class='id identifier rubyid_n'>n</span><span class='rparen'>)</span>
   <span class='ivar'>@expected_arity</span> <span class='op'>=</span> <span class='id identifier rubyid_n'>n</span>
@@ -757,13 +827,13 @@ Not intended to be instantiated directly.</p>
       <pre class="lines">
 
 
-47
-48
-49
-50</pre>
+50
+51
+52
+53</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/matchers/built_in/respond_to.rb', line 47</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/matchers/built_in/respond_to.rb', line 50</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_with_any_keywords'>with_any_keywords</span>
   <span class='ivar'>@arbitrary_keywords</span> <span class='op'>=</span> <span class='kw'>true</span>
@@ -817,13 +887,13 @@ Not intended to be instantiated directly.</p>
       <pre class="lines">
 
 
-35
-36
-37
-38</pre>
+38
+39
+40
+41</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/matchers/built_in/respond_to.rb', line 35</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/matchers/built_in/respond_to.rb', line 38</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_with_keywords'>with_keywords</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_keywords'>keywords</span><span class='rparen'>)</span>
   <span class='ivar'>@expected_keywords</span> <span class='op'>=</span> <span class='id identifier rubyid_keywords'>keywords</span>
@@ -872,13 +942,13 @@ Not intended to be instantiated directly.</p>
       <pre class="lines">
 
 
-59
-60
-61
-62</pre>
+62
+63
+64
+65</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/matchers/built_in/respond_to.rb', line 59</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/matchers/built_in/respond_to.rb', line 62</span>
 
 <span class='kw'>def</span> <span class='id identifier rubyid_with_unlimited_arguments'>with_unlimited_arguments</span>
   <span class='ivar'>@unlimited_arguments</span> <span class='op'>=</span> <span class='kw'>true</span>
@@ -894,21 +964,10 @@ Not intended to be instantiated directly.</p>
 </div>
 
       <div id="footer">
-  Generated on Fri Mar  6 15:02:22 2020 by
+  Generated on Sun Apr  5 16:48:39 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.24 (ruby-2.6.3).
+  0.9.24 (ruby-2.7.0).
 </div>
-
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-59095215-1', 'auto');
-  ga('send', 'pageview');
-
-</script>
 
     </div>
   </body>
