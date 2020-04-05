@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
   Class: RSpec::Expectations::Configuration
   
@@ -9,9 +10,9 @@
   
 </title>
 
-  <link rel="stylesheet" href="/documentation/3.9/rspec-expectations/css/style.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="/documentation/3.9/rspec-expectations/css/style.css" type="text/css" />
 
-  <link rel="stylesheet" href="/documentation/3.9/rspec-expectations/css/common.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="/documentation/3.9/rspec-expectations/css/common.css" type="text/css" />
 
 <script type="text/javascript">
   pathId = "RSpec::Expectations::Configuration";
@@ -1095,11 +1096,11 @@ doing truncation.</p>
       
       <pre class="example code"><code><span class='const'><span class='object_link'><a href="../../RSpec.html" title="RSpec (module)">RSpec</a></span></span><span class='period'>.</span><span class='id identifier rubyid_configure'>configure</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_rspec'>rspec</span><span class='op'>|</span>
   <span class='id identifier rubyid_rspec'>rspec</span><span class='period'>.</span><span class='id identifier rubyid_expect_with'>expect_with</span> <span class='symbol'>:rspec</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_c'>c</span><span class='op'>|</span>
-    <span class='id identifier rubyid_c'>c</span><span class='period'>.</span><span class='id identifier rubyid_syntax'>syntax</span> <span class='op'>=</span> <span class='symbol'>:should</span>
-    <span class='comment'># or
-</span>    <span class='id identifier rubyid_c'>c</span><span class='period'>.</span><span class='id identifier rubyid_syntax'>syntax</span> <span class='op'>=</span> <span class='symbol'>:expect</span>
-    <span class='comment'># or
-</span>    <span class='id identifier rubyid_c'>c</span><span class='period'>.</span><span class='id identifier rubyid_syntax'>syntax</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='symbol'>:should</span><span class='comma'>,</span> <span class='symbol'>:expect</span><span class='rbracket'>]</span>
+    <span class='id identifier rubyid_c'>c</span><span class='period'>.</span><span class='id identifier rubyid_syntax'>syntax</span> <span class='op'>=</span> <span class='symbol'>:should</span>    <span class='comment'># or
+</span>
+    <span class='id identifier rubyid_c'>c</span><span class='period'>.</span><span class='id identifier rubyid_syntax'>syntax</span> <span class='op'>=</span> <span class='symbol'>:expect</span>    <span class='comment'># or
+</span>
+    <span class='id identifier rubyid_c'>c</span><span class='period'>.</span><span class='id identifier rubyid_syntax'>syntax</span> <span class='op'>=</span> <span class='lbracket'>[</span><span class='symbol'>:should</span><span class='comma'>,</span> <span class='symbol'>:expect</span><span class='rbracket'>]</span>
   <span class='kw'>end</span>
 <span class='kw'>end</span></code></pre>
     
@@ -1294,21 +1295,10 @@ avoid such scenarios so this defaults to <code>true</code>.</p>
 </div>
 
       <div id="footer">
-  Generated on Fri Mar  6 15:02:22 2020 by
+  Generated on Sun Apr  5 16:48:39 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.24 (ruby-2.6.3).
+  0.9.24 (ruby-2.7.0).
 </div>
-
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-59095215-1', 'auto');
-  ga('send', 'pageview');
-
-</script>
 
     </div>
   </body>
