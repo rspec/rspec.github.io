@@ -5,195 +5,97 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>
   Module: RSpec::Rails::ViewSpecMethods
-  
     &mdash; Documentation by YARD 0.8.7.6
-  
 </title>
-
   <link rel="stylesheet" href="/documentation/3.8/rspec-rails/css/style.css" type="text/css" charset="utf-8" />
-
   <link rel="stylesheet" href="/documentation/3.8/rspec-rails/css/common.css" type="text/css" charset="utf-8" />
-
   <link rel="stylesheet" href="/documentation/3.8/rspec-rails/css/rspec.css" type="text/css" charset="utf-8" />
-
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '../../';
   framesUrl = "../../frames.html#!RSpec/Rails/ViewSpecMethods.html";
 </script>
-
-
   <script type="text/javascript" charset="utf-8" src="/documentation/3.8/rspec-rails/js/jquery.js"></script>
-
   <script type="text/javascript" charset="utf-8" src="/documentation/3.8/rspec-rails/js/app.js"></script>
-
-
   </head>
   <body>
     <div id="header">
       <div id="menu">
-  
     <a href="../../_index.html">Index (V)</a> &raquo;
     <span class='title'><span class='object_link'><a href="../../RSpec.html" title="RSpec (module)">RSpec</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Rails.html" title="RSpec::Rails (module)">Rails</a></span></span>
      &raquo; 
     <span class="title">ViewSpecMethods</span>
-  
-
   <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
 </div>
-
       <div id="search">
-  
     <a class="full_list_link" id="class_list_link"
         href="../../class_list.html">
       Class List
     </a>
-  
     <a class="full_list_link" id="method_list_link"
         href="../../method_list.html">
       Method List
     </a>
-  
     <a class="full_list_link" id="file_list_link"
         href="../../file_list.html">
       File List
     </a>
-  
 </div>
       <div class="clear"></div>
     </div>
-
     <iframe id="search_frame"></iframe>
-
     <div id="content"><h1>Module: RSpec::Rails::ViewSpecMethods
-  
-  
-  
 </h1>
-
 <dl class="box">
-  
-  
-    
-  
-    
-  
-  
-  
     <dt class="r1 last">Defined in:</dt>
     <dd class="r1 last">lib/rspec/rails/view_spec_methods.rb</dd>
-  
 </dl>
 <div class="clear"></div>
-
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     <p>Adds methods (generally to ActionView::TestCase::TestController).
 Intended for use in view specs.</p>
-
-
   </div>
 </div>
 <div class="tags">
-  
-
 </div>
-
-
-
-
-
-
-  
     <h2>
       Class Method Summary
       <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
     </h2>
-
     <ul class="summary">
-      
         <li class="public ">
   <span class="summary_signature">
-    
       <a href="#add_to-class_method" title="add_to (class method)">+ (Object) <strong>add_to</strong>(klass) </a>
-    
-
-    
   </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
     <span class="summary_desc"><div class='inline'><p>Adds methods <code>extra_params=</code> and <code>extra_params</code> to the indicated class.</p>
 </div></span>
-  
 </li>
-
-      
         <li class="public ">
   <span class="summary_signature">
-    
       <a href="#remove_from-class_method" title="remove_from (class method)">+ (Object) <strong>remove_from</strong>(klass) </a>
-    
-
-    
   </span>
-  
-  
-  
-  
-  
-  
-  
-
-  
     <span class="summary_desc"><div class='inline'><p>Removes methods <code>extra_params=</code> and <code>extra_params</code> from the indicated class.</p>
 </div></span>
-  
 </li>
-
-      
     </ul>
-  
-
-
-
   <div id="class_method_details" class="method_details_list">
     <h2>Class Method Details</h2>
-
-    
       <div class="method_details first">
   <h3 class="signature first" id="add_to-class_method">
-  
     + (<tt>Object</tt>) <strong>add_to</strong>(klass) 
-  
-
-  
-
-  
 </h3><div class="docstring">
   <div class="discussion">
     <p>Adds methods <code>extra_params=</code> and <code>extra_params</code> to the indicated class.
 When class is <code>::ActionView::TestCase::TestController</code>, these methods
 are exposed in view specs on the <code>controller</code> object.</p>
-
-
   </div>
 </div>
 <div class="tags">
-  
-
 </div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
-
-
 11
 12
 13
@@ -232,10 +134,8 @@ are exposed in view specs on the <code>controller</code> object.</p>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/rspec/rails/view_spec_methods.rb', line 11</span>
-
 <span class='kw'>def</span> <span class='id identifier rubyid_add_to'>add_to</span><span class='lparen'>(</span><span class='id identifier rubyid_klass'>klass</span><span class='rparen'>)</span>
   <span class='kw'>return</span> <span class='kw'>if</span> <span class='id identifier rubyid_klass'>klass</span><span class='period'>.</span><span class='id identifier rubyid_method_defined?'>method_defined?</span><span class='lparen'>(</span><span class='symbol'>:extra_params</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='id identifier rubyid_klass'>klass</span><span class='period'>.</span><span class='id identifier rubyid_method_defined?'>method_defined?</span><span class='lparen'>(</span><span class='symbol'>:extra_params=</span><span class='rparen'>)</span>
-
   <span class='id identifier rubyid_klass'>klass</span><span class='period'>.</span><span class='id identifier rubyid_module_exec'>module_exec</span> <span class='kw'>do</span>
     <span class='comment'># Set any extra parameters that rendering a URL for this view
 </span>    <span class='comment'># would require.
@@ -254,7 +154,6 @@ are exposed in view specs on the <code>controller</code> object.</p>
           <span class='id identifier rubyid_extra_params'>extra_params</span><span class='period'>.</span><span class='id identifier rubyid_merge'>merge</span><span class='lparen'>(</span><span class='id identifier rubyid_request'>request</span><span class='period'>.</span><span class='id identifier rubyid_path_parameters'>path_parameters</span><span class='rparen'>)</span>
         <span class='rparen'>)</span>
     <span class='kw'>end</span>
-
     <span class='comment'># Use to read extra parameters that are set in the view spec.
 </span>    <span class='comment'>#
 </span>    <span class='comment'># @example
@@ -272,32 +171,19 @@ are exposed in view specs on the <code>controller</code> object.</p>
   </tr>
 </table>
 </div>
-    
       <div class="method_details ">
   <h3 class="signature " id="remove_from-class_method">
-  
     + (<tt>Object</tt>) <strong>remove_from</strong>(klass) 
-  
-
-  
-
-  
 </h3><div class="docstring">
   <div class="discussion">
     <p>Removes methods <code>extra_params=</code> and <code>extra_params</code> from the indicated class.</p>
-
-
   </div>
 </div>
 <div class="tags">
-  
-
 </div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
-
-
 48
 49
 50
@@ -307,7 +193,6 @@ are exposed in view specs on the <code>controller</code> object.</p>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/rspec/rails/view_spec_methods.rb', line 48</span>
-
 <span class='kw'>def</span> <span class='id identifier rubyid_remove_from'>remove_from</span><span class='lparen'>(</span><span class='id identifier rubyid_klass'>klass</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_klass'>klass</span><span class='period'>.</span><span class='id identifier rubyid_module_exec'>module_exec</span> <span class='kw'>do</span>
     <span class='kw'>undef</span> <span class='id identifier rubyid_extra_params='>extra_params=</span> <span class='kw'>if</span> <span class='id identifier rubyid_klass'>klass</span><span class='period'>.</span><span class='id identifier rubyid_method_defined?'>method_defined?</span><span class='lparen'>(</span><span class='symbol'>:extra_params=</span><span class='rparen'>)</span>
@@ -318,27 +203,20 @@ are exposed in view specs on the <code>controller</code> object.</p>
   </tr>
 </table>
 </div>
-    
   </div>
-
 </div>
-
     <div id="footer">
   Generated on Fri Sep 14 00:02:14 2018 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.5.1).
 </div>
-
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
   ga('create', 'UA-59095215-1', 'auto');
   ga('send', 'pageview');
-
 </script>
-
   </body>
 </html>
