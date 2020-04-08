@@ -5,85 +5,52 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>
   Module: RSpec::Mocks::Syntax
-  
     &mdash; Documentation by YARD 0.8.0
-  
 </title>
-
   <link rel="stylesheet" href="/stylesheets/docs/style.css" type="text/css" charset="utf-8" />
-
   <link rel="stylesheet" href="/stylesheets/docs/common.css" type="text/css" charset="utf-8" />
-
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '../../';
   framesUrl = "../../frames.html#!" + escape(window.location.href);
 </script>
-
-
   <script type="text/javascript" charset="utf-8" src="/javascripts/docs/jquery.js"></script>
-
   <script type="text/javascript" charset="utf-8" src="/javascripts/docs/app.js"></script>
-
-
   </head>
   <body>
     <div id="header">
       <div id="menu">
-  
     <a href="../../_index.html">Index (S)</a> &raquo;
     <span class='title'><span class='object_link'><a href="../../RSpec.html" title="RSpec (module)">RSpec</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Mocks.html" title="RSpec::Mocks (module)">Mocks</a></span></span>
      &raquo; 
     <span class="title">Syntax</span>
-  
-
   <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
 </div>
-
       <div id="search">
-  
     <a class="full_list_link" id="class_list_link"
         href="../../class_list.html">
       Class List
     </a>
-  
     <a class="full_list_link" id="method_list_link"
         href="../../method_list.html">
       Method List
     </a>
-  
     <a class="full_list_link" id="file_list_link"
         href="../../file_list.html">
       File List
     </a>
-  
 </div>
       <div class="clear"></div>
     </div>
-
     <iframe id="search_frame"></iframe>
-
     <div id="content"><h1>Module: RSpec::Mocks::Syntax
-  
-  
   <span class="private note title">Private</span>
 </h1>
-
 <dl class="box">
-  
-  
-    
-  
-    
-  
-  
-  
     <dt class="r1 last">Defined in:</dt>
     <dd class="r1 last">lib/rspec/mocks/syntax.rb</dd>
-  
 </dl>
 <div class="clear"></div>
-
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
     <p class="note private">
@@ -92,230 +59,85 @@
 </p>
 <p>Provides methods for enabling and disabling the available syntaxes
 provided by rspec-mocks.</p>
-
-
   </div>
 </div>
 <div class="tags">
-  
-
 </div>
-
-
-
-
-
-
-  
     <h2>
       Class Method Summary
       <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
     </h2>
-
     <ul class="summary">
-      
         <li class="public ">
   <span class="summary_signature">
-    
       <a href="#default_should_syntax_host-class_method" title="default_should_syntax_host (class method)">+ (Object) <strong>default_should_syntax_host</strong> </a>
-    
-
-    
   </span>
-  
-  
-  
-  
-  
-  
   <span class="private note title">private</span>
-
-  
     <span class="summary_desc"><div class='inline'><p>Determines where the methods like <code>should_receive</code>, and <code>stub</code> are added.</p>
 </div></span>
-  
 </li>
-
-      
         <li class="public ">
   <span class="summary_signature">
-    
       <a href="#disable_expect-class_method" title="disable_expect (class method)">+ (Object) <strong>disable_expect</strong>(syntax_host = ::RSpec::Mocks::ExampleMethods) </a>
-    
-
-    
   </span>
-  
-  
-  
-  
-  
-  
   <span class="private note title">private</span>
-
-  
     <span class="summary_desc"><div class='inline'><p>Disables the expect syntax (<code>expect(dbl).to receive</code>, <code>allow(dbl).to receive</code>, etc).</p>
 </div></span>
-  
 </li>
-
-      
         <li class="public ">
   <span class="summary_signature">
-    
       <a href="#disable_should-class_method" title="disable_should (class method)">+ (Object) <strong>disable_should</strong>(syntax_host = default_should_syntax_host) </a>
-    
-
-    
   </span>
-  
-  
-  
-  
-  
-  
   <span class="private note title">private</span>
-
-  
     <span class="summary_desc"><div class='inline'><p>Disables the should syntax (<code>dbl.stub</code>, <code>dbl.should_receive</code>, etc).</p>
 </div></span>
-  
 </li>
-
-      
         <li class="public ">
   <span class="summary_signature">
-    
       <a href="#enable_expect-class_method" title="enable_expect (class method)">+ (Object) <strong>enable_expect</strong>(syntax_host = ::RSpec::Mocks::ExampleMethods) </a>
-    
-
-    
   </span>
-  
-  
-  
-  
-  
-  
   <span class="private note title">private</span>
-
-  
     <span class="summary_desc"><div class='inline'><p>Enables the expect syntax (<code>expect(dbl).to receive</code>, <code>allow(dbl).to receive</code>, etc).</p>
 </div></span>
-  
 </li>
-
-      
         <li class="public ">
   <span class="summary_signature">
-    
       <a href="#enable_should-class_method" title="enable_should (class method)">+ (Object) <strong>enable_should</strong>(syntax_host = default_should_syntax_host) </a>
-    
-
-    
   </span>
-  
-  
-  
-  
-  
-  
   <span class="private note title">private</span>
-
-  
     <span class="summary_desc"><div class='inline'><p>Enables the should syntax (<code>dbl.stub</code>, <code>dbl.should_receive</code>, etc).</p>
 </div></span>
-  
 </li>
-
-      
         <li class="public ">
   <span class="summary_signature">
-    
       <a href="#expect_enabled%3F-class_method" title="expect_enabled? (class method)">+ (Boolean) <strong>expect_enabled?</strong>(syntax_host = ::RSpec::Mocks::ExampleMethods) </a>
-    
-
-    
   </span>
-  
-  
-  
-  
-  
-  
   <span class="private note title">private</span>
-
-  
     <span class="summary_desc"><div class='inline'><p>Indicates whether or not the expect syntax is enabled.</p>
 </div></span>
-  
 </li>
-
-      
         <li class="public ">
   <span class="summary_signature">
-    
       <a href="#should_enabled%3F-class_method" title="should_enabled? (class method)">+ (Boolean) <strong>should_enabled?</strong>(syntax_host = default_should_syntax_host) </a>
-    
-
-    
   </span>
-  
-  
-  
-  
-  
-  
   <span class="private note title">private</span>
-
-  
     <span class="summary_desc"><div class='inline'><p>Indicates whether or not the should syntax is enabled.</p>
 </div></span>
-  
 </li>
-
-      
         <li class="public ">
   <span class="summary_signature">
-    
       <a href="#stub_object-class_method" title="stub_object (class method)">+ (Object) <strong>stub_object</strong>(object, message_or_hash, opts = {}) </a>
-    
-
-    
   </span>
-  
-  
-  
-  
-  
-  
   <span class="private note title">private</span>
-
-  
     <span class="summary_desc"><div class='inline'><p>Common stubbing logic for both <code>stub</code> and <code>stub!</code>.</p>
 </div></span>
-  
 </li>
-
-      
     </ul>
-  
-
-
-
   <div id="class_method_details" class="method_details_list">
     <h2>Class Method Details</h2>
-
-    
       <div class="method_details first">
   <h3 class="signature first" id="default_should_syntax_host-class_method">
-  
     + (<tt>Object</tt>) <strong>default_should_syntax_host</strong> 
-  
-
-  
-
-  
 </h3><div class="docstring">
   <div class="discussion">
     <p class="note private">
@@ -323,19 +145,13 @@ provided by rspec-mocks.</p>
   You should avoid using this method if possible, as it may be removed or be changed in the future.
 </p>
 <p>Determines where the methods like <code>should_receive</code>, and <code>stub</code> are added.</p>
-
-
   </div>
 </div>
 <div class="tags">
-  
-
 </div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
-
-
 168
 169
 170
@@ -359,7 +175,6 @@ provided by rspec-mocks.</p>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/rspec/mocks/syntax.rb', line 168</span>
-
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_default_should_syntax_host'>default_should_syntax_host</span>
   <span class='comment'># JRuby 1.7.4 introduces a regression whereby `defined?(::BasicObject) =&gt; nil`
 </span>  <span class='comment'># yet `BasicObject` still exists and patching onto ::Object breaks things
@@ -369,31 +184,21 @@ provided by rspec-mocks.</p>
 </span>  <span class='kw'>if</span> <span class='kw'>defined?</span><span class='lparen'>(</span><span class='const'>JRUBY_VERSION</span><span class='rparen'>)</span> <span class='op'>&amp;&amp;</span> <span class='const'>JRUBY_VERSION</span> <span class='op'>==</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>1.7.4</span><span class='tstring_end'>&#39;</span></span> <span class='op'>&amp;&amp;</span> <span class='const'>RUBY_VERSION</span><span class='period'>.</span><span class='id identifier rubyid_to_f'>to_f</span> <span class='op'>&gt;</span> <span class='float'>1.8</span>
     <span class='kw'>return</span> <span class='op'>::</span><span class='const'>BasicObject</span>
   <span class='kw'>end</span>
-
   <span class='comment'># On 1.8.7, Object.ancestors.last == Kernel but
 </span>  <span class='comment'># things blow up if we include `RSpec::Mocks::Methods`
 </span>  <span class='comment'># into Kernel...not sure why.
 </span>  <span class='kw'>return</span> <span class='const'>Object</span> <span class='kw'>unless</span> <span class='kw'>defined?</span><span class='lparen'>(</span><span class='op'>::</span><span class='const'>BasicObject</span><span class='rparen'>)</span>
-
   <span class='comment'># MacRuby has BasicObject but it&#39;s not the root class.
 </span>  <span class='kw'>return</span> <span class='const'>Object</span> <span class='kw'>unless</span> <span class='const'>Object</span><span class='period'>.</span><span class='id identifier rubyid_ancestors'>ancestors</span><span class='period'>.</span><span class='id identifier rubyid_last'>last</span> <span class='op'>==</span> <span class='op'>::</span><span class='const'>BasicObject</span>
-
   <span class='op'>::</span><span class='const'>BasicObject</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
 </table>
 </div>
-    
       <div class="method_details ">
   <h3 class="signature " id="disable_expect-class_method">
-  
     + (<tt>Object</tt>) <strong>disable_expect</strong>(syntax_host = ::RSpec::Mocks::ExampleMethods) 
-  
-
-  
-
-  
 </h3><div class="docstring">
   <div class="discussion">
     <p class="note private">
@@ -401,19 +206,13 @@ provided by rspec-mocks.</p>
   You should avoid using this method if possible, as it may be removed or be changed in the future.
 </p>
 <p>Disables the expect syntax (<code>expect(dbl).to receive</code>, <code>allow(dbl).to receive</code>, etc).</p>
-
-
   </div>
 </div>
 <div class="tags">
-  
-
 </div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
-
-
 139
 140
 141
@@ -431,17 +230,14 @@ provided by rspec-mocks.</p>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/rspec/mocks/syntax.rb', line 139</span>
-
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_disable_expect'>disable_expect</span><span class='lparen'>(</span><span class='id identifier rubyid_syntax_host'>syntax_host</span> <span class='op'>=</span> <span class='op'>::</span><span class='const'>RSpec</span><span class='op'>::</span><span class='const'>Mocks</span><span class='op'>::</span><span class='const'>ExampleMethods</span><span class='rparen'>)</span>
   <span class='kw'>return</span> <span class='kw'>unless</span> <span class='id identifier rubyid_expect_enabled?'>expect_enabled?</span><span class='lparen'>(</span><span class='id identifier rubyid_syntax_host'>syntax_host</span><span class='rparen'>)</span>
-
   <span class='id identifier rubyid_syntax_host'>syntax_host</span><span class='period'>.</span><span class='id identifier rubyid_class_eval'>class_eval</span> <span class='kw'>do</span>
     <span class='kw'>undef</span> <span class='id identifier rubyid_receive'>receive</span>
     <span class='kw'>undef</span> <span class='id identifier rubyid_allow'>allow</span>
     <span class='kw'>undef</span> <span class='id identifier rubyid_expect_any_instance_of'>expect_any_instance_of</span>
     <span class='kw'>undef</span> <span class='id identifier rubyid_allow_any_instance_of'>allow_any_instance_of</span>
   <span class='kw'>end</span>
-
   <span class='const'>RSpec</span><span class='op'>::</span><span class='const'>Mocks</span><span class='op'>::</span><span class='const'>ExampleMethods</span><span class='op'>::</span><span class='const'>ExpectHost</span><span class='period'>.</span><span class='id identifier rubyid_class_eval'>class_eval</span> <span class='kw'>do</span>
     <span class='kw'>undef</span> <span class='id identifier rubyid_expect'>expect</span>
   <span class='kw'>end</span>
@@ -450,16 +246,9 @@ provided by rspec-mocks.</p>
   </tr>
 </table>
 </div>
-    
       <div class="method_details ">
   <h3 class="signature " id="disable_should-class_method">
-  
     + (<tt>Object</tt>) <strong>disable_should</strong>(syntax_host = default_should_syntax_host) 
-  
-
-  
-
-  
 </h3><div class="docstring">
   <div class="discussion">
     <p class="note private">
@@ -467,19 +256,13 @@ provided by rspec-mocks.</p>
   You should avoid using this method if possible, as it may be removed or be changed in the future.
 </p>
 <p>Disables the should syntax (<code>dbl.stub</code>, <code>dbl.should_receive</code>, etc).</p>
-
-
   </div>
 </div>
 <div class="tags">
-  
-
 </div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
-
-
 86
 87
 88
@@ -503,10 +286,8 @@ provided by rspec-mocks.</p>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/rspec/mocks/syntax.rb', line 86</span>
-
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_disable_should'>disable_should</span><span class='lparen'>(</span><span class='id identifier rubyid_syntax_host'>syntax_host</span> <span class='op'>=</span> <span class='id identifier rubyid_default_should_syntax_host'>default_should_syntax_host</span><span class='rparen'>)</span>
   <span class='kw'>return</span> <span class='kw'>unless</span> <span class='id identifier rubyid_should_enabled?'>should_enabled?</span><span class='lparen'>(</span><span class='id identifier rubyid_syntax_host'>syntax_host</span><span class='rparen'>)</span>
-
   <span class='id identifier rubyid_syntax_host'>syntax_host</span><span class='period'>.</span><span class='id identifier rubyid_class_eval'>class_eval</span> <span class='kw'>do</span>
     <span class='kw'>undef</span> <span class='id identifier rubyid_should_receive'>should_receive</span>
     <span class='kw'>undef</span> <span class='id identifier rubyid_should_not_receive'>should_not_receive</span>
@@ -519,7 +300,6 @@ provided by rspec-mocks.</p>
     <span class='kw'>undef</span> <span class='id identifier rubyid_null_object?'>null_object?</span>
     <span class='kw'>undef</span> <span class='id identifier rubyid_received_message?'>received_message?</span>
   <span class='kw'>end</span>
-
   <span class='const'>Class</span><span class='period'>.</span><span class='id identifier rubyid_class_eval'>class_eval</span> <span class='kw'>do</span>
     <span class='kw'>undef</span> <span class='id identifier rubyid_any_instance'>any_instance</span>
   <span class='kw'>end</span>
@@ -528,16 +308,9 @@ provided by rspec-mocks.</p>
   </tr>
 </table>
 </div>
-    
       <div class="method_details ">
   <h3 class="signature " id="enable_expect-class_method">
-  
     + (<tt>Object</tt>) <strong>enable_expect</strong>(syntax_host = ::RSpec::Mocks::ExampleMethods) 
-  
-
-  
-
-  
 </h3><div class="docstring">
   <div class="discussion">
     <p class="note private">
@@ -545,19 +318,13 @@ provided by rspec-mocks.</p>
   You should avoid using this method if possible, as it may be removed or be changed in the future.
 </p>
 <p>Enables the expect syntax (<code>expect(dbl).to receive</code>, <code>allow(dbl).to receive</code>, etc).</p>
-
-
   </div>
 </div>
 <div class="tags">
-  
-
 </div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
-
-
 109
 110
 111
@@ -588,28 +355,22 @@ provided by rspec-mocks.</p>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/rspec/mocks/syntax.rb', line 109</span>
-
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_enable_expect'>enable_expect</span><span class='lparen'>(</span><span class='id identifier rubyid_syntax_host'>syntax_host</span> <span class='op'>=</span> <span class='op'>::</span><span class='const'>RSpec</span><span class='op'>::</span><span class='const'>Mocks</span><span class='op'>::</span><span class='const'>ExampleMethods</span><span class='rparen'>)</span>
   <span class='kw'>return</span> <span class='kw'>if</span> <span class='id identifier rubyid_expect_enabled?'>expect_enabled?</span><span class='lparen'>(</span><span class='id identifier rubyid_syntax_host'>syntax_host</span><span class='rparen'>)</span>
-
   <span class='id identifier rubyid_syntax_host'>syntax_host</span><span class='period'>.</span><span class='id identifier rubyid_class_eval'>class_eval</span> <span class='kw'>do</span>
     <span class='kw'>def</span> <span class='id identifier rubyid_receive'>receive</span><span class='lparen'>(</span><span class='id identifier rubyid_method_name'>method_name</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
       <span class='const'>Matchers</span><span class='op'>::</span><span class='const'>Receive</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_method_name'>method_name</span><span class='comma'>,</span> <span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
     <span class='kw'>end</span>
-
     <span class='kw'>def</span> <span class='id identifier rubyid_allow'>allow</span><span class='lparen'>(</span><span class='id identifier rubyid_target'>target</span><span class='rparen'>)</span>
       <span class='const'>AllowanceTarget</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_target'>target</span><span class='rparen'>)</span>
     <span class='kw'>end</span>
-
     <span class='kw'>def</span> <span class='id identifier rubyid_expect_any_instance_of'>expect_any_instance_of</span><span class='lparen'>(</span><span class='id identifier rubyid_klass'>klass</span><span class='rparen'>)</span>
       <span class='const'>AnyInstanceExpectationTarget</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_klass'>klass</span><span class='rparen'>)</span>
     <span class='kw'>end</span>
-
     <span class='kw'>def</span> <span class='id identifier rubyid_allow_any_instance_of'>allow_any_instance_of</span><span class='lparen'>(</span><span class='id identifier rubyid_klass'>klass</span><span class='rparen'>)</span>
       <span class='const'>AnyInstanceAllowanceTarget</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_klass'>klass</span><span class='rparen'>)</span>
     <span class='kw'>end</span>
   <span class='kw'>end</span>
-
   <span class='const'>RSpec</span><span class='op'>::</span><span class='const'>Mocks</span><span class='op'>::</span><span class='const'>ExampleMethods</span><span class='op'>::</span><span class='const'>ExpectHost</span><span class='period'>.</span><span class='id identifier rubyid_class_eval'>class_eval</span> <span class='kw'>do</span>
     <span class='kw'>def</span> <span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_target'>target</span><span class='rparen'>)</span>
       <span class='const'>ExpectationTarget</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_target'>target</span><span class='rparen'>)</span>
@@ -620,16 +381,9 @@ provided by rspec-mocks.</p>
   </tr>
 </table>
 </div>
-    
       <div class="method_details ">
   <h3 class="signature " id="enable_should-class_method">
-  
     + (<tt>Object</tt>) <strong>enable_should</strong>(syntax_host = default_should_syntax_host) 
-  
-
-  
-
-  
 </h3><div class="docstring">
   <div class="discussion">
     <p class="note private">
@@ -637,19 +391,13 @@ provided by rspec-mocks.</p>
   You should avoid using this method if possible, as it may be removed or be changed in the future.
 </p>
 <p>Enables the should syntax (<code>dbl.stub</code>, <code>dbl.should_receive</code>, etc).</p>
-
-
   </div>
 </div>
 <div class="tags">
-  
-
 </div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
-
-
 25
 26
 27
@@ -711,56 +459,44 @@ provided by rspec-mocks.</p>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/rspec/mocks/syntax.rb', line 25</span>
-
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_enable_should'>enable_should</span><span class='lparen'>(</span><span class='id identifier rubyid_syntax_host'>syntax_host</span> <span class='op'>=</span> <span class='id identifier rubyid_default_should_syntax_host'>default_should_syntax_host</span><span class='rparen'>)</span>
   <span class='kw'>return</span> <span class='kw'>if</span> <span class='id identifier rubyid_should_enabled?'>should_enabled?</span><span class='lparen'>(</span><span class='id identifier rubyid_syntax_host'>syntax_host</span><span class='rparen'>)</span>
-
   <span class='id identifier rubyid_syntax_host'>syntax_host</span><span class='period'>.</span><span class='id identifier rubyid_class_eval'>class_eval</span> <span class='kw'>do</span>
     <span class='kw'>def</span> <span class='id identifier rubyid_should_receive'>should_receive</span><span class='lparen'>(</span><span class='id identifier rubyid_message'>message</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
       <span class='id identifier rubyid_opts'>opts</span><span class='lbracket'>[</span><span class='symbol'>:expected_from</span><span class='rbracket'>]</span> <span class='op'>||=</span> <span class='id identifier rubyid_caller'>caller</span><span class='lparen'>(</span><span class='int'>1</span><span class='rparen'>)</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span>
       <span class='op'>::</span><span class='const'>RSpec</span><span class='op'>::</span><span class='const'>Mocks</span><span class='period'>.</span><span class='id identifier rubyid_expect_message'>expect_message</span><span class='lparen'>(</span><span class='kw'>self</span><span class='comma'>,</span> <span class='id identifier rubyid_message'>message</span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
     <span class='kw'>end</span>
-
     <span class='kw'>def</span> <span class='id identifier rubyid_should_not_receive'>should_not_receive</span><span class='lparen'>(</span><span class='id identifier rubyid_message'>message</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
       <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='symbol'>:expected_from</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_caller'>caller</span><span class='lparen'>(</span><span class='int'>1</span><span class='rparen'>)</span><span class='lbracket'>[</span><span class='int'>0</span><span class='rbracket'>]</span><span class='rbrace'>}</span>
       <span class='op'>::</span><span class='const'>RSpec</span><span class='op'>::</span><span class='const'>Mocks</span><span class='period'>.</span><span class='id identifier rubyid_expect_message'>expect_message</span><span class='lparen'>(</span><span class='kw'>self</span><span class='comma'>,</span> <span class='id identifier rubyid_message'>message</span><span class='period'>.</span><span class='id identifier rubyid_to_sym'>to_sym</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_never'>never</span>
     <span class='kw'>end</span>
-
     <span class='kw'>def</span> <span class='id identifier rubyid_stub'>stub</span><span class='lparen'>(</span><span class='id identifier rubyid_message_or_hash'>message_or_hash</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
       <span class='op'>::</span><span class='const'>RSpec</span><span class='op'>::</span><span class='const'>Mocks</span><span class='op'>::</span><span class='const'>Syntax</span><span class='period'>.</span><span class='id identifier rubyid_stub_object'>stub_object</span><span class='lparen'>(</span><span class='kw'>self</span><span class='comma'>,</span> <span class='id identifier rubyid_message_or_hash'>message_or_hash</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
     <span class='kw'>end</span>
-
     <span class='kw'>def</span> <span class='id identifier rubyid_unstub'>unstub</span><span class='lparen'>(</span><span class='id identifier rubyid_message'>message</span><span class='rparen'>)</span>
       <span class='op'>::</span><span class='const'>RSpec</span><span class='op'>::</span><span class='const'>Mocks</span><span class='period'>.</span><span class='id identifier rubyid_space'>space</span><span class='period'>.</span><span class='id identifier rubyid_proxy_for'>proxy_for</span><span class='lparen'>(</span><span class='kw'>self</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_remove_stub'>remove_stub</span><span class='lparen'>(</span><span class='id identifier rubyid_message'>message</span><span class='rparen'>)</span>
     <span class='kw'>end</span>
-
     <span class='kw'>def</span> <span class='id identifier rubyid_stub!'>stub!</span><span class='lparen'>(</span><span class='id identifier rubyid_message_or_hash'>message_or_hash</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='op'>=</span><span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
       <span class='op'>::</span><span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_deprecate'>deprecate</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>stub!</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:replacement</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>stub</span><span class='tstring_end'>&quot;</span></span>
       <span class='op'>::</span><span class='const'>RSpec</span><span class='op'>::</span><span class='const'>Mocks</span><span class='op'>::</span><span class='const'>Syntax</span><span class='period'>.</span><span class='id identifier rubyid_stub_object'>stub_object</span><span class='lparen'>(</span><span class='kw'>self</span><span class='comma'>,</span> <span class='id identifier rubyid_message_or_hash'>message_or_hash</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
     <span class='kw'>end</span>
-
     <span class='kw'>def</span> <span class='id identifier rubyid_unstub!'>unstub!</span><span class='lparen'>(</span><span class='id identifier rubyid_message'>message</span><span class='rparen'>)</span>
       <span class='op'>::</span><span class='const'>RSpec</span><span class='period'>.</span><span class='id identifier rubyid_deprecate'>deprecate</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>unstub!</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:replacement</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>unstub</span><span class='tstring_end'>&quot;</span></span>
       <span class='id identifier rubyid_unstub'>unstub</span><span class='lparen'>(</span><span class='id identifier rubyid_message'>message</span><span class='rparen'>)</span>
     <span class='kw'>end</span>
-
     <span class='kw'>def</span> <span class='id identifier rubyid_stub_chain'>stub_chain</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_chain'>chain</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_blk'>blk</span><span class='rparen'>)</span>
       <span class='op'>::</span><span class='const'>RSpec</span><span class='op'>::</span><span class='const'>Mocks</span><span class='op'>::</span><span class='const'>StubChain</span><span class='period'>.</span><span class='id identifier rubyid_stub_chain_on'>stub_chain_on</span><span class='lparen'>(</span><span class='kw'>self</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_chain'>chain</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_blk'>blk</span><span class='rparen'>)</span>
     <span class='kw'>end</span>
-
     <span class='kw'>def</span> <span class='id identifier rubyid_as_null_object'>as_null_object</span>
       <span class='ivar'>@_null_object</span> <span class='op'>=</span> <span class='kw'>true</span>
       <span class='op'>::</span><span class='const'>RSpec</span><span class='op'>::</span><span class='const'>Mocks</span><span class='period'>.</span><span class='id identifier rubyid_proxy_for'>proxy_for</span><span class='lparen'>(</span><span class='kw'>self</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_as_null_object'>as_null_object</span>
     <span class='kw'>end</span>
-
     <span class='kw'>def</span> <span class='id identifier rubyid_null_object?'>null_object?</span>
       <span class='kw'>defined?</span><span class='lparen'>(</span><span class='ivar'>@_null_object</span><span class='rparen'>)</span>
     <span class='kw'>end</span>
-
     <span class='kw'>def</span> <span class='id identifier rubyid_received_message?'>received_message?</span><span class='lparen'>(</span><span class='id identifier rubyid_message'>message</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
       <span class='op'>::</span><span class='const'>RSpec</span><span class='op'>::</span><span class='const'>Mocks</span><span class='period'>.</span><span class='id identifier rubyid_proxy_for'>proxy_for</span><span class='lparen'>(</span><span class='kw'>self</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_received_message?'>received_message?</span><span class='lparen'>(</span><span class='id identifier rubyid_message'>message</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
     <span class='kw'>end</span>
-
     <span class='kw'>unless</span> <span class='const'>Class</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span> <span class='symbol'>:any_instance</span>
       <span class='const'>Class</span><span class='period'>.</span><span class='id identifier rubyid_class_eval'>class_eval</span> <span class='kw'>do</span>
         <span class='kw'>def</span> <span class='id identifier rubyid_any_instance'>any_instance</span>
@@ -774,16 +510,9 @@ provided by rspec-mocks.</p>
   </tr>
 </table>
 </div>
-    
       <div class="method_details ">
   <h3 class="signature " id="expect_enabled?-class_method">
-  
     + (<tt>Boolean</tt>) <strong>expect_enabled?</strong>(syntax_host = ::RSpec::Mocks::ExampleMethods) 
-  
-
-  
-
-  
 </h3><div class="docstring">
   <div class="discussion">
     <p class="note private">
@@ -791,39 +520,25 @@ provided by rspec-mocks.</p>
   You should avoid using this method if possible, as it may be removed or be changed in the future.
 </p>
 <p>Indicates whether or not the expect syntax is enabled.</p>
-
-
   </div>
 </div>
 <div class="tags">
-  
 <p class="tag_title">Returns:</p>
 <ul class="return">
-  
     <li>
-      
-      
         <span class='type'>(<tt>Boolean</tt>)</span>
-      
-      
-      
     </li>
-  
 </ul>
-
 </div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
-
-
 162
 163
 164</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/rspec/mocks/syntax.rb', line 162</span>
-
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_expect_enabled?'>expect_enabled?</span><span class='lparen'>(</span><span class='id identifier rubyid_syntax_host'>syntax_host</span> <span class='op'>=</span> <span class='op'>::</span><span class='const'>RSpec</span><span class='op'>::</span><span class='const'>Mocks</span><span class='op'>::</span><span class='const'>ExampleMethods</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_syntax_host'>syntax_host</span><span class='period'>.</span><span class='id identifier rubyid_method_defined?'>method_defined?</span><span class='lparen'>(</span><span class='symbol'>:allow</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
@@ -831,16 +546,9 @@ provided by rspec-mocks.</p>
   </tr>
 </table>
 </div>
-    
       <div class="method_details ">
   <h3 class="signature " id="should_enabled?-class_method">
-  
     + (<tt>Boolean</tt>) <strong>should_enabled?</strong>(syntax_host = default_should_syntax_host) 
-  
-
-  
-
-  
 </h3><div class="docstring">
   <div class="discussion">
     <p class="note private">
@@ -848,39 +556,25 @@ provided by rspec-mocks.</p>
   You should avoid using this method if possible, as it may be removed or be changed in the future.
 </p>
 <p>Indicates whether or not the should syntax is enabled.</p>
-
-
   </div>
 </div>
 <div class="tags">
-  
 <p class="tag_title">Returns:</p>
 <ul class="return">
-  
     <li>
-      
-      
         <span class='type'>(<tt>Boolean</tt>)</span>
-      
-      
-      
     </li>
-  
 </ul>
-
 </div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
-
-
 156
 157
 158</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/rspec/mocks/syntax.rb', line 156</span>
-
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_should_enabled?'>should_enabled?</span><span class='lparen'>(</span><span class='id identifier rubyid_syntax_host'>syntax_host</span> <span class='op'>=</span> <span class='id identifier rubyid_default_should_syntax_host'>default_should_syntax_host</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_syntax_host'>syntax_host</span><span class='period'>.</span><span class='id identifier rubyid_method_defined?'>method_defined?</span><span class='lparen'>(</span><span class='symbol'>:should_receive</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
@@ -888,16 +582,9 @@ provided by rspec-mocks.</p>
   </tr>
 </table>
 </div>
-    
       <div class="method_details ">
   <h3 class="signature " id="stub_object-class_method">
-  
     + (<tt>Object</tt>) <strong>stub_object</strong>(object, message_or_hash, opts = {}) 
-  
-
-  
-
-  
 </h3><div class="docstring">
   <div class="discussion">
     <p class="note private">
@@ -909,19 +596,13 @@ live in <code>stub</code>, and <code>stub!</code> delegated to <code>stub</code>
 that <code>stub!</code> was delegating to <code>RSpec::Mocks::ExampleMethods#stub</code>
 (which declares a test double) when called with an implicit receiver,
 which was a regression in 2.14.0.</p>
-
-
   </div>
 </div>
 <div class="tags">
-  
-
 </div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
-
-
 14
 15
 16
@@ -933,7 +614,6 @@ which was a regression in 2.14.0.</p>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/rspec/mocks/syntax.rb', line 14</span>
-
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_stub_object'>stub_object</span><span class='lparen'>(</span><span class='id identifier rubyid_object'>object</span><span class='comma'>,</span> <span class='id identifier rubyid_message_or_hash'>message_or_hash</span><span class='comma'>,</span> <span class='id identifier rubyid_opts'>opts</span> <span class='op'>=</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
   <span class='kw'>if</span> <span class='op'>::</span><span class='const'>Hash</span> <span class='op'>===</span> <span class='id identifier rubyid_message_or_hash'>message_or_hash</span>
     <span class='id identifier rubyid_message_or_hash'>message_or_hash</span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='lbrace'>{</span><span class='op'>|</span><span class='id identifier rubyid_message'>message</span><span class='comma'>,</span> <span class='id identifier rubyid_value'>value</span><span class='op'>|</span> <span class='id identifier rubyid_stub_object'>stub_object</span><span class='lparen'>(</span><span class='id identifier rubyid_object'>object</span><span class='comma'>,</span> <span class='id identifier rubyid_message'>message</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_and_return'>and_return</span> <span class='id identifier rubyid_value'>value</span> <span class='rbrace'>}</span>
@@ -946,27 +626,20 @@ which was a regression in 2.14.0.</p>
   </tr>
 </table>
 </div>
-    
   </div>
-
 </div>
-
     <div id="footer">
   Generated on Thu Jan 29 14:04:44 2015 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.0 (ruby-2.1.5).
 </div>
-
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
   ga('create', 'UA-59095215-1', 'auto');
   ga('send', 'pageview');
-
 </script>
-
   </body>
 </html>

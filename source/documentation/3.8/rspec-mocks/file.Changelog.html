@@ -4,64 +4,43 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>
   File: Changelog
-  
     &mdash; Documentation by YARD 0.9.16
-  
 </title>
-
   <link rel="stylesheet" href="/documentation/3.8/rspec-mocks/css/style.css" type="text/css" charset="utf-8" />
-
   <link rel="stylesheet" href="/documentation/3.8/rspec-mocks/css/common.css" type="text/css" charset="utf-8" />
-
 <script type="text/javascript" charset="utf-8">
   pathId = "Changelog";
   relpath = '';
 </script>
-
-
   <script type="text/javascript" charset="utf-8" src="/documentation/3.8/rspec-mocks/js/jquery.js"></script>
-
   <script type="text/javascript" charset="utf-8" src="/documentation/3.8/rspec-mocks/js/app.js"></script>
-
-
   </head>
   <body>
     <div class="nav_wrap">
       <iframe id="nav" src="file_list.html?1"></iframe>
       <div id="resizer"></div>
     </div>
-
     <div id="main" tabindex="-1">
       <div id="header">
         <div id="menu">
-  
     <a href="_index.html">Index</a> &raquo; 
     <span class="title">File: Changelog</span>
-  
 </div>
-
         <div id="search">
-  
     <a class="full_list_link" id="class_list_link"
         href="class_list.html">
-
         <svg width="24" height="24">
           <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
           <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
           <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
         </svg>
     </a>
-  
 </div>
         <div class="clear"></div>
       </div>
-
       <div id="content"><div id='filecontents'><h3>3.8.0 / 2018-08-04</h3>
-
 <p><a href="http://github.com/rspec/rspec-mocks/compare/v3.7.0...v3.8.0">Full Changelog</a></p>
-
 <p>Bug Fixes:</p>
-
 <ul>
 <li>Issue error when encountering invalid &quot;counted&quot; negative message expectations.
 (Sergiy Yarinovskiy, #1212)</li>
@@ -71,31 +50,21 @@ supressed. (Jon Rowe, #1228)</li>
 fails gracefully (as its not supported) rather than issuing a <code>NoMethodError</code>.
 (Maxim Krizhanovsky, #1231)</li>
 </ul>
-
 <h3>3.7.0 / 2017-10-17</h3>
-
 <p><a href="http://github.com/rspec/rspec-mocks/compare/v3.6.0...v3.7.0">Full Changelog</a></p>
-
 <p>Enhancements:</p>
-
 <ul>
 <li>Improve compatibility with <code>--enable-frozen-string-literal</code> option
 on Ruby 2.3+. (Pat Allan, #1165)</li>
 </ul>
-
 <p>Bug Fixes:</p>
-
 <ul>
 <li>Fix <code>hash_including</code> and <code>hash_excluding</code> so that they work against
 subclasses of <code>Hash</code>. (Aaron Rosenberg, #1167)</li>
 </ul>
-
 <h3>3.6.0 / 2017-05-04</h3>
-
 <p><a href="http://github.com/rspec/rspec-mocks/compare/v3.6.0.beta2...v3.6.0">Full Changelog</a></p>
-
 <p>Bug Fixes:</p>
-
 <ul>
 <li>Fix &quot;instance variable @color not initialized&quot; warning when using
 rspec-mocks without rspec-core. (Myron Marston, #1142)</li>
@@ -104,89 +73,59 @@ rspec-mocks without rspec-core. (Myron Marston, #1142)</li>
 <li>Allow a message chain expectation to be constrained by argument(s).
 (Jon Rowe, #1156)</li>
 </ul>
-
 <h3>3.6.0.beta2 / 2016-12-12</h3>
-
 <p><a href="http://github.com/rspec/rspec-mocks/compare/v3.6.0.beta1...v3.6.0.beta2">Full Changelog</a></p>
-
 <p>Enhancements:</p>
-
 <ul>
 <li>Add new <code>without_partial_double_verification { }</code> API that lets you
 temporarily turn off partial double verification for an example.
 (Jon Rowe, #1104)</li>
 </ul>
-
 <h3>3.6.0.beta1 / 2016-10-09</h3>
-
 <p><a href="http://github.com/rspec/rspec-mocks/compare/v3.5.0...v3.6.0.beta1">Full Changelog</a></p>
-
 <p>Bug Fixes:</p>
-
 <ul>
 <li>Return the test double instance form <code>#freeze</code> (Alessandro Berardi, #1109)</li>
 <li>Allow the special logic for stubbing <code>new</code> to work when <code>&lt;Class&gt;.method</code> has
 been redefined. (Proby, #1119)</li>
 </ul>
-
 <h3>3.5.0 / 2016-07-01</h3>
-
 <p><a href="http://github.com/rspec/rspec-mocks/compare/v3.5.0.beta4...v3.5.0">Full Changelog</a></p>
-
 <p>Enhancements:</p>
-
 <ul>
 <li>Provides a nice string representation of
 <code>RSpec::Mocks::MessageExpectation</code> (Myron Marston, #1095)</li>
 </ul>
-
 <h3>3.5.0.beta4 / 2016-06-05</h3>
-
 <p><a href="http://github.com/rspec/rspec-mocks/compare/v3.5.0.beta3...v3.5.0.beta4">Full Changelog</a></p>
-
 <p>Enhancements:</p>
-
 <ul>
 <li>Add <code>and_throw</code> to any instance handling. (Tobias Bühlmann, #1068)</li>
 </ul>
-
 <h3>3.5.0.beta3 / 2016-04-02</h3>
-
 <p><a href="http://github.com/rspec/rspec-mocks/compare/v3.5.0.beta2...v3.5.0.beta3">Full Changelog</a></p>
-
 <p>Enhancements:</p>
-
 <ul>
 <li>Issue warning when attempting to use unsupported
 <code>allow(...).to receive(...).ordered</code>. (Jon Rowe, #1000)</li>
 <li>Add <code>rspec/mocks/minitest_integration</code>, to properly integrate rspec-mocks
 with minitest. (Myron Marston, #1065)</li>
 </ul>
-
 <h3>3.5.0.beta2 / 2016-03-10</h3>
-
 <p><a href="http://github.com/rspec/rspec-mocks/compare/v3.5.0.beta1...v3.5.0.beta2">Full Changelog</a></p>
-
 <p>Enhancements:</p>
-
 <ul>
 <li>Improve error message displayed when using <code>and_wrap_original</code> on pure test
 doubles. (betesh, #1063)</li>
 </ul>
-
 <p>Bug Fixes:</p>
-
 <ul>
 <li>Fix issue that prevented <code>receive_message_chain(...).with(...)</code> working
 correctly on &quot;any instance&quot; mocks. (Jon Rowe, #1061)</li>
 </ul>
-
 <h3>3.5.0.beta1 / 2016-02-06</h3>
-
 <p><a href="http://github.com/rspec/rspec-mocks/compare/v3.4.1...v3.5.0.beta1">Full Changelog</a></p>
-
 <p>Bug Fixes:</p>
-
 <ul>
 <li>Allow <code>any_instance_of(...).to receive(...)</code> to use <code>and_yield</code> multiple
 times. (Kilian Cirera Sant, #1054)</li>
@@ -197,32 +136,22 @@ recursion. (Jon Rowe, #1013)</li>
 <li>Prevent aliased methods from disapearing after being mocked with
 <code>any_instance</code> (regression from #1043). (Joe Rafaniello, #1060)</li>
 </ul>
-
 <h3>3.4.1 / 2016-01-10</h3>
-
 <p><a href="http://github.com/rspec/rspec-mocks/compare/v3.4.0...v3.4.1">Full Changelog</a></p>
-
 <p>Bug Fixes:</p>
-
 <ul>
 <li>Fix <code>any_instance</code> to work properly on Ruby 2.3. (Joe Rafaniello, #1043)</li>
 </ul>
-
 <h3>3.4.0 / 2015-11-11</h3>
-
 <p><a href="http://github.com/rspec/rspec-mocks/compare/v3.3.2...v3.4.0">Full Changelog</a></p>
-
 <p>Enhancements:</p>
-
 <ul>
 <li>Make <code>expect(...).to have_received</code> work without relying upon
 rspec-expectations. (Myron Marston, #978)</li>
 <li>Add option for failing tests when expectations are set on <code>nil</code>.
 (Liz Rush, #983)</li>
 </ul>
-
 <p>Bug Fixes:</p>
-
 <ul>
 <li>Fix <code>have_received { ... }</code> so that any block passed when the message
 was received is forwarded to the <code>have_received</code> block. (Myron Marston, #1006)</li>
@@ -231,37 +160,25 @@ was received is forwarded to the <code>have_received</code> block. (Myron Marsto
 <li>Fix issue with using <code>receive</code> on subclasses (at a class level) with 1.8.7.
 (Alex Dowad, #1026)</li>
 </ul>
-
 <h3>3.3.2 / 2015-07-15</h3>
-
 <p><a href="http://github.com/rspec/rspec-mocks/compare/v3.3.1...v3.3.2">Full Changelog</a></p>
-
 <p>Bug Fixes:</p>
-
 <ul>
 <li>Prevent thread deadlock errors during proxy creation (e.g. when using
 <code>before_verifying_doubles</code> callbacks). (Jon Rowe, #980, #979)</li>
 </ul>
-
 <h3>3.3.1 / 2015-06-19</h3>
-
 <p><a href="http://github.com/rspec/rspec-mocks/compare/v3.3.0...v3.3.1">Full Changelog</a></p>
-
 <p>Bug Fixes:</p>
-
 <ul>
 <li>Fix bug in <code>before_verifying_double</code> callback logic that caused it to be called
 once for each class in the ancestor list when mocking or stubbing a class. Now
 it is only called for the mocked or stubbed class, as you would expect. (Sam
 Phippen, #974)</li>
 </ul>
-
 <h3>3.3.0 / 2015-06-12</h3>
-
 <p><a href="http://github.com/rspec/rspec-mocks/compare/v3.2.1...v3.3.0">Full Changelog</a></p>
-
 <p>Enhancements:</p>
-
 <ul>
 <li>When stubbing <code>new</code> on <code>MyClass</code> or <code>class_double(MyClass)</code>, use the
 method signature from <code>MyClass#initialize</code> to verify arguments.
@@ -282,9 +199,7 @@ verifying partial doubles. (Jon Rowe, #940)</li>
 arguments in failure messages so that, for example, full time
 precisions is displayed for time objects. (Gavin Miller, Myron Marston, #955)</li>
 </ul>
-
 <p>Bug Fixes:</p>
-
 <ul>
 <li>Ensure expectations that raise eagerly also raise during RSpec verification.
 This means that if exceptions are caught inside test execution the test will
@@ -307,13 +222,9 @@ times for one failure. (Myron Marston, #957)</li>
 different arguments and also received another message. (Maurício Linhares, #960)</li>
 <li>Silence whitespace-only diffs. (Myron Marston, #969)</li>
 </ul>
-
 <h3>3.2.1 / 2015-02-23</h3>
-
 <p><a href="http://github.com/rspec/rspec-mocks/compare/v3.2.0...v3.2.1">Full Changelog</a></p>
-
 <p>Bug Fixes:</p>
-
 <ul>
 <li>Add missing <code>rspec/support/differ</code> require so that rspec-mocks can be
 used w/o rspec-expectations (which also loads the differ and hided the
@@ -323,13 +234,9 @@ error in a situation we can&#39;t support) as our implementation has side
 effects on non-standard objects and there&#39;s no solution we could come
 up with that always works. (Myron Marston, #900)</li>
 </ul>
-
 <h3>3.2.0 / 2015-02-03</h3>
-
 <p><a href="http://github.com/rspec/rspec-mocks/compare/v3.1.3...v3.2.0">Full Changelog</a></p>
-
 <p>Enhancements:</p>
-
 <ul>
 <li>Treat <code>any_args</code> as an arg splat, allowing it to match an arbitrary
 number of args at any point in an arg list. (Myron Marston, #786)</li>
@@ -343,9 +250,7 @@ Baginski, #826)</li>
 <li>Make <code>allow_any_instance_of(...).to receive(...).and_wrap_original</code>
 work. (Ryan Fitzgerald, #869)</li>
 </ul>
-
 <p>Bug Fixes:</p>
-
 <ul>
 <li>Provide a clear error when users wrongly combine <code>no_args</code> with
 additional arguments (e.g. <code>expect().to receive().with(no_args, 1)</code>).
@@ -384,13 +289,9 @@ stubbing a method on the <code>file</code> object. (Myron Marston, #853)</li>
 <li>Provide a clear error when received message args are mutated before
 a <code>have_received(...).with(...)</code> expectation. (Myron Marston, #868)</li>
 </ul>
-
 <h3>3.1.3 / 2014-10-08</h3>
-
 <p><a href="http://github.com/rspec/rspec-mocks/compare/v3.1.2...v3.1.3">Full Changelog</a></p>
-
 <p>Bug Fixes:</p>
-
 <ul>
 <li>Correct received messages count when used with <code>have_received</code> matcher.
 (Jon Rowe, #793)</li>
@@ -401,36 +302,24 @@ failure in rspec-mocks). (Jon Rowe, #799).</li>
 <li>Fix verified double <code>with</code> verification so that it applies to method
 stubs. (Myron Marston, #790)</li>
 </ul>
-
 <h3>3.1.2 / 2014-09-26</h3>
-
 <p><a href="http://github.com/rspec/rspec-mocks/compare/v3.1.1...v3.1.2">Full Changelog</a></p>
-
 <p>Bug Fixes:</p>
-
 <ul>
 <li>Provide a clear error message when you use <code>allow(...)</code> with the
 <code>have_received</code> matcher (they are not intended to be used together
 and previously caused an odd internal failure in rspec-mocks). (Jon Rowe, #788).</li>
 </ul>
-
 <h3>3.1.1 / 2014-09-18</h3>
-
 <p><a href="http://github.com/rspec/rspec-mocks/compare/v3.1.0...v3.1.1">Full Changelog</a></p>
-
 <p>Bug Fixes:</p>
-
 <ul>
 <li>Prevent included modules being detected as prepended modules on Ruby 2.0
 when using <code>any_instance_of(...)</code>. (Tony Novak, #781)</li>
 </ul>
-
 <h3>3.1.0 / 2014-09-04</h3>
-
 <p><a href="http://github.com/rspec/rspec-mocks/compare/v3.0.4...v3.1.0">Full Changelog</a></p>
-
 <p>Enhancements:</p>
-
 <ul>
 <li>Add spying methods (<code>spy</code>, <code>ìnstance_spy</code>, <code>class_spy</code> and <code>object_spy</code>)
 which create doubles as null objects for use with spying in testing. (Sam
@@ -446,33 +335,23 @@ for <code>exactly(3).times</code>. (Dennis Taylor, #753)</li>
 <li>Add <code>and_wrap_original</code> modifier for partial doubles to mutate the
 response from a method. (Jon Rowe, #762)</li>
 </ul>
-
 <p>Bug Fixes:</p>
-
 <ul>
 <li>Remove <code>any_number_of_times</code> from <code>any_instance</code> recorders that were
 erroneously causing mention of the method in documentation. (Jon Rowe, #760)</li>
 <li>Prevent included modules being detected as prepended modules on Ruby 2.0.
 (Eugene Kenny, #771)</li>
 </ul>
-
 <h3>3.0.4 / 2014-08-14</h3>
-
 <p><a href="http://github.com/rspec/rspec-mocks/compare/v3.0.3...v3.0.4">Full Changelog</a></p>
-
 <p>Bug Fixes:</p>
-
 <ul>
 <li>Restore <code>kind_of(x)</code> to match using <code>arg.kind_of?(x)</code> (like RSpec 2)
 rather than <code>x === arg</code>. (Jon Rowe, #750)</li>
 </ul>
-
 <h3>3.0.3 / 2014-07-21</h3>
-
 <p><a href="http://github.com/rspec/rspec-mocks/compare/v3.0.2...v3.0.3">Full Changelog</a></p>
-
 <p>Bug Fixes:</p>
-
 <ul>
 <li><code>have_received</code> matcher will raise &quot;does not implement&quot; errors correctly when
 used with verifying doubles and partial doubles. (Xavier Shay, #722)</li>
@@ -480,13 +359,9 @@ used with verifying doubles and partial doubles. (Xavier Shay, #722)</li>
 make the copies be null objects. (Myron Marston, #732)</li>
 <li>Don&#39;t inadvertently define <code>BasicObject</code> in 1.8.7. (Chris Griego, #739)</li>
 </ul>
-
 <h3>3.0.2 / 2014-06-19</h3>
-
 <p><a href="http://github.com/rspec/rspec-mocks/compare/v3.0.1...v3.0.2">Full Changelog</a></p>
-
 <p>Bug Fixes:</p>
-
 <ul>
 <li>Fix edge case that triggered &quot;can&#39;t add a new key into hash during
 iteration&quot; during mock verification. (Sam Phippen, Myron Marston, #711)</li>
@@ -495,13 +370,9 @@ example, they provide the same clear error message that normal doubles
 do. (Myron Marston, #718)</li>
 <li>Make <code>ordered</code> work with exact receive counts. (Sam Phippen, #713)</li>
 </ul>
-
 <h3>3.0.1 / 2014-06-07</h3>
-
 <p><a href="http://github.com/rspec/rspec-mocks/compare/v3.0.0...v3.0.1">Full Changelog</a></p>
-
 <p>Bug Fixes:</p>
-
 <ul>
 <li>Fix <code>receive_message_chain(...)</code> so that it supports <code>with</code> just like
 <code>stub_chain</code> did. (Jon Rowe, #697)</li>
@@ -509,13 +380,9 @@ do. (Myron Marston, #718)</li>
 message on <em>any</em> instance rather than on <em>every</em> instance.
 (Myron Marston, #699)</li>
 </ul>
-
 <h3>3.0.0 / 2014-06-01</h3>
-
 <p><a href="http://github.com/rspec/rspec-mocks/compare/v3.0.0.rc1...v3.0.0">Full Changelog</a></p>
-
 <p>Bug Fixes:</p>
-
 <ul>
 <li>Fix module prepend detection to work properly on ruby 2.0 for a case
 where a module is extended onto itself. (Myron Marston)</li>
@@ -536,22 +403,16 @@ matchers when their expectations aren&#39;t met. (Jon Rowe)</li>
 staging on 2.0.0-p195, suffers from <a href="https://bugs.ruby-lang.org/issues/8686">https://bugs.ruby-lang.org/issues/8686</a>
 too. (Cezar Halmagean).</li>
 </ul>
-
 <h3>3.0.0.rc1 / 2014-05-18</h3>
-
 <p><a href="http://github.com/rspec/rspec-mocks/compare/v3.0.0.beta2...v3.0.0.rc1">Full Changelog</a></p>
-
 <p>Breaking Changes for 3.0.0:</p>
-
 <ul>
 <li>Remove <code>RSpec::Mocks::TestDouble.extend_onto</code>. (Myron Marston)</li>
 <li>Remove <code>RSpec::Mocks::ConstantStubber</code>. (Jon Rowe)</li>
 <li>Make monkey-patch of Marshal to support dumping of stubbed objects opt-in.
 (Xavier Shay)</li>
 </ul>
-
 <p>Enhancements:</p>
-
 <ul>
 <li>Instead of crashing when cleaning up stub methods on a frozen object, it now
 issues a warning explaining that it&#39;s impossible to clean up the stubs.
@@ -559,9 +420,7 @@ issues a warning explaining that it&#39;s impossible to clean up the stubs.
 <li>Add meaningful descriptions to <code>anything</code>, <code>duck_type</code> and <code>instance_of</code> argument
 matchers. (Jon Rowe)</li>
 </ul>
-
 <p>Bug Fixes:</p>
-
 <ul>
 <li>Fix regression introduced in 3.0.0.beta2 that caused
 <code>double.as_null_object.to_str</code> to return the double rather
@@ -594,13 +453,9 @@ that is defined on a module prepended onto the class. This triggered
 <code>SystemStackError</code> before and is very hard to support so we are not
 supporting it at this time. (Myron Marston)</li>
 </ul>
-
 <h3>3.0.0.beta2 / 2014-02-17</h3>
-
 <p><a href="http://github.com/rspec/rspec-mocks/compare/v3.0.0.beta1...v3.0.0.beta2">Full Changelog</a></p>
-
 <p>Breaking Changes for 3.0.0:</p>
-
 <ul>
 <li>Rename <code>RSpec::Mocks::Mock</code> to <code>RSpec::Mocks::Double</code>. (Myron Marston)</li>
 <li>Change how to integrate rspec-mocks in other test frameworks. You now
@@ -617,9 +472,7 @@ references to test doubles and attempt to reuse them in another
 example. (Myron Marston)</li>
 <li>Remove support for <code>and_return { value }</code> and <code>and_return</code> without arguments. (Yuji Nakayama)</li>
 </ul>
-
 <p>Enhancements:</p>
-
 <ul>
 <li>Add <code>receive_message_chain</code> which provides the functionality of the old
 <code>stub_chain</code> for the new allow/expect syntax. Use it like so: <code>allow(...).to
@@ -633,9 +486,7 @@ temporary rspec-mocks scopes in arbitrary places (such as a
 <li>Support keyword arguments when checking arity with verifying doubles.
 (Xavier Shay)</li>
 </ul>
-
 <p>Bug Fixes:</p>
-
 <ul>
 <li>Fix regression in 3.0.0.beta1 that caused <code>double(&quot;string_name&quot; =&gt; :value)</code>
 to stop working. (Xavier Shay)</li>
@@ -668,13 +519,9 @@ a verifying class double. (Maurício Linhares)</li>
 <li>Remove <code>Double#to_str</code>, which caused confusing <code>raise some_double</code>
 behavior. (Maurício Linhares)</li>
 </ul>
-
 <h3>3.0.0.beta1 / 2013-11-07</h3>
-
 <p><a href="http://github.com/rspec/rspec-mocks/compare/v2.99.4...v3.0.0.beta1">Full Changelog</a></p>
-
 <p>Breaking Changes for 3.0.0:</p>
-
 <ul>
 <li>Raise an explicit error if <code>should_not_receive(...).and_return</code> is used. (Sam
 Phippen)</li>
@@ -694,9 +541,7 @@ in place for backwards compatibility with RSpec 1. (Myron Marston)</li>
 <li>The config option (added in 2.99) to yield the receiver to
 <code>any_instance</code> implementation blocks now defaults to &quot;on&quot;. (Sam Phippen)</li>
 </ul>
-
 <p>Enhancements:</p>
-
 <ul>
 <li>Allow the <code>have_received</code> matcher to use a block to set further expectations
 on arguments. (Tim Cowlishaw)</li>
@@ -722,17 +567,13 @@ module is loaded and the arity of the method being invoked does not match the
 arity of the method as it is actually implemented. (Andy Lindeman)</li>
 <li>Spies can now check their invocation ordering is correct. (Jon Rowe)</li>
 </ul>
-
 <p>Deprecations:</p>
-
 <ul>
 <li>Using the old <code>:should</code> syntax without explicitly configuring it
 is deprecated. It will continue to work but will emit a deprecation
 warning in RSpec 3 if you do not explicitly enable it. (Sam Phippen)</li>
 </ul>
-
 <p>Bug Fixes:</p>
-
 <ul>
 <li>Fix <code>and_call_original</code> to handle a complex edge case involving
 singleton class ancestors. (Marc-André Lafortune, Myron Marston)</li>
@@ -741,79 +582,50 @@ use <code>#inspect</code> rather than <code>#description</code> if <code>#descri
 returns <code>nil</code> or <code>&#39;&#39;</code> so that you still get a useful message.
 (Nick DeLuca)</li>
 </ul>
-
 <h3>2.99.4 / 2015-06-19</h3>
-
 <p><a href="http://github.com/rspec/rspec-mocks/compare/v2.99.3...v2.99.4">Full Changelog</a></p>
-
 <p>Bug Fixes:</p>
-
 <ul>
 <li>Add missing deprecation for using <code>with</code> with no arguments e.g. <code>with()</code>. (Yousuke, #970)</li>
 </ul>
-
 <h3>2.99.3 / 2015-01-09</h3>
-
 <p><a href="http://github.com/rspec/rspec-mocks/compare/v2.99.2...v2.99.3">Full Changelog</a></p>
-
 <p>Bug Fixes:</p>
-
 <ul>
 <li>Fix regression that caused an error when a test double was deserialized from YAML. (Yuji Nakayama, #777)</li>
 </ul>
-
 <h3>2.99.2 / 2014-07-21</h3>
-
 <p><a href="http://github.com/rspec/rspec-mocks/compare/v2.99.1...v2.99.2">Full Changelog</a></p>
-
 <p>Enhancements:</p>
-
 <ul>
 <li>Warn about upcoming change to <code>#===</code> matching and <code>DateTime#===</code> behaviour.
 (Jon Rowe, #735)</li>
 </ul>
-
 <h3>2.99.1 / 2014-06-12</h3>
-
 <p><a href="http://github.com/rspec/rspec-mocks/compare/v2.99.0...v2.99.1">Full Changelog</a></p>
-
 <p>Bug Fixes:</p>
-
 <ul>
 <li>Fix bug that caused errors at the end of each example
 when a <code>double.as_null_object</code> had been frozen. (Yuji Nakayama, #698)</li>
 </ul>
-
 <p>Deprecations:</p>
-
 <ul>
 <li>Deprecate freezing a test double. (Yuji Nakayama, #698)</li>
 </ul>
-
 <h3>2.99.0 / 2014-06-01</h3>
-
 <p><a href="http://github.com/rspec/rspec-mocks/compare/v2.99.0.rc1...v2.99.0">Full Changelog</a></p>
-
 <p>No changes. Just taking it out of pre-release.</p>
-
 <h3>2.99.0.rc1 / 2014-05-18</h3>
-
 <p><a href="http://github.com/rspec/rspec-mocks/compare/v2.99.0.beta2...v2.99.0.rc1">Full Changelog</a></p>
-
 <p>Deprecations:</p>
-
 <ul>
 <li>Deprecate <code>RSpec::Mocks::TestDouble.extend_onto</code>. (Myron Marston)</li>
 <li>Deprecate <code>RSpec::Mocks::ConstantStubber</code>. (Jon Rowe)</li>
 <li>Deprecate <code>Marshal.dump</code> monkey-patch without opt-in. (Xavier Shay)</li>
 </ul>
-
 <h3>2.99.0.beta2 / 2014-02-17</h3>
-
 <p><a href="http://github.com/rspec/rspec-mocks/compare/v2.99.0.beta1...v2.99.0.beta2">Full Changelog</a></p>
-
 <p>Deprecations:</p>
-
 <ul>
 <li>Deprecate <code>RSpec::Mocks::Mock</code> in favor of <code>RSpec::Mocks::Double</code>.
 (Myron Marston)</li>
@@ -825,13 +637,9 @@ lifecycle (e.g. from a <code>before(:all)</code> hook). (Myron Marston)</li>
 <li>Deprecate re-using a test double in another example. (Myron Marston)</li>
 <li>Deprecate <code>and_return { value }</code> and <code>and_return</code> without arguments. (Yuji Nakayama)</li>
 </ul>
-
 <h3>2.99.0.beta1 / 2013-11-07</h3>
-
 <p><a href="http://github.com/rspec/rspec-mocks/compare/v2.14.4...v2.99.0.beta1">Full Changelog</a></p>
-
 <p>Deprecations</p>
-
 <ul>
 <li>Expecting to use lambdas or other strong arity implementations for stub
 methods with mis-matched arity is deprecated and support for them will be
@@ -848,81 +656,55 @@ when the new <code>yield_receiver_to_any_instance_implementation_blocks</code> c
 option is not explicitly set, as RSpec 3.0 will default to enabling this new
 feature. (Sam Phippen)</li>
 </ul>
-
 <p>Enhancements:</p>
-
 <ul>
 <li>Add a config option to yield the receiver to <code>any_instance</code> implementation
 blocks. (Sam Phippen)</li>
 </ul>
-
 <h3>2.14.6 / 2014-02-20</h3>
-
 <p><a href="http://github.com/rspec/rspec-mocks/compare/v2.14.5...v2.14.6">Full Changelog</a></p>
-
 <p>Bug Fixes:</p>
-
 <ul>
 <li>Ensure <code>any_instance</code> method stubs and expectations are torn down regardless of
 expectation failures. (Sam Phippen)</li>
 </ul>
-
 <h3>2.14.5 / 2014-02-01</h3>
-
 <p><a href="http://github.com/rspec/rspec-mocks/compare/v2.14.4...v2.14.5">Full Changelog</a></p>
-
 <p>Bug Fixes:</p>
-
 <ul>
 <li>Fix regression that caused block implementations to not receive all
 args on 1.8.7 if the block also receives a block, due to Proc#arity
 reporting <code>1</code> no matter how many args the block receives if it
 receives a block, too. (Myron Marston)</li>
 </ul>
-
 <h3>2.14.4 / 2013-10-15</h3>
-
 <p><a href="http://github.com/rspec/rspec-mocks/compare/v2.14.3...v2.14.4">Full Changelog</a></p>
-
 <p>Bug Fixes:</p>
-
 <ul>
 <li>Fix issue where unstubing methods on &quot;any instances&quot; would not
 remove stubs on existing instances (Jon Rowe)</li>
 <li>Fix issue with receive(:message) do ... end precedence preventing
 the usage of modifications (<code>and_return</code> etc) (Jon Rowe)</li>
 </ul>
-
 <h3>2.14.3 / 2013-08-08</h3>
-
 <p><a href="http://github.com/rspec/rspec-mocks/compare/v2.14.2...v2.14.3">Full Changelog</a></p>
-
 <p>Bug Fixes:</p>
-
 <ul>
 <li>Fix stubbing some instance methods for classes whose hierarchy includes
 a prepended Module (Bradley Schaefer)</li>
 </ul>
-
 <h3>2.14.2 / 2013-07-30</h3>
-
 <p><a href="http://github.com/rspec/rspec-mocks/compare/v2.14.1...v2.14.2">Full Changelog</a></p>
-
 <p>Bug Fixes:</p>
-
 <ul>
 <li>Fix <code>as_null_object</code> doubles so that they return <code>nil</code> from <code>to_ary</code>
 (Jon Rowe).</li>
 <li>Fix regression in 2.14 that made <code>stub!</code> (with an implicit receiver)
 return a test double rather than stub a method (Myron Marston).</li>
 </ul>
-
 <h3>2.14.1 / 2013-07-07</h3>
-
 <p><a href="http://github.com/rspec/rspec-mocks/compare/v2.14.0...v2.14.1">Full Changelog</a></p>
-
 <p>Bug Fixes:</p>
-
 <ul>
 <li>Restore <code>double.as_null_object</code> behavior from 2.13 and earlier: a
 double&#39;s nullness persisted between examples in earlier examples.
@@ -931,13 +713,9 @@ for only one example), we don&#39;t want to break behavior users rely
 on in a minor relase.  This will be deprecated in 2.99 and removed
 in 3.0. (Myron Marston)</li>
 </ul>
-
 <h3>2.14.0 / 2013-07-06</h3>
-
 <p><a href="http://github.com/rspec/rspec-mocks/compare/v2.14.0.rc1...v2.14.0">Full Changelog</a></p>
-
 <p>Enhancements:</p>
-
 <ul>
 <li>Document test spies in the readme. (Adarsh Pandit)</li>
 <li>Add an <code>array_including</code> matcher. (Sam Phippen)</li>
@@ -946,9 +724,7 @@ intended for use by libraries such as rspec-rails that need to mock
 or stub a method, and work regardless of the syntax the user has
 configured (Paul Annesley, Myron Marston and Sam Phippen).</li>
 </ul>
-
 <p>Bug Fixes:</p>
-
 <ul>
 <li>Fix <code>double</code> so that it sets up passed stubs correctly regardless of
 the configured syntax (Paul Annesley).</li>
@@ -960,13 +736,9 @@ release (Myron Marston).</li>
 not been fully initialized. This could cause errors when using <code>spork</code> or
 similar preloading gems (Andy Lindeman).</li>
 </ul>
-
 <h3>2.14.0.rc1 / 2013-05-27</h3>
-
 <p><a href="http://github.com/rspec/rspec-mocks/compare/v2.13.0...v2.14.0.rc1">Full Changelog</a></p>
-
 <p>Enhancements:</p>
-
 <ul>
 <li>Refactor internals so that the mock proxy methods and state are held
 outside of the mocked object rather than inside it. This paves the way
@@ -988,9 +760,7 @@ the args that they got (Sam Phippen)</li>
 <li>Add a new <code>:expect</code> syntax for message expectations
 (Myron Marston and Sam Phippen).</li>
 </ul>
-
 <p>Bug fixes</p>
-
 <ul>
 <li>Fix <code>any_instance</code> so that a frozen object can be <code>dup</code>&#39;d when methods
 have been stubbed on that type using <code>any_instance</code> (Jon Rowe).</li>
@@ -1006,9 +776,7 @@ using <code>Array(my_double)</code> (Jon Rowe).</li>
 <li>Use inspect to format actual arguments on expectations in failure messages (#280, Ben Langfeld)</li>
 <li>Protect against improperly initialised test doubles (#293) (Joseph Shraibman and Jon Rowe)</li>
 </ul>
-
 <p>Deprecations</p>
-
 <ul>
 <li>Deprecate <code>stub</code> and <code>mock</code> as aliases for <code>double</code>. <code>double</code> is the
 best term for creating a test double, and it reduces confusion to
@@ -1017,24 +785,16 @@ have only one term (Michi Huber).</li>
 (Jon Rowe).</li>
 <li>Deprecate <code>at_least(0).times</code> and <code>any_number_of_times</code> (Michi Huber).</li>
 </ul>
-
 <h3>2.13.1 / 2013-04-06</h3>
-
 <p><a href="http://github.com/rspec/rspec-mocks/compare/v2.13.0...v2.13.1">Full Changelog</a></p>
-
 <p>Bug fixes</p>
-
 <ul>
 <li>Allow a block implementation to be used in combination with
 <code>and_yield</code>, <code>and_raise</code>, <code>and_return</code> or <code>and_throw</code> (Myron Marston).</li>
 </ul>
-
 <h3>2.13.0 / 2013-02-23</h3>
-
 <p><a href="http://github.com/rspec/rspec-mocks/compare/v2.12.2...v2.13.0">Full Changelog</a></p>
-
 <p>Bug fixes</p>
-
 <ul>
 <li>Fix bug that caused weird behavior when a method that had
 previously been stubbed with multiple return values (e.g.
@@ -1061,13 +821,9 @@ is used on the same class in the same example. Previously it would
 wrongly report a failure even when the message was not received
 (Myron Marston).</li>
 </ul>
-
 <h3>2.12.2 / 2013-01-27</h3>
-
 <p><a href="http://github.com/rspec/rspec-mocks/compare/v2.12.1...v.2.12.2">Full Changelog</a></p>
-
 <p>Bug fixes</p>
-
 <ul>
 <li>Fix <code>and_call_original</code> to work properly for methods defined
 on a module extended onto an object instance (Myron Marston).</li>
@@ -1079,13 +835,9 @@ method stubs, even on a singleton module (created via <code>extend self</code>)
 when the method visibility differs between the instance and singleton
 versions (Andy Lindeman).</li>
 </ul>
-
 <h3>2.12.1 / 2012-12-21</h3>
-
 <p><a href="http://github.com/rspec/rspec-mocks/compare/v2.12.0...v2.12.1">Full Changelog</a></p>
-
 <p>Bug fixes</p>
-
 <ul>
 <li>Fix <code>any_instance</code> to support <code>and_call_original</code>.
 (Myron Marston)</li>
@@ -1094,13 +846,9 @@ that report the incorrect owner (Myron Marston and Andy Lindeman).</li>
 <li>Fix <code>hide_const</code> and <code>stub_const</code> with a defined constnat name to
 work properly with constant strings that are prefixed with <code>::</code> (Myron Marston).</li>
 </ul>
-
 <h3>2.12.0 / 2012-11-12</h3>
-
 <p><a href="http://github.com/rspec/rspec-mocks/compare/v2.11.3...v2.12.0">Full Changelog</a></p>
-
 <p>Enhancements</p>
-
 <ul>
 <li><code>and_raise</code> can accept an exception class and message, more closely
 matching <code>Kernel#raise</code> (e.g., <code>foo.stub(:bar).and_raise(RuntimeError, &quot;message&quot;)</code>)
@@ -1108,20 +856,14 @@ matching <code>Kernel#raise</code> (e.g., <code>foo.stub(:bar).and_raise(Runtime
 <li>Add <code>and_call_original</code>, which will delegate the message to the
 original method (Myron Marston).</li>
 </ul>
-
 <p>Deprecations:</p>
-
 <ul>
 <li>Add deprecation warning when using <code>and_return</code> with <code>should_not_receive</code>
 (Neha Kumari)</li>
 </ul>
-
 <h3>2.11.3 / 2012-09-19</h3>
-
 <p><a href="http://github.com/rspec/rspec-mocks/compare/v2.11.2...v2.11.3">Full Changelog</a></p>
-
 <p>Bug fixes</p>
-
 <ul>
 <li>Fix <code>:transfer_nested_constants</code> option of <code>stub_const</code> so that it
 doesn&#39;t blow up when there are inherited constants. (Myron Marston)</li>
@@ -1132,13 +874,9 @@ doesn&#39;t blow up when there are inherited constants. (Myron Marston)</li>
 <li>Fix confusing error message when calling a mocked class method an
 extra time with the wrong arguments (Myron Marston).</li>
 </ul>
-
 <h3>2.11.2 / 2012-08-11</h3>
-
 <p><a href="http://github.com/rspec/rspec-mocks/compare/v2.11.1...v2.11.2">Full Changelog</a></p>
-
 <p>Bug fixes</p>
-
 <ul>
 <li>Don&#39;t modify <code>dup</code> on classes that don&#39;t support <code>dup</code> (David Chelimsky)</li>
 <li>Fix <code>any_instance</code> so that it works properly with methods defined on
@@ -1147,13 +885,9 @@ a superclass. (Daniel Eguzkiza)</li>
 share a name with a top-level constant (e.g. &quot;MyGem::Hash&quot;). (Myron
 Marston)</li>
 </ul>
-
 <h3>2.11.1 / 2012-07-09</h3>
-
 <p><a href="http://github.com/rspec/rspec-mocks/compare/v2.11.0...v2.11.1">Full Changelog</a></p>
-
 <p>Bug fixes</p>
-
 <ul>
 <li>Fix <code>should_receive</code> so that when it is called on an <code>as_null_object</code>
 double with no implementation, and there is a previous explicit stub
@@ -1161,25 +895,18 @@ for the same method, the explicit stub remains (rather than being
 overridden with the null object implementation--<code>return self</code>). (Myron
 Marston)</li>
 </ul>
-
 <h3>2.11.0 / 2012-07-07</h3>
-
 <p><a href="http://github.com/rspec/rspec-mocks/compare/v2.10.1...v2.11.0">Full Changelog</a></p>
-
 <p>Enhancements</p>
-
 <ul>
 <li>Expose ArgumentListMatcher as a formal API
-
 <ul>
 <li>supports use by 3rd party mock frameworks like Surrogate</li>
 </ul></li>
 <li>Add <code>stub_const</code> API to stub constants for the duration of an
 example (Myron Marston).</li>
 </ul>
-
 <p>Bug fixes</p>
-
 <ul>
 <li>Fix regression of edge case behavior. <code>double.should_receive(:foo) { a }</code>
 was causing a NoMethodError when <code>double.stub(:foo).and_return(a, b)</code>
@@ -1194,235 +921,157 @@ self) is preserved if no implementation is given (Myron Marston).</li>
 <li>Fix <code>and_raise</code> so that it raises <code>RuntimeError</code> rather than
 <code>Exception</code> by default, just like ruby does. (Andrew Marshall)</li>
 </ul>
-
 <h3>2.10.1 / 2012-05-05</h3>
-
 <p><a href="http://github.com/rspec/rspec-mocks/compare/v2.10.0...v2.10.1">Full Changelog</a></p>
-
 <p>Bug fixes</p>
-
 <ul>
 <li>fix regression of edge case behavior
 (<a href="https://github.com/rspec/rspec-mocks/issues/132">https://github.com/rspec/rspec-mocks/issues/132</a>)
-
 <ul>
 <li>fixed failure of <code>object.should_receive(:message).at_least(0).times.and_return value</code></li>
 <li>fixed failure of <code>object.should_not_receive(:message).and_return value</code></li>
 </ul></li>
 </ul>
-
 <h3>2.10.0 / 2012-05-03</h3>
-
 <p><a href="http://github.com/rspec/rspec-mocks/compare/v2.9.0...v2.10.0">Full Changelog</a></p>
-
 <p>Bug fixes</p>
-
 <ul>
 <li>fail fast when an <code>exactly</code> or <code>at_most</code> expectation is exceeded</li>
 </ul>
-
 <h3>2.9.0 / 2012-03-17</h3>
-
 <p><a href="http://github.com/rspec/rspec-mocks/compare/v2.8.0...v2.9.0">Full Changelog</a></p>
-
 <p>Enhancements</p>
-
 <ul>
 <li>Support order constraints across objects (preethiramdev)</li>
 </ul>
-
 <p>Bug fixes</p>
-
 <ul>
 <li>Allow a <code>as_null_object</code> to be passed to <code>with</code></li>
 <li>Pass proc to block passed to stub (Aubrey Rhodes)</li>
 <li>Initialize child message expectation args to match any args (#109 -
 preethiramdev)</li>
 </ul>
-
 <h3>2.8.0 / 2012-01-04</h3>
-
 <p><a href="http://github.com/rspec/rspec-mocks/compare/v2.8.0.rc2...v2.8.0">Full Changelog</a></p>
-
 <p>No changes for this release. Just releasing with the other rspec gems.</p>
-
 <h3>2.8.0.rc2 / 2011-12-19</h3>
-
 <p><a href="http://github.com/rspec/rspec-mocks/compare/v2.8.0.rc1...v2.8.0.rc2">Full Changelog</a></p>
-
 <p>No changes for this release. Just releasing with the other rspec gems.</p>
-
 <h3>2.8.0.rc1 / 2011-11-06</h3>
-
 <p><a href="http://github.com/rspec/rspec-mocks/compare/v2.7.0...v2.8.0.rc1">Full Changelog</a></p>
-
 <p>Enhancements</p>
-
 <ul>
 <li>Eliminate Ruby warnings (Matijs van Zuijlen)</li>
 </ul>
-
 <h3>2.7.0 / 2011-10-16</h3>
-
 <p><a href="http://github.com/rspec/rspec-mocks/compare/v2.6.0...v2.7.0">Full Changelog</a></p>
-
 <p>Enhancements</p>
-
 <ul>
 <li>Use <code>__send__</code> rather than <code>send</code> (alextk)</li>
 <li>Add support for <code>any_instance.stub_chain</code> (Sidu Ponnappa)</li>
 <li>Add support for <code>any_instance</code> argument matching based on <code>with</code> (Sidu
 Ponnappa and Andy Lindeman)</li>
 </ul>
-
 <p>Changes</p>
-
 <ul>
 <li>Check for <code>failure_message_for_should</code> or <code>failure_message</code> instead of
 <code>description</code> to detect a matcher (Tibor Claassen)</li>
 </ul>
-
 <p>Bug fixes</p>
-
 <ul>
 <li>pass a hash to <code>any_instance.stub</code>. (Justin Ko)</li>
 <li>allow <code>to_ary</code> to be called without raising <code>NoMethodError</code> (Mikhail
 Dieterle)</li>
 <li><code>any_instance</code> properly restores private methods (Sidu Ponnappa)</li>
 </ul>
-
 <h3>2.6.0 / 2011-05-12</h3>
-
 <p><a href="http://github.com/rspec/rspec-mocks/compare/v2.5.0...v2.6.0">Full Changelog</a></p>
-
 <p>Enhancements</p>
-
 <ul>
 <li>Add support for <code>any_instance.stub</code> and <code>any_instance.should_receive</code> (Sidu
 Ponnappa and Andy Lindeman)</li>
 </ul>
-
 <p>Bug fixes</p>
-
 <ul>
 <li>fix bug in which multiple chains with shared messages ending in hashes failed
 to return the correct value</li>
 </ul>
-
 <h3>2.5.0 / 2011-02-05</h3>
-
 <p><a href="http://github.com/rspec/rspec-mocks/compare/v2.4.0...v2.5.0">Full Changelog</a></p>
-
 <p>Bug fixes</p>
-
 <ul>
 <li>message expectation counts now work in combination with a stub (Damian
 Nurzynski)</li>
 <li>fix failure message when message received with incorrect args (Josep M.
 Bach)</li>
 </ul>
-
 <h3>2.4.0 / 2011-01-02</h3>
-
 <p><a href="http://github.com/rspec/rspec-mocks/compare/v2.3.0...v2.4.0">Full Changelog</a></p>
-
 <p>No functional changes in this release, which was made to align with the
 rspec-core-2.4.0 release.</p>
-
 <h3>2.3.0 / 2010-12-12</h3>
-
 <p><a href="http://github.com/rspec/rspec-mocks/compare/v2.2.0...v2.3.0">Full Changelog</a></p>
-
 <p>Bug fixes</p>
-
 <ul>
 <li>Fix our Marshal extension so that it does not interfere with objects that
 have their own <code>@mock_proxy</code> instance variable. (Myron Marston)</li>
 </ul>
-
 <h3>2.2.0 / 2010-11-28</h3>
-
 <p><a href="http://github.com/rspec/rspec-mocks/compare/v2.1.0...v2.2.0">Full Changelog</a></p>
-
 <p>Enhancements</p>
-
 <ul>
 <li>Added &quot;rspec/mocks/standalone&quot; for exploring the rspec-mocks in irb.</li>
 </ul>
-
 <p>Bug fix</p>
-
 <ul>
 <li>Eliminate warning on splat args without parens (Gioele Barabucci)</li>
 <li>Fix bug where <code>obj.should_receive(:foo).with(stub.as_null_object)</code> would pass
 with a false positive.</li>
 </ul>
-
 <h3>2.1.0 / 2010-11-07</h3>
-
 <p><a href="http://github.com/rspec/rspec-mocks/compare/v2.0.1...v2.1.0">Full Changelog</a></p>
-
 <p>Bug fixes</p>
-
 <ul>
 <li>Fix serialization of stubbed object (Josep M Bach)</li>
 </ul>
-
 <h3>2.0.0 / 2010-10-10</h3>
-
 <p><a href="http://github.com/rspec/rspec-mocks/compare/v2.0.0.beta.22...v2.0.0">Full Changelog</a></p>
-
 <h3>2.0.0.rc / 2010-10-05</h3>
-
 <p><a href="http://github.com/rspec/rspec-mocks/compare/v2.0.0.beta.22...v2.0.0.rc">Full Changelog</a></p>
-
 <p>Enhancements</p>
-
 <ul>
 <li>support passing a block to an expectation block (Nicolas Braem)
-
 <ul>
 <li><code>obj.should_receive(:msg) {|&amp;block| ... }</code></li>
 </ul></li>
 </ul>
-
 <p>Bug fixes</p>
-
 <ul>
 <li>Fix YAML serialization of stub (Myron Marston)</li>
 <li>Fix rdoc rake task (Hans de Graaff)</li>
 </ul>
-
 <h3>2.0.0.beta.22 / 2010-09-12</h3>
-
 <p><a href="http://github.com/rspec/rspec-mocks/compare/v2.0.0.beta.20...v2.0.0.beta.22">Full Changelog</a></p>
-
 <p>Bug fixes</p>
-
 <ul>
 <li>fixed regression that broke <code>obj.stub_chain(:a, :b =&gt; :c)</code></li>
 <li>fixed regression that broke <code>obj.stub_chain(:a, :b) { :c }</code></li>
 <li><code>respond_to?</code> always returns true when using <code>as_null_object</code></li>
 </ul>
 </div></div>
-
       <div id="footer">
   Generated on Fri Sep 14 00:02:09 2018 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.16 (ruby-2.5.1).
 </div>
-
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
   ga('create', 'UA-59095215-1', 'auto');
   ga('send', 'pageview');
-
 </script>
-
     </div>
   </body>
 </html>
