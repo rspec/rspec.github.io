@@ -39,7 +39,7 @@ module RSpecInfo
     def asciinema_video(id, speed: 1)
       <<-HTML.gsub(/^ +\|/, '')
       |<div class="asciinema-video">
-      |  <script type="text/javascript" src="https://asciinema.org/a/#{id}.js" id="asciicast-#{id}" data-size="small" data-speed="#{speed}" async></script>
+      |  <asciinema-player src="/casts/#{id}.cast" speed="#{speed}" data-size="small" id="asciicast-#{id}" poster="npt:9:99"/>
       |</div>
       HTML
     end
