@@ -36,10 +36,14 @@ module RSpecInfo
       classes.find { |klass| !klass.empty? }
     end
 
+    def get_poster(id)
+      open(File.expand_path("../../../source/casts/#{id}.poster", __FILE__)).read
+    end
+
     def asciinema_video(id, speed: 1)
       <<-HTML.gsub(/^ +\|/, '')
       |<div class="asciinema-video">
-      |  <asciinema-player src="/casts/#{id}.cast" speed="#{speed}" data-size="small" id="asciicast-#{id}" poster="npt:9:99"/>
+      |  <asciinema-player src="/casts/#{id}.cast" speed="#{speed}" data-size="small" id="asciicast-#{id}" poster="#{get_poster(id)}"/>
       |</div>
       HTML
     end
