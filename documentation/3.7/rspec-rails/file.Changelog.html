@@ -5,75 +5,50 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title>
   File: Changelog
-  
     &mdash; Documentation by YARD 0.8.7.6
-  
 </title>
-
   <link rel="stylesheet" href="/stylesheets/docs/style.css" type="text/css" charset="utf-8" />
-
   <link rel="stylesheet" href="/stylesheets/docs/common.css" type="text/css" charset="utf-8" />
-
   <link rel="stylesheet" href="/stylesheets/docs/rspec.css" type="text/css" charset="utf-8" />
-
 <script type="text/javascript" charset="utf-8">
   hasFrames = window.top.frames.main ? true : false;
   relpath = '';
   framesUrl = "frames.html#!file.Changelog.html";
 </script>
-
-
   <script type="text/javascript" charset="utf-8" src="/javascripts/docs/jquery.js"></script>
-
   <script type="text/javascript" charset="utf-8" src="/javascripts/docs/app.js"></script>
-
-
   </head>
   <body>
     <div id="header">
       <div id="menu">
-  
     <a href="_index.html">Index</a> &raquo; 
     <span class="title">File: Changelog</span>
-  
-
   <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
 </div>
-
       <div id="search">
-  
     <a class="full_list_link" id="class_list_link"
         href="class_list.html">
       Class List
     </a>
-  
     <a class="full_list_link" id="method_list_link"
         href="method_list.html">
       Method List
     </a>
-  
     <a class="full_list_link" id="file_list_link"
         href="file_list.html">
       File List
     </a>
-  
 </div>
       <div class="clear"></div>
     </div>
-
     <iframe id="search_frame"></iframe>
-
     <div id="content"><div id='filecontents'>
 <h3 id="label-Development">Development</h3>
-
 <p><a href="http://github.com/rspec/rspec-rails/compare/v3.7.0...master">Full
 Changelog</a></p>
-
 <h3 id="label-3.7.0+-2F+2017-10-17">3.7.0 / 2017-10-17</h3>
-
 <p><a href="http://github.com/rspec/rspec-rails/compare/v3.6.0...v3.7.0">Full
 Changelog</a></p>
-
 <p>Bug Fixes:</p>
 <ul><li>
 <p>Prevent “template not rendered” log message from erroring in threaded 
@@ -81,7 +56,6 @@ environments. (Samuel Cochran, #1831)</p>
 </li><li>
 <p>Correctly generate job name in error message. (Wojciech Wnętrzak, #1814)</p>
 </li></ul>
-
 <p>Enhancements:</p>
 <ul><li>
 <p>Allow <code>be_a_new(...).with(...)</code> matcher to accept matchers for 
@@ -92,30 +66,23 @@ attribute values. (Britni Alexander, #1811)</p>
 <p>Integrate with <code>ActionDispatch::SystemTestCase</code>. (Sam Phippen,
 #1813)</p>
 </li></ul>
-
 <h3 id="label-3.6.0+-2F+2017-05-04">3.6.0 / 2017-05-04</h3>
-
 <p><a
 href="http://github.com/rspec/rspec-rails/compare/v3.6.0.beta2...v3.6.0">Full
 Changelog</a></p>
-
 <p>Enhancements:</p>
 <ul><li>
 <p>Add compatibility for Rails 5.1. (Sam Phippen, Yuichiro Kaneko, #1790)</p>
 </li></ul>
-
 <p>Bug Fixes:</p>
 <ul><li>
 <p>Fix scaffold generator so that it does not generate broken controller specs
 on Rails 3.x and 4.x. (Yuji Nakayama, #1710)</p>
 </li></ul>
-
 <h3 id="label-3.6.0.beta2+-2F+2016-12-12">3.6.0.beta2 / 2016-12-12</h3>
-
 <p><a
 href="http://github.com/rspec/rspec-rails/compare/v3.6.0.beta1...v3.6.0.beta2">Full
 Changelog</a></p>
-
 <p>Enhancements:</p>
 <ul><li>
 <p>Improve failure output of ActiveJob matchers by listing queued jobs. 
@@ -124,13 +91,10 @@ Changelog</a></p>
 <p>Load <code>spec_helper.rb</code> earlier in <code>rails_helper.rb</code> by
 default.  (Kevin Glowacz, #1795)</p>
 </li></ul>
-
 <h3 id="label-3.6.0.beta1+-2F+2016-10-09">3.6.0.beta1 / 2016-10-09</h3>
-
 <p><a
 href="http://github.com/rspec/rspec-rails/compare/v3.5.2...v3.6.0.beta1">Full
 Changelog</a></p>
-
 <p>Enhancements:</p>
 <ul><li>
 <p>Add support for <code>rake notes</code> in Rails <code>&gt;= 5.1</code>.
@@ -142,12 +106,9 @@ spec generators (Josh  Justice, #1689)</p>
 <p>Add support for generating scaffolds for api app specs. (Krzysztof Zych,
 #1685)</p>
 </li></ul>
-
 <h3 id="label-3.5.2+-2F+2016-08-26">3.5.2 / 2016-08-26</h3>
-
 <p><a href="http://github.com/rspec/rspec-rails/compare/v3.5.1...v3.5.2">Full
 Changelog</a></p>
-
 <p>Bug Fixes:</p>
 <ul><li>
 <p>Stop unnecessarily loading <code>rspec/core</code> from
@@ -157,33 +118,24 @@ Changelog</a></p>
 <p>Deserialize arguments within ActiveJob matchers correctly.  (Wojciech
 Wnętrzak, #1684)</p>
 </li></ul>
-
 <h3 id="label-3.5.1+-2F+2016-07-08">3.5.1 / 2016-07-08</h3>
-
 <p><a href="http://github.com/rspec/rspec-rails/compare/v3.5.0...v3.5.1">Full
 Changelog</a></p>
-
 <p>Bug Fixes:</p>
 <ul><li>
 <p>Only attempt to load <code>ActionDispatch::IntegrationTest::Behavior</code>
 on Rails 5,  and above; Prevents possible <code>TypeError</code> when an
 existing <code>Behaviour</code> class  is defined. (#1660, Betesh).</p>
 </li></ul>
-
 <h3 id="label-3.5.0+-2F+2016-07-01">3.5.0 / 2016-07-01</h3>
-
 <p><a
 href="http://github.com/rspec/rspec-rails/compare/v3.5.0.beta4...v3.5.0">Full
 Changelog</a></p>
-
 <p><strong>No user facing changes since beta4</strong></p>
-
 <h3 id="label-3.5.0.beta4+-2F+2016-06-05">3.5.0.beta4 / 2016-06-05</h3>
-
 <p><a
 href="http://github.com/rspec/rspec-rails/compare/v3.5.0.beta3...v3.5.0.beta4">Full
 Changelog</a></p>
-
 <p>Enhancements:</p>
 <ul><li>
 <p>Add support for block when using <code>with</code> on
@@ -199,7 +151,6 @@ support <code>once</code>/<code>twice</code>/  <code>thrice</code>, add
 <code>have_been_enqueued</code> matcher to support use without blocks. 
 (Sergey Alexandrovich, #1613)</p>
 </li></ul>
-
 <p>Bug fixes:</p>
 <ul><li>
 <p>Prevent asset helpers from taking precendence over route helpers. (Prem
@@ -208,50 +159,39 @@ Sichanugrist, #1496)</p>
 <p>Prevent <code>NoMethodError</code> during failed <code>have_rendered</code>
 assertions on weird templates.  (Jon Rowe, #1623).</p>
 </li></ul>
-
 <h3 id="label-3.5.0.beta3+-2F+2016-04-02">3.5.0.beta3 / 2016-04-02</h3>
-
 <p><a
 href="http://github.com/rspec/rspec-rails/compare/v3.5.0.beta2...v3.5.0.beta3">Full
 Changelog</a></p>
-
 <p>Enhancements:</p>
 <ul><li>
 <p>Add support for Rails 5 Beta 3 (Sam Phippen, Benjamin Quorning, Koen Punt,
 #1589, #1573)</p>
 </li></ul>
-
 <p>Bug fixes:</p>
 <ul><li>
 <p>Support custom resolvers when preventing views from rendering.  (Jon Rowe,
 Benjamin Quorning, #1580)</p>
 </li></ul>
-
 <h3 id="label-3.5.0.beta2+-2F+2016-03-10">3.5.0.beta2 / 2016-03-10</h3>
-
 <p><a
 href="http://github.com/rspec/rspec-rails/compare/v3.5.0.beta1...v3.5.0.beta2">Full
 Changelog</a></p>
-
 <p>Enhancements:</p>
 <ul><li>
 <p>Include <code>ActionDispatch::IntegrationTest::Behavior</code> in request
 spec  example groups when on Rails 5, allowing integration test helpers  to
 be used in request specs. (Scott Bronson, #1560)</p>
 </li></ul>
-
 <p>Bug fixes:</p>
 <ul><li>
 <p>Make it possible to use floats in auto generated (scaffold) tests. 
 (Alwahsh, #1550)</p>
 </li></ul>
-
 <h3 id="label-3.5.0.beta1+-2F+2016-02-06">3.5.0.beta1 / 2016-02-06</h3>
-
 <p><a
 href="http://github.com/rspec/rspec-rails/compare/v3.4.2...v3.5.0.beta1">Full
 Changelog</a></p>
-
 <p>Enhancements:</p>
 <ul><li>
 <p>Add a <code>--singularize</code> option for the feature spec generator
@@ -261,7 +201,6 @@ Changelog</a></p>
 </li><li>
 <p>Add support for Rails 5 (Sam Phippen, #1492)</p>
 </li></ul>
-
 <p>Bug fixes:</p>
 <ul><li>
 <p>Make it possible to write nested specs within helper specs on classes that
@@ -278,35 +217,26 @@ nil:NilClass</code>. (Sam Phippen, #1501)</p>
 <p>Raise a clear error when <code>have_enqueued_job</code> is used with
 non-test  adapter. (Wojciech Wnętrzak, #1489)</p>
 </li></ul>
-
 <h3 id="label-3.4.2+-2F+2016-02-02">3.4.2 / 2016-02-02</h3>
-
 <p><a href="http://github.com/rspec/rspec-rails/compare/v3.4.1...v3.4.2">Full
 Changelog</a></p>
-
 <p>Bug Fixes:</p>
 <ul><li>
 <p>Cache template resolvers during path lookup to prevent performance 
 regression from #1535. (Andrew White, #1544)</p>
 </li></ul>
-
 <h3 id="label-3.4.1+-2F+2016-01-25">3.4.1 / 2016-01-25</h3>
-
 <p><a href="http://github.com/rspec/rspec-rails/compare/v3.4.0...v3.4.1">Full
 Changelog</a></p>
-
 <p>Bug Fixes:</p>
 <ul><li>
 <p>Fix no method error when rendering templates with explicit
 <code>:file</code>  parameters for Rails version <code>4.2.5.1</code>.
 (Andrew White, Sam Phippen, #1535)</p>
 </li></ul>
-
 <h3 id="label-3.4.0+-2F+2015-11-11">3.4.0 / 2015-11-11</h3>
-
 <p><a href="http://github.com/rspec/rspec-rails/compare/v3.3.3...v3.4.0">Full
 Changelog</a></p>
-
 <p>Enhancements:</p>
 <ul><li>
 <p>Improved the failure message for <code>have_rendered</code> matcher on a
@@ -321,7 +251,6 @@ Zetter, #1452)</p>
 <p>Add <code>have_enqueued_job</code> matcher for checking if a block has
 queued jobs.  (Wojciech Wnętrzak, #1464)</p>
 </li></ul>
-
 <p>Bug Fixes:</p>
 <ul><li>
 <p>Fix another load order issued which causes an undefined method
@@ -331,24 +260,18 @@ been created. (Nikki Murray, #1430)</p>
 <p>Removed incorrect surrounding whitespace in the rspec-rails backtrace 
 exclusion pattern for its own <code>lib</code> code. (Jam Black, #1439)</p>
 </li></ul>
-
 <h3 id="label-3.3.3+-2F+2015-07-15">3.3.3 / 2015-07-15</h3>
-
 <p><a href="http://github.com/rspec/rspec-rails/compare/v3.3.2...v3.3.3">Full
 Changelog</a></p>
-
 <p>Bug Fixes:</p>
 <ul><li>
 <p>Fix issue with generators caused by
 <code>Rails.configuration.hidden_namespaces</code>  including symbols. (Dan
 Kohn, #1414)</p>
 </li></ul>
-
 <h3 id="label-3.3.2+-2F+2015-06-18">3.3.2 / 2015-06-18</h3>
-
 <p><a href="http://github.com/rspec/rspec-rails/compare/v3.3.1...v3.3.2">Full
 Changelog</a></p>
-
 <p>Bug Fixes:</p>
 <ul><li>
 <p>Fix regression that caused stubbing abstract ActiveRecord model  classes to
@@ -356,23 +279,17 @@ trigger internal errors in rails due the the verifying  double lifecycle
 wrongly calling <code>define_attribute_methods</code> on the  abstract AR
 class. (Jon Rowe, #1396)</p>
 </li></ul>
-
 <h3 id="label-3.3.1+-2F+2015-06-14">3.3.1 / 2015-06-14</h3>
-
 <p><a href="http://github.com/rspec/rspec-rails/compare/v3.3.0...v3.3.1">Full
 Changelog</a></p>
-
 <p>Bug Fixes:</p>
 <ul><li>
 <p>Fix regression that caused stubbing ActiveRecord model classes to  trigger
 internal errors in rails. (Myron Marston, Aaron Kromer, #1395)</p>
 </li></ul>
-
 <h3 id="label-3.3.0+-2F+2015-06-12">3.3.0 / 2015-06-12</h3>
-
 <p><a href="http://github.com/rspec/rspec-rails/compare/v3.2.3...v3.3.0">Full
 Changelog</a></p>
-
 <p>Enhancements:</p>
 <ul><li>
 <p>Add support for PATCH to route specs created via scaffold. (Igor Zubkov,
@@ -396,23 +313,17 @@ this is an  alias of <code>rspec:integration</code> (Aaron Kromer, #1378)</p>
 the spec run  when the Rails environment is production. (Aaron Kromer,
 #1383)</p>
 </li></ul>
-
 <h3 id="label-3.2.3+-2F+2015-06-06">3.2.3 / 2015-06-06</h3>
-
 <p><a href="http://github.com/rspec/rspec-rails/compare/v3.2.2...v3.2.3">Full
 Changelog</a></p>
-
 <p>Bug Fixes:</p>
 <ul><li>
 <p>Fix regression with the railtie resulting in undefined method
 <code>preview_path=</code>  on Rails 3.x and 4.0 (Aaron Kromer, #1388)</p>
 </li></ul>
-
 <h3 id="label-3.2.2+-2F+2015-06-03">3.2.2 / 2015-06-03</h3>
-
 <p><a href="http://github.com/rspec/rspec-rails/compare/v3.2.1...v3.2.2">Full
 Changelog</a></p>
-
 <p>Bug Fixes:</p>
 <ul><li>
 <p>Fix auto-including of generic <code>Helper</code> object for view specs
@@ -427,12 +338,9 @@ and Rails 3.2  without the test-unit gem (Orien Madgwick, #1350)</p>
 <code>fixture_path</code> error  when loading rspec-rails after a spec has
 been created. (Aaron Kromer, #1372)</p>
 </li></ul>
-
 <h3 id="label-3.2.1+-2F+2015-02-23">3.2.1 / 2015-02-23</h3>
-
 <p><a href="http://github.com/rspec/rspec-rails/compare/v3.2.0...v3.2.1">Full
 Changelog</a></p>
-
 <p>Bug Fixes:</p>
 <ul><li>
 <p>Add missing <code>require</code> to RSpec generator root fixing an issue
@@ -448,12 +356,9 @@ Kromer, #1305)</p>
 <p>Disable the <code>test-unit</code> gem&#39;s autorunner on projects running
 Rails &lt; 4.1 and  Ruby &lt; 2.2 (Aaron Kromer, #1320)</p>
 </li></ul>
-
 <h3 id="label-3.2.0+-2F+2015-02-03">3.2.0 / 2015-02-03</h3>
-
 <p><a href="http://github.com/rspec/rspec-rails/compare/v3.1.0...v3.2.0">Full
 Changelog</a></p>
-
 <p>Enhancements:</p>
 <ul><li>
 <p>Include generator for <code>ActionMailer</code> mailer previews (Takashi
@@ -473,7 +378,6 @@ methods defined  by <code>ActiveRecord</code> (Jon Rowe, #1238)</p>
 <p>Mirror the use of Ruby 1.9 hash syntax for the <code>type</code> tags in
 the spec  generators on Rails 4. (Michael Stock, #1292)</p>
 </li></ul>
-
 <p>Bug Fixes:</p>
 <ul><li>
 <p>Fix <code>rspec:feature</code> generator to use <code>RSpec</code>
@@ -490,12 +394,9 @@ inherits an  outer group&#39;s anonymous controller. (Yuji Nakayama, #1260)</p>
 <p>Fix “Test is not a class (TypeError)” error when using a custom
 <code>Test</code> class  in Rails 4.1 and 4.2. (Aaron Kromer, #1295)</p>
 </li></ul>
-
 <h3 id="label-3.1.0+-2F+2014-09-04">3.1.0 / 2014-09-04</h3>
-
 <p><a href="http://github.com/rspec/rspec-rails/compare/v3.0.2...v3.1.0">Full
 Changelog</a></p>
-
 <p>Enhancements:</p>
 <ul><li>
 <p>Switch to using the <code>have_http_status</code> matcher in spec
@@ -519,17 +420,13 @@ Kromer, #1150)</p>
 <p>Use <code>#method</code> syntax in all generated controller specs. (Griffin
 Smith, #1206)</p>
 </li></ul>
-
 <p>Bug Fixes:</p>
 <ul><li>
 <p>Fix controller route lookup for Rails 4.2. (Tomohiro Hashidate, #1142)</p>
 </li></ul>
-
 <h3 id="label-3.0.2+-2F+2014-07-21">3.0.2 / 2014-07-21</h3>
-
 <p><a href="http://github.com/rspec/rspec-rails/compare/v3.0.1...v3.0.2">Full
 Changelog</a></p>
-
 <p>Bug Fixes:</p>
 <ul><li>
 <p>Suppress warning in <code>SetupAndTeardownAdapter</code>. (André Arko,
@@ -539,43 +436,33 @@ Changelog</a></p>
 </li><li>
 <p>Standardize controller spec template style. (Thomas Kriechbaumer, #1122)</p>
 </li></ul>
-
 <h3 id="label-3.0.1+-2F+2014-06-02">3.0.1 / 2014-06-02</h3>
-
 <p><a href="http://github.com/rspec/rspec-rails/compare/v3.0.0...v3.0.1">Full
 Changelog</a></p>
-
 <p>Bug Fixes:</p>
 <ul><li>
 <p>Fix missing require in <code>rails g rspec:install</code>. (Sam Phippen,
 #1058)</p>
 </li></ul>
-
 <h3 id="label-3.0.0+-2F+2014-06-01">3.0.0 / 2014-06-01</h3>
-
 <p><a
 href="http://github.com/rspec/rspec-rails/compare/v3.0.0.rc1...v3.0.0">Full
 Changelog</a></p>
-
 <p>Enhancements:</p>
 <ul><li>
 <p>Separate RSpec configuration in generated <code>spec_helper</code> from
 Rails setup  and associated configuration options. Moving Rails specific
 settings and  options to <code>rails_helper</code>. (Aaron Kromer)</p>
 </li></ul>
-
 <p>Bug Fixes:</p>
 <ul><li>
 <p>Fix an issue with fixture support when <code>ActiveRecord</code> isn&#39;t
 loaded. (Jon Rowe)</p>
 </li></ul>
-
 <h3 id="label-3.0.0.rc1+-2F+2014-05-18">3.0.0.rc1 / 2014-05-18</h3>
-
 <p><a
 href="http://github.com/rspec/rspec-rails/compare/v3.0.0.beta2...v3.0.0.rc1">Full
 Changelog</a></p>
-
 <p>Breaking Changes for 3.0.0:</p>
 <ul><li>
 <p>Extracts the <code>mock_model</code> and <code>stub_model</code> methods to
@@ -598,7 +485,6 @@ require it  themselves. (Myron Marston)</p>
 <p>Removes runtime dependency on <code>ActiveModel</code>. (Rodrigo Rosenfeld
 Rosas)</p>
 </li></ul>
-
 <p>Enhancements:</p>
 <ul><li>
 <p>Supports Rails 4.x reference attribute ids in generated scaffold for view 
@@ -608,7 +494,6 @@ specs. (Giovanni Cappellotto)</p>
 </li><li>
 <p>Add spec type metadata to generator templates. (Aaron Kromer)</p>
 </li></ul>
-
 <p>Bug Fixes:</p>
 <ul><li>
 <p>Fix an inconsistency in the generated scaffold specs for a controller.
@@ -623,13 +508,10 @@ to match Rails.  (Tim Watson)</p>
 </li><li>
 <p>Fix incorrect namespacing of anonymous controller routes. (Aaron Kromer)</p>
 </li></ul>
-
 <h3 id="label-3.0.0.beta2+-2F+2014-02-17">3.0.0.beta2 / 2014-02-17</h3>
-
 <p><a
 href="http://github.com/rspec/rspec-rails/compare/v3.0.0.beta1...v3.0.0.beta2">Full
 Changelog</a></p>
-
 <p>Breaking Changes for 3.0.0:</p>
 <ul><li>
 <p>Removes the <code>--webrat</code> option for the request spec generator
@@ -645,13 +527,11 @@ default. (Thomas Holmes)</p>
 </li><li>
 <p>Capybara 2.2.0 or above is required for feature specs. (Andy Lindeman)</p>
 </li></ul>
-
 <p>Enhancements:</p>
 <ul><li>
 <p>Improve <code>be_valid</code> matcher for non-ActiveModel::Errors
 implementations (Ben Hamill)</p>
 </li></ul>
-
 <p>Bug Fixes:</p>
 <ul><li>
 <p>Use <code>__send__</code> rather than <code>send</code> to prevent naming
@@ -671,33 +551,24 @@ Lindeman)</p>
 <p>Require <code>rspec/collection_matchers</code> when
 <code>rspec/rails</code> is required. (Yuji Nakayama)</p>
 </li></ul>
-
 <h3 id="label-3.0.0.beta1+-2F+2013-11-07">3.0.0.beta1 / 2013-11-07</h3>
-
 <p><a
 href="http://github.com/rspec/rspec-rails/compare/v2.99.0...v3.0.0.beta1">Full
 Changelog</a></p>
-
 <p>Breaking Changes for 3.0.0:</p>
 <ul><li>
 <p>Extracts <code>autotest</code> and <code>autotest-rails</code> support to
 <code>rspec-autotest</code> gem.  (Andy Lindeman)</p>
 </li></ul>
-
 <h3 id="label-2.99.0+-2F+2014-06-01">2.99.0 / 2014-06-01</h3>
-
 <p><a
 href="http://github.com/rspec/rspec-rails/compare/v2.99.0.rc1...v2.99.0">Full
 Changelog</a></p>
-
 <p>No changes. Just taking it out of pre-release.</p>
-
 <h3 id="label-2.99.0.rc1+-2F+2014-05-18">2.99.0.rc1 / 2014-05-18</h3>
-
 <p><a
 href="http://github.com/rspec/rspec-rails/compare/v2.99.0.beta2...v2.99.0.rc1">Full
 Changelog</a></p>
-
 <p>Deprecations</p>
 <ul><li>
 <p>Deprecates <code>stub_model</code> and <code>mock_model</code> in favor of
@@ -714,13 +585,10 @@ macro to generate an  anonymous controller class, since in 2.x,
 it will continue returning the  class passed to <code>describe</code>.
 (Myron Marston)</p>
 </li></ul>
-
 <h3 id="label-2.99.0.beta2+-2F+2014-02-17">2.99.0.beta2 / 2014-02-17</h3>
-
 <p><a
 href="http://github.com/rspec/rspec-rails/compare/v2.99.0.beta1...v2.99.0.beta2">Full
 Changelog</a></p>
-
 <p>Deprecations:</p>
 <ul><li>
 <p>Deprecates the <code>--webrat</code> option to the scaffold and request
@@ -730,7 +598,6 @@ spec generator (Andy Lindeman)</p>
 in controller specs.  It is more appropriate to use capybara in feature
 specs (<code>spec/features</code>)  instead. (Andy Lindeman)</p>
 </li></ul>
-
 <p>Bug Fixes:</p>
 <ul><li>
 <p>Use <code>__send__</code> rather than <code>send</code> to prevent naming
@@ -744,24 +611,19 @@ Lindeman)</p>
 <p>Anonymous controllers inherit from <code>ActionController::Base</code> if
 <code>ApplicationController</code>  is not present. (Jon Rowe)</p>
 </li></ul>
-
 <h3 id="label-2.99.0.beta1+-2F+2013-11-07">2.99.0.beta1 / 2013-11-07</h3>
-
 <p><a
 href="http://github.com/rspec/rspec-rails/compare/v2.14.0...v2.99.0.beta1">Full
 Changelog</a></p>
-
 <p>Deprecations:</p>
 <ul><li>
 <p>Deprecates autotest integration in favor of the <code>rspec-autotest</code>
 gem. (Andy  Lindeman)</p>
 </li></ul>
-
 <p>Enhancements:</p>
 <ul><li>
 <p>Supports Rails 4.1 and Minitest 5. (Patrick Van Stee)</p>
 </li></ul>
-
 <p>Bug Fixes:</p>
 <ul><li>
 <p>Fixes “warning: instance variable @orig_routes not initialized” raised by 
@@ -775,13 +637,10 @@ Rails. It is possible to use some of rspec-rails without all of Rails.
 do not bring  in all of <code>rails</code> to use <code>rspec-rails</code>.
 (John Firebaugh)</p>
 </li></ul>
-
 <h3 id="label-2.14.1+-2F+2013-12-29">2.14.1 / 2013-12-29</h3>
-
 <p><a
 href="http://github.com/rspec/rspec-rails/compare/v2.14.0...v2.14.1">full
 changelog</a></p>
-
 <p>Bug Fixes:</p>
 <ul><li>
 <p>Fixes “warning: instance variable @orig_routes not initialized” raised by 
@@ -800,13 +659,10 @@ do not bring  in all of <code>rails</code> to use <code>rspec-rails</code>.
 <p>Use <code>__send__</code> rather than <code>send</code> to prevent naming
 collisions (Bradley Schaefer)</p>
 </li></ul>
-
 <h3 id="label-2.14.0+-2F+2013-07-06">2.14.0 / 2013-07-06</h3>
-
 <p><a
 href="http://github.com/rspec/rspec-rails/compare/v2.14.0.rc1...v2.14.0">Full
 Changelog</a></p>
-
 <p>Bug fixes</p>
 <ul><li>
 <p>Rake tasks do not define methods that might interact with other libraries. 
@@ -818,31 +674,24 @@ specs after the  issue was fixed upstream in rspec-core. (Andy Lindeman)</p>
 <p>Fixes deprecation warning when using <code>expect(Model).to
 have(n).records</code> with  Rails 4. (Andy Lindeman)</p>
 </li></ul>
-
 <h3 id="label-2.14.0.rc1+-2F+2013-05-27">2.14.0.rc1 / 2013-05-27</h3>
-
 <p><a
 href="http://github.com/rspec/rspec-rails/compare/v2.13.2...v2.14.0.rc1">Full
 Changelog</a></p>
-
 <p>Enhancements</p>
 <ul><li>
 <p>Prelimiarily support Rails 4.1 by updating adapters to support Minitest
 5.0.  (Andy Lindeman)</p>
 </li></ul>
-
 <p>Bug fixes</p>
 <ul><li>
 <p><code>rake stats</code> runs correctly when spec files exist at the top
 level of the  spec/ directory. (Benjamin Fleischer)</p>
 </li></ul>
-
 <h3 id="label-2.13.2+-2F+2013-05-18">2.13.2 / 2013-05-18</h3>
-
 <p><a
 href="http://github.com/rspec/rspec-rails/compare/v2.13.1...v2.13.2">Full
 Changelog</a></p>
-
 <p>Bug fixes</p>
 <ul><li>
 <p><code>let</code> definitions may override methods defined in modules
@@ -852,18 +701,14 @@ regression introduced in 2.13.  (Andy Lindeman, Jon Rowe)</p>
 <p>Code that checks Rails version numbers is more robust in cases where Rails
 is  not fully loaded. (Andy Lindeman)</p>
 </li></ul>
-
 <p>Enhancements</p>
 <ul><li>
 <p>Document how the spec/support directory works. (Sam Phippen)</p>
 </li></ul>
-
 <h3 id="label-2.13.1+-2F+2013-04-27">2.13.1 / 2013-04-27</h3>
-
 <p><a
 href="http://github.com/rspec/rspec-rails/compare/v2.13.0...v2.13.1">Full
 Changelog</a></p>
-
 <p>Bug fixes</p>
 <ul><li>
 <p>View specs are no longer generated if no template engine is specified
@@ -879,13 +724,10 @@ Lindeman)</p>
 </li><li>
 <p>Fix spacing in the install generator template (Taiki ONO)</p>
 </li></ul>
-
 <h3 id="label-2.13.0+-2F+2013-02-23">2.13.0 / 2013-02-23</h3>
-
 <p><a
 href="http://github.com/rspec/rspec-rails/compare/v2.12.2...v2.13.0">Full
 Changelog</a></p>
-
 <p>Enhancements</p>
 <ul><li>
 <p><code>be_valid</code> matcher includes validation error messages. (Tom
@@ -904,13 +746,10 @@ pending  migrations. (Andy Lindeman)</p>
 <p>Rake tasks are automatically generated for each spec/ directory.  (Rudolf
 Schmidt)</p>
 </li></ul>
-
 <h3 id="label-2.12.2+-2F+2013-01-12">2.12.2 / 2013-01-12</h3>
-
 <p><a
 href="http://github.com/rspec/rspec-rails/compare/v2.12.1...v2.12.2">Full
 Changelog</a></p>
-
 <p>Bug fixes</p>
 <ul><li>
 <p>Reverts earlier fix where anonymous controllers defined the
@@ -922,13 +761,10 @@ the controller under test.</p>
 <p>Uses <code>assert_select</code> correctly in view specs generated by
 scaffolding. (Andy  Lindeman)</p>
 </li></ul>
-
 <h3 id="label-2.12.1+-2F+2013-01-07">2.12.1 / 2013-01-07</h3>
-
 <p><a
 href="http://github.com/rspec/rspec-rails/compare/v2.12.0...v2.12.1">Full
 Changelog</a></p>
-
 <p>Bug fixes</p>
 <ul><li>
 <p>Operates correctly when ActiveRecord is only partially loaded (e.g., with 
@@ -946,13 +782,10 @@ argument. (Yi Wen)</p>
 <p>Anonymous controllers define <code>_routes</code> to support testing of
 redirection  and generation of URLs from other contexts. (Andy Lindeman)</p>
 </li></ul>
-
 <h3 id="label-2.12.0+-2F+2012-11-12">2.12.0 / 2012-11-12</h3>
-
 <p><a
 href="http://github.com/rspec/rspec-rails/compare/v2.11.4...v2.12.0">Full
 Changelog</a></p>
-
 <p>Enhancements</p>
 <ul><li>
 <p>Support validation contexts when using <code>#errors_on</code> (Woody
@@ -960,7 +793,6 @@ Peterson)</p>
 </li><li>
 <p>Include RequestExampleGroup in groups in spec/api</p>
 </li></ul>
-
 <p>Bug fixes</p>
 <ul><li>
 <p>Add <code>should</code> and <code>should_not</code> to
@@ -981,34 +813,26 @@ and 3.1  (John Firebaugh)</p>
 <p>Failures message for <code>be_new_record</code> are more useful (Andy
 Lindeman)</p>
 </li></ul>
-
 <h3 id="label-2.11.4+-2F+2012-10-14">2.11.4 / 2012-10-14</h3>
-
 <p><a
 href="http://github.com/rspec/rspec-rails/compare/v2.11.0...v2.11.4">Full
 Changelog</a></p>
-
 <p>Capybara-2.0 integration support:</p>
 <ul><li>
 <p>include RailsExampleGroup in spec/features (necessary when there is no AR)</p>
 </li><li>
 <p>include Capybara::DSL and Capybara::RSpecMatchers in spec/features</p>
 </li></ul>
-
 <p>See <a
 href="https://github.com/jnicklas/capybara/pull/809">github.com/jnicklas/capybara/pull/809</a>
 and <a
 href="http://rubydoc.info/gems/rspec-rails/file/Capybara.md">rubydoc.info/gems/rspec-rails/file/Capybara.md</a>
 for background.</p>
-
 <p>2.11.1, .2, .3 were yanked due to errant documentation.</p>
-
 <h3 id="label-2.11.0+-2F+2012-07-07">2.11.0 / 2012-07-07</h3>
-
 <p><a
 href="http://github.com/rspec/rspec-rails/compare/v2.10.1...v2.11.0">Full
 Changelog</a></p>
-
 <p>Enhancements</p>
 <ul><li>
 <p>The generated <code>spec/spec_helper.rb</code> sets <code>config.order =
@@ -1021,20 +845,16 @@ alias to <code>render_template</code>  for backward compatibility)</p>
 namespaced::model</code>  matches the spec generated with <code>rails
 generate scaffold namespaced/model</code>  (Kohei Hasegawa)</p>
 </li></ul>
-
 <p>Bug fixes</p>
 <ul><li>
 <p>“uninitialized constant” errors are avoided when using using gems like 
 <code>rspec-rails-uncommitted</code> that define <code>Rspec::Rails</code>
 before <code>rspec-rails</code>  loads (Andy Lindeman)</p>
 </li></ul>
-
 <h3 id="label-2.10.1+-2F+2012-05-03">2.10.1 / 2012-05-03</h3>
-
 <p><a
 href="http://github.com/rspec/rspec-rails/compare/v2.10.0...v2.10.1">Full
 Changelog</a></p>
-
 <p>Bug fixes</p>
 <ul><li>
 <p>fix regression introduced in 2.10.0 that broke integration with Devise  (<a
@@ -1043,12 +863,9 @@ href="https://github.com/rspec/rspec-rails/issues/534">github.com/rspec/rspec-ra
 <p>remove generation of helper specs when running the scaffold generator, as 
 Rails already does this (Jack Dempsey)</p>
 </li></ul>
-
 <h3 id="label-2.10.0+-2F+2012-05-03">2.10.0 / 2012-05-03</h3>
-
 <p><a href="http://github.com/rspec/rspec-rails/compare/v2.9.0...v2.10.0">Full
 Changelog</a></p>
-
 <p>Bug fixes</p>
 <ul><li>
 <p><code>render_views</code> called in a spec can now override the config
@@ -1071,12 +888,9 @@ Rails  environment (Nathan Broadbent)</p>
 <p>Silence deprecation warnings in pre-2.9 generated view specs (Jonathan del 
 Strother)</p>
 </li></ul>
-
 <h3 id="label-2.9.0+-2F+2012-03-17">2.9.0 / 2012-03-17</h3>
-
 <p><a href="http://github.com/rspec/rspec-rails/compare/v2.8.1...v2.9.0">Full
 Changelog</a></p>
-
 <p>Enhancements</p>
 <ul><li>
 <p>add description method to RouteToMatcher (John Wulff)</p>
@@ -1084,7 +898,6 @@ Changelog</a></p>
 <p>Run “db:test:clone_structure” instead of “db:test:prepare” if Active
 Record&#39;s  schema format is “:sql”. (Andrey Voronkov)</p>
 </li></ul>
-
 <p>Bug fixes</p>
 <ul><li>
 <p><code>mock_model(XXX).as_null_object.unknown_method</code> returns self
@@ -1092,12 +905,9 @@ again</p>
 </li><li>
 <p>Generated view specs use different IDs for each attribute.</p>
 </li></ul>
-
 <h3 id="label-2.8.1+-2F+2012-01-04">2.8.1 / 2012-01-04</h3>
-
 <p><a href="http://github.com/rspec/rspec-rails/compare/v2.8.0...v2.8.1">Full
 Changelog</a></p>
-
 <p>NOTE: there was a change in rails-3.2.0.rc2 which broke compatibility with
 stub_model in rspec-rails. This release fixes that issue, but it means that
 you&#39;ll have to upgrade to rspec-rails-2.8.1 when you upgrade to rails
@@ -1109,9 +919,7 @@ you&#39;ll have to upgrade to rspec-rails-2.8.1 when you upgrade to rails
 &gt;= 3.2.0.rc2.</p>
 </li></ul>
 </li></ul>
-
 <h3 id="label-2.8.0+-2F+2012-01-04">2.8.0 / 2012-01-04</h3>
-
 <p><a
 href="http://github.com/rspec/rspec-rails/compare/v2.8.0.rc2...v2.8.0">Full
 Changelog</a></p>
@@ -1126,9 +934,7 @@ Changelog</a></p>
 controllers (Alan Shields)</p>
 </li></ul>
 </li></ul>
-
 <h3 id="label-2.8.0.rc2+-2F+2011-12-19">2.8.0.rc2 / 2011-12-19</h3>
-
 <p><a
 href="http://github.com/rspec/rspec-mocks/compare/v2.8.0.rc1...v2.8.0.rc2">Full
 Changelog</a></p>
@@ -1150,9 +956,7 @@ Changelog</a></p>
 (Igor  Afonov)</p>
 </li></ul>
 </li></ul>
-
 <h3 id="label-2.8.0.rc1+-2F+2011-11-06">2.8.0.rc1 / 2011-11-06</h3>
-
 <p><a
 href="http://github.com/rspec/rspec-rails/compare/v2.7.0...v2.8.0.rc1">Full
 Changelog</a></p>
@@ -1181,9 +985,7 @@ href="https://github.com/rspec/rspec-expectations/blob/master/Changelog.md">rspe
 <p><a
 href="https://github.com/rspec/rspec-mocks/blob/master/Changelog.md">rspec-mocks</a></p>
 </li></ul>
-
 <h3 id="label-2.7.0+-2F+2011-10-16">2.7.0 / 2011-10-16</h3>
-
 <p><a href="http://github.com/rspec/rspec-rails/compare/v2.6.1...v2.7.0">Full
 Changelog</a></p>
 <ul><li>
@@ -1221,12 +1023,9 @@ configuration (David Chelimsky)</p>
 <p>Define <code>primary_key</code> on class generated by
 <code>mock_model(&quot;WithAString&quot;)</code> (David Chelimsky)</p>
 </li></ul>
-
 <h3 id="label-2.6.1+-2F+2011-05-25">2.6.1 / 2011-05-25</h3>
-
 <p><a href="http://github.com/rspec/rspec-rails/compare/v2.6.0...v2.6.1">Full
 Changelog</a></p>
-
 <p>This release is compatible with rails-3.1.0.rc1, but not rails-3.1.0.beta1</p>
 <ul><li>
 <p>Bug fixes</p>
@@ -1237,9 +1036,7 @@ Changelog</a></p>
 </li><li>
 <p>guard against calling prerequisites on nil default rake task (Jack Dempsey)</p>
 </li></ul>
-
 <h3 id="label-2.6.0+-2F+2011-05-12">2.6.0 / 2011-05-12</h3>
-
 <p><a href="http://github.com/rspec/rspec-rails/compare/v2.5.0...v2.6.0">Full
 Changelog</a></p>
 <ul><li>
@@ -1284,9 +1081,7 @@ empty templates unless rendering views. (Mark Turner)</p>
 </li><li>
 <p>Fix monkey patches that broke due to internal changes in rails-3.1.0.beta1</p>
 </li></ul>
-
 <h3 id="label-2.5.0+-2F+2011-02-05">2.5.0 / 2011-02-05</h3>
-
 <p><a href="http://github.com/rspec/rspec-rails/compare/v2.4.1...v2.5.0">Full
 Changelog</a></p>
 <ul><li>
@@ -1306,9 +1101,7 @@ value in its parent group.</p>
 </li><li>
 <p>fix typo in request specs (Paco Guzman)</p>
 </li></ul>
-
 <h3 id="label-2.4.1+-2F+2011-01-03">2.4.1 / 2011-01-03</h3>
-
 <p><a href="http://github.com/rspec/rspec-rails/compare/v2.4.0...v2.4.1">Full
 Changelog</a></p>
 <ul><li>
@@ -1317,9 +1110,7 @@ Changelog</a></p>
 <p>fixed bug caused by including some Rails modules before RSpec&#39;s
 RailsExampleGroup</p>
 </li></ul>
-
 <h3 id="label-2.4.0+-2F+2011-01-02">2.4.0 / 2011-01-02</h3>
-
 <p><a href="http://github.com/rspec/rspec-rails/compare/v2.3.1...v2.4.0">Full
 Changelog</a></p>
 <ul><li>
@@ -1351,9 +1142,7 @@ should_not in Ruby 1.8.7 and 1.9.1)</p>
 </li><li>
 <p>include_self_when_dir_matches</p>
 </li></ul>
-
 <h3 id="label-2.3.1+-2F+2010-12-16">2.3.1 / 2010-12-16</h3>
-
 <p><a href="http://github.com/rspec/rspec-rails/compare/v2.3.0...v2.3.1">Full
 Changelog</a></p>
 <ul><li>
@@ -1363,9 +1152,7 @@ Changelog</a></p>
 </li><li>
 <p>scaffold generator no longer fails on autotest directory</p>
 </li></ul>
-
 <h3 id="label-2.3.0+-2F+2010-12-12">2.3.0 / 2010-12-12</h3>
-
 <p><a href="http://github.com/rspec/rspec-rails/compare/v2.2.1...v2.3.0">Full
 Changelog</a></p>
 <ul><li>
@@ -1374,9 +1161,7 @@ Changelog</a></p>
 <p>Generator no longer generates autotest/autodiscover.rb, as it is no longer
 needed (as of rspec-core-2.3.0)</p>
 </li></ul>
-
 <h3 id="label-2.2.1+-2F+2010-12-01">2.2.1 / 2010-12-01</h3>
-
 <p><a href="http://github.com/rspec/rspec-rails/compare/v2.2.0...v2.2.1">Full
 Changelog</a></p>
 <ul><li>
@@ -1391,9 +1176,7 @@ Solnica)</p>
 </li><li>
 <p>--webrat-matchers flag for generators is deprecated. use --webrat instead.</p>
 </li></ul>
-
 <h3 id="label-2.2.0+-2F+2010-11-28">2.2.0 / 2010-11-28</h3>
-
 <p><a href="http://github.com/rspec/rspec-rails/compare/v2.1.0...v2.2.0">Full
 Changelog</a></p>
 <ul><li>
@@ -1414,9 +1197,7 @@ Changelog</a></p>
 <p>Add gem dependency on rails ~&gt; 3.0.0 (ensures bundler won&#39;t install
 rspec-rails-2 with rails-2 apps).</p>
 </li></ul>
-
 <h3 id="label-2.1.0+-2F+2010-11-07">2.1.0 / 2010-11-07</h3>
-
 <p><a href="http://github.com/rspec/rspec-rails/compare/v2.0.1...v2.1.0">Full
 Changelog</a></p>
 <ul><li>
@@ -1429,9 +1210,7 @@ Changelog</a></p>
 <p>Check for presence of ActiveRecord instead of checking Rails config (gets
 rspec out of the way of multiple ORMs in the same app)</p>
 </li></ul>
-
 <h3 id="label-2.0.1+-2F+2010-10-15">2.0.1 / 2010-10-15</h3>
-
 <p><a href="http://github.com/rspec/rspec-rails/compare/v2.0.0...v2.0.1">Full
 Changelog</a></p>
 <ul><li>
@@ -1447,9 +1226,7 @@ so it adds any stubs submitted each time it is called.</p>
 <p>Fixed bug where view assigns weren&#39;t making it to the view in view
 specs in Rails-3.0.1. (Emanuele Vicentini)</p>
 </li></ul>
-
 <h3 id="label-2.0.0+-2F+2010-10-10">2.0.0 / 2010-10-10</h3>
-
 <p><a
 href="https://github.com/rspec/rspec-rails/compare/ea6bdef...v2.0.0">Full
 Changelog</a></p>
@@ -1481,23 +1258,18 @@ Changelog</a></p>
 <p>support T::U components in mailer and request specs (Brasten Sager)</p>
 </li></ul>
 </div></div>
-
     <div id="footer">
   Generated on Sat Oct 28 17:00:44 2017 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.8.7.6 (ruby-2.4.2).
 </div>
-
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
   ga('create', 'UA-59095215-1', 'auto');
   ga('send', 'pageview');
-
 </script>
-
   </body>
 </html>

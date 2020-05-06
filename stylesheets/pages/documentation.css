@@ -347,6 +347,3317 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
+/* line 1, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-player-wrapper {
+  position: relative;
+  text-align: center;
+  outline: none; }
+
+/* line 6, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-player-wrapper .title-bar {
+  display: none;
+  top: -78px;
+  transition: top 0.15s linear;
+  position: absolute;
+  left: 0;
+  right: 0;
+  box-sizing: content-box;
+  font-size: 20px;
+  line-height: 1em;
+  padding: 15px;
+  font-family: sans-serif;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.8); }
+
+/* line 21, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-player-wrapper .title-bar img {
+  vertical-align: middle;
+  height: 48px;
+  margin-right: 16px; }
+
+/* line 26, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-player-wrapper .title-bar a {
+  color: white;
+  text-decoration: underline; }
+
+/* line 30, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-player-wrapper .title-bar a:hover {
+  text-decoration: none; }
+
+/* line 33, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-player-wrapper:fullscreen {
+  background-color: #000;
+  width: 100%;
+  height: 100%;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  align-items: center; }
+
+/* line 45, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-player-wrapper:fullscreen .asciinema-player {
+  position: static; }
+
+/* line 48, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-player-wrapper:fullscreen .title-bar {
+  display: initial; }
+
+/* line 51, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-player-wrapper:fullscreen.hud .title-bar {
+  top: 0; }
+
+/* line 54, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-player-wrapper:-webkit-full-screen {
+  background-color: #000;
+  width: 100%;
+  height: 100%;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  align-items: center; }
+
+/* line 66, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-player-wrapper:-webkit-full-screen .asciinema-player {
+  position: static; }
+
+/* line 69, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-player-wrapper:-webkit-full-screen .title-bar {
+  display: initial; }
+
+/* line 72, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-player-wrapper:-webkit-full-screen.hud .title-bar {
+  top: 0; }
+
+/* line 75, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-player-wrapper:-moz-full-screen {
+  background-color: #000;
+  width: 100%;
+  height: 100%;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  align-items: center; }
+
+/* line 87, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-player-wrapper:-moz-full-screen .asciinema-player {
+  position: static; }
+
+/* line 90, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-player-wrapper:-moz-full-screen .title-bar {
+  display: initial; }
+
+/* line 93, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-player-wrapper:-moz-full-screen.hud .title-bar {
+  top: 0; }
+
+/* line 96, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-player-wrapper:-ms-fullscreen {
+  background-color: #000;
+  width: 100%;
+  height: 100%;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  align-items: center; }
+
+/* line 108, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-player-wrapper:-ms-fullscreen .asciinema-player {
+  position: static; }
+
+/* line 111, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-player-wrapper:-ms-fullscreen .title-bar {
+  display: initial; }
+
+/* line 114, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-player-wrapper:-ms-fullscreen.hud .title-bar {
+  top: 0; }
+
+/* line 117, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-player-wrapper .asciinema-player {
+  text-align: left;
+  display: inline-block;
+  padding: 0px;
+  position: relative;
+  box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  overflow: hidden;
+  max-width: 100%; }
+
+/* line 128, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal {
+  box-sizing: content-box;
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  overflow: hidden;
+  padding: 0;
+  margin: 0px;
+  display: block;
+  white-space: pre;
+  border: 0;
+  word-wrap: normal;
+  word-break: normal;
+  border-radius: 0;
+  border-style: solid;
+  cursor: text;
+  border-width: 0.5em;
+  font-family: Consolas, Menlo, 'Bitstream Vera Sans Mono', monospace, 'Powerline Symbols';
+  line-height: 1.3333333333em; }
+
+/* line 147, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .line {
+  letter-spacing: normal;
+  overflow: hidden;
+  height: 1.3333333333em; }
+
+/* line 152, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .line span {
+  padding: 0;
+  display: inline-block;
+  height: 1.3333333333em; }
+
+/* line 157, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .line {
+  display: block;
+  width: 200%; }
+
+/* line 161, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bright {
+  font-weight: bold; }
+
+/* line 164, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .underline {
+  text-decoration: underline; }
+
+/* line 167, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .italic {
+  font-style: italic; }
+
+/* line 170, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal.font-small {
+  font-size: 12px; }
+
+/* line 173, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal.font-medium {
+  font-size: 18px; }
+
+/* line 176, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal.font-big {
+  font-size: 24px; }
+
+/* line 179, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-player .control-bar {
+  width: 100%;
+  height: 32px;
+  background: rgba(0, 0, 0, 0.8);
+  /* no gradient fallback */
+  background: -moz-linear-gradient(top, rgba(0, 0, 0, 0.5) 0%, #000000 25%, #000000 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.5) 0%, #000000 25%, #000000 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, #000000 25%, #000000 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  color: #bbbbbb;
+  box-sizing: content-box;
+  line-height: 1;
+  position: absolute;
+  bottom: -35px;
+  left: 0;
+  transition: bottom 0.15s linear; }
+
+/* line 198, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-player .control-bar * {
+  box-sizing: inherit;
+  font-size: 0; }
+
+/* line 202, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-player .control-bar svg.icon path {
+  fill: #bbbbbb; }
+
+/* line 205, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-player .control-bar .playback-button {
+  display: block;
+  float: left;
+  cursor: pointer;
+  height: 12px;
+  width: 12px;
+  padding: 10px; }
+
+/* line 213, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-player .control-bar .playback-button svg {
+  height: 12px;
+  width: 12px; }
+
+/* line 217, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-player .control-bar .timer {
+  display: block;
+  float: left;
+  width: 50px;
+  height: 100%;
+  text-align: center;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 11px;
+  font-weight: bold;
+  line-height: 32px;
+  cursor: default; }
+
+/* line 229, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-player .control-bar .timer span {
+  display: inline-block;
+  font-size: inherit; }
+
+/* line 233, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-player .control-bar .timer .time-remaining {
+  display: none; }
+
+/* line 236, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-player .control-bar .timer:hover .time-elapsed {
+  display: none; }
+
+/* line 239, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-player .control-bar .timer:hover .time-remaining {
+  display: inline; }
+
+/* line 242, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-player .control-bar .progressbar {
+  display: block;
+  overflow: hidden;
+  height: 100%;
+  padding: 0 10px; }
+
+/* line 248, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-player .control-bar .progressbar .bar {
+  display: block;
+  cursor: pointer;
+  height: 100%;
+  padding-top: 15px;
+  font-size: 0; }
+
+/* line 255, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-player .control-bar .progressbar .bar .gutter {
+  display: block;
+  height: 3px;
+  background-color: #333; }
+
+/* line 260, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-player .control-bar .progressbar .bar .gutter span {
+  display: inline-block;
+  height: 100%;
+  background-color: #bbbbbb;
+  border-radius: 3px; }
+
+/* line 266, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-player .control-bar.live .progressbar .bar {
+  cursor: default; }
+
+/* line 269, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-player .control-bar .fullscreen-button {
+  display: block;
+  float: right;
+  width: 14px;
+  height: 14px;
+  padding: 9px;
+  cursor: pointer; }
+
+/* line 277, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-player .control-bar .fullscreen-button svg {
+  width: 14px;
+  height: 14px; }
+
+/* line 281, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-player .control-bar .fullscreen-button svg:first-child {
+  display: inline; }
+
+/* line 284, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-player .control-bar .fullscreen-button svg:last-child {
+  display: none; }
+
+/* line 287, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-player-wrapper.hud .control-bar {
+  bottom: 0px; }
+
+/* line 290, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-player-wrapper:fullscreen .fullscreen-button svg:first-child {
+  display: none; }
+
+/* line 293, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-player-wrapper:fullscreen .fullscreen-button svg:last-child {
+  display: inline; }
+
+/* line 296, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-player-wrapper:-webkit-full-screen .fullscreen-button svg:first-child {
+  display: none; }
+
+/* line 299, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-player-wrapper:-webkit-full-screen .fullscreen-button svg:last-child {
+  display: inline; }
+
+/* line 302, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-player-wrapper:-moz-full-screen .fullscreen-button svg:first-child {
+  display: none; }
+
+/* line 305, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-player-wrapper:-moz-full-screen .fullscreen-button svg:last-child {
+  display: inline; }
+
+/* line 308, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-player-wrapper:-ms-fullscreen .fullscreen-button svg:first-child {
+  display: none; }
+
+/* line 311, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-player-wrapper:-ms-fullscreen .fullscreen-button svg:last-child {
+  display: inline; }
+
+/* line 314, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-player .loading {
+  z-index: 10;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 32px;
+  background-color: rgba(0, 0, 0, 0.5); }
+
+/* line 325, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-player .start-prompt {
+  z-index: 10;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 32px;
+  z-index: 20;
+  cursor: pointer; }
+
+/* line 337, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-player .start-prompt .play-button {
+  font-size: 0px; }
+
+/* line 340, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-player .start-prompt .play-button {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  text-align: center;
+  color: white;
+  display: table;
+  width: 100%;
+  height: 100%; }
+
+/* line 352, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-player .start-prompt .play-button div {
+  vertical-align: middle;
+  display: table-cell; }
+
+/* line 356, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-player .start-prompt .play-button div span {
+  width: 96px;
+  height: 96px;
+  display: inline-block; }
+
+@-webkit-keyframes expand {
+  0% {
+    -webkit-transform: scale(0); }
+  50% {
+    -webkit-transform: scale(1); }
+  100% {
+    z-index: 1; } }
+@-moz-keyframes expand {
+  0% {
+    -moz-transform: scale(0); }
+  50% {
+    -moz-transform: scale(1); }
+  100% {
+    z-index: 1; } }
+@-o-keyframes expand {
+  0% {
+    -o-transform: scale(0); }
+  50% {
+    -o-transform: scale(1); }
+  100% {
+    z-index: 1; } }
+@keyframes expand {
+  0% {
+    transform: scale(0); }
+  50% {
+    transform: scale(1); }
+  100% {
+    z-index: 1; } }
+/* line 405, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.loader {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin: -20px 0 0 -20px;
+  background-color: white;
+  border-radius: 50%;
+  box-shadow: 0 0 0 6.66667px #141414;
+  width: 40px;
+  height: 40px; }
+
+/* line 416, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.loader:before,
+.loader:after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  display: block;
+  margin: -21px 0 0 -21px;
+  border-radius: 50%;
+  z-index: 2;
+  width: 42px;
+  height: 42px; }
+
+/* line 429, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.loader:before {
+  background-color: #141414;
+  -webkit-animation: expand 1.6s linear infinite both;
+  -moz-animation: expand 1.6s linear infinite both;
+  animation: expand 1.6s linear infinite both; }
+
+/* line 435, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.loader:after {
+  background-color: white;
+  -webkit-animation: expand 1.6s linear 0.8s infinite both;
+  -moz-animation: expand 1.6s linear 0.8s infinite both;
+  animation: expand 1.6s linear 0.8s infinite both; }
+
+/* line 441, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-16 {
+  color: #000000; }
+
+/* line 444, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-16 {
+  background-color: #000000; }
+
+/* line 447, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-17 {
+  color: #00005f; }
+
+/* line 450, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-17 {
+  background-color: #00005f; }
+
+/* line 453, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-18 {
+  color: #000087; }
+
+/* line 456, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-18 {
+  background-color: #000087; }
+
+/* line 459, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-19 {
+  color: #0000af; }
+
+/* line 462, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-19 {
+  background-color: #0000af; }
+
+/* line 465, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-20 {
+  color: #0000d7; }
+
+/* line 468, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-20 {
+  background-color: #0000d7; }
+
+/* line 471, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-21 {
+  color: #0000ff; }
+
+/* line 474, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-21 {
+  background-color: #0000ff; }
+
+/* line 477, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-22 {
+  color: #005f00; }
+
+/* line 480, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-22 {
+  background-color: #005f00; }
+
+/* line 483, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-23 {
+  color: #005f5f; }
+
+/* line 486, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-23 {
+  background-color: #005f5f; }
+
+/* line 489, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-24 {
+  color: #005f87; }
+
+/* line 492, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-24 {
+  background-color: #005f87; }
+
+/* line 495, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-25 {
+  color: #005faf; }
+
+/* line 498, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-25 {
+  background-color: #005faf; }
+
+/* line 501, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-26 {
+  color: #005fd7; }
+
+/* line 504, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-26 {
+  background-color: #005fd7; }
+
+/* line 507, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-27 {
+  color: #005fff; }
+
+/* line 510, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-27 {
+  background-color: #005fff; }
+
+/* line 513, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-28 {
+  color: #008700; }
+
+/* line 516, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-28 {
+  background-color: #008700; }
+
+/* line 519, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-29 {
+  color: #00875f; }
+
+/* line 522, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-29 {
+  background-color: #00875f; }
+
+/* line 525, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-30 {
+  color: #008787; }
+
+/* line 528, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-30 {
+  background-color: #008787; }
+
+/* line 531, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-31 {
+  color: #0087af; }
+
+/* line 534, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-31 {
+  background-color: #0087af; }
+
+/* line 537, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-32 {
+  color: #0087d7; }
+
+/* line 540, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-32 {
+  background-color: #0087d7; }
+
+/* line 543, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-33 {
+  color: #0087ff; }
+
+/* line 546, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-33 {
+  background-color: #0087ff; }
+
+/* line 549, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-34 {
+  color: #00af00; }
+
+/* line 552, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-34 {
+  background-color: #00af00; }
+
+/* line 555, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-35 {
+  color: #00af5f; }
+
+/* line 558, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-35 {
+  background-color: #00af5f; }
+
+/* line 561, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-36 {
+  color: #00af87; }
+
+/* line 564, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-36 {
+  background-color: #00af87; }
+
+/* line 567, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-37 {
+  color: #00afaf; }
+
+/* line 570, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-37 {
+  background-color: #00afaf; }
+
+/* line 573, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-38 {
+  color: #00afd7; }
+
+/* line 576, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-38 {
+  background-color: #00afd7; }
+
+/* line 579, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-39 {
+  color: #00afff; }
+
+/* line 582, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-39 {
+  background-color: #00afff; }
+
+/* line 585, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-40 {
+  color: #00d700; }
+
+/* line 588, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-40 {
+  background-color: #00d700; }
+
+/* line 591, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-41 {
+  color: #00d75f; }
+
+/* line 594, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-41 {
+  background-color: #00d75f; }
+
+/* line 597, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-42 {
+  color: #00d787; }
+
+/* line 600, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-42 {
+  background-color: #00d787; }
+
+/* line 603, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-43 {
+  color: #00d7af; }
+
+/* line 606, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-43 {
+  background-color: #00d7af; }
+
+/* line 609, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-44 {
+  color: #00d7d7; }
+
+/* line 612, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-44 {
+  background-color: #00d7d7; }
+
+/* line 615, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-45 {
+  color: #00d7ff; }
+
+/* line 618, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-45 {
+  background-color: #00d7ff; }
+
+/* line 621, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-46 {
+  color: #00ff00; }
+
+/* line 624, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-46 {
+  background-color: #00ff00; }
+
+/* line 627, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-47 {
+  color: #00ff5f; }
+
+/* line 630, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-47 {
+  background-color: #00ff5f; }
+
+/* line 633, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-48 {
+  color: #00ff87; }
+
+/* line 636, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-48 {
+  background-color: #00ff87; }
+
+/* line 639, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-49 {
+  color: #00ffaf; }
+
+/* line 642, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-49 {
+  background-color: #00ffaf; }
+
+/* line 645, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-50 {
+  color: #00ffd7; }
+
+/* line 648, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-50 {
+  background-color: #00ffd7; }
+
+/* line 651, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-51 {
+  color: #00ffff; }
+
+/* line 654, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-51 {
+  background-color: #00ffff; }
+
+/* line 657, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-52 {
+  color: #5f0000; }
+
+/* line 660, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-52 {
+  background-color: #5f0000; }
+
+/* line 663, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-53 {
+  color: #5f005f; }
+
+/* line 666, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-53 {
+  background-color: #5f005f; }
+
+/* line 669, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-54 {
+  color: #5f0087; }
+
+/* line 672, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-54 {
+  background-color: #5f0087; }
+
+/* line 675, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-55 {
+  color: #5f00af; }
+
+/* line 678, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-55 {
+  background-color: #5f00af; }
+
+/* line 681, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-56 {
+  color: #5f00d7; }
+
+/* line 684, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-56 {
+  background-color: #5f00d7; }
+
+/* line 687, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-57 {
+  color: #5f00ff; }
+
+/* line 690, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-57 {
+  background-color: #5f00ff; }
+
+/* line 693, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-58 {
+  color: #5f5f00; }
+
+/* line 696, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-58 {
+  background-color: #5f5f00; }
+
+/* line 699, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-59 {
+  color: #5f5f5f; }
+
+/* line 702, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-59 {
+  background-color: #5f5f5f; }
+
+/* line 705, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-60 {
+  color: #5f5f87; }
+
+/* line 708, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-60 {
+  background-color: #5f5f87; }
+
+/* line 711, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-61 {
+  color: #5f5faf; }
+
+/* line 714, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-61 {
+  background-color: #5f5faf; }
+
+/* line 717, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-62 {
+  color: #5f5fd7; }
+
+/* line 720, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-62 {
+  background-color: #5f5fd7; }
+
+/* line 723, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-63 {
+  color: #5f5fff; }
+
+/* line 726, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-63 {
+  background-color: #5f5fff; }
+
+/* line 729, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-64 {
+  color: #5f8700; }
+
+/* line 732, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-64 {
+  background-color: #5f8700; }
+
+/* line 735, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-65 {
+  color: #5f875f; }
+
+/* line 738, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-65 {
+  background-color: #5f875f; }
+
+/* line 741, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-66 {
+  color: #5f8787; }
+
+/* line 744, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-66 {
+  background-color: #5f8787; }
+
+/* line 747, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-67 {
+  color: #5f87af; }
+
+/* line 750, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-67 {
+  background-color: #5f87af; }
+
+/* line 753, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-68 {
+  color: #5f87d7; }
+
+/* line 756, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-68 {
+  background-color: #5f87d7; }
+
+/* line 759, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-69 {
+  color: #5f87ff; }
+
+/* line 762, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-69 {
+  background-color: #5f87ff; }
+
+/* line 765, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-70 {
+  color: #5faf00; }
+
+/* line 768, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-70 {
+  background-color: #5faf00; }
+
+/* line 771, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-71 {
+  color: #5faf5f; }
+
+/* line 774, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-71 {
+  background-color: #5faf5f; }
+
+/* line 777, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-72 {
+  color: #5faf87; }
+
+/* line 780, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-72 {
+  background-color: #5faf87; }
+
+/* line 783, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-73 {
+  color: #5fafaf; }
+
+/* line 786, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-73 {
+  background-color: #5fafaf; }
+
+/* line 789, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-74 {
+  color: #5fafd7; }
+
+/* line 792, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-74 {
+  background-color: #5fafd7; }
+
+/* line 795, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-75 {
+  color: #5fafff; }
+
+/* line 798, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-75 {
+  background-color: #5fafff; }
+
+/* line 801, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-76 {
+  color: #5fd700; }
+
+/* line 804, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-76 {
+  background-color: #5fd700; }
+
+/* line 807, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-77 {
+  color: #5fd75f; }
+
+/* line 810, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-77 {
+  background-color: #5fd75f; }
+
+/* line 813, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-78 {
+  color: #5fd787; }
+
+/* line 816, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-78 {
+  background-color: #5fd787; }
+
+/* line 819, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-79 {
+  color: #5fd7af; }
+
+/* line 822, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-79 {
+  background-color: #5fd7af; }
+
+/* line 825, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-80 {
+  color: #5fd7d7; }
+
+/* line 828, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-80 {
+  background-color: #5fd7d7; }
+
+/* line 831, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-81 {
+  color: #5fd7ff; }
+
+/* line 834, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-81 {
+  background-color: #5fd7ff; }
+
+/* line 837, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-82 {
+  color: #5fff00; }
+
+/* line 840, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-82 {
+  background-color: #5fff00; }
+
+/* line 843, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-83 {
+  color: #5fff5f; }
+
+/* line 846, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-83 {
+  background-color: #5fff5f; }
+
+/* line 849, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-84 {
+  color: #5fff87; }
+
+/* line 852, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-84 {
+  background-color: #5fff87; }
+
+/* line 855, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-85 {
+  color: #5fffaf; }
+
+/* line 858, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-85 {
+  background-color: #5fffaf; }
+
+/* line 861, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-86 {
+  color: #5fffd7; }
+
+/* line 864, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-86 {
+  background-color: #5fffd7; }
+
+/* line 867, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-87 {
+  color: #5fffff; }
+
+/* line 870, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-87 {
+  background-color: #5fffff; }
+
+/* line 873, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-88 {
+  color: #870000; }
+
+/* line 876, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-88 {
+  background-color: #870000; }
+
+/* line 879, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-89 {
+  color: #87005f; }
+
+/* line 882, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-89 {
+  background-color: #87005f; }
+
+/* line 885, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-90 {
+  color: #870087; }
+
+/* line 888, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-90 {
+  background-color: #870087; }
+
+/* line 891, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-91 {
+  color: #8700af; }
+
+/* line 894, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-91 {
+  background-color: #8700af; }
+
+/* line 897, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-92 {
+  color: #8700d7; }
+
+/* line 900, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-92 {
+  background-color: #8700d7; }
+
+/* line 903, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-93 {
+  color: #8700ff; }
+
+/* line 906, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-93 {
+  background-color: #8700ff; }
+
+/* line 909, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-94 {
+  color: #875f00; }
+
+/* line 912, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-94 {
+  background-color: #875f00; }
+
+/* line 915, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-95 {
+  color: #875f5f; }
+
+/* line 918, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-95 {
+  background-color: #875f5f; }
+
+/* line 921, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-96 {
+  color: #875f87; }
+
+/* line 924, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-96 {
+  background-color: #875f87; }
+
+/* line 927, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-97 {
+  color: #875faf; }
+
+/* line 930, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-97 {
+  background-color: #875faf; }
+
+/* line 933, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-98 {
+  color: #875fd7; }
+
+/* line 936, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-98 {
+  background-color: #875fd7; }
+
+/* line 939, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-99 {
+  color: #875fff; }
+
+/* line 942, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-99 {
+  background-color: #875fff; }
+
+/* line 945, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-100 {
+  color: #878700; }
+
+/* line 948, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-100 {
+  background-color: #878700; }
+
+/* line 951, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-101 {
+  color: #87875f; }
+
+/* line 954, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-101 {
+  background-color: #87875f; }
+
+/* line 957, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-102 {
+  color: #878787; }
+
+/* line 960, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-102 {
+  background-color: #878787; }
+
+/* line 963, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-103 {
+  color: #8787af; }
+
+/* line 966, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-103 {
+  background-color: #8787af; }
+
+/* line 969, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-104 {
+  color: #8787d7; }
+
+/* line 972, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-104 {
+  background-color: #8787d7; }
+
+/* line 975, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-105 {
+  color: #8787ff; }
+
+/* line 978, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-105 {
+  background-color: #8787ff; }
+
+/* line 981, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-106 {
+  color: #87af00; }
+
+/* line 984, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-106 {
+  background-color: #87af00; }
+
+/* line 987, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-107 {
+  color: #87af5f; }
+
+/* line 990, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-107 {
+  background-color: #87af5f; }
+
+/* line 993, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-108 {
+  color: #87af87; }
+
+/* line 996, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-108 {
+  background-color: #87af87; }
+
+/* line 999, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-109 {
+  color: #87afaf; }
+
+/* line 1002, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-109 {
+  background-color: #87afaf; }
+
+/* line 1005, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-110 {
+  color: #87afd7; }
+
+/* line 1008, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-110 {
+  background-color: #87afd7; }
+
+/* line 1011, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-111 {
+  color: #87afff; }
+
+/* line 1014, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-111 {
+  background-color: #87afff; }
+
+/* line 1017, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-112 {
+  color: #87d700; }
+
+/* line 1020, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-112 {
+  background-color: #87d700; }
+
+/* line 1023, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-113 {
+  color: #87d75f; }
+
+/* line 1026, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-113 {
+  background-color: #87d75f; }
+
+/* line 1029, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-114 {
+  color: #87d787; }
+
+/* line 1032, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-114 {
+  background-color: #87d787; }
+
+/* line 1035, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-115 {
+  color: #87d7af; }
+
+/* line 1038, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-115 {
+  background-color: #87d7af; }
+
+/* line 1041, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-116 {
+  color: #87d7d7; }
+
+/* line 1044, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-116 {
+  background-color: #87d7d7; }
+
+/* line 1047, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-117 {
+  color: #87d7ff; }
+
+/* line 1050, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-117 {
+  background-color: #87d7ff; }
+
+/* line 1053, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-118 {
+  color: #87ff00; }
+
+/* line 1056, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-118 {
+  background-color: #87ff00; }
+
+/* line 1059, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-119 {
+  color: #87ff5f; }
+
+/* line 1062, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-119 {
+  background-color: #87ff5f; }
+
+/* line 1065, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-120 {
+  color: #87ff87; }
+
+/* line 1068, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-120 {
+  background-color: #87ff87; }
+
+/* line 1071, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-121 {
+  color: #87ffaf; }
+
+/* line 1074, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-121 {
+  background-color: #87ffaf; }
+
+/* line 1077, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-122 {
+  color: #87ffd7; }
+
+/* line 1080, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-122 {
+  background-color: #87ffd7; }
+
+/* line 1083, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-123 {
+  color: #87ffff; }
+
+/* line 1086, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-123 {
+  background-color: #87ffff; }
+
+/* line 1089, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-124 {
+  color: #af0000; }
+
+/* line 1092, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-124 {
+  background-color: #af0000; }
+
+/* line 1095, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-125 {
+  color: #af005f; }
+
+/* line 1098, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-125 {
+  background-color: #af005f; }
+
+/* line 1101, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-126 {
+  color: #af0087; }
+
+/* line 1104, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-126 {
+  background-color: #af0087; }
+
+/* line 1107, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-127 {
+  color: #af00af; }
+
+/* line 1110, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-127 {
+  background-color: #af00af; }
+
+/* line 1113, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-128 {
+  color: #af00d7; }
+
+/* line 1116, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-128 {
+  background-color: #af00d7; }
+
+/* line 1119, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-129 {
+  color: #af00ff; }
+
+/* line 1122, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-129 {
+  background-color: #af00ff; }
+
+/* line 1125, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-130 {
+  color: #af5f00; }
+
+/* line 1128, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-130 {
+  background-color: #af5f00; }
+
+/* line 1131, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-131 {
+  color: #af5f5f; }
+
+/* line 1134, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-131 {
+  background-color: #af5f5f; }
+
+/* line 1137, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-132 {
+  color: #af5f87; }
+
+/* line 1140, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-132 {
+  background-color: #af5f87; }
+
+/* line 1143, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-133 {
+  color: #af5faf; }
+
+/* line 1146, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-133 {
+  background-color: #af5faf; }
+
+/* line 1149, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-134 {
+  color: #af5fd7; }
+
+/* line 1152, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-134 {
+  background-color: #af5fd7; }
+
+/* line 1155, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-135 {
+  color: #af5fff; }
+
+/* line 1158, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-135 {
+  background-color: #af5fff; }
+
+/* line 1161, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-136 {
+  color: #af8700; }
+
+/* line 1164, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-136 {
+  background-color: #af8700; }
+
+/* line 1167, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-137 {
+  color: #af875f; }
+
+/* line 1170, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-137 {
+  background-color: #af875f; }
+
+/* line 1173, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-138 {
+  color: #af8787; }
+
+/* line 1176, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-138 {
+  background-color: #af8787; }
+
+/* line 1179, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-139 {
+  color: #af87af; }
+
+/* line 1182, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-139 {
+  background-color: #af87af; }
+
+/* line 1185, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-140 {
+  color: #af87d7; }
+
+/* line 1188, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-140 {
+  background-color: #af87d7; }
+
+/* line 1191, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-141 {
+  color: #af87ff; }
+
+/* line 1194, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-141 {
+  background-color: #af87ff; }
+
+/* line 1197, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-142 {
+  color: #afaf00; }
+
+/* line 1200, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-142 {
+  background-color: #afaf00; }
+
+/* line 1203, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-143 {
+  color: #afaf5f; }
+
+/* line 1206, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-143 {
+  background-color: #afaf5f; }
+
+/* line 1209, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-144 {
+  color: #afaf87; }
+
+/* line 1212, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-144 {
+  background-color: #afaf87; }
+
+/* line 1215, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-145 {
+  color: #afafaf; }
+
+/* line 1218, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-145 {
+  background-color: #afafaf; }
+
+/* line 1221, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-146 {
+  color: #afafd7; }
+
+/* line 1224, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-146 {
+  background-color: #afafd7; }
+
+/* line 1227, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-147 {
+  color: #afafff; }
+
+/* line 1230, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-147 {
+  background-color: #afafff; }
+
+/* line 1233, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-148 {
+  color: #afd700; }
+
+/* line 1236, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-148 {
+  background-color: #afd700; }
+
+/* line 1239, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-149 {
+  color: #afd75f; }
+
+/* line 1242, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-149 {
+  background-color: #afd75f; }
+
+/* line 1245, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-150 {
+  color: #afd787; }
+
+/* line 1248, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-150 {
+  background-color: #afd787; }
+
+/* line 1251, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-151 {
+  color: #afd7af; }
+
+/* line 1254, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-151 {
+  background-color: #afd7af; }
+
+/* line 1257, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-152 {
+  color: #afd7d7; }
+
+/* line 1260, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-152 {
+  background-color: #afd7d7; }
+
+/* line 1263, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-153 {
+  color: #afd7ff; }
+
+/* line 1266, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-153 {
+  background-color: #afd7ff; }
+
+/* line 1269, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-154 {
+  color: #afff00; }
+
+/* line 1272, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-154 {
+  background-color: #afff00; }
+
+/* line 1275, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-155 {
+  color: #afff5f; }
+
+/* line 1278, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-155 {
+  background-color: #afff5f; }
+
+/* line 1281, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-156 {
+  color: #afff87; }
+
+/* line 1284, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-156 {
+  background-color: #afff87; }
+
+/* line 1287, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-157 {
+  color: #afffaf; }
+
+/* line 1290, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-157 {
+  background-color: #afffaf; }
+
+/* line 1293, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-158 {
+  color: #afffd7; }
+
+/* line 1296, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-158 {
+  background-color: #afffd7; }
+
+/* line 1299, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-159 {
+  color: #afffff; }
+
+/* line 1302, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-159 {
+  background-color: #afffff; }
+
+/* line 1305, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-160 {
+  color: #d70000; }
+
+/* line 1308, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-160 {
+  background-color: #d70000; }
+
+/* line 1311, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-161 {
+  color: #d7005f; }
+
+/* line 1314, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-161 {
+  background-color: #d7005f; }
+
+/* line 1317, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-162 {
+  color: #d70087; }
+
+/* line 1320, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-162 {
+  background-color: #d70087; }
+
+/* line 1323, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-163 {
+  color: #d700af; }
+
+/* line 1326, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-163 {
+  background-color: #d700af; }
+
+/* line 1329, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-164 {
+  color: #d700d7; }
+
+/* line 1332, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-164 {
+  background-color: #d700d7; }
+
+/* line 1335, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-165 {
+  color: #d700ff; }
+
+/* line 1338, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-165 {
+  background-color: #d700ff; }
+
+/* line 1341, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-166 {
+  color: #d75f00; }
+
+/* line 1344, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-166 {
+  background-color: #d75f00; }
+
+/* line 1347, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-167 {
+  color: #d75f5f; }
+
+/* line 1350, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-167 {
+  background-color: #d75f5f; }
+
+/* line 1353, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-168 {
+  color: #d75f87; }
+
+/* line 1356, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-168 {
+  background-color: #d75f87; }
+
+/* line 1359, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-169 {
+  color: #d75faf; }
+
+/* line 1362, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-169 {
+  background-color: #d75faf; }
+
+/* line 1365, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-170 {
+  color: #d75fd7; }
+
+/* line 1368, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-170 {
+  background-color: #d75fd7; }
+
+/* line 1371, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-171 {
+  color: #d75fff; }
+
+/* line 1374, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-171 {
+  background-color: #d75fff; }
+
+/* line 1377, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-172 {
+  color: #d78700; }
+
+/* line 1380, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-172 {
+  background-color: #d78700; }
+
+/* line 1383, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-173 {
+  color: #d7875f; }
+
+/* line 1386, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-173 {
+  background-color: #d7875f; }
+
+/* line 1389, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-174 {
+  color: #d78787; }
+
+/* line 1392, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-174 {
+  background-color: #d78787; }
+
+/* line 1395, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-175 {
+  color: #d787af; }
+
+/* line 1398, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-175 {
+  background-color: #d787af; }
+
+/* line 1401, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-176 {
+  color: #d787d7; }
+
+/* line 1404, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-176 {
+  background-color: #d787d7; }
+
+/* line 1407, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-177 {
+  color: #d787ff; }
+
+/* line 1410, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-177 {
+  background-color: #d787ff; }
+
+/* line 1413, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-178 {
+  color: #d7af00; }
+
+/* line 1416, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-178 {
+  background-color: #d7af00; }
+
+/* line 1419, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-179 {
+  color: #d7af5f; }
+
+/* line 1422, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-179 {
+  background-color: #d7af5f; }
+
+/* line 1425, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-180 {
+  color: #d7af87; }
+
+/* line 1428, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-180 {
+  background-color: #d7af87; }
+
+/* line 1431, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-181 {
+  color: #d7afaf; }
+
+/* line 1434, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-181 {
+  background-color: #d7afaf; }
+
+/* line 1437, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-182 {
+  color: #d7afd7; }
+
+/* line 1440, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-182 {
+  background-color: #d7afd7; }
+
+/* line 1443, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-183 {
+  color: #d7afff; }
+
+/* line 1446, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-183 {
+  background-color: #d7afff; }
+
+/* line 1449, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-184 {
+  color: #d7d700; }
+
+/* line 1452, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-184 {
+  background-color: #d7d700; }
+
+/* line 1455, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-185 {
+  color: #d7d75f; }
+
+/* line 1458, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-185 {
+  background-color: #d7d75f; }
+
+/* line 1461, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-186 {
+  color: #d7d787; }
+
+/* line 1464, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-186 {
+  background-color: #d7d787; }
+
+/* line 1467, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-187 {
+  color: #d7d7af; }
+
+/* line 1470, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-187 {
+  background-color: #d7d7af; }
+
+/* line 1473, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-188 {
+  color: #d7d7d7; }
+
+/* line 1476, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-188 {
+  background-color: #d7d7d7; }
+
+/* line 1479, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-189 {
+  color: #d7d7ff; }
+
+/* line 1482, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-189 {
+  background-color: #d7d7ff; }
+
+/* line 1485, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-190 {
+  color: #d7ff00; }
+
+/* line 1488, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-190 {
+  background-color: #d7ff00; }
+
+/* line 1491, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-191 {
+  color: #d7ff5f; }
+
+/* line 1494, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-191 {
+  background-color: #d7ff5f; }
+
+/* line 1497, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-192 {
+  color: #d7ff87; }
+
+/* line 1500, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-192 {
+  background-color: #d7ff87; }
+
+/* line 1503, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-193 {
+  color: #d7ffaf; }
+
+/* line 1506, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-193 {
+  background-color: #d7ffaf; }
+
+/* line 1509, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-194 {
+  color: #d7ffd7; }
+
+/* line 1512, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-194 {
+  background-color: #d7ffd7; }
+
+/* line 1515, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-195 {
+  color: #d7ffff; }
+
+/* line 1518, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-195 {
+  background-color: #d7ffff; }
+
+/* line 1521, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-196 {
+  color: #ff0000; }
+
+/* line 1524, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-196 {
+  background-color: #ff0000; }
+
+/* line 1527, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-197 {
+  color: #ff005f; }
+
+/* line 1530, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-197 {
+  background-color: #ff005f; }
+
+/* line 1533, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-198 {
+  color: #ff0087; }
+
+/* line 1536, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-198 {
+  background-color: #ff0087; }
+
+/* line 1539, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-199 {
+  color: #ff00af; }
+
+/* line 1542, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-199 {
+  background-color: #ff00af; }
+
+/* line 1545, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-200 {
+  color: #ff00d7; }
+
+/* line 1548, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-200 {
+  background-color: #ff00d7; }
+
+/* line 1551, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-201 {
+  color: #ff00ff; }
+
+/* line 1554, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-201 {
+  background-color: #ff00ff; }
+
+/* line 1557, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-202 {
+  color: #ff5f00; }
+
+/* line 1560, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-202 {
+  background-color: #ff5f00; }
+
+/* line 1563, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-203 {
+  color: #ff5f5f; }
+
+/* line 1566, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-203 {
+  background-color: #ff5f5f; }
+
+/* line 1569, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-204 {
+  color: #ff5f87; }
+
+/* line 1572, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-204 {
+  background-color: #ff5f87; }
+
+/* line 1575, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-205 {
+  color: #ff5faf; }
+
+/* line 1578, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-205 {
+  background-color: #ff5faf; }
+
+/* line 1581, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-206 {
+  color: #ff5fd7; }
+
+/* line 1584, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-206 {
+  background-color: #ff5fd7; }
+
+/* line 1587, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-207 {
+  color: #ff5fff; }
+
+/* line 1590, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-207 {
+  background-color: #ff5fff; }
+
+/* line 1593, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-208 {
+  color: #ff8700; }
+
+/* line 1596, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-208 {
+  background-color: #ff8700; }
+
+/* line 1599, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-209 {
+  color: #ff875f; }
+
+/* line 1602, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-209 {
+  background-color: #ff875f; }
+
+/* line 1605, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-210 {
+  color: #ff8787; }
+
+/* line 1608, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-210 {
+  background-color: #ff8787; }
+
+/* line 1611, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-211 {
+  color: #ff87af; }
+
+/* line 1614, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-211 {
+  background-color: #ff87af; }
+
+/* line 1617, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-212 {
+  color: #ff87d7; }
+
+/* line 1620, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-212 {
+  background-color: #ff87d7; }
+
+/* line 1623, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-213 {
+  color: #ff87ff; }
+
+/* line 1626, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-213 {
+  background-color: #ff87ff; }
+
+/* line 1629, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-214 {
+  color: #ffaf00; }
+
+/* line 1632, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-214 {
+  background-color: #ffaf00; }
+
+/* line 1635, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-215 {
+  color: #ffaf5f; }
+
+/* line 1638, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-215 {
+  background-color: #ffaf5f; }
+
+/* line 1641, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-216 {
+  color: #ffaf87; }
+
+/* line 1644, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-216 {
+  background-color: #ffaf87; }
+
+/* line 1647, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-217 {
+  color: #ffafaf; }
+
+/* line 1650, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-217 {
+  background-color: #ffafaf; }
+
+/* line 1653, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-218 {
+  color: #ffafd7; }
+
+/* line 1656, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-218 {
+  background-color: #ffafd7; }
+
+/* line 1659, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-219 {
+  color: #ffafff; }
+
+/* line 1662, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-219 {
+  background-color: #ffafff; }
+
+/* line 1665, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-220 {
+  color: #ffd700; }
+
+/* line 1668, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-220 {
+  background-color: #ffd700; }
+
+/* line 1671, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-221 {
+  color: #ffd75f; }
+
+/* line 1674, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-221 {
+  background-color: #ffd75f; }
+
+/* line 1677, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-222 {
+  color: #ffd787; }
+
+/* line 1680, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-222 {
+  background-color: #ffd787; }
+
+/* line 1683, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-223 {
+  color: #ffd7af; }
+
+/* line 1686, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-223 {
+  background-color: #ffd7af; }
+
+/* line 1689, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-224 {
+  color: #ffd7d7; }
+
+/* line 1692, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-224 {
+  background-color: #ffd7d7; }
+
+/* line 1695, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-225 {
+  color: #ffd7ff; }
+
+/* line 1698, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-225 {
+  background-color: #ffd7ff; }
+
+/* line 1701, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-226 {
+  color: #ffff00; }
+
+/* line 1704, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-226 {
+  background-color: #ffff00; }
+
+/* line 1707, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-227 {
+  color: #ffff5f; }
+
+/* line 1710, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-227 {
+  background-color: #ffff5f; }
+
+/* line 1713, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-228 {
+  color: #ffff87; }
+
+/* line 1716, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-228 {
+  background-color: #ffff87; }
+
+/* line 1719, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-229 {
+  color: #ffffaf; }
+
+/* line 1722, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-229 {
+  background-color: #ffffaf; }
+
+/* line 1725, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-230 {
+  color: #ffffd7; }
+
+/* line 1728, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-230 {
+  background-color: #ffffd7; }
+
+/* line 1731, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-231 {
+  color: #ffffff; }
+
+/* line 1734, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-231 {
+  background-color: #ffffff; }
+
+/* line 1737, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-232 {
+  color: #080808; }
+
+/* line 1740, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-232 {
+  background-color: #080808; }
+
+/* line 1743, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-233 {
+  color: #121212; }
+
+/* line 1746, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-233 {
+  background-color: #121212; }
+
+/* line 1749, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-234 {
+  color: #1c1c1c; }
+
+/* line 1752, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-234 {
+  background-color: #1c1c1c; }
+
+/* line 1755, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-235 {
+  color: #262626; }
+
+/* line 1758, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-235 {
+  background-color: #262626; }
+
+/* line 1761, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-236 {
+  color: #303030; }
+
+/* line 1764, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-236 {
+  background-color: #303030; }
+
+/* line 1767, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-237 {
+  color: #3a3a3a; }
+
+/* line 1770, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-237 {
+  background-color: #3a3a3a; }
+
+/* line 1773, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-238 {
+  color: #444444; }
+
+/* line 1776, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-238 {
+  background-color: #444444; }
+
+/* line 1779, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-239 {
+  color: #4e4e4e; }
+
+/* line 1782, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-239 {
+  background-color: #4e4e4e; }
+
+/* line 1785, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-240 {
+  color: #585858; }
+
+/* line 1788, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-240 {
+  background-color: #585858; }
+
+/* line 1791, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-241 {
+  color: #626262; }
+
+/* line 1794, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-241 {
+  background-color: #626262; }
+
+/* line 1797, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-242 {
+  color: #6c6c6c; }
+
+/* line 1800, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-242 {
+  background-color: #6c6c6c; }
+
+/* line 1803, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-243 {
+  color: #767676; }
+
+/* line 1806, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-243 {
+  background-color: #767676; }
+
+/* line 1809, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-244 {
+  color: #808080; }
+
+/* line 1812, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-244 {
+  background-color: #808080; }
+
+/* line 1815, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-245 {
+  color: #8a8a8a; }
+
+/* line 1818, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-245 {
+  background-color: #8a8a8a; }
+
+/* line 1821, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-246 {
+  color: #949494; }
+
+/* line 1824, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-246 {
+  background-color: #949494; }
+
+/* line 1827, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-247 {
+  color: #9e9e9e; }
+
+/* line 1830, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-247 {
+  background-color: #9e9e9e; }
+
+/* line 1833, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-248 {
+  color: #a8a8a8; }
+
+/* line 1836, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-248 {
+  background-color: #a8a8a8; }
+
+/* line 1839, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-249 {
+  color: #b2b2b2; }
+
+/* line 1842, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-249 {
+  background-color: #b2b2b2; }
+
+/* line 1845, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-250 {
+  color: #bcbcbc; }
+
+/* line 1848, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-250 {
+  background-color: #bcbcbc; }
+
+/* line 1851, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-251 {
+  color: #c6c6c6; }
+
+/* line 1854, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-251 {
+  background-color: #c6c6c6; }
+
+/* line 1857, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-252 {
+  color: #d0d0d0; }
+
+/* line 1860, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-252 {
+  background-color: #d0d0d0; }
+
+/* line 1863, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-253 {
+  color: #dadada; }
+
+/* line 1866, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-253 {
+  background-color: #dadada; }
+
+/* line 1869, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-254 {
+  color: #e4e4e4; }
+
+/* line 1872, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-254 {
+  background-color: #e4e4e4; }
+
+/* line 1875, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .fg-255 {
+  color: #eeeeee; }
+
+/* line 1878, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-terminal .bg-255 {
+  background-color: #eeeeee; }
+
+/* line 1881, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-asciinema .asciinema-terminal {
+  color: #cccccc;
+  background-color: #121314;
+  border-color: #121314; }
+
+/* line 1886, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-asciinema .fg-bg {
+  color: #121314; }
+
+/* line 1889, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-asciinema .bg-fg {
+  background-color: #cccccc; }
+
+/* line 1892, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-asciinema .fg-0 {
+  color: #000000; }
+
+/* line 1895, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-asciinema .bg-0 {
+  background-color: #000000; }
+
+/* line 1898, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-asciinema .fg-1 {
+  color: #dd3c69; }
+
+/* line 1901, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-asciinema .bg-1 {
+  background-color: #dd3c69; }
+
+/* line 1904, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-asciinema .fg-2 {
+  color: #4ebf22; }
+
+/* line 1907, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-asciinema .bg-2 {
+  background-color: #4ebf22; }
+
+/* line 1910, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-asciinema .fg-3 {
+  color: #ddaf3c; }
+
+/* line 1913, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-asciinema .bg-3 {
+  background-color: #ddaf3c; }
+
+/* line 1916, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-asciinema .fg-4 {
+  color: #26b0d7; }
+
+/* line 1919, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-asciinema .bg-4 {
+  background-color: #26b0d7; }
+
+/* line 1922, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-asciinema .fg-5 {
+  color: #b954e1; }
+
+/* line 1925, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-asciinema .bg-5 {
+  background-color: #b954e1; }
+
+/* line 1928, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-asciinema .fg-6 {
+  color: #54e1b9; }
+
+/* line 1931, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-asciinema .bg-6 {
+  background-color: #54e1b9; }
+
+/* line 1934, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-asciinema .fg-7 {
+  color: #d9d9d9; }
+
+/* line 1937, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-asciinema .bg-7 {
+  background-color: #d9d9d9; }
+
+/* line 1940, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-asciinema .fg-8 {
+  color: #4d4d4d; }
+
+/* line 1943, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-asciinema .bg-8 {
+  background-color: #4d4d4d; }
+
+/* line 1946, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-asciinema .fg-9 {
+  color: #dd3c69; }
+
+/* line 1949, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-asciinema .bg-9 {
+  background-color: #dd3c69; }
+
+/* line 1952, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-asciinema .fg-10 {
+  color: #4ebf22; }
+
+/* line 1955, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-asciinema .bg-10 {
+  background-color: #4ebf22; }
+
+/* line 1958, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-asciinema .fg-11 {
+  color: #ddaf3c; }
+
+/* line 1961, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-asciinema .bg-11 {
+  background-color: #ddaf3c; }
+
+/* line 1964, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-asciinema .fg-12 {
+  color: #26b0d7; }
+
+/* line 1967, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-asciinema .bg-12 {
+  background-color: #26b0d7; }
+
+/* line 1970, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-asciinema .fg-13 {
+  color: #b954e1; }
+
+/* line 1973, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-asciinema .bg-13 {
+  background-color: #b954e1; }
+
+/* line 1976, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-asciinema .fg-14 {
+  color: #54e1b9; }
+
+/* line 1979, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-asciinema .bg-14 {
+  background-color: #54e1b9; }
+
+/* line 1982, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-asciinema .fg-15 {
+  color: #ffffff; }
+
+/* line 1985, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-asciinema .bg-15 {
+  background-color: #ffffff; }
+
+/* line 1988, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-asciinema .fg-8,
+.asciinema-theme-asciinema .fg-9,
+.asciinema-theme-asciinema .fg-10,
+.asciinema-theme-asciinema .fg-11,
+.asciinema-theme-asciinema .fg-12,
+.asciinema-theme-asciinema .fg-13,
+.asciinema-theme-asciinema .fg-14,
+.asciinema-theme-asciinema .fg-15 {
+  font-weight: bold; }
+
+/* line 1998, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-tango .asciinema-terminal {
+  color: #cccccc;
+  background-color: #121314;
+  border-color: #121314; }
+
+/* line 2003, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-tango .fg-bg {
+  color: #121314; }
+
+/* line 2006, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-tango .bg-fg {
+  background-color: #cccccc; }
+
+/* line 2009, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-tango .fg-0 {
+  color: #000000; }
+
+/* line 2012, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-tango .bg-0 {
+  background-color: #000000; }
+
+/* line 2015, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-tango .fg-1 {
+  color: #cc0000; }
+
+/* line 2018, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-tango .bg-1 {
+  background-color: #cc0000; }
+
+/* line 2021, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-tango .fg-2 {
+  color: #4e9a06; }
+
+/* line 2024, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-tango .bg-2 {
+  background-color: #4e9a06; }
+
+/* line 2027, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-tango .fg-3 {
+  color: #c4a000; }
+
+/* line 2030, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-tango .bg-3 {
+  background-color: #c4a000; }
+
+/* line 2033, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-tango .fg-4 {
+  color: #3465a4; }
+
+/* line 2036, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-tango .bg-4 {
+  background-color: #3465a4; }
+
+/* line 2039, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-tango .fg-5 {
+  color: #75507b; }
+
+/* line 2042, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-tango .bg-5 {
+  background-color: #75507b; }
+
+/* line 2045, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-tango .fg-6 {
+  color: #06989a; }
+
+/* line 2048, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-tango .bg-6 {
+  background-color: #06989a; }
+
+/* line 2051, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-tango .fg-7 {
+  color: #d3d7cf; }
+
+/* line 2054, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-tango .bg-7 {
+  background-color: #d3d7cf; }
+
+/* line 2057, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-tango .fg-8 {
+  color: #555753; }
+
+/* line 2060, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-tango .bg-8 {
+  background-color: #555753; }
+
+/* line 2063, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-tango .fg-9 {
+  color: #ef2929; }
+
+/* line 2066, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-tango .bg-9 {
+  background-color: #ef2929; }
+
+/* line 2069, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-tango .fg-10 {
+  color: #8ae234; }
+
+/* line 2072, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-tango .bg-10 {
+  background-color: #8ae234; }
+
+/* line 2075, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-tango .fg-11 {
+  color: #fce94f; }
+
+/* line 2078, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-tango .bg-11 {
+  background-color: #fce94f; }
+
+/* line 2081, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-tango .fg-12 {
+  color: #729fcf; }
+
+/* line 2084, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-tango .bg-12 {
+  background-color: #729fcf; }
+
+/* line 2087, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-tango .fg-13 {
+  color: #ad7fa8; }
+
+/* line 2090, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-tango .bg-13 {
+  background-color: #ad7fa8; }
+
+/* line 2093, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-tango .fg-14 {
+  color: #34e2e2; }
+
+/* line 2096, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-tango .bg-14 {
+  background-color: #34e2e2; }
+
+/* line 2099, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-tango .fg-15 {
+  color: #eeeeec; }
+
+/* line 2102, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-tango .bg-15 {
+  background-color: #eeeeec; }
+
+/* line 2105, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-tango .fg-8,
+.asciinema-theme-tango .fg-9,
+.asciinema-theme-tango .fg-10,
+.asciinema-theme-tango .fg-11,
+.asciinema-theme-tango .fg-12,
+.asciinema-theme-tango .fg-13,
+.asciinema-theme-tango .fg-14,
+.asciinema-theme-tango .fg-15 {
+  font-weight: bold; }
+
+/* line 2115, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-solarized-dark .asciinema-terminal {
+  color: #839496;
+  background-color: #002b36;
+  border-color: #002b36; }
+
+/* line 2120, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-solarized-dark .fg-bg {
+  color: #002b36; }
+
+/* line 2123, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-solarized-dark .bg-fg {
+  background-color: #839496; }
+
+/* line 2126, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-solarized-dark .fg-0 {
+  color: #073642; }
+
+/* line 2129, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-solarized-dark .bg-0 {
+  background-color: #073642; }
+
+/* line 2132, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-solarized-dark .fg-1 {
+  color: #dc322f; }
+
+/* line 2135, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-solarized-dark .bg-1 {
+  background-color: #dc322f; }
+
+/* line 2138, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-solarized-dark .fg-2 {
+  color: #859900; }
+
+/* line 2141, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-solarized-dark .bg-2 {
+  background-color: #859900; }
+
+/* line 2144, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-solarized-dark .fg-3 {
+  color: #b58900; }
+
+/* line 2147, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-solarized-dark .bg-3 {
+  background-color: #b58900; }
+
+/* line 2150, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-solarized-dark .fg-4 {
+  color: #268bd2; }
+
+/* line 2153, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-solarized-dark .bg-4 {
+  background-color: #268bd2; }
+
+/* line 2156, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-solarized-dark .fg-5 {
+  color: #d33682; }
+
+/* line 2159, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-solarized-dark .bg-5 {
+  background-color: #d33682; }
+
+/* line 2162, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-solarized-dark .fg-6 {
+  color: #2aa198; }
+
+/* line 2165, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-solarized-dark .bg-6 {
+  background-color: #2aa198; }
+
+/* line 2168, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-solarized-dark .fg-7 {
+  color: #eee8d5; }
+
+/* line 2171, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-solarized-dark .bg-7 {
+  background-color: #eee8d5; }
+
+/* line 2174, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-solarized-dark .fg-8 {
+  color: #002b36; }
+
+/* line 2177, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-solarized-dark .bg-8 {
+  background-color: #002b36; }
+
+/* line 2180, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-solarized-dark .fg-9 {
+  color: #cb4b16; }
+
+/* line 2183, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-solarized-dark .bg-9 {
+  background-color: #cb4b16; }
+
+/* line 2186, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-solarized-dark .fg-10 {
+  color: #586e75; }
+
+/* line 2189, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-solarized-dark .bg-10 {
+  background-color: #586e75; }
+
+/* line 2192, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-solarized-dark .fg-11 {
+  color: #657b83; }
+
+/* line 2195, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-solarized-dark .bg-11 {
+  background-color: #657b83; }
+
+/* line 2198, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-solarized-dark .fg-12 {
+  color: #839496; }
+
+/* line 2201, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-solarized-dark .bg-12 {
+  background-color: #839496; }
+
+/* line 2204, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-solarized-dark .fg-13 {
+  color: #6c71c4; }
+
+/* line 2207, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-solarized-dark .bg-13 {
+  background-color: #6c71c4; }
+
+/* line 2210, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-solarized-dark .fg-14 {
+  color: #93a1a1; }
+
+/* line 2213, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-solarized-dark .bg-14 {
+  background-color: #93a1a1; }
+
+/* line 2216, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-solarized-dark .fg-15 {
+  color: #fdf6e3; }
+
+/* line 2219, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-solarized-dark .bg-15 {
+  background-color: #fdf6e3; }
+
+/* line 2222, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-solarized-light .asciinema-terminal {
+  color: #657b83;
+  background-color: #fdf6e3;
+  border-color: #fdf6e3; }
+
+/* line 2227, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-solarized-light .fg-bg {
+  color: #fdf6e3; }
+
+/* line 2230, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-solarized-light .bg-fg {
+  background-color: #657b83; }
+
+/* line 2233, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-solarized-light .fg-0 {
+  color: #073642; }
+
+/* line 2236, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-solarized-light .bg-0 {
+  background-color: #073642; }
+
+/* line 2239, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-solarized-light .fg-1 {
+  color: #dc322f; }
+
+/* line 2242, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-solarized-light .bg-1 {
+  background-color: #dc322f; }
+
+/* line 2245, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-solarized-light .fg-2 {
+  color: #859900; }
+
+/* line 2248, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-solarized-light .bg-2 {
+  background-color: #859900; }
+
+/* line 2251, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-solarized-light .fg-3 {
+  color: #b58900; }
+
+/* line 2254, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-solarized-light .bg-3 {
+  background-color: #b58900; }
+
+/* line 2257, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-solarized-light .fg-4 {
+  color: #268bd2; }
+
+/* line 2260, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-solarized-light .bg-4 {
+  background-color: #268bd2; }
+
+/* line 2263, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-solarized-light .fg-5 {
+  color: #d33682; }
+
+/* line 2266, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-solarized-light .bg-5 {
+  background-color: #d33682; }
+
+/* line 2269, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-solarized-light .fg-6 {
+  color: #2aa198; }
+
+/* line 2272, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-solarized-light .bg-6 {
+  background-color: #2aa198; }
+
+/* line 2275, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-solarized-light .fg-7 {
+  color: #eee8d5; }
+
+/* line 2278, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-solarized-light .bg-7 {
+  background-color: #eee8d5; }
+
+/* line 2281, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-solarized-light .fg-8 {
+  color: #002b36; }
+
+/* line 2284, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-solarized-light .bg-8 {
+  background-color: #002b36; }
+
+/* line 2287, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-solarized-light .fg-9 {
+  color: #cb4b16; }
+
+/* line 2290, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-solarized-light .bg-9 {
+  background-color: #cb4b16; }
+
+/* line 2293, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-solarized-light .fg-10 {
+  color: #586e75; }
+
+/* line 2296, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-solarized-light .bg-10 {
+  background-color: #586e75; }
+
+/* line 2299, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-solarized-light .fg-11 {
+  color: #657c83; }
+
+/* line 2302, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-solarized-light .bg-11 {
+  background-color: #657c83; }
+
+/* line 2305, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-solarized-light .fg-12 {
+  color: #839496; }
+
+/* line 2308, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-solarized-light .bg-12 {
+  background-color: #839496; }
+
+/* line 2311, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-solarized-light .fg-13 {
+  color: #6c71c4; }
+
+/* line 2314, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-solarized-light .bg-13 {
+  background-color: #6c71c4; }
+
+/* line 2317, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-solarized-light .fg-14 {
+  color: #93a1a1; }
+
+/* line 2320, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-solarized-light .bg-14 {
+  background-color: #93a1a1; }
+
+/* line 2323, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-solarized-light .fg-15 {
+  color: #fdf6e3; }
+
+/* line 2326, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-solarized-light .bg-15 {
+  background-color: #fdf6e3; }
+
+/* line 2329, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-seti .asciinema-terminal {
+  color: #cacecd;
+  background-color: #111213;
+  border-color: #111213; }
+
+/* line 2334, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-seti .fg-bg {
+  color: #111213; }
+
+/* line 2337, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-seti .bg-fg {
+  background-color: #cacecd; }
+
+/* line 2340, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-seti .fg-0 {
+  color: #323232; }
+
+/* line 2343, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-seti .bg-0 {
+  background-color: #323232; }
+
+/* line 2346, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-seti .fg-1 {
+  color: #c22832; }
+
+/* line 2349, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-seti .bg-1 {
+  background-color: #c22832; }
+
+/* line 2352, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-seti .fg-2 {
+  color: #8ec43d; }
+
+/* line 2355, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-seti .bg-2 {
+  background-color: #8ec43d; }
+
+/* line 2358, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-seti .fg-3 {
+  color: #e0c64f; }
+
+/* line 2361, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-seti .bg-3 {
+  background-color: #e0c64f; }
+
+/* line 2364, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-seti .fg-4 {
+  color: #43a5d5; }
+
+/* line 2367, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-seti .bg-4 {
+  background-color: #43a5d5; }
+
+/* line 2370, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-seti .fg-5 {
+  color: #8b57b5; }
+
+/* line 2373, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-seti .bg-5 {
+  background-color: #8b57b5; }
+
+/* line 2376, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-seti .fg-6 {
+  color: #8ec43d; }
+
+/* line 2379, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-seti .bg-6 {
+  background-color: #8ec43d; }
+
+/* line 2382, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-seti .fg-7 {
+  color: #eeeeee; }
+
+/* line 2385, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-seti .bg-7 {
+  background-color: #eeeeee; }
+
+/* line 2388, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-seti .fg-8 {
+  color: #323232; }
+
+/* line 2391, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-seti .bg-8 {
+  background-color: #323232; }
+
+/* line 2394, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-seti .fg-9 {
+  color: #c22832; }
+
+/* line 2397, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-seti .bg-9 {
+  background-color: #c22832; }
+
+/* line 2400, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-seti .fg-10 {
+  color: #8ec43d; }
+
+/* line 2403, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-seti .bg-10 {
+  background-color: #8ec43d; }
+
+/* line 2406, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-seti .fg-11 {
+  color: #e0c64f; }
+
+/* line 2409, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-seti .bg-11 {
+  background-color: #e0c64f; }
+
+/* line 2412, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-seti .fg-12 {
+  color: #43a5d5; }
+
+/* line 2415, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-seti .bg-12 {
+  background-color: #43a5d5; }
+
+/* line 2418, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-seti .fg-13 {
+  color: #8b57b5; }
+
+/* line 2421, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-seti .bg-13 {
+  background-color: #8b57b5; }
+
+/* line 2424, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-seti .fg-14 {
+  color: #8ec43d; }
+
+/* line 2427, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-seti .bg-14 {
+  background-color: #8ec43d; }
+
+/* line 2430, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-seti .fg-15 {
+  color: #ffffff; }
+
+/* line 2433, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-seti .bg-15 {
+  background-color: #ffffff; }
+
+/* line 2436, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-seti .fg-8,
+.asciinema-theme-seti .fg-9,
+.asciinema-theme-seti .fg-10,
+.asciinema-theme-seti .fg-11,
+.asciinema-theme-seti .fg-12,
+.asciinema-theme-seti .fg-13,
+.asciinema-theme-seti .fg-14,
+.asciinema-theme-seti .fg-15 {
+  font-weight: bold; }
+
+/* Based on Monokai from base16 collection - https://github.com/chriskempson/base16 */
+/* line 2447, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-monokai .asciinema-terminal {
+  color: #f8f8f2;
+  background-color: #272822;
+  border-color: #272822; }
+
+/* line 2452, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-monokai .fg-bg {
+  color: #272822; }
+
+/* line 2455, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-monokai .bg-fg {
+  background-color: #f8f8f2; }
+
+/* line 2458, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-monokai .fg-0 {
+  color: #272822; }
+
+/* line 2461, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-monokai .bg-0 {
+  background-color: #272822; }
+
+/* line 2464, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-monokai .fg-1 {
+  color: #f92672; }
+
+/* line 2467, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-monokai .bg-1 {
+  background-color: #f92672; }
+
+/* line 2470, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-monokai .fg-2 {
+  color: #a6e22e; }
+
+/* line 2473, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-monokai .bg-2 {
+  background-color: #a6e22e; }
+
+/* line 2476, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-monokai .fg-3 {
+  color: #f4bf75; }
+
+/* line 2479, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-monokai .bg-3 {
+  background-color: #f4bf75; }
+
+/* line 2482, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-monokai .fg-4 {
+  color: #66d9ef; }
+
+/* line 2485, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-monokai .bg-4 {
+  background-color: #66d9ef; }
+
+/* line 2488, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-monokai .fg-5 {
+  color: #ae81ff; }
+
+/* line 2491, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-monokai .bg-5 {
+  background-color: #ae81ff; }
+
+/* line 2494, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-monokai .fg-6 {
+  color: #a1efe4; }
+
+/* line 2497, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-monokai .bg-6 {
+  background-color: #a1efe4; }
+
+/* line 2500, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-monokai .fg-7 {
+  color: #f8f8f2; }
+
+/* line 2503, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-monokai .bg-7 {
+  background-color: #f8f8f2; }
+
+/* line 2506, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-monokai .fg-8 {
+  color: #75715e; }
+
+/* line 2509, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-monokai .bg-8 {
+  background-color: #75715e; }
+
+/* line 2512, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-monokai .fg-9 {
+  color: #f92672; }
+
+/* line 2515, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-monokai .bg-9 {
+  background-color: #f92672; }
+
+/* line 2518, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-monokai .fg-10 {
+  color: #a6e22e; }
+
+/* line 2521, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-monokai .bg-10 {
+  background-color: #a6e22e; }
+
+/* line 2524, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-monokai .fg-11 {
+  color: #f4bf75; }
+
+/* line 2527, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-monokai .bg-11 {
+  background-color: #f4bf75; }
+
+/* line 2530, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-monokai .fg-12 {
+  color: #66d9ef; }
+
+/* line 2533, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-monokai .bg-12 {
+  background-color: #66d9ef; }
+
+/* line 2536, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-monokai .fg-13 {
+  color: #ae81ff; }
+
+/* line 2539, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-monokai .bg-13 {
+  background-color: #ae81ff; }
+
+/* line 2542, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-monokai .fg-14 {
+  color: #a1efe4; }
+
+/* line 2545, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-monokai .bg-14 {
+  background-color: #a1efe4; }
+
+/* line 2548, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-monokai .fg-15 {
+  color: #f9f8f5; }
+
+/* line 2551, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-monokai .bg-15 {
+  background-color: #f9f8f5; }
+
+/* line 2554, /Users/jon/Code/Gems/rspec-website/source/stylesheets/asciinema-player.css */
+.asciinema-theme-monokai .fg-8,
+.asciinema-theme-monokai .fg-9,
+.asciinema-theme-monokai .fg-10,
+.asciinema-theme-monokai .fg-11,
+.asciinema-theme-monokai .fg-12,
+.asciinema-theme-monokai .fg-13,
+.asciinema-theme-monokai .fg-14,
+.asciinema-theme-monokai .fg-15 {
+  font-weight: bold; }
+
 /* line 1, /Users/jon/Code/Gems/rspec-website/source/stylesheets/bitters/extends/_button.scss */
 button,
 input[type="submit"] {
@@ -365,7 +3676,7 @@ input[type="submit"] {
   text-shadow: 0 1px 0 #1b4f9a;
   background-clip: padding-box;
   font-size: 1.05em; }
-  /* line 137, /Users/jon/.rvm/gems/ruby-2.6.5@RSpec-www/gems/bourbon-4.2.2/app/assets/stylesheets/_bourbon-deprecated-upcoming.scss */
+  /* line 137, /Users/jon/.rvm/gems/ruby-2.7.0@RSpec-www/gems/bourbon-4.2.2/app/assets/stylesheets/_bourbon-deprecated-upcoming.scss */
   button:hover:not(:disabled),
   input[type="submit"]:hover:not(:disabled) {
     background-color: #3c71bb;
@@ -373,13 +3684,13 @@ input[type="submit"] {
     background-image: linear-gradient(#3c71bb, #255aa5);
     box-shadow: inset 0 1px 0 0 #628cc8;
     cursor: pointer; }
-  /* line 154, /Users/jon/.rvm/gems/ruby-2.6.5@RSpec-www/gems/bourbon-4.2.2/app/assets/stylesheets/_bourbon-deprecated-upcoming.scss */
+  /* line 154, /Users/jon/.rvm/gems/ruby-2.7.0@RSpec-www/gems/bourbon-4.2.2/app/assets/stylesheets/_bourbon-deprecated-upcoming.scss */
   button:active:not(:disabled),
   input[type="submit"]:active:not(:disabled), button:focus:not(:disabled),
   input[type="submit"]:focus:not(:disabled) {
     border: 1px solid #2459a6;
     box-shadow: inset 0 0 8px 4px #235397, inset 0 0 8px 4px #235397; }
-  /* line 59, /Users/jon/.rvm/gems/ruby-2.6.5@RSpec-www/gems/bourbon-4.2.2/app/assets/stylesheets/_bourbon-deprecated-upcoming.scss */
+  /* line 59, /Users/jon/.rvm/gems/ruby-2.7.0@RSpec-www/gems/bourbon-4.2.2/app/assets/stylesheets/_bourbon-deprecated-upcoming.scss */
   button:disabled,
   input[type="submit"]:disabled {
     cursor: not-allowed;
@@ -689,11 +4000,11 @@ dl {
     #flash_success a:hover {
       color: black; }
 
-/* line 4, /Users/jon/.rvm/gems/ruby-2.6.5@RSpec-www/gems/neat-1.7.2/app/assets/stylesheets/grid/_box-sizing.scss */
+/* line 4, /Users/jon/.rvm/gems/ruby-2.7.0@RSpec-www/gems/neat-1.7.2/app/assets/stylesheets/grid/_box-sizing.scss */
 html {
   box-sizing: border-box; }
 
-/* line 9, /Users/jon/.rvm/gems/ruby-2.6.5@RSpec-www/gems/neat-1.7.2/app/assets/stylesheets/grid/_box-sizing.scss */
+/* line 9, /Users/jon/.rvm/gems/ruby-2.7.0@RSpec-www/gems/neat-1.7.2/app/assets/stylesheets/grid/_box-sizing.scss */
 *, *::after, *::before {
   box-sizing: inherit; }
 
@@ -1151,30 +4462,30 @@ pre {
   .highlight .il {
     color: #2aa198; }
 
-/* line 12, /Users/jon/Code/Gems/rspec-website/source/stylesheets/_application.css.scss */
+/* line 13, /Users/jon/Code/Gems/rspec-website/source/stylesheets/_application.css.scss */
 hr {
   margin: 77px auto;
   width: 220px; }
 
-/* line 17, /Users/jon/Code/Gems/rspec-website/source/stylesheets/_application.css.scss */
+/* line 18, /Users/jon/Code/Gems/rspec-website/source/stylesheets/_application.css.scss */
 article {
   margin-bottom: 77px; }
 
-/* line 21, /Users/jon/Code/Gems/rspec-website/source/stylesheets/_application.css.scss */
+/* line 22, /Users/jon/Code/Gems/rspec-website/source/stylesheets/_application.css.scss */
 img.needs-border {
   border: 1px solid #021a40; }
 
-/* line 25, /Users/jon/Code/Gems/rspec-website/source/stylesheets/_application.css.scss */
+/* line 26, /Users/jon/Code/Gems/rspec-website/source/stylesheets/_application.css.scss */
 iframe.centered {
   display: block;
   margin: 20px auto; }
 
 @media (max-width: 767px) {
-  /* line 31, /Users/jon/Code/Gems/rspec-website/source/stylesheets/_application.css.scss */
+  /* line 32, /Users/jon/Code/Gems/rspec-website/source/stylesheets/_application.css.scss */
   body {
     word-wrap: break-word; }
 
-  /* line 35, /Users/jon/Code/Gems/rspec-website/source/stylesheets/_application.css.scss */
+  /* line 36, /Users/jon/Code/Gems/rspec-website/source/stylesheets/_application.css.scss */
   .youtube {
     width: 100%; } }
 /* line 3, /Users/jon/Code/Gems/rspec-website/source/stylesheets/partials/_standard_article.css.scss */
