@@ -60,7 +60,7 @@ If you use generators, there is some improvements:
 controller spec
 - New [generators][3] available (channel, generator, mailbox...)
 
-### Choose which Active Job `queue_adapteur` in system specs
+### Choose which Active Job `queue_adapter` in system specs
 
 Some people want to run Active Job with a specific queue. In system
 specs you can now choose your desired queue:
