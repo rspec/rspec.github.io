@@ -4,7 +4,7 @@ author: Benoit Tigeot, Jon Rowe and Phil Pirozhkov
 ---
 
 RSpec Rails 4.0 has been released recently! Given our commitment to
-[semantic versioning](http://semver.org/), this update come with 
+[semantic versioning](http://semver.org/), this update comes with 
 breaking changes for people that are using Rails below 4.2. If we 
 did introduce any bugs, please let us know, and we'll get 
 a patch release out with a fix ASAP.
@@ -17,19 +17,25 @@ Thank you to everyone who helped make this release happen!
 
 ## Notable Changes
 
-RSpec Rails was release with full support and many improvements for 
-Rails 6.
+Support for Rails 6, support for testing ActionCable, ActiveMailbox
 
 ### Breaking changes
 
-This version no longer support Ruby bellow 2.3. We soft support
-Rails 4.2 but we encourage you to use rspec-rails with Rails 5
-at least.
+RSpec Rails 4 supports only Rails 5 and 6. This is in line with our
+new versioning policy which keeps major versions of RSpec Rails in 
+lock step with versions of Rails.
 
-### JRuby support
+This means that we no longer support versions of Ruby below 2.2
+in line with the supported Ruby versions of Rails 5.
 
-We very happy to support JRuby on this new release. You can now use
-`rspec-rails` with Rails 5.2 and 6 and JRuby.
+We have not restricted the version of Rails/Ruby for this version to
+allow a "soft support" for Rails 4.2 during this transitionary
+period but we strongly urge you to upgrade Rails to use 4.0.0.
+
+### Improved JRuby support
+
+We are very happy to support JRuby on this new release. RSpec Rails 4
+supports JRuby with Rails 5.2 and 6.
 
 ### Support for Action Cable
 
@@ -171,5 +177,5 @@ Breaking Changes:
 * Drops support for Ruby below 2.3
 
 [1]: https://relishapp.com/rspec/rspec-rails/v/4-0/docs/channel-specs
-[2]: https://edgeguides.rubyonrails.org/action_mailbox_basics.html
+[2]: https://guides.rubyonrails.org/action_mailbox_basics.html
 [3]: https://relishapp.com/rspec/rspec-rails/v/4-0/docs/generators
