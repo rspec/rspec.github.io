@@ -58,8 +58,8 @@ If you use generators, there is some improvements:
 
 ### Allow configuring Active Job `queue_adapter` in system specs
 
-Some people want to run Active Job with a specific queue. In system
-specs you can now choose your desired queue:
+Some people want to run Active Job with a specific queue adapter. In system
+specs you can now choose your desired queue adapter:
 
 ```ruby
 before do
