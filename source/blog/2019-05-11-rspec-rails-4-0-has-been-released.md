@@ -32,6 +32,11 @@ We have only restricted the version of Rails for this version
 allow a "soft support" for Rails 4.2 during this transitionary
 period but we strongly urge you to upgrade Rails to use 4.0.0.
 
+### Removed version lock with RSpec gems
+
+The `rspec-rails` gem is no longer locked with the versioning of the other RSpec gems, we will now be releasing `rspec-rails` with each new major Rails release, keeping in lock step with their supported major versions.
+
+
 ### Improved JRuby support
 
 We have improved JRuby support and RSpec Rails 4 fully supports JRuby on Rails 5 and 6.
@@ -75,10 +80,6 @@ By default Puma will no longer print logs when running system specs.
 
 When using Rails without ActiveRecord we can mistakenly detect ActiveRecord as being used due to other gems autoloading the constants, we now support manually turning off Active Record support when not configured with:
 `config.use_active_record = false`
-
-### Removed version lock with RSpec gems
-
-The `rspec-rails` gem is no longer locked with the versioning of the other RSpec gems, we will now be releasing `rspec-rails` with each new major Rails release, keeping in lock step with their supported major versions.
 
 ## Stats:
 
