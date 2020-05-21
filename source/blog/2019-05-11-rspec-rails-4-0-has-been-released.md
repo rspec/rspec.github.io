@@ -3,9 +3,9 @@ title: RSpec Rails 4.0 has been released!
 author: Benoit Tigeot, Jon Rowe and Phil Pirozhkov
 ---
 
-RSpec Rails 4.0 has been released recently! Given our commitment to
-[semantic versioning](http://semver.org/), this update comes with 
-breaking changes for people that are using Rails below 4.2. If we 
+RSpec Rails 4.0 has been released! Given our commitment to
+[semantic versioning](http://semver.org/), this update comes with some
+breaking changes for people that are using Rails below 5. If we 
 did introduce any bugs, please let us know, and we'll get 
 a patch release out with a fix ASAP.
 
@@ -17,7 +17,7 @@ Thank you to everyone who helped make this release happen!
 
 ## Notable Changes
 
-Support for Rails 6, support for testing ActionCable, ActiveMailbox
+Support for Rails 6, support for testing ActionCable, ActiveMailbox.
 
 ### Breaking changes
 
@@ -28,25 +28,16 @@ lock step with versions of Rails.
 This means that we no longer support versions of Ruby below 2.2
 in line with the supported Ruby versions of Rails 5.
 
-We have not restricted the version of Rails/Ruby for this version to
+We have only restricted the version of Rails for this version
 allow a "soft support" for Rails 4.2 during this transitionary
 period but we strongly urge you to upgrade Rails to use 4.0.0.
 
 ### Improved JRuby support
 
-We are very happy to support JRuby on this new release. RSpec Rails 4
-supports JRuby with Rails 5.2 and 6.
-
+We have improved JRuby support and RSpec Rails 4 fully supports JRuby on Rails 5 and 6.
 ### Support for Action Cable
 
-Using a [channel spec][1] it will be easy to test your Action Cable
-channels. A `channels spec` is a thin wrapper for an
-`ActionCable::Channel::TestCase`, and includes all of the behavior
-and assertions that it provides, in addition to RSpec's own 
-behavior and expectations.
-
-It also includes helpers from `ActionCable::Connection::TestCase`
-to make it possible to test connection behavior.
+We now support [channel specs][1] in order to easily test your Action Cable channels.  A `channel spec` pulls in `ActionCable::Channel::TestCase`, including all of the behavior and assertions that it provides, in addition to RSpec's own behavior and expectations.
 
 ### Support for Action Mailbox
 
@@ -58,15 +49,14 @@ Rails 6 came with [Action Mailbox][2]. We can now test them using
 
 TODO: We do no have feature test for this...
 
-### Improvements on generators
+### Improvements to generators
 
 If you use generators, there is some improvements:
-- No more Ruby 1.9 hash syntax in file generated
-- Scaffold generator generates request specs instead of 
-controller spec
+- The default hash syntax is now the Ruby 1.9 style in generated files to match Rails.
+- Request specs are generated instead of controller specs by default
 - New [generators][3] available (channel, generator, mailbox...)
 
-### Choose which Active Job `queue_adapter` in system specs
+### Allow configuring Active Job `queue_adapter` in system specs
 
 Some people want to run Active Job with a specific queue. In system
 specs you can now choose your desired queue:
@@ -77,22 +67,18 @@ before do
 end
 ```
 
-### Silent log with Puma
+### Silence log output with Puma
 
-By default Puma will not print starting logs anymore when you are
-running system specs.
+By default Puma will no longer print logs when running system specs.
 
-### Ability to disable Active Record
+### Ability to manually turn off Active Record support
 
-Some people use Rails without database connection. They do not need
-`ActiveRecord`. You can now choose to disable it in your RSpec config:
+When using Rails without ActiveRecord we can mistakenly detect ActiveRecord as being used due to other gems autoloading the constants, we now support manually turning off Active Record support when not configured with:
 `config.use_active_record = false`
 
-### Version sync between RSpec gems
+### Removed version lock with RSpec gems
 
-`rspec-rails` no longer follow the version of other RSpec gems, that
-means that `rspec-rails` will ask at least rspec-core, 
-rspec-expectations, rspec-mocks and rspec-support at version 3.9.0.
+The `rspec-rails` gem is no longer locked with the versioning of the other RSpec gems, we will now be releasing `rspec-rails` with each new major Rails release, keeping in lock step with their supported major versions.
 
 ## Stats:
 
