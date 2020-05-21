@@ -4,10 +4,12 @@ author: Benoit Tigeot, Jon Rowe and Phil Pirozhkov
 ---
 
 RSpec Rails 4.0 has been released! Given our commitment to
-[semantic versioning](http://semver.org/), this update comes with some
-breaking changes for people that are using Rails below 5. If we 
-did introduce any bugs, please let us know, and we'll get 
-a patch release out with a fix ASAP.
+[semantic versioning](http://semver.org/), we've been delaying the
+breaking changes until this update. One notable change is that
+we've dropped support for Rails below 4.2.
+
+As usual, if you notice any newly introduced bugs, please let us
+know, and we'll release a fix for it ASAP.
 
 RSpec continues to be a community-driven project with contributors
 from all over the world. This release includes 258 commits and 56
@@ -22,7 +24,7 @@ Support for Rails 6, support for testing ActionCable, ActiveMailbox.
 ### Breaking changes
 
 RSpec Rails 4 supports only Rails 5 and 6. This is in line with our
-new versioning policy which keeps major versions of RSpec Rails in 
+new versioning policy which keeps major versions of RSpec Rails in
 lock step with versions of Rails.
 
 This means that we no longer support versions of Ruby below 2.2
@@ -78,7 +80,11 @@ By default Puma will no longer print logs when running system specs.
 
 ### Ability to manually turn off Active Record support
 
-When using Rails without ActiveRecord we can mistakenly detect ActiveRecord as being used due to other gems autoloading the constants, we now support manually turning off Active Record support when not configured with:
+When using Rails without ActiveRecord or using an alternative ORM
+or a database of choice, e.g. Sequel, ROM, Mongoid etc. We can
+mistakenly detect ActiveRecord as being used due to other gems
+autoloading the constants, we now support manually turning off
+Active Record support when not configured with:
 `config.use_active_record = false`
 
 ## Stats:
