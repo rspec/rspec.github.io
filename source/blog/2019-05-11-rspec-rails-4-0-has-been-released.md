@@ -160,7 +160,7 @@ Bug Fixes:
 Breaking Changes:
 
 * Drops support for Rails below 5.0
-* Drops support for Ruby below 2.3
+* Drops support for Ruby below 2.2
 
 [1]: https://relishapp.com/rspec/rspec-rails/v/4-0/docs/channel-specs
 [2]: https://guides.rubyonrails.org/action_mailbox_basics.html
