@@ -35,10 +35,10 @@ period but we strongly urge you to upgrade Rails to use 4.0.0.
 
 The `rspec-rails` gem is no longer locked with the versioning of the other RSpec gems, we will now be releasing `rspec-rails` with each new major Rails release, keeping in lockstep with their supported major versions.
 
-
 ### Improved JRuby support
 
 We have improved JRuby support and RSpec Rails 4 fully supports JRuby on Rails 5 and 6.
+
 ### Support for Action Cable
 
 We now support [channel specs][1] in order to easily test your Action Cable channels.  A `channel spec` pulls in `ActionCable::Channel::TestCase`, including all of the behavior and assertions that it provides, in addition to RSpec's own behavior and expectations.
