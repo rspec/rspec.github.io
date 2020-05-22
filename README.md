@@ -14,8 +14,7 @@ Requires a recent version of Ruby (tested on 2.5.3), bundler 1.x and imagemagick
 
 ## Local Developing
 
-Run
-* `middleman server`
+Run `LIVERELOAD=true middleman server`
 
 ## Docker Setup + Development
 

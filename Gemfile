@@ -12,11 +12,7 @@ group :development do
   gem "bourbon"
   gem "neat"
   gem "slim"
-
-  gem "rack-contrib" # For try_static
-
   gem "builder", "~> 3.0" # For feed.xml.builder
 
-  gem 'foreman'
-  gem 'puma'
+  gem "rack-contrib" # For try_static
 end
