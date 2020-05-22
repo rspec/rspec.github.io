@@ -7,6 +7,10 @@ gem "middleman-favicon-maker"
 gem "middleman-deploy"
 gem "middleman-blog"
 
+group :development do
+  gem "bundler", "~> 1.17.3" # Middleman depend in bundler 1.x
+end
+
 gem "bourbon"
 gem "neat"
 gem "slim"
