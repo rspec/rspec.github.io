@@ -58,7 +58,7 @@ TODO: We do no have feature test for this...
 
 ### Improvements to generators
 
-If you use generators, there is some improvements:
+If you use generators, there are some improvements:
 - The default hash syntax is now the Ruby 1.9 style in generated files to match Rails.
 - Request specs are generated instead of controller specs by default
 - New [generators][3] available (channel, generator, mailbox...)
