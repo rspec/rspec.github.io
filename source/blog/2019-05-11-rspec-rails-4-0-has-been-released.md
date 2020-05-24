@@ -86,14 +86,14 @@ Active Record support when not configured with:
 
 ## Stats:
 
-* **Total Commits**: 258
-* **Merged pull requests**: 56
-* **27 contributors**: Andrew White, Anton Rieder, Benoit Tigeot, Jon Rowe,
+* **Total Commits**: 285
+* **Merged pull requests**: 63
+* **31 contributors**: Andrew White, Anton Rieder, Benoit Tigeot, Jon Rowe,
 David Revelo, Giovanni Kock Bonetti, Ignatius Reza, James Dabbs, Joel AZEMAR,
-John Hawthorn, Jonathan Rochkind, Kieran O'Grady, Moshe Kamensky,
-OKURA Masafumi, Olle Jonsson, Pedro Paiva, Phil Pirozhkov, Penelope Phippen,
-Seb Jacobs, Tanbir Hasan, Viacheslav Bobrov, Vladimir Dementyev, Xavier Shay,
-alpaca-tc, pavel, ta1kt0me
+John Hawthorn, Jonathan Rochkind, Kieran O'Grady, Marc-André Lafortune,
+Moshe Kamensky, OKURA Masafumi, Olle Jonsson, Pedro Paiva, Penelope Phippen,
+Phil Pirozhkov, Piotr W, Seb Jacobs, Tanbir Hasan, Viacheslav Bobrov,
+Vladimir Dementyev, Xavier Shay, alpaca-tc, pavel, ta1kt0me, yalab
 
 ## Docs
 
@@ -108,7 +108,7 @@ alpaca-tc, pavel, ta1kt0me
 ## Release Notes
 
 ### 4.0.0 / 2020-03-24
-[Full Changelog](https://github.com/rspec/rspec-rails/compare/v3.9.1...v4.0.0)
+[Full Changelog](https://github.com/rspec/rspec-rails/compare/v3.9.1...v4.0.1)
 
 Enhancements:
 
@@ -138,6 +138,12 @@ Enhancements:
 
 Bug Fixes:
 
+* Remove warning when calling `driven_by` in system specs. (Aubin Lorieux, #2302)
+* Fix comparison of times for `#at` in job matchers. (Jon Rowe, Markus Doits, #2304)
+* Allow `have_enqueued_mail` to match when a sub class of `ActionMailer::DeliveryJob`
+  is set using `<Class>.delivery_job=`. (Atsushi Yoshida #2305)
+* Restore Ruby 2.2.x compatibility. (Jon Rowe, #2332)
+* Add `required_ruby_version` to gem spec. (Marc-André Lafortune, #2319, #2338)
 * `EmptyTemplateHandler.call` now needs to support an additional argument in
   Rails 6. (Pavel Rosický, #2089)
 * Suppress warning from `SQLite3Adapter.represent_boolean_as_integer` which is
