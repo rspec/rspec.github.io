@@ -26,3 +26,7 @@ this environment here: https://hub.docker.com/r/2performantirina/middleman-and-i
 
 * `middleman deploy` (for http://rspec-staging.github.io/)
 * `TARGET=prod middleman deploy` (for http://rspec.info/)
+
+## Credits
+
+[Andrew Harvey](https://mootpointer.com) - for his incredible effort of making this repository as it is now
