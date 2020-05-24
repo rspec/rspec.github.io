@@ -48,8 +48,9 @@ We now support [channel specs][1] in order to easily test your Action Cable chan
 Rails 6 came with [Action Mailbox][2]. We can now test them using
 `:mailbox` flag and use [mailbox specs][4].
 
-For example with `have_been_delivered` matcher:
-```ruby
+For example with `process` method and `have_been_delivered` matcher:
+
+~~~ ruby
 RSpec.describe InboxMailbox, type: :mailbox do
   it "marks email as bounced when number tag in subject is valid" do
     mail = Mail.new(
@@ -61,7 +62,8 @@ RSpec.describe InboxMailbox, type: :mailbox do
     expect(mail_processed).to have_been_delivered
   end
 end
-```
+~~~
+
 
 ### Improvements to generators
 
