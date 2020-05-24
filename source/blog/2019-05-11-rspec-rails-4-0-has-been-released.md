@@ -46,12 +46,22 @@ We now support [channel specs][1] in order to easily test your Action Cable chan
 ### Support for Action Mailbox
 
 Rails 6 came with [Action Mailbox][2]. We can now test them using
-`:mailbox` flag.
+`:mailbox` flag and use [mailbox specs][4].
 
+For example with `have_been_delivered` matcher:
 ```ruby
-```
+RSpec.describe InboxMailbox, type: :mailbox do
+  it "marks email as bounced when number tag in subject is valid" do
+    mail = Mail.new(
+      from: "replies@example.com",
+      subject: "[141982763] support ticket"
+    )
+    mail_processed = process(mail)
 
-TODO: We do no have feature test for this...
+    expect(mail_processed).to have_been_delivered
+  end
+end
+```
 
 ### Improvements to generators
 
@@ -175,3 +185,4 @@ Breaking Changes:
 [1]: https://relishapp.com/rspec/rspec-rails/v/4-0/docs/channel-specs
 [2]: https://guides.rubyonrails.org/action_mailbox_basics.html
 [3]: https://relishapp.com/rspec/rspec-rails/v/4-0/docs/generators
+[4]: https://relishapp.com/rspec/rspec-rails/docs/mailbox-specs/action-mailbox-spec
