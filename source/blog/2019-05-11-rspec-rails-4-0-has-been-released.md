@@ -16,7 +16,7 @@ Thank you to everyone who helped make this release happen!
 
 ## Notable Changes
 
-Support for Rails 6, support for testing ActionCable, ActiveMailbox.
+Support for Rails 6, including support for testing ActionCable, ActiveMailbox.
 
 ### Breaking changes
 
