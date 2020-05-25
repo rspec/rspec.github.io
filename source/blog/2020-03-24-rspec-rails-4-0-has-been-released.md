@@ -53,7 +53,7 @@ For example using the Rails test helper, `process` and the `have_been_delivered`
 
 ~~~ ruby
 RSpec.describe InboxMailbox, type: :mailbox do
-  it "marks email as bounced when number tag in subject is valid" do
+  it "marks email as delivered when number tag in subject is valid" do
     mail = Mail.new(
       from: "replies@example.com",
       subject: "[141982763] support ticket"
