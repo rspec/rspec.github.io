@@ -45,10 +45,11 @@ We now support [channel specs][1] in order to easily test your Action Cable chan
 
 ### Support for Action Mailbox
 
-Rails 6 came with [Action Mailbox][2]. We can now test them using
-`:mailbox` flag and use [mailbox specs][4].
+Rails 6 adds [Action Mailbox][2] for dealing with inbound emails.
+RSpec Rails 4 adds support for [mailbox specs][4] using the Rails
+test helpers for mailboxes.
 
-For example with `process` method and `have_been_delivered` matcher:
+For example using the Rails test helper, `process` and the `have_been_delivered` matcher:
 
 ~~~ ruby
 RSpec.describe InboxMailbox, type: :mailbox do
