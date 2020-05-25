@@ -119,8 +119,20 @@ Vladimir Dementyev, Xavier Shay, alpaca-tc, pavel, ta1kt0me, yalab
 
 ## Release Notes
 
+### 4.0.1 / 2020-05-16
+[Full Changelog](https://github.com/rspec/rspec-rails/compare/v4.0.0...v4.0.1)
+
+Bug Fixes:
+
+* Remove warning when calling `driven_by` in system specs. (Aubin Lorieux, #2302)
+* Fix comparison of times for `#at` in job matchers. (Jon Rowe, Markus Doits, #2304)
+* Allow `have_enqueued_mail` to match when a sub class of `ActionMailer::DeliveryJob`
+  is set using `<Class>.delivery_job=`. (Atsushi Yoshida #2305)
+* Restore Ruby 2.2.x compatibility. (Jon Rowe, #2332)
+* Add `required_ruby_version` to gem spec. (Marc-André Lafortune, #2319, #2338)
+
 ### 4.0.0 / 2020-03-24
-[Full Changelog](https://github.com/rspec/rspec-rails/compare/v3.9.1...v4.0.1)
+[Full Changelog](https://github.com/rspec/rspec-rails/compare/v3.9.1...v4.0.0)
 
 Enhancements:
 
@@ -150,12 +162,6 @@ Enhancements:
 
 Bug Fixes:
 
-* Remove warning when calling `driven_by` in system specs. (Aubin Lorieux, #2302)
-* Fix comparison of times for `#at` in job matchers. (Jon Rowe, Markus Doits, #2304)
-* Allow `have_enqueued_mail` to match when a sub class of `ActionMailer::DeliveryJob`
-  is set using `<Class>.delivery_job=`. (Atsushi Yoshida #2305)
-* Restore Ruby 2.2.x compatibility. (Jon Rowe, #2332)
-* Add `required_ruby_version` to gem spec. (Marc-André Lafortune, #2319, #2338)
 * `EmptyTemplateHandler.call` now needs to support an additional argument in
   Rails 6. (Pavel Rosický, #2089)
 * Suppress warning from `SQLite3Adapter.represent_boolean_as_integer` which is
