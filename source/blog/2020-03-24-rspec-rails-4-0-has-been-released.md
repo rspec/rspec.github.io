@@ -65,7 +65,6 @@ RSpec.describe InboxMailbox, type: :mailbox do
 end
 ~~~
 
-
 ### Improvements to generators
 
 If you use generators, there are some improvements:
@@ -78,11 +77,11 @@ If you use generators, there are some improvements:
 Some people want to run Active Job with a specific queue adapter. In system
 specs you can now choose your desired queue adapter:
 
-```ruby
+~~~ruby
 before do
   ActiveJob::Base.queue_adapter = :inline
 end
-```
+~~~
 
 ### Silence log output with Puma
 
