@@ -3,10 +3,13 @@ title: RSpec Rails 4.0 has been released!
 author: Benoit Tigeot, Jon Rowe and Phil Pirozhkov
 ---
 
-RSpec Rails 4.0 has been released! Given our commitment to [semantic versioning](http://semver.org/), this is a major release and as such contains breaking changes. The major breaking change is that we've dropped support for Rails below 5, with only soft support for Rails 4.2.
+RSpec Rails 4.0 has been released! Given our commitment to
+[semantic versioning](http://semver.org/), this is a major release and as such
+contains breaking changes. The major change is that we've dropped support for
+Rails below 5, with only soft support for Rails 4.2.
 
-As usual, if you notice any newly introduced bugs, please let us
-know, and we'll release a fix for it ASAP.
+As usual, if you notice any newly introduced bugs, please let us know,
+and we'll release a fix for it ASAP.
 
 RSpec continues to be a community-driven project with contributors
 from all over the world. This release includes 258 commits and 56
@@ -25,15 +28,17 @@ new versioning policy which keeps major versions of RSpec Rails in
 lockstep with supported versions of Rails.
 
 This means that we no longer support versions of Ruby below 2.2
-in line with the supported Ruby versions of Rails 5.
+in line with the versions of Ruby supported by Rails 5.
 
 We have restricted the version of Rails for this version to 4.2 to
-allows a "soft support" for Rails 4.2 during this transitionary
+allows a "soft support" for Rails 4.2 during this interim
 period but we strongly urge you to upgrade Rails to use 4.0.0.
 
 ### Removed version lock with RSpec gems
 
-The `rspec-rails` gem is no longer locked with the versioning of the other RSpec gems, we will now be releasing `rspec-rails` with each new major Rails release, keeping in lockstep with their supported major versions.
+The `rspec-rails` gem is no longer locked with the versioning of the other
+RSpec gems, we will now be releasing `rspec-rails` with each new Rails
+release, keeping in lockstep with their supported major versions.
 
 ### Improved JRuby support
 
@@ -41,7 +46,10 @@ We have improved JRuby support and RSpec Rails 4 fully supports JRuby on Rails 5
 
 ### Support for Action Cable
 
-We now support [channel specs][1] in order to easily test your Action Cable channels.  A `channel spec` pulls in `ActionCable::Channel::TestCase`, including all of the behavior and assertions that it provides, in addition to RSpec's own behavior and expectations.
+We now support [channel specs][1] in order to easily test your Action Cable channels.
+A `channel spec` pulls in `ActionCable::Channel::TestCase`, including all of the
+behavior and assertions that it provides, in addition to RSpec's own behavior and
+expectations.
 
 ### Support for Action Mailbox
 
