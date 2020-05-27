@@ -34,6 +34,9 @@ div.people {
   }
 
   .alumni-list {
+    img {
+      height: 102px;
+    }
     h4 {
       padding-bottom: 0;
     }
@@ -89,6 +92,13 @@ div.people {
       &:nth-of-type(3n+1) {
         @include shift(1.5);
         clear: left;
+      }
+
+      border-radius: 5px;
+      overflow: hidden;
+
+      img {
+        height: 160px;
       }
     }
   }
