@@ -7,7 +7,7 @@ author: Jon Rowe
 
 RSpec repositories will deprecate the use of `master` for the default branch
 name. We will wait for a consensus on the new name for the default branch,
-in particular what new default is choosen by Github.
+in particular what new default is chosen by Github.
 
 If no other consensus is arrived at by 1st of August, `master` will be
 renamed `main`. At that point all development effort will be based off
@@ -25,7 +25,7 @@ to follow suit and rename this branch.
 We currently favour `main` as the new name (it has shared muscle memory with
 the old) but we also recognise that having community consensus around a
 default name is important as it reduces the amount of surprise encountered by
-developers. So we wil wait for the community to settle on a new default name,
+developers. So we will wait for the community to settle on a new default name,
 in particular for Github to change their default, but if none has been
 announced by 1st August we will use `main`.
 
