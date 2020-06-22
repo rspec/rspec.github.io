@@ -3,7 +3,7 @@ title: RSpec Branching Strategy
 author: Jon Rowe
 ---
 
-# The short version.
+# The short version
 
 RSpec repositories will deprecate the use of `master` for the default branch
 name. We will wait for a consensus on the new name for the default branch,
@@ -14,7 +14,7 @@ renamed `main`. At that point all development effort will be based off
 the new branch name, and use of `master` will illicit a warning on install
 / usage. All open PRs will be rebased.
 
-# The long version.
+# The long version
 
 RSpec's source code is hosted on Github. By default git, and thus Github has
 historically used `master` as the name of the default, or main branch. This
@@ -47,7 +47,7 @@ people using the `master` branch via their Gemfiles. We will deprecate
 become stale and not be updated further. Additionally we will look at
 using branch protection rules preventing PRs against `master` from that date.
 
-## Steps we intend to take.
+## Steps we intend to take
 
 1. Push `master` to `main` (or other new branch name).
 2. Rebase all open PRs and update our builds.
