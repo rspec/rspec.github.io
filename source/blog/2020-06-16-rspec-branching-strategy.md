@@ -1,6 +1,7 @@
 ---
 title: RSpec Branching Strategy
 author: Jon Rowe
+no_comments: true
 ---
 
 # The short version
