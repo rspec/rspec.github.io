@@ -6,4 +6,5 @@
       h3.author =current_page.data.author
       small.date =current_page.date.strftime('%b %e, %Y')
       = yield
-      = partial "disqus"
+      - unless current_page.data.no_comments
+        = partial "disqus"
