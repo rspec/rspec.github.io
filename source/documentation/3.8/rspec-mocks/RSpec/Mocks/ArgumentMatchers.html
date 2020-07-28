@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
   Module: RSpec::Mocks::ArgumentMatchers
-    &mdash; Documentation by YARD 0.9.16
+    &mdash; Documentation by YARD 0.9.25
 </title>
-  <link rel="stylesheet" href="/documentation/3.8/rspec-mocks/css/style.css" type="text/css" charset="utf-8" />
-  <link rel="stylesheet" href="/documentation/3.8/rspec-mocks/css/common.css" type="text/css" charset="utf-8" />
-<script type="text/javascript" charset="utf-8">
+  <link rel="stylesheet" href="/documentation/3.8/rspec-mocks/css/style.css" type="text/css" />
+  <link rel="stylesheet" href="/documentation/3.8/rspec-mocks/css/common.css" type="text/css" />
+<script type="text/javascript">
   pathId = "RSpec::Mocks::ArgumentMatchers";
   relpath = '../../';
 </script>
@@ -54,11 +55,8 @@
 </div>
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>ArgumentMatchers are placeholders that you can include in message
-expectations to match arguments against a broader check than simple
-equality.</p>
-<p>With the exception of <code>any_args</code> and <code>no_args</code>, they all match against
-the arg in same position in the argument list.</p>
+<p>ArgumentMatchers are placeholders that you can include in message expectations to match arguments against a broader check than simple equality.</p>
+<p>With the exception of <code>any_args</code> and <code>no_args</code>, they all match against the arg in same position in the argument list.</p>
   </div>
 </div>
 <div class="tags">
@@ -76,35 +74,40 @@ the arg in same position in the argument list.</p>
   <span class="summary_signature">
       <a href="#any_args-instance_method" title="#any_args (instance method)">#<strong>any_args</strong>  &#x21d2; Object </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Acts like an arg splat, matching any number of args at any point in an arg list.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Acts like an arg splat, matching any number of args at any point in an arg list.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#anything-instance_method" title="#anything (instance method)">#<strong>anything</strong>  &#x21d2; Object </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Matches any argument at all.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Matches any argument at all.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#array_including-instance_method" title="#array_including (instance method)">#<strong>array_including</strong>(*args)  &#x21d2; Object </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Matches an array that includes the specified items at least once.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Matches an array that includes the specified items at least once.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#boolean-instance_method" title="#boolean (instance method)">#<strong>boolean</strong>  &#x21d2; Object </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Matches a boolean value.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Matches a boolean value.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#duck_type-instance_method" title="#duck_type (instance method)">#<strong>duck_type</strong>(*args)  &#x21d2; Object </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Matches if the actual argument responds to the specified messages.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Matches if the actual argument responds to the specified messages.</p>
 </div></span>
 </li>
         <li class="public ">
@@ -112,14 +115,16 @@ the arg in same position in the argument list.</p>
       <a href="#hash_excluding-instance_method" title="#hash_excluding (instance method)">#<strong>hash_excluding</strong>(*args)  &#x21d2; Object </a>
       (also: #hash_not_including)
   </span>
-    <span class="summary_desc"><div class='inline'><p>Matches a hash that doesn&#39;t include the specified key(s) or key/value.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Matches a hash that doesn&#39;t include the specified key(s) or key/value.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#hash_including-instance_method" title="#hash_including (instance method)">#<strong>hash_including</strong>(*args)  &#x21d2; Object </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Matches a hash that includes the specified key(s) or key/value pairs.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Matches a hash that includes the specified key(s) or key/value pairs.</p>
 </div></span>
 </li>
         <li class="public ">
@@ -127,7 +132,8 @@ the arg in same position in the argument list.</p>
       <a href="#instance_of-instance_method" title="#instance_of (instance method)">#<strong>instance_of</strong>(klass)  &#x21d2; Object </a>
       (also: #an_instance_of)
   </span>
-    <span class="summary_desc"><div class='inline'><p>Matches if <code>arg.instance_of?(klass)</code>.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Matches if <code>arg.instance_of?(klass)</code>.</p>
 </div></span>
 </li>
         <li class="public ">
@@ -135,14 +141,16 @@ the arg in same position in the argument list.</p>
       <a href="#kind_of-instance_method" title="#kind_of (instance method)">#<strong>kind_of</strong>(klass)  &#x21d2; Object </a>
       (also: #a_kind_of)
   </span>
-    <span class="summary_desc"><div class='inline'><p>Matches if <code>arg.kind_of?(klass)</code>.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Matches if <code>arg.kind_of?(klass)</code>.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#no_args-instance_method" title="#no_args (instance method)">#<strong>no_args</strong>  &#x21d2; Object </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Matches no arguments.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Matches no arguments.</p>
 </div></span>
 </li>
     </ul>
@@ -153,7 +161,7 @@ the arg in same position in the argument list.</p>
     #<strong>any_args</strong>  &#x21d2; <tt>Object</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Acts like an arg splat, matching any number of args at any point in an arg list.</p>
+<p>Acts like an arg splat, matching any number of args at any point in an arg list.</p>
   </div>
 </div>
 <div class="tags">
@@ -187,7 +195,7 @@ the arg in same position in the argument list.</p>
     #<strong>anything</strong>  &#x21d2; <tt>Object</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Matches any argument at all.</p>
+<p>Matches any argument at all.</p>
   </div>
 </div>
 <div class="tags">
@@ -217,8 +225,7 @@ the arg in same position in the argument list.</p>
     #<strong>array_including</strong>(*args)  &#x21d2; <tt>Object</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Matches an array that includes the specified items at least once.
-Ignores duplicates and additional values</p>
+<p>Matches an array that includes the specified items at least once. Ignores duplicates and additional values</p>
   </div>
 </div>
 <div class="tags">
@@ -251,7 +258,7 @@ Ignores duplicates and additional values</p>
     #<strong>boolean</strong>  &#x21d2; <tt>Object</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Matches a boolean value.</p>
+<p>Matches a boolean value.</p>
   </div>
 </div>
 <div class="tags">
@@ -281,7 +288,7 @@ Ignores duplicates and additional values</p>
     #<strong>duck_type</strong>(*args)  &#x21d2; <tt>Object</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Matches if the actual argument responds to the specified messages.</p>
+<p>Matches if the actual argument responds to the specified messages.</p>
   </div>
 </div>
 <div class="tags">
@@ -315,7 +322,7 @@ Ignores duplicates and additional values</p>
     </span>
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Matches a hash that doesn&#39;t include the specified key(s) or key/value.</p>
+<p>Matches a hash that doesn&#39;t include the specified key(s) or key/value.</p>
   </div>
 </div>
 <div class="tags">
@@ -347,8 +354,7 @@ Ignores duplicates and additional values</p>
     #<strong>hash_including</strong>(*args)  &#x21d2; <tt>Object</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Matches a hash that includes the specified key(s) or key/value pairs.
-Ignores any additional keys.</p>
+<p>Matches a hash that includes the specified key(s) or key/value pairs. Ignores any additional keys.</p>
   </div>
 </div>
 <div class="tags">
@@ -383,7 +389,7 @@ Ignores any additional keys.</p>
     </span>
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Matches if <code>arg.instance_of?(klass)</code></p>
+<p>Matches if <code>arg.instance_of?(klass)</code></p>
   </div>
 </div>
 <div class="tags">
@@ -416,7 +422,7 @@ Ignores any additional keys.</p>
     </span>
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Matches if <code>arg.kind_of?(klass)</code></p>
+<p>Matches if <code>arg.kind_of?(klass)</code></p>
   </div>
 </div>
 <div class="tags">
@@ -446,7 +452,7 @@ Ignores any additional keys.</p>
     #<strong>no_args</strong>  &#x21d2; <tt>Object</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Matches no arguments.</p>
+<p>Matches no arguments.</p>
   </div>
 </div>
 <div class="tags">
@@ -474,18 +480,10 @@ Ignores any additional keys.</p>
   </div>
 </div>
       <div id="footer">
-  Generated on Fri Sep 14 00:02:10 2018 by
+  Generated on Tue Jul 28 15:14:02 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.16 (ruby-2.5.1).
+  0.9.25 (ruby-2.7.1).
 </div>
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-  ga('create', 'UA-59095215-1', 'auto');
-  ga('send', 'pageview');
-</script>
     </div>
   </body>
 </html>

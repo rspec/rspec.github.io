@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
   Class: RSpec::Core::Notifications::ExamplesNotification
-    &mdash; Documentation by YARD 0.9.16
+    &mdash; Documentation by YARD 0.9.25
 </title>
-  <link rel="stylesheet" href="/documentation/3.8/rspec-core/css/style.css" type="text/css" charset="utf-8" />
-  <link rel="stylesheet" href="/documentation/3.8/rspec-core/css/common.css" type="text/css" charset="utf-8" />
-<script type="text/javascript" charset="utf-8">
+  <link rel="stylesheet" href="/documentation/3.8/rspec-core/css/style.css" type="text/css" />
+  <link rel="stylesheet" href="/documentation/3.8/rspec-core/css/common.css" type="text/css" />
+<script type="text/javascript">
   pathId = "RSpec::Core::Notifications::ExamplesNotification";
   relpath = '../../../';
 </script>
@@ -61,8 +62,7 @@
 </div>
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>The <code>ExamplesNotification</code> represents notifications sent by the reporter
-which contain information about the suites examples.</p>
+<p>The <code>ExamplesNotification</code> represents notifications sent by the reporter which contain information about the suites examples.</p>
   </div>
 </div>
 <div class="tags">
@@ -82,35 +82,40 @@ which contain information about the suites examples.</p>
   <span class="summary_signature">
       <a href="#examples-instance_method" title="#examples (instance method)">#<strong>examples</strong>  &#x21d2; Array&lt;RSpec::Core::Example&gt; </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>List of examples.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>List of examples.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#failed_examples-instance_method" title="#failed_examples (instance method)">#<strong>failed_examples</strong>  &#x21d2; Array&lt;RSpec::Core::Example&gt; </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>List of failed examples.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>List of failed examples.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#failure_notifications-instance_method" title="#failure_notifications (instance method)">#<strong>failure_notifications</strong>  &#x21d2; Array&lt;RSpec::Core::Notifications::FailedExampleNotification&gt; </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Returns failed examples as notifications.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Returns failed examples as notifications.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#fully_formatted_failed_examples-instance_method" title="#fully_formatted_failed_examples (instance method)">#<strong>fully_formatted_failed_examples</strong>(colorizer = ::RSpec::Core::Formatters::ConsoleCodes)  &#x21d2; String </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>The list of failed examples, fully formatted in the way that RSpec&#39;s built-in formatters emit.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>The list of failed examples, fully formatted in the way that RSpec&#39;s built-in formatters emit.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#fully_formatted_pending_examples-instance_method" title="#fully_formatted_pending_examples (instance method)">#<strong>fully_formatted_pending_examples</strong>(colorizer = ::RSpec::Core::Formatters::ConsoleCodes)  &#x21d2; String </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>The list of pending examples, fully formatted in the way that RSpec&#39;s built-in formatters emit.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>The list of pending examples, fully formatted in the way that RSpec&#39;s built-in formatters emit.</p>
 </div></span>
 </li>
         <li class="public ">
@@ -118,28 +123,32 @@ which contain information about the suites examples.</p>
       <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(reporter)  &#x21d2; ExamplesNotification </a>
   </span>
     <span class="note title constructor">constructor</span>
-    <span class="summary_desc"><div class='inline'><p>A new instance of ExamplesNotification.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>A new instance of ExamplesNotification.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#notifications-instance_method" title="#notifications (instance method)">#<strong>notifications</strong>  &#x21d2; Array&lt;RSpec::Core::Notifications::ExampleNotification&gt; </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Returns examples as notifications.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Returns examples as notifications.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#pending_examples-instance_method" title="#pending_examples (instance method)">#<strong>pending_examples</strong>  &#x21d2; Array&lt;RSpec::Core::Example&gt; </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>List of pending examples.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>List of pending examples.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#pending_notifications-instance_method" title="#pending_notifications (instance method)">#<strong>pending_notifications</strong>  &#x21d2; Array&lt;RSpec::Core::Notifications::SkippedExampleNotification, RSpec::Core::Notifications::PendingExampleFailedAsExpectedNotification&gt; </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>returns pending examples as notifications.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>returns pending examples as notifications.</p>
 </div></span>
 </li>
     </ul>
@@ -150,7 +159,7 @@ which contain information about the suites examples.</p>
     #<strong>initialize</strong>(reporter)  &#x21d2; <tt><span class='object_link'><a href="" title="RSpec::Core::Notifications::ExamplesNotification (class)">ExamplesNotification</a></span></tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns a new instance of ExamplesNotification</p>
+<p>Returns a new instance of ExamplesNotification.</p>
   </div>
 </div>
 <div class="tags">
@@ -179,7 +188,7 @@ which contain information about the suites examples.</p>
     #<strong>examples</strong>  &#x21d2; <tt>Array&lt;<span class='object_link'><a href="../Example.html" title="RSpec::Core::Example (class)">RSpec::Core::Example</a></span>&gt;</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns list of examples</p>
+<p>Returns list of examples.</p>
   </div>
 </div>
 <div class="tags">
@@ -188,7 +197,8 @@ which contain information about the suites examples.</p>
     <li>
         <span class='type'>(<tt>Array&lt;<span class='object_link'><a href="../Example.html" title="RSpec::Core::Example (class)">RSpec::Core::Example</a></span>&gt;</tt>)</span>
         &mdash;
-        <div class='inline'><p>list of examples</p>
+        <div class='inline'>
+<p>list of examples</p>
 </div>
     </li>
 </ul>
@@ -214,7 +224,7 @@ which contain information about the suites examples.</p>
     #<strong>failed_examples</strong>  &#x21d2; <tt>Array&lt;<span class='object_link'><a href="../Example.html" title="RSpec::Core::Example (class)">RSpec::Core::Example</a></span>&gt;</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns list of failed examples</p>
+<p>Returns list of failed examples.</p>
   </div>
 </div>
 <div class="tags">
@@ -223,7 +233,8 @@ which contain information about the suites examples.</p>
     <li>
         <span class='type'>(<tt>Array&lt;<span class='object_link'><a href="../Example.html" title="RSpec::Core::Example (class)">RSpec::Core::Example</a></span>&gt;</tt>)</span>
         &mdash;
-        <div class='inline'><p>list of failed examples</p>
+        <div class='inline'>
+<p>list of failed examples</p>
 </div>
     </li>
 </ul>
@@ -249,7 +260,7 @@ which contain information about the suites examples.</p>
     #<strong>failure_notifications</strong>  &#x21d2; <tt>Array&lt;<span class='object_link'><a href="FailedExampleNotification.html" title="RSpec::Core::Notifications::FailedExampleNotification (class)">RSpec::Core::Notifications::FailedExampleNotification</a></span>&gt;</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns failed examples as notifications</p>
+<p>Returns failed examples as notifications</p>
   </div>
 </div>
 <div class="tags">
@@ -258,7 +269,8 @@ which contain information about the suites examples.</p>
     <li>
         <span class='type'>(<tt>Array&lt;<span class='object_link'><a href="FailedExampleNotification.html" title="RSpec::Core::Notifications::FailedExampleNotification (class)">RSpec::Core::Notifications::FailedExampleNotification</a></span>&gt;</tt>)</span>
         &mdash;
-        <div class='inline'><p>returns failed examples as notifications</p>
+        <div class='inline'>
+<p>returns failed examples as notifications</p>
 </div>
     </li>
 </ul>
@@ -284,8 +296,7 @@ which contain information about the suites examples.</p>
     #<strong>fully_formatted_failed_examples</strong>(colorizer = ::RSpec::Core::Formatters::ConsoleCodes)  &#x21d2; <tt>String</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns The list of failed examples, fully formatted in the way
-that RSpec&#39;s built-in formatters emit.</p>
+<p>Returns The list of failed examples, fully formatted in the way that RSpec&#39;s built-in formatters emit.</p>
   </div>
 </div>
 <div class="tags">
@@ -294,8 +305,8 @@ that RSpec&#39;s built-in formatters emit.</p>
     <li>
         <span class='type'>(<tt>String</tt>)</span>
         &mdash;
-        <div class='inline'><p>The list of failed examples, fully formatted in the way
-that RSpec&#39;s built-in formatters emit.</p>
+        <div class='inline'>
+<p>The list of failed examples, fully formatted in the way that RSpec&#39;s built-in formatters emit.</p>
 </div>
     </li>
 </ul>
@@ -331,8 +342,7 @@ that RSpec&#39;s built-in formatters emit.</p>
     #<strong>fully_formatted_pending_examples</strong>(colorizer = ::RSpec::Core::Formatters::ConsoleCodes)  &#x21d2; <tt>String</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns The list of pending examples, fully formatted in the
-way that RSpec&#39;s built-in formatters emit.</p>
+<p>Returns The list of pending examples, fully formatted in the way that RSpec&#39;s built-in formatters emit.</p>
   </div>
 </div>
 <div class="tags">
@@ -341,8 +351,8 @@ way that RSpec&#39;s built-in formatters emit.</p>
     <li>
         <span class='type'>(<tt>String</tt>)</span>
         &mdash;
-        <div class='inline'><p>The list of pending examples, fully formatted in the
-way that RSpec&#39;s built-in formatters emit.</p>
+        <div class='inline'>
+<p>The list of pending examples, fully formatted in the way that RSpec&#39;s built-in formatters emit.</p>
 </div>
     </li>
 </ul>
@@ -378,7 +388,7 @@ way that RSpec&#39;s built-in formatters emit.</p>
     #<strong>notifications</strong>  &#x21d2; <tt>Array&lt;<span class='object_link'><a href="ExampleNotification.html" title="RSpec::Core::Notifications::ExampleNotification (class)">RSpec::Core::Notifications::ExampleNotification</a></span>&gt;</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns examples as notifications</p>
+<p>Returns examples as notifications</p>
   </div>
 </div>
 <div class="tags">
@@ -387,7 +397,8 @@ way that RSpec&#39;s built-in formatters emit.</p>
     <li>
         <span class='type'>(<tt>Array&lt;<span class='object_link'><a href="ExampleNotification.html" title="RSpec::Core::Notifications::ExampleNotification (class)">RSpec::Core::Notifications::ExampleNotification</a></span>&gt;</tt>)</span>
         &mdash;
-        <div class='inline'><p>returns examples as notifications</p>
+        <div class='inline'>
+<p>returns examples as notifications</p>
 </div>
     </li>
 </ul>
@@ -413,7 +424,7 @@ way that RSpec&#39;s built-in formatters emit.</p>
     #<strong>pending_examples</strong>  &#x21d2; <tt>Array&lt;<span class='object_link'><a href="../Example.html" title="RSpec::Core::Example (class)">RSpec::Core::Example</a></span>&gt;</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns list of pending examples</p>
+<p>Returns list of pending examples.</p>
   </div>
 </div>
 <div class="tags">
@@ -422,7 +433,8 @@ way that RSpec&#39;s built-in formatters emit.</p>
     <li>
         <span class='type'>(<tt>Array&lt;<span class='object_link'><a href="../Example.html" title="RSpec::Core::Example (class)">RSpec::Core::Example</a></span>&gt;</tt>)</span>
         &mdash;
-        <div class='inline'><p>list of pending examples</p>
+        <div class='inline'>
+<p>list of pending examples</p>
 </div>
     </li>
 </ul>
@@ -449,7 +461,7 @@ way that RSpec&#39;s built-in formatters emit.</p>
 <span class='object_link'><a href="PendingExampleFailedAsExpectedNotification.html" title="RSpec::Core::Notifications::PendingExampleFailedAsExpectedNotification (class)">RSpec::Core::Notifications::PendingExampleFailedAsExpectedNotification</a></span>&gt;</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>returns pending examples as notifications</p>
+<p>returns pending examples as notifications</p>
   </div>
 </div>
 <div class="tags">
@@ -480,18 +492,10 @@ way that RSpec&#39;s built-in formatters emit.</p>
   </div>
 </div>
       <div id="footer">
-  Generated on Fri Sep 14 00:01:57 2018 by
+  Generated on Tue Jul 28 15:12:47 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.16 (ruby-2.5.1).
+  0.9.25 (ruby-2.7.1).
 </div>
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-  ga('create', 'UA-59095215-1', 'auto');
-  ga('send', 'pageview');
-</script>
     </div>
   </body>
 </html>

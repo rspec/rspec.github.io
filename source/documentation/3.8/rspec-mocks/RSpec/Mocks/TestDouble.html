@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
   Module: RSpec::Mocks::TestDouble
-    &mdash; Documentation by YARD 0.9.16
+    &mdash; Documentation by YARD 0.9.25
 </title>
-  <link rel="stylesheet" href="/documentation/3.8/rspec-mocks/css/style.css" type="text/css" charset="utf-8" />
-  <link rel="stylesheet" href="/documentation/3.8/rspec-mocks/css/common.css" type="text/css" charset="utf-8" />
-<script type="text/javascript" charset="utf-8">
+  <link rel="stylesheet" href="/documentation/3.8/rspec-mocks/css/style.css" type="text/css" />
+  <link rel="stylesheet" href="/documentation/3.8/rspec-mocks/css/common.css" type="text/css" />
+<script type="text/javascript">
   pathId = "RSpec::Mocks::TestDouble";
   relpath = '../../';
 </script>
@@ -54,9 +55,7 @@
 </div>
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>Implements the methods needed for a pure test double.  RSpec::Mocks::Double
-includes this module, and it is provided for cases where you want a
-pure test double without subclassing RSpec::Mocks::Double.</p>
+<p>Implements the methods needed for a pure test double. RSpec::Mocks::Double includes this module, and it is provided for cases where you want a pure test double without subclassing RSpec::Mocks::Double.</p>
   </div>
 </div>
 <div class="tags">
@@ -70,35 +69,40 @@ pure test double without subclassing RSpec::Mocks::Double.</p>
   <span class="summary_signature">
       <a href="#==-instance_method" title="#== (instance method)">#<strong>==</strong>(other)  &#x21d2; Object </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>This allows for comparing the mock to other objects that proxy such as ActiveRecords belongs_to proxy objects.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>This allows for comparing the mock to other objects that proxy such as ActiveRecords belongs_to proxy objects.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#as_null_object-instance_method" title="#as_null_object (instance method)">#<strong>as_null_object</strong>  &#x21d2; Object </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Tells the object to respond to all messages.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Tells the object to respond to all messages.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#freeze-instance_method" title="#freeze (instance method)">#<strong>freeze</strong>  &#x21d2; Object </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Override for default freeze implementation to prevent freezing of test doubles.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Override for default freeze implementation to prevent freezing of test doubles.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(name = nil, stubs = {})  &#x21d2; Object </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Creates a new test double with a <code>name</code> (that will be used in error messages only).</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Creates a new test double with a <code>name</code> (that will be used in error messages only).</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#null_object%3F-instance_method" title="#null_object? (instance method)">#<strong>null_object?</strong>  &#x21d2; Boolean </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Returns true if this object has received <code>as_null_object</code>.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Returns true if this object has received <code>as_null_object</code>.</p>
 </div></span>
 </li>
     </ul>
@@ -197,10 +201,7 @@ pure test double without subclassing RSpec::Mocks::Double.</p>
     #<strong>==</strong>(other)  &#x21d2; <tt>Object</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>This allows for comparing the mock to other objects that proxy such as
-ActiveRecords belongs_to proxy objects. By making the other object run
-the comparison, we&#39;re sure the call gets delegated to the proxy
-target.</p>
+<p>This allows for comparing the mock to other objects that proxy such as ActiveRecords belongs_to proxy objects. By making the other object run the comparison, we&#39;re sure the call gets delegated to the proxy target.</p>
   </div>
 </div>
 <div class="tags">
@@ -226,9 +227,7 @@ target.</p>
     #<strong>as_null_object</strong>  &#x21d2; <tt>Object</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Tells the object to respond to all messages. If specific stub values
-are declared, they&#39;ll work as expected. If not, the receiver is
-returned.</p>
+<p>Tells the object to respond to all messages. If specific stub values are declared, they&#39;ll work as expected. If not, the receiver is returned.</p>
   </div>
 </div>
 <div class="tags">
@@ -254,8 +253,7 @@ returned.</p>
     #<strong>freeze</strong>  &#x21d2; <tt>Object</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Override for default freeze implementation to prevent freezing of test
-doubles.</p>
+<p>Override for default freeze implementation to prevent freezing of test doubles.</p>
   </div>
 </div>
 <div class="tags">
@@ -283,8 +281,7 @@ doubles.</p>
     #<strong>initialize</strong>(name = nil, stubs = {})  &#x21d2; <tt>Object</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Creates a new test double with a <code>name</code> (that will be used in error
-messages only)</p>
+<p>Creates a new test double with a <code>name</code> (that will be used in error messages only)</p>
   </div>
 </div>
 <div class="tags">
@@ -324,7 +321,7 @@ messages only)</p>
     #<strong>null_object?</strong>  &#x21d2; <tt>Boolean</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns true if this object has received <code>as_null_object</code></p>
+<p>Returns true if this object has received <code>as_null_object</code></p>
   </div>
 </div>
 <div class="tags">
@@ -354,18 +351,10 @@ messages only)</p>
   </div>
 </div>
       <div id="footer">
-  Generated on Fri Sep 14 00:02:10 2018 by
+  Generated on Tue Jul 28 15:14:00 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.16 (ruby-2.5.1).
+  0.9.25 (ruby-2.7.1).
 </div>
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-  ga('create', 'UA-59095215-1', 'auto');
-  ga('send', 'pageview');
-</script>
     </div>
   </body>
 </html>

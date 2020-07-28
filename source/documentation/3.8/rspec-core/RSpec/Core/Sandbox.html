@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
   Module: RSpec::Core::Sandbox
-    &mdash; Documentation by YARD 0.9.16
+    &mdash; Documentation by YARD 0.9.25
 </title>
-  <link rel="stylesheet" href="/documentation/3.8/rspec-core/css/style.css" type="text/css" charset="utf-8" />
-  <link rel="stylesheet" href="/documentation/3.8/rspec-core/css/common.css" type="text/css" charset="utf-8" />
-<script type="text/javascript" charset="utf-8">
+  <link rel="stylesheet" href="/documentation/3.8/rspec-core/css/style.css" type="text/css" />
+  <link rel="stylesheet" href="/documentation/3.8/rspec-core/css/common.css" type="text/css" />
+<script type="text/javascript">
   pathId = "RSpec::Core::Sandbox";
   relpath = '../../';
 </script>
@@ -52,13 +53,11 @@
   <div class="discussion">
   <div class="note notetag">
     <strong>Note:</strong>
-    <div class='inline'><p>This module is not normally available. You must require
-<code>rspec/core/sandbox</code> to load it.</p>
+    <div class='inline'>
+<p>This module is not normally available. You must require <code>rspec/core/sandbox</code> to load it.</p>
 </div>
   </div>
-<p>A sandbox isolates the enclosed code into an environment that looks &#39;new&#39;
-meaning globally accessed objects are reset for the duration of the
-sandbox.</p>
+<p>A sandbox isolates the enclosed code into an environment that looks &#39;new&#39; meaning globally accessed objects are reset for the duration of the sandbox.</p>
   </div>
 </div>
 <div class="tags">
@@ -72,7 +71,8 @@ sandbox.</p>
   <span class="summary_signature">
       <a href="#sandboxed-class_method" title="sandboxed (class method)">.<strong>sandboxed</strong>  &#x21d2; void </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Execute a provided block with RSpec global objects (configuration, world) reset.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Execute a provided block with RSpec global objects (configuration, world) reset.</p>
 </div></span>
 </li>
     </ul>
@@ -83,10 +83,8 @@ sandbox.</p>
     .<strong>sandboxed</strong>  &#x21d2; <tt>void</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Execute a provided block with RSpec global objects (configuration,
-world) reset.  This is used to test RSpec with RSpec.</p>
-<p>When calling this the configuration is passed into the provided block.
-Use this to set custom configs for your sandboxed examples.</p>
+<p>Execute a provided block with RSpec global objects (configuration, world) reset. This is used to test RSpec with RSpec.</p>
+<p>When calling this the configuration is passed into the provided block. Use this to set custom configs for your sandboxed examples.</p>
 <pre class="code ruby"><code class="ruby"><span class='const'><span class='object_link'><a href="" title="RSpec::Core::Sandbox (module)">Sandbox</a></span></span><span class='period'>.</span><span class='id identifier rubyid_sandboxed'>sandboxed</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_config'>config</span><span class='op'>|</span>
   <span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_before'>before</span><span class='lparen'>(</span><span class='symbol'>:context</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='const'><span class='object_link'><a href="../../RSpec.html" title="RSpec (module)">RSpec</a></span></span><span class='period'>.</span><span class='id identifier rubyid_current_example'><span class='object_link'><a href="../../RSpec.html#current_example-class_method" title="RSpec.current_example (method)">current_example</a></span></span> <span class='op'>=</span> <span class='kw'>nil</span> <span class='rbrace'>}</span>
 <span class='kw'>end</span>
@@ -134,18 +132,10 @@ Use this to set custom configs for your sandboxed examples.</p>
   </div>
 </div>
       <div id="footer">
-  Generated on Fri Sep 14 00:01:54 2018 by
+  Generated on Tue Jul 28 15:12:39 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.16 (ruby-2.5.1).
+  0.9.25 (ruby-2.7.1).
 </div>
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-  ga('create', 'UA-59095215-1', 'auto');
-  ga('send', 'pageview');
-</script>
     </div>
   </body>
 </html>

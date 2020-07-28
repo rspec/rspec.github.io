@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
   Class: RSpec::Mocks::DirectObjectReference
-    &mdash; Documentation by YARD 0.9.16
+    &mdash; Documentation by YARD 0.9.25
 </title>
-  <link rel="stylesheet" href="/documentation/3.8/rspec-mocks/css/style.css" type="text/css" charset="utf-8" />
-  <link rel="stylesheet" href="/documentation/3.8/rspec-mocks/css/common.css" type="text/css" charset="utf-8" />
-<script type="text/javascript" charset="utf-8">
+  <link rel="stylesheet" href="/documentation/3.8/rspec-mocks/css/style.css" type="text/css" />
+  <link rel="stylesheet" href="/documentation/3.8/rspec-mocks/css/common.css" type="text/css" />
+<script type="text/javascript">
   pathId = "RSpec::Mocks::DirectObjectReference";
   relpath = '../../';
 </script>
@@ -61,11 +62,7 @@
 </div>
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>An implementation of rspec-mocks&#39; reference interface.
-Used when an object is passed to <span class='object_link'><a href="ExampleMethods.html#object_double-instance_method" title="RSpec::Mocks::ExampleMethods#object_double (method)">ExampleMethods#object_double</a></span>, or
-an anonymous class or module is passed to <span class='object_link'><a href="ExampleMethods.html#instance_double-instance_method" title="RSpec::Mocks::ExampleMethods#instance_double (method)">ExampleMethods#instance_double</a></span>
-or <span class='object_link'><a href="ExampleMethods.html#class_double-instance_method" title="RSpec::Mocks::ExampleMethods#class_double (method)">ExampleMethods#class_double</a></span>.
-Represents a reference to that object.</p>
+<p>An implementation of rspec-mocks&#39; reference interface. Used when an object is passed to <span class='object_link'><a href="ExampleMethods.html#object_double-instance_method" title="RSpec::Mocks::ExampleMethods#object_double (method)">ExampleMethods#object_double</a></span>, or an anonymous class or module is passed to <span class='object_link'><a href="ExampleMethods.html#instance_double-instance_method" title="RSpec::Mocks::ExampleMethods#instance_double (method)">ExampleMethods#instance_double</a></span> or <span class='object_link'><a href="ExampleMethods.html#class_double-instance_method" title="RSpec::Mocks::ExampleMethods#class_double (method)">ExampleMethods#class_double</a></span>. Represents a reference to that object.</p>
   </div>
 </div>
 <div class="tags">
@@ -83,21 +80,24 @@ Represents a reference to that object.</p>
   <span class="summary_signature">
       <a href="#const_to_replace-instance_method" title="#const_to_replace (instance method)">#<strong>const_to_replace</strong>  &#x21d2; Object </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Defined for interface parity with the other object reference implementations.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Defined for interface parity with the other object reference implementations.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#defined%3F-instance_method" title="#defined? (instance method)">#<strong>defined?</strong>  &#x21d2; true </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Always returns true for an object as the class is defined.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Always returns true for an object as the class is defined.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#description-instance_method" title="#description (instance method)">#<strong>description</strong>  &#x21d2; String </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>The object&#39;s description (via <code>#inspect</code>).</p>
+    <span class="summary_desc"><div class='inline'>
+<p>The object&#39;s description (via <code>#inspect</code>).</p>
 </div></span>
 </li>
         <li class="public ">
@@ -105,21 +105,24 @@ Represents a reference to that object.</p>
       <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(object)  &#x21d2; DirectObjectReference </a>
   </span>
     <span class="note title constructor">constructor</span>
-    <span class="summary_desc"><div class='inline'><p>A new instance of DirectObjectReference.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>A new instance of DirectObjectReference.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#target-instance_method" title="#target (instance method)">#<strong>target</strong>  &#x21d2; Object </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>The target of the verifying double (the object itself).</p>
+    <span class="summary_desc"><div class='inline'>
+<p>The target of the verifying double (the object itself).</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#when_loaded-instance_method" title="#when_loaded (instance method)">#<strong>when_loaded</strong> {|Object| ... } &#x21d2; Object </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Yields if the reference target is loaded, providing a generic mechanism to optionally run a bit of code only when a reference&#39;s target is loaded.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Yields if the reference target is loaded, providing a generic mechanism to optionally run a bit of code only when a reference&#39;s target is loaded.</p>
 </div></span>
 </li>
     </ul>
@@ -130,7 +133,7 @@ Represents a reference to that object.</p>
     #<strong>initialize</strong>(object)  &#x21d2; <tt><span class='object_link'><a href="" title="RSpec::Mocks::DirectObjectReference (class)">DirectObjectReference</a></span></tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns a new instance of DirectObjectReference</p>
+<p>Returns a new instance of DirectObjectReference.</p>
   </div>
 </div>
 <div class="tags">
@@ -140,7 +143,8 @@ Represents a reference to that object.</p>
         <span class='name'>object</span>
         <span class='type'>(<tt>Object</tt>)</span>
         &mdash;
-        <div class='inline'><p>the object to which this refers</p>
+        <div class='inline'>
+<p>the object to which this refers</p>
 </div>
     </li>
 </ul>
@@ -169,9 +173,7 @@ Represents a reference to that object.</p>
     #<strong>const_to_replace</strong>  &#x21d2; <tt>Object</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Defined for interface parity with the other object reference
-implementations. Raises an <code>ArgumentError</code> to indicate that <code>as_stubbed_const</code>
-is invalid when passing an object argument to <code>object_double</code>.</p>
+<p>Defined for interface parity with the other object reference implementations. Raises an <code>ArgumentError</code> to indicate that <code>as_stubbed_const</code> is invalid when passing an object argument to <code>object_double</code>.</p>
   </div>
 </div>
 <div class="tags">
@@ -205,7 +207,7 @@ is invalid when passing an object argument to <code>object_double</code>.</p>
     #<strong>defined?</strong>  &#x21d2; <tt>true</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Always returns true for an object as the class is defined.</p>
+<p>Always returns true for an object as the class is defined.</p>
   </div>
 </div>
 <div class="tags">
@@ -237,7 +239,7 @@ is invalid when passing an object argument to <code>object_double</code>.</p>
     #<strong>description</strong>  &#x21d2; <tt>String</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns the object&#39;s description (via <code>#inspect</code>).</p>
+<p>Returns the object&#39;s description (via <code>#inspect</code>).</p>
   </div>
 </div>
 <div class="tags">
@@ -246,7 +248,8 @@ is invalid when passing an object argument to <code>object_double</code>.</p>
     <li>
         <span class='type'>(<tt>String</tt>)</span>
         &mdash;
-        <div class='inline'><p>the object&#39;s description (via <code>#inspect</code>).</p>
+        <div class='inline'>
+<p>the object&#39;s description (via <code>#inspect</code>).</p>
 </div>
     </li>
 </ul>
@@ -272,7 +275,7 @@ is invalid when passing an object argument to <code>object_double</code>.</p>
     #<strong>target</strong>  &#x21d2; <tt>Object</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>The target of the verifying double (the object itself).</p>
+<p>The target of the verifying double (the object itself).</p>
   </div>
 </div>
 <div class="tags">
@@ -304,11 +307,8 @@ is invalid when passing an object argument to <code>object_double</code>.</p>
     #<strong>when_loaded</strong> {|Object| ... } &#x21d2; <tt>Object</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Yields if the reference target is loaded, providing a generic mechanism
-to optionally run a bit of code only when a reference&#39;s target is
-loaded.</p>
-<p>This specific implementation always yields because direct references
-are always loaded.</p>
+<p>Yields if the reference target is loaded, providing a generic mechanism to optionally run a bit of code only when a reference&#39;s target is loaded.</p>
+<p>This specific implementation always yields because direct references are always loaded.</p>
   </div>
 </div>
 <div class="tags">
@@ -317,7 +317,8 @@ are always loaded.</p>
     <li>
         <span class='type'>(<tt>Object</tt>)</span>
         &mdash;
-        <div class='inline'><p>the target of this reference.</p>
+        <div class='inline'>
+<p>the target of this reference.</p>
 </div>
     </li>
 </ul>
@@ -341,18 +342,10 @@ are always loaded.</p>
   </div>
 </div>
       <div id="footer">
-  Generated on Fri Sep 14 00:02:10 2018 by
+  Generated on Tue Jul 28 15:14:03 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.16 (ruby-2.5.1).
+  0.9.25 (ruby-2.7.1).
 </div>
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-  ga('create', 'UA-59095215-1', 'auto');
-  ga('send', 'pageview');
-</script>
     </div>
   </body>
 </html>

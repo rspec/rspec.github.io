@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
   Module: RSpec::Matchers::DSL
-    &mdash; Documentation by YARD 0.9.16
+    &mdash; Documentation by YARD 0.9.25
 </title>
-  <link rel="stylesheet" href="/documentation/3.8/rspec-expectations/css/style.css" type="text/css" charset="utf-8" />
-  <link rel="stylesheet" href="/documentation/3.8/rspec-expectations/css/common.css" type="text/css" charset="utf-8" />
-<script type="text/javascript" charset="utf-8">
+  <link rel="stylesheet" href="/documentation/3.8/rspec-expectations/css/style.css" type="text/css" />
+  <link rel="stylesheet" href="/documentation/3.8/rspec-expectations/css/common.css" type="text/css" />
+<script type="text/javascript">
   pathId = "RSpec::Matchers::DSL";
   relpath = '../../';
 </script>
@@ -54,7 +55,7 @@
 </div>
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>Defines the custom matcher DSL.</p>
+<p>Defines the custom matcher DSL.</p>
   </div>
 </div>
 <div class="tags">
@@ -72,7 +73,8 @@
   <span class="summary_signature">
       <a href="#alias_matcher-instance_method" title="#alias_matcher (instance method)">#<strong>alias_matcher</strong>(new_name, old_name, options = {}) {|String| ... } &#x21d2; Object </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Defines a matcher alias.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Defines a matcher alias.</p>
 </div></span>
 </li>
         <li class="public ">
@@ -80,14 +82,16 @@
       <a href="#define-instance_method" title="#define (instance method)">#<strong>define</strong>(name) {|Object| ... } &#x21d2; Object </a>
       (also: #matcher)
   </span>
-    <span class="summary_desc"><div class='inline'><p>Defines a custom matcher.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Defines a custom matcher.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#define_negated_matcher-instance_method" title="#define_negated_matcher (instance method)">#<strong>define_negated_matcher</strong>(negated_name, base_name) {|String| ... } &#x21d2; Object </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Defines a negated matcher.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Defines a negated matcher.</p>
 </div></span>
 </li>
     </ul>
@@ -98,9 +102,7 @@
     #<strong>alias_matcher</strong>(new_name, old_name, options = {}) {|String| ... } &#x21d2; <tt>Object</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Defines a matcher alias. The returned matcher&#39;s <code>description</code> will be overriden
-to reflect the phrasing of the new name, which will be used in failure messages
-when passed as an argument to another matcher in a composed matcher expression.</p>
+<p>Defines a matcher alias. The returned matcher&#39;s <code>description</code> will be overriden to reflect the phrasing of the new name, which will be used in failure messages when passed as an argument to another matcher in a composed matcher expression.</p>
   </div>
 </div>
 <div class="tags">
@@ -121,14 +123,16 @@ when passed as an argument to another matcher in a composed matcher expression.<
         <span class='name'>new_name</span>
         <span class='type'>(<tt>Symbol</tt>)</span>
         &mdash;
-        <div class='inline'><p>the new name for the matcher</p>
+        <div class='inline'>
+<p>the new name for the matcher</p>
 </div>
     </li>
     <li>
         <span class='name'>old_name</span>
         <span class='type'>(<tt>Symbol</tt>)</span>
         &mdash;
-        <div class='inline'><p>the original name for the matcher</p>
+        <div class='inline'>
+<p>the original name for the matcher</p>
 </div>
     </li>
     <li>
@@ -136,7 +140,8 @@ when passed as an argument to another matcher in a composed matcher expression.<
         <span class='type'>(<tt>Hash</tt>)</span>
         <em class="default">(defaults to: <tt>{}</tt>)</em>
         &mdash;
-        <div class='inline'><p>options for the aliased matcher</p>
+        <div class='inline'>
+<p>options for the aliased matcher</p>
 </div>
     </li>
 </ul>
@@ -147,7 +152,8 @@ when passed as an argument to another matcher in a composed matcher expression.<
           <span class="type">(<tt>Class</tt>)</span>
           <span class="default">
           </span>
-            &mdash; <div class='inline'><p>the ruby class to use as the decorator. (Not normally used).</p>
+            &mdash; <div class='inline'>
+<p>the ruby class to use as the decorator. (Not normally used).</p>
 </div>
         </li>
     </ul>
@@ -156,9 +162,8 @@ when passed as an argument to another matcher in a composed matcher expression.<
     <li>
         <span class='type'>(<tt>String</tt>)</span>
         &mdash;
-        <div class='inline'><p>optional block that, when given, is used to define the overriden
-logic. The yielded arg is the original description or failure message. If no
-block is provided, a default override is used based on the old and new names.</p>
+        <div class='inline'>
+<p>optional block that, when given, is used to define the overriden logic. The yielded arg is the original description or failure message. If no block is provided, a default override is used based on the old and new names.</p>
 </div>
     </li>
 </ul>
@@ -208,7 +213,7 @@ block is provided, a default override is used based on the old and new names.</p
     </span>
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Defines a custom matcher.</p>
+<p>Defines a custom matcher.</p>
   </div>
 </div>
 <div class="tags">
@@ -218,7 +223,8 @@ block is provided, a default override is used based on the old and new names.</p
         <span class='name'>name</span>
         <span class='type'>(<tt>Symbol</tt>)</span>
         &mdash;
-        <div class='inline'><p>the name for the matcher</p>
+        <div class='inline'>
+<p>the name for the matcher</p>
 </div>
     </li>
 </ul>
@@ -227,10 +233,8 @@ block is provided, a default override is used based on the old and new names.</p
     <li>
         <span class='type'>(<tt>Object</tt>)</span>
         &mdash;
-        <div class='inline'><p>block that is used to define the matcher.
-The block is evaluated in the context of your custom matcher class.
-When args are passed to your matcher, they will be yielded here,
-usually representing the expected value(s).</p>
+        <div class='inline'>
+<p>block that is used to define the matcher. The block is evaluated in the context of your custom matcher class. When args are passed to your matcher, they will be yielded here, usually representing the expected value(s).</p>
 </div>
     </li>
 </ul>
@@ -266,9 +270,7 @@ usually representing the expected value(s).</p>
     #<strong>define_negated_matcher</strong>(negated_name, base_name) {|String| ... } &#x21d2; <tt>Object</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Defines a negated matcher. The returned matcher&#39;s <code>description</code> and <code>failure_message</code>
-will be overriden to reflect the phrasing of the new name, and the match logic will
-be based on the original matcher but negated.</p>
+<p>Defines a negated matcher. The returned matcher&#39;s <code>description</code> and <code>failure_message</code> will be overriden to reflect the phrasing of the new name, and the match logic will be based on the original matcher but negated.</p>
   </div>
 </div>
 <div class="tags">
@@ -284,14 +286,16 @@ be based on the original matcher but negated.</p>
         <span class='name'>negated_name</span>
         <span class='type'>(<tt>Symbol</tt>)</span>
         &mdash;
-        <div class='inline'><p>the name for the negated matcher</p>
+        <div class='inline'>
+<p>the name for the negated matcher</p>
 </div>
     </li>
     <li>
         <span class='name'>base_name</span>
         <span class='type'>(<tt>Symbol</tt>)</span>
         &mdash;
-        <div class='inline'><p>the name of the original matcher that will be negated</p>
+        <div class='inline'>
+<p>the name of the original matcher that will be negated</p>
 </div>
     </li>
 </ul>
@@ -300,9 +304,8 @@ be based on the original matcher but negated.</p>
     <li>
         <span class='type'>(<tt>String</tt>)</span>
         &mdash;
-        <div class='inline'><p>optional block that, when given, is used to define the overriden
-logic. The yielded arg is the original description or failure message. If no
-block is provided, a default override is used based on the old and new names.</p>
+        <div class='inline'>
+<p>optional block that, when given, is used to define the overriden logic. The yielded arg is the original description or failure message. If no block is provided, a default override is used based on the old and new names.</p>
 </div>
     </li>
 </ul>
@@ -330,18 +333,10 @@ block is provided, a default override is used based on the old and new names.</p
   </div>
 </div>
       <div id="footer">
-  Generated on Fri Sep 14 00:02:02 2018 by
+  Generated on Tue Jul 28 15:13:13 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.16 (ruby-2.5.1).
+  0.9.25 (ruby-2.7.1).
 </div>
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-  ga('create', 'UA-59095215-1', 'auto');
-  ga('send', 'pageview');
-</script>
     </div>
   </body>
 </html>

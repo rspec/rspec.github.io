@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
   Class: RSpec::Core::ExampleGroup
-    &mdash; Documentation by YARD 0.9.16
+    &mdash; Documentation by YARD 0.9.25
 </title>
-  <link rel="stylesheet" href="/documentation/3.8/rspec-core/css/style.css" type="text/css" charset="utf-8" />
-  <link rel="stylesheet" href="/documentation/3.8/rspec-core/css/common.css" type="text/css" charset="utf-8" />
-<script type="text/javascript" charset="utf-8">
+  <link rel="stylesheet" href="/documentation/3.8/rspec-core/css/style.css" type="text/css" />
+  <link rel="stylesheet" href="/documentation/3.8/rspec-core/css/common.css" type="text/css" />
+<script type="text/javascript">
   pathId = "RSpec::Core::ExampleGroup";
   relpath = '../../';
 </script>
@@ -69,25 +70,15 @@
 </div>
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>ExampleGroup and <span class='object_link'><a href="Example.html" title="RSpec::Core::Example (class)">Example</a></span> are the main structural elements of
-rspec-core. Consider this example:</p>
+<p>ExampleGroup and <span class='object_link'><a href="Example.html" title="RSpec::Core::Example (class)">Example</a></span> are the main structural elements of rspec-core. Consider this example:</p>
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_describe'>describe</span> <span class='const'>Thing</span> <span class='kw'>do</span>
   <span class='id identifier rubyid_it'>it</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>does something</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>do</span>
   <span class='kw'>end</span>
 <span class='kw'>end</span>
 </code></pre>
-<p>The object returned by <code>describe Thing</code> is a subclass of ExampleGroup.
-The object returned by <code>it &quot;does something&quot;</code> is an instance of Example,
-which serves as a wrapper for an instance of the ExampleGroup in which it
-is declared.</p>
-<p>Example group bodies (e.g. <code>describe</code> or <code>context</code> blocks) are evaluated
-in the context of a new subclass of ExampleGroup. Individual examples are
-evaluated in the context of an instance of the specific ExampleGroup
-subclass to which they belong.</p>
-<p>Besides the class methods defined here, there are other interesting macros
-defined in <span class='object_link'><a href="Hooks.html" title="RSpec::Core::Hooks (module)">Hooks</a></span>, <span class='object_link'><a href="MemoizedHelpers/ClassMethods.html" title="RSpec::Core::MemoizedHelpers::ClassMethods (module)">MemoizedHelpers::ClassMethods</a></span> and
-<span class='object_link'><a href="SharedExampleGroup.html" title="RSpec::Core::SharedExampleGroup (module)">SharedExampleGroup</a></span>. There are additional instance methods available to
-your examples defined in <span class='object_link'><a href="MemoizedHelpers.html" title="RSpec::Core::MemoizedHelpers (module)">MemoizedHelpers</a></span> and <span class='object_link'><a href="Pending.html" title="RSpec::Core::Pending (module)">Pending</a></span>.</p>
+<p>The object returned by <code>describe Thing</code> is a subclass of ExampleGroup. The object returned by <code>it &quot;does something&quot;</code> is an instance of Example, which serves as a wrapper for an instance of the ExampleGroup in which it is declared.</p>
+<p>Example group bodies (e.g. <code>describe</code> or <code>context</code> blocks) are evaluated in the context of a new subclass of ExampleGroup. Individual examples are evaluated in the context of an instance of the specific ExampleGroup subclass to which they belong.</p>
+<p>Besides the class methods defined here, there are other interesting macros defined in <span class='object_link'><a href="Hooks.html" title="RSpec::Core::Hooks (module)">Hooks</a></span>, <span class='object_link'><a href="MemoizedHelpers/ClassMethods.html" title="RSpec::Core::MemoizedHelpers::ClassMethods (module)">MemoizedHelpers::ClassMethods</a></span> and <span class='object_link'><a href="SharedExampleGroup.html" title="RSpec::Core::SharedExampleGroup (module)">SharedExampleGroup</a></span>. There are additional instance methods available to your examples defined in <span class='object_link'><a href="MemoizedHelpers.html" title="RSpec::Core::MemoizedHelpers (module)">MemoizedHelpers</a></span> and <span class='object_link'><a href="Pending.html" title="RSpec::Core::Pending (module)">Pending</a></span>.</p>
   </div>
 </div>
 <div class="tags">
@@ -100,9 +91,7 @@ your examples defined in <span class='object_link'><a href="MemoizedHelpers.html
         <dt id="WrongScopeError-constant" class="">WrongScopeError =
           <div class="docstring">
   <div class="discussion">
-    <p>Raised when an RSpec API is called in the wrong scope, such as <code>before</code>
-being called from within an example rather than from within an example
-group block.</p>
+<p>Raised when an RSpec API is called in the wrong scope, such as <code>before</code> being called from within an example rather than from within an example group block.</p>
   </div>
 </div>
 <div class="tags">
@@ -119,21 +108,24 @@ group block.</p>
   <span class="summary_signature">
       <a href="#description-class_method" title="description (class method)">.<strong>description</strong>  &#x21d2; String </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>The current example group description.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>The current example group description.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#metadata-class_method" title="metadata (class method)">.<strong>metadata</strong>  &#x21d2; void </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>The <a href="Metadata">Metadata</a> object associated with this group.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>The <a href="Metadata">Metadata</a> object associated with this group.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#described_class-instance_method" title="#described_class (instance method)">#<strong>described_class</strong>  &#x21d2; void </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Returns the class or module passed to the <code>describe</code> method (or alias).</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the class or module passed to the <code>describe</code> method (or alias).</p>
 </div></span>
 </li>
     </ul>
@@ -146,84 +138,96 @@ group block.</p>
   <span class="summary_signature">
       <a href="#example-class_method" title="example (class method)">.<strong>example</strong> {|Example| ... } &#x21d2; void </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Defines an example within a group.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Defines an example within a group.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#fexample-class_method" title="fexample (class method)">.<strong>fexample</strong> {|Example| ... } &#x21d2; void </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Shortcut to define an example with <code>:focus =&gt; true</code>.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Shortcut to define an example with <code>:focus =&gt; true</code>.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#fit-class_method" title="fit (class method)">.<strong>fit</strong> {|Example| ... } &#x21d2; void </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Shortcut to define an example with <code>:focus =&gt; true</code>.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Shortcut to define an example with <code>:focus =&gt; true</code>.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#focus-class_method" title="focus (class method)">.<strong>focus</strong> {|Example| ... } &#x21d2; void </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Shortcut to define an example with <code>:focus =&gt; true</code>.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Shortcut to define an example with <code>:focus =&gt; true</code>.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#fspecify-class_method" title="fspecify (class method)">.<strong>fspecify</strong> {|Example| ... } &#x21d2; void </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Shortcut to define an example with <code>:focus =&gt; true</code>.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Shortcut to define an example with <code>:focus =&gt; true</code>.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#it-class_method" title="it (class method)">.<strong>it</strong> {|Example| ... } &#x21d2; void </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Defines an example within a group.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Defines an example within a group.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#pending-class_method" title="pending (class method)">.<strong>pending</strong> {|Example| ... } &#x21d2; void </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Shortcut to define an example with <code>:pending =&gt; true</code>.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Shortcut to define an example with <code>:pending =&gt; true</code>.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#skip-class_method" title="skip (class method)">.<strong>skip</strong> {|Example| ... } &#x21d2; void </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Shortcut to define an example with <code>:skip =&gt; true</code>.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Shortcut to define an example with <code>:skip =&gt; true</code>.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#specify-class_method" title="specify (class method)">.<strong>specify</strong> {|Example| ... } &#x21d2; void </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Defines an example within a group.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Defines an example within a group.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#xexample-class_method" title="xexample (class method)">.<strong>xexample</strong> {|Example| ... } &#x21d2; void </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Shortcut to define an example with <code>:skip =&gt; &#39;Temporarily skipped with xexample&#39;</code>.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Shortcut to define an example with <code>:skip =&gt; &#39;Temporarily skipped with xexample&#39;</code>.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#xit-class_method" title="xit (class method)">.<strong>xit</strong> {|Example| ... } &#x21d2; void </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Shortcut to define an example with <code>:skip =&gt; &#39;Temporarily skipped with xit&#39;</code>.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Shortcut to define an example with <code>:skip =&gt; &#39;Temporarily skipped with xit&#39;</code>.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#xspecify-class_method" title="xspecify (class method)">.<strong>xspecify</strong> {|Example| ... } &#x21d2; void </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Shortcut to define an example with <code>:skip =&gt; &#39;Temporarily skipped with xspecify&#39;</code>.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Shortcut to define an example with <code>:skip =&gt; &#39;Temporarily skipped with xspecify&#39;</code>.</p>
 </div></span>
 </li>
     </ul>
@@ -236,28 +240,32 @@ group block.</p>
   <span class="summary_signature">
       <a href="#add_example-class_method" title="add_example (class method)">.<strong>add_example</strong>(example)  &#x21d2; void </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Adds an example to the example group.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Adds an example to the example group.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#include_context-class_method" title="include_context (class method)">.<strong>include_context</strong>(name, *args, &amp;block)  &#x21d2; void </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Includes shared content mapped to <code>name</code> directly in the group in which it is declared, as opposed to <code>it_behaves_like</code>, which creates a nested group.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Includes shared content mapped to <code>name</code> directly in the group in which it is declared, as opposed to <code>it_behaves_like</code>, which creates a nested group.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#include_examples-class_method" title="include_examples (class method)">.<strong>include_examples</strong>(name, *args, &amp;block)  &#x21d2; void </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Includes shared content mapped to <code>name</code> directly in the group in which it is declared, as opposed to <code>it_behaves_like</code>, which creates a nested group.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Includes shared content mapped to <code>name</code> directly in the group in which it is declared, as opposed to <code>it_behaves_like</code>, which creates a nested group.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#remove_example-class_method" title="remove_example (class method)">.<strong>remove_example</strong>(example)  &#x21d2; void </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Removes an example from the example group.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Removes an example from the example group.</p>
 </div></span>
 </li>
     </ul>
@@ -270,21 +278,24 @@ group block.</p>
   <span class="summary_signature">
       <a href="#currently_executing_a_context_hook%3F-class_method" title="currently_executing_a_context_hook? (class method)">.<strong>currently_executing_a_context_hook?</strong>  &#x21d2; Boolean </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Returns true if a <code>before(:context)</code> or <code>after(:context)</code> hook is currently executing.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Returns true if a <code>before(:context)</code> or <code>after(:context)</code> hook is currently executing.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#id-class_method" title="id (class method)">.<strong>id</strong>  &#x21d2; String </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>The unique id of this example group.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>The unique id of this example group.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#run-class_method" title="run (class method)">.<strong>run</strong>(reporter = RSpec::Core::NullReporter)  &#x21d2; void </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Runs all the examples in this group.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Runs all the examples in this group.</p>
 </div></span>
 </li>
     </ul>
@@ -298,7 +309,8 @@ group block.</p>
       <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(inspect_output = nil)  &#x21d2; ExampleGroup </a>
   </span>
     <span class="note title constructor">constructor</span>
-    <span class="summary_desc"><div class='inline'><p>A new instance of ExampleGroup.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>A new instance of ExampleGroup.</p>
 </div></span>
 </li>
     </ul>
@@ -319,7 +331,7 @@ group block.</p>
     #<strong>initialize</strong>(inspect_output = nil)  &#x21d2; <tt><span class='object_link'><a href="" title="RSpec::Core::ExampleGroup (class)">ExampleGroup</a></span></tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns a new instance of ExampleGroup</p>
+<p>Returns a new instance of ExampleGroup.</p>
   </div>
 </div>
 <div class="tags">
@@ -327,13 +339,13 @@ group block.</p>
   <tr>
     <td>
       <pre class="lines">
-689
-690
-691
-692</pre>
+693
+694
+695
+696</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/core/example_group.rb', line 689</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/example_group.rb', line 693</span>
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_inspect_output'>inspect_output</span><span class='op'>=</span><span class='kw'>nil</span><span class='rparen'>)</span>
   <span class='ivar'>@__inspect_output</span> <span class='op'>=</span> <span class='id identifier rubyid_inspect_output'>inspect_output</span> <span class='op'>||</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>(no description provided)</span><span class='tstring_end'>&#39;</span></span>
   <span class='kw'>super</span><span class='lparen'>(</span><span class='rparen'>)</span> <span class='comment'># no args get passed
@@ -355,20 +367,20 @@ group block.</p>
   <tr>
     <td>
       <pre class="lines">
-740
-741
-742
-743
 744
 745
 746
 747
 748
 749
-750</pre>
+750
+751
+752
+753
+754</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/core/example_group.rb', line 740</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/example_group.rb', line 744</span>
 <span class='kw'>def</span> <span class='id identifier rubyid_method_missing'>method_missing</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
   <span class='kw'>if</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_raise'>raise</span> <span class='const'><span class='object_link'><a href="#WrongScopeError-constant" title="RSpec::Core::ExampleGroup::WrongScopeError (constant)">WrongScopeError</a></span></span><span class='comma'>,</span>
@@ -391,7 +403,7 @@ group block.</p>
     .<strong>add_example</strong>(example)  &#x21d2; <tt>void</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Adds an example to the example group</p>
+<p>Adds an example to the example group</p>
   </div>
 </div>
 <div class="tags">
@@ -419,8 +431,7 @@ group block.</p>
     .<strong>currently_executing_a_context_hook?</strong>  &#x21d2; <tt>Boolean</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns true if a <code>before(:context)</code> or <code>after(:context)</code>
-hook is currently executing.</p>
+<p>Returns true if a <code>before(:context)</code> or <code>after(:context)</code> hook is currently executing.</p>
   </div>
 </div>
 <div class="tags">
@@ -434,12 +445,12 @@ hook is currently executing.</p>
   <tr>
     <td>
       <pre class="lines">
-527
-528
-529</pre>
+531
+532
+533</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/core/example_group.rb', line 527</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/example_group.rb', line 531</span>
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_currently_executing_a_context_hook?'>currently_executing_a_context_hook?</span>
   <span class='ivar'>@currently_executing_a_context_hook</span>
 <span class='kw'>end</span></pre>
@@ -452,7 +463,7 @@ hook is currently executing.</p>
     .<strong>description</strong>  &#x21d2; <tt>String</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns the current example group description</p>
+<p>Returns the current example group description.</p>
   </div>
 </div>
 <div class="tags">
@@ -461,7 +472,8 @@ hook is currently executing.</p>
     <li>
         <span class='type'>(<tt>String</tt>)</span>
         &mdash;
-        <div class='inline'><p>the current example group description</p>
+        <div class='inline'>
+<p>the current example group description</p>
 </div>
     </li>
 </ul>
@@ -492,7 +504,7 @@ hook is currently executing.</p>
       <span class="overload">.<strong>example</strong>(doc_string, *metadata_keys, metadata = {}, &amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Defines an example within a group.</p>
+<p>Defines an example within a group.</p>
   </div>
 </div>
 <div class="tags">
@@ -525,7 +537,8 @@ hook is currently executing.</p>
         <span class='name'>example_implementation</span>
         <span class='type'>(<tt>Block</tt>)</span>
         &mdash;
-        <div class='inline'><p>The implementation of the example.</p>
+        <div class='inline'>
+<p>The implementation of the example.</p>
 </div>
     </li>
 </ul>
@@ -544,7 +557,8 @@ hook is currently executing.</p>
         <span class='name'>doc_string</span>
         <span class='type'>(<tt>String</tt>)</span>
         &mdash;
-        <div class='inline'><p>The example&#39;s doc string.</p>
+        <div class='inline'>
+<p>The example&#39;s doc string.</p>
 </div>
     </li>
     <li>
@@ -552,15 +566,16 @@ hook is currently executing.</p>
         <span class='type'>(<tt>Hash</tt>)</span>
         <em class="default">(defaults to: <tt>{}</tt>)</em>
         &mdash;
-        <div class='inline'><p>Metadata for the example.</p>
+        <div class='inline'>
+<p>Metadata for the example.</p>
 </div>
     </li>
     <li>
         <span class='name'>metadata_keys</span>
         <span class='type'>(<tt>Array&lt;Symbol&gt;</tt>)</span>
         &mdash;
-        <div class='inline'><p>Metadata tags for the example.
-Will be transformed into hash entries with <code>true</code> values.</p>
+        <div class='inline'>
+<p>Metadata tags for the example. Will be transformed into hash entries with <code>true</code> values.</p>
 </div>
     </li>
 </ul>
@@ -579,7 +594,8 @@ Will be transformed into hash entries with <code>true</code> values.</p>
         <span class='name'>doc_string</span>
         <span class='type'>(<tt>String</tt>)</span>
         &mdash;
-        <div class='inline'><p>The example&#39;s doc string.</p>
+        <div class='inline'>
+<p>The example&#39;s doc string.</p>
 </div>
     </li>
     <li>
@@ -587,22 +603,24 @@ Will be transformed into hash entries with <code>true</code> values.</p>
         <span class='type'>(<tt>Hash</tt>)</span>
         <em class="default">(defaults to: <tt>{}</tt>)</em>
         &mdash;
-        <div class='inline'><p>Metadata for the example.</p>
+        <div class='inline'>
+<p>Metadata for the example.</p>
 </div>
     </li>
     <li>
         <span class='name'>metadata_keys</span>
         <span class='type'>(<tt>Array&lt;Symbol&gt;</tt>)</span>
         &mdash;
-        <div class='inline'><p>Metadata tags for the example.
-Will be transformed into hash entries with <code>true</code> values.</p>
+        <div class='inline'>
+<p>Metadata tags for the example. Will be transformed into hash entries with <code>true</code> values.</p>
 </div>
     </li>
     <li>
         <span class='name'>example_implementation</span>
         <span class='type'>(<tt>Block</tt>)</span>
         &mdash;
-        <div class='inline'><p>The implementation of the example.</p>
+        <div class='inline'>
+<p>The implementation of the example.</p>
 </div>
     </li>
 </ul>
@@ -614,7 +632,8 @@ Will be transformed into hash entries with <code>true</code> values.</p>
     <li>
         <span class='type'>(<tt><span class='object_link'><a href="Example.html" title="RSpec::Core::Example (class)">Example</a></span></tt>)</span>
         &mdash;
-        <div class='inline'><p>the example object</p>
+        <div class='inline'>
+<p>the example object</p>
 </div>
     </li>
 </ul>
@@ -639,7 +658,7 @@ Will be transformed into hash entries with <code>true</code> values.</p>
       <span class="overload">.<strong>fexample</strong>(doc_string, *metadata_keys, metadata = {}, &amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Shortcut to define an example with <code>:focus =&gt; true</code>.</p>
+<p>Shortcut to define an example with <code>:focus =&gt; true</code>.</p>
   </div>
 </div>
 <div class="tags">
@@ -672,7 +691,8 @@ Will be transformed into hash entries with <code>true</code> values.</p>
         <span class='name'>example_implementation</span>
         <span class='type'>(<tt>Block</tt>)</span>
         &mdash;
-        <div class='inline'><p>The implementation of the example.</p>
+        <div class='inline'>
+<p>The implementation of the example.</p>
 </div>
     </li>
 </ul>
@@ -691,7 +711,8 @@ Will be transformed into hash entries with <code>true</code> values.</p>
         <span class='name'>doc_string</span>
         <span class='type'>(<tt>String</tt>)</span>
         &mdash;
-        <div class='inline'><p>The example&#39;s doc string.</p>
+        <div class='inline'>
+<p>The example&#39;s doc string.</p>
 </div>
     </li>
     <li>
@@ -699,15 +720,16 @@ Will be transformed into hash entries with <code>true</code> values.</p>
         <span class='type'>(<tt>Hash</tt>)</span>
         <em class="default">(defaults to: <tt>{}</tt>)</em>
         &mdash;
-        <div class='inline'><p>Metadata for the example.</p>
+        <div class='inline'>
+<p>Metadata for the example.</p>
 </div>
     </li>
     <li>
         <span class='name'>metadata_keys</span>
         <span class='type'>(<tt>Array&lt;Symbol&gt;</tt>)</span>
         &mdash;
-        <div class='inline'><p>Metadata tags for the example.
-Will be transformed into hash entries with <code>true</code> values.</p>
+        <div class='inline'>
+<p>Metadata tags for the example. Will be transformed into hash entries with <code>true</code> values.</p>
 </div>
     </li>
 </ul>
@@ -726,7 +748,8 @@ Will be transformed into hash entries with <code>true</code> values.</p>
         <span class='name'>doc_string</span>
         <span class='type'>(<tt>String</tt>)</span>
         &mdash;
-        <div class='inline'><p>The example&#39;s doc string.</p>
+        <div class='inline'>
+<p>The example&#39;s doc string.</p>
 </div>
     </li>
     <li>
@@ -734,22 +757,24 @@ Will be transformed into hash entries with <code>true</code> values.</p>
         <span class='type'>(<tt>Hash</tt>)</span>
         <em class="default">(defaults to: <tt>{}</tt>)</em>
         &mdash;
-        <div class='inline'><p>Metadata for the example.</p>
+        <div class='inline'>
+<p>Metadata for the example.</p>
 </div>
     </li>
     <li>
         <span class='name'>metadata_keys</span>
         <span class='type'>(<tt>Array&lt;Symbol&gt;</tt>)</span>
         &mdash;
-        <div class='inline'><p>Metadata tags for the example.
-Will be transformed into hash entries with <code>true</code> values.</p>
+        <div class='inline'>
+<p>Metadata tags for the example. Will be transformed into hash entries with <code>true</code> values.</p>
 </div>
     </li>
     <li>
         <span class='name'>example_implementation</span>
         <span class='type'>(<tt>Block</tt>)</span>
         &mdash;
-        <div class='inline'><p>The implementation of the example.</p>
+        <div class='inline'>
+<p>The implementation of the example.</p>
 </div>
     </li>
 </ul>
@@ -761,7 +786,8 @@ Will be transformed into hash entries with <code>true</code> values.</p>
     <li>
         <span class='type'>(<tt><span class='object_link'><a href="Example.html" title="RSpec::Core::Example (class)">Example</a></span></tt>)</span>
         &mdash;
-        <div class='inline'><p>the example object</p>
+        <div class='inline'>
+<p>the example object</p>
 </div>
     </li>
 </ul>
@@ -790,7 +816,7 @@ Will be transformed into hash entries with <code>true</code> values.</p>
       <span class="overload">.<strong>fit</strong>(doc_string, *metadata_keys, metadata = {}, &amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Shortcut to define an example with <code>:focus =&gt; true</code>.</p>
+<p>Shortcut to define an example with <code>:focus =&gt; true</code>.</p>
   </div>
 </div>
 <div class="tags">
@@ -823,7 +849,8 @@ Will be transformed into hash entries with <code>true</code> values.</p>
         <span class='name'>example_implementation</span>
         <span class='type'>(<tt>Block</tt>)</span>
         &mdash;
-        <div class='inline'><p>The implementation of the example.</p>
+        <div class='inline'>
+<p>The implementation of the example.</p>
 </div>
     </li>
 </ul>
@@ -842,7 +869,8 @@ Will be transformed into hash entries with <code>true</code> values.</p>
         <span class='name'>doc_string</span>
         <span class='type'>(<tt>String</tt>)</span>
         &mdash;
-        <div class='inline'><p>The example&#39;s doc string.</p>
+        <div class='inline'>
+<p>The example&#39;s doc string.</p>
 </div>
     </li>
     <li>
@@ -850,15 +878,16 @@ Will be transformed into hash entries with <code>true</code> values.</p>
         <span class='type'>(<tt>Hash</tt>)</span>
         <em class="default">(defaults to: <tt>{}</tt>)</em>
         &mdash;
-        <div class='inline'><p>Metadata for the example.</p>
+        <div class='inline'>
+<p>Metadata for the example.</p>
 </div>
     </li>
     <li>
         <span class='name'>metadata_keys</span>
         <span class='type'>(<tt>Array&lt;Symbol&gt;</tt>)</span>
         &mdash;
-        <div class='inline'><p>Metadata tags for the example.
-Will be transformed into hash entries with <code>true</code> values.</p>
+        <div class='inline'>
+<p>Metadata tags for the example. Will be transformed into hash entries with <code>true</code> values.</p>
 </div>
     </li>
 </ul>
@@ -877,7 +906,8 @@ Will be transformed into hash entries with <code>true</code> values.</p>
         <span class='name'>doc_string</span>
         <span class='type'>(<tt>String</tt>)</span>
         &mdash;
-        <div class='inline'><p>The example&#39;s doc string.</p>
+        <div class='inline'>
+<p>The example&#39;s doc string.</p>
 </div>
     </li>
     <li>
@@ -885,22 +915,24 @@ Will be transformed into hash entries with <code>true</code> values.</p>
         <span class='type'>(<tt>Hash</tt>)</span>
         <em class="default">(defaults to: <tt>{}</tt>)</em>
         &mdash;
-        <div class='inline'><p>Metadata for the example.</p>
+        <div class='inline'>
+<p>Metadata for the example.</p>
 </div>
     </li>
     <li>
         <span class='name'>metadata_keys</span>
         <span class='type'>(<tt>Array&lt;Symbol&gt;</tt>)</span>
         &mdash;
-        <div class='inline'><p>Metadata tags for the example.
-Will be transformed into hash entries with <code>true</code> values.</p>
+        <div class='inline'>
+<p>Metadata tags for the example. Will be transformed into hash entries with <code>true</code> values.</p>
 </div>
     </li>
     <li>
         <span class='name'>example_implementation</span>
         <span class='type'>(<tt>Block</tt>)</span>
         &mdash;
-        <div class='inline'><p>The implementation of the example.</p>
+        <div class='inline'>
+<p>The implementation of the example.</p>
 </div>
     </li>
 </ul>
@@ -912,7 +944,8 @@ Will be transformed into hash entries with <code>true</code> values.</p>
     <li>
         <span class='type'>(<tt><span class='object_link'><a href="Example.html" title="RSpec::Core::Example (class)">Example</a></span></tt>)</span>
         &mdash;
-        <div class='inline'><p>the example object</p>
+        <div class='inline'>
+<p>the example object</p>
 </div>
     </li>
 </ul>
@@ -941,7 +974,7 @@ Will be transformed into hash entries with <code>true</code> values.</p>
       <span class="overload">.<strong>focus</strong>(doc_string, *metadata_keys, metadata = {}, &amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Shortcut to define an example with <code>:focus =&gt; true</code>.</p>
+<p>Shortcut to define an example with <code>:focus =&gt; true</code>.</p>
   </div>
 </div>
 <div class="tags">
@@ -974,7 +1007,8 @@ Will be transformed into hash entries with <code>true</code> values.</p>
         <span class='name'>example_implementation</span>
         <span class='type'>(<tt>Block</tt>)</span>
         &mdash;
-        <div class='inline'><p>The implementation of the example.</p>
+        <div class='inline'>
+<p>The implementation of the example.</p>
 </div>
     </li>
 </ul>
@@ -993,7 +1027,8 @@ Will be transformed into hash entries with <code>true</code> values.</p>
         <span class='name'>doc_string</span>
         <span class='type'>(<tt>String</tt>)</span>
         &mdash;
-        <div class='inline'><p>The example&#39;s doc string.</p>
+        <div class='inline'>
+<p>The example&#39;s doc string.</p>
 </div>
     </li>
     <li>
@@ -1001,15 +1036,16 @@ Will be transformed into hash entries with <code>true</code> values.</p>
         <span class='type'>(<tt>Hash</tt>)</span>
         <em class="default">(defaults to: <tt>{}</tt>)</em>
         &mdash;
-        <div class='inline'><p>Metadata for the example.</p>
+        <div class='inline'>
+<p>Metadata for the example.</p>
 </div>
     </li>
     <li>
         <span class='name'>metadata_keys</span>
         <span class='type'>(<tt>Array&lt;Symbol&gt;</tt>)</span>
         &mdash;
-        <div class='inline'><p>Metadata tags for the example.
-Will be transformed into hash entries with <code>true</code> values.</p>
+        <div class='inline'>
+<p>Metadata tags for the example. Will be transformed into hash entries with <code>true</code> values.</p>
 </div>
     </li>
 </ul>
@@ -1028,7 +1064,8 @@ Will be transformed into hash entries with <code>true</code> values.</p>
         <span class='name'>doc_string</span>
         <span class='type'>(<tt>String</tt>)</span>
         &mdash;
-        <div class='inline'><p>The example&#39;s doc string.</p>
+        <div class='inline'>
+<p>The example&#39;s doc string.</p>
 </div>
     </li>
     <li>
@@ -1036,22 +1073,24 @@ Will be transformed into hash entries with <code>true</code> values.</p>
         <span class='type'>(<tt>Hash</tt>)</span>
         <em class="default">(defaults to: <tt>{}</tt>)</em>
         &mdash;
-        <div class='inline'><p>Metadata for the example.</p>
+        <div class='inline'>
+<p>Metadata for the example.</p>
 </div>
     </li>
     <li>
         <span class='name'>metadata_keys</span>
         <span class='type'>(<tt>Array&lt;Symbol&gt;</tt>)</span>
         &mdash;
-        <div class='inline'><p>Metadata tags for the example.
-Will be transformed into hash entries with <code>true</code> values.</p>
+        <div class='inline'>
+<p>Metadata tags for the example. Will be transformed into hash entries with <code>true</code> values.</p>
 </div>
     </li>
     <li>
         <span class='name'>example_implementation</span>
         <span class='type'>(<tt>Block</tt>)</span>
         &mdash;
-        <div class='inline'><p>The implementation of the example.</p>
+        <div class='inline'>
+<p>The implementation of the example.</p>
 </div>
     </li>
 </ul>
@@ -1063,7 +1102,8 @@ Will be transformed into hash entries with <code>true</code> values.</p>
     <li>
         <span class='type'>(<tt><span class='object_link'><a href="Example.html" title="RSpec::Core::Example (class)">Example</a></span></tt>)</span>
         &mdash;
-        <div class='inline'><p>the example object</p>
+        <div class='inline'>
+<p>the example object</p>
 </div>
     </li>
 </ul>
@@ -1092,7 +1132,7 @@ Will be transformed into hash entries with <code>true</code> values.</p>
       <span class="overload">.<strong>fspecify</strong>(doc_string, *metadata_keys, metadata = {}, &amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Shortcut to define an example with <code>:focus =&gt; true</code>.</p>
+<p>Shortcut to define an example with <code>:focus =&gt; true</code>.</p>
   </div>
 </div>
 <div class="tags">
@@ -1125,7 +1165,8 @@ Will be transformed into hash entries with <code>true</code> values.</p>
         <span class='name'>example_implementation</span>
         <span class='type'>(<tt>Block</tt>)</span>
         &mdash;
-        <div class='inline'><p>The implementation of the example.</p>
+        <div class='inline'>
+<p>The implementation of the example.</p>
 </div>
     </li>
 </ul>
@@ -1144,7 +1185,8 @@ Will be transformed into hash entries with <code>true</code> values.</p>
         <span class='name'>doc_string</span>
         <span class='type'>(<tt>String</tt>)</span>
         &mdash;
-        <div class='inline'><p>The example&#39;s doc string.</p>
+        <div class='inline'>
+<p>The example&#39;s doc string.</p>
 </div>
     </li>
     <li>
@@ -1152,15 +1194,16 @@ Will be transformed into hash entries with <code>true</code> values.</p>
         <span class='type'>(<tt>Hash</tt>)</span>
         <em class="default">(defaults to: <tt>{}</tt>)</em>
         &mdash;
-        <div class='inline'><p>Metadata for the example.</p>
+        <div class='inline'>
+<p>Metadata for the example.</p>
 </div>
     </li>
     <li>
         <span class='name'>metadata_keys</span>
         <span class='type'>(<tt>Array&lt;Symbol&gt;</tt>)</span>
         &mdash;
-        <div class='inline'><p>Metadata tags for the example.
-Will be transformed into hash entries with <code>true</code> values.</p>
+        <div class='inline'>
+<p>Metadata tags for the example. Will be transformed into hash entries with <code>true</code> values.</p>
 </div>
     </li>
 </ul>
@@ -1179,7 +1222,8 @@ Will be transformed into hash entries with <code>true</code> values.</p>
         <span class='name'>doc_string</span>
         <span class='type'>(<tt>String</tt>)</span>
         &mdash;
-        <div class='inline'><p>The example&#39;s doc string.</p>
+        <div class='inline'>
+<p>The example&#39;s doc string.</p>
 </div>
     </li>
     <li>
@@ -1187,22 +1231,24 @@ Will be transformed into hash entries with <code>true</code> values.</p>
         <span class='type'>(<tt>Hash</tt>)</span>
         <em class="default">(defaults to: <tt>{}</tt>)</em>
         &mdash;
-        <div class='inline'><p>Metadata for the example.</p>
+        <div class='inline'>
+<p>Metadata for the example.</p>
 </div>
     </li>
     <li>
         <span class='name'>metadata_keys</span>
         <span class='type'>(<tt>Array&lt;Symbol&gt;</tt>)</span>
         &mdash;
-        <div class='inline'><p>Metadata tags for the example.
-Will be transformed into hash entries with <code>true</code> values.</p>
+        <div class='inline'>
+<p>Metadata tags for the example. Will be transformed into hash entries with <code>true</code> values.</p>
 </div>
     </li>
     <li>
         <span class='name'>example_implementation</span>
         <span class='type'>(<tt>Block</tt>)</span>
         &mdash;
-        <div class='inline'><p>The implementation of the example.</p>
+        <div class='inline'>
+<p>The implementation of the example.</p>
 </div>
     </li>
 </ul>
@@ -1214,7 +1260,8 @@ Will be transformed into hash entries with <code>true</code> values.</p>
     <li>
         <span class='type'>(<tt><span class='object_link'><a href="Example.html" title="RSpec::Core::Example (class)">Example</a></span></tt>)</span>
         &mdash;
-        <div class='inline'><p>the example object</p>
+        <div class='inline'>
+<p>the example object</p>
 </div>
     </li>
 </ul>
@@ -1240,8 +1287,7 @@ Will be transformed into hash entries with <code>true</code> values.</p>
     .<strong>id</strong>  &#x21d2; <tt>String</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns the unique id of this example group. Pass
-this at the command line to re-run this exact example group.</p>
+<p>Returns the unique id of this example group. Pass this at the command line to re-run this exact example group.</p>
   </div>
 </div>
 <div class="tags">
@@ -1250,8 +1296,8 @@ this at the command line to re-run this exact example group.</p>
     <li>
         <span class='type'>(<tt>String</tt>)</span>
         &mdash;
-        <div class='inline'><p>the unique id of this example group. Pass
-this at the command line to re-run this exact example group.</p>
+        <div class='inline'>
+<p>the unique id of this example group. Pass this at the command line to re-run this exact example group.</p>
 </div>
     </li>
 </ul>
@@ -1259,12 +1305,12 @@ this at the command line to re-run this exact example group.</p>
   <tr>
     <td>
       <pre class="lines">
-658
-659
-660</pre>
+662
+663
+664</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/core/example_group.rb', line 658</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/example_group.rb', line 662</span>
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_id'>id</span>
   <span class='const'><span class='object_link'><a href="Metadata.html" title="RSpec::Core::Metadata (module)">Metadata</a></span></span><span class='period'>.</span><span class='id identifier rubyid_id_from'>id_from</span><span class='lparen'>(</span><span class='id identifier rubyid_metadata'>metadata</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
@@ -1277,10 +1323,7 @@ this at the command line to re-run this exact example group.</p>
     .<strong>include_context</strong>(name, *args, &amp;block)  &#x21d2; <tt>void</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Includes shared content mapped to <code>name</code> directly in the group in which
-it is declared, as opposed to <code>it_behaves_like</code>, which creates a nested
-group. If given a block, that block is also eval&#39;d in the current
-context.</p>
+<p>Includes shared content mapped to <code>name</code> directly in the group in which it is declared, as opposed to <code>it_behaves_like</code>, which creates a nested group. If given a block, that block is also eval&#39;d in the current context.</p>
   </div>
 </div>
 <div class="tags">
@@ -1310,10 +1353,7 @@ context.</p>
     .<strong>include_examples</strong>(name, *args, &amp;block)  &#x21d2; <tt>void</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Includes shared content mapped to <code>name</code> directly in the group in which
-it is declared, as opposed to <code>it_behaves_like</code>, which creates a nested
-group. If given a block, that block is also eval&#39;d in the current
-context.</p>
+<p>Includes shared content mapped to <code>name</code> directly in the group in which it is declared, as opposed to <code>it_behaves_like</code>, which creates a nested group. If given a block, that block is also eval&#39;d in the current context.</p>
   </div>
 </div>
 <div class="tags">
@@ -1346,8 +1386,7 @@ context.</p>
       <span class="overload">.<strong>it</strong>(doc_string, *metadata_keys, metadata = {}, &amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Defines an example within a group.
-This is the primary API to define a code example.</p>
+<p>Defines an example within a group. This is the primary API to define a code example.</p>
   </div>
 </div>
 <div class="tags">
@@ -1380,7 +1419,8 @@ This is the primary API to define a code example.</p>
         <span class='name'>example_implementation</span>
         <span class='type'>(<tt>Block</tt>)</span>
         &mdash;
-        <div class='inline'><p>The implementation of the example.</p>
+        <div class='inline'>
+<p>The implementation of the example.</p>
 </div>
     </li>
 </ul>
@@ -1399,7 +1439,8 @@ This is the primary API to define a code example.</p>
         <span class='name'>doc_string</span>
         <span class='type'>(<tt>String</tt>)</span>
         &mdash;
-        <div class='inline'><p>The example&#39;s doc string.</p>
+        <div class='inline'>
+<p>The example&#39;s doc string.</p>
 </div>
     </li>
     <li>
@@ -1407,15 +1448,16 @@ This is the primary API to define a code example.</p>
         <span class='type'>(<tt>Hash</tt>)</span>
         <em class="default">(defaults to: <tt>{}</tt>)</em>
         &mdash;
-        <div class='inline'><p>Metadata for the example.</p>
+        <div class='inline'>
+<p>Metadata for the example.</p>
 </div>
     </li>
     <li>
         <span class='name'>metadata_keys</span>
         <span class='type'>(<tt>Array&lt;Symbol&gt;</tt>)</span>
         &mdash;
-        <div class='inline'><p>Metadata tags for the example.
-Will be transformed into hash entries with <code>true</code> values.</p>
+        <div class='inline'>
+<p>Metadata tags for the example. Will be transformed into hash entries with <code>true</code> values.</p>
 </div>
     </li>
 </ul>
@@ -1434,7 +1476,8 @@ Will be transformed into hash entries with <code>true</code> values.</p>
         <span class='name'>doc_string</span>
         <span class='type'>(<tt>String</tt>)</span>
         &mdash;
-        <div class='inline'><p>The example&#39;s doc string.</p>
+        <div class='inline'>
+<p>The example&#39;s doc string.</p>
 </div>
     </li>
     <li>
@@ -1442,22 +1485,24 @@ Will be transformed into hash entries with <code>true</code> values.</p>
         <span class='type'>(<tt>Hash</tt>)</span>
         <em class="default">(defaults to: <tt>{}</tt>)</em>
         &mdash;
-        <div class='inline'><p>Metadata for the example.</p>
+        <div class='inline'>
+<p>Metadata for the example.</p>
 </div>
     </li>
     <li>
         <span class='name'>metadata_keys</span>
         <span class='type'>(<tt>Array&lt;Symbol&gt;</tt>)</span>
         &mdash;
-        <div class='inline'><p>Metadata tags for the example.
-Will be transformed into hash entries with <code>true</code> values.</p>
+        <div class='inline'>
+<p>Metadata tags for the example. Will be transformed into hash entries with <code>true</code> values.</p>
 </div>
     </li>
     <li>
         <span class='name'>example_implementation</span>
         <span class='type'>(<tt>Block</tt>)</span>
         &mdash;
-        <div class='inline'><p>The implementation of the example.</p>
+        <div class='inline'>
+<p>The implementation of the example.</p>
 </div>
     </li>
 </ul>
@@ -1469,7 +1514,8 @@ Will be transformed into hash entries with <code>true</code> values.</p>
     <li>
         <span class='type'>(<tt><span class='object_link'><a href="Example.html" title="RSpec::Core::Example (class)">Example</a></span></tt>)</span>
         &mdash;
-        <div class='inline'><p>the example object</p>
+        <div class='inline'>
+<p>the example object</p>
 </div>
     </li>
 </ul>
@@ -1491,7 +1537,7 @@ Will be transformed into hash entries with <code>true</code> values.</p>
     .<strong>metadata</strong>  &#x21d2; <tt>void</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>The <a href="Metadata">Metadata</a> object associated with this group.</p>
+<p>The <a href="Metadata">Metadata</a> object associated with this group.</p>
   </div>
 </div>
 <div class="tags">
@@ -1524,7 +1570,7 @@ Will be transformed into hash entries with <code>true</code> values.</p>
       <span class="overload">.<strong>pending</strong>(doc_string, *metadata_keys, metadata = {}, &amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Shortcut to define an example with <code>:pending =&gt; true</code></p>
+<p>Shortcut to define an example with <code>:pending =&gt; true</code></p>
   </div>
 </div>
 <div class="tags">
@@ -1557,7 +1603,8 @@ Will be transformed into hash entries with <code>true</code> values.</p>
         <span class='name'>example_implementation</span>
         <span class='type'>(<tt>Block</tt>)</span>
         &mdash;
-        <div class='inline'><p>The implementation of the example.</p>
+        <div class='inline'>
+<p>The implementation of the example.</p>
 </div>
     </li>
 </ul>
@@ -1576,7 +1623,8 @@ Will be transformed into hash entries with <code>true</code> values.</p>
         <span class='name'>doc_string</span>
         <span class='type'>(<tt>String</tt>)</span>
         &mdash;
-        <div class='inline'><p>The example&#39;s doc string.</p>
+        <div class='inline'>
+<p>The example&#39;s doc string.</p>
 </div>
     </li>
     <li>
@@ -1584,15 +1632,16 @@ Will be transformed into hash entries with <code>true</code> values.</p>
         <span class='type'>(<tt>Hash</tt>)</span>
         <em class="default">(defaults to: <tt>{}</tt>)</em>
         &mdash;
-        <div class='inline'><p>Metadata for the example.</p>
+        <div class='inline'>
+<p>Metadata for the example.</p>
 </div>
     </li>
     <li>
         <span class='name'>metadata_keys</span>
         <span class='type'>(<tt>Array&lt;Symbol&gt;</tt>)</span>
         &mdash;
-        <div class='inline'><p>Metadata tags for the example.
-Will be transformed into hash entries with <code>true</code> values.</p>
+        <div class='inline'>
+<p>Metadata tags for the example. Will be transformed into hash entries with <code>true</code> values.</p>
 </div>
     </li>
 </ul>
@@ -1611,7 +1660,8 @@ Will be transformed into hash entries with <code>true</code> values.</p>
         <span class='name'>doc_string</span>
         <span class='type'>(<tt>String</tt>)</span>
         &mdash;
-        <div class='inline'><p>The example&#39;s doc string.</p>
+        <div class='inline'>
+<p>The example&#39;s doc string.</p>
 </div>
     </li>
     <li>
@@ -1619,22 +1669,24 @@ Will be transformed into hash entries with <code>true</code> values.</p>
         <span class='type'>(<tt>Hash</tt>)</span>
         <em class="default">(defaults to: <tt>{}</tt>)</em>
         &mdash;
-        <div class='inline'><p>Metadata for the example.</p>
+        <div class='inline'>
+<p>Metadata for the example.</p>
 </div>
     </li>
     <li>
         <span class='name'>metadata_keys</span>
         <span class='type'>(<tt>Array&lt;Symbol&gt;</tt>)</span>
         &mdash;
-        <div class='inline'><p>Metadata tags for the example.
-Will be transformed into hash entries with <code>true</code> values.</p>
+        <div class='inline'>
+<p>Metadata tags for the example. Will be transformed into hash entries with <code>true</code> values.</p>
 </div>
     </li>
     <li>
         <span class='name'>example_implementation</span>
         <span class='type'>(<tt>Block</tt>)</span>
         &mdash;
-        <div class='inline'><p>The implementation of the example.</p>
+        <div class='inline'>
+<p>The implementation of the example.</p>
 </div>
     </li>
 </ul>
@@ -1646,7 +1698,8 @@ Will be transformed into hash entries with <code>true</code> values.</p>
     <li>
         <span class='type'>(<tt><span class='object_link'><a href="Example.html" title="RSpec::Core::Example (class)">Example</a></span></tt>)</span>
         &mdash;
-        <div class='inline'><p>the example object</p>
+        <div class='inline'>
+<p>the example object</p>
 </div>
     </li>
 </ul>
@@ -1672,7 +1725,7 @@ Will be transformed into hash entries with <code>true</code> values.</p>
     .<strong>remove_example</strong>(example)  &#x21d2; <tt>void</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Removes an example from the example group</p>
+<p>Removes an example from the example group</p>
   </div>
 </div>
 <div class="tags">
@@ -1700,7 +1753,7 @@ Will be transformed into hash entries with <code>true</code> values.</p>
     .<strong>run</strong>(reporter = RSpec::Core::NullReporter)  &#x21d2; <tt>void</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Runs all the examples in this group.</p>
+<p>Runs all the examples in this group.</p>
   </div>
 </div>
 <div class="tags">
@@ -1708,10 +1761,6 @@ Will be transformed into hash entries with <code>true</code> values.</p>
   <tr>
     <td>
       <pre class="lines">
-584
-585
-586
-587
 588
 589
 590
@@ -1729,10 +1778,14 @@ Will be transformed into hash entries with <code>true</code> values.</p>
 602
 603
 604
-605</pre>
+605
+606
+607
+608
+609</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/core/example_group.rb', line 584</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/example_group.rb', line 588</span>
 <span class='kw'>def</span> <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_run'>run</span><span class='lparen'>(</span><span class='id identifier rubyid_reporter'>reporter</span><span class='op'>=</span><span class='const'>RSpec</span><span class='op'>::</span><span class='const'>Core</span><span class='op'>::</span><span class='const'>NullReporter</span><span class='rparen'>)</span>
   <span class='kw'>return</span> <span class='kw'>if</span> <span class='const'><span class='object_link'><a href="../../RSpec.html" title="RSpec (module)">RSpec</a></span></span><span class='period'>.</span><span class='id identifier rubyid_world'>world</span><span class='period'>.</span><span class='id identifier rubyid_wants_to_quit'>wants_to_quit</span>
   <span class='id identifier rubyid_reporter'>reporter</span><span class='period'>.</span><span class='id identifier rubyid_example_group_started'>example_group_started</span><span class='lparen'>(</span><span class='kw'>self</span><span class='rparen'>)</span>
@@ -1766,7 +1819,7 @@ Will be transformed into hash entries with <code>true</code> values.</p>
       <span class="overload">.<strong>skip</strong>(doc_string, *metadata_keys, metadata = {}, &amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Shortcut to define an example with <code>:skip =&gt; true</code></p>
+<p>Shortcut to define an example with <code>:skip =&gt; true</code></p>
   </div>
 </div>
 <div class="tags">
@@ -1799,7 +1852,8 @@ Will be transformed into hash entries with <code>true</code> values.</p>
         <span class='name'>example_implementation</span>
         <span class='type'>(<tt>Block</tt>)</span>
         &mdash;
-        <div class='inline'><p>The implementation of the example.</p>
+        <div class='inline'>
+<p>The implementation of the example.</p>
 </div>
     </li>
 </ul>
@@ -1818,7 +1872,8 @@ Will be transformed into hash entries with <code>true</code> values.</p>
         <span class='name'>doc_string</span>
         <span class='type'>(<tt>String</tt>)</span>
         &mdash;
-        <div class='inline'><p>The example&#39;s doc string.</p>
+        <div class='inline'>
+<p>The example&#39;s doc string.</p>
 </div>
     </li>
     <li>
@@ -1826,15 +1881,16 @@ Will be transformed into hash entries with <code>true</code> values.</p>
         <span class='type'>(<tt>Hash</tt>)</span>
         <em class="default">(defaults to: <tt>{}</tt>)</em>
         &mdash;
-        <div class='inline'><p>Metadata for the example.</p>
+        <div class='inline'>
+<p>Metadata for the example.</p>
 </div>
     </li>
     <li>
         <span class='name'>metadata_keys</span>
         <span class='type'>(<tt>Array&lt;Symbol&gt;</tt>)</span>
         &mdash;
-        <div class='inline'><p>Metadata tags for the example.
-Will be transformed into hash entries with <code>true</code> values.</p>
+        <div class='inline'>
+<p>Metadata tags for the example. Will be transformed into hash entries with <code>true</code> values.</p>
 </div>
     </li>
 </ul>
@@ -1853,7 +1909,8 @@ Will be transformed into hash entries with <code>true</code> values.</p>
         <span class='name'>doc_string</span>
         <span class='type'>(<tt>String</tt>)</span>
         &mdash;
-        <div class='inline'><p>The example&#39;s doc string.</p>
+        <div class='inline'>
+<p>The example&#39;s doc string.</p>
 </div>
     </li>
     <li>
@@ -1861,22 +1918,24 @@ Will be transformed into hash entries with <code>true</code> values.</p>
         <span class='type'>(<tt>Hash</tt>)</span>
         <em class="default">(defaults to: <tt>{}</tt>)</em>
         &mdash;
-        <div class='inline'><p>Metadata for the example.</p>
+        <div class='inline'>
+<p>Metadata for the example.</p>
 </div>
     </li>
     <li>
         <span class='name'>metadata_keys</span>
         <span class='type'>(<tt>Array&lt;Symbol&gt;</tt>)</span>
         &mdash;
-        <div class='inline'><p>Metadata tags for the example.
-Will be transformed into hash entries with <code>true</code> values.</p>
+        <div class='inline'>
+<p>Metadata tags for the example. Will be transformed into hash entries with <code>true</code> values.</p>
 </div>
     </li>
     <li>
         <span class='name'>example_implementation</span>
         <span class='type'>(<tt>Block</tt>)</span>
         &mdash;
-        <div class='inline'><p>The implementation of the example.</p>
+        <div class='inline'>
+<p>The implementation of the example.</p>
 </div>
     </li>
 </ul>
@@ -1888,7 +1947,8 @@ Will be transformed into hash entries with <code>true</code> values.</p>
     <li>
         <span class='type'>(<tt><span class='object_link'><a href="Example.html" title="RSpec::Core::Example (class)">Example</a></span></tt>)</span>
         &mdash;
-        <div class='inline'><p>the example object</p>
+        <div class='inline'>
+<p>the example object</p>
 </div>
     </li>
 </ul>
@@ -1917,8 +1977,7 @@ Will be transformed into hash entries with <code>true</code> values.</p>
       <span class="overload">.<strong>specify</strong>(doc_string, *metadata_keys, metadata = {}, &amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Defines an example within a group.
-Useful for when your docstring does not read well off of <code>it</code>.</p>
+<p>Defines an example within a group. Useful for when your docstring does not read well off of <code>it</code>.</p>
   </div>
 </div>
 <div class="tags">
@@ -1956,7 +2015,8 @@ Useful for when your docstring does not read well off of <code>it</code>.</p>
         <span class='name'>example_implementation</span>
         <span class='type'>(<tt>Block</tt>)</span>
         &mdash;
-        <div class='inline'><p>The implementation of the example.</p>
+        <div class='inline'>
+<p>The implementation of the example.</p>
 </div>
     </li>
 </ul>
@@ -1975,7 +2035,8 @@ Useful for when your docstring does not read well off of <code>it</code>.</p>
         <span class='name'>doc_string</span>
         <span class='type'>(<tt>String</tt>)</span>
         &mdash;
-        <div class='inline'><p>The example&#39;s doc string.</p>
+        <div class='inline'>
+<p>The example&#39;s doc string.</p>
 </div>
     </li>
     <li>
@@ -1983,15 +2044,16 @@ Useful for when your docstring does not read well off of <code>it</code>.</p>
         <span class='type'>(<tt>Hash</tt>)</span>
         <em class="default">(defaults to: <tt>{}</tt>)</em>
         &mdash;
-        <div class='inline'><p>Metadata for the example.</p>
+        <div class='inline'>
+<p>Metadata for the example.</p>
 </div>
     </li>
     <li>
         <span class='name'>metadata_keys</span>
         <span class='type'>(<tt>Array&lt;Symbol&gt;</tt>)</span>
         &mdash;
-        <div class='inline'><p>Metadata tags for the example.
-Will be transformed into hash entries with <code>true</code> values.</p>
+        <div class='inline'>
+<p>Metadata tags for the example. Will be transformed into hash entries with <code>true</code> values.</p>
 </div>
     </li>
 </ul>
@@ -2010,7 +2072,8 @@ Will be transformed into hash entries with <code>true</code> values.</p>
         <span class='name'>doc_string</span>
         <span class='type'>(<tt>String</tt>)</span>
         &mdash;
-        <div class='inline'><p>The example&#39;s doc string.</p>
+        <div class='inline'>
+<p>The example&#39;s doc string.</p>
 </div>
     </li>
     <li>
@@ -2018,22 +2081,24 @@ Will be transformed into hash entries with <code>true</code> values.</p>
         <span class='type'>(<tt>Hash</tt>)</span>
         <em class="default">(defaults to: <tt>{}</tt>)</em>
         &mdash;
-        <div class='inline'><p>Metadata for the example.</p>
+        <div class='inline'>
+<p>Metadata for the example.</p>
 </div>
     </li>
     <li>
         <span class='name'>metadata_keys</span>
         <span class='type'>(<tt>Array&lt;Symbol&gt;</tt>)</span>
         &mdash;
-        <div class='inline'><p>Metadata tags for the example.
-Will be transformed into hash entries with <code>true</code> values.</p>
+        <div class='inline'>
+<p>Metadata tags for the example. Will be transformed into hash entries with <code>true</code> values.</p>
 </div>
     </li>
     <li>
         <span class='name'>example_implementation</span>
         <span class='type'>(<tt>Block</tt>)</span>
         &mdash;
-        <div class='inline'><p>The implementation of the example.</p>
+        <div class='inline'>
+<p>The implementation of the example.</p>
 </div>
     </li>
 </ul>
@@ -2045,7 +2110,8 @@ Will be transformed into hash entries with <code>true</code> values.</p>
     <li>
         <span class='type'>(<tt><span class='object_link'><a href="Example.html" title="RSpec::Core::Example (class)">Example</a></span></tt>)</span>
         &mdash;
-        <div class='inline'><p>the example object</p>
+        <div class='inline'>
+<p>the example object</p>
 </div>
     </li>
 </ul>
@@ -2070,7 +2136,7 @@ Will be transformed into hash entries with <code>true</code> values.</p>
       <span class="overload">.<strong>xexample</strong>(doc_string, *metadata_keys, metadata = {}, &amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Shortcut to define an example with <code>:skip =&gt; &#39;Temporarily skipped with xexample&#39;</code>.</p>
+<p>Shortcut to define an example with <code>:skip =&gt; &#39;Temporarily skipped with xexample&#39;</code>.</p>
   </div>
 </div>
 <div class="tags">
@@ -2103,7 +2169,8 @@ Will be transformed into hash entries with <code>true</code> values.</p>
         <span class='name'>example_implementation</span>
         <span class='type'>(<tt>Block</tt>)</span>
         &mdash;
-        <div class='inline'><p>The implementation of the example.</p>
+        <div class='inline'>
+<p>The implementation of the example.</p>
 </div>
     </li>
 </ul>
@@ -2122,7 +2189,8 @@ Will be transformed into hash entries with <code>true</code> values.</p>
         <span class='name'>doc_string</span>
         <span class='type'>(<tt>String</tt>)</span>
         &mdash;
-        <div class='inline'><p>The example&#39;s doc string.</p>
+        <div class='inline'>
+<p>The example&#39;s doc string.</p>
 </div>
     </li>
     <li>
@@ -2130,15 +2198,16 @@ Will be transformed into hash entries with <code>true</code> values.</p>
         <span class='type'>(<tt>Hash</tt>)</span>
         <em class="default">(defaults to: <tt>{}</tt>)</em>
         &mdash;
-        <div class='inline'><p>Metadata for the example.</p>
+        <div class='inline'>
+<p>Metadata for the example.</p>
 </div>
     </li>
     <li>
         <span class='name'>metadata_keys</span>
         <span class='type'>(<tt>Array&lt;Symbol&gt;</tt>)</span>
         &mdash;
-        <div class='inline'><p>Metadata tags for the example.
-Will be transformed into hash entries with <code>true</code> values.</p>
+        <div class='inline'>
+<p>Metadata tags for the example. Will be transformed into hash entries with <code>true</code> values.</p>
 </div>
     </li>
 </ul>
@@ -2157,7 +2226,8 @@ Will be transformed into hash entries with <code>true</code> values.</p>
         <span class='name'>doc_string</span>
         <span class='type'>(<tt>String</tt>)</span>
         &mdash;
-        <div class='inline'><p>The example&#39;s doc string.</p>
+        <div class='inline'>
+<p>The example&#39;s doc string.</p>
 </div>
     </li>
     <li>
@@ -2165,22 +2235,24 @@ Will be transformed into hash entries with <code>true</code> values.</p>
         <span class='type'>(<tt>Hash</tt>)</span>
         <em class="default">(defaults to: <tt>{}</tt>)</em>
         &mdash;
-        <div class='inline'><p>Metadata for the example.</p>
+        <div class='inline'>
+<p>Metadata for the example.</p>
 </div>
     </li>
     <li>
         <span class='name'>metadata_keys</span>
         <span class='type'>(<tt>Array&lt;Symbol&gt;</tt>)</span>
         &mdash;
-        <div class='inline'><p>Metadata tags for the example.
-Will be transformed into hash entries with <code>true</code> values.</p>
+        <div class='inline'>
+<p>Metadata tags for the example. Will be transformed into hash entries with <code>true</code> values.</p>
 </div>
     </li>
     <li>
         <span class='name'>example_implementation</span>
         <span class='type'>(<tt>Block</tt>)</span>
         &mdash;
-        <div class='inline'><p>The implementation of the example.</p>
+        <div class='inline'>
+<p>The implementation of the example.</p>
 </div>
     </li>
 </ul>
@@ -2192,7 +2264,8 @@ Will be transformed into hash entries with <code>true</code> values.</p>
     <li>
         <span class='type'>(<tt><span class='object_link'><a href="Example.html" title="RSpec::Core::Example (class)">Example</a></span></tt>)</span>
         &mdash;
-        <div class='inline'><p>the example object</p>
+        <div class='inline'>
+<p>the example object</p>
 </div>
     </li>
 </ul>
@@ -2221,7 +2294,7 @@ Will be transformed into hash entries with <code>true</code> values.</p>
       <span class="overload">.<strong>xit</strong>(doc_string, *metadata_keys, metadata = {}, &amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Shortcut to define an example with <code>:skip =&gt; &#39;Temporarily skipped with xit&#39;</code>.</p>
+<p>Shortcut to define an example with <code>:skip =&gt; &#39;Temporarily skipped with xit&#39;</code>.</p>
   </div>
 </div>
 <div class="tags">
@@ -2254,7 +2327,8 @@ Will be transformed into hash entries with <code>true</code> values.</p>
         <span class='name'>example_implementation</span>
         <span class='type'>(<tt>Block</tt>)</span>
         &mdash;
-        <div class='inline'><p>The implementation of the example.</p>
+        <div class='inline'>
+<p>The implementation of the example.</p>
 </div>
     </li>
 </ul>
@@ -2273,7 +2347,8 @@ Will be transformed into hash entries with <code>true</code> values.</p>
         <span class='name'>doc_string</span>
         <span class='type'>(<tt>String</tt>)</span>
         &mdash;
-        <div class='inline'><p>The example&#39;s doc string.</p>
+        <div class='inline'>
+<p>The example&#39;s doc string.</p>
 </div>
     </li>
     <li>
@@ -2281,15 +2356,16 @@ Will be transformed into hash entries with <code>true</code> values.</p>
         <span class='type'>(<tt>Hash</tt>)</span>
         <em class="default">(defaults to: <tt>{}</tt>)</em>
         &mdash;
-        <div class='inline'><p>Metadata for the example.</p>
+        <div class='inline'>
+<p>Metadata for the example.</p>
 </div>
     </li>
     <li>
         <span class='name'>metadata_keys</span>
         <span class='type'>(<tt>Array&lt;Symbol&gt;</tt>)</span>
         &mdash;
-        <div class='inline'><p>Metadata tags for the example.
-Will be transformed into hash entries with <code>true</code> values.</p>
+        <div class='inline'>
+<p>Metadata tags for the example. Will be transformed into hash entries with <code>true</code> values.</p>
 </div>
     </li>
 </ul>
@@ -2308,7 +2384,8 @@ Will be transformed into hash entries with <code>true</code> values.</p>
         <span class='name'>doc_string</span>
         <span class='type'>(<tt>String</tt>)</span>
         &mdash;
-        <div class='inline'><p>The example&#39;s doc string.</p>
+        <div class='inline'>
+<p>The example&#39;s doc string.</p>
 </div>
     </li>
     <li>
@@ -2316,22 +2393,24 @@ Will be transformed into hash entries with <code>true</code> values.</p>
         <span class='type'>(<tt>Hash</tt>)</span>
         <em class="default">(defaults to: <tt>{}</tt>)</em>
         &mdash;
-        <div class='inline'><p>Metadata for the example.</p>
+        <div class='inline'>
+<p>Metadata for the example.</p>
 </div>
     </li>
     <li>
         <span class='name'>metadata_keys</span>
         <span class='type'>(<tt>Array&lt;Symbol&gt;</tt>)</span>
         &mdash;
-        <div class='inline'><p>Metadata tags for the example.
-Will be transformed into hash entries with <code>true</code> values.</p>
+        <div class='inline'>
+<p>Metadata tags for the example. Will be transformed into hash entries with <code>true</code> values.</p>
 </div>
     </li>
     <li>
         <span class='name'>example_implementation</span>
         <span class='type'>(<tt>Block</tt>)</span>
         &mdash;
-        <div class='inline'><p>The implementation of the example.</p>
+        <div class='inline'>
+<p>The implementation of the example.</p>
 </div>
     </li>
 </ul>
@@ -2343,7 +2422,8 @@ Will be transformed into hash entries with <code>true</code> values.</p>
     <li>
         <span class='type'>(<tt><span class='object_link'><a href="Example.html" title="RSpec::Core::Example (class)">Example</a></span></tt>)</span>
         &mdash;
-        <div class='inline'><p>the example object</p>
+        <div class='inline'>
+<p>the example object</p>
 </div>
     </li>
 </ul>
@@ -2372,7 +2452,7 @@ Will be transformed into hash entries with <code>true</code> values.</p>
       <span class="overload">.<strong>xspecify</strong>(doc_string, *metadata_keys, metadata = {}, &amp;example_implementation)  &#x21d2; <tt>void</tt> </span>
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Shortcut to define an example with <code>:skip =&gt; &#39;Temporarily skipped with xspecify&#39;</code>.</p>
+<p>Shortcut to define an example with <code>:skip =&gt; &#39;Temporarily skipped with xspecify&#39;</code>.</p>
   </div>
 </div>
 <div class="tags">
@@ -2405,7 +2485,8 @@ Will be transformed into hash entries with <code>true</code> values.</p>
         <span class='name'>example_implementation</span>
         <span class='type'>(<tt>Block</tt>)</span>
         &mdash;
-        <div class='inline'><p>The implementation of the example.</p>
+        <div class='inline'>
+<p>The implementation of the example.</p>
 </div>
     </li>
 </ul>
@@ -2424,7 +2505,8 @@ Will be transformed into hash entries with <code>true</code> values.</p>
         <span class='name'>doc_string</span>
         <span class='type'>(<tt>String</tt>)</span>
         &mdash;
-        <div class='inline'><p>The example&#39;s doc string.</p>
+        <div class='inline'>
+<p>The example&#39;s doc string.</p>
 </div>
     </li>
     <li>
@@ -2432,15 +2514,16 @@ Will be transformed into hash entries with <code>true</code> values.</p>
         <span class='type'>(<tt>Hash</tt>)</span>
         <em class="default">(defaults to: <tt>{}</tt>)</em>
         &mdash;
-        <div class='inline'><p>Metadata for the example.</p>
+        <div class='inline'>
+<p>Metadata for the example.</p>
 </div>
     </li>
     <li>
         <span class='name'>metadata_keys</span>
         <span class='type'>(<tt>Array&lt;Symbol&gt;</tt>)</span>
         &mdash;
-        <div class='inline'><p>Metadata tags for the example.
-Will be transformed into hash entries with <code>true</code> values.</p>
+        <div class='inline'>
+<p>Metadata tags for the example. Will be transformed into hash entries with <code>true</code> values.</p>
 </div>
     </li>
 </ul>
@@ -2459,7 +2542,8 @@ Will be transformed into hash entries with <code>true</code> values.</p>
         <span class='name'>doc_string</span>
         <span class='type'>(<tt>String</tt>)</span>
         &mdash;
-        <div class='inline'><p>The example&#39;s doc string.</p>
+        <div class='inline'>
+<p>The example&#39;s doc string.</p>
 </div>
     </li>
     <li>
@@ -2467,22 +2551,24 @@ Will be transformed into hash entries with <code>true</code> values.</p>
         <span class='type'>(<tt>Hash</tt>)</span>
         <em class="default">(defaults to: <tt>{}</tt>)</em>
         &mdash;
-        <div class='inline'><p>Metadata for the example.</p>
+        <div class='inline'>
+<p>Metadata for the example.</p>
 </div>
     </li>
     <li>
         <span class='name'>metadata_keys</span>
         <span class='type'>(<tt>Array&lt;Symbol&gt;</tt>)</span>
         &mdash;
-        <div class='inline'><p>Metadata tags for the example.
-Will be transformed into hash entries with <code>true</code> values.</p>
+        <div class='inline'>
+<p>Metadata tags for the example. Will be transformed into hash entries with <code>true</code> values.</p>
 </div>
     </li>
     <li>
         <span class='name'>example_implementation</span>
         <span class='type'>(<tt>Block</tt>)</span>
         &mdash;
-        <div class='inline'><p>The implementation of the example.</p>
+        <div class='inline'>
+<p>The implementation of the example.</p>
 </div>
     </li>
 </ul>
@@ -2494,7 +2580,8 @@ Will be transformed into hash entries with <code>true</code> values.</p>
     <li>
         <span class='type'>(<tt><span class='object_link'><a href="Example.html" title="RSpec::Core::Example (class)">Example</a></span></tt>)</span>
         &mdash;
-        <div class='inline'><p>the example object</p>
+        <div class='inline'>
+<p>the example object</p>
 </div>
     </li>
 </ul>
@@ -2523,8 +2610,7 @@ Will be transformed into hash entries with <code>true</code> values.</p>
     #<strong>described_class</strong>  &#x21d2; <tt>void</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns the class or module passed to the <code>describe</code> method (or alias).
-Returns nil if the subject is not a class or module.</p>
+<p>Returns the class or module passed to the <code>describe</code> method (or alias). Returns nil if the subject is not a class or module.</p>
   </div>
 </div>
 <div class="tags">
@@ -2556,18 +2642,10 @@ Returns nil if the subject is not a class or module.</p>
   </div>
 </div>
       <div id="footer">
-  Generated on Fri Sep 14 00:01:57 2018 by
+  Generated on Tue Jul 28 15:12:46 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.16 (ruby-2.5.1).
+  0.9.25 (ruby-2.7.1).
 </div>
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-  ga('create', 'UA-59095215-1', 'auto');
-  ga('send', 'pageview');
-</script>
     </div>
   </body>
 </html>

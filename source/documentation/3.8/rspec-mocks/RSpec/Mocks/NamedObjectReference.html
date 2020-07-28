@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
   Class: RSpec::Mocks::NamedObjectReference
-    &mdash; Documentation by YARD 0.9.16
+    &mdash; Documentation by YARD 0.9.25
 </title>
-  <link rel="stylesheet" href="/documentation/3.8/rspec-mocks/css/style.css" type="text/css" charset="utf-8" />
-  <link rel="stylesheet" href="/documentation/3.8/rspec-mocks/css/common.css" type="text/css" charset="utf-8" />
-<script type="text/javascript" charset="utf-8">
+  <link rel="stylesheet" href="/documentation/3.8/rspec-mocks/css/style.css" type="text/css" />
+  <link rel="stylesheet" href="/documentation/3.8/rspec-mocks/css/common.css" type="text/css" />
+<script type="text/javascript">
   pathId = "RSpec::Mocks::NamedObjectReference";
   relpath = '../../';
 </script>
@@ -61,12 +62,7 @@
 </div>
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>An implementation of rspec-mocks&#39; reference interface.
-Used when a string is passed to <span class='object_link'><a href="ExampleMethods.html#object_double-instance_method" title="RSpec::Mocks::ExampleMethods#object_double (method)">ExampleMethods#object_double</a></span>,
-and when a string, named class or named module is passed to
-<span class='object_link'><a href="ExampleMethods.html#instance_double-instance_method" title="RSpec::Mocks::ExampleMethods#instance_double (method)">ExampleMethods#instance_double</a></span>, or <span class='object_link'><a href="ExampleMethods.html#class_double-instance_method" title="RSpec::Mocks::ExampleMethods#class_double (method)">ExampleMethods#class_double</a></span>.
-Represents a reference to the object named (via a constant lookup)
-by the string.</p>
+<p>An implementation of rspec-mocks&#39; reference interface. Used when a string is passed to <span class='object_link'><a href="ExampleMethods.html#object_double-instance_method" title="RSpec::Mocks::ExampleMethods#object_double (method)">ExampleMethods#object_double</a></span>, and when a string, named class or named module is passed to <span class='object_link'><a href="ExampleMethods.html#instance_double-instance_method" title="RSpec::Mocks::ExampleMethods#instance_double (method)">ExampleMethods#instance_double</a></span>, or <span class='object_link'><a href="ExampleMethods.html#class_double-instance_method" title="RSpec::Mocks::ExampleMethods#class_double (method)">ExampleMethods#class_double</a></span>. Represents a reference to the object named (via a constant lookup) by the string.</p>
   </div>
 </div>
 <div class="tags">
@@ -85,14 +81,16 @@ by the string.</p>
       <a href="#const_to_replace-instance_method" title="#const_to_replace (instance method)">#<strong>const_to_replace</strong>  &#x21d2; String </a>
       (also: #description)
   </span>
-    <span class="summary_desc"><div class='inline'><p>The constant name to replace with a double.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>The constant name to replace with a double.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#defined%3F-instance_method" title="#defined? (instance method)">#<strong>defined?</strong>  &#x21d2; Boolean </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>True if the named constant is defined, false otherwise.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>True if the named constant is defined, false otherwise.</p>
 </div></span>
 </li>
         <li class="public ">
@@ -100,21 +98,24 @@ by the string.</p>
       <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(const_name)  &#x21d2; NamedObjectReference </a>
   </span>
     <span class="note title constructor">constructor</span>
-    <span class="summary_desc"><div class='inline'><p>A new instance of NamedObjectReference.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>A new instance of NamedObjectReference.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#target-instance_method" title="#target (instance method)">#<strong>target</strong>  &#x21d2; Object<sup>?</sup> </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>The target of the verifying double (the named object), or nil if it is not defined.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>The target of the verifying double (the named object), or nil if it is not defined.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#when_loaded-instance_method" title="#when_loaded (instance method)">#<strong>when_loaded</strong> {|Object| ... } &#x21d2; Object </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Yields if the reference target is loaded, providing a generic mechanism to optionally run a bit of code only when a reference&#39;s target is loaded.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Yields if the reference target is loaded, providing a generic mechanism to optionally run a bit of code only when a reference&#39;s target is loaded.</p>
 </div></span>
 </li>
     </ul>
@@ -125,7 +126,7 @@ by the string.</p>
     #<strong>initialize</strong>(const_name)  &#x21d2; <tt><span class='object_link'><a href="" title="RSpec::Mocks::NamedObjectReference (class)">NamedObjectReference</a></span></tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns a new instance of NamedObjectReference</p>
+<p>Returns a new instance of NamedObjectReference.</p>
   </div>
 </div>
 <div class="tags">
@@ -135,7 +136,8 @@ by the string.</p>
         <span class='name'>const_name</span>
         <span class='type'>(<tt>String</tt>)</span>
         &mdash;
-        <div class='inline'><p>constant name</p>
+        <div class='inline'>
+<p>constant name</p>
 </div>
     </li>
 </ul>
@@ -167,7 +169,7 @@ by the string.</p>
     </span>
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns the constant name to replace with a double.</p>
+<p>Returns the constant name to replace with a double.</p>
   </div>
 </div>
 <div class="tags">
@@ -176,7 +178,8 @@ by the string.</p>
     <li>
         <span class='type'>(<tt>String</tt>)</span>
         &mdash;
-        <div class='inline'><p>the constant name to replace with a double.</p>
+        <div class='inline'>
+<p>the constant name to replace with a double.</p>
 </div>
     </li>
 </ul>
@@ -202,7 +205,7 @@ by the string.</p>
     #<strong>defined?</strong>  &#x21d2; <tt>Boolean</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns true if the named constant is defined, false otherwise.</p>
+<p>Returns true if the named constant is defined, false otherwise.</p>
   </div>
 </div>
 <div class="tags">
@@ -211,7 +214,8 @@ by the string.</p>
     <li>
         <span class='type'>(<tt>Boolean</tt>)</span>
         &mdash;
-        <div class='inline'><p>true if the named constant is defined, false otherwise.</p>
+        <div class='inline'>
+<p>true if the named constant is defined, false otherwise.</p>
 </div>
     </li>
 </ul>
@@ -237,8 +241,7 @@ by the string.</p>
     #<strong>target</strong>  &#x21d2; <tt>Object</tt><sup>?</sup> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns the target of the verifying double (the named object), or
-nil if it is not defined.</p>
+<p>Returns the target of the verifying double (the named object), or nil if it is not defined.</p>
   </div>
 </div>
 <div class="tags">
@@ -247,8 +250,8 @@ nil if it is not defined.</p>
     <li>
         <span class='type'>(<tt>Object</tt>, <tt>nil</tt>)</span>
         &mdash;
-        <div class='inline'><p>the target of the verifying double (the named object), or
-nil if it is not defined.</p>
+        <div class='inline'>
+<p>the target of the verifying double (the named object), or nil if it is not defined.</p>
 </div>
     </li>
 </ul>
@@ -274,9 +277,7 @@ nil if it is not defined.</p>
     #<strong>when_loaded</strong> {|Object| ... } &#x21d2; <tt>Object</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Yields if the reference target is loaded, providing a generic mechanism
-to optionally run a bit of code only when a reference&#39;s target is
-loaded.</p>
+<p>Yields if the reference target is loaded, providing a generic mechanism to optionally run a bit of code only when a reference&#39;s target is loaded.</p>
   </div>
 </div>
 <div class="tags">
@@ -285,7 +286,8 @@ loaded.</p>
     <li>
         <span class='type'>(<tt>Object</tt>)</span>
         &mdash;
-        <div class='inline'><p>the target object</p>
+        <div class='inline'>
+<p>the target object</p>
 </div>
     </li>
 </ul>
@@ -309,18 +311,10 @@ loaded.</p>
   </div>
 </div>
       <div id="footer">
-  Generated on Fri Sep 14 00:02:10 2018 by
+  Generated on Tue Jul 28 15:14:03 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.16 (ruby-2.5.1).
+  0.9.25 (ruby-2.7.1).
 </div>
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-  ga('create', 'UA-59095215-1', 'auto');
-  ga('send', 'pageview');
-</script>
     </div>
   </body>
 </html>

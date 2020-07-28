@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
   Class: RSpec::Core::Example::Procsy
-    &mdash; Documentation by YARD 0.9.16
+    &mdash; Documentation by YARD 0.9.25
 </title>
-  <link rel="stylesheet" href="/documentation/3.8/rspec-core/css/style.css" type="text/css" charset="utf-8" />
-  <link rel="stylesheet" href="/documentation/3.8/rspec-core/css/common.css" type="text/css" charset="utf-8" />
-<script type="text/javascript" charset="utf-8">
+  <link rel="stylesheet" href="/documentation/3.8/rspec-core/css/style.css" type="text/css" />
+  <link rel="stylesheet" href="/documentation/3.8/rspec-core/css/common.css" type="text/css" />
+<script type="text/javascript">
   pathId = "RSpec::Core::Example::Procsy";
   relpath = '../../../';
 </script>
@@ -63,13 +64,11 @@
   <div class="discussion">
   <div class="note notetag">
     <strong>Note:</strong>
-    <div class='inline'><p>This class also exposes the instance methods of <span class='object_link'><a href="../Example.html" title="RSpec::Core::Example (class)">RSpec::Core::Example</a></span>,
-proxying them through to the wrapped <span class='object_link'><a href="../Example.html" title="RSpec::Core::Example (class)">RSpec::Core::Example</a></span> instance.</p>
+    <div class='inline'>
+<p>This class also exposes the instance methods of <span class='object_link'><a href="../Example.html" title="RSpec::Core::Example (class)">RSpec::Core::Example</a></span>, proxying them through to the wrapped <span class='object_link'><a href="../Example.html" title="RSpec::Core::Example (class)">RSpec::Core::Example</a></span> instance.</p>
 </div>
   </div>
-<p>Wraps both a <code>Proc</code> and an <span class='object_link'><a href="../Example.html" title="RSpec::Core::Example (class)">RSpec::Core::Example</a></span> for use in <span class='object_link'><a href="../Hooks.html#around-instance_method" title="RSpec::Core::Hooks#around (method)">around</a></span> hooks. In around hooks we need to yield this special
-kind of object (rather than the raw <span class='object_link'><a href="../Example.html" title="RSpec::Core::Example (class)">RSpec::Core::Example</a></span>) because when
-there are multiple <code>around</code> hooks we have to wrap them recursively.</p>
+<p>Wraps both a <code>Proc</code> and an <span class='object_link'><a href="../Example.html" title="RSpec::Core::Example (class)">RSpec::Core::Example</a></span> for use in <span class='object_link'><a href="../Hooks.html#around-instance_method" title="RSpec::Core::Hooks#around (method)">around</a></span> hooks. In around hooks we need to yield this special kind of object (rather than the raw <span class='object_link'><a href="../Example.html" title="RSpec::Core::Example (class)">RSpec::Core::Example</a></span>) because when there are multiple <code>around</code> hooks we have to wrap them recursively.</p>
   </div>
 </div>
 <div class="tags">
@@ -93,7 +92,8 @@ there are multiple <code>around</code> hooks we have to wrap them recursively.</
       <a href="#example-instance_method" title="#example (instance method)">#<strong>example</strong>  &#x21d2; void </a>
   </span>
       <span class="note title readonly">readonly</span>
-    <span class="summary_desc"><div class='inline'><p>The <span class='object_link'><a href="../Example.html" title="RSpec::Core::Example (class)">RSpec::Core::Example</a></span> instance.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>The <span class='object_link'><a href="../Example.html" title="RSpec::Core::Example (class)">RSpec::Core::Example</a></span> instance.</p>
 </div></span>
 </li>
   </ul>
@@ -107,14 +107,16 @@ there are multiple <code>around</code> hooks we have to wrap them recursively.</
       <a href="#call-instance_method" title="#call (instance method)">#<strong>call</strong>(*args, &amp;block)  &#x21d2; void </a>
       (also: #run)
   </span>
-    <span class="summary_desc"><div class='inline'><p>Calls the proc and notes that the example has been executed.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Calls the proc and notes that the example has been executed.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#executed%3F-instance_method" title="#executed? (instance method)">#<strong>executed?</strong>  &#x21d2; Boolean </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Indicates whether or not the around hook has executed the example.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Indicates whether or not the around hook has executed the example.</p>
 </div></span>
 </li>
         <li class="public ">
@@ -122,14 +124,16 @@ there are multiple <code>around</code> hooks we have to wrap them recursively.</
       <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(example, &amp;block)  &#x21d2; Procsy </a>
   </span>
     <span class="note title constructor">constructor</span>
-    <span class="summary_desc"><div class='inline'><p>A new instance of Procsy.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>A new instance of Procsy.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#to_proc-instance_method" title="#to_proc (instance method)">#<strong>to_proc</strong>  &#x21d2; void </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Provides a wrapped proc that will update our <code>executed?</code> state when executed.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Provides a wrapped proc that will update our <code>executed?</code> state when executed.</p>
 </div></span>
 </li>
     </ul>
@@ -140,7 +144,7 @@ there are multiple <code>around</code> hooks we have to wrap them recursively.</
     #<strong>initialize</strong>(example, &amp;block)  &#x21d2; <tt><span class='object_link'><a href="" title="RSpec::Core::Example::Procsy (class)">Procsy</a></span></tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns a new instance of Procsy</p>
+<p>Returns a new instance of Procsy.</p>
   </div>
 </div>
 <div class="tags">
@@ -148,14 +152,14 @@ there are multiple <code>around</code> hooks we have to wrap them recursively.</
   <tr>
     <td>
       <pre class="lines">
-352
-353
-354
 355
-356</pre>
+356
+357
+358
+359</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/core/example.rb', line 352</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/example.rb', line 355</span>
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_example'>example</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
   <span class='ivar'>@example</span>  <span class='op'>=</span> <span class='id identifier rubyid_example'>example</span>
   <span class='ivar'>@proc</span>     <span class='op'>=</span> <span class='id identifier rubyid_block'>block</span>
@@ -174,7 +178,7 @@ there are multiple <code>around</code> hooks we have to wrap them recursively.</
     #<strong>example</strong>  &#x21d2; <tt>void</tt>  <span class="extras">(readonly)</span>
 </h3><div class="docstring">
   <div class="discussion">
-    <p>The <span class='object_link'><a href="../Example.html" title="RSpec::Core::Example (class)">RSpec::Core::Example</a></span> instance.</p>
+<p>The <span class='object_link'><a href="../Example.html" title="RSpec::Core::Example (class)">RSpec::Core::Example</a></span> instance.</p>
   </div>
 </div>
 <div class="tags">
@@ -182,12 +186,12 @@ there are multiple <code>around</code> hooks we have to wrap them recursively.</
   <tr>
     <td>
       <pre class="lines">
-323
-324
-325</pre>
+326
+327
+328</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/core/example.rb', line 323</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/example.rb', line 326</span>
 <span class='kw'>def</span> <span class='id identifier rubyid_example'>example</span>
   <span class='ivar'>@example</span>
 <span class='kw'>end</span></pre>
@@ -206,7 +210,7 @@ there are multiple <code>around</code> hooks we have to wrap them recursively.</
     </span>
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Calls the proc and notes that the example has been executed.</p>
+<p>Calls the proc and notes that the example has been executed.</p>
   </div>
 </div>
 <div class="tags">
@@ -214,13 +218,13 @@ there are multiple <code>around</code> hooks we have to wrap them recursively.</
   <tr>
     <td>
       <pre class="lines">
-340
-341
-342
-343</pre>
+343
+344
+345
+346</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/core/example.rb', line 340</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/example.rb', line 343</span>
 <span class='kw'>def</span> <span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
   <span class='ivar'>@executed</span> <span class='op'>=</span> <span class='kw'>true</span>
   <span class='ivar'>@proc</span><span class='period'>.</span><span class='id identifier rubyid_call'>call</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
@@ -234,7 +238,7 @@ there are multiple <code>around</code> hooks we have to wrap them recursively.</
     #<strong>executed?</strong>  &#x21d2; <tt>Boolean</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Indicates whether or not the around hook has executed the example.</p>
+<p>Indicates whether or not the around hook has executed the example.</p>
   </div>
 </div>
 <div class="tags">
@@ -248,12 +252,12 @@ there are multiple <code>around</code> hooks we have to wrap them recursively.</
   <tr>
     <td>
       <pre class="lines">
-364
-365
-366</pre>
+367
+368
+369</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/core/example.rb', line 364</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/example.rb', line 367</span>
 <span class='kw'>def</span> <span class='id identifier rubyid_executed?'>executed?</span>
   <span class='ivar'>@executed</span>
 <span class='kw'>end</span></pre>
@@ -266,8 +270,7 @@ there are multiple <code>around</code> hooks we have to wrap them recursively.</
     #<strong>to_proc</strong>  &#x21d2; <tt>void</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Provides a wrapped proc that will update our <code>executed?</code> state when
-executed.</p>
+<p>Provides a wrapped proc that will update our <code>executed?</code> state when executed.</p>
   </div>
 </div>
 <div class="tags">
@@ -275,12 +278,12 @@ executed.</p>
   <tr>
     <td>
       <pre class="lines">
-348
-349
-350</pre>
+351
+352
+353</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/core/example.rb', line 348</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/example.rb', line 351</span>
 <span class='kw'>def</span> <span class='id identifier rubyid_to_proc'>to_proc</span>
   <span class='id identifier rubyid_method'>method</span><span class='lparen'>(</span><span class='symbol'>:call</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to_proc'>to_proc</span>
 <span class='kw'>end</span></pre>
@@ -291,18 +294,10 @@ executed.</p>
   </div>
 </div>
       <div id="footer">
-  Generated on Fri Sep 14 00:01:55 2018 by
+  Generated on Tue Jul 28 15:12:42 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.16 (ruby-2.5.1).
+  0.9.25 (ruby-2.7.1).
 </div>
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-  ga('create', 'UA-59095215-1', 'auto');
-  ga('send', 'pageview');
-</script>
     </div>
   </body>
 </html>

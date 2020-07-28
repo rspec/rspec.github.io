@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
   Module: RSpec::Matchers
-    &mdash; Documentation by YARD 0.9.16
+    &mdash; Documentation by YARD 0.9.25
 </title>
-  <link rel="stylesheet" href="/documentation/3.8/rspec-expectations/css/style.css" type="text/css" charset="utf-8" />
-  <link rel="stylesheet" href="/documentation/3.8/rspec-expectations/css/common.css" type="text/css" charset="utf-8" />
-<script type="text/javascript" charset="utf-8">
+  <link rel="stylesheet" href="/documentation/3.8/rspec-expectations/css/style.css" type="text/css" />
+  <link rel="stylesheet" href="/documentation/3.8/rspec-expectations/css/common.css" type="text/css" />
+<script type="text/javascript">
   pathId = "RSpec::Matchers";
   relpath = '../';
 </script>
@@ -60,23 +61,15 @@
 </div>
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>RSpec::Matchers provides a number of useful matchers we use to define
-expectations. Any object that implements the <a href="Matchers/MatcherProtocol">matcher protocol</a>
-can be used as a matcher.</p>
-<h2>Predicates</h2>
-<p>In addition to matchers that are defined explicitly, RSpec will create
-custom matchers on the fly for any arbitrary predicate, giving your specs a
-much more natural language feel.</p>
-<p>A Ruby predicate is a method that ends with a &quot;?&quot; and returns true or false.
-Common examples are <code>empty?</code>, <code>nil?</code>, and <code>instance_of?</code>.</p>
-<p>All you need to do is write <code>expect(..).to be_</code> followed by the predicate
-without the question mark, and RSpec will figure it out from there.
-For example:</p>
+<p>RSpec::Matchers provides a number of useful matchers we use to define expectations. Any object that implements the <a href="Matchers/MatcherProtocol">matcher protocol</a> can be used as a matcher.</p>
+<h2 id="label-Predicates">Predicates</h2>
+<p>In addition to matchers that are defined explicitly, RSpec will create custom matchers on the fly for any arbitrary predicate, giving your specs a much more natural language feel.</p>
+<p>A Ruby predicate is a method that ends with a “?” and returns true or false. Common examples are <code>empty?</code>, <code>nil?</code>, and <code>instance_of?</code>.</p>
+<p>All you need to do is write <code>expect(..).to be_</code> followed by the predicate without the question mark, and RSpec will figure it out from there. For example:</p>
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_be_empty'>be_empty</span>     <span class='comment'># =&gt; [].empty?() | passes
 </span><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_not_to'>not_to</span> <span class='id identifier rubyid_be_empty'>be_empty</span> <span class='comment'># =&gt; [].empty?() | fails
 </span></code></pre>
-<p>In addtion to prefixing the predicate matchers with &quot;be<em>&quot;, you can also use &quot;be_a</em>&quot;
-and &quot;be<em>an</em>&quot;, making your specs read much more naturally:</p>
+<p>In addtion to prefixing the predicate matchers with “be<em>”, you can also use “be_a</em>” and “be_an_”, making your specs read much more naturally:</p>
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>a string</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_be_an_instance_of'>be_an_instance_of</span><span class='lparen'>(</span><span class='const'>String</span><span class='rparen'>)</span> <span class='comment'># =&gt;&quot;a string&quot;.instance_of?(String) # passes
 </span>
 <span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='int'>3</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_be_a_kind_of'>be_a_kind_of</span><span class='lparen'>(</span><span class='const'>Integer</span><span class='rparen'>)</span>          <span class='comment'># =&gt; 3.kind_of?(Numeric)     | passes
@@ -84,22 +77,17 @@ and &quot;be<em>an</em>&quot;, making your specs read much more naturally:</p>
 </span><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='int'>3</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_be_an_instance_of'>be_an_instance_of</span><span class='lparen'>(</span><span class='const'>Integer</span><span class='rparen'>)</span>     <span class='comment'># =&gt; 3.instance_of?(Integer) | passes
 </span><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='int'>3</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_not_to'>not_to</span> <span class='id identifier rubyid_be_an_instance_of'>be_an_instance_of</span><span class='lparen'>(</span><span class='const'>Numeric</span><span class='rparen'>)</span> <span class='comment'># =&gt; 3.instance_of?(Numeric) | fails
 </span></code></pre>
-<p>RSpec will also create custom matchers for predicates like <code>has_key?</code>. To
-use this feature, just state that the object should have_key(:key) and RSpec will
-call has_key?(:key) on the target. For example:</p>
+<p>RSpec will also create custom matchers for predicates like <code>has_key?</code>. To use this feature, just state that the object should have_key(:key) and RSpec will call has_key?(:key) on the target. For example:</p>
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='symbol'>:a</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>A</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_have_key'>have_key</span><span class='lparen'>(</span><span class='symbol'>:a</span><span class='rparen'>)</span>
 <span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='symbol'>:a</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>A</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_have_key'>have_key</span><span class='lparen'>(</span><span class='symbol'>:b</span><span class='rparen'>)</span> <span class='comment'># fails
 </span></code></pre>
-<p>You can use this feature to invoke any predicate that begins with &quot;has_&quot;, whether it is
-part of the Ruby libraries (like <code>Hash#has_key?</code>) or a method you wrote on your own class.</p>
-<p>Note that RSpec does not provide composable aliases for these dynamic predicate
-matchers. You can easily define your own aliases, though:</p>
+<p>You can use this feature to invoke any predicate that begins with “has_”, whether it is part of the Ruby libraries (like <code>Hash#has_key?</code>) or a method you wrote on your own class.</p>
+<p>Note that RSpec does not provide composable aliases for these dynamic predicate matchers. You can easily define your own aliases, though:</p>
 <pre class="code ruby"><code class="ruby"><span class='const'><span class='object_link'><a href="../RSpec.html" title="RSpec (module)">RSpec</a></span></span><span class='op'>::</span><span class='const'>Matchers</span><span class='period'>.</span><span class='id identifier rubyid_alias_matcher'><span class='object_link'><a href="#alias_matcher-class_method" title="RSpec::Matchers.alias_matcher (method)">alias_matcher</a></span></span> <span class='symbol'>:a_user_who_is_an_admin</span><span class='comma'>,</span> <span class='symbol'>:be_an_admin</span>
 <span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_user_list'>user_list</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_include'>include</span><span class='lparen'>(</span><span class='id identifier rubyid_a_user_who_is_an_admin'>a_user_who_is_an_admin</span><span class='rparen'>)</span>
 </code></pre>
-<h2>Alias Matchers</h2>
-<p>With <span class='object_link'><a href="#alias_matcher-class_method" title="RSpec::Matchers.alias_matcher (method)">Matchers.alias_matcher</a></span>, you can easily create an
-alternate name for a given matcher.</p>
+<h2 id="label-Alias+Matchers">Alias Matchers</h2>
+<p>With <span class='object_link'><a href="#alias_matcher-class_method" title="RSpec::Matchers.alias_matcher (method)">Matchers.alias_matcher</a></span>, you can easily create an alternate name for a given matcher.</p>
 <p>The description will also change according to the new name:</p>
 <pre class="code ruby"><code class="ruby"><span class='const'><span class='object_link'><a href="../RSpec.html" title="RSpec (module)">RSpec</a></span></span><span class='op'>::</span><span class='const'>Matchers</span><span class='period'>.</span><span class='id identifier rubyid_alias_matcher'><span class='object_link'><a href="#alias_matcher-class_method" title="RSpec::Matchers.alias_matcher (method)">alias_matcher</a></span></span> <span class='symbol'>:a_list_that_sums_to</span><span class='comma'>,</span> <span class='symbol'>:sum_to</span>
 <span class='id identifier rubyid_sum_to'>sum_to</span><span class='lparen'>(</span><span class='int'>3</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_description'>description</span> <span class='comment'># =&gt; &quot;sum to 3&quot;
@@ -112,14 +100,10 @@ alternate name for a given matcher.</p>
 <span class='id identifier rubyid_be_sorted_by'>be_sorted_by</span><span class='lparen'>(</span><span class='symbol'>:age</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_description'>description</span> <span class='comment'># =&gt; &quot;be sorted by age&quot;
 </span><span class='id identifier rubyid_a_list_sorted_by'>a_list_sorted_by</span><span class='lparen'>(</span><span class='symbol'>:age</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_description'>description</span> <span class='comment'># =&gt; &quot;a list sorted by age&quot;
 </span></code></pre>
-<h2>Custom Matchers</h2>
-<p>When you find that none of the stock matchers provide a natural feeling
-expectation, you can very easily write your own using RSpec&#39;s matcher DSL
-or writing one from scratch.</p>
-<h3>Matcher DSL</h3>
-<p>Imagine that you are writing a game in which players can be in various
-zones on a virtual board. To specify that bob should be in zone 4, you
-could say:</p>
+<h2 id="label-Custom+Matchers">Custom Matchers</h2>
+<p>When you find that none of the stock matchers provide a natural feeling expectation, you can very easily write your own using RSpec&#39;s matcher DSL or writing one from scratch.</p>
+<h3 id="label-Matcher+DSL">Matcher DSL</h3>
+<p>Imagine that you are writing a game in which players can be in various zones on a virtual board. To specify that bob should be in zone 4, you could say:</p>
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_bob'>bob</span><span class='period'>.</span><span class='id identifier rubyid_current_zone'>current_zone</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_eql'>eql</span><span class='lparen'>(</span><span class='const'>Zone</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>4</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span><span class='rparen'>)</span>
 </code></pre>
 <p>But you might find it more expressive to say:</p>
@@ -135,9 +119,7 @@ could say:</p>
   <span class='kw'>end</span>
 <span class='kw'>end</span>
 </code></pre>
-<p>This will generate a <tt>be_in_zone</tt> method that returns a matcher
-with logical default messages for failures. You can override the failure
-messages and the generated description as follows:</p>
+<p>This will generate a <code>be_in_zone</code> method that returns a matcher with logical default messages for failures. You can override the failure messages and the generated description as follows:</p>
 <pre class="code ruby"><code class="ruby"><span class='const'><span class='object_link'><a href="../RSpec.html" title="RSpec (module)">RSpec</a></span></span><span class='op'>::</span><span class='const'>Matchers</span><span class='period'>.</span><span class='id identifier rubyid_define'><span class='object_link'><a href="#define-class_method" title="RSpec::Matchers.define (method)">define</a></span></span> <span class='symbol'>:be_in_zone</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_zone'>zone</span><span class='op'>|</span>
   <span class='id identifier rubyid_match'>match</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_player'>player</span><span class='op'>|</span>
     <span class='id identifier rubyid_player'>player</span><span class='period'>.</span><span class='id identifier rubyid_in_zone?'>in_zone?</span><span class='lparen'>(</span><span class='id identifier rubyid_zone'>zone</span><span class='rparen'>)</span>
@@ -153,12 +135,8 @@ messages and the generated description as follows:</p>
 </span>  <span class='kw'>end</span>
 <span class='kw'>end</span>
 </code></pre>
-<p>Each of the message-generation methods has access to the block arguments
-passed to the <tt>create</tt> method (in this case, <tt>zone</tt>). The
-failure message methods (<tt>failure_message</tt> and
-<tt>failure_message_when_negated</tt>) are passed the actual value (the
-receiver of <tt>expect(..)</tt> or <tt>expect(..).not_to</tt>).</p>
-<h3>Custom Matcher from scratch</h3>
+<p>Each of the message-generation methods has access to the block arguments passed to the <code>create</code> method (in this case, <code>zone</code>). The failure message methods (<code>failure_message</code> and <code>failure_message_when_negated</code>) are passed the actual value (the receiver of <code>expect(..)</code> or <code>expect(..).not_to</code>).</p>
+<h3 id="label-Custom+Matcher+from+scratch">Custom Matcher from scratch</h3>
 <p>You could also write a custom matcher from scratch, as follows:</p>
 <pre class="code ruby"><code class="ruby"><span class='kw'>class</span> <span class='const'>BeInZone</span>
   <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_expected'>expected</span><span class='rparen'>)</span>
@@ -176,14 +154,12 @@ receiver of <tt>expect(..)</tt> or <tt>expect(..).not_to</tt>).</p>
   <span class='kw'>end</span>
 <span class='kw'>end</span>
 </code></pre>
-<p>... and a method like this:</p>
+<p>… and a method like this:</p>
 <pre class="code ruby"><code class="ruby"><span class='kw'>def</span> <span class='id identifier rubyid_be_in_zone'>be_in_zone</span><span class='lparen'>(</span><span class='id identifier rubyid_expected'>expected</span><span class='rparen'>)</span>
   <span class='const'>BeInZone</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_expected'>expected</span><span class='rparen'>)</span>
 <span class='kw'>end</span>
 </code></pre>
-<p>And then expose the method to your specs. This is normally done
-by including the method and the class in a module, which is then
-included in your spec:</p>
+<p>And then expose the method to your specs. This is normally done by including the method and the class in a module, which is then included in your spec:</p>
 <pre class="code ruby"><code class="ruby"><span class='kw'>module</span> <span class='const'>CustomGameMatchers</span>
   <span class='kw'>class</span> <span class='const'>BeInZone</span>
     <span class='comment'># ...
@@ -197,48 +173,27 @@ included in your spec:</p>
   <span class='comment'># ...
 </span><span class='kw'>end</span>
 </code></pre>
-<p>or you can include in globally in a spec_helper.rb file <tt>require</tt>d
-from your spec file(s):</p>
+<p>or you can include in globally in a spec_helper.rb file <code>require</code>d from your spec file(s):</p>
 <pre class="code ruby"><code class="ruby"><span class='const'><span class='object_link'><a href="../RSpec.html" title="RSpec (module)">RSpec</a></span></span><span class='op'>::</span><span class='id identifier rubyid_configure'>configure</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_config'>config</span><span class='op'>|</span>
   <span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_include'>include</span><span class='lparen'>(</span><span class='const'>CustomGameMatchers</span><span class='rparen'>)</span>
 <span class='kw'>end</span>
 </code></pre>
-<h3>Making custom matchers composable</h3>
+<h3 id="label-Making+custom+matchers+composable">Making custom matchers composable</h3>
 <p>RSpec&#39;s built-in matchers are designed to be composed, in expressions like:</p>
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>barn</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='float'>2.45</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_contain_exactly'>contain_exactly</span><span class='lparen'>(</span>
   <span class='id identifier rubyid_a_value_within'>a_value_within</span><span class='lparen'>(</span><span class='float'>0.1</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_of'>of</span><span class='lparen'>(</span><span class='float'>2.5</span><span class='rparen'>)</span><span class='comma'>,</span>
   <span class='id identifier rubyid_a_string_starting_with'>a_string_starting_with</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>bar</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
 <span class='rparen'>)</span>
 </code></pre>
-<p>Custom matchers can easily participate in composed matcher expressions like these.
-Include <span class='object_link'><a href="Matchers/Composable.html" title="RSpec::Matchers::Composable (module)">Composable</a></span> in your custom matcher to make it support
-being composed (matchers defined using the DSL have this included automatically).
-Within your matcher&#39;s <code>matches?</code> method (or the <code>match</code> block, if using the DSL),
-use <code>values_match?(expected, actual)</code> rather than <code>expected == actual</code>.
-Under the covers, <code>values_match?</code> is able to match arbitrary
-nested data structures containing a mix of both matchers and non-matcher objects.
-It uses <code>===</code> and <code>==</code> to perform the matching, considering the values to
-match if either returns <code>true</code>. The <code>Composable</code> mixin also provides some helper
-methods for surfacing the matcher descriptions within your matcher&#39;s description
-or failure messages.</p>
-<p>RSpec&#39;s built-in matchers each have a number of aliases that rephrase the matcher
-from a verb phrase (such as <code>be_within</code>) to a noun phrase (such as <code>a_value_within</code>),
-which reads better when the matcher is passed as an argument in a composed matcher
-expressions, and also uses the noun-phrase wording in the matcher&#39;s <code>description</code>,
-for readable failure messages. You can alias your custom matchers in similar fashion
-using <span class='object_link'><a href="#alias_matcher-class_method" title="RSpec::Matchers.alias_matcher (method)">Matchers.alias_matcher</a></span>.</p>
-<h2>Negated Matchers</h2>
-<p>Sometimes if you want to test for the opposite using a more descriptive name
-instead of using <code>not_to</code>, you can use <span class='object_link'><a href="#define_negated_matcher-class_method" title="RSpec::Matchers.define_negated_matcher (method)">Matchers.define_negated_matcher</a></span>:</p>
+<p>Custom matchers can easily participate in composed matcher expressions like these. Include <span class='object_link'><a href="Matchers/Composable.html" title="RSpec::Matchers::Composable (module)">Composable</a></span> in your custom matcher to make it support being composed (matchers defined using the DSL have this included automatically). Within your matcher&#39;s <code>matches?</code> method (or the <code>match</code> block, if using the DSL), use <code>values_match?(expected, actual)</code> rather than <code>expected == actual</code>. Under the covers, <code>values_match?</code> is able to match arbitrary nested data structures containing a mix of both matchers and non-matcher objects. It uses <code>===</code> and <code>==</code> to perform the matching, considering the values to match if either returns <code>true</code>. The <code>Composable</code> mixin also provides some helper methods for surfacing the matcher descriptions within your matcher&#39;s description or failure messages.</p>
+<p>RSpec&#39;s built-in matchers each have a number of aliases that rephrase the matcher from a verb phrase (such as <code>be_within</code>) to a noun phrase (such as <code>a_value_within</code>), which reads better when the matcher is passed as an argument in a composed matcher expressions, and also uses the noun-phrase wording in the matcher&#39;s <code>description</code>, for readable failure messages. You can alias your custom matchers in similar fashion using <span class='object_link'><a href="#alias_matcher-class_method" title="RSpec::Matchers.alias_matcher (method)">Matchers.alias_matcher</a></span>.</p>
+<h2 id="label-Negated+Matchers">Negated Matchers</h2>
+<p>Sometimes if you want to test for the opposite using a more descriptive name instead of using <code>not_to</code>, you can use <span class='object_link'><a href="#define_negated_matcher-class_method" title="RSpec::Matchers.define_negated_matcher (method)">Matchers.define_negated_matcher</a></span>:</p>
 <pre class="code ruby"><code class="ruby"><span class='const'><span class='object_link'><a href="../RSpec.html" title="RSpec (module)">RSpec</a></span></span><span class='op'>::</span><span class='const'>Matchers</span><span class='period'>.</span><span class='id identifier rubyid_define_negated_matcher'><span class='object_link'><a href="#define_negated_matcher-class_method" title="RSpec::Matchers.define_negated_matcher (method)">define_negated_matcher</a></span></span> <span class='symbol'>:exclude</span><span class='comma'>,</span> <span class='symbol'>:include</span>
 <span class='id identifier rubyid_include'>include</span><span class='lparen'>(</span><span class='int'>1</span><span class='comma'>,</span> <span class='int'>2</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_description'>description</span> <span class='comment'># =&gt; &quot;include 1 and 2&quot;
 </span><span class='id identifier rubyid_exclude'>exclude</span><span class='lparen'>(</span><span class='int'>1</span><span class='comma'>,</span> <span class='int'>2</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_description'>description</span> <span class='comment'># =&gt; &quot;exclude 1 and 2&quot;
 </span></code></pre>
-<p>While the most obvious negated form may be to add a <code>not_</code> prefix,
-the failure messages you get with that form can be confusing (e.g.
-&quot;expected [actual] to not [verb], but did not&quot;). We&#39;ve found it works
-best to find a more positive name for the negated form, such as
-<code>avoid_changing</code> rather than <code>not_change</code>.</p>
+<p>While the most obvious negated form may be to add a <code>not_</code> prefix, the failure messages you get with that form can be confusing (e.g. “expected [actual] to not [verb], but did not”). We&#39;ve found it works best to find a more positive name for the negated form, such as <code>avoid_changing</code> rather than <code>not_change</code>.</p>
   </div>
 </div>
 <div class="tags">
@@ -256,7 +211,8 @@ best to find a more positive name for the negated form, such as
   <span class="summary_signature">
       <a href="#alias_matcher-class_method" title="alias_matcher (class method)">.<strong>alias_matcher</strong>(new_name, old_name, options = {}, &amp;description_override)  &#x21d2; Object </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Extended from <span class='object_link'><a href="Matchers/DSL.html#alias_matcher-instance_method" title="RSpec::Matchers::DSL#alias_matcher (method)">DSL#alias_matcher</a></span>.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Extended from <span class='object_link'><a href="Matchers/DSL.html#alias_matcher-instance_method" title="RSpec::Matchers::DSL#alias_matcher (method)">DSL#alias_matcher</a></span>.</p>
 </div></span>
 </li>
         <li class="public ">
@@ -264,28 +220,32 @@ best to find a more positive name for the negated form, such as
       <a href="#clear_generated_description-class_method" title="clear_generated_description (class method)">.<strong>clear_generated_description</strong>  &#x21d2; Object </a>
   </span>
   <span class="private note title">private</span>
-    <span class="summary_desc"><div class='inline'><p>Used by rspec-core to clear the state used to generate descriptions after an example.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Used by rspec-core to clear the state used to generate descriptions after an example.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#configuration-class_method" title="configuration (class method)">.<strong>configuration</strong>  &#x21d2; RSpec::Expectations::Configuration </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Delegates to <span class='object_link'><a href="Expectations.html#configuration-class_method" title="RSpec::Expectations.configuration (method)">Expectations.configuration</a></span>.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Delegates to <span class='object_link'><a href="Expectations.html#configuration-class_method" title="RSpec::Expectations.configuration (method)">Expectations.configuration</a></span>.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#define-class_method" title="define (class method)">.<strong>define</strong>(name, &amp;declarations)  &#x21d2; Object </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Extended from <span class='object_link'><a href="Matchers/DSL.html#define-instance_method" title="RSpec::Matchers::DSL#define (method)">DSL#define</a></span>.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Extended from <span class='object_link'><a href="Matchers/DSL.html#define-instance_method" title="RSpec::Matchers::DSL#define (method)">DSL#define</a></span>.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#define_negated_matcher-class_method" title="define_negated_matcher (class method)">.<strong>define_negated_matcher</strong>(negated_name, base_name, &amp;description_override)  &#x21d2; Object </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Extended from <span class='object_link'><a href="Matchers/DSL.html#define_negated_matcher-instance_method" title="RSpec::Matchers::DSL#define_negated_matcher (method)">DSL#define_negated_matcher</a></span>.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Extended from <span class='object_link'><a href="Matchers/DSL.html#define_negated_matcher-instance_method" title="RSpec::Matchers::DSL#define_negated_matcher (method)">DSL#define_negated_matcher</a></span>.</p>
 </div></span>
 </li>
         <li class="public ">
@@ -293,7 +253,8 @@ best to find a more positive name for the negated form, such as
       <a href="#generated_description-class_method" title="generated_description (class method)">.<strong>generated_description</strong>  &#x21d2; Object </a>
   </span>
   <span class="private note title">private</span>
-    <span class="summary_desc"><div class='inline'><p>Generates an an example description based on the last expectation.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Generates an an example description based on the last expectation.</p>
 </div></span>
 </li>
     </ul>
@@ -306,14 +267,16 @@ best to find a more positive name for the negated form, such as
   <span class="summary_signature">
       <a href="#aggregate_failures-instance_method" title="#aggregate_failures (instance method)">#<strong>aggregate_failures</strong>(label = nil, metadata = {}) { ... } &#x21d2; Object </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Allows multiple expectations in the provided block to fail, and then aggregates them into a single exception, rather than aborting on the first expectation failure like normal.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Allows multiple expectations in the provided block to fail, and then aggregates them into a single exception, rather than aborting on the first expectation failure like normal.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#all-instance_method" title="#all (instance method)">#<strong>all</strong>(expected)  &#x21d2; Object </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Passes if the provided matcher passes when checked against all elements of the collection.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Passes if the provided matcher passes when checked against all elements of the collection.</p>
 </div></span>
 </li>
         <li class="public ">
@@ -321,7 +284,8 @@ best to find a more positive name for the negated form, such as
       <a href="#be-instance_method" title="#be (instance method)">#<strong>be</strong>(*args)  &#x21d2; Object </a>
       (also: #a_value)
   </span>
-    <span class="summary_desc"><div class='inline'><p>Given true, false, or nil, will pass if actual value is true, false or nil (respectively).</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Given true, false, or nil, will pass if actual value is true, false or nil (respectively).</p>
 </div></span>
 </li>
         <li class="public ">
@@ -329,7 +293,8 @@ best to find a more positive name for the negated form, such as
       <a href="#be_a-instance_method" title="#be_a (instance method)">#<strong>be_a</strong>(klass)  &#x21d2; Object </a>
       (also: #be_an)
   </span>
-    <span class="summary_desc"><div class='inline'><p>passes if target.kind_of?(klass).</p>
+    <span class="summary_desc"><div class='inline'>
+<p>passes if target.kind_of?(klass).</p>
 </div></span>
 </li>
         <li class="public ">
@@ -337,7 +302,8 @@ best to find a more positive name for the negated form, such as
       <a href="#be_a_kind_of-instance_method" title="#be_a_kind_of (instance method)">#<strong>be_a_kind_of</strong>(expected)  &#x21d2; Object </a>
       (also: #be_kind_of, #a_kind_of)
   </span>
-    <span class="summary_desc"><div class='inline'><p>Passes if actual.kind_of?(expected).</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Passes if actual.kind_of?(expected).</p>
 </div></span>
 </li>
         <li class="public ">
@@ -345,7 +311,8 @@ best to find a more positive name for the negated form, such as
       <a href="#be_an_instance_of-instance_method" title="#be_an_instance_of (instance method)">#<strong>be_an_instance_of</strong>(expected)  &#x21d2; Object </a>
       (also: #be_instance_of, #an_instance_of)
   </span>
-    <span class="summary_desc"><div class='inline'><p>Passes if actual.instance_of?(expected).</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Passes if actual.instance_of?(expected).</p>
 </div></span>
 </li>
         <li class="public ">
@@ -353,7 +320,8 @@ best to find a more positive name for the negated form, such as
       <a href="#be_between-instance_method" title="#be_between (instance method)">#<strong>be_between</strong>(min, max)  &#x21d2; Object </a>
       (also: #a_value_between)
   </span>
-    <span class="summary_desc"><div class='inline'><p>Passes if actual.between?(min, max).</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Passes if actual.between?(min, max).</p>
 </div></span>
 </li>
         <li class="public ">
@@ -361,7 +329,8 @@ best to find a more positive name for the negated form, such as
       <a href="#be_falsey-instance_method" title="#be_falsey (instance method)">#<strong>be_falsey</strong>  &#x21d2; Object </a>
       (also: #be_falsy, #a_falsey_value, #a_falsy_value)
   </span>
-    <span class="summary_desc"><div class='inline'><p>Passes if actual is falsey (false or nil).</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Passes if actual is falsey (false or nil).</p>
 </div></span>
 </li>
         <li class="public ">
@@ -369,7 +338,8 @@ best to find a more positive name for the negated form, such as
       <a href="#be_nil-instance_method" title="#be_nil (instance method)">#<strong>be_nil</strong>  &#x21d2; Object </a>
       (also: #a_nil_value)
   </span>
-    <span class="summary_desc"><div class='inline'><p>Passes if actual is nil.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Passes if actual is nil.</p>
 </div></span>
 </li>
         <li class="public ">
@@ -377,7 +347,8 @@ best to find a more positive name for the negated form, such as
       <a href="#be_truthy-instance_method" title="#be_truthy (instance method)">#<strong>be_truthy</strong>  &#x21d2; Object </a>
       (also: #a_truthy_value)
   </span>
-    <span class="summary_desc"><div class='inline'><p>Passes if actual is truthy (anything but false or nil).</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Passes if actual is truthy (anything but false or nil).</p>
 </div></span>
 </li>
         <li class="public ">
@@ -385,7 +356,8 @@ best to find a more positive name for the negated form, such as
       <a href="#be_within-instance_method" title="#be_within (instance method)">#<strong>be_within</strong>(delta)  &#x21d2; Object </a>
       (also: #a_value_within, #within)
   </span>
-    <span class="summary_desc"><div class='inline'><p>Passes if actual == expected +/- delta.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Passes if actual == expected +/- delta.</p>
 </div></span>
 </li>
         <li class="public ">
@@ -393,7 +365,8 @@ best to find a more positive name for the negated form, such as
       <a href="#change-instance_method" title="#change (instance method)">#<strong>change</strong>(receiver = nil, message = nil, &amp;block)  &#x21d2; Object </a>
       (also: #a_block_changing, #changing)
   </span>
-    <span class="summary_desc"><div class='inline'><p>Applied to a proc, specifies that its execution will cause some value to change.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Applied to a proc, specifies that its execution will cause some value to change.</p>
 </div></span>
 </li>
         <li class="public ">
@@ -401,7 +374,8 @@ best to find a more positive name for the negated form, such as
       <a href="#contain_exactly-instance_method" title="#contain_exactly (instance method)">#<strong>contain_exactly</strong>(*items)  &#x21d2; Object </a>
       (also: #a_collection_containing_exactly, #containing_exactly)
   </span>
-    <span class="summary_desc"><div class='inline'><p>Passes if actual contains all of the expected regardless of order.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Passes if actual contains all of the expected regardless of order.</p>
 </div></span>
 </li>
         <li class="public ">
@@ -409,7 +383,8 @@ best to find a more positive name for the negated form, such as
       <a href="#cover-instance_method" title="#cover (instance method)">#<strong>cover</strong>(*values)  &#x21d2; Object </a>
       (also: #a_range_covering, #covering)
   </span>
-    <span class="summary_desc"><div class='inline'><p>Passes if actual covers expected.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Passes if actual covers expected.</p>
 </div></span>
 </li>
         <li class="public ">
@@ -417,7 +392,8 @@ best to find a more positive name for the negated form, such as
       <a href="#end_with-instance_method" title="#end_with (instance method)">#<strong>end_with</strong>(*expected)  &#x21d2; Object </a>
       (also: #a_collection_ending_with, #a_string_ending_with, #ending_with)
   </span>
-    <span class="summary_desc"><div class='inline'><p>Matches if the actual value ends with the expected value(s).</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Matches if the actual value ends with the expected value(s).</p>
 </div></span>
 </li>
         <li class="public ">
@@ -425,7 +401,8 @@ best to find a more positive name for the negated form, such as
       <a href="#eq-instance_method" title="#eq (instance method)">#<strong>eq</strong>(expected)  &#x21d2; Object </a>
       (also: #an_object_eq_to, #eq_to)
   </span>
-    <span class="summary_desc"><div class='inline'><p>Passes if <tt>actual == expected</tt>.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Passes if <code>actual == expected</code>.</p>
 </div></span>
 </li>
         <li class="public ">
@@ -433,7 +410,8 @@ best to find a more positive name for the negated form, such as
       <a href="#eql-instance_method" title="#eql (instance method)">#<strong>eql</strong>(expected)  &#x21d2; Object </a>
       (also: #an_object_eql_to, #eql_to)
   </span>
-    <span class="summary_desc"><div class='inline'><p>Passes if <code>actual.eql?(expected)</code>.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Passes if <code>actual.eql?(expected)</code>.</p>
 </div></span>
 </li>
         <li class="public ">
@@ -441,7 +419,8 @@ best to find a more positive name for the negated form, such as
       <a href="#equal-instance_method" title="#equal (instance method)">#<strong>equal</strong>(expected)  &#x21d2; Object </a>
       (also: #an_object_equal_to, #equal_to)
   </span>
-    <span class="summary_desc"><div class='inline'><p>Passes if <tt>actual.equal?(expected)</tt> (object identity).</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Passes if <code>actual.equal?(expected)</code> (object identity).</p>
 </div></span>
 </li>
         <li class="public ">
@@ -449,14 +428,16 @@ best to find a more positive name for the negated form, such as
       <a href="#exist-instance_method" title="#exist (instance method)">#<strong>exist</strong>(*args)  &#x21d2; Object </a>
       (also: #an_object_existing, #existing)
   </span>
-    <span class="summary_desc"><div class='inline'><p>Passes if <code>actual.exist?</code> or <code>actual.exists?</code>.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Passes if <code>actual.exist?</code> or <code>actual.exists?</code>.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
-      <a href="#expect-instance_method" title="#expect (instance method)">#<strong>expect</strong>  &#x21d2; ExpectationTarget </a>
+      <a href="#expect-instance_method" title="#expect (instance method)">#<strong>expect</strong>  &#x21d2; Expectations::ExpectationTarget </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Supports <code>expect(actual).to matcher</code> syntax by wrapping <code>actual</code> in an <code>ExpectationTarget</code>.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Supports <code>expect(actual).to matcher</code> syntax by wrapping <code>actual</code> in an <code>ExpectationTarget</code>.</p>
 </div></span>
 </li>
         <li class="public ">
@@ -464,7 +445,8 @@ best to find a more positive name for the negated form, such as
       <a href="#have_attributes-instance_method" title="#have_attributes (instance method)">#<strong>have_attributes</strong>(expected)  &#x21d2; Object </a>
       (also: #an_object_having_attributes, #having_attributes)
   </span>
-    <span class="summary_desc"><div class='inline'><p>Passes if actual&#39;s attribute values match the expected attributes hash.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Passes if actual&#39;s attribute values match the expected attributes hash.</p>
 </div></span>
 </li>
         <li class="public ">
@@ -472,7 +454,8 @@ best to find a more positive name for the negated form, such as
       <a href="#include-instance_method" title="#include (instance method)">#<strong>include</strong>(*expected)  &#x21d2; Object </a>
       (also: #a_collection_including, #a_string_including, #a_hash_including, #including)
   </span>
-    <span class="summary_desc"><div class='inline'><p>Passes if actual includes expected.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Passes if actual includes expected.</p>
 </div></span>
 </li>
         <li class="public ">
@@ -480,14 +463,16 @@ best to find a more positive name for the negated form, such as
       <a href="#match-instance_method" title="#match (instance method)">#<strong>match</strong>(expected)  &#x21d2; Object </a>
       (also: #match_regex, #an_object_matching, #a_string_matching, #matching)
   </span>
-    <span class="summary_desc"><div class='inline'><p>Given a <code>Regexp</code> or <code>String</code>, passes if <code>actual.match(pattern)</code> Given an arbitrary nested data structure (e.g. arrays and hashes), matches if <code>expected === actual</code> || <code>actual == expected</code> for each pair of elements.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Given a <code>Regexp</code> or <code>String</code>, passes if <code>actual.match(pattern)</code> Given an arbitrary nested data structure (e.g. arrays and hashes), matches if <code>expected === actual</code> || <code>actual == expected</code> for each pair of elements.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#match_array-instance_method" title="#match_array (instance method)">#<strong>match_array</strong>(items)  &#x21d2; Object </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>An alternate form of <code>contain_exactly</code> that accepts the expected contents as a single array arg rather that splatted out as individual items.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>An alternate form of <code>contain_exactly</code> that accepts the expected contents as a single array arg rather that splatted out as individual items.</p>
 </div></span>
 </li>
         <li class="public ">
@@ -495,7 +480,8 @@ best to find a more positive name for the negated form, such as
       <a href="#output-instance_method" title="#output (instance method)">#<strong>output</strong>(expected = nil)  &#x21d2; Object </a>
       (also: #a_block_outputting)
   </span>
-    <span class="summary_desc"><div class='inline'><p>With no arg, passes if the block outputs <code>to_stdout</code> or <code>to_stderr</code>.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>With no arg, passes if the block outputs <code>to_stdout</code> or <code>to_stderr</code>.</p>
 </div></span>
 </li>
         <li class="public ">
@@ -503,7 +489,8 @@ best to find a more positive name for the negated form, such as
       <a href="#raise_error-instance_method" title="#raise_error (instance method)">#<strong>raise_error</strong>(error = nil, message = nil, &amp;block)  &#x21d2; Object </a>
       (also: #raise_exception, #a_block_raising, #raising)
   </span>
-    <span class="summary_desc"><div class='inline'><p>With no args, matches if any error is raised.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>With no args, matches if any error is raised.</p>
 </div></span>
 </li>
         <li class="public ">
@@ -511,14 +498,16 @@ best to find a more positive name for the negated form, such as
       <a href="#respond_to-instance_method" title="#respond_to (instance method)">#<strong>respond_to</strong>(*names)  &#x21d2; Object </a>
       (also: #an_object_responding_to, #responding_to)
   </span>
-    <span class="summary_desc"><div class='inline'><p>Matches if the target object responds to all of the names provided.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Matches if the target object responds to all of the names provided.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#respond_to%3F-instance_method" title="#respond_to? (instance method)">#<strong>respond_to?</strong>(method)  &#x21d2; Boolean </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>:nocov:.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>:nocov:.</p>
 </div></span>
 </li>
         <li class="public ">
@@ -526,7 +515,8 @@ best to find a more positive name for the negated form, such as
       <a href="#satisfy-instance_method" title="#satisfy (instance method)">#<strong>satisfy</strong>(description = nil, &amp;block)  &#x21d2; Object </a>
       (also: #an_object_satisfying, #satisfying)
   </span>
-    <span class="summary_desc"><div class='inline'><p>Passes if the submitted block returns true.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Passes if the submitted block returns true.</p>
 </div></span>
 </li>
         <li class="public ">
@@ -534,7 +524,8 @@ best to find a more positive name for the negated form, such as
       <a href="#start_with-instance_method" title="#start_with (instance method)">#<strong>start_with</strong>(*expected)  &#x21d2; Object </a>
       (also: #a_collection_starting_with, #a_string_starting_with, #starting_with)
   </span>
-    <span class="summary_desc"><div class='inline'><p>Matches if the actual value starts with the expected value(s).</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Matches if the actual value starts with the expected value(s).</p>
 </div></span>
 </li>
         <li class="public ">
@@ -542,7 +533,8 @@ best to find a more positive name for the negated form, such as
       <a href="#throw_symbol-instance_method" title="#throw_symbol (instance method)">#<strong>throw_symbol</strong>(expected_symbol = nil, expected_arg = nil)  &#x21d2; Object </a>
       (also: #a_block_throwing, #throwing)
   </span>
-    <span class="summary_desc"><div class='inline'><p>Given no argument, matches if a proc throws any Symbol.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Given no argument, matches if a proc throws any Symbol.</p>
 </div></span>
 </li>
         <li class="public ">
@@ -550,7 +542,8 @@ best to find a more positive name for the negated form, such as
       <a href="#yield_control-instance_method" title="#yield_control (instance method)">#<strong>yield_control</strong>  &#x21d2; Object </a>
       (also: #a_block_yielding_control, #yielding_control)
   </span>
-    <span class="summary_desc"><div class='inline'><p>Passes if the method called in the expect block yields, regardless of whether or not arguments are yielded.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Passes if the method called in the expect block yields, regardless of whether or not arguments are yielded.</p>
 </div></span>
 </li>
         <li class="public ">
@@ -558,7 +551,8 @@ best to find a more positive name for the negated form, such as
       <a href="#yield_successive_args-instance_method" title="#yield_successive_args (instance method)">#<strong>yield_successive_args</strong>(*args)  &#x21d2; Object </a>
       (also: #a_block_yielding_successive_args, #yielding_successive_args)
   </span>
-    <span class="summary_desc"><div class='inline'><p>Designed for use with methods that repeatedly yield (such as iterators).</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Designed for use with methods that repeatedly yield (such as iterators).</p>
 </div></span>
 </li>
         <li class="public ">
@@ -566,7 +560,8 @@ best to find a more positive name for the negated form, such as
       <a href="#yield_with_args-instance_method" title="#yield_with_args (instance method)">#<strong>yield_with_args</strong>(*args)  &#x21d2; Object </a>
       (also: #a_block_yielding_with_args, #yielding_with_args)
   </span>
-    <span class="summary_desc"><div class='inline'><p>Given no arguments, matches if the method called in the expect block yields with arguments (regardless of what they are or how many there are).</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Given no arguments, matches if the method called in the expect block yields with arguments (regardless of what they are or how many there are).</p>
 </div></span>
 </li>
         <li class="public ">
@@ -574,7 +569,8 @@ best to find a more positive name for the negated form, such as
       <a href="#yield_with_no_args-instance_method" title="#yield_with_no_args (instance method)">#<strong>yield_with_no_args</strong>  &#x21d2; Object </a>
       (also: #a_block_yielding_with_no_args, #yielding_with_no_args)
   </span>
-    <span class="summary_desc"><div class='inline'><p>Passes if the method called in the expect block yields with no arguments.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Passes if the method called in the expect block yields with no arguments.</p>
 </div></span>
 </li>
     </ul>
@@ -627,7 +623,7 @@ best to find a more positive name for the negated form, such as
     .<strong>alias_matcher</strong>(new_name, old_name, options = {}, &amp;description_override)  &#x21d2; <tt>Object</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Extended from <span class='object_link'><a href="Matchers/DSL.html#alias_matcher-instance_method" title="RSpec::Matchers::DSL#alias_matcher (method)">RSpec::Matchers::DSL#alias_matcher</a></span>.</p>
+<p>Extended from <span class='object_link'><a href="Matchers/DSL.html#alias_matcher-instance_method" title="RSpec::Matchers::DSL#alias_matcher (method)">RSpec::Matchers::DSL#alias_matcher</a></span>.</p>
   </div>
 </div>
 <div class="tags">
@@ -657,8 +653,7 @@ best to find a more positive name for the negated form, such as
   <strong>This method is part of a private API.</strong>
   You should avoid using this method if possible, as it may be removed or be changed in the future.
 </p>
-<p>Used by rspec-core to clear the state used to generate
-descriptions after an example.</p>
+<p>Used by rspec-core to clear the state used to generate descriptions after an example.</p>
   </div>
 </div>
 <div class="tags">
@@ -686,10 +681,7 @@ descriptions after an example.</p>
     .<strong>configuration</strong>  &#x21d2; <tt><span class='object_link'><a href="Expectations/Configuration.html" title="RSpec::Expectations::Configuration (class)">RSpec::Expectations::Configuration</a></span></tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Delegates to <span class='object_link'><a href="Expectations.html#configuration-class_method" title="RSpec::Expectations.configuration (method)">Expectations.configuration</a></span>.
-This is here because rspec-core&#39;s <code>expect_with</code> option
-looks for a <code>configuration</code> method on the mixin
-(<code>RSpec::Matchers</code>) to yield to a block.</p>
+<p>Delegates to <span class='object_link'><a href="Expectations.html#configuration-class_method" title="RSpec::Expectations.configuration (method)">Expectations.configuration</a></span>. This is here because rspec-core&#39;s <code>expect_with</code> option looks for a <code>configuration</code> method on the mixin (<code>RSpec::Matchers</code>) to yield to a block.</p>
   </div>
 </div>
 <div class="tags">
@@ -698,7 +690,8 @@ looks for a <code>configuration</code> method on the mixin
     <li>
         <span class='type'>(<tt><span class='object_link'><a href="Expectations/Configuration.html" title="RSpec::Expectations::Configuration (class)">RSpec::Expectations::Configuration</a></span></tt>)</span>
         &mdash;
-        <div class='inline'><p>the configuration object</p>
+        <div class='inline'>
+<p>the configuration object</p>
 </div>
     </li>
 </ul>
@@ -724,7 +717,7 @@ looks for a <code>configuration</code> method on the mixin
     .<strong>define</strong>(name, &amp;declarations)  &#x21d2; <tt>Object</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Extended from <span class='object_link'><a href="Matchers/DSL.html#define-instance_method" title="RSpec::Matchers::DSL#define (method)">RSpec::Matchers::DSL#define</a></span>.</p>
+<p>Extended from <span class='object_link'><a href="Matchers/DSL.html#define-instance_method" title="RSpec::Matchers::DSL#define (method)">RSpec::Matchers::DSL#define</a></span>.</p>
   </div>
 </div>
 <div class="tags">
@@ -746,7 +739,7 @@ looks for a <code>configuration</code> method on the mixin
     .<strong>define_negated_matcher</strong>(negated_name, base_name, &amp;description_override)  &#x21d2; <tt>Object</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Extended from <span class='object_link'><a href="Matchers/DSL.html#define_negated_matcher-instance_method" title="RSpec::Matchers::DSL#define_negated_matcher (method)">RSpec::Matchers::DSL#define_negated_matcher</a></span>.</p>
+<p>Extended from <span class='object_link'><a href="Matchers/DSL.html#define_negated_matcher-instance_method" title="RSpec::Matchers::DSL#define_negated_matcher (method)">RSpec::Matchers::DSL#define_negated_matcher</a></span>.</p>
   </div>
 </div>
 <div class="tags">
@@ -772,8 +765,7 @@ looks for a <code>configuration</code> method on the mixin
   <strong>This method is part of a private API.</strong>
   You should avoid using this method if possible, as it may be removed or be changed in the future.
 </p>
-<p>Generates an an example description based on the last expectation.
-Used by rspec-core&#39;s one-liner syntax.</p>
+<p>Generates an an example description based on the last expectation. Used by rspec-core&#39;s one-liner syntax.</p>
   </div>
 </div>
 <div class="tags">
@@ -806,17 +798,11 @@ Used by rspec-core&#39;s one-liner syntax.</p>
   <div class="discussion">
   <div class="note notetag">
     <strong>Note:</strong>
-    <div class='inline'><p>The implementation of this feature uses a thread-local variable,
-which means that if you have an expectation failure in another thread,
-it&#39;ll abort like normal.</p>
+    <div class='inline'>
+<p>The implementation of this feature uses a thread-local variable, which means that if you have an expectation failure in another thread, it&#39;ll abort like normal.</p>
 </div>
   </div>
-<p>Allows multiple expectations in the provided block to fail, and then
-aggregates them into a single exception, rather than aborting on the
-first expectation failure like normal. This allows you to see all
-failures from an entire set of expectations without splitting each
-off into its own example (which may slow things down if the example
-setup is expensive).</p>
+<p>Allows multiple expectations in the provided block to fail, and then aggregates them into a single exception, rather than aborting on the first expectation failure like normal. This allows you to see all failures from an entire set of expectations without splitting each off into its own example (which may slow things down if the example setup is expensive).</p>
   </div>
 </div>
 <div class="tags">
@@ -835,8 +821,8 @@ setup is expensive).</p>
         <span class='type'>(<tt>String</tt>)</span>
         <em class="default">(defaults to: <tt>nil</tt>)</em>
         &mdash;
-        <div class='inline'><p>label for this aggregation block, which will be
-included in the aggregated exception message.</p>
+        <div class='inline'>
+<p>label for this aggregation block, which will be included in the aggregated exception message.</p>
 </div>
     </li>
     <li>
@@ -844,10 +830,8 @@ included in the aggregated exception message.</p>
         <span class='type'>(<tt>Hash</tt>)</span>
         <em class="default">(defaults to: <tt>{}</tt>)</em>
         &mdash;
-        <div class='inline'><p>additional metadata about this failure aggregation
-block. If multiple expectations fail, it will be exposed from the
-<span class='object_link'><a href="Expectations/MultipleExpectationsNotMetError.html" title="RSpec::Expectations::MultipleExpectationsNotMetError (class)">Expectations::MultipleExpectationsNotMetError</a></span> exception. Mostly
-intended for internal RSpec use but you can use it as well.</p>
+        <div class='inline'>
+<p>additional metadata about this failure aggregation block. If multiple expectations fail, it will be exposed from the <span class='object_link'><a href="Expectations/MultipleExpectationsNotMetError.html" title="RSpec::Expectations::MultipleExpectationsNotMetError (class)">Expectations::MultipleExpectationsNotMetError</a></span> exception. Mostly intended for internal RSpec use but you can use it as well.</p>
 </div>
     </li>
 </ul>
@@ -855,9 +839,8 @@ intended for internal RSpec use but you can use it as well.</p>
 <ul class="yield">
     <li>
         <span class='type'></span>
-        <div class='inline'><p>Block containing as many expectation as you want. The block is
-simply yielded to, so you can trust that anything that works outside
-the block should work within it.</p>
+        <div class='inline'>
+<p>Block containing as many expectation as you want. The block is simply yielded to, so you can trust that anything that works outside the block should work within it.</p>
 </div>
     </li>
 </ul>
@@ -866,21 +849,22 @@ the block should work within it.</p>
     <li>
         <span class='type'>(<tt><span class='object_link'><a href="Expectations/MultipleExpectationsNotMetError.html" title="RSpec::Expectations::MultipleExpectationsNotMetError (class)">Expectations::MultipleExpectationsNotMetError</a></span></tt>)</span>
         &mdash;
-        <div class='inline'><p>raised when
-multiple expectations fail.</p>
+        <div class='inline'>
+<p>raised when multiple expectations fail.</p>
 </div>
     </li>
     <li>
         <span class='type'>(<tt><span class='object_link'><a href="Expectations/ExpectationNotMetError.html" title="RSpec::Expectations::ExpectationNotMetError (class)">Expectations::ExpectationNotMetError</a></span></tt>)</span>
         &mdash;
-        <div class='inline'><p>raised when a single
-expectation fails.</p>
+        <div class='inline'>
+<p>raised when a single expectation fails.</p>
 </div>
     </li>
     <li>
         <span class='type'>(<tt>Exception</tt>)</span>
         &mdash;
-        <div class='inline'><p>other sorts of exceptions will be raised as normal.</p>
+        <div class='inline'>
+<p>other sorts of exceptions will be raised as normal.</p>
 </div>
     </li>
 </ul>
@@ -908,18 +892,17 @@ expectation fails.</p>
   <div class="discussion">
   <div class="note notetag">
     <strong>Note:</strong>
-    <div class='inline'><p>The negative form <code>not_to all</code> is not supported. Instead
-use <code>not_to include</code> or pass a negative form of a matcher
-as the argument (e.g. <code>all exclude(:foo)</code>).</p>
+    <div class='inline'>
+<p>The negative form <code>not_to all</code> is not supported. Instead use <code>not_to include</code> or pass a negative form of a matcher as the argument (e.g. <code>all exclude(:foo)</code>).</p>
 </div>
   </div>
   <div class="note notetag">
     <strong>Note:</strong>
-    <div class='inline'><p>You can also use this with compound matchers as well.</p>
+    <div class='inline'>
+<p>You can also use this with compound matchers as well.</p>
 </div>
   </div>
-<p>Passes if the provided matcher passes when checked against all
-elements of the collection.</p>
+<p>Passes if the provided matcher passes when checked against all elements of the collection.</p>
   </div>
 </div>
 <div class="tags">
@@ -954,16 +937,9 @@ elements of the collection.</p>
     </span>
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Given true, false, or nil, will pass if actual value is true, false or
-nil (respectively). Given no args means the caller should satisfy an if
-condition (to be or not to be).</p>
-<p>Predicates are any Ruby method that ends in a &quot;?&quot; and returns true or
-false.  Given be_ followed by arbitrary_predicate (without the &quot;?&quot;),
-RSpec will match convert that into a query against the target object.</p>
-<p>The arbitrary<em>predicate feature will handle any predicate prefixed with
-&quot;be_an</em>&quot; (e.g. be<em>an_instance_of), &quot;be_a</em>&quot; (e.g. be<em>a_kind_of) or &quot;be</em>&quot;
-(e.g. be_empty), letting you choose the prefix that best suits the
-predicate.</p>
+<p>Given true, false, or nil, will pass if actual value is true, false or nil (respectively). Given no args means the caller should satisfy an if condition (to be or not to be).</p>
+<p>Predicates are any Ruby method that ends in a “?” and returns true or false. Given be_ followed by arbitrary_predicate (without the “?”), RSpec will match convert that into a query against the target object.</p>
+<p>The arbitrary_predicate feature will handle any predicate prefixed with “be_an<em>” (e.g. be_an_instance_of), “be_a</em>” (e.g. be_a_kind_of) or “be_” (e.g. be_empty), letting you choose the prefix that best suits the predicate.</p>
   </div>
 </div>
 <div class="tags">
@@ -1001,7 +977,7 @@ expect(actual).not_to be_[arbitrary_predicate](*args)</code></pre>
     </span>
 </h3><div class="docstring">
   <div class="discussion">
-    <p>passes if target.kind_of?(klass)</p>
+<p>passes if target.kind_of?(klass)</p>
   </div>
 </div>
 <div class="tags">
@@ -1030,7 +1006,7 @@ expect(actual).not_to be_[arbitrary_predicate](*args)</code></pre>
     </span>
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Passes if actual.kind_of?(expected)</p>
+<p>Passes if actual.kind_of?(expected)</p>
   </div>
 </div>
 <div class="tags">
@@ -1065,7 +1041,7 @@ expect(actual).not_to be_[arbitrary_predicate](*args)</code></pre>
     </span>
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Passes if actual.instance_of?(expected)</p>
+<p>Passes if actual.instance_of?(expected)</p>
   </div>
 </div>
 <div class="tags">
@@ -1100,11 +1076,8 @@ expect(actual).not_to be_[arbitrary_predicate](*args)</code></pre>
     </span>
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Passes if actual.between?(min, max). Works with any Comparable object,
-including String, Symbol, Time, or Numeric (Fixnum, Bignum, Integer,
-Float, Complex, and Rational).</p>
-<p>By default, <code>be_between</code> is inclusive (i.e. passes when given either the max or min value),
-but you can make it <code>exclusive</code> by chaining that off the matcher.</p>
+<p>Passes if actual.between?(min, max). Works with any Comparable object, including String, Symbol, Time, or Numeric (Fixnum, Bignum, Integer, Float, Complex, and Rational).</p>
+<p>By default, <code>be_between</code> is inclusive (i.e. passes when given either the max or min value), but you can make it <code>exclusive</code> by chaining that off the matcher.</p>
   </div>
 </div>
 <div class="tags">
@@ -1139,7 +1112,7 @@ but you can make it <code>exclusive</code> by chaining that off the matcher.</p>
     </span>
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Passes if actual is falsey (false or nil)</p>
+<p>Passes if actual is falsey (false or nil)</p>
   </div>
 </div>
 <div class="tags">
@@ -1168,7 +1141,7 @@ but you can make it <code>exclusive</code> by chaining that off the matcher.</p>
     </span>
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Passes if actual is nil</p>
+<p>Passes if actual is nil</p>
   </div>
 </div>
 <div class="tags">
@@ -1197,7 +1170,7 @@ but you can make it <code>exclusive</code> by chaining that off the matcher.</p>
     </span>
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Passes if actual is truthy (anything but false or nil)</p>
+<p>Passes if actual is truthy (anything but false or nil)</p>
   </div>
 </div>
 <div class="tags">
@@ -1226,7 +1199,7 @@ but you can make it <code>exclusive</code> by chaining that off the matcher.</p>
     </span>
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Passes if actual == expected +/- delta</p>
+<p>Passes if actual == expected +/- delta</p>
   </div>
 </div>
 <div class="tags">
@@ -1260,35 +1233,26 @@ but you can make it <code>exclusive</code> by chaining that off the matcher.</p>
     </span>
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Applied to a proc, specifies that its execution will cause some value to
-change.</p>
-<p>You can either pass <tt>receiver</tt> and <tt>message</tt>, or a block,
-but not both.</p>
-<p>When passing a block, it must use the <code>{ ... }</code> format, not
-do/end, as <code>{ ... }</code> binds to the <code>change</code> method, whereas do/end
-would errantly bind to the <code>expect(..).to</code> or <code>expect(...).not_to</code> method.</p>
-<p>You can chain any of the following off of the end to specify details
-about the change:</p>
-<ul>
-<li><code>from</code></li>
-<li><code>to</code></li>
-</ul>
+<p>Applied to a proc, specifies that its execution will cause some value to change.</p>
+<p>You can either pass <code>receiver</code> and <code>message</code>, or a block, but not both.</p>
+<p>When passing a block, it must use the <code>{ ... }</code> format, not do/end, as <code>{ ... }</code> binds to the <code>change</code> method, whereas do/end would errantly bind to the <code>expect(..).to</code> or <code>expect(...).not_to</code> method.</p>
+<p>You can chain any of the following off of the end to specify details about the change:</p>
+<ul><li>
+<p><code>from</code></p>
+</li><li>
+<p><code>to</code></p>
+</li></ul>
 <p>or any one of:</p>
-<ul>
-<li><code>by</code></li>
-<li><code>by_at_least</code></li>
-<li><code>by_at_most</code></li>
-</ul>
+<ul><li>
+<p><code>by</code></p>
+</li><li>
+<p><code>by_at_least</code></p>
+</li><li>
+<p><code>by_at_most</code></p>
+</li></ul>
 <p>== Notes</p>
-<p>Evaluates <code>receiver.message</code> or <code>block</code> before and after it
-evaluates the block passed to <code>expect</code>. If the value is the same
-object, its before/after <code>hash</code> value is used to see if it has changed.
-Therefore, your object needs to properly implement <code>hash</code> to work correctly
-with this matcher.</p>
-<p><code>expect( ... ).not_to change</code> supports the form that specifies <code>from</code>
-(which specifies what you expect the starting, unchanged value to be)
-but does not support forms with subsequent calls to <code>by</code>, <code>by_at_least</code>,
-<code>by_at_most</code> or <code>to</code>.</p>
+<p>Evaluates <code>receiver.message</code> or <code>block</code> before and after it evaluates the block passed to <code>expect</code>. If the value is the same object, its before/after <code>hash</code> value is used to see if it has changed. Therefore, your object needs to properly implement <code>hash</code> to work correctly with this matcher.</p>
+<p><code>expect( ... ).not_to change</code> supports the form that specifies <code>from</code> (which specifies what you expect the starting, unchanged value to be) but does not support forms with subsequent calls to <code>by</code>, <code>by_at_least</code>, <code>by_at_most</code> or <code>to</code>.</p>
   </div>
 </div>
 <div class="tags">
@@ -1340,7 +1304,8 @@ but does not support forms with subsequent calls to <code>by</code>, <code>by_at
         <span class='type'>(<tt>Symbol</tt>)</span>
         <em class="default">(defaults to: <tt>nil</tt>)</em>
         &mdash;
-        <div class='inline'><p>the message to send the receiver</p>
+        <div class='inline'>
+<p>the message to send the receiver</p>
 </div>
     </li>
 </ul>
@@ -1371,13 +1336,11 @@ but does not support forms with subsequent calls to <code>by</code>, <code>by_at
   <div class="discussion">
   <div class="note notetag">
     <strong>Note:</strong>
-    <div class='inline'><p>This is also available using the <code>=~</code> operator with <code>should</code>,
-but <code>=~</code> is not supported with <code>expect</code>.</p>
+    <div class='inline'>
+<p>This is also available using the <code>=~</code> operator with <code>should</code>, but <code>=~</code> is not supported with <code>expect</code>.</p>
 </div>
   </div>
-<p>Passes if actual contains all of the expected regardless of order.
-This works for collections. Pass in multiple args and it will only
-pass if all args are found in collection.</p>
+<p>Passes if actual contains all of the expected regardless of order. This works for collections. Pass in multiple args and it will only pass if all args are found in collection.</p>
   </div>
 </div>
 <div class="tags">
@@ -1415,10 +1378,8 @@ pass if all args are found in collection.</p>
     </span>
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Passes if actual covers expected. This works for
-Ranges. You can also pass in multiple args
-and it will only pass if all args are found in Range.</p>
-<h3>Warning:: Ruby &gt;= 1.9 only</h3>
+<p>Passes if actual covers expected. This works for Ranges. You can also pass in multiple args and it will only pass if all args are found in Range.</p>
+<h3 id="label-Warning-3A-3A+Ruby+-3E-3D+1.9+only">Warning:: Ruby &gt;= 1.9 only</h3>
   </div>
 </div>
 <div class="tags">
@@ -1455,10 +1416,7 @@ and it will only pass if all args are found in Range.</p>
     </span>
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Matches if the actual value ends with the expected value(s). In the case
-of a string, matches against the last <code>expected.length</code> characters of the
-actual string. In the case of an array, matches against the last
-<code>expected.length</code> elements of the actual array.</p>
+<p>Matches if the actual value ends with the expected value(s). In the case of a string, matches against the last <code>expected.length</code> characters of the actual string. In the case of an array, matches against the last <code>expected.length</code> elements of the actual array.</p>
   </div>
 </div>
 <div class="tags">
@@ -1493,9 +1451,8 @@ actual string. In the case of an array, matches against the last
     </span>
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Passes if <tt>actual == expected</tt>.</p>
-<p>See <a href="http://www.ruby-doc.org/core/classes/Object.html#M001057">http://www.ruby-doc.org/core/classes/Object.html#M001057</a> for more
-information about equality in Ruby.</p>
+<p>Passes if <code>actual == expected</code>.</p>
+<p>See <a href="http://www.ruby-doc.org/core/classes/Object.html#M001057">www.ruby-doc.org/core/classes/Object.html#M001057</a> for more information about equality in Ruby.</p>
   </div>
 </div>
 <div class="tags">
@@ -1529,9 +1486,8 @@ information about equality in Ruby.</p>
     </span>
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Passes if <code>actual.eql?(expected)</code></p>
-<p>See <a href="http://www.ruby-doc.org/core/classes/Object.html#M001057">http://www.ruby-doc.org/core/classes/Object.html#M001057</a> for more
-information about equality in Ruby.</p>
+<p>Passes if <code>actual.eql?(expected)</code></p>
+<p>See <a href="http://www.ruby-doc.org/core/classes/Object.html#M001057">www.ruby-doc.org/core/classes/Object.html#M001057</a> for more information about equality in Ruby.</p>
   </div>
 </div>
 <div class="tags">
@@ -1565,9 +1521,8 @@ information about equality in Ruby.</p>
     </span>
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Passes if <tt>actual.equal?(expected)</tt> (object identity).</p>
-<p>See <a href="http://www.ruby-doc.org/core/classes/Object.html#M001057">http://www.ruby-doc.org/core/classes/Object.html#M001057</a> for more
-information about equality in Ruby.</p>
+<p>Passes if <code>actual.equal?(expected)</code> (object identity).</p>
+<p>See <a href="http://www.ruby-doc.org/core/classes/Object.html#M001057">www.ruby-doc.org/core/classes/Object.html#M001057</a> for more information about equality in Ruby.</p>
   </div>
 </div>
 <div class="tags">
@@ -1601,7 +1556,7 @@ information about equality in Ruby.</p>
     </span>
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Passes if <code>actual.exist?</code> or <code>actual.exists?</code></p>
+<p>Passes if <code>actual.exist?</code> or <code>actual.exists?</code></p>
   </div>
 </div>
 <div class="tags">
@@ -1628,11 +1583,10 @@ information about equality in Ruby.</p>
 </div>
       <div class="method_details ">
   <h3 class="signature " id="expect-instance_method">
-    #<strong>expect</strong>  &#x21d2; <tt>ExpectationTarget</tt> 
+    #<strong>expect</strong>  &#x21d2; <tt><span class='object_link'><a href="Expectations/ExpectationTarget.html" title="RSpec::Expectations::ExpectationTarget (class)">Expectations::ExpectationTarget</a></span></tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Supports <code>expect(actual).to matcher</code> syntax by wrapping <code>actual</code> in an
-<code>ExpectationTarget</code>.</p>
+<p>Supports <code>expect(actual).to matcher</code> syntax by wrapping <code>actual</code> in an <code>ExpectationTarget</code>.</p>
   </div>
 </div>
 <div class="tags">
@@ -1644,13 +1598,13 @@ information about equality in Ruby.</p>
 <p class="tag_title">Returns:</p>
 <ul class="return">
     <li>
-        <span class='type'>(<tt>ExpectationTarget</tt>)</span>
+        <span class='type'>(<tt><span class='object_link'><a href="Expectations/ExpectationTarget.html" title="RSpec::Expectations::ExpectationTarget (class)">Expectations::ExpectationTarget</a></span></tt>)</span>
     </li>
 </ul>
   <p class="tag_title">See Also:</p>
   <ul class="see">
-      <li>ExpectationTarget#to</li>
-      <li>ExpectationTarget#not_to</li>
+      <li><span class='object_link'><a href="Expectations/ExpectationTarget/InstanceMethods.html#to-instance_method" title="RSpec::Expectations::ExpectationTarget::InstanceMethods#to (method)">Expectations::ExpectationTarget::InstanceMethods#to</a></span></li>
+      <li><span class='object_link'><a href="Expectations/ExpectationTarget/InstanceMethods.html#not_to-instance_method" title="RSpec::Expectations::ExpectationTarget::InstanceMethods#not_to (method)">Expectations::ExpectationTarget::InstanceMethods#not_to</a></span></li>
   </ul>
 </div><table class="source_code">
   <tr>
@@ -1675,11 +1629,11 @@ information about equality in Ruby.</p>
   <div class="discussion">
   <div class="note notetag">
     <strong>Note:</strong>
-    <div class='inline'><p>It will fail if actual doesn&#39;t respond to any of the expected attributes.</p>
+    <div class='inline'>
+<p>It will fail if actual doesn&#39;t respond to any of the expected attributes.</p>
 </div>
   </div>
-<p>Passes if actual&#39;s attribute values match the expected attributes hash.
-This works no matter how you define your attribute readers.</p>
+<p>Passes if actual&#39;s attribute values match the expected attributes hash. This works no matter how you define your attribute readers.</p>
   </div>
 </div>
 <div class="tags">
@@ -1716,9 +1670,7 @@ This works no matter how you define your attribute readers.</p>
     </span>
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Passes if actual includes expected. This works for
-collections and Strings. You can also pass in multiple args
-and it will only pass if all args are found in collection.</p>
+<p>Passes if actual includes expected. This works for collections and Strings. You can also pass in multiple args and it will only pass if all args are found in collection.</p>
   </div>
 </div>
 <div class="tags">
@@ -1764,16 +1716,11 @@ and it will only pass if all args are found in collection.</p>
   <div class="discussion">
   <div class="note notetag">
     <strong>Note:</strong>
-    <div class='inline'><p>The <code>match_regex</code> alias is deprecated and is not recommended for use.
-It was added in 2.12.1 to facilitate its use from within custom
-matchers (due to how the custom matcher DSL was evaluated in 2.x,
-<code>match</code> could not be used there), but is no longer needed in 3.x.</p>
+    <div class='inline'>
+<p>The <code>match_regex</code> alias is deprecated and is not recommended for use. It was added in 2.12.1 to facilitate its use from within custom matchers (due to how the custom matcher DSL was evaluated in 2.x, <code>match</code> could not be used there), but is no longer needed in 3.x.</p>
 </div>
   </div>
-<p>Given a <code>Regexp</code> or <code>String</code>, passes if <code>actual.match(pattern)</code>
-Given an arbitrary nested data structure (e.g. arrays and hashes),
-matches if <code>expected === actual</code> || <code>actual == expected</code> for each
-pair of elements.</p>
+<p>Given a <code>Regexp</code> or <code>String</code>, passes if <code>actual.match(pattern)</code> Given an arbitrary nested data structure (e.g. arrays and hashes), matches if <code>expected === actual</code> || <code>actual == expected</code> for each pair of elements.</p>
   </div>
 </div>
 <div class="tags">
@@ -1819,9 +1766,7 @@ pair of elements.</p>
     #<strong>match_array</strong>(items)  &#x21d2; <tt>Object</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>An alternate form of <code>contain_exactly</code> that accepts
-the expected contents as a single array arg rather
-that splatted out as individual items.</p>
+<p>An alternate form of <code>contain_exactly</code> that accepts the expected contents as a single array arg rather that splatted out as individual items.</p>
   </div>
 </div>
 <div class="tags">
@@ -1862,24 +1807,18 @@ that splatted out as individual items.</p>
   <div class="discussion">
   <div class="note notetag">
     <strong>Note:</strong>
-    <div class='inline'><p><code>to_stdout</code> and <code>to_stderr</code> work by temporarily replacing <code>$stdout</code> or <code>$stderr</code>,
-so they&#39;re not able to intercept stream output that explicitly uses <code>STDOUT</code>/<code>STDERR</code>
-or that uses a reference to <code>$stdout</code>/<code>$stderr</code> that was stored before the
-matcher was used.</p>
+    <div class='inline'>
+<p><code>to_stdout</code> and <code>to_stderr</code> work by temporarily replacing <code>$stdout</code> or <code>$stderr</code>, so they&#39;re not able to intercept stream output that explicitly uses <code>STDOUT</code>/<code>STDERR</code> or that uses a reference to <code>$stdout</code>/<code>$stderr</code> that was stored before the matcher was used.</p>
 </div>
   </div>
   <div class="note notetag">
     <strong>Note:</strong>
-    <div class='inline'><p><code>to_stdout_from_any_process</code> and <code>to_stderr_from_any_process</code> use Tempfiles, and
-are thus significantly (~30x) slower than <code>to_stdout</code> and <code>to_stderr</code>.</p>
+    <div class='inline'>
+<p><code>to_stdout_from_any_process</code> and <code>to_stderr_from_any_process</code> use Tempfiles, and are thus significantly (~30x) slower than <code>to_stdout</code> and <code>to_stderr</code>.</p>
 </div>
   </div>
-<p>With no arg, passes if the block outputs <code>to_stdout</code> or <code>to_stderr</code>.
-With a string, passes if the block outputs that specific string <code>to_stdout</code> or <code>to_stderr</code>.
-With a regexp or matcher, passes if the block outputs a string <code>to_stdout</code> or <code>to_stderr</code> that matches.</p>
-<p>To capture output from any spawned subprocess as well, use <code>to_stdout_from_any_process</code> or
-<code>to_stderr_from_any_process</code>. Output from any process that inherits the main process&#39;s corresponding
-standard stream will be captured.</p>
+<p>With no arg, passes if the block outputs <code>to_stdout</code> or <code>to_stderr</code>. With a string, passes if the block outputs that specific string <code>to_stdout</code> or <code>to_stderr</code>. With a regexp or matcher, passes if the block outputs a string <code>to_stdout</code> or <code>to_stderr</code> that matches.</p>
+<p>To capture output from any spawned subprocess as well, use <code>to_stdout_from_any_process</code> or <code>to_stderr_from_any_process</code>. Output from any process that inherits the main process&#39;s corresponding standard stream will be captured.</p>
   </div>
 </div>
 <div class="tags">
@@ -1921,11 +1860,7 @@ standard stream will be captured.</p>
     </span>
 </h3><div class="docstring">
   <div class="discussion">
-    <p>With no args, matches if any error is raised.
-With a named error, matches only if that specific error is raised.
-With a named error and messsage specified as a String, matches only if both match.
-With a named error and messsage specified as a Regexp, matches only if both match.
-Pass an optional block to perform extra verifications on the exception matched</p>
+<p>With no args, matches if any error is raised. With a named error, matches only if that specific error is raised. With a named error and messsage specified as a String, matches only if both match. With a named error and messsage specified as a Regexp, matches only if both match. Pass an optional block to perform extra verifications on the exception matched</p>
   </div>
 </div>
 <div class="tags">
@@ -1963,8 +1898,7 @@ Pass an optional block to perform extra verifications on the exception matched</
     </span>
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Matches if the target object responds to all of the names
-provided. Names can be Strings or Symbols.</p>
+<p>Matches if the target object responds to all of the names provided. Names can be Strings or Symbols.</p>
   </div>
 </div>
 <div class="tags">
@@ -1994,7 +1928,7 @@ provided. Names can be Strings or Symbols.</p>
     #<strong>respond_to?</strong>(method)  &#x21d2; <tt>Boolean</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>:nocov:</p>
+<p>:nocov:</p>
   </div>
 </div>
 <div class="tags">
@@ -2031,13 +1965,9 @@ provided. Names can be Strings or Symbols.</p>
     </span>
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Passes if the submitted block returns true. Yields target to the
-block.</p>
-<p>Generally speaking, this should be thought of as a last resort when
-you can&#39;t find any other way to specify the behaviour you wish to
-specify.</p>
-<p>If you do find yourself in such a situation, you could always write
-a custom matcher, which would likely make your specs more expressive.</p>
+<p>Passes if the submitted block returns true. Yields target to the block.</p>
+<p>Generally speaking, this should be thought of as a last resort when you can&#39;t find any other way to specify the behaviour you wish to specify.</p>
+<p>If you do find yourself in such a situation, you could always write a custom matcher, which would likely make your specs more expressive.</p>
   </div>
 </div>
 <div class="tags">
@@ -2053,7 +1983,8 @@ a custom matcher, which would likely make your specs more expressive.</p>
         <span class='type'>(<tt>String</tt>)</span>
         <em class="default">(defaults to: <tt>nil</tt>)</em>
         &mdash;
-        <div class='inline'><p>optional description to be used for this matcher.</p>
+        <div class='inline'>
+<p>optional description to be used for this matcher.</p>
 </div>
     </li>
 </ul>
@@ -2082,10 +2013,7 @@ a custom matcher, which would likely make your specs more expressive.</p>
     </span>
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Matches if the actual value starts with the expected value(s). In the
-case of a string, matches against the first <code>expected.length</code> characters
-of the actual string. In the case of an array, matches against the first
-<code>expected.length</code> elements of the actual array.</p>
+<p>Matches if the actual value starts with the expected value(s). In the case of a string, matches against the first <code>expected.length</code> characters of the actual string. In the case of an array, matches against the first <code>expected.length</code> elements of the actual array.</p>
   </div>
 </div>
 <div class="tags">
@@ -2120,10 +2048,9 @@ of the actual string. In the case of an array, matches against the first
     </span>
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Given no argument, matches if a proc throws any Symbol.</p>
+<p>Given no argument, matches if a proc throws any Symbol.</p>
 <p>Given a Symbol, matches if the given proc throws the specified Symbol.</p>
-<p>Given a Symbol and an arg, matches if the given proc throws the
-specified Symbol with the specified arg.</p>
+<p>Given a Symbol and an arg, matches if the given proc throws the specified Symbol with the specified arg.</p>
   </div>
 </div>
 <div class="tags">
@@ -2163,12 +2090,11 @@ specified Symbol with the specified arg.</p>
   <div class="discussion">
   <div class="note notetag">
     <strong>Note:</strong>
-    <div class='inline'><p>Your expect block must accept a parameter and pass it on to
-the method-under-test as a block.</p>
+    <div class='inline'>
+<p>Your expect block must accept a parameter and pass it on to the method-under-test as a block.</p>
 </div>
   </div>
-<p>Passes if the method called in the expect block yields, regardless
-of whether or not arguments are yielded.</p>
+<p>Passes if the method called in the expect block yields, regardless of whether or not arguments are yielded.</p>
   </div>
 </div>
 <div class="tags">
@@ -2204,16 +2130,12 @@ of whether or not arguments are yielded.</p>
   <div class="discussion">
   <div class="note notetag">
     <strong>Note:</strong>
-    <div class='inline'><p>Your expect block must accept a parameter and pass it on to
-the method-under-test as a block.</p>
+    <div class='inline'>
+<p>Your expect block must accept a parameter and pass it on to the method-under-test as a block.</p>
 </div>
   </div>
-<p>Designed for use with methods that repeatedly yield (such as
-iterators). Passes if the method called in the expect block yields
-multiple times with arguments matching those given.</p>
-<p>Argument matching is done using <code>===</code> (the case match operator)
-and <code>==</code>. If the expected and actual arguments match with either
-operator, the matcher will pass.</p>
+<p>Designed for use with methods that repeatedly yield (such as iterators). Passes if the method called in the expect block yields multiple times with arguments matching those given.</p>
+<p>Argument matching is done using <code>===</code> (the case match operator) and <code>==</code>. If the expected and actual arguments match with either operator, the matcher will pass.</p>
   </div>
 </div>
 <div class="tags">
@@ -2250,24 +2172,19 @@ operator, the matcher will pass.</p>
   <div class="discussion">
   <div class="note notetag">
     <strong>Note:</strong>
-    <div class='inline'><p>Your expect block must accept a parameter and pass it on to
-the method-under-test as a block.</p>
+    <div class='inline'>
+<p>Your expect block must accept a parameter and pass it on to the method-under-test as a block.</p>
 </div>
   </div>
   <div class="note notetag">
     <strong>Note:</strong>
-    <div class='inline'><p>This matcher is not designed for use with methods that yield
-multiple times.</p>
+    <div class='inline'>
+<p>This matcher is not designed for use with methods that yield multiple times.</p>
 </div>
   </div>
-<p>Given no arguments, matches if the method called in the expect
-block yields with arguments (regardless of what they are or how
-many there are).</p>
-<p>Given arguments, matches if the method called in the expect block
-yields with arguments that match the given arguments.</p>
-<p>Argument matching is done using <code>===</code> (the case match operator)
-and <code>==</code>. If the expected and actual arguments match with either
-operator, the matcher will pass.</p>
+<p>Given no arguments, matches if the method called in the expect block yields with arguments (regardless of what they are or how many there are).</p>
+<p>Given arguments, matches if the method called in the expect block yields with arguments that match the given arguments.</p>
+<p>Argument matching is done using <code>===</code> (the case match operator) and <code>==</code>. If the expected and actual arguments match with either operator, the matcher will pass.</p>
   </div>
 </div>
 <div class="tags">
@@ -2308,18 +2225,17 @@ operator, the matcher will pass.</p>
   <div class="discussion">
   <div class="note notetag">
     <strong>Note:</strong>
-    <div class='inline'><p>Your expect block must accept a parameter and pass it on to
-the method-under-test as a block.</p>
+    <div class='inline'>
+<p>Your expect block must accept a parameter and pass it on to the method-under-test as a block.</p>
 </div>
   </div>
   <div class="note notetag">
     <strong>Note:</strong>
-    <div class='inline'><p>This matcher is not designed for use with methods that yield
-multiple times.</p>
+    <div class='inline'>
+<p>This matcher is not designed for use with methods that yield multiple times.</p>
 </div>
   </div>
-<p>Passes if the method called in the expect block yields with
-no arguments. Fails if it does not yield, or yields with arguments.</p>
+<p>Passes if the method called in the expect block yields with no arguments. Fails if it does not yield, or yields with arguments.</p>
   </div>
 </div>
 <div class="tags">
@@ -2349,18 +2265,10 @@ no arguments. Fails if it does not yield, or yields with arguments.</p>
   </div>
 </div>
       <div id="footer">
-  Generated on Fri Sep 14 00:02:02 2018 by
+  Generated on Tue Jul 28 15:13:12 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.16 (ruby-2.5.1).
+  0.9.25 (ruby-2.7.1).
 </div>
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-  ga('create', 'UA-59095215-1', 'auto');
-  ga('send', 'pageview');
-</script>
     </div>
   </body>
 </html>

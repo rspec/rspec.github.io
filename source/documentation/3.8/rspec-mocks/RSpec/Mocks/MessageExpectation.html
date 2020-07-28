@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
   Class: RSpec::Mocks::MessageExpectation
-    &mdash; Documentation by YARD 0.9.16
+    &mdash; Documentation by YARD 0.9.25
 </title>
-  <link rel="stylesheet" href="/documentation/3.8/rspec-mocks/css/style.css" type="text/css" charset="utf-8" />
-  <link rel="stylesheet" href="/documentation/3.8/rspec-mocks/css/common.css" type="text/css" charset="utf-8" />
-<script type="text/javascript" charset="utf-8">
+  <link rel="stylesheet" href="/documentation/3.8/rspec-mocks/css/style.css" type="text/css" />
+  <link rel="stylesheet" href="/documentation/3.8/rspec-mocks/css/common.css" type="text/css" />
+<script type="text/javascript">
   pathId = "RSpec::Mocks::MessageExpectation";
   relpath = '../../';
 </script>
@@ -61,9 +62,7 @@
 </div>
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>Represents an individual method stub or message expectation. The methods
-defined here can be used to configure how it behaves. The methods return
-<code>self</code> so that they can be chained together to form a fluent interface.</p>
+<p>Represents an individual method stub or message expectation. The methods defined here can be used to configure how it behaves. The methods return <code>self</code> so that they can be chained together to form a fluent interface.</p>
   </div>
 </div>
 <div class="tags">
@@ -80,42 +79,48 @@ defined here can be used to configure how it behaves. The methods return
   <span class="summary_signature">
       <a href="#and_call_original-instance_method" title="#and_call_original (instance method)">#<strong>and_call_original</strong>  &#x21d2; nil </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Tells the object to delegate to the original unmodified method when it receives the message.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Tells the object to delegate to the original unmodified method when it receives the message.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#and_raise-instance_method" title="#and_raise (instance method)">#<strong>and_raise</strong>(*args)  &#x21d2; nil </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Tells the object to raise an exception when the message is received.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Tells the object to raise an exception when the message is received.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#and_return-instance_method" title="#and_return (instance method)">#<strong>and_return</strong>(first_value, *values)  &#x21d2; nil </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Tells the object to return a value when it receives the message.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Tells the object to return a value when it receives the message.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#and_throw-instance_method" title="#and_throw (instance method)">#<strong>and_throw</strong>(*args)  &#x21d2; nil </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Tells the object to throw a symbol (with the object if that form is used) when the message is received.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Tells the object to throw a symbol (with the object if that form is used) when the message is received.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#and_wrap_original-instance_method" title="#and_wrap_original (instance method)">#<strong>and_wrap_original</strong>(&amp;block)  &#x21d2; nil </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Decorates the stubbed method with the supplied block.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Decorates the stubbed method with the supplied block.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#and_yield-instance_method" title="#and_yield (instance method)">#<strong>and_yield</strong>(*args) {|@eval_context = Object.new| ... } &#x21d2; MessageExpectation </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Tells the object to yield one or more args to a block when the message is received.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Tells the object to yield one or more args to a block when the message is received.</p>
 </div></span>
 </li>
     </ul>
@@ -128,56 +133,64 @@ defined here can be used to configure how it behaves. The methods return
   <span class="summary_signature">
       <a href="#at_least-instance_method" title="#at_least (instance method)">#<strong>at_least</strong>(n, &amp;block)  &#x21d2; MessageExpectation </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Constrain a message expectation to be received at least a specific number of times.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Constrain a message expectation to be received at least a specific number of times.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#at_most-instance_method" title="#at_most (instance method)">#<strong>at_most</strong>(n, &amp;block)  &#x21d2; MessageExpectation </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Constrain a message expectation to be received at most a specific number of times.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Constrain a message expectation to be received at most a specific number of times.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#exactly-instance_method" title="#exactly (instance method)">#<strong>exactly</strong>(n, &amp;block)  &#x21d2; MessageExpectation </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Constrain a message expectation to be received a specific number of times.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Constrain a message expectation to be received a specific number of times.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#never-instance_method" title="#never (instance method)">#<strong>never</strong>  &#x21d2; MessageExpectation </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Expect a message not to be received at all.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Expect a message not to be received at all.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#once-instance_method" title="#once (instance method)">#<strong>once</strong>(&amp;block)  &#x21d2; MessageExpectation </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Expect a message to be received exactly one time.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Expect a message to be received exactly one time.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#thrice-instance_method" title="#thrice (instance method)">#<strong>thrice</strong>(&amp;block)  &#x21d2; MessageExpectation </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Expect a message to be received exactly three times.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Expect a message to be received exactly three times.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#times-instance_method" title="#times (instance method)">#<strong>times</strong>(&amp;block)  &#x21d2; MessageExpectation </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Syntactic sugar for <code>exactly</code>, <code>at_least</code> and <code>at_most</code>.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Syntactic sugar for <code>exactly</code>, <code>at_least</code> and <code>at_most</code>.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#twice-instance_method" title="#twice (instance method)">#<strong>twice</strong>(&amp;block)  &#x21d2; MessageExpectation </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Expect a message to be received exactly two times.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Expect a message to be received exactly two times.</p>
 </div></span>
 </li>
     </ul>
@@ -190,7 +203,8 @@ defined here can be used to configure how it behaves. The methods return
   <span class="summary_signature">
       <a href="#ordered-instance_method" title="#ordered (instance method)">#<strong>ordered</strong>(&amp;block)  &#x21d2; MessageExpectation </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Expect messages to be received in a specific order.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Expect messages to be received in a specific order.</p>
 </div></span>
 </li>
         <li class="public ">
@@ -198,14 +212,16 @@ defined here can be used to configure how it behaves. The methods return
       <a href="#to_s-instance_method" title="#to_s (instance method)">#<strong>to_s</strong>  &#x21d2; String </a>
       (also: #inspect)
   </span>
-    <span class="summary_desc"><div class='inline'><p>A nice representation of the message expectation.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>A nice representation of the message expectation.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#with-instance_method" title="#with (instance method)">#<strong>with</strong>(*args, &amp;block)  &#x21d2; MessageExpectation </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Constrains a stub or message expectation to invocations with specific arguments.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Constrains a stub or message expectation to invocations with specific arguments.</p>
 </div></span>
 </li>
     </ul>
@@ -218,11 +234,11 @@ defined here can be used to configure how it behaves. The methods return
   <div class="discussion">
   <div class="note notetag">
     <strong>Note:</strong>
-    <div class='inline'><p>This is only available on partial doubles.</p>
+    <div class='inline'>
+<p>This is only available on partial doubles.</p>
 </div>
   </div>
-<p>Tells the object to delegate to the original unmodified method
-when it receives the message.</p>
+<p>Tells the object to delegate to the original unmodified method when it receives the message.</p>
   </div>
 </div>
 <div class="tags">
@@ -238,7 +254,8 @@ when it receives the message.</p>
     <li>
         <span class='type'>(<tt>nil</tt>)</span>
         &mdash;
-        <div class='inline'><p>No further chaining is supported after this.</p>
+        <div class='inline'>
+<p>No further chaining is supported after this.</p>
 </div>
     </li>
 </ul>
@@ -273,11 +290,8 @@ when it receives the message.</p>
   <div class="discussion">
   <div class="note notetag">
     <strong>Note:</strong>
-    <div class='inline'><p>When you pass an exception class, the MessageExpectation will raise
-an instance of it, creating it with <code>exception</code> and passing <code>message</code>
-if specified.  If the exception class initializer requires more than
-one parameters, you must pass in an instance and not the class,
-otherwise this method will raise an ArgumentError exception.</p>
+    <div class='inline'>
+<p>When you pass an exception class, the MessageExpectation will raise an instance of it, creating it with <code>exception</code> and passing <code>message</code> if specified. If the exception class initializer requires more than one parameters, you must pass in an instance and not the class, otherwise this method will raise an ArgumentError exception.</p>
 </div>
   </div>
 <p>Tells the object to raise an exception when the message is received.</p>
@@ -296,7 +310,8 @@ otherwise this method will raise an ArgumentError exception.</p>
     <li>
         <span class='type'>(<tt>nil</tt>)</span>
         &mdash;
-        <div class='inline'><p>No further chaining is supported after this.</p>
+        <div class='inline'>
+<p>No further chaining is supported after this.</p>
 </div>
     </li>
 </ul>
@@ -327,12 +342,8 @@ otherwise this method will raise an ArgumentError exception.</p>
       <span class="overload">#<strong>and_return</strong>(first_value, second_value)  &#x21d2; <tt>nil</tt> </span>
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Tells the object to return a value when it receives the message.  Given
-more than one value, the first value is returned the first time the
-message is received, the second value is returned the next time, etc,
-etc.</p>
-<p>If the message is received more times than there are values, the last
-value is received for every subsequent call.</p>
+<p>Tells the object to return a value when it receives the message. Given more than one value, the first value is returned the first time the message is received, the second value is returned the next time, etc, etc.</p>
+<p>If the message is received more times than there are values, the last value is received for every subsequent call.</p>
   </div>
 </div>
 <div class="tags">
@@ -355,7 +366,8 @@ value is received for every subsequent call.</p>
     <li>
         <span class='type'>(<tt>nil</tt>)</span>
         &mdash;
-        <div class='inline'><p>No further chaining is supported after this.</p>
+        <div class='inline'>
+<p>No further chaining is supported after this.</p>
 </div>
     </li>
 </ul>
@@ -405,8 +417,7 @@ value is received for every subsequent call.</p>
       <span class="overload">#<strong>and_throw</strong>(symbol, object)  &#x21d2; <tt>nil</tt> </span>
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Tells the object to throw a symbol (with the object if that form is
-used) when the message is received.</p>
+<p>Tells the object to throw a symbol (with the object if that form is used) when the message is received.</p>
   </div>
 </div>
 <div class="tags">
@@ -420,7 +431,8 @@ used) when the message is received.</p>
     <li>
         <span class='type'>(<tt>nil</tt>)</span>
         &mdash;
-        <div class='inline'><p>No further chaining is supported after this.</p>
+        <div class='inline'>
+<p>No further chaining is supported after this.</p>
 </div>
     </li>
 </ul>
@@ -452,13 +464,11 @@ used) when the message is received.</p>
   <div class="discussion">
   <div class="note notetag">
     <strong>Note:</strong>
-    <div class='inline'><p>This is only available on partial doubles.</p>
+    <div class='inline'>
+<p>This is only available on partial doubles.</p>
 </div>
   </div>
-<p>Decorates the stubbed method with the supplied block. The original
-unmodified method is passed to the block along with any method call
-arguments so you can delegate to it, whilst still being able to
-change what args are passed to it and/or change the return value.</p>
+<p>Decorates the stubbed method with the supplied block. The original unmodified method is passed to the block along with any method call arguments so you can delegate to it, whilst still being able to change what args are passed to it and/or change the return value.</p>
   </div>
 </div>
 <div class="tags">
@@ -473,7 +483,8 @@ change what args are passed to it and/or change the return value.</p>
     <li>
         <span class='type'>(<tt>nil</tt>)</span>
         &mdash;
-        <div class='inline'><p>No further chaining is supported after this.</p>
+        <div class='inline'>
+<p>No further chaining is supported after this.</p>
 </div>
     </li>
 </ul>
@@ -499,8 +510,7 @@ change what args are passed to it and/or change the return value.</p>
     #<strong>and_yield</strong>(*args) {|@eval_context = Object.new| ... } &#x21d2; <tt><span class='object_link'><a href="" title="RSpec::Mocks::MessageExpectation (class)">MessageExpectation</a></span></tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Tells the object to yield one or more args to a block when the message
-is received.</p>
+<p>Tells the object to yield one or more args to a block when the message is received.</p>
   </div>
 </div>
 <div class="tags">
@@ -519,7 +529,8 @@ is received.</p>
     <li>
         <span class='type'>(<tt><span class='object_link'><a href="" title="RSpec::Mocks::MessageExpectation (class)">MessageExpectation</a></span></tt>)</span>
         &mdash;
-        <div class='inline'><p>self, to support further chaining.</p>
+        <div class='inline'>
+<p>self, to support further chaining.</p>
 </div>
     </li>
 </ul>
@@ -561,8 +572,7 @@ is received.</p>
     #<strong>at_least</strong>(n, &amp;block)  &#x21d2; <tt><span class='object_link'><a href="" title="RSpec::Mocks::MessageExpectation (class)">MessageExpectation</a></span></tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Constrain a message expectation to be received at least a specific
-number of times.</p>
+<p>Constrain a message expectation to be received at least a specific number of times.</p>
   </div>
 </div>
 <div class="tags">
@@ -575,7 +585,8 @@ number of times.</p>
     <li>
         <span class='type'>(<tt><span class='object_link'><a href="" title="RSpec::Mocks::MessageExpectation (class)">MessageExpectation</a></span></tt>)</span>
         &mdash;
-        <div class='inline'><p>self, to support further chaining.</p>
+        <div class='inline'>
+<p>self, to support further chaining.</p>
 </div>
     </li>
 </ul>
@@ -616,8 +627,7 @@ number of times.</p>
     #<strong>at_most</strong>(n, &amp;block)  &#x21d2; <tt><span class='object_link'><a href="" title="RSpec::Mocks::MessageExpectation (class)">MessageExpectation</a></span></tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Constrain a message expectation to be received at most a specific
-number of times.</p>
+<p>Constrain a message expectation to be received at most a specific number of times.</p>
   </div>
 </div>
 <div class="tags">
@@ -630,7 +640,8 @@ number of times.</p>
     <li>
         <span class='type'>(<tt><span class='object_link'><a href="" title="RSpec::Mocks::MessageExpectation (class)">MessageExpectation</a></span></tt>)</span>
         &mdash;
-        <div class='inline'><p>self, to support further chaining.</p>
+        <div class='inline'>
+<p>self, to support further chaining.</p>
 </div>
     </li>
 </ul>
@@ -662,8 +673,7 @@ number of times.</p>
     #<strong>exactly</strong>(n, &amp;block)  &#x21d2; <tt><span class='object_link'><a href="" title="RSpec::Mocks::MessageExpectation (class)">MessageExpectation</a></span></tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Constrain a message expectation to be received a specific number of
-times.</p>
+<p>Constrain a message expectation to be received a specific number of times.</p>
   </div>
 </div>
 <div class="tags">
@@ -676,7 +686,8 @@ times.</p>
     <li>
         <span class='type'>(<tt><span class='object_link'><a href="" title="RSpec::Mocks::MessageExpectation (class)">MessageExpectation</a></span></tt>)</span>
         &mdash;
-        <div class='inline'><p>self, to support further chaining.</p>
+        <div class='inline'>
+<p>self, to support further chaining.</p>
 </div>
     </li>
 </ul>
@@ -708,7 +719,7 @@ times.</p>
     #<strong>never</strong>  &#x21d2; <tt><span class='object_link'><a href="" title="RSpec::Mocks::MessageExpectation (class)">MessageExpectation</a></span></tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Expect a message not to be received at all.</p>
+<p>Expect a message not to be received at all.</p>
   </div>
 </div>
 <div class="tags">
@@ -721,7 +732,8 @@ times.</p>
     <li>
         <span class='type'>(<tt><span class='object_link'><a href="" title="RSpec::Mocks::MessageExpectation (class)">MessageExpectation</a></span></tt>)</span>
         &mdash;
-        <div class='inline'><p>self, to support further chaining.</p>
+        <div class='inline'>
+<p>self, to support further chaining.</p>
 </div>
     </li>
 </ul>
@@ -751,7 +763,7 @@ times.</p>
     #<strong>once</strong>(&amp;block)  &#x21d2; <tt><span class='object_link'><a href="" title="RSpec::Mocks::MessageExpectation (class)">MessageExpectation</a></span></tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Expect a message to be received exactly one time.</p>
+<p>Expect a message to be received exactly one time.</p>
   </div>
 </div>
 <div class="tags">
@@ -764,7 +776,8 @@ times.</p>
     <li>
         <span class='type'>(<tt><span class='object_link'><a href="" title="RSpec::Mocks::MessageExpectation (class)">MessageExpectation</a></span></tt>)</span>
         &mdash;
-        <div class='inline'><p>self, to support further chaining.</p>
+        <div class='inline'>
+<p>self, to support further chaining.</p>
 </div>
     </li>
 </ul>
@@ -794,7 +807,7 @@ times.</p>
     #<strong>ordered</strong>(&amp;block)  &#x21d2; <tt><span class='object_link'><a href="" title="RSpec::Mocks::MessageExpectation (class)">MessageExpectation</a></span></tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Expect messages to be received in a specific order.</p>
+<p>Expect messages to be received in a specific order.</p>
   </div>
 </div>
 <div class="tags">
@@ -809,7 +822,8 @@ times.</p>
     <li>
         <span class='type'>(<tt><span class='object_link'><a href="" title="RSpec::Mocks::MessageExpectation (class)">MessageExpectation</a></span></tt>)</span>
         &mdash;
-        <div class='inline'><p>self, to support further chaining.</p>
+        <div class='inline'>
+<p>self, to support further chaining.</p>
 </div>
     </li>
 </ul>
@@ -858,7 +872,7 @@ times.</p>
     #<strong>thrice</strong>(&amp;block)  &#x21d2; <tt><span class='object_link'><a href="" title="RSpec::Mocks::MessageExpectation (class)">MessageExpectation</a></span></tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Expect a message to be received exactly three times.</p>
+<p>Expect a message to be received exactly three times.</p>
   </div>
 </div>
 <div class="tags">
@@ -871,7 +885,8 @@ times.</p>
     <li>
         <span class='type'>(<tt><span class='object_link'><a href="" title="RSpec::Mocks::MessageExpectation (class)">MessageExpectation</a></span></tt>)</span>
         &mdash;
-        <div class='inline'><p>self, to support further chaining.</p>
+        <div class='inline'>
+<p>self, to support further chaining.</p>
 </div>
     </li>
 </ul>
@@ -901,7 +916,7 @@ times.</p>
     #<strong>times</strong>(&amp;block)  &#x21d2; <tt><span class='object_link'><a href="" title="RSpec::Mocks::MessageExpectation (class)">MessageExpectation</a></span></tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Syntactic sugar for <code>exactly</code>, <code>at_least</code> and <code>at_most</code></p>
+<p>Syntactic sugar for <code>exactly</code>, <code>at_least</code> and <code>at_most</code></p>
   </div>
 </div>
 <div class="tags">
@@ -916,7 +931,8 @@ times.</p>
     <li>
         <span class='type'>(<tt><span class='object_link'><a href="" title="RSpec::Mocks::MessageExpectation (class)">MessageExpectation</a></span></tt>)</span>
         &mdash;
-        <div class='inline'><p>self, to support further chaining.</p>
+        <div class='inline'>
+<p>self, to support further chaining.</p>
 </div>
     </li>
 </ul>
@@ -947,7 +963,7 @@ times.</p>
     </span>
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns a nice representation of the message expectation</p>
+<p>Returns a nice representation of the message expectation.</p>
   </div>
 </div>
 <div class="tags">
@@ -956,7 +972,8 @@ times.</p>
     <li>
         <span class='type'>(<tt>String</tt>)</span>
         &mdash;
-        <div class='inline'><p>a nice representation of the message expectation</p>
+        <div class='inline'>
+<p>a nice representation of the message expectation</p>
 </div>
     </li>
 </ul>
@@ -986,7 +1003,7 @@ times.</p>
     #<strong>twice</strong>(&amp;block)  &#x21d2; <tt><span class='object_link'><a href="" title="RSpec::Mocks::MessageExpectation (class)">MessageExpectation</a></span></tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Expect a message to be received exactly two times.</p>
+<p>Expect a message to be received exactly two times.</p>
   </div>
 </div>
 <div class="tags">
@@ -999,7 +1016,8 @@ times.</p>
     <li>
         <span class='type'>(<tt><span class='object_link'><a href="" title="RSpec::Mocks::MessageExpectation (class)">MessageExpectation</a></span></tt>)</span>
         &mdash;
-        <div class='inline'><p>self, to support further chaining.</p>
+        <div class='inline'>
+<p>self, to support further chaining.</p>
 </div>
     </li>
 </ul>
@@ -1029,13 +1047,9 @@ times.</p>
     #<strong>with</strong>(*args, &amp;block)  &#x21d2; <tt><span class='object_link'><a href="" title="RSpec::Mocks::MessageExpectation (class)">MessageExpectation</a></span></tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Constrains a stub or message expectation to invocations with specific
-arguments.</p>
-<p>With a stub, if the message might be received with other args as well,
-you should stub a default value first, and then stub or mock the same
-message using <code>with</code> to constrain to specific arguments.</p>
-<p>A message expectation will fail if the message is received with different
-arguments.</p>
+<p>Constrains a stub or message expectation to invocations with specific arguments.</p>
+<p>With a stub, if the message might be received with other args as well, you should stub a default value first, and then stub or mock the same message using <code>with</code> to constrain to specific arguments.</p>
+<p>A message expectation will fail if the message is received with different arguments.</p>
   </div>
 </div>
 <div class="tags">
@@ -1059,7 +1073,8 @@ arguments.</p>
     <li>
         <span class='type'>(<tt><span class='object_link'><a href="" title="RSpec::Mocks::MessageExpectation (class)">MessageExpectation</a></span></tt>)</span>
         &mdash;
-        <div class='inline'><p>self, to support further chaining.</p>
+        <div class='inline'>
+<p>self, to support further chaining.</p>
 </div>
     </li>
 </ul>
@@ -1098,18 +1113,10 @@ arguments.</p>
   </div>
 </div>
       <div id="footer">
-  Generated on Fri Sep 14 00:02:11 2018 by
+  Generated on Tue Jul 28 15:14:03 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.16 (ruby-2.5.1).
+  0.9.25 (ruby-2.7.1).
 </div>
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-  ga('create', 'UA-59095215-1', 'auto');
-  ga('send', 'pageview');
-</script>
     </div>
   </body>
 </html>

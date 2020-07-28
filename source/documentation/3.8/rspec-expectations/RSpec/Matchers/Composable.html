@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
   Module: RSpec::Matchers::Composable
-    &mdash; Documentation by YARD 0.9.16
+    &mdash; Documentation by YARD 0.9.25
 </title>
-  <link rel="stylesheet" href="/documentation/3.8/rspec-expectations/css/style.css" type="text/css" charset="utf-8" />
-  <link rel="stylesheet" href="/documentation/3.8/rspec-expectations/css/common.css" type="text/css" charset="utf-8" />
-<script type="text/javascript" charset="utf-8">
+  <link rel="stylesheet" href="/documentation/3.8/rspec-expectations/css/style.css" type="text/css" />
+  <link rel="stylesheet" href="/documentation/3.8/rspec-expectations/css/common.css" type="text/css" />
+<script type="text/javascript">
   pathId = "RSpec::Matchers::Composable";
   relpath = '../../';
 </script>
@@ -54,9 +55,7 @@
 </div>
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>Mixin designed to support the composable matcher features
-of RSpec 3+. Mix it into your custom matcher classes to
-allow them to be used in a composable fashion.</p>
+<p>Mixin designed to support the composable matcher features of RSpec 3+. Mix it into your custom matcher classes to allow them to be used in a composable fashion.</p>
   </div>
 </div>
 <div class="tags">
@@ -74,14 +73,16 @@ allow them to be used in a composable fashion.</p>
       <a href="#should_enumerate%3F-class_method" title="should_enumerate? (class method)">.<strong>should_enumerate?</strong>(item)  &#x21d2; Boolean </a>
   </span>
   <span class="private note title">private</span>
-    <span class="summary_desc"><div class='inline'><p>We should enumerate arrays as long as they are not recursive.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>We should enumerate arrays as long as they are not recursive.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#surface_descriptions_in-class_method" title="surface_descriptions_in (class method)">.<strong>surface_descriptions_in</strong>(item)  &#x21d2; Object </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Transforms the given data structue (typically a hash or array) into a new data structure that, when <code>#inspect</code> is called on it, will provide descriptions of any contained matchers rather than the normal <code>#inspect</code> output.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Transforms the given data structue (typically a hash or array) into a new data structure that, when <code>#inspect</code> is called on it, will provide descriptions of any contained matchers rather than the normal <code>#inspect</code> output.</p>
 </div></span>
 </li>
         <li class="public ">
@@ -101,7 +102,8 @@ allow them to be used in a composable fashion.</p>
   <span class="summary_signature">
       <a href="#===-instance_method" title="#=== (instance method)">#<strong>===</strong>(value)  &#x21d2; Object </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Delegates to <code>#matches?</code>.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Delegates to <code>#matches?</code>.</p>
 </div></span>
 </li>
         <li class="public ">
@@ -109,14 +111,16 @@ allow them to be used in a composable fashion.</p>
       <a href="#and-instance_method" title="#and (instance method)">#<strong>and</strong>(matcher)  &#x21d2; Object </a>
       (also: #&amp;)
   </span>
-    <span class="summary_desc"><div class='inline'><p>Creates a compound <code>and</code> expectation.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Creates a compound <code>and</code> expectation.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#description_of-instance_method" title="#description_of (instance method)">#<strong>description_of</strong>(object)  &#x21d2; Object </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Returns the description of the given object in a way that is aware of composed matchers.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the description of the given object in a way that is aware of composed matchers.</p>
 </div></span>
 </li>
         <li class="public ">
@@ -124,14 +128,16 @@ allow them to be used in a composable fashion.</p>
       <a href="#or-instance_method" title="#or (instance method)">#<strong>or</strong>(matcher)  &#x21d2; Object </a>
       (also: #|)
   </span>
-    <span class="summary_desc"><div class='inline'><p>Creates a compound <code>or</code> expectation.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Creates a compound <code>or</code> expectation.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#values_match%3F-instance_method" title="#values_match? (instance method)">#<strong>values_match?</strong>(expected, actual)  &#x21d2; Boolean </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>This provides a generic way to fuzzy-match an expected value against an actual value.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>This provides a generic way to fuzzy-match an expected value against an actual value.</p>
 </div></span>
 </li>
     </ul>
@@ -178,15 +184,8 @@ allow them to be used in a composable fashion.</p>
     .<strong>surface_descriptions_in</strong>(item)  &#x21d2; <tt>Object</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Transforms the given data structue (typically a hash or array)
-into a new data structure that, when <code>#inspect</code> is called on it,
-will provide descriptions of any contained matchers rather than
-the normal <code>#inspect</code> output.</p>
-<p>You are encouraged to use this in your custom matcher&#39;s
-<code>description</code>, <code>failure_message</code> or
-<code>failure_message_when_negated</code> implementation if you are
-supporting any arguments which may be a data structure
-containing matchers.</p>
+<p>Transforms the given data structue (typically a hash or array) into a new data structure that, when <code>#inspect</code> is called on it, will provide descriptions of any contained matchers rather than the normal <code>#inspect</code> output.</p>
+<p>You are encouraged to use this in your custom matcher&#39;s <code>description</code>, <code>failure_message</code> or <code>failure_message_when_negated</code> implementation if you are supporting any arguments which may be a data structure containing matchers.</p>
   </div>
 </div>
 <div class="tags">
@@ -278,8 +277,7 @@ containing matchers.</p>
     #<strong>===</strong>(value)  &#x21d2; <tt>Object</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Delegates to <code>#matches?</code>. Allows matchers to be used in composable
-fashion and also supports using matchers in case statements.</p>
+<p>Delegates to <code>#matches?</code>. Allows matchers to be used in composable fashion and also supports using matchers in case statements.</p>
   </div>
 </div>
 <div class="tags">
@@ -310,14 +308,11 @@ fashion and also supports using matchers in case statements.</p>
   <div class="discussion">
   <div class="note notetag">
     <strong>Note:</strong>
-    <div class='inline'><p>The negative form (<code>expect(...).not_to matcher.and other</code>)
-is not supported at this time.</p>
+    <div class='inline'>
+<p>The negative form (<code>expect(...).not_to matcher.and other</code>) is not supported at this time.</p>
 </div>
   </div>
-<p>Creates a compound <code>and</code> expectation. The matcher will
-only pass if both sub-matchers pass.
-This can be chained together to form an arbitrarily long
-chain of matchers.</p>
+<p>Creates a compound <code>and</code> expectation. The matcher will only pass if both sub-matchers pass. This can be chained together to form an arbitrarily long chain of matchers.</p>
   </div>
 </div>
 <div class="tags">
@@ -348,14 +343,8 @@ chain of matchers.</p>
     #<strong>description_of</strong>(object)  &#x21d2; <tt>Object</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns the description of the given object in a way that is
-aware of composed matchers. If the object is a matcher with
-a <code>description</code> method, returns the description; otherwise
-returns <code>object.inspect</code>.</p>
-<p>You are encouraged to use this in your custom matcher&#39;s
-<code>description</code>, <code>failure_message</code> or
-<code>failure_message_when_negated</code> implementation if you are
-supporting matcher arguments.</p>
+<p>Returns the description of the given object in a way that is aware of composed matchers. If the object is a matcher with a <code>description</code> method, returns the description; otherwise returns <code>object.inspect</code>.</p>
+<p>You are encouraged to use this in your custom matcher&#39;s <code>description</code>, <code>failure_message</code> or <code>failure_message_when_negated</code> implementation if you are supporting matcher arguments.</p>
   </div>
 </div>
 <div class="tags">
@@ -386,14 +375,11 @@ supporting matcher arguments.</p>
   <div class="discussion">
   <div class="note notetag">
     <strong>Note:</strong>
-    <div class='inline'><p>The negative form (<code>expect(...).not_to matcher.or other</code>)
-is not supported at this time.</p>
+    <div class='inline'>
+<p>The negative form (<code>expect(...).not_to matcher.or other</code>) is not supported at this time.</p>
 </div>
   </div>
-<p>Creates a compound <code>or</code> expectation. The matcher will
-pass if either sub-matcher passes.
-This can be chained together to form an arbitrarily long
-chain of matchers.</p>
+<p>Creates a compound <code>or</code> expectation. The matcher will pass if either sub-matcher passes. This can be chained together to form an arbitrarily long chain of matchers.</p>
   </div>
 </div>
 <div class="tags">
@@ -424,15 +410,8 @@ chain of matchers.</p>
     #<strong>values_match?</strong>(expected, actual)  &#x21d2; <tt>Boolean</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>This provides a generic way to fuzzy-match an expected value against
-an actual value. It understands nested data structures (e.g. hashes
-and arrays) and is able to match against a matcher being used as
-the expected value or within the expected value at any level of
-nesting.</p>
-<p>Within a custom matcher you are encouraged to use this whenever your
-matcher needs to match two values, unless it needs more precise semantics.
-For example, the <code>eq</code> matcher <em>does not</em> use this as it is meant to
-use <code>==</code> (and only <code>==</code>) for matching.</p>
+<p>This provides a generic way to fuzzy-match an expected value against an actual value. It understands nested data structures (e.g. hashes and arrays) and is able to match against a matcher being used as the expected value or within the expected value at any level of nesting.</p>
+<p>Within a custom matcher you are encouraged to use this whenever your matcher needs to match two values, unless it needs more precise semantics. For example, the <code>eq</code> matcher <em>does not</em> use this as it is meant to use <code>==</code> (and only <code>==</code>) for matching.</p>
   </div>
 </div>
 <div class="tags">
@@ -442,14 +421,16 @@ use <code>==</code> (and only <code>==</code>) for matching.</p>
         <span class='name'>expected</span>
         <span class='type'>(<tt>Object</tt>)</span>
         &mdash;
-        <div class='inline'><p>what is expected</p>
+        <div class='inline'>
+<p>what is expected</p>
 </div>
     </li>
     <li>
         <span class='name'>actual</span>
         <span class='type'>(<tt>Object</tt>)</span>
         &mdash;
-        <div class='inline'><p>the actual value</p>
+        <div class='inline'>
+<p>the actual value</p>
 </div>
     </li>
 </ul>
@@ -481,18 +462,10 @@ use <code>==</code> (and only <code>==</code>) for matching.</p>
   </div>
 </div>
       <div id="footer">
-  Generated on Fri Sep 14 00:02:03 2018 by
+  Generated on Tue Jul 28 15:13:17 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.16 (ruby-2.5.1).
+  0.9.25 (ruby-2.7.1).
 </div>
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-  ga('create', 'UA-59095215-1', 'auto');
-  ga('send', 'pageview');
-</script>
     </div>
   </body>
 </html>

@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
   Class: RSpec::Core::Example
-    &mdash; Documentation by YARD 0.9.16
+    &mdash; Documentation by YARD 0.9.25
 </title>
-  <link rel="stylesheet" href="/documentation/3.8/rspec-core/css/style.css" type="text/css" charset="utf-8" />
-  <link rel="stylesheet" href="/documentation/3.8/rspec-core/css/common.css" type="text/css" charset="utf-8" />
-<script type="text/javascript" charset="utf-8">
+  <link rel="stylesheet" href="/documentation/3.8/rspec-core/css/style.css" type="text/css" />
+  <link rel="stylesheet" href="/documentation/3.8/rspec-core/css/common.css" type="text/css" />
+<script type="text/javascript">
   pathId = "RSpec::Core::Example";
   relpath = '../../';
 </script>
@@ -63,21 +64,13 @@
   <div class="discussion">
   <div class="note notetag">
     <strong>Note:</strong>
-    <div class='inline'><p>Example blocks are evaluated in the context of an instance
-of an <code>ExampleGroup</code>, not in the context of an instance of <code>Example</code>.</p>
+    <div class='inline'>
+<p>Example blocks are evaluated in the context of an instance of an <code>ExampleGroup</code>, not in the context of an instance of <code>Example</code>.</p>
 </div>
   </div>
-<p>Wrapper for an instance of a subclass of <span class='object_link'><a href="ExampleGroup.html" title="RSpec::Core::ExampleGroup (class)">ExampleGroup</a></span>. An instance of
-<code>RSpec::Core::Example</code> is returned by example definition methods
-such as <span class='object_link'><a href="ExampleGroup.html#it-class_method" title="RSpec::Core::ExampleGroup.it (method)">it</a></span> and is yielded to the <span class='object_link'><a href="ExampleGroup.html#it-class_method" title="RSpec::Core::ExampleGroup.it (method)">it</a></span>,
-<span class='object_link'><a href="Hooks.html#before-instance_method" title="RSpec::Core::Hooks#before (method)">before</a></span>, <span class='object_link'><a href="Hooks.html#after-instance_method" title="RSpec::Core::Hooks#after (method)">after</a></span>, <span class='object_link'><a href="Hooks.html#around-instance_method" title="RSpec::Core::Hooks#around (method)">around</a></span>,
-<span class='object_link'><a href="MemoizedHelpers/ClassMethods.html#let-instance_method" title="RSpec::Core::MemoizedHelpers::ClassMethods#let (method)">let</a></span> and
-<span class='object_link'><a href="MemoizedHelpers/ClassMethods.html#subject-instance_method" title="RSpec::Core::MemoizedHelpers::ClassMethods#subject (method)">subject</a></span> blocks.</p>
-<p>This allows us to provide rich metadata about each individual
-example without adding tons of methods directly to the ExampleGroup
-that users may inadvertently redefine.</p>
-<p>Useful for configuring logging and/or taking some action based
-on the state of an example&#39;s metadata.</p>
+<p>Wrapper for an instance of a subclass of <span class='object_link'><a href="ExampleGroup.html" title="RSpec::Core::ExampleGroup (class)">ExampleGroup</a></span>. An instance of <code>RSpec::Core::Example</code> is returned by example definition methods such as <span class='object_link'><a href="ExampleGroup.html#it-class_method" title="RSpec::Core::ExampleGroup.it (method)">it</a></span> and is yielded to the <span class='object_link'><a href="ExampleGroup.html#it-class_method" title="RSpec::Core::ExampleGroup.it (method)">it</a></span>, <span class='object_link'><a href="Hooks.html#before-instance_method" title="RSpec::Core::Hooks#before (method)">before</a></span>, <span class='object_link'><a href="Hooks.html#after-instance_method" title="RSpec::Core::Hooks#after (method)">after</a></span>, <span class='object_link'><a href="Hooks.html#around-instance_method" title="RSpec::Core::Hooks#around (method)">around</a></span>, <span class='object_link'><a href="MemoizedHelpers/ClassMethods.html#let-instance_method" title="RSpec::Core::MemoizedHelpers::ClassMethods#let (method)">let</a></span> and <span class='object_link'><a href="MemoizedHelpers/ClassMethods.html#subject-instance_method" title="RSpec::Core::MemoizedHelpers::ClassMethods#subject (method)">subject</a></span> blocks.</p>
+<p>This allows us to provide rich metadata about each individual example without adding tons of methods directly to the ExampleGroup that users may inadvertently redefine.</p>
+<p>Useful for configuring logging and/or taking some action based on the state of an example&#39;s metadata.</p>
   </div>
 </div>
 <div class="tags">
@@ -118,7 +111,8 @@ on the state of an example&#39;s metadata.</p>
       <a href="#exception-instance_method" title="#exception (instance method)">#<strong>exception</strong>  &#x21d2; void </a>
   </span>
       <span class="note title readonly">readonly</span>
-    <span class="summary_desc"><div class='inline'><p>Returns the first exception raised in the context of running this example (nil if no exception is raised).</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the first exception raised in the context of running this example (nil if no exception is raised).</p>
 </div></span>
 </li>
       <li class="public ">
@@ -126,7 +120,8 @@ on the state of an example&#39;s metadata.</p>
       <a href="#metadata-instance_method" title="#metadata (instance method)">#<strong>metadata</strong>  &#x21d2; void </a>
   </span>
       <span class="note title readonly">readonly</span>
-    <span class="summary_desc"><div class='inline'><p>Returns the metadata object associated with this example.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the metadata object associated with this example.</p>
 </div></span>
 </li>
       <li class="public ">
@@ -134,7 +129,8 @@ on the state of an example&#39;s metadata.</p>
       <a href="#reporter-instance_method" title="#reporter (instance method)">#<strong>reporter</strong>  &#x21d2; RSpec::Core::Reporter </a>
   </span>
       <span class="note title readonly">readonly</span>
-    <span class="summary_desc"><div class='inline'><p>The current reporter for the example.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>The current reporter for the example.</p>
 </div></span>
 </li>
   </ul>
@@ -147,49 +143,56 @@ on the state of an example&#39;s metadata.</p>
   <span class="summary_signature">
       <a href="#description-instance_method" title="#description (instance method)">#<strong>description</strong>  &#x21d2; void </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Returns the string submitted to <code>example</code> or its aliases (e.g. <code>specify</code>, <code>it</code>, etc).</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the string submitted to <code>example</code> or its aliases (e.g. <code>specify</code>, <code>it</code>, etc).</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#duplicate_with-instance_method" title="#duplicate_with (instance method)">#<strong>duplicate_with</strong>(metadata_overrides = {})  &#x21d2; Example </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Duplicates the example and overrides metadata with the provided hash.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Duplicates the example and overrides metadata with the provided hash.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#example_group-instance_method" title="#example_group (instance method)">#<strong>example_group</strong>  &#x21d2; void </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Returns the example group class that provides the context for running this example.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the example group class that provides the context for running this example.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#execution_result-instance_method" title="#execution_result (instance method)">#<strong>execution_result</strong>  &#x21d2; ExecutionResult </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Represents the result of running this example.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Represents the result of running this example.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#file_path-instance_method" title="#file_path (instance method)">#<strong>file_path</strong>  &#x21d2; String </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>The relative path to the file where this example was defined.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>The relative path to the file where this example was defined.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#full_description-instance_method" title="#full_description (instance method)">#<strong>full_description</strong>  &#x21d2; String </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>The full description (including the docstrings of all parent example groups).</p>
+    <span class="summary_desc"><div class='inline'>
+<p>The full description (including the docstrings of all parent example groups).</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#id-instance_method" title="#id (instance method)">#<strong>id</strong>  &#x21d2; String </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>The unique id of this example.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>The unique id of this example.</p>
 </div></span>
 </li>
         <li class="public ">
@@ -198,7 +201,8 @@ on the state of an example&#39;s metadata.</p>
   </span>
     <span class="note title constructor">constructor</span>
   <span class="private note title">private</span>
-    <span class="summary_desc"><div class='inline'><p>Creates a new instance of Example.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Creates a new instance of Example.</p>
 </div></span>
 </li>
         <li class="public ">
@@ -206,28 +210,32 @@ on the state of an example&#39;s metadata.</p>
       <a href="#inspect-instance_method" title="#inspect (instance method)">#<strong>inspect</strong>  &#x21d2; void </a>
       (also: #to_s)
   </span>
-    <span class="summary_desc"><div class='inline'><p>Provide a human-readable representation of this class.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Provide a human-readable representation of this class.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#inspect_output-instance_method" title="#inspect_output (instance method)">#<strong>inspect_output</strong>  &#x21d2; void </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Returns a description of the example that always includes the location.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Returns a description of the example that always includes the location.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#location-instance_method" title="#location (instance method)">#<strong>location</strong>  &#x21d2; String </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>The exact source location of this example in a form like <code>./path/to/spec.rb:17</code>.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>The exact source location of this example in a form like <code>./path/to/spec.rb:17</code>.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#location_rerun_argument-instance_method" title="#location_rerun_argument (instance method)">#<strong>location_rerun_argument</strong>  &#x21d2; void </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Returns the location-based argument that can be passed to the <code>rspec</code> command to rerun this example.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Returns the location-based argument that can be passed to the <code>rspec</code> command to rerun this example.</p>
 </div></span>
 </li>
         <li class="public ">
@@ -235,7 +243,8 @@ on the state of an example&#39;s metadata.</p>
       <a href="#pending-instance_method" title="#pending (instance method)">#<strong>pending</strong>  &#x21d2; Boolean </a>
       (also: #pending?)
   </span>
-    <span class="summary_desc"><div class='inline'><p>Flag that indicates that the example is not expected to pass.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Flag that indicates that the example is not expected to pass.</p>
 </div></span>
 </li>
         <li class="public deprecated">
@@ -243,7 +252,8 @@ on the state of an example&#39;s metadata.</p>
       <a href="#rerun_argument-instance_method" title="#rerun_argument (instance method)">#<strong>rerun_argument</strong>  &#x21d2; void </a>
   </span>
   <span class="deprecated note title">deprecated</span>
-    <span class="summary_desc"><strong>Deprecated.</strong> <div class='inline'><p>Use <span class='object_link'><a href="#location_rerun_argument-instance_method" title="RSpec::Core::Example#location_rerun_argument (method)">#location_rerun_argument</a></span> instead.</p>
+    <span class="summary_desc"><strong>Deprecated.</strong> <div class='inline'>
+<p>Use <span class='object_link'><a href="#location_rerun_argument-instance_method" title="RSpec::Core::Example#location_rerun_argument (method)">#location_rerun_argument</a></span> instead.</p>
 </div></span>
 </li>
         <li class="public ">
@@ -251,7 +261,8 @@ on the state of an example&#39;s metadata.</p>
       <a href="#run-instance_method" title="#run (instance method)">#<strong>run</strong>(example_group_instance, reporter)  &#x21d2; void </a>
   </span>
   <span class="private note title">private</span>
-    <span class="summary_desc"><div class='inline'><p>instance_execs the block passed to the constructor in the context of the instance of <span class='object_link'><a href="ExampleGroup.html" title="RSpec::Core::ExampleGroup (class)">ExampleGroup</a></span>.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>instance_execs the block passed to the constructor in the context of the instance of <span class='object_link'><a href="ExampleGroup.html" title="RSpec::Core::ExampleGroup (class)">ExampleGroup</a></span>.</p>
 </div></span>
 </li>
         <li class="public ">
@@ -259,7 +270,8 @@ on the state of an example&#39;s metadata.</p>
       <a href="#skip-instance_method" title="#skip (instance method)">#<strong>skip</strong>  &#x21d2; Boolean </a>
       (also: #skipped?)
   </span>
-    <span class="summary_desc"><div class='inline'><p>Flag that will cause the example to not run.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Flag that will cause the example to not run.</p>
 </div></span>
 </li>
     </ul>
@@ -284,24 +296,24 @@ on the state of an example&#39;s metadata.</p>
         <span class='name'>example_group_class</span>
         <span class='type'>(<tt>Class</tt>)</span>
         &mdash;
-        <div class='inline'><p>the subclass of ExampleGroup in which
-this Example is declared</p>
+        <div class='inline'>
+<p>the subclass of ExampleGroup in which this Example is declared</p>
 </div>
     </li>
     <li>
         <span class='name'>description</span>
         <span class='type'>(<tt>String</tt>)</span>
         &mdash;
-        <div class='inline'><p>the String passed to the <code>it</code> method (or
-alias)</p>
+        <div class='inline'>
+<p>the String passed to the <code>it</code> method (or alias)</p>
 </div>
     </li>
     <li>
         <span class='name'>user_metadata</span>
         <span class='type'>(<tt>Hash</tt>)</span>
         &mdash;
-        <div class='inline'><p>additional args passed to <code>it</code> to be used as
-metadata</p>
+        <div class='inline'>
+<p>additional args passed to <code>it</code> to be used as metadata</p>
 </div>
     </li>
     <li>
@@ -309,8 +321,8 @@ metadata</p>
         <span class='type'>(<tt>Proc</tt>)</span>
         <em class="default">(defaults to: <tt>nil</tt>)</em>
         &mdash;
-        <div class='inline'><p>the block of code that represents the
-example</p>
+        <div class='inline'>
+<p>the block of code that represents the example</p>
 </div>
     </li>
 </ul>
@@ -346,7 +358,10 @@ example</p>
 211
 212
 213
-214</pre>
+214
+215
+216
+217</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/rspec/core/example.rb', line 186</span>
@@ -367,10 +382,12 @@ example</p>
     <span class='id identifier rubyid_example_group_class'>example_group_class</span><span class='period'>.</span><span class='id identifier rubyid_method'>method</span><span class='lparen'>(</span><span class='symbol'>:next_runnable_index_for</span><span class='rparen'>)</span><span class='comma'>,</span>
     <span class='id identifier rubyid_description'>description</span><span class='comma'>,</span> <span class='id identifier rubyid_example_block'>example_block</span>
   <span class='rparen'>)</span>
+  <span class='id identifier rubyid_config'>config</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../RSpec.html" title="RSpec (module)">RSpec</a></span></span><span class='period'>.</span><span class='id identifier rubyid_configuration'><span class='object_link'><a href="../../RSpec.html#configuration-class_method" title="RSpec.configuration (method)">configuration</a></span></span>
+  <span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_apply_derived_metadata_to'>apply_derived_metadata_to</span><span class='lparen'>(</span><span class='ivar'>@metadata</span><span class='rparen'>)</span>
   <span class='comment'># This should perhaps be done in `Metadata::ExampleHash.create`,
 </span>  <span class='comment'># but the logic there has no knowledge of `RSpec.world` and we
 </span>  <span class='comment'># want to keep it that way. It&#39;s easier to just assign it here.
-</span>  <span class='ivar'>@metadata</span><span class='lbracket'>[</span><span class='symbol'>:last_run_status</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../RSpec.html" title="RSpec (module)">RSpec</a></span></span><span class='period'>.</span><span class='id identifier rubyid_configuration'><span class='object_link'><a href="../../RSpec.html#configuration-class_method" title="RSpec.configuration (method)">configuration</a></span></span><span class='period'>.</span><span class='id identifier rubyid_last_run_statuses'>last_run_statuses</span><span class='lbracket'>[</span><span class='id identifier rubyid_id'>id</span><span class='rbracket'>]</span>
+</span>  <span class='ivar'>@metadata</span><span class='lbracket'>[</span><span class='symbol'>:last_run_status</span><span class='rbracket'>]</span> <span class='op'>=</span> <span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_last_run_statuses'>last_run_statuses</span><span class='lbracket'>[</span><span class='id identifier rubyid_id'>id</span><span class='rbracket'>]</span>
   <span class='ivar'>@example_group_instance</span> <span class='op'>=</span> <span class='ivar'>@exception</span> <span class='op'>=</span> <span class='kw'>nil</span>
   <span class='ivar'>@clock</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../RSpec.html" title="RSpec (module)">RSpec</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Core.html" title="RSpec::Core (module)">Core</a></span></span><span class='op'>::</span><span class='const'>Time</span>
   <span class='ivar'>@reporter</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../RSpec.html" title="RSpec (module)">RSpec</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Core.html" title="RSpec::Core (module)">Core</a></span></span><span class='op'>::</span><span class='const'>NullReporter</span>
@@ -388,8 +405,7 @@ example</p>
     #<strong>exception</strong>  &#x21d2; <tt>void</tt>  <span class="extras">(readonly)</span>
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns the first exception raised in the context of running this
-example (nil if no exception is raised).</p>
+<p>Returns the first exception raised in the context of running this example (nil if no exception is raised).</p>
   </div>
 </div>
 <div class="tags">
@@ -416,7 +432,7 @@ example (nil if no exception is raised).</p>
     #<strong>metadata</strong>  &#x21d2; <tt>void</tt>  <span class="extras">(readonly)</span>
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns the metadata object associated with this example.</p>
+<p>Returns the metadata object associated with this example.</p>
   </div>
 </div>
 <div class="tags">
@@ -443,7 +459,7 @@ example (nil if no exception is raised).</p>
     #<strong>reporter</strong>  &#x21d2; <tt><span class='object_link'><a href="Reporter.html" title="RSpec::Core::Reporter (class)">RSpec::Core::Reporter</a></span></tt>  <span class="extras">(readonly)</span>
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns the current reporter for the example</p>
+<p>Returns the current reporter for the example.</p>
   </div>
 </div>
 <div class="tags">
@@ -452,7 +468,8 @@ example (nil if no exception is raised).</p>
     <li>
         <span class='type'>(<tt><span class='object_link'><a href="Reporter.html" title="RSpec::Core::Reporter (class)">RSpec::Core::Reporter</a></span></tt>)</span>
         &mdash;
-        <div class='inline'><p>the current reporter for the example</p>
+        <div class='inline'>
+<p>the current reporter for the example</p>
 </div>
     </li>
 </ul>
@@ -460,12 +477,12 @@ example (nil if no exception is raised).</p>
   <tr>
     <td>
       <pre class="lines">
-223
-224
-225</pre>
+226
+227
+228</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/core/example.rb', line 223</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/example.rb', line 226</span>
 <span class='kw'>def</span> <span class='id identifier rubyid_reporter'>reporter</span>
   <span class='ivar'>@reporter</span>
 <span class='kw'>end</span></pre>
@@ -481,11 +498,7 @@ example (nil if no exception is raised).</p>
     #<strong>description</strong>  &#x21d2; <tt>void</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns the string submitted to <code>example</code> or its aliases (e.g.
-<code>specify</code>, <code>it</code>, etc). If no string is submitted (e.g.
-<code>it { is_expected.to do_something }</code>) it returns the message generated
-by the matcher if there is one, otherwise returns a message including
-the location of the example.</p>
+<p>Returns the string submitted to <code>example</code> or its aliases (e.g. <code>specify</code>, <code>it</code>, etc). If no string is submitted (e.g. <code>it { is_expected.to do_something }</code>) it returns the message generated by the matcher if there is one, otherwise returns a message including the location of the example.</p>
   </div>
 </div>
 <div class="tags">
@@ -522,8 +535,7 @@ the location of the example.</p>
     #<strong>duplicate_with</strong>(metadata_overrides = {})  &#x21d2; <tt><span class='object_link'><a href="" title="RSpec::Core::Example (class)">Example</a></span></tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Duplicates the example and overrides metadata with the provided
-hash.</p>
+<p>Duplicates the example and overrides metadata with the provided hash.</p>
   </div>
 </div>
 <div class="tags">
@@ -534,7 +546,8 @@ hash.</p>
         <span class='type'>(<tt>Hash</tt>)</span>
         <em class="default">(defaults to: <tt>{}</tt>)</em>
         &mdash;
-        <div class='inline'><p>the hash to override the example metadata</p>
+        <div class='inline'>
+<p>the hash to override the example metadata</p>
 </div>
     </li>
 </ul>
@@ -543,7 +556,8 @@ hash.</p>
     <li>
         <span class='type'>(<tt><span class='object_link'><a href="" title="RSpec::Core::Example (class)">Example</a></span></tt>)</span>
         &mdash;
-        <div class='inline'><p>a duplicate of the example with modified metadata</p>
+        <div class='inline'>
+<p>a duplicate of the example with modified metadata</p>
 </div>
     </li>
 </ul>
@@ -589,8 +603,7 @@ hash.</p>
     #<strong>example_group</strong>  &#x21d2; <tt>void</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns the example group class that provides the context for running
-this example.</p>
+<p>Returns the example group class that provides the context for running this example.</p>
   </div>
 </div>
 <div class="tags">
@@ -598,12 +611,12 @@ this example.</p>
   <tr>
     <td>
       <pre class="lines">
-227
-228
-229</pre>
+230
+231
+232</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/core/example.rb', line 227</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/example.rb', line 230</span>
 <span class='kw'>def</span> <span class='id identifier rubyid_example_group'>example_group</span>
   <span class='ivar'>@example_group_class</span>
 <span class='kw'>end</span></pre>
@@ -616,7 +629,7 @@ this example.</p>
     #<strong>execution_result</strong>  &#x21d2; <tt><span class='object_link'><a href="Example/ExecutionResult.html" title="RSpec::Core::Example::ExecutionResult (class)">ExecutionResult</a></span></tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns represents the result of running this example.</p>
+<p>Returns represents the result of running this example.</p>
   </div>
 </div>
 <div class="tags">
@@ -625,7 +638,8 @@ this example.</p>
     <li>
         <span class='type'>(<tt><span class='object_link'><a href="Example/ExecutionResult.html" title="RSpec::Core::Example::ExecutionResult (class)">ExecutionResult</a></span></tt>)</span>
         &mdash;
-        <div class='inline'><p>represents the result of running this example.</p>
+        <div class='inline'>
+<p>represents the result of running this example.</p>
 </div>
     </li>
 </ul>
@@ -647,8 +661,7 @@ this example.</p>
     #<strong>file_path</strong>  &#x21d2; <tt>String</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns the relative path to the file where this example was
-defined.</p>
+<p>Returns the relative path to the file where this example was defined.</p>
   </div>
 </div>
 <div class="tags">
@@ -657,8 +670,8 @@ defined.</p>
     <li>
         <span class='type'>(<tt>String</tt>)</span>
         &mdash;
-        <div class='inline'><p>the relative path to the file where this example was
-defined.</p>
+        <div class='inline'>
+<p>the relative path to the file where this example was defined.</p>
 </div>
     </li>
 </ul>
@@ -680,8 +693,7 @@ defined.</p>
     #<strong>full_description</strong>  &#x21d2; <tt>String</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns the full description (including the docstrings of
-all parent example groups).</p>
+<p>Returns the full description (including the docstrings of all parent example groups).</p>
   </div>
 </div>
 <div class="tags">
@@ -690,8 +702,8 @@ all parent example groups).</p>
     <li>
         <span class='type'>(<tt>String</tt>)</span>
         &mdash;
-        <div class='inline'><p>the full description (including the docstrings of
-all parent example groups).</p>
+        <div class='inline'>
+<p>the full description (including the docstrings of all parent example groups).</p>
 </div>
     </li>
 </ul>
@@ -713,8 +725,7 @@ all parent example groups).</p>
     #<strong>id</strong>  &#x21d2; <tt>String</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns the unique id of this example. Pass
-this at the command line to re-run this exact example.</p>
+<p>Returns the unique id of this example. Pass this at the command line to re-run this exact example.</p>
   </div>
 </div>
 <div class="tags">
@@ -723,8 +734,8 @@ this at the command line to re-run this exact example.</p>
     <li>
         <span class='type'>(<tt>String</tt>)</span>
         &mdash;
-        <div class='inline'><p>the unique id of this example. Pass
-this at the command line to re-run this exact example.</p>
+        <div class='inline'>
+<p>the unique id of this example. Pass this at the command line to re-run this exact example.</p>
 </div>
     </li>
 </ul>
@@ -753,7 +764,7 @@ this at the command line to re-run this exact example.</p>
     </span>
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Provide a human-readable representation of this class</p>
+<p>Provide a human-readable representation of this class</p>
   </div>
 </div>
 <div class="tags">
@@ -761,12 +772,12 @@ this at the command line to re-run this exact example.</p>
   <tr>
     <td>
       <pre class="lines">
-217
-218
-219</pre>
+220
+221
+222</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/core/example.rb', line 217</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/example.rb', line 220</span>
 <span class='kw'>def</span> <span class='id identifier rubyid_inspect'>inspect</span>
   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>#&lt;</span><span class='embexpr_beg'>#{</span><span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_class'>class</span><span class='period'>.</span><span class='id identifier rubyid_name'>name</span><span class='embexpr_end'>}</span><span class='tstring_content'> </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_description'>description</span><span class='period'>.</span><span class='id identifier rubyid_inspect'>inspect</span><span class='embexpr_end'>}</span><span class='tstring_content'>&gt;</span><span class='tstring_end'>&quot;</span></span>
 <span class='kw'>end</span></pre>
@@ -779,7 +790,7 @@ this at the command line to re-run this exact example.</p>
     #<strong>inspect_output</strong>  &#x21d2; <tt>void</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns a description of the example that always includes the location.</p>
+<p>Returns a description of the example that always includes the location.</p>
   </div>
 </div>
 <div class="tags">
@@ -813,8 +824,7 @@ this at the command line to re-run this exact example.</p>
     #<strong>location</strong>  &#x21d2; <tt>String</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns the exact source location of this example in a form
-like <code>./path/to/spec.rb:17</code></p>
+<p>Returns the exact source location of this example in a form like <code>./path/to/spec.rb:17</code>.</p>
   </div>
 </div>
 <div class="tags">
@@ -823,8 +833,8 @@ like <code>./path/to/spec.rb:17</code></p>
     <li>
         <span class='type'>(<tt>String</tt>)</span>
         &mdash;
-        <div class='inline'><p>the exact source location of this example in a form
-like <code>./path/to/spec.rb:17</code></p>
+        <div class='inline'>
+<p>the exact source location of this example in a form like <code>./path/to/spec.rb:17</code></p>
 </div>
     </li>
 </ul>
@@ -846,7 +856,7 @@ like <code>./path/to/spec.rb:17</code></p>
     #<strong>location_rerun_argument</strong>  &#x21d2; <tt>void</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns the location-based argument that can be passed to the <code>rspec</code> command to rerun this example.</p>
+<p>Returns the location-based argument that can be passed to the <code>rspec</code> command to rerun this example.</p>
   </div>
 </div>
 <div class="tags">
@@ -886,9 +896,7 @@ like <code>./path/to/spec.rb:17</code></p>
     </span>
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns flag that indicates that the example is not expected
-to pass. It will be run and will either have a pending result (if a
-failure occurs) or a failed result (if no failure occurs).</p>
+<p>Returns flag that indicates that the example is not expected to pass. It will be run and will either have a pending result (if a failure occurs) or a failed result (if no failure occurs).</p>
   </div>
 </div>
 <div class="tags">
@@ -897,9 +905,8 @@ failure occurs) or a failed result (if no failure occurs).</p>
     <li>
         <span class='type'>(<tt>Boolean</tt>)</span>
         &mdash;
-        <div class='inline'><p>flag that indicates that the example is not expected
-to pass. It will be run and will either have a pending result (if a
-failure occurs) or a failed result (if no failure occurs).</p>
+        <div class='inline'>
+<p>flag that indicates that the example is not expected to pass. It will be run and will either have a pending result (if a failure occurs) or a failed result (if no failure occurs).</p>
 </div>
     </li>
 </ul>
@@ -921,12 +928,13 @@ failure occurs) or a failed result (if no failure occurs).</p>
     #<strong>rerun_argument</strong>  &#x21d2; <tt>void</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <div class="note deprecated"><strong>Deprecated.</strong> <div class='inline'><p>Use <span class='object_link'><a href="#location_rerun_argument-instance_method" title="RSpec::Core::Example#location_rerun_argument (method)">#location_rerun_argument</a></span> instead.</p>
+    <div class="note deprecated"><strong>Deprecated.</strong> <div class='inline'>
+<p>Use <span class='object_link'><a href="#location_rerun_argument-instance_method" title="RSpec::Core::Example#location_rerun_argument (method)">#location_rerun_argument</a></span> instead.</p>
 </div></div>
   <div class="note notetag">
     <strong>Note:</strong>
-    <div class='inline'><p>If there are multiple examples identified by this location, they will use <span class='object_link'><a href="#id-instance_method" title="RSpec::Core::Example#id (method)">#id</a></span>
-to rerun instead, but this method will still return the location (that&#39;s why it is deprecated!).</p>
+    <div class='inline'>
+<p>If there are multiple examples identified by this location, they will use <span class='object_link'><a href="#id-instance_method" title="RSpec::Core::Example#id (method)">#id</a></span> to rerun instead, but this method will still return the location (that&#39;s why it is deprecated!).</p>
 </div>
   </div>
 <p>Returns the location-based argument that can be passed to the <code>rspec</code> command to rerun this example.</p>
@@ -959,8 +967,7 @@ to rerun instead, but this method will still return the location (that&#39;s why
   <strong>This method is part of a private API.</strong>
   You should avoid using this method if possible, as it may be removed or be changed in the future.
 </p>
-<p>instance_execs the block passed to the constructor in the context of
-the instance of <span class='object_link'><a href="ExampleGroup.html" title="RSpec::Core::ExampleGroup (class)">RSpec::Core::ExampleGroup</a></span>.</p>
+<p>instance_execs the block passed to the constructor in the context of the instance of <span class='object_link'><a href="ExampleGroup.html" title="RSpec::Core::ExampleGroup (class)">RSpec::Core::ExampleGroup</a></span>.</p>
   </div>
 </div>
 <div class="tags">
@@ -970,7 +977,8 @@ the instance of <span class='object_link'><a href="ExampleGroup.html" title="RSp
         <span class='name'>example_group_instance</span>
         <span class='type'></span>
         &mdash;
-        <div class='inline'><p>the instance of an ExampleGroup subclass</p>
+        <div class='inline'>
+<p>the instance of an ExampleGroup subclass</p>
 </div>
     </li>
 </ul>
@@ -978,9 +986,6 @@ the instance of <span class='object_link'><a href="ExampleGroup.html" title="RSp
   <tr>
     <td>
       <pre class="lines">
-238
-239
-240
 241
 242
 243
@@ -1027,10 +1032,13 @@ the instance of <span class='object_link'><a href="ExampleGroup.html" title="RSp
 284
 285
 286
-287</pre>
+287
+288
+289
+290</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/core/example.rb', line 238</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/example.rb', line 241</span>
 <span class='kw'>def</span> <span class='id identifier rubyid_run'>run</span><span class='lparen'>(</span><span class='id identifier rubyid_example_group_instance'>example_group_instance</span><span class='comma'>,</span> <span class='id identifier rubyid_reporter'>reporter</span><span class='rparen'>)</span>
   <span class='ivar'>@example_group_instance</span> <span class='op'>=</span> <span class='id identifier rubyid_example_group_instance'>example_group_instance</span>
   <span class='ivar'>@reporter</span> <span class='op'>=</span> <span class='id identifier rubyid_reporter'>reporter</span>
@@ -1088,8 +1096,7 @@ the instance of <span class='object_link'><a href="ExampleGroup.html" title="RSp
     </span>
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns flag that will cause the example to not run.
-The <span class='object_link'><a href="Example/ExecutionResult.html" title="RSpec::Core::Example::ExecutionResult (class)">ExecutionResult</a></span> status will be <code>:pending</code>.</p>
+<p>Returns flag that will cause the example to not run. The <span class='object_link'><a href="Example/ExecutionResult.html" title="RSpec::Core::Example::ExecutionResult (class)">ExecutionResult</a></span> status will be <code>:pending</code>.</p>
   </div>
 </div>
 <div class="tags">
@@ -1098,8 +1105,8 @@ The <span class='object_link'><a href="Example/ExecutionResult.html" title="RSpe
     <li>
         <span class='type'>(<tt>Boolean</tt>)</span>
         &mdash;
-        <div class='inline'><p>flag that will cause the example to not run.
-The <span class='object_link'><a href="Example/ExecutionResult.html" title="RSpec::Core::Example::ExecutionResult (class)">ExecutionResult</a></span> status will be <code>:pending</code>.</p>
+        <div class='inline'>
+<p>flag that will cause the example to not run. The <span class='object_link'><a href="Example/ExecutionResult.html" title="RSpec::Core::Example::ExecutionResult (class)">ExecutionResult</a></span> status will be <code>:pending</code>.</p>
 </div>
     </li>
 </ul>
@@ -1119,18 +1126,10 @@ The <span class='object_link'><a href="Example/ExecutionResult.html" title="RSpe
   </div>
 </div>
       <div id="footer">
-  Generated on Fri Sep 14 00:01:55 2018 by
+  Generated on Tue Jul 28 15:12:41 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.16 (ruby-2.5.1).
+  0.9.25 (ruby-2.7.1).
 </div>
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-  ga('create', 'UA-59095215-1', 'auto');
-  ga('send', 'pageview');
-</script>
     </div>
   </body>
 </html>
