@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
   Module: RSpec::Core::SharedExampleGroup
-    &mdash; Documentation by YARD 0.9.16
+    &mdash; Documentation by YARD 0.9.25
 </title>
-  <link rel="stylesheet" href="/documentation/3.8/rspec-core/css/style.css" type="text/css" charset="utf-8" />
-  <link rel="stylesheet" href="/documentation/3.8/rspec-core/css/common.css" type="text/css" charset="utf-8" />
-<script type="text/javascript" charset="utf-8">
+  <link rel="stylesheet" href="/documentation/3.8/rspec-core/css/style.css" type="text/css" />
+  <link rel="stylesheet" href="/documentation/3.8/rspec-core/css/common.css" type="text/css" />
+<script type="text/javascript">
   pathId = "RSpec::Core::SharedExampleGroup";
   relpath = '../../';
 </script>
@@ -54,17 +55,9 @@
 </div>
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>Shared example groups let you define common context and/or common
-examples that you wish to use in multiple example groups.</p>
-<p>When defined, the shared group block is stored for later evaluation.
-It can later be included in an example group either explicitly
-(using <code>include_examples</code>, <code>include_context</code> or <code>it_behaves_like</code>)
-or implicitly (via matching metadata).</p>
-<p>Named shared example groups are scoped based on where they are
-defined. Shared groups defined in an example group are available
-for inclusion in that example group or any child example groups,
-but not in any parent or sibling example groups. Shared example
-groups defined at the top level can be included from any example group.</p>
+<p>Shared example groups let you define common context and/or common examples that you wish to use in multiple example groups.</p>
+<p>When defined, the shared group block is stored for later evaluation. It can later be included in an example group either explicitly (using <code>include_examples</code>, <code>include_context</code> or <code>it_behaves_like</code>) or implicitly (via matching metadata).</p>
+<p>Named shared example groups are scoped based on where they are defined. Shared groups defined in an example group are available for inclusion in that example group or any child example groups, but not in any parent or sibling example groups. Shared example groups defined at the top level can be included from any example group.</p>
   </div>
 </div>
 <div class="tags">
@@ -82,7 +75,8 @@ groups defined at the top level can be included from any example group.</p>
       <a href="#shared_examples-instance_method" title="#shared_examples (instance method)">#<strong>shared_examples</strong>(name, *args, &amp;block)  &#x21d2; void </a>
       (also: #shared_context, #shared_examples_for)
   </span>
-    <span class="summary_desc"><div class='inline'><p>Stores the block for later use.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Stores the block for later use.</p>
 </div></span>
 </li>
     </ul>
@@ -97,9 +91,7 @@ groups defined at the top level can be included from any example group.</p>
     </span>
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Stores the block for later use. The block will be evaluated
-in the context of an example group via <code>include_examples</code>,
-<code>include_context</code>, or <code>it_behaves_like</code>.</p>
+<p>Stores the block for later use. The block will be evaluated in the context of an example group via <code>include_examples</code>, <code>include_context</code>, or <code>it_behaves_like</code>.</p>
   </div>
 </div>
 <div class="tags">
@@ -131,15 +123,16 @@ in the context of an example group via <code>include_examples</code>,
         <span class='name'>name</span>
         <span class='type'>(<tt>String</tt>, <tt>Symbol</tt>, <tt>Module</tt>)</span>
         &mdash;
-        <div class='inline'><p>identifer to use when looking up
-this shared group</p>
+        <div class='inline'>
+<p>identifer to use when looking up this shared group</p>
 </div>
     </li>
     <li>
         <span class='name'>block</span>
         <span class='type'></span>
         &mdash;
-        <div class='inline'><p>The block to be eval&#39;d</p>
+        <div class='inline'>
+<p>The block to be eval&#39;d</p>
 </div>
     </li>
 </ul>
@@ -158,24 +151,24 @@ this shared group</p>
         <span class='name'>name</span>
         <span class='type'>(<tt>String</tt>, <tt>Symbol</tt>, <tt>Module</tt>)</span>
         &mdash;
-        <div class='inline'><p>identifer to use when looking up
-this shared group</p>
+        <div class='inline'>
+<p>identifer to use when looking up this shared group</p>
 </div>
     </li>
     <li>
         <span class='name'>metadata</span>
         <span class='type'>(<tt>Array&lt;Symbol&gt;</tt>, <tt>Hash</tt>)</span>
         &mdash;
-        <div class='inline'><p>metadata to attach to this
-group; any example group or example with matching metadata will
-automatically include this shared example group.</p>
+        <div class='inline'>
+<p>metadata to attach to this group; any example group or example with matching metadata will automatically include this shared example group.</p>
 </div>
     </li>
     <li>
         <span class='name'>block</span>
         <span class='type'></span>
         &mdash;
-        <div class='inline'><p>The block to be eval&#39;d</p>
+        <div class='inline'>
+<p>The block to be eval&#39;d</p>
 </div>
     </li>
 </ul>
@@ -221,18 +214,10 @@ automatically include this shared example group.</p>
   </div>
 </div>
       <div id="footer">
-  Generated on Fri Sep 14 00:01:54 2018 by
+  Generated on Tue Jul 28 15:12:40 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.16 (ruby-2.5.1).
+  0.9.25 (ruby-2.7.1).
 </div>
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-  ga('create', 'UA-59095215-1', 'auto');
-  ga('send', 'pageview');
-</script>
     </div>
   </body>
 </html>

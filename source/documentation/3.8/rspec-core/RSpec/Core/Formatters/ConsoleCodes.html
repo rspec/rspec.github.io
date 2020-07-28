@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
   Module: RSpec::Core::Formatters::ConsoleCodes
-    &mdash; Documentation by YARD 0.9.16
+    &mdash; Documentation by YARD 0.9.25
 </title>
-  <link rel="stylesheet" href="/documentation/3.8/rspec-core/css/style.css" type="text/css" charset="utf-8" />
-  <link rel="stylesheet" href="/documentation/3.8/rspec-core/css/common.css" type="text/css" charset="utf-8" />
-<script type="text/javascript" charset="utf-8">
+  <link rel="stylesheet" href="/documentation/3.8/rspec-core/css/style.css" type="text/css" />
+  <link rel="stylesheet" href="/documentation/3.8/rspec-core/css/common.css" type="text/css" />
+<script type="text/javascript">
   pathId = "RSpec::Core::Formatters::ConsoleCodes";
   relpath = '../../../';
 </script>
@@ -50,8 +51,7 @@
 </div>
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>ConsoleCodes provides helpers for formatting console output
-with ANSI codes, e.g. color&#39;s and bold.</p>
+<p>ConsoleCodes provides helpers for formatting console output with ANSI codes, e.g. color&#39;s and bold.</p>
   </div>
 </div>
 <div class="tags">
@@ -65,14 +65,16 @@ with ANSI codes, e.g. color&#39;s and bold.</p>
   <span class="summary_signature">
       <a href="#console_code_for-class_method" title="console_code_for (class method)">.<strong>console_code_for</strong>(code_or_symbol)  &#x21d2; Fixnum </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Fetches the correct code for the supplied symbol, or checks that a code is valid.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Fetches the correct code for the supplied symbol, or checks that a code is valid.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#wrap-class_method" title="wrap (class method)">.<strong>wrap</strong>(text, code_or_symbol)  &#x21d2; String </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Wraps a piece of text in ANSI codes with the supplied code.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Wraps a piece of text in ANSI codes with the supplied code.</p>
 </div></span>
 </li>
     </ul>
@@ -83,8 +85,7 @@ with ANSI codes, e.g. color&#39;s and bold.</p>
     .<strong>console_code_for</strong>(code_or_symbol)  &#x21d2; <tt>Fixnum</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Fetches the correct code for the supplied symbol, or checks
-that a code is valid. Defaults to white (37).</p>
+<p>Fetches the correct code for the supplied symbol, or checks that a code is valid. Defaults to white (37).</p>
   </div>
 </div>
 <div class="tags">
@@ -94,7 +95,8 @@ that a code is valid. Defaults to white (37).</p>
         <span class='name'>code_or_symbol</span>
         <span class='type'>(<tt>Symbol</tt>, <tt>Fixnum</tt>)</span>
         &mdash;
-        <div class='inline'><p>Symbol or code to check</p>
+        <div class='inline'>
+<p>Symbol or code to check</p>
 </div>
     </li>
 </ul>
@@ -103,7 +105,8 @@ that a code is valid. Defaults to white (37).</p>
     <li>
         <span class='type'>(<tt>Fixnum</tt>)</span>
         &mdash;
-        <div class='inline'><p>a console code</p>
+        <div class='inline'>
+<p>a console code</p>
 </div>
     </li>
 </ul>
@@ -145,9 +148,7 @@ that a code is valid. Defaults to white (37).</p>
     .<strong>wrap</strong>(text, code_or_symbol)  &#x21d2; <tt>String</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Wraps a piece of text in ANSI codes with the supplied code. Will
-only apply the control code if <code>RSpec.configuration.color_enabled?</code>
-returns true.</p>
+<p>Wraps a piece of text in ANSI codes with the supplied code. Will only apply the control code if <code>RSpec.configuration.color_enabled?</code> returns true.</p>
   </div>
 </div>
 <div class="tags">
@@ -157,14 +158,16 @@ returns true.</p>
         <span class='name'>text</span>
         <span class='type'>(<tt>String</tt>)</span>
         &mdash;
-        <div class='inline'><p>the text to wrap</p>
+        <div class='inline'>
+<p>the text to wrap</p>
 </div>
     </li>
     <li>
         <span class='name'>code_or_symbol</span>
         <span class='type'>(<tt>Symbol</tt>, <tt>Fixnum</tt>)</span>
         &mdash;
-        <div class='inline'><p>the desired control code</p>
+        <div class='inline'>
+<p>the desired control code</p>
 </div>
     </li>
 </ul>
@@ -173,7 +176,8 @@ returns true.</p>
     <li>
         <span class='type'>(<tt>String</tt>)</span>
         &mdash;
-        <div class='inline'><p>the wrapped text</p>
+        <div class='inline'>
+<p>the wrapped text</p>
 </div>
     </li>
 </ul>
@@ -205,18 +209,10 @@ returns true.</p>
   </div>
 </div>
       <div id="footer">
-  Generated on Fri Sep 14 00:01:54 2018 by
+  Generated on Tue Jul 28 15:12:40 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.16 (ruby-2.5.1).
+  0.9.25 (ruby-2.7.1).
 </div>
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-  ga('create', 'UA-59095215-1', 'auto');
-  ga('send', 'pageview');
-</script>
     </div>
   </body>
 </html>

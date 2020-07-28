@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
   Module: RSpec::Core::Metadata
-    &mdash; Documentation by YARD 0.9.16
+    &mdash; Documentation by YARD 0.9.25
 </title>
-  <link rel="stylesheet" href="/documentation/3.8/rspec-core/css/style.css" type="text/css" charset="utf-8" />
-  <link rel="stylesheet" href="/documentation/3.8/rspec-core/css/common.css" type="text/css" charset="utf-8" />
-<script type="text/javascript" charset="utf-8">
+  <link rel="stylesheet" href="/documentation/3.8/rspec-core/css/style.css" type="text/css" />
+  <link rel="stylesheet" href="/documentation/3.8/rspec-core/css/common.css" type="text/css" />
+<script type="text/javascript">
   pathId = "RSpec::Core::Metadata";
   relpath = '../../';
 </script>
@@ -50,22 +51,15 @@
 </div>
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>Each ExampleGroup class and Example instance owns an instance of
-Metadata, which is Hash extended to support lazy evaluation of values
-associated with keys that may or may not be used by any example or group.</p>
-<p>In addition to metadata that is used internally, this also stores
-user-supplied metadata, e.g.</p>
+<p>Each ExampleGroup class and Example instance owns an instance of Metadata, which is Hash extended to support lazy evaluation of values associated with keys that may or may not be used by any example or group.</p>
+<p>In addition to metadata that is used internally, this also stores user-supplied metadata, e.g.</p>
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_describe'>describe</span> <span class='const'>Something</span><span class='comma'>,</span> <span class='symbol'>:type</span> <span class='op'>=&gt;</span> <span class='symbol'>:ui</span> <span class='kw'>do</span>
   <span class='id identifier rubyid_it'>it</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>does something</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='symbol'>:slow</span> <span class='op'>=&gt;</span> <span class='kw'>true</span> <span class='kw'>do</span>
     <span class='comment'># ...
 </span>  <span class='kw'>end</span>
 <span class='kw'>end</span>
 </code></pre>
-<p><code>:type =&gt; :ui</code> is stored in the Metadata owned by the example group, and
-<code>:slow =&gt; true</code> is stored in the Metadata owned by the example. These can
-then be used to select which examples are run using the <code>--tag</code> option on
-the command line, or several methods on <code>Configuration</code> used to filter a
-run (e.g. <code>filter_run_including</code>, <code>filter_run_excluding</code>, etc).</p>
+<p><code>:type =&gt; :ui</code> is stored in the Metadata owned by the example group, and <code>:slow =&gt; true</code> is stored in the Metadata owned by the example. These can then be used to select which examples are run using the <code>--tag</code> option on the command line, or several methods on <code>Configuration</code> used to filter a run (e.g. <code>filter_run_including</code>, <code>filter_run_excluding</code>, etc).</p>
   </div>
 </div>
 <div class="tags">
@@ -88,14 +82,16 @@ run (e.g. <code>filter_run_including</code>, <code>filter_run_excluding</code>, 
       <a href="#relative_path-class_method" title="relative_path (class method)">.<strong>relative_path</strong>(line)  &#x21d2; String </a>
   </span>
   <span class="private note title">private</span>
-    <span class="summary_desc"><div class='inline'><p>Relative path to line.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Relative path to line.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#relative_path_regex-class_method" title="relative_path_regex (class method)">.<strong>relative_path_regex</strong>  &#x21d2; void </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Matches strings either at the beginning of the input or prefixed with a whitespace, containing the current path, either postfixed with the separator, or at the end of the string.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Matches strings either at the beginning of the input or prefixed with a whitespace, containing the current path, either postfixed with the separator, or at the end of the string.</p>
 </div></span>
 </li>
     </ul>
@@ -110,7 +106,7 @@ run (e.g. <code>filter_run_including</code>, <code>filter_run_excluding</code>, 
   <strong>This method is part of a private API.</strong>
   You should avoid using this method if possible, as it may be removed or be changed in the future.
 </p>
-<p>Returns relative path to line</p>
+<p>Returns relative path to line.</p>
   </div>
 </div>
 <div class="tags">
@@ -120,7 +116,8 @@ run (e.g. <code>filter_run_including</code>, <code>filter_run_excluding</code>, 
         <span class='name'>line</span>
         <span class='type'>(<tt>String</tt>)</span>
         &mdash;
-        <div class='inline'><p>current code line</p>
+        <div class='inline'>
+<p>current code line</p>
 </div>
     </li>
 </ul>
@@ -129,7 +126,8 @@ run (e.g. <code>filter_run_including</code>, <code>filter_run_excluding</code>, 
     <li>
         <span class='type'>(<tt>String</tt>)</span>
         &mdash;
-        <div class='inline'><p>relative path to line</p>
+        <div class='inline'>
+<p>relative path to line</p>
 </div>
     </li>
 </ul>
@@ -169,13 +167,8 @@ run (e.g. <code>filter_run_including</code>, <code>filter_run_excluding</code>, 
     .<strong>relative_path_regex</strong>  &#x21d2; <tt>void</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Matches strings either at the beginning of the input or prefixed with a
-whitespace, containing the current path, either postfixed with the
-separator, or at the end of the string. Match groups are the character
-before and the character after the string if any.</p>
-<p><a href="http://rubular.com/r/fT0gmX6VJX">http://rubular.com/r/fT0gmX6VJX</a>
-<a href="http://rubular.com/r/duOrD4i3wb">http://rubular.com/r/duOrD4i3wb</a>
-<a href="http://rubular.com/r/sbAMHFrOx1">http://rubular.com/r/sbAMHFrOx1</a></p>
+<p>Matches strings either at the beginning of the input or prefixed with a whitespace, containing the current path, either postfixed with the separator, or at the end of the string. Match groups are the character before and the character after the string if any.</p>
+<p><a href="http://rubular.com/r/fT0gmX6VJX">rubular.com/r/fT0gmX6VJX</a> <a href="http://rubular.com/r/duOrD4i3wb">rubular.com/r/duOrD4i3wb</a> <a href="http://rubular.com/r/sbAMHFrOx1">rubular.com/r/sbAMHFrOx1</a></p>
   </div>
 </div>
 <div class="tags">
@@ -199,18 +192,10 @@ before and the character after the string if any.</p>
   </div>
 </div>
       <div id="footer">
-  Generated on Fri Sep 14 00:01:54 2018 by
+  Generated on Tue Jul 28 15:12:40 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.16 (ruby-2.5.1).
+  0.9.25 (ruby-2.7.1).
 </div>
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-  ga('create', 'UA-59095215-1', 'auto');
-  ga('send', 'pageview');
-</script>
     </div>
   </body>
 </html>

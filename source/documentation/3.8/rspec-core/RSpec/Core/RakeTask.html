@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
   Class: RSpec::Core::RakeTask
-    &mdash; Documentation by YARD 0.9.16
+    &mdash; Documentation by YARD 0.9.25
 </title>
-  <link rel="stylesheet" href="/documentation/3.8/rspec-core/css/style.css" type="text/css" charset="utf-8" />
-  <link rel="stylesheet" href="/documentation/3.8/rspec-core/css/common.css" type="text/css" charset="utf-8" />
-<script type="text/javascript" charset="utf-8">
+  <link rel="stylesheet" href="/documentation/3.8/rspec-core/css/style.css" type="text/css" />
+  <link rel="stylesheet" href="/documentation/3.8/rspec-core/css/common.css" type="text/css" />
+<script type="text/javascript">
   pathId = "RSpec::Core::RakeTask";
   relpath = '../../';
 </script>
@@ -66,7 +67,7 @@
 </div>
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>RSpec rake task</p>
+<p>RSpec rake task</p>
   </div>
 </div>
 <div class="tags">
@@ -83,7 +84,7 @@
         <dt id="DEFAULT_RSPEC_PATH-constant" class="">DEFAULT_RSPEC_PATH =
           <div class="docstring">
   <div class="discussion">
-    <p>Default path to the RSpec executable.</p>
+<p>Default path to the RSpec executable.</p>
   </div>
 </div>
 <div class="tags">
@@ -93,7 +94,7 @@
         <dt id="DEFAULT_PATTERN-constant" class="">DEFAULT_PATTERN =
           <div class="docstring">
   <div class="discussion">
-    <p>Default pattern for spec files.</p>
+<p>Default pattern for spec files.</p>
   </div>
 </div>
 <div class="tags">
@@ -107,63 +108,72 @@
   <span class="summary_signature">
       <a href="#exclude_pattern-instance_method" title="#exclude_pattern (instance method)">#<strong>exclude_pattern</strong>  &#x21d2; void </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Files matching this pattern will be excluded.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Files matching this pattern will be excluded.</p>
 </div></span>
 </li>
       <li class="public ">
   <span class="summary_signature">
       <a href="#fail_on_error-instance_method" title="#fail_on_error (instance method)">#<strong>fail_on_error</strong>  &#x21d2; void </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Whether or not to fail Rake when an error occurs (typically when examples fail).</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Whether or not to fail Rake when an error occurs (typically when examples fail).</p>
 </div></span>
 </li>
       <li class="public ">
   <span class="summary_signature">
       <a href="#failure_message-instance_method" title="#failure_message (instance method)">#<strong>failure_message</strong>  &#x21d2; void </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>A message to print to stderr when there are failures.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>A message to print to stderr when there are failures.</p>
 </div></span>
 </li>
       <li class="public ">
   <span class="summary_signature">
       <a href="#name-instance_method" title="#name (instance method)">#<strong>name</strong>  &#x21d2; void </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Name of task.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Name of task.</p>
 </div></span>
 </li>
       <li class="public ">
   <span class="summary_signature">
       <a href="#pattern-instance_method" title="#pattern (instance method)">#<strong>pattern</strong>  &#x21d2; void </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Files matching this pattern will be loaded.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Files matching this pattern will be loaded.</p>
 </div></span>
 </li>
       <li class="public ">
   <span class="summary_signature">
       <a href="#rspec_opts-instance_method" title="#rspec_opts (instance method)">#<strong>rspec_opts</strong>  &#x21d2; void </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Command line options to pass to RSpec.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Command line options to pass to RSpec.</p>
 </div></span>
 </li>
       <li class="public ">
   <span class="summary_signature">
       <a href="#rspec_path-instance_method" title="#rspec_path (instance method)">#<strong>rspec_path</strong>  &#x21d2; void </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Path to RSpec.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Path to RSpec.</p>
 </div></span>
 </li>
       <li class="public ">
   <span class="summary_signature">
       <a href="#ruby_opts-instance_method" title="#ruby_opts (instance method)">#<strong>ruby_opts</strong>  &#x21d2; void </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Command line options to pass to ruby.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Command line options to pass to ruby.</p>
 </div></span>
 </li>
       <li class="public ">
   <span class="summary_signature">
       <a href="#verbose-instance_method" title="#verbose (instance method)">#<strong>verbose</strong>  &#x21d2; void </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Use verbose output.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Use verbose output.</p>
 </div></span>
 </li>
   </ul>
@@ -177,7 +187,8 @@
       <a href="#initialize-instance_method" title="#initialize (instance method)">#<strong>initialize</strong>(*args, &amp;task_block)  &#x21d2; RakeTask </a>
   </span>
     <span class="note title constructor">constructor</span>
-    <span class="summary_desc"><div class='inline'><p>A new instance of RakeTask.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>A new instance of RakeTask.</p>
 </div></span>
 </li>
     </ul>
@@ -188,7 +199,7 @@
     #<strong>initialize</strong>(*args, &amp;task_block)  &#x21d2; <tt><span class='object_link'><a href="" title="RSpec::Core::RakeTask (class)">RakeTask</a></span></tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns a new instance of RakeTask</p>
+<p>Returns a new instance of RakeTask.</p>
   </div>
 </div>
 <div class="tags">
@@ -233,8 +244,7 @@
     #<strong>exclude_pattern</strong>  &#x21d2; <tt>void</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Files matching this pattern will be excluded.
-Defaults to <code>nil</code>.</p>
+<p>Files matching this pattern will be excluded. Defaults to <code>nil</code>.</p>
   </div>
 </div>
 <div class="tags">
@@ -261,8 +271,7 @@ Defaults to <code>nil</code>.</p>
     #<strong>fail_on_error</strong>  &#x21d2; <tt>void</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Whether or not to fail Rake when an error occurs (typically when
-examples fail). Defaults to <code>true</code>.</p>
+<p>Whether or not to fail Rake when an error occurs (typically when examples fail). Defaults to <code>true</code>.</p>
   </div>
 </div>
 <div class="tags">
@@ -289,7 +298,7 @@ examples fail). Defaults to <code>true</code>.</p>
     #<strong>failure_message</strong>  &#x21d2; <tt>void</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>A message to print to stderr when there are failures.</p>
+<p>A message to print to stderr when there are failures.</p>
   </div>
 </div>
 <div class="tags">
@@ -316,7 +325,7 @@ examples fail). Defaults to <code>true</code>.</p>
     #<strong>name</strong>  &#x21d2; <tt>void</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Name of task. Defaults to <code>:spec</code>.</p>
+<p>Name of task. Defaults to <code>:spec</code>.</p>
   </div>
 </div>
 <div class="tags">
@@ -343,8 +352,7 @@ examples fail). Defaults to <code>true</code>.</p>
     #<strong>pattern</strong>  &#x21d2; <tt>void</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Files matching this pattern will be loaded.
-Defaults to <code>&#39;spec/**{,/*/**}/*_spec.rb&#39;</code>.</p>
+<p>Files matching this pattern will be loaded. Defaults to <code>&#39;spec/**{,/<strong>/*</strong>}/*_spec.rb&#39;</code>.</p>
   </div>
 </div>
 <div class="tags">
@@ -371,7 +379,7 @@ Defaults to <code>&#39;spec/**{,/*/**}/*_spec.rb&#39;</code>.</p>
     #<strong>rspec_opts</strong>  &#x21d2; <tt>void</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Command line options to pass to RSpec. Defaults to <code>nil</code>.</p>
+<p>Command line options to pass to RSpec. Defaults to <code>nil</code>.</p>
   </div>
 </div>
 <div class="tags">
@@ -398,8 +406,7 @@ Defaults to <code>&#39;spec/**{,/*/**}/*_spec.rb&#39;</code>.</p>
     #<strong>rspec_path</strong>  &#x21d2; <tt>void</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Path to RSpec. Defaults to the absolute path to the
-rspec binary from the loaded rspec-core gem.</p>
+<p>Path to RSpec. Defaults to the absolute path to the rspec binary from the loaded rspec-core gem.</p>
   </div>
 </div>
 <div class="tags">
@@ -426,7 +433,7 @@ rspec binary from the loaded rspec-core gem.</p>
     #<strong>ruby_opts</strong>  &#x21d2; <tt>void</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Command line options to pass to ruby. Defaults to <code>nil</code>.</p>
+<p>Command line options to pass to ruby. Defaults to <code>nil</code>.</p>
   </div>
 </div>
 <div class="tags">
@@ -453,8 +460,7 @@ rspec binary from the loaded rspec-core gem.</p>
     #<strong>verbose</strong>  &#x21d2; <tt>void</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Use verbose output. If this is set to true, the task will print the
-executed spec command to stdout. Defaults to <code>true</code>.</p>
+<p>Use verbose output. If this is set to true, the task will print the executed spec command to stdout. Defaults to <code>true</code>.</p>
   </div>
 </div>
 <div class="tags">
@@ -478,18 +484,10 @@ executed spec command to stdout. Defaults to <code>true</code>.</p>
   </div>
 </div>
       <div id="footer">
-  Generated on Fri Sep 14 00:01:55 2018 by
+  Generated on Tue Jul 28 15:12:42 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.16 (ruby-2.5.1).
+  0.9.25 (ruby-2.7.1).
 </div>
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-  ga('create', 'UA-59095215-1', 'auto');
-  ga('send', 'pageview');
-</script>
     </div>
   </body>
 </html>

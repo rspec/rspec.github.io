@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
   Module: RSpec::Matchers::DSL::Macros
-    &mdash; Documentation by YARD 0.9.16
+    &mdash; Documentation by YARD 0.9.25
 </title>
-  <link rel="stylesheet" href="/documentation/3.8/rspec-expectations/css/style.css" type="text/css" charset="utf-8" />
-  <link rel="stylesheet" href="/documentation/3.8/rspec-expectations/css/common.css" type="text/css" charset="utf-8" />
-<script type="text/javascript" charset="utf-8">
+  <link rel="stylesheet" href="/documentation/3.8/rspec-expectations/css/style.css" type="text/css" />
+  <link rel="stylesheet" href="/documentation/3.8/rspec-expectations/css/common.css" type="text/css" />
+<script type="text/javascript">
   pathId = "RSpec::Matchers::DSL::Macros";
   relpath = '../../../';
 </script>
@@ -54,8 +55,7 @@
 </div>
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>Contains the methods that are available from within the
-<code>RSpec::Matchers.define</code> DSL for creating custom matchers.</p>
+<p>Contains the methods that are available from within the <code>RSpec::Matchers.define</code> DSL for creating custom matchers.</p>
   </div>
 </div>
 <div class="tags">
@@ -72,63 +72,72 @@
   <span class="summary_signature">
       <a href="#chain-instance_method" title="#chain (instance method)">#<strong>chain</strong>(method_name, *attr_names, &amp;definition)  &#x21d2; Object </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Convenience for defining methods on this matcher to create a fluent interface.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Convenience for defining methods on this matcher to create a fluent interface.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#description-instance_method" title="#description (instance method)">#<strong>description</strong> {|Object| ... } &#x21d2; Object </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Customize the description to use for one-liners.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Customize the description to use for one-liners.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#diffable-instance_method" title="#diffable (instance method)">#<strong>diffable</strong>  &#x21d2; Object </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Tells the matcher to diff the actual and expected values in the failure message.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Tells the matcher to diff the actual and expected values in the failure message.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#failure_message-instance_method" title="#failure_message (instance method)">#<strong>failure_message</strong> {|Object| ... } &#x21d2; Object </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Customizes the failure messsage to use when this matcher is asked to positively match.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Customizes the failure messsage to use when this matcher is asked to positively match.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#failure_message_when_negated-instance_method" title="#failure_message_when_negated (instance method)">#<strong>failure_message_when_negated</strong> {|Object| ... } &#x21d2; Object </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Customize the failure messsage to use when this matcher is asked to negatively match.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Customize the failure messsage to use when this matcher is asked to negatively match.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#match-instance_method" title="#match (instance method)">#<strong>match</strong>(options = {}) {|Object| ... } &#x21d2; Object </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Stores the block that is used to determine whether this matcher passes or fails.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Stores the block that is used to determine whether this matcher passes or fails.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#match_unless_raises-instance_method" title="#match_unless_raises (instance method)">#<strong>match_unless_raises</strong>(expected_exception = Exception) {|Object| ... } &#x21d2; Object </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Use this instead of <code>match</code> when the block will raise an exception rather than returning false to indicate a failure.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Use this instead of <code>match</code> when the block will raise an exception rather than returning false to indicate a failure.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#match_when_negated-instance_method" title="#match_when_negated (instance method)">#<strong>match_when_negated</strong> {|Object| ... } &#x21d2; Object </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Use this to define the block for a negative expectation (<code>expect(...).not_to</code>) when the positive and negative forms require different handling.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Use this to define the block for a negative expectation (<code>expect(...).not_to</code>) when the positive and negative forms require different handling.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#supports_block_expectations-instance_method" title="#supports_block_expectations (instance method)">#<strong>supports_block_expectations</strong>  &#x21d2; Object </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Declares that the matcher can be used in a block expectation.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Declares that the matcher can be used in a block expectation.</p>
 </div></span>
 </li>
     </ul>
@@ -139,18 +148,8 @@
     #<strong>chain</strong>(method_name, *attr_names, &amp;definition)  &#x21d2; <tt>Object</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Convenience for defining methods on this matcher to create a fluent
-interface. The trick about fluent interfaces is that each method must
-return self in order to chain methods together. <code>chain</code> handles that
-for you. If the method is invoked and the
-<code>include_chain_clauses_in_custom_matcher_descriptions</code> config option
-hash been enabled, the chained method name and args will be added to the
-default description and failure message.</p>
-<p>In the common case where you just want the chained method to store some
-value(s) for later use (e.g. in <code>match</code>), you can provide one or more
-attribute names instead of a block; the chained method will store its
-arguments in instance variables with those names, and the values will
-be exposed via getters.</p>
+<p>Convenience for defining methods on this matcher to create a fluent interface. The trick about fluent interfaces is that each method must return self in order to chain methods together. <code>chain</code> handles that for you. If the method is invoked and the <code>include_chain_clauses_in_custom_matcher_descriptions</code> config option hash been enabled, the chained method name and args will be added to the default description and failure message.</p>
+<p>In the common case where you just want the chained method to store some value(s) for later use (e.g. in <code>match</code>), you can provide one or more attribute names instead of a block; the chained method will store its arguments in instance variables with those names, and the values will be exposed via getters.</p>
   </div>
 </div>
 <div class="tags">
@@ -207,8 +206,7 @@ be exposed via getters.</p>
     #<strong>description</strong> {|Object| ... } &#x21d2; <tt>Object</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Customize the description to use for one-liners.  Only use this when
-the description generated by default doesn&#39;t suit your needs.</p>
+<p>Customize the description to use for one-liners. Only use this when the description generated by default doesn&#39;t suit your needs.</p>
   </div>
 </div>
 <div class="tags">
@@ -227,7 +225,8 @@ the description generated by default doesn&#39;t suit your needs.</p>
     <li>
         <span class='type'>(<tt>Object</tt>)</span>
         &mdash;
-        <div class='inline'><p>actual the actual object (i.e. the value wrapped by <code>expect</code>)</p>
+        <div class='inline'>
+<p>actual the actual object (i.e. the value wrapped by <code>expect</code>)</p>
 </div>
     </li>
 </ul>
@@ -253,8 +252,7 @@ the description generated by default doesn&#39;t suit your needs.</p>
     #<strong>diffable</strong>  &#x21d2; <tt>Object</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Tells the matcher to diff the actual and expected values in the failure
-message.</p>
+<p>Tells the matcher to diff the actual and expected values in the failure message.</p>
   </div>
 </div>
 <div class="tags">
@@ -280,9 +278,7 @@ message.</p>
     #<strong>failure_message</strong> {|Object| ... } &#x21d2; <tt>Object</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Customizes the failure messsage to use when this matcher is
-asked to positively match. Only use this when the message
-generated by default doesn&#39;t suit your needs.</p>
+<p>Customizes the failure messsage to use when this matcher is asked to positively match. Only use this when the message generated by default doesn&#39;t suit your needs.</p>
   </div>
 </div>
 <div class="tags">
@@ -301,7 +297,8 @@ generated by default doesn&#39;t suit your needs.</p>
     <li>
         <span class='type'>(<tt>Object</tt>)</span>
         &mdash;
-        <div class='inline'><p>actual the actual object (i.e. the value wrapped by <code>expect</code>)</p>
+        <div class='inline'>
+<p>actual the actual object (i.e. the value wrapped by <code>expect</code>)</p>
 </div>
     </li>
 </ul>
@@ -327,9 +324,7 @@ generated by default doesn&#39;t suit your needs.</p>
     #<strong>failure_message_when_negated</strong> {|Object| ... } &#x21d2; <tt>Object</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Customize the failure messsage to use when this matcher is asked
-to negatively match. Only use this when the message generated by
-default doesn&#39;t suit your needs.</p>
+<p>Customize the failure messsage to use when this matcher is asked to negatively match. Only use this when the message generated by default doesn&#39;t suit your needs.</p>
   </div>
 </div>
 <div class="tags">
@@ -348,7 +343,8 @@ default doesn&#39;t suit your needs.</p>
     <li>
         <span class='type'>(<tt>Object</tt>)</span>
         &mdash;
-        <div class='inline'><p>actual the actual object (i.e. the value wrapped by <code>expect</code>)</p>
+        <div class='inline'>
+<p>actual the actual object (i.e. the value wrapped by <code>expect</code>)</p>
 </div>
     </li>
 </ul>
@@ -374,15 +370,8 @@ default doesn&#39;t suit your needs.</p>
     #<strong>match</strong>(options = {}) {|Object| ... } &#x21d2; <tt>Object</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Stores the block that is used to determine whether this matcher passes
-or fails. The block should return a boolean value. When the matcher is
-passed to <code>expect(...).to</code> and the block returns <code>true</code>, then the expectation
-passes. Similarly, when the matcher is passed to <code>expect(...).not_to</code> and the
-block returns <code>false</code>, then the expectation passes.</p>
-<p>By default the match block will swallow expectation errors (e.g.
-caused by using an expectation such as <code>expect(1).to eq 2</code>), if you
-with to allow these to bubble up, pass in the option
-<code>:notify_expectation_failures =&gt; true</code>.</p>
+<p>Stores the block that is used to determine whether this matcher passes or fails. The block should return a boolean value. When the matcher is passed to <code>expect(...).to</code> and the block returns <code>true</code>, then the expectation passes. Similarly, when the matcher is passed to <code>expect(...).not_to</code> and the block returns <code>false</code>, then the expectation passes.</p>
+<p>By default the match block will swallow expectation errors (e.g. caused by using an expectation such as <code>expect(1).to eq 2</code>), if you with to allow these to bubble up, pass in the option <code>:notify_expectation_failures =&gt; true</code>.</p>
   </div>
 </div>
 <div class="tags">
@@ -406,7 +395,8 @@ with to allow these to bubble up, pass in the option
         <span class='type'>(<tt>Hash</tt>)</span>
         <em class="default">(defaults to: <tt>{}</tt>)</em>
         &mdash;
-        <div class='inline'><p>for defining the behavior of the match block.</p>
+        <div class='inline'>
+<p>for defining the behavior of the match block.</p>
 </div>
     </li>
 </ul>
@@ -415,7 +405,8 @@ with to allow these to bubble up, pass in the option
     <li>
         <span class='type'>(<tt>Object</tt>)</span>
         &mdash;
-        <div class='inline'><p>actual the actual value (i.e. the value wrapped by <code>expect</code>)</p>
+        <div class='inline'>
+<p>actual the actual value (i.e. the value wrapped by <code>expect</code>)</p>
 </div>
     </li>
 </ul>
@@ -461,8 +452,7 @@ with to allow these to bubble up, pass in the option
     #<strong>match_unless_raises</strong>(expected_exception = Exception) {|Object| ... } &#x21d2; <tt>Object</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Use this instead of <code>match</code> when the block will raise an exception
-rather than returning false to indicate a failure.</p>
+<p>Use this instead of <code>match</code> when the block will raise an exception rather than returning false to indicate a failure.</p>
   </div>
 </div>
 <div class="tags">
@@ -481,7 +471,8 @@ rather than returning false to indicate a failure.</p>
     <li>
         <span class='type'>(<tt>Object</tt>)</span>
         &mdash;
-        <div class='inline'><p>actual the actual object (i.e. the value wrapped by <code>expect</code>)</p>
+        <div class='inline'>
+<p>actual the actual object (i.e. the value wrapped by <code>expect</code>)</p>
 </div>
     </li>
 </ul>
@@ -525,10 +516,7 @@ rather than returning false to indicate a failure.</p>
     #<strong>match_when_negated</strong> {|Object| ... } &#x21d2; <tt>Object</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Use this to define the block for a negative expectation (<code>expect(...).not_to</code>)
-when the positive and negative forms require different handling. This
-is rarely necessary, but can be helpful, for example, when specifying
-asynchronous processes that require different timeouts.</p>
+<p>Use this to define the block for a negative expectation (<code>expect(...).not_to</code>) when the positive and negative forms require different handling. This is rarely necessary, but can be helpful, for example, when specifying asynchronous processes that require different timeouts.</p>
   </div>
 </div>
 <div class="tags">
@@ -537,7 +525,8 @@ asynchronous processes that require different timeouts.</p>
     <li>
         <span class='type'>(<tt>Object</tt>)</span>
         &mdash;
-        <div class='inline'><p>actual the actual value (i.e. the value wrapped by <code>expect</code>)</p>
+        <div class='inline'>
+<p>actual the actual value (i.e. the value wrapped by <code>expect</code>)</p>
 </div>
     </li>
 </ul>
@@ -581,10 +570,7 @@ asynchronous processes that require different timeouts.</p>
     #<strong>supports_block_expectations</strong>  &#x21d2; <tt>Object</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Declares that the matcher can be used in a block expectation.
-Users will not be able to use your matcher in a block
-expectation without declaring this.
-(e.g. <code>expect { do_something }.to matcher</code>).</p>
+<p>Declares that the matcher can be used in a block expectation. Users will not be able to use your matcher in a block expectation without declaring this. (e.g. <code>expect { do_something }.to matcher</code>).</p>
   </div>
 </div>
 <div class="tags">
@@ -608,18 +594,10 @@ expectation without declaring this.
   </div>
 </div>
       <div id="footer">
-  Generated on Fri Sep 14 00:02:02 2018 by
+  Generated on Tue Jul 28 15:13:15 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.16 (ruby-2.5.1).
+  0.9.25 (ruby-2.7.1).
 </div>
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-  ga('create', 'UA-59095215-1', 'auto');
-  ga('send', 'pageview');
-</script>
     </div>
   </body>
 </html>

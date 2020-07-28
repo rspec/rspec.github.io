@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
   Class: RSpec::Core::Notifications::SummaryNotification
-    &mdash; Documentation by YARD 0.9.16
+    &mdash; Documentation by YARD 0.9.25
 </title>
-  <link rel="stylesheet" href="/documentation/3.8/rspec-core/css/style.css" type="text/css" charset="utf-8" />
-  <link rel="stylesheet" href="/documentation/3.8/rspec-core/css/common.css" type="text/css" charset="utf-8" />
-<script type="text/javascript" charset="utf-8">
+  <link rel="stylesheet" href="/documentation/3.8/rspec-core/css/style.css" type="text/css" />
+  <link rel="stylesheet" href="/documentation/3.8/rspec-core/css/common.css" type="text/css" />
+<script type="text/javascript">
   pathId = "RSpec::Core::Notifications::SummaryNotification";
   relpath = '../../../';
 </script>
@@ -64,9 +65,7 @@
 </div>
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>The <code>SummaryNotification</code> holds information about the results of running
-a test suite. It is used by formatters to provide information at the end
-of the test run.</p>
+<p>The <code>SummaryNotification</code> holds information about the results of running a test suite. It is used by formatters to provide information at the end of the test run.</p>
   </div>
 </div>
 <div class="tags">
@@ -77,42 +76,48 @@ of the test run.</p>
   <span class="summary_signature">
       <a href="#duration-instance_method" title="#duration (instance method)">#<strong>duration</strong>  &#x21d2; Float </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>the time taken (in seconds) to run the suite.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>the time taken (in seconds) to run the suite.</p>
 </div></span>
 </li>
       <li class="public ">
   <span class="summary_signature">
       <a href="#errors_outside_of_examples_count-instance_method" title="#errors_outside_of_examples_count (instance method)">#<strong>errors_outside_of_examples_count</strong>  &#x21d2; Integer </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>the number of errors that have occurred processing the spec suite.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>the number of errors that have occurred processing the spec suite.</p>
 </div></span>
 </li>
       <li class="public ">
   <span class="summary_signature">
       <a href="#examples-instance_method" title="#examples (instance method)">#<strong>examples</strong>  &#x21d2; Array&lt;RSpec::Core::Example&gt; </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>the examples run.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>the examples run.</p>
 </div></span>
 </li>
       <li class="public ">
   <span class="summary_signature">
       <a href="#failed_examples-instance_method" title="#failed_examples (instance method)">#<strong>failed_examples</strong>  &#x21d2; Array&lt;RSpec::Core::Example&gt; </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>the failed examples.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>the failed examples.</p>
 </div></span>
 </li>
       <li class="public ">
   <span class="summary_signature">
       <a href="#load_time-instance_method" title="#load_time (instance method)">#<strong>load_time</strong>  &#x21d2; Float </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>the number of seconds taken to boot RSpec and load the spec files.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>the number of seconds taken to boot RSpec and load the spec files.</p>
 </div></span>
 </li>
       <li class="public ">
   <span class="summary_signature">
       <a href="#pending_examples-instance_method" title="#pending_examples (instance method)">#<strong>pending_examples</strong>  &#x21d2; Array&lt;RSpec::Core::Example&gt; </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>the pending examples.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>the pending examples.</p>
 </div></span>
 </li>
   </ul>
@@ -125,63 +130,72 @@ of the test run.</p>
   <span class="summary_signature">
       <a href="#colorized_rerun_commands-instance_method" title="#colorized_rerun_commands (instance method)">#<strong>colorized_rerun_commands</strong>(colorizer = ::RSpec::Core::Formatters::ConsoleCodes)  &#x21d2; String </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Formats failures into a rerunable command format.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Formats failures into a rerunable command format.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#colorized_totals_line-instance_method" title="#colorized_totals_line (instance method)">#<strong>colorized_totals_line</strong>(colorizer = ::RSpec::Core::Formatters::ConsoleCodes)  &#x21d2; String </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Wraps the results line with colors based on the configured colors for failure, pending, and success.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Wraps the results line with colors based on the configured colors for failure, pending, and success.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#example_count-instance_method" title="#example_count (instance method)">#<strong>example_count</strong>  &#x21d2; Fixnum </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>The number of examples run.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>The number of examples run.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#failure_count-instance_method" title="#failure_count (instance method)">#<strong>failure_count</strong>  &#x21d2; Fixnum </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>The number of failed examples.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>The number of failed examples.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#formatted_duration-instance_method" title="#formatted_duration (instance method)">#<strong>formatted_duration</strong>  &#x21d2; String </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>A formatted version of the time it took to run the suite.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>A formatted version of the time it took to run the suite.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#formatted_load_time-instance_method" title="#formatted_load_time (instance method)">#<strong>formatted_load_time</strong>  &#x21d2; String </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>A formatted version of the time it took to boot RSpec and load the spec files.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>A formatted version of the time it took to boot RSpec and load the spec files.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#fully_formatted-instance_method" title="#fully_formatted (instance method)">#<strong>fully_formatted</strong>(colorizer = ::RSpec::Core::Formatters::ConsoleCodes)  &#x21d2; String </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>The summary information fully formatted in the way that RSpec&#39;s built-in formatters emit.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>The summary information fully formatted in the way that RSpec&#39;s built-in formatters emit.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#pending_count-instance_method" title="#pending_count (instance method)">#<strong>pending_count</strong>  &#x21d2; Fixnum </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>The number of pending examples.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>The number of pending examples.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#totals_line-instance_method" title="#totals_line (instance method)">#<strong>totals_line</strong>  &#x21d2; String </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>A line summarising the result totals of the spec run.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>A line summarising the result totals of the spec run.</p>
 </div></span>
 </li>
     </ul>
@@ -193,7 +207,7 @@ of the test run.</p>
     #<strong>duration</strong>  &#x21d2; <tt>Float</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>the time taken (in seconds) to run the suite</p>
+<p>the time taken (in seconds) to run the suite</p>
   </div>
 </div>
 <div class="tags">
@@ -202,7 +216,8 @@ of the test run.</p>
     <li>
         <span class='type'>(<tt>Float</tt>)</span>
         &mdash;
-        <div class='inline'><p>the current value of duration</p>
+        <div class='inline'>
+<p>the current value of duration</p>
 </div>
     </li>
 </ul>
@@ -229,9 +244,7 @@ of the test run.</p>
     #<strong>errors_outside_of_examples_count</strong>  &#x21d2; <tt>Integer</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>the number of errors that
-have occurred processing
-the spec suite</p>
+<p>the number of errors that have occurred processing the spec suite</p>
   </div>
 </div>
 <div class="tags">
@@ -240,7 +253,8 @@ the spec suite</p>
     <li>
         <span class='type'>(<tt>Integer</tt>)</span>
         &mdash;
-        <div class='inline'><p>the current value of errors_outside_of_examples_count</p>
+        <div class='inline'>
+<p>the current value of errors_outside_of_examples_count</p>
 </div>
     </li>
 </ul>
@@ -267,7 +281,7 @@ the spec suite</p>
     #<strong>examples</strong>  &#x21d2; <tt>Array&lt;<span class='object_link'><a href="../Example.html" title="RSpec::Core::Example (class)">RSpec::Core::Example</a></span>&gt;</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>the examples run</p>
+<p>the examples run</p>
   </div>
 </div>
 <div class="tags">
@@ -276,7 +290,8 @@ the spec suite</p>
     <li>
         <span class='type'>(<tt>Array&lt;<span class='object_link'><a href="../Example.html" title="RSpec::Core::Example (class)">RSpec::Core::Example</a></span>&gt;</tt>)</span>
         &mdash;
-        <div class='inline'><p>the current value of examples</p>
+        <div class='inline'>
+<p>the current value of examples</p>
 </div>
     </li>
 </ul>
@@ -303,7 +318,7 @@ the spec suite</p>
     #<strong>failed_examples</strong>  &#x21d2; <tt>Array&lt;<span class='object_link'><a href="../Example.html" title="RSpec::Core::Example (class)">RSpec::Core::Example</a></span>&gt;</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>the failed examples</p>
+<p>the failed examples</p>
   </div>
 </div>
 <div class="tags">
@@ -312,7 +327,8 @@ the spec suite</p>
     <li>
         <span class='type'>(<tt>Array&lt;<span class='object_link'><a href="../Example.html" title="RSpec::Core::Example (class)">RSpec::Core::Example</a></span>&gt;</tt>)</span>
         &mdash;
-        <div class='inline'><p>the current value of failed_examples</p>
+        <div class='inline'>
+<p>the current value of failed_examples</p>
 </div>
     </li>
 </ul>
@@ -339,8 +355,7 @@ the spec suite</p>
     #<strong>load_time</strong>  &#x21d2; <tt>Float</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>the number of seconds taken to boot RSpec
-and load the spec files</p>
+<p>the number of seconds taken to boot RSpec and load the spec files</p>
   </div>
 </div>
 <div class="tags">
@@ -349,7 +364,8 @@ and load the spec files</p>
     <li>
         <span class='type'>(<tt>Float</tt>)</span>
         &mdash;
-        <div class='inline'><p>the current value of load_time</p>
+        <div class='inline'>
+<p>the current value of load_time</p>
 </div>
     </li>
 </ul>
@@ -376,7 +392,7 @@ and load the spec files</p>
     #<strong>pending_examples</strong>  &#x21d2; <tt>Array&lt;<span class='object_link'><a href="../Example.html" title="RSpec::Core::Example (class)">RSpec::Core::Example</a></span>&gt;</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>the pending examples</p>
+<p>the pending examples</p>
   </div>
 </div>
 <div class="tags">
@@ -385,7 +401,8 @@ and load the spec files</p>
     <li>
         <span class='type'>(<tt>Array&lt;<span class='object_link'><a href="../Example.html" title="RSpec::Core::Example (class)">RSpec::Core::Example</a></span>&gt;</tt>)</span>
         &mdash;
-        <div class='inline'><p>the current value of pending_examples</p>
+        <div class='inline'>
+<p>the current value of pending_examples</p>
 </div>
     </li>
 </ul>
@@ -414,7 +431,7 @@ and load the spec files</p>
     #<strong>colorized_rerun_commands</strong>(colorizer = ::RSpec::Core::Formatters::ConsoleCodes)  &#x21d2; <tt>String</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Formats failures into a rerunable command format.</p>
+<p>Formats failures into a rerunable command format.</p>
   </div>
 </div>
 <div class="tags">
@@ -425,8 +442,8 @@ and load the spec files</p>
         <span class='type'>(<tt>#wrap</tt>)</span>
         <em class="default">(defaults to: <tt>::RSpec::Core::Formatters::ConsoleCodes</tt>)</em>
         &mdash;
-        <div class='inline'><p>An object which supports wrapping text with
-specific colors.</p>
+        <div class='inline'>
+<p>An object which supports wrapping text with specific colors.</p>
 </div>
     </li>
 </ul>
@@ -435,7 +452,8 @@ specific colors.</p>
     <li>
         <span class='type'>(<tt>String</tt>)</span>
         &mdash;
-        <div class='inline'><p>A colorized summary line.</p>
+        <div class='inline'>
+<p>A colorized summary line.</p>
 </div>
     </li>
 </ul>
@@ -469,9 +487,7 @@ specific colors.</p>
     #<strong>colorized_totals_line</strong>(colorizer = ::RSpec::Core::Formatters::ConsoleCodes)  &#x21d2; <tt>String</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Wraps the results line with colors based on the configured
-colors for failure, pending, and success. Defaults to red,
-yellow, green accordingly.</p>
+<p>Wraps the results line with colors based on the configured colors for failure, pending, and success. Defaults to red, yellow, green accordingly.</p>
   </div>
 </div>
 <div class="tags">
@@ -482,8 +498,8 @@ yellow, green accordingly.</p>
         <span class='type'>(<tt>#wrap</tt>)</span>
         <em class="default">(defaults to: <tt>::RSpec::Core::Formatters::ConsoleCodes</tt>)</em>
         &mdash;
-        <div class='inline'><p>An object which supports wrapping text with
-specific colors.</p>
+        <div class='inline'>
+<p>An object which supports wrapping text with specific colors.</p>
 </div>
     </li>
 </ul>
@@ -492,7 +508,8 @@ specific colors.</p>
     <li>
         <span class='type'>(<tt>String</tt>)</span>
         &mdash;
-        <div class='inline'><p>A colorized results line.</p>
+        <div class='inline'>
+<p>A colorized results line.</p>
 </div>
     </li>
 </ul>
@@ -530,7 +547,7 @@ specific colors.</p>
     #<strong>example_count</strong>  &#x21d2; <tt>Fixnum</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns the number of examples run</p>
+<p>Returns the number of examples run.</p>
   </div>
 </div>
 <div class="tags">
@@ -539,7 +556,8 @@ specific colors.</p>
     <li>
         <span class='type'>(<tt>Fixnum</tt>)</span>
         &mdash;
-        <div class='inline'><p>the number of examples run</p>
+        <div class='inline'>
+<p>the number of examples run</p>
 </div>
     </li>
 </ul>
@@ -565,7 +583,7 @@ specific colors.</p>
     #<strong>failure_count</strong>  &#x21d2; <tt>Fixnum</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns the number of failed examples</p>
+<p>Returns the number of failed examples.</p>
   </div>
 </div>
 <div class="tags">
@@ -574,7 +592,8 @@ specific colors.</p>
     <li>
         <span class='type'>(<tt>Fixnum</tt>)</span>
         &mdash;
-        <div class='inline'><p>the number of failed examples</p>
+        <div class='inline'>
+<p>the number of failed examples</p>
 </div>
     </li>
 </ul>
@@ -600,8 +619,7 @@ specific colors.</p>
     #<strong>formatted_duration</strong>  &#x21d2; <tt>String</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns a formatted version of the time it took to run the
-suite</p>
+<p>Returns a formatted version of the time it took to run the suite.</p>
   </div>
 </div>
 <div class="tags">
@@ -610,8 +628,8 @@ suite</p>
     <li>
         <span class='type'>(<tt>String</tt>)</span>
         &mdash;
-        <div class='inline'><p>a formatted version of the time it took to run the
-suite</p>
+        <div class='inline'>
+<p>a formatted version of the time it took to run the suite</p>
 </div>
     </li>
 </ul>
@@ -637,8 +655,7 @@ suite</p>
     #<strong>formatted_load_time</strong>  &#x21d2; <tt>String</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns a formatted version of the time it took to boot RSpec
-and load the spec files</p>
+<p>Returns a formatted version of the time it took to boot RSpec and load the spec files.</p>
   </div>
 </div>
 <div class="tags">
@@ -647,8 +664,8 @@ and load the spec files</p>
     <li>
         <span class='type'>(<tt>String</tt>)</span>
         &mdash;
-        <div class='inline'><p>a formatted version of the time it took to boot RSpec
-and load the spec files</p>
+        <div class='inline'>
+<p>a formatted version of the time it took to boot RSpec and load the spec files</p>
 </div>
     </li>
 </ul>
@@ -674,8 +691,7 @@ and load the spec files</p>
     #<strong>fully_formatted</strong>(colorizer = ::RSpec::Core::Formatters::ConsoleCodes)  &#x21d2; <tt>String</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns The summary information fully formatted in the way that
-RSpec&#39;s built-in formatters emit.</p>
+<p>Returns The summary information fully formatted in the way that RSpec&#39;s built-in formatters emit.</p>
   </div>
 </div>
 <div class="tags">
@@ -684,8 +700,8 @@ RSpec&#39;s built-in formatters emit.</p>
     <li>
         <span class='type'>(<tt>String</tt>)</span>
         &mdash;
-        <div class='inline'><p>The summary information fully formatted in the way that
-RSpec&#39;s built-in formatters emit.</p>
+        <div class='inline'>
+<p>The summary information fully formatted in the way that RSpec&#39;s built-in formatters emit.</p>
 </div>
     </li>
 </ul>
@@ -725,7 +741,7 @@ RSpec&#39;s built-in formatters emit.</p>
     #<strong>pending_count</strong>  &#x21d2; <tt>Fixnum</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns the number of pending examples</p>
+<p>Returns the number of pending examples.</p>
   </div>
 </div>
 <div class="tags">
@@ -734,7 +750,8 @@ RSpec&#39;s built-in formatters emit.</p>
     <li>
         <span class='type'>(<tt>Fixnum</tt>)</span>
         &mdash;
-        <div class='inline'><p>the number of pending examples</p>
+        <div class='inline'>
+<p>the number of pending examples</p>
 </div>
     </li>
 </ul>
@@ -760,7 +777,7 @@ RSpec&#39;s built-in formatters emit.</p>
     #<strong>totals_line</strong>  &#x21d2; <tt>String</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Returns A line summarising the result totals of the spec run.</p>
+<p>Returns A line summarising the result totals of the spec run.</p>
   </div>
 </div>
 <div class="tags">
@@ -769,7 +786,8 @@ RSpec&#39;s built-in formatters emit.</p>
     <li>
         <span class='type'>(<tt>String</tt>)</span>
         &mdash;
-        <div class='inline'><p>A line summarising the result totals of the spec run.</p>
+        <div class='inline'>
+<p>A line summarising the result totals of the spec run.</p>
 </div>
     </li>
 </ul>
@@ -813,18 +831,10 @@ RSpec&#39;s built-in formatters emit.</p>
   </div>
 </div>
       <div id="footer">
-  Generated on Fri Sep 14 00:01:57 2018 by
+  Generated on Tue Jul 28 15:12:47 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.16 (ruby-2.5.1).
+  0.9.25 (ruby-2.7.1).
 </div>
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-  ga('create', 'UA-59095215-1', 'auto');
-  ga('send', 'pageview');
-</script>
     </div>
   </body>
 </html>

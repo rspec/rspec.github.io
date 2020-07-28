@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
   Module: RSpec::Expectations
-    &mdash; Documentation by YARD 0.9.16
+    &mdash; Documentation by YARD 0.9.25
 </title>
-  <link rel="stylesheet" href="/documentation/3.8/rspec-expectations/css/style.css" type="text/css" charset="utf-8" />
-  <link rel="stylesheet" href="/documentation/3.8/rspec-expectations/css/common.css" type="text/css" charset="utf-8" />
-<script type="text/javascript" charset="utf-8">
+  <link rel="stylesheet" href="/documentation/3.8/rspec-expectations/css/style.css" type="text/css" />
+  <link rel="stylesheet" href="/documentation/3.8/rspec-expectations/css/common.css" type="text/css" />
+<script type="text/javascript">
   pathId = "RSpec::Expectations";
   relpath = '../';
 </script>
@@ -52,40 +53,23 @@
 </div>
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>RSpec::Expectations provides a simple, readable API to express
-the expected outcomes in a code example. To express an expected
-outcome, wrap an object or block in <code>expect</code>, call <code>to</code> or <code>to_not</code>
-(aliased as <code>not_to</code>) and pass it a matcher object:</p>
+<p>RSpec::Expectations provides a simple, readable API to express the expected outcomes in a code example. To express an expected outcome, wrap an object or block in <code>expect</code>, call <code>to</code> or <code>to_not</code> (aliased as <code>not_to</code>) and pass it a matcher object:</p>
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_order'>order</span><span class='period'>.</span><span class='id identifier rubyid_total'>total</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_eq'>eq</span><span class='lparen'>(</span><span class='const'>Money</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='float'>5.55</span><span class='comma'>,</span> <span class='symbol'>:USD</span><span class='rparen'>)</span><span class='rparen'>)</span>
 <span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_list'>list</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_include'>include</span><span class='lparen'>(</span><span class='id identifier rubyid_user'>user</span><span class='rparen'>)</span>
 <span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_message'>message</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_not_to'>not_to</span> <span class='id identifier rubyid_match'>match</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>foo</span><span class='regexp_end'>/</span></span><span class='rparen'>)</span>
 <span class='id identifier rubyid_expect'>expect</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_do_something'>do_something</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_raise_error'>raise_error</span>
 </code></pre>
-<p>The last form (the block form) is needed to match against ruby constructs
-that are not objects, but can only be observed when executing a block
-of code. This includes raising errors, throwing symbols, yielding,
-and changing values.</p>
-<p>When <code>expect(...).to</code> is invoked with a matcher, it turns around
-and calls <code>matcher.matches?(&lt;object wrapped by expect&gt;)</code>.  For example,
-in the expression:</p>
+<p>The last form (the block form) is needed to match against ruby constructs that are not objects, but can only be observed when executing a block of code. This includes raising errors, throwing symbols, yielding, and changing values.</p>
+<p>When <code>expect(...).to</code> is invoked with a matcher, it turns around and calls <code>matcher.matches?(&lt;object wrapped by expect&gt;)</code>. For example, in the expression:</p>
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_order'>order</span><span class='period'>.</span><span class='id identifier rubyid_total'>total</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_eq'>eq</span><span class='lparen'>(</span><span class='const'>Money</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='float'>5.55</span><span class='comma'>,</span> <span class='symbol'>:USD</span><span class='rparen'>)</span><span class='rparen'>)</span>
 </code></pre>
-<p>...<code>eq(Money.new(5.55, :USD))</code> returns a matcher object, and it results
-in the equivalent of <code>eq.matches?(order.total)</code>. If <code>matches?</code> returns
-<code>true</code>, the expectation is met and execution continues. If <code>false</code>, then
-the spec fails with the message returned by <code>eq.failure_message</code>.</p>
+<p>…<code>eq(Money.new(5.55, :USD))</code> returns a matcher object, and it results in the equivalent of <code>eq.matches?(order.total)</code>. If <code>matches?</code> returns <code>true</code>, the expectation is met and execution continues. If <code>false</code>, then the spec fails with the message returned by <code>eq.failure_message</code>.</p>
 <p>Given the expression:</p>
 <pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_order'>order</span><span class='period'>.</span><span class='id identifier rubyid_entries'>entries</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_not_to'>not_to</span> <span class='id identifier rubyid_include'>include</span><span class='lparen'>(</span><span class='id identifier rubyid_entry'>entry</span><span class='rparen'>)</span>
 </code></pre>
-<p>...the <code>not_to</code> method (also available as <code>to_not</code>) invokes the equivalent of
-<code>include.matches?(order.entries)</code>, but it interprets <code>false</code> as success, and
-<code>true</code> as a failure, using the message generated by
-<code>include.failure_message_when_negated</code>.</p>
-<p>rspec-expectations ships with a standard set of useful matchers, and writing
-your own matchers is quite simple.</p>
-<p>See <a href="../RSpec/Matchers">RSpec::Matchers</a> for more information about the
-built-in matchers that ship with rspec-expectations, and how to write your
-own custom matchers.</p>
+<p>…the <code>not_to</code> method (also available as <code>to_not</code>) invokes the equivalent of <code>include.matches?(order.entries)</code>, but it interprets <code>false</code> as success, and <code>true</code> as a failure, using the message generated by <code>include.failure_message_when_negated</code>.</p>
+<p>rspec-expectations ships with a standard set of useful matchers, and writing your own matchers is quite simple.</p>
+<p>See <a href="../RSpec/Matchers">RSpec::Matchers</a> for more information about the built-in matchers that ship with rspec-expectations, and how to write your own custom matchers.</p>
   </div>
 </div>
 <div class="tags">
@@ -103,14 +87,16 @@ own custom matchers.</p>
   <span class="summary_signature">
       <a href="#configuration-class_method" title="configuration (class method)">.<strong>configuration</strong>  &#x21d2; RSpec::Expectations::Configuration </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>The configuration object.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>The configuration object.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#fail_with-class_method" title="fail_with (class method)">.<strong>fail_with</strong>(message, expected = nil, actual = nil)  &#x21d2; Object </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Raises an RSpec::Expectations::ExpectationNotMetError with message.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Raises an RSpec::Expectations::ExpectationNotMetError with message.</p>
 </div></span>
 </li>
     </ul>
@@ -121,7 +107,7 @@ own custom matchers.</p>
     .<strong>configuration</strong>  &#x21d2; <tt><span class='object_link'><a href="Expectations/Configuration.html" title="RSpec::Expectations::Configuration (class)">RSpec::Expectations::Configuration</a></span></tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>The configuration object.</p>
+<p>The configuration object.</p>
   </div>
 </div>
 <div class="tags">
@@ -130,7 +116,8 @@ own custom matchers.</p>
     <li>
         <span class='type'>(<tt><span class='object_link'><a href="Expectations/Configuration.html" title="RSpec::Expectations::Configuration (class)">RSpec::Expectations::Configuration</a></span></tt>)</span>
         &mdash;
-        <div class='inline'><p>the configuration object</p>
+        <div class='inline'>
+<p>the configuration object</p>
 </div>
     </li>
 </ul>
@@ -156,9 +143,7 @@ own custom matchers.</p>
     .<strong>fail_with</strong>(message, expected = nil, actual = nil)  &#x21d2; <tt>Object</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Raises an RSpec::Expectations::ExpectationNotMetError with message.
-Adds a diff to the failure message when <code>expected</code> and <code>actual</code> are
-both present.</p>
+<p>Raises an RSpec::Expectations::ExpectationNotMetError with message. Adds a diff to the failure message when <code>expected</code> and <code>actual</code> are both present.</p>
   </div>
 </div>
 <div class="tags">
@@ -211,18 +196,10 @@ both present.</p>
   </div>
 </div>
       <div id="footer">
-  Generated on Fri Sep 14 00:02:02 2018 by
+  Generated on Tue Jul 28 15:13:13 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.16 (ruby-2.5.1).
+  0.9.25 (ruby-2.7.1).
 </div>
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-  ga('create', 'UA-59095215-1', 'auto');
-  ga('send', 'pageview');
-</script>
     </div>
   </body>
 </html>

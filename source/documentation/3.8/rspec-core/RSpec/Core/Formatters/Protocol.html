@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
   Class: RSpec::Core::Formatters::Protocol
-    &mdash; Documentation by YARD 0.9.16
+    &mdash; Documentation by YARD 0.9.25
 </title>
-  <link rel="stylesheet" href="/documentation/3.8/rspec-core/css/style.css" type="text/css" charset="utf-8" />
-  <link rel="stylesheet" href="/documentation/3.8/rspec-core/css/common.css" type="text/css" charset="utf-8" />
-<script type="text/javascript" charset="utf-8">
+  <link rel="stylesheet" href="/documentation/3.8/rspec-core/css/style.css" type="text/css" />
+  <link rel="stylesheet" href="/documentation/3.8/rspec-core/css/common.css" type="text/css" />
+<script type="text/javascript">
   pathId = "RSpec::Core::Formatters::Protocol";
   relpath = '../../../';
 </script>
@@ -61,11 +62,7 @@
 </div>
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>This class isn&#39;t loaded at runtime but serves to document all of the
-notifications implemented as part of the standard interface. The
-reporter will issue these during a normal test suite run, but a
-formatter will only receive those notifications it has registered
-itself to receive. To register a formatter call:</p>
+<p>This class isn&#39;t loaded at runtime but serves to document all of the notifications implemented as part of the standard interface. The reporter will issue these during a normal test suite run, but a formatter will only receive those notifications it has registered itself to receive. To register a formatter call:</p>
 <p><code>::RSpec::Core::Formatters.register class, :list, :of, :notifications</code></p>
 <p>e.g.</p>
 <p><code>::RSpec::Core::Formatters.register self, :start, :example_started</code></p>
@@ -88,63 +85,72 @@ itself to receive. To register a formatter call:</p>
   <span class="summary_signature">
       <a href="#close-instance_method" title="#close (instance method)">#<strong>close</strong>(notification)  &#x21d2; void </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Invoked at the end of a suite run.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Invoked at the end of a suite run.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#dump_failures-instance_method" title="#dump_failures (instance method)">#<strong>dump_failures</strong>(notification)  &#x21d2; void </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Dumps detailed information about each example failure.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Dumps detailed information about each example failure.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#dump_pending-instance_method" title="#dump_pending (instance method)">#<strong>dump_pending</strong>(notification)  &#x21d2; void </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Outputs a report of pending examples.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Outputs a report of pending examples.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#dump_profile-instance_method" title="#dump_profile (instance method)">#<strong>dump_profile</strong>(profile)  &#x21d2; void </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>This method is invoked after the dumping the summary if profiling is enabled.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>This method is invoked after the dumping the summary if profiling is enabled.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#dump_summary-instance_method" title="#dump_summary (instance method)">#<strong>dump_summary</strong>(summary)  &#x21d2; void </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>This method is invoked after the dumping of examples and failures.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>This method is invoked after the dumping of examples and failures.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#message-instance_method" title="#message (instance method)">#<strong>message</strong>(notification)  &#x21d2; void </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Used by the reporter to send messages to the output stream.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Used by the reporter to send messages to the output stream.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#start-instance_method" title="#start (instance method)">#<strong>start</strong>(notification)  &#x21d2; void </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>This method is invoked before any examples are run, right after they have all been collected.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>This method is invoked before any examples are run, right after they have all been collected.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#start_dump-instance_method" title="#start_dump (instance method)">#<strong>start_dump</strong>(notification)  &#x21d2; void </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>This method is invoked after all of the examples have executed.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>This method is invoked after all of the examples have executed.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#stop-instance_method" title="#stop (instance method)">#<strong>stop</strong>(notification)  &#x21d2; void </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Invoked after all examples have executed, before dumping post-run reports.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Invoked after all examples have executed, before dumping post-run reports.</p>
 </div></span>
 </li>
     </ul>
@@ -157,14 +163,16 @@ itself to receive. To register a formatter call:</p>
   <span class="summary_signature">
       <a href="#example_group_finished-instance_method" title="#example_group_finished (instance method)">#<strong>example_group_finished</strong>(notification)  &#x21d2; void </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Invoked at the end of the execution of each example group.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Invoked at the end of the execution of each example group.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#example_group_started-instance_method" title="#example_group_started (instance method)">#<strong>example_group_started</strong>(notification)  &#x21d2; void </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>This method is invoked at the beginning of the execution of each example group.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>This method is invoked at the beginning of the execution of each example group.</p>
 </div></span>
 </li>
     </ul>
@@ -177,35 +185,40 @@ itself to receive. To register a formatter call:</p>
   <span class="summary_signature">
       <a href="#example_failed-instance_method" title="#example_failed (instance method)">#<strong>example_failed</strong>(notification)  &#x21d2; void </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Invoked when an example fails.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Invoked when an example fails.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#example_finished-instance_method" title="#example_finished (instance method)">#<strong>example_finished</strong>(notification)  &#x21d2; void </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Invoked at the end of the execution of each example.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Invoked at the end of the execution of each example.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#example_passed-instance_method" title="#example_passed (instance method)">#<strong>example_passed</strong>(notification)  &#x21d2; void </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Invoked when an example passes.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Invoked when an example passes.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#example_pending-instance_method" title="#example_pending (instance method)">#<strong>example_pending</strong>(notification)  &#x21d2; void </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Invoked when an example is pending.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Invoked when an example is pending.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#example_started-instance_method" title="#example_started (instance method)">#<strong>example_started</strong>(notification)  &#x21d2; void </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Invoked at the beginning of the execution of each example.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Invoked at the beginning of the execution of each example.</p>
 </div></span>
 </li>
     </ul>
@@ -238,7 +251,8 @@ itself to receive. To register a formatter call:</p>
         <span class='name'>output</span>
         <span class='type'>(<tt>IO</tt>)</span>
         &mdash;
-        <div class='inline'><p>the formatter output</p>
+        <div class='inline'>
+<p>the formatter output</p>
 </div>
     </li>
 </ul>
@@ -263,9 +277,7 @@ itself to receive. To register a formatter call:</p>
     #<strong>close</strong>(notification)  &#x21d2; <tt>void</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Invoked at the end of a suite run. Allows the formatter to do any
-tidying up, but be aware that formatter output streams may be used
-elsewhere so don&#39;t actually close them.</p>
+<p>Invoked at the end of a suite run. Allows the formatter to do any tidying up, but be aware that formatter output streams may be used elsewhere so don&#39;t actually close them.</p>
   </div>
 </div>
 <div class="tags">
@@ -294,7 +306,7 @@ elsewhere so don&#39;t actually close them.</p>
     #<strong>dump_failures</strong>(notification)  &#x21d2; <tt>void</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Dumps detailed information about each example failure.</p>
+<p>Dumps detailed information about each example failure.</p>
   </div>
 </div>
 <div class="tags">
@@ -323,8 +335,7 @@ elsewhere so don&#39;t actually close them.</p>
     #<strong>dump_pending</strong>(notification)  &#x21d2; <tt>void</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Outputs a report of pending examples. This gets invoked
-after the summary if option is set to do so.</p>
+<p>Outputs a report of pending examples. This gets invoked after the summary if option is set to do so.</p>
   </div>
 </div>
 <div class="tags">
@@ -353,8 +364,7 @@ after the summary if option is set to do so.</p>
     #<strong>dump_profile</strong>(profile)  &#x21d2; <tt>void</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>This method is invoked after the dumping the summary if profiling is
-enabled.</p>
+<p>This method is invoked after the dumping the summary if profiling is enabled.</p>
   </div>
 </div>
 <div class="tags">
@@ -364,8 +374,8 @@ enabled.</p>
         <span class='name'>profile</span>
         <span class='type'>(<tt><span class='object_link'><a href="../Notifications/ProfileNotification.html" title="RSpec::Core::Notifications::ProfileNotification (class)">Notifications::ProfileNotification</a></span></tt>)</span>
         &mdash;
-        <div class='inline'><p>containing duration,
-slowest_examples and slowest_example_groups</p>
+        <div class='inline'>
+<p>containing duration, slowest_examples and slowest_example_groups</p>
 </div>
     </li>
 </ul>
@@ -387,8 +397,7 @@ slowest_examples and slowest_example_groups</p>
     #<strong>dump_summary</strong>(summary)  &#x21d2; <tt>void</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>This method is invoked after the dumping of examples and failures.
-Each parameter is assigned to a corresponding attribute.</p>
+<p>This method is invoked after the dumping of examples and failures. Each parameter is assigned to a corresponding attribute.</p>
   </div>
 </div>
 <div class="tags">
@@ -398,8 +407,8 @@ Each parameter is assigned to a corresponding attribute.</p>
         <span class='name'>summary</span>
         <span class='type'>(<tt><span class='object_link'><a href="../Notifications/SummaryNotification.html" title="RSpec::Core::Notifications::SummaryNotification (class)">Notifications::SummaryNotification</a></span></tt>)</span>
         &mdash;
-        <div class='inline'><p>containing duration,
-example_count, failure_count and pending_count</p>
+        <div class='inline'>
+<p>containing duration, example_count, failure_count and pending_count</p>
 </div>
     </li>
 </ul>
@@ -421,7 +430,7 @@ example_count, failure_count and pending_count</p>
     #<strong>example_failed</strong>(notification)  &#x21d2; <tt>void</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Invoked when an example fails.</p>
+<p>Invoked when an example fails.</p>
   </div>
 </div>
 <div class="tags">
@@ -431,8 +440,8 @@ example_count, failure_count and pending_count</p>
         <span class='name'>notification</span>
         <span class='type'>(<tt><span class='object_link'><a href="../Notifications/ExampleNotification.html" title="RSpec::Core::Notifications::ExampleNotification (class)">Notifications::ExampleNotification</a></span></tt>)</span>
         &mdash;
-        <div class='inline'><p>containing example subclass
-of <span class='object_link'><a href="../Example.html" title="RSpec::Core::Example (class)">Example</a></span></p>
+        <div class='inline'>
+<p>containing example subclass of <span class='object_link'><a href="../Example.html" title="RSpec::Core::Example (class)">Example</a></span></p>
 </div>
     </li>
 </ul>
@@ -454,7 +463,7 @@ of <span class='object_link'><a href="../Example.html" title="RSpec::Core::Examp
     #<strong>example_finished</strong>(notification)  &#x21d2; <tt>void</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Invoked at the end of the execution of each example.</p>
+<p>Invoked at the end of the execution of each example.</p>
   </div>
 </div>
 <div class="tags">
@@ -464,8 +473,8 @@ of <span class='object_link'><a href="../Example.html" title="RSpec::Core::Examp
         <span class='name'>notification</span>
         <span class='type'>(<tt><span class='object_link'><a href="../Notifications/ExampleNotification.html" title="RSpec::Core::Notifications::ExampleNotification (class)">Notifications::ExampleNotification</a></span></tt>)</span>
         &mdash;
-        <div class='inline'><p>containing example subclass
-of <span class='object_link'><a href="../Example.html" title="RSpec::Core::Example (class)">Example</a></span></p>
+        <div class='inline'>
+<p>containing example subclass of <span class='object_link'><a href="../Example.html" title="RSpec::Core::Example (class)">Example</a></span></p>
 </div>
     </li>
 </ul>
@@ -487,7 +496,7 @@ of <span class='object_link'><a href="../Example.html" title="RSpec::Core::Examp
     #<strong>example_group_finished</strong>(notification)  &#x21d2; <tt>void</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Invoked at the end of the execution of each example group.</p>
+<p>Invoked at the end of the execution of each example group.</p>
   </div>
 </div>
 <div class="tags">
@@ -497,8 +506,8 @@ of <span class='object_link'><a href="../Example.html" title="RSpec::Core::Examp
         <span class='name'>notification</span>
         <span class='type'>(<tt><span class='object_link'><a href="../Notifications/GroupNotification.html" title="RSpec::Core::Notifications::GroupNotification (class)">Notifications::GroupNotification</a></span></tt>)</span>
         &mdash;
-        <div class='inline'><p>containing example_group
-subclass of <span class='object_link'><a href="../ExampleGroup.html" title="RSpec::Core::ExampleGroup (class)">ExampleGroup</a></span></p>
+        <div class='inline'>
+<p>containing example_group subclass of <span class='object_link'><a href="../ExampleGroup.html" title="RSpec::Core::ExampleGroup (class)">ExampleGroup</a></span></p>
 </div>
     </li>
 </ul>
@@ -520,10 +529,8 @@ subclass of <span class='object_link'><a href="../ExampleGroup.html" title="RSpe
     #<strong>example_group_started</strong>(notification)  &#x21d2; <tt>void</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>This method is invoked at the beginning of the execution of each
-example group.</p>
-<p>The next method to be invoked after this is <span class='object_link'><a href="#example_passed-instance_method" title="RSpec::Core::Formatters::Protocol#example_passed (method)">#example_passed</a></span>,
-<span class='object_link'><a href="#example_pending-instance_method" title="RSpec::Core::Formatters::Protocol#example_pending (method)">#example_pending</a></span>, or <span class='object_link'><a href="#example_group_finished-instance_method" title="RSpec::Core::Formatters::Protocol#example_group_finished (method)">#example_group_finished</a></span>.</p>
+<p>This method is invoked at the beginning of the execution of each example group.</p>
+<p>The next method to be invoked after this is <span class='object_link'><a href="#example_passed-instance_method" title="RSpec::Core::Formatters::Protocol#example_passed (method)">#example_passed</a></span>, <span class='object_link'><a href="#example_pending-instance_method" title="RSpec::Core::Formatters::Protocol#example_pending (method)">#example_pending</a></span>, or <span class='object_link'><a href="#example_group_finished-instance_method" title="RSpec::Core::Formatters::Protocol#example_group_finished (method)">#example_group_finished</a></span>.</p>
   </div>
 </div>
 <div class="tags">
@@ -533,8 +540,8 @@ example group.</p>
         <span class='name'>notification</span>
         <span class='type'>(<tt><span class='object_link'><a href="../Notifications/GroupNotification.html" title="RSpec::Core::Notifications::GroupNotification (class)">Notifications::GroupNotification</a></span></tt>)</span>
         &mdash;
-        <div class='inline'><p>containing example_group
-subclass of <span class='object_link'><a href="../ExampleGroup.html" title="RSpec::Core::ExampleGroup (class)">ExampleGroup</a></span></p>
+        <div class='inline'>
+<p>containing example_group subclass of <span class='object_link'><a href="../ExampleGroup.html" title="RSpec::Core::ExampleGroup (class)">ExampleGroup</a></span></p>
 </div>
     </li>
 </ul>
@@ -556,7 +563,7 @@ subclass of <span class='object_link'><a href="../ExampleGroup.html" title="RSpe
     #<strong>example_passed</strong>(notification)  &#x21d2; <tt>void</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Invoked when an example passes.</p>
+<p>Invoked when an example passes.</p>
   </div>
 </div>
 <div class="tags">
@@ -566,8 +573,8 @@ subclass of <span class='object_link'><a href="../ExampleGroup.html" title="RSpe
         <span class='name'>notification</span>
         <span class='type'>(<tt><span class='object_link'><a href="../Notifications/ExampleNotification.html" title="RSpec::Core::Notifications::ExampleNotification (class)">Notifications::ExampleNotification</a></span></tt>)</span>
         &mdash;
-        <div class='inline'><p>containing example subclass
-of <span class='object_link'><a href="../Example.html" title="RSpec::Core::Example (class)">Example</a></span></p>
+        <div class='inline'>
+<p>containing example subclass of <span class='object_link'><a href="../Example.html" title="RSpec::Core::Example (class)">Example</a></span></p>
 </div>
     </li>
 </ul>
@@ -589,7 +596,7 @@ of <span class='object_link'><a href="../Example.html" title="RSpec::Core::Examp
     #<strong>example_pending</strong>(notification)  &#x21d2; <tt>void</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Invoked when an example is pending.</p>
+<p>Invoked when an example is pending.</p>
   </div>
 </div>
 <div class="tags">
@@ -599,8 +606,8 @@ of <span class='object_link'><a href="../Example.html" title="RSpec::Core::Examp
         <span class='name'>notification</span>
         <span class='type'>(<tt><span class='object_link'><a href="../Notifications/ExampleNotification.html" title="RSpec::Core::Notifications::ExampleNotification (class)">Notifications::ExampleNotification</a></span></tt>)</span>
         &mdash;
-        <div class='inline'><p>containing example subclass
-of <span class='object_link'><a href="../Example.html" title="RSpec::Core::Example (class)">Example</a></span></p>
+        <div class='inline'>
+<p>containing example subclass of <span class='object_link'><a href="../Example.html" title="RSpec::Core::Example (class)">Example</a></span></p>
 </div>
     </li>
 </ul>
@@ -622,7 +629,7 @@ of <span class='object_link'><a href="../Example.html" title="RSpec::Core::Examp
     #<strong>example_started</strong>(notification)  &#x21d2; <tt>void</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Invoked at the beginning of the execution of each example.</p>
+<p>Invoked at the beginning of the execution of each example.</p>
   </div>
 </div>
 <div class="tags">
@@ -632,8 +639,8 @@ of <span class='object_link'><a href="../Example.html" title="RSpec::Core::Examp
         <span class='name'>notification</span>
         <span class='type'>(<tt><span class='object_link'><a href="../Notifications/ExampleNotification.html" title="RSpec::Core::Notifications::ExampleNotification (class)">Notifications::ExampleNotification</a></span></tt>)</span>
         &mdash;
-        <div class='inline'><p>containing example subclass
-of <span class='object_link'><a href="../Example.html" title="RSpec::Core::Example (class)">Example</a></span></p>
+        <div class='inline'>
+<p>containing example subclass of <span class='object_link'><a href="../Example.html" title="RSpec::Core::Example (class)">Example</a></span></p>
 </div>
     </li>
 </ul>
@@ -655,7 +662,7 @@ of <span class='object_link'><a href="../Example.html" title="RSpec::Core::Examp
     #<strong>message</strong>(notification)  &#x21d2; <tt>void</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Used by the reporter to send messages to the output stream.</p>
+<p>Used by the reporter to send messages to the output stream.</p>
   </div>
 </div>
 <div class="tags">
@@ -665,7 +672,8 @@ of <span class='object_link'><a href="../Example.html" title="RSpec::Core::Examp
         <span class='name'>notification</span>
         <span class='type'>(<tt><span class='object_link'><a href="../Notifications/MessageNotification.html" title="RSpec::Core::Notifications::MessageNotification (class)">Notifications::MessageNotification</a></span></tt>)</span>
         &mdash;
-        <div class='inline'><p>containing message</p>
+        <div class='inline'>
+<p>containing message</p>
 </div>
     </li>
 </ul>
@@ -687,11 +695,8 @@ of <span class='object_link'><a href="../Example.html" title="RSpec::Core::Examp
     #<strong>start</strong>(notification)  &#x21d2; <tt>void</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>This method is invoked before any examples are run, right after
-they have all been collected. This can be useful for special
-formatters that need to provide progress on feedback (graphical ones).</p>
-<p>This will only be invoked once, and the next one to be invoked
-is <span class='object_link'><a href="#example_group_started-instance_method" title="RSpec::Core::Formatters::Protocol#example_group_started (method)">#example_group_started</a></span>.</p>
+<p>This method is invoked before any examples are run, right after they have all been collected. This can be useful for special formatters that need to provide progress on feedback (graphical ones).</p>
+<p>This will only be invoked once, and the next one to be invoked is <span class='object_link'><a href="#example_group_started-instance_method" title="RSpec::Core::Formatters::Protocol#example_group_started (method)">#example_group_started</a></span>.</p>
   </div>
 </div>
 <div class="tags">
@@ -720,10 +725,7 @@ is <span class='object_link'><a href="#example_group_started-instance_method" ti
     #<strong>start_dump</strong>(notification)  &#x21d2; <tt>void</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>This method is invoked after all of the examples have executed. The
-next method to be invoked after this one is <span class='object_link'><a href="#dump_failures-instance_method" title="RSpec::Core::Formatters::Protocol#dump_failures (method)">#dump_failures</a></span>
-(BaseTextFormatter then calls <span class='object_link'><a href="#dump_failures-instance_method" title="RSpec::Core::Formatters::Protocol#dump_failures (method)">#dump_failures</a></span> once for each failed
-example).</p>
+<p>This method is invoked after all of the examples have executed. The next method to be invoked after this one is <span class='object_link'><a href="#dump_failures-instance_method" title="RSpec::Core::Formatters::Protocol#dump_failures (method)">#dump_failures</a></span> (BaseTextFormatter then calls <span class='object_link'><a href="#dump_failures-instance_method" title="RSpec::Core::Formatters::Protocol#dump_failures (method)">#dump_failures</a></span> once for each failed example).</p>
   </div>
 </div>
 <div class="tags">
@@ -752,8 +754,7 @@ example).</p>
     #<strong>stop</strong>(notification)  &#x21d2; <tt>void</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Invoked after all examples have executed, before dumping post-run
-reports.</p>
+<p>Invoked after all examples have executed, before dumping post-run reports.</p>
   </div>
 </div>
 <div class="tags">
@@ -780,18 +781,10 @@ reports.</p>
   </div>
 </div>
       <div id="footer">
-  Generated on Fri Sep 14 00:01:58 2018 by
+  Generated on Tue Jul 28 15:12:48 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.16 (ruby-2.5.1).
+  0.9.25 (ruby-2.7.1).
 </div>
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-  ga('create', 'UA-59095215-1', 'auto');
-  ga('send', 'pageview');
-</script>
     </div>
   </body>
 </html>

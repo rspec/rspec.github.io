@@ -1,14 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
   Module: RSpec::Mocks::ExampleMethods
-    &mdash; Documentation by YARD 0.9.16
+    &mdash; Documentation by YARD 0.9.25
 </title>
-  <link rel="stylesheet" href="/documentation/3.8/rspec-mocks/css/style.css" type="text/css" charset="utf-8" />
-  <link rel="stylesheet" href="/documentation/3.8/rspec-mocks/css/common.css" type="text/css" charset="utf-8" />
-<script type="text/javascript" charset="utf-8">
+  <link rel="stylesheet" href="/documentation/3.8/rspec-mocks/css/style.css" type="text/css" />
+  <link rel="stylesheet" href="/documentation/3.8/rspec-mocks/css/common.css" type="text/css" />
+<script type="text/javascript">
   pathId = "RSpec::Mocks::ExampleMethods";
   relpath = '../../';
 </script>
@@ -54,10 +55,7 @@
 </div>
 <h2>Overview</h2><div class="docstring">
   <div class="discussion">
-    <p>Contains methods intended to be used from within code examples.
-Mix this in to your test context (such as a test framework base class)
-to use rspec-mocks with your test framework. If you&#39;re using rspec-core,
-it&#39;ll take care of doing this for you.</p>
+<p>Contains methods intended to be used from within code examples. Mix this in to your test context (such as a test framework base class) to use rspec-mocks with your test framework. If you&#39;re using rspec-core, it&#39;ll take care of doing this for you.</p>
   </div>
 </div>
 <div class="tags">
@@ -74,14 +72,16 @@ it&#39;ll take care of doing this for you.</p>
   <span class="summary_signature">
       <a href="#allow-instance_method" title="#allow (instance method)">#<strong>allow</strong>  &#x21d2; Object </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Used to wrap an object in preparation for stubbing a method on it.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Used to wrap an object in preparation for stubbing a method on it.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#allow_any_instance_of-instance_method" title="#allow_any_instance_of (instance method)">#<strong>allow_any_instance_of</strong>  &#x21d2; Object </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Used to wrap a class in preparation for stubbing a method on instances of it.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Used to wrap a class in preparation for stubbing a method on instances of it.</p>
 </div></span>
 </li>
         <li class="public deprecated">
@@ -89,126 +89,144 @@ it&#39;ll take care of doing this for you.</p>
       <a href="#allow_message_expectations_on_nil-instance_method" title="#allow_message_expectations_on_nil (instance method)">#<strong>allow_message_expectations_on_nil</strong>  &#x21d2; Object </a>
   </span>
   <span class="deprecated note title">deprecated</span>
-    <span class="summary_desc"><strong>Deprecated.</strong> <div class='inline'><p>Use <span class='object_link'><a href="Configuration.html#allow_message_expectations_on_nil-instance_method" title="RSpec::Mocks::Configuration#allow_message_expectations_on_nil (method)">Configuration#allow_message_expectations_on_nil</a></span> instead.</p>
+    <span class="summary_desc"><strong>Deprecated.</strong> <div class='inline'>
+<p>Use <span class='object_link'><a href="Configuration.html#allow_message_expectations_on_nil-instance_method" title="RSpec::Mocks::Configuration#allow_message_expectations_on_nil (method)">Configuration#allow_message_expectations_on_nil</a></span> instead.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#class_double-instance_method" title="#class_double (instance method)">#<strong>class_double</strong>(doubled_class, *args)  &#x21d2; Object </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Constructs a test double against a specific class.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Constructs a test double against a specific class.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#class_spy-instance_method" title="#class_spy (instance method)">#<strong>class_spy</strong>(*args)  &#x21d2; Object </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Constructs a test double that is optimized for use with <code>have_received</code> against a specific class.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Constructs a test double that is optimized for use with <code>have_received</code> against a specific class.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#double-instance_method" title="#double (instance method)">#<strong>double</strong>(*args)  &#x21d2; Double </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Constructs an instance of <a href="RSpec::Mocks::Double">RSpec::Mocks::Double</a> configured with an optional name, used for reporting in failure messages, and an optional hash of message/return-value pairs.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Constructs an instance of <a href="RSpec::Mocks::Double">:Mocks::Double</a> configured with an optional name, used for reporting in failure messages, and an optional hash of message/return-value pairs.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#expect-instance_method" title="#expect (instance method)">#<strong>expect</strong>  &#x21d2; Object </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Used to wrap an object in preparation for setting a mock expectation on it.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Used to wrap an object in preparation for setting a mock expectation on it.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#expect_any_instance_of-instance_method" title="#expect_any_instance_of (instance method)">#<strong>expect_any_instance_of</strong>  &#x21d2; Object </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Used to wrap a class in preparation for setting a mock expectation on instances of it.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Used to wrap a class in preparation for setting a mock expectation on instances of it.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#have_received-instance_method" title="#have_received (instance method)">#<strong>have_received</strong>(method_name, &amp;block)  &#x21d2; Object </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Verifies that the given object received the expected message during the course of the test.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Verifies that the given object received the expected message during the course of the test.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#hide_const-instance_method" title="#hide_const (instance method)">#<strong>hide_const</strong>(constant_name)  &#x21d2; Object </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Hides the named constant with the given value.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Hides the named constant with the given value.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#instance_double-instance_method" title="#instance_double (instance method)">#<strong>instance_double</strong>(doubled_class, *args)  &#x21d2; Object </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Constructs a test double against a specific class.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Constructs a test double against a specific class.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#instance_spy-instance_method" title="#instance_spy (instance method)">#<strong>instance_spy</strong>(*args)  &#x21d2; Object </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Constructs a test double that is optimized for use with <code>have_received</code> against a specific class.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Constructs a test double that is optimized for use with <code>have_received</code> against a specific class.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#object_double-instance_method" title="#object_double (instance method)">#<strong>object_double</strong>(object_or_name, *args)  &#x21d2; Object </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Constructs a test double against a specific object.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Constructs a test double against a specific object.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#object_spy-instance_method" title="#object_spy (instance method)">#<strong>object_spy</strong>(*args)  &#x21d2; Object </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Constructs a test double that is optimized for use with <code>have_received</code> against a specific object.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Constructs a test double that is optimized for use with <code>have_received</code> against a specific object.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#receive-instance_method" title="#receive (instance method)">#<strong>receive</strong>  &#x21d2; Object </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Used to specify a message that you expect or allow an object to receive.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Used to specify a message that you expect or allow an object to receive.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#receive_message_chain-instance_method" title="#receive_message_chain (instance method)">#<strong>receive_message_chain</strong>  &#x21d2; Object </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>stubs/mocks a chain of messages on an object or test double.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>stubs/mocks a chain of messages on an object or test double.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#receive_messages-instance_method" title="#receive_messages (instance method)">#<strong>receive_messages</strong>  &#x21d2; Object </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Shorthand syntax used to setup message(s), and their return value(s), that you expect or allow an object to receive.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Shorthand syntax used to setup message(s), and their return value(s), that you expect or allow an object to receive.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#spy-instance_method" title="#spy (instance method)">#<strong>spy</strong>(*args)  &#x21d2; Double </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Constructs a test double that is optimized for use with <code>have_received</code>.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Constructs a test double that is optimized for use with <code>have_received</code>.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#stub_const-instance_method" title="#stub_const (instance method)">#<strong>stub_const</strong>(constant_name, value, options = {})  &#x21d2; Object </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Stubs the named constant with the given value.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Stubs the named constant with the given value.</p>
 </div></span>
 </li>
         <li class="public ">
   <span class="summary_signature">
       <a href="#without_partial_double_verification-instance_method" title="#without_partial_double_verification (instance method)">#<strong>without_partial_double_verification</strong>  &#x21d2; Object </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Turns off the verifying of partial doubles for the duration of the block, this is useful in situations where methods are defined at run time and you wish to define stubs for them but not turn off partial doubles for the entire run suite.</p>
+    <span class="summary_desc"><div class='inline'>
+<p>Turns off the verifying of partial doubles for the duration of the block, this is useful in situations where methods are defined at run time and you wish to define stubs for them but not turn off partial doubles for the entire run suite.</p>
 </div></span>
 </li>
     </ul>
@@ -223,11 +241,11 @@ it&#39;ll take care of doing this for you.</p>
   <div class="discussion">
   <div class="note notetag">
     <strong>Note:</strong>
-    <div class='inline'><p>If you disable the <code>:expect</code> syntax this method will be undefined.</p>
+    <div class='inline'>
+<p>If you disable the <code>:expect</code> syntax this method will be undefined.</p>
 </div>
   </div>
-<p>Used to wrap an object in preparation for stubbing a method
-on it.</p>
+<p>Used to wrap an object in preparation for stubbing a method on it.</p>
   </div>
 </div>
 <div class="tags">
@@ -255,11 +273,11 @@ on it.</p>
   <div class="discussion">
   <div class="note notetag">
     <strong>Note:</strong>
-    <div class='inline'><p>This is only available when you have enabled the <code>expect</code> syntax.</p>
+    <div class='inline'>
+<p>This is only available when you have enabled the <code>expect</code> syntax.</p>
 </div>
   </div>
-<p>Used to wrap a class in preparation for stubbing a method
-on instances of it.</p>
+<p>Used to wrap a class in preparation for stubbing a method on instances of it.</p>
   </div>
 </div>
 <div class="tags">
@@ -285,12 +303,11 @@ on instances of it.</p>
     #<strong>allow_message_expectations_on_nil</strong>  &#x21d2; <tt>Object</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <div class="note deprecated"><strong>Deprecated.</strong> <div class='inline'><p>Use <span class='object_link'><a href="Configuration.html#allow_message_expectations_on_nil-instance_method" title="RSpec::Mocks::Configuration#allow_message_expectations_on_nil (method)">Configuration#allow_message_expectations_on_nil</a></span> instead.</p>
+    <div class="note deprecated"><strong>Deprecated.</strong> <div class='inline'>
+<p>Use <span class='object_link'><a href="Configuration.html#allow_message_expectations_on_nil-instance_method" title="RSpec::Mocks::Configuration#allow_message_expectations_on_nil (method)">Configuration#allow_message_expectations_on_nil</a></span> instead.</p>
 </div></div>
 <p>Disables warning messages about expectations being set on nil.</p>
-<p>By default warning messages are issued when expectations are set on
-nil.  This is to prevent false-positives and to catch potential bugs
-early on.</p>
+<p>By default warning messages are issued when expectations are set on nil. This is to prevent false-positives and to catch potential bugs early on.</p>
   </div>
 </div>
 <div class="tags">
@@ -319,10 +336,7 @@ early on.</p>
       <span class="overload">#<strong>class_double</strong>(doubled_class, name, stubs)  &#x21d2; <tt>Object</tt> </span>
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Constructs a test double against a specific class. If the given class
-name has been loaded, only class methods defined on the class are
-allowed to be stubbed. In all other ways it behaves like a
-<a href="double">double</a>.</p>
+<p>Constructs a test double against a specific class. If the given class name has been loaded, only class methods defined on the class are allowed to be stubbed. In all other ways it behaves like a <a href="double">double</a>.</p>
   </div>
 </div>
 <div class="tags">
@@ -361,7 +375,8 @@ allowed to be stubbed. In all other ways it behaves like a
         <span class='name'>name</span>
         <span class='type'>(<tt>String/Symbol</tt>)</span>
         &mdash;
-        <div class='inline'><p>name or description to be used in failure messages</p>
+        <div class='inline'>
+<p>name or description to be used in failure messages</p>
 </div>
     </li>
 </ul>
@@ -384,7 +399,8 @@ allowed to be stubbed. In all other ways it behaves like a
         <span class='name'>stubs</span>
         <span class='type'>(<tt>Hash</tt>)</span>
         &mdash;
-        <div class='inline'><p>hash of message/return-value pairs</p>
+        <div class='inline'>
+<p>hash of message/return-value pairs</p>
 </div>
     </li>
 </ul>
@@ -407,14 +423,16 @@ allowed to be stubbed. In all other ways it behaves like a
         <span class='name'>name</span>
         <span class='type'>(<tt>String/Symbol</tt>)</span>
         &mdash;
-        <div class='inline'><p>name or description to be used in failure messages</p>
+        <div class='inline'>
+<p>name or description to be used in failure messages</p>
 </div>
     </li>
     <li>
         <span class='name'>stubs</span>
         <span class='type'>(<tt>Hash</tt>)</span>
         &mdash;
-        <div class='inline'><p>hash of message/return-value pairs</p>
+        <div class='inline'>
+<p>hash of message/return-value pairs</p>
 </div>
     </li>
 </ul>
@@ -425,7 +443,8 @@ allowed to be stubbed. In all other ways it behaves like a
 <ul class="return">
     <li>
         <span class='type'></span>
-        <div class='inline'><p>ClassVerifyingDouble</p>
+        <div class='inline'>
+<p>ClassVerifyingDouble</p>
 </div>
     </li>
 </ul>
@@ -456,12 +475,7 @@ allowed to be stubbed. In all other ways it behaves like a
       <span class="overload">#<strong>class_spy</strong>(doubled_class, name, stubs)  &#x21d2; <tt>Object</tt> </span>
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Constructs a test double that is optimized for use with <code>have_received</code>
-against a specific class. If the given class name has been loaded,
-only class methods defined on the class are allowed to be stubbed.
-With a normal double one has to stub methods in order to be able to spy
-them. An class_spy automatically spies on all class methods to which the
-class responds.</p>
+<p>Constructs a test double that is optimized for use with <code>have_received</code> against a specific class. If the given class name has been loaded, only class methods defined on the class are allowed to be stubbed. With a normal double one has to stub methods in order to be able to spy them. An class_spy automatically spies on all class methods to which the class responds.</p>
   </div>
 </div>
 <div class="tags">
@@ -500,7 +514,8 @@ class responds.</p>
         <span class='name'>name</span>
         <span class='type'>(<tt>String/Symbol</tt>)</span>
         &mdash;
-        <div class='inline'><p>name or description to be used in failure messages</p>
+        <div class='inline'>
+<p>name or description to be used in failure messages</p>
 </div>
     </li>
 </ul>
@@ -523,7 +538,8 @@ class responds.</p>
         <span class='name'>stubs</span>
         <span class='type'>(<tt>Hash</tt>)</span>
         &mdash;
-        <div class='inline'><p>hash of message/return-value pairs</p>
+        <div class='inline'>
+<p>hash of message/return-value pairs</p>
 </div>
     </li>
 </ul>
@@ -546,14 +562,16 @@ class responds.</p>
         <span class='name'>name</span>
         <span class='type'>(<tt>String/Symbol</tt>)</span>
         &mdash;
-        <div class='inline'><p>name or description to be used in failure messages</p>
+        <div class='inline'>
+<p>name or description to be used in failure messages</p>
 </div>
     </li>
     <li>
         <span class='name'>stubs</span>
         <span class='type'>(<tt>Hash</tt>)</span>
         &mdash;
-        <div class='inline'><p>hash of message/return-value pairs</p>
+        <div class='inline'>
+<p>hash of message/return-value pairs</p>
 </div>
     </li>
 </ul>
@@ -564,7 +582,8 @@ class responds.</p>
 <ul class="return">
     <li>
         <span class='type'></span>
-        <div class='inline'><p>ClassVerifyingDouble</p>
+        <div class='inline'>
+<p>ClassVerifyingDouble</p>
 </div>
     </li>
 </ul>
@@ -593,9 +612,7 @@ class responds.</p>
       <span class="overload">#<strong>double</strong>(name, stubs)  &#x21d2; <tt><span class='object_link'><a href="Double.html" title="RSpec::Mocks::Double (class)">Double</a></span></tt> </span>
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Constructs an instance of <a href="RSpec::Mocks::Double">RSpec::Mocks::Double</a> configured
-with an optional name, used for reporting in failure messages, and an optional
-hash of message/return-value pairs.</p>
+<p>Constructs an instance of <a href="RSpec::Mocks::Double">:Mocks::Double</a> configured with an optional name, used for reporting in failure messages, and an optional hash of message/return-value pairs.</p>
   </div>
 </div>
 <div class="tags">
@@ -623,7 +640,8 @@ hash of message/return-value pairs.</p>
         <span class='name'>name</span>
         <span class='type'>(<tt>String/Symbol</tt>)</span>
         &mdash;
-        <div class='inline'><p>name or description to be used in failure messages</p>
+        <div class='inline'>
+<p>name or description to be used in failure messages</p>
 </div>
     </li>
 </ul>
@@ -642,7 +660,8 @@ hash of message/return-value pairs.</p>
         <span class='name'>stubs</span>
         <span class='type'>(<tt>Hash</tt>)</span>
         &mdash;
-        <div class='inline'><p>hash of message/return-value pairs</p>
+        <div class='inline'>
+<p>hash of message/return-value pairs</p>
 </div>
     </li>
 </ul>
@@ -661,14 +680,16 @@ hash of message/return-value pairs.</p>
         <span class='name'>name</span>
         <span class='type'>(<tt>String/Symbol</tt>)</span>
         &mdash;
-        <div class='inline'><p>name or description to be used in failure messages</p>
+        <div class='inline'>
+<p>name or description to be used in failure messages</p>
 </div>
     </li>
     <li>
         <span class='name'>stubs</span>
         <span class='type'>(<tt>Hash</tt>)</span>
         &mdash;
-        <div class='inline'><p>hash of message/return-value pairs</p>
+        <div class='inline'>
+<p>hash of message/return-value pairs</p>
 </div>
     </li>
 </ul>
@@ -705,14 +726,11 @@ hash of message/return-value pairs.</p>
   <div class="discussion">
   <div class="note notetag">
     <strong>Note:</strong>
-    <div class='inline'><p>This method is usually provided by rspec-expectations. However,
-if you use rspec-mocks without rspec-expectations, there&#39;s a definition
-of it that is made available here. If you disable the <code>:expect</code> syntax
-this method will be undefined.</p>
+    <div class='inline'>
+<p>This method is usually provided by rspec-expectations. However, if you use rspec-mocks without rspec-expectations, there&#39;s a definition of it that is made available here. If you disable the <code>:expect</code> syntax this method will be undefined.</p>
 </div>
   </div>
-<p>Used to wrap an object in preparation for setting a mock expectation
-on it.</p>
+<p>Used to wrap an object in preparation for setting a mock expectation on it.</p>
   </div>
 </div>
 <div class="tags">
@@ -740,11 +758,11 @@ on it.</p>
   <div class="discussion">
   <div class="note notetag">
     <strong>Note:</strong>
-    <div class='inline'><p>If you disable the <code>:expect</code> syntax this method will be undefined.</p>
+    <div class='inline'>
+<p>If you disable the <code>:expect</code> syntax this method will be undefined.</p>
 </div>
   </div>
-<p>Used to wrap a class in preparation for setting a mock expectation
-on instances of it.</p>
+<p>Used to wrap a class in preparation for setting a mock expectation on instances of it.</p>
   </div>
 </div>
 <div class="tags">
@@ -772,16 +790,12 @@ on instances of it.</p>
   <div class="discussion">
   <div class="note notetag">
     <strong>Note:</strong>
-    <div class='inline'><p><code>have_received(...).with(...)</code> is unable to work properly when
-passed arguments are mutated after the spy records the received message.</p>
+    <div class='inline'>
+<p><code>have_received(...).with(...)</code> is unable to work properly when passed arguments are mutated after the spy records the received message.</p>
 </div>
   </div>
-<p>Verifies that the given object received the expected message during the
-course of the test. On a spy objects or as null object doubles this
-works for any method, on other objects the method must have
-been stubbed beforehand in order for messages to be verified.</p>
-<p>Stubbing and verifying messages received in this way implements the
-Test Spy pattern.</p>
+<p>Verifies that the given object received the expected message during the course of the test. On a spy objects or as null object doubles this works for any method, on other objects the method must have been stubbed beforehand in order for messages to be verified.</p>
+<p>Stubbing and verifying messages received in this way implements the Test Spy pattern.</p>
   </div>
 </div>
 <div class="tags">
@@ -799,8 +813,8 @@ Test Spy pattern.</p>
         <span class='name'>method_name</span>
         <span class='type'>(<tt>Symbol</tt>)</span>
         &mdash;
-        <div class='inline'><p>name of the method expected to have been
-called.</p>
+        <div class='inline'>
+<p>name of the method expected to have been called.</p>
 </div>
     </li>
 </ul>
@@ -826,10 +840,8 @@ called.</p>
     #<strong>hide_const</strong>(constant_name)  &#x21d2; <tt>Object</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Hides the named constant with the given value. The constant will be
-undefined for the duration of the test.</p>
-<p>Like method stubs, the constant will be restored to its original value
-when the example completes.</p>
+<p>Hides the named constant with the given value. The constant will be undefined for the duration of the test.</p>
+<p>Like method stubs, the constant will be restored to its original value when the example completes.</p>
   </div>
 </div>
 <div class="tags">
@@ -843,8 +855,8 @@ when the example completes.</p>
         <span class='name'>constant_name</span>
         <span class='type'>(<tt>String</tt>)</span>
         &mdash;
-        <div class='inline'><p>The fully qualified name of the constant.
-The current constant scoping at the point of call is not considered.</p>
+        <div class='inline'>
+<p>The fully qualified name of the constant. The current constant scoping at the point of call is not considered.</p>
 </div>
     </li>
 </ul>
@@ -873,10 +885,7 @@ The current constant scoping at the point of call is not considered.</p>
       <span class="overload">#<strong>instance_double</strong>(doubled_class, name, stubs)  &#x21d2; <tt>Object</tt> </span>
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Constructs a test double against a specific class. If the given class
-name has been loaded, only instance methods defined on the class are
-allowed to be stubbed. In all other ways it behaves like a
-<a href="double">double</a>.</p>
+<p>Constructs a test double against a specific class. If the given class name has been loaded, only instance methods defined on the class are allowed to be stubbed. In all other ways it behaves like a <a href="double">double</a>.</p>
   </div>
 </div>
 <div class="tags">
@@ -915,7 +924,8 @@ allowed to be stubbed. In all other ways it behaves like a
         <span class='name'>name</span>
         <span class='type'>(<tt>String/Symbol</tt>)</span>
         &mdash;
-        <div class='inline'><p>name or description to be used in failure messages</p>
+        <div class='inline'>
+<p>name or description to be used in failure messages</p>
 </div>
     </li>
 </ul>
@@ -938,7 +948,8 @@ allowed to be stubbed. In all other ways it behaves like a
         <span class='name'>stubs</span>
         <span class='type'>(<tt>Hash</tt>)</span>
         &mdash;
-        <div class='inline'><p>hash of message/return-value pairs</p>
+        <div class='inline'>
+<p>hash of message/return-value pairs</p>
 </div>
     </li>
 </ul>
@@ -961,14 +972,16 @@ allowed to be stubbed. In all other ways it behaves like a
         <span class='name'>name</span>
         <span class='type'>(<tt>String/Symbol</tt>)</span>
         &mdash;
-        <div class='inline'><p>name or description to be used in failure messages</p>
+        <div class='inline'>
+<p>name or description to be used in failure messages</p>
 </div>
     </li>
     <li>
         <span class='name'>stubs</span>
         <span class='type'>(<tt>Hash</tt>)</span>
         &mdash;
-        <div class='inline'><p>hash of message/return-value pairs</p>
+        <div class='inline'>
+<p>hash of message/return-value pairs</p>
 </div>
     </li>
 </ul>
@@ -979,7 +992,8 @@ allowed to be stubbed. In all other ways it behaves like a
 <ul class="return">
     <li>
         <span class='type'></span>
-        <div class='inline'><p>InstanceVerifyingDouble</p>
+        <div class='inline'>
+<p>InstanceVerifyingDouble</p>
 </div>
     </li>
 </ul>
@@ -1010,12 +1024,7 @@ allowed to be stubbed. In all other ways it behaves like a
       <span class="overload">#<strong>instance_spy</strong>(doubled_class, name, stubs)  &#x21d2; <tt>Object</tt> </span>
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Constructs a test double that is optimized for use with <code>have_received</code>
-against a specific class. If the given class name has been loaded, only
-instance methods defined on the class are allowed to be stubbed.  With
-a normal double one has to stub methods in order to be able to spy
-them. An instance_spy automatically spies on all instance methods to
-which the class responds.</p>
+<p>Constructs a test double that is optimized for use with <code>have_received</code> against a specific class. If the given class name has been loaded, only instance methods defined on the class are allowed to be stubbed. With a normal double one has to stub methods in order to be able to spy them. An instance_spy automatically spies on all instance methods to which the class responds.</p>
   </div>
 </div>
 <div class="tags">
@@ -1054,7 +1063,8 @@ which the class responds.</p>
         <span class='name'>name</span>
         <span class='type'>(<tt>String/Symbol</tt>)</span>
         &mdash;
-        <div class='inline'><p>name or description to be used in failure messages</p>
+        <div class='inline'>
+<p>name or description to be used in failure messages</p>
 </div>
     </li>
 </ul>
@@ -1077,7 +1087,8 @@ which the class responds.</p>
         <span class='name'>stubs</span>
         <span class='type'>(<tt>Hash</tt>)</span>
         &mdash;
-        <div class='inline'><p>hash of message/return-value pairs</p>
+        <div class='inline'>
+<p>hash of message/return-value pairs</p>
 </div>
     </li>
 </ul>
@@ -1100,14 +1111,16 @@ which the class responds.</p>
         <span class='name'>name</span>
         <span class='type'>(<tt>String/Symbol</tt>)</span>
         &mdash;
-        <div class='inline'><p>name or description to be used in failure messages</p>
+        <div class='inline'>
+<p>name or description to be used in failure messages</p>
 </div>
     </li>
     <li>
         <span class='name'>stubs</span>
         <span class='type'>(<tt>Hash</tt>)</span>
         &mdash;
-        <div class='inline'><p>hash of message/return-value pairs</p>
+        <div class='inline'>
+<p>hash of message/return-value pairs</p>
 </div>
     </li>
 </ul>
@@ -1118,7 +1131,8 @@ which the class responds.</p>
 <ul class="return">
     <li>
         <span class='type'></span>
-        <div class='inline'><p>InstanceVerifyingDouble</p>
+        <div class='inline'>
+<p>InstanceVerifyingDouble</p>
 </div>
     </li>
 </ul>
@@ -1147,10 +1161,7 @@ which the class responds.</p>
       <span class="overload">#<strong>object_double</strong>(object_or_name, name, stubs)  &#x21d2; <tt>Object</tt> </span>
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Constructs a test double against a specific object. Only the methods
-the object responds to are allowed to be stubbed. If a String argument
-is provided, it is assumed to reference a constant object which is used
-for verification. In all other ways it behaves like a <a href="double">double</a>.</p>
+<p>Constructs a test double against a specific object. Only the methods the object responds to are allowed to be stubbed. If a String argument is provided, it is assumed to reference a constant object which is used for verification. In all other ways it behaves like a <a href="double">double</a>.</p>
   </div>
 </div>
 <div class="tags">
@@ -1189,7 +1200,8 @@ for verification. In all other ways it behaves like a <a href="double">double</a
         <span class='name'>name</span>
         <span class='type'>(<tt>String/Symbol</tt>)</span>
         &mdash;
-        <div class='inline'><p>name or description to be used in failure messages</p>
+        <div class='inline'>
+<p>name or description to be used in failure messages</p>
 </div>
     </li>
 </ul>
@@ -1212,7 +1224,8 @@ for verification. In all other ways it behaves like a <a href="double">double</a
         <span class='name'>stubs</span>
         <span class='type'>(<tt>Hash</tt>)</span>
         &mdash;
-        <div class='inline'><p>hash of message/return-value pairs</p>
+        <div class='inline'>
+<p>hash of message/return-value pairs</p>
 </div>
     </li>
 </ul>
@@ -1235,14 +1248,16 @@ for verification. In all other ways it behaves like a <a href="double">double</a
         <span class='name'>name</span>
         <span class='type'>(<tt>String/Symbol</tt>)</span>
         &mdash;
-        <div class='inline'><p>name or description to be used in failure messages</p>
+        <div class='inline'>
+<p>name or description to be used in failure messages</p>
 </div>
     </li>
     <li>
         <span class='name'>stubs</span>
         <span class='type'>(<tt>Hash</tt>)</span>
         &mdash;
-        <div class='inline'><p>hash of message/return-value pairs</p>
+        <div class='inline'>
+<p>hash of message/return-value pairs</p>
 </div>
     </li>
 </ul>
@@ -1253,7 +1268,8 @@ for verification. In all other ways it behaves like a <a href="double">double</a
 <ul class="return">
     <li>
         <span class='type'></span>
-        <div class='inline'><p>ObjectVerifyingDouble</p>
+        <div class='inline'>
+<p>ObjectVerifyingDouble</p>
 </div>
     </li>
 </ul>
@@ -1284,11 +1300,7 @@ for verification. In all other ways it behaves like a <a href="double">double</a
       <span class="overload">#<strong>object_spy</strong>(object_or_name, name, stubs)  &#x21d2; <tt>Object</tt> </span>
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Constructs a test double that is optimized for use with <code>have_received</code>
-against a specific object. Only instance methods defined on the object
-are allowed to be stubbed.  With a normal double one has to stub
-methods in order to be able to spy them. An object_spy automatically
-spies on all methods to which the object responds.</p>
+<p>Constructs a test double that is optimized for use with <code>have_received</code> against a specific object. Only instance methods defined on the object are allowed to be stubbed. With a normal double one has to stub methods in order to be able to spy them. An object_spy automatically spies on all methods to which the object responds.</p>
   </div>
 </div>
 <div class="tags">
@@ -1327,7 +1339,8 @@ spies on all methods to which the object responds.</p>
         <span class='name'>name</span>
         <span class='type'>(<tt>String/Symbol</tt>)</span>
         &mdash;
-        <div class='inline'><p>name or description to be used in failure messages</p>
+        <div class='inline'>
+<p>name or description to be used in failure messages</p>
 </div>
     </li>
 </ul>
@@ -1350,7 +1363,8 @@ spies on all methods to which the object responds.</p>
         <span class='name'>stubs</span>
         <span class='type'>(<tt>Hash</tt>)</span>
         &mdash;
-        <div class='inline'><p>hash of message/return-value pairs</p>
+        <div class='inline'>
+<p>hash of message/return-value pairs</p>
 </div>
     </li>
 </ul>
@@ -1373,14 +1387,16 @@ spies on all methods to which the object responds.</p>
         <span class='name'>name</span>
         <span class='type'>(<tt>String/Symbol</tt>)</span>
         &mdash;
-        <div class='inline'><p>name or description to be used in failure messages</p>
+        <div class='inline'>
+<p>name or description to be used in failure messages</p>
 </div>
     </li>
     <li>
         <span class='name'>stubs</span>
         <span class='type'>(<tt>Hash</tt>)</span>
         &mdash;
-        <div class='inline'><p>hash of message/return-value pairs</p>
+        <div class='inline'>
+<p>hash of message/return-value pairs</p>
 </div>
     </li>
 </ul>
@@ -1391,7 +1407,8 @@ spies on all methods to which the object responds.</p>
 <ul class="return">
     <li>
         <span class='type'></span>
-        <div class='inline'><p>ObjectVerifyingDouble</p>
+        <div class='inline'>
+<p>ObjectVerifyingDouble</p>
 </div>
     </li>
 </ul>
@@ -1419,14 +1436,11 @@ spies on all methods to which the object responds.</p>
   <div class="discussion">
   <div class="note notetag">
     <strong>Note:</strong>
-    <div class='inline'><p>If you disable the <code>:expect</code> syntax this method will be undefined.</p>
+    <div class='inline'>
+<p>If you disable the <code>:expect</code> syntax this method will be undefined.</p>
 </div>
   </div>
-<p>Used to specify a message that you expect or allow an object
-to receive. The object returned by <code>receive</code> supports the same
-fluent interface that <code>should_receive</code> and <code>stub</code> have always
-supported, allowing you to constrain the arguments or number of
-times, and configure how the object should respond to the message.</p>
+<p>Used to specify a message that you expect or allow an object to receive. The object returned by <code>receive</code> supports the same fluent interface that <code>should_receive</code> and <code>stub</code> have always supported, allowing you to constrain the arguments or number of times, and configure how the object should respond to the message.</p>
   </div>
 </div>
 <div class="tags">
@@ -1456,18 +1470,13 @@ times, and configure how the object should respond to the message.</p>
   <div class="discussion">
   <div class="note notetag">
     <strong>Note:</strong>
-    <div class='inline'><p>If you disable the <code>:expect</code> syntax this method will be undefined.</p>
+    <div class='inline'>
+<p>If you disable the <code>:expect</code> syntax this method will be undefined.</p>
 </div>
   </div>
 <p>stubs/mocks a chain of messages on an object or test double.</p>
-<h2>Warning:</h2>
-<p>Chains can be arbitrarily long, which makes it quite painless to
-violate the Law of Demeter in violent ways, so you should consider any
-use of <code>receive_message_chain</code> a code smell. Even though not all code smells
-indicate real problems (think fluent interfaces), <code>receive_message_chain</code> still
-results in brittle examples.  For example, if you write
-<code>allow(foo).to receive_message_chain(:bar, :baz =&gt; 37)</code> in a spec and then the
-implementation calls <code>foo.baz.bar</code>, the stub will not work.</p>
+<h2 id="label-Warning-3A">Warning:</h2>
+<p>Chains can be arbitrarily long, which makes it quite painless to violate the Law of Demeter in violent ways, so you should consider any use of <code>receive_message_chain</code> a code smell. Even though not all code smells indicate real problems (think fluent interfaces), <code>receive_message_chain</code> still results in brittle examples. For example, if you write <code>allow(foo).to receive_message_chain(:bar, :baz =&gt; 37)</code> in a spec and then the implementation calls <code>foo.baz.bar</code>, the stub will not work.</p>
   </div>
 </div>
 <div class="tags">
@@ -1502,14 +1511,11 @@ implementation calls <code>foo.baz.bar</code>, the stub will not work.</p>
   <div class="discussion">
   <div class="note notetag">
     <strong>Note:</strong>
-    <div class='inline'><p>If you disable the <code>:expect</code> syntax this method will be undefined.</p>
+    <div class='inline'>
+<p>If you disable the <code>:expect</code> syntax this method will be undefined.</p>
 </div>
   </div>
-<p>Shorthand syntax used to setup message(s), and their return value(s),
-that you expect or allow an object to receive. The method takes a hash
-of messages and their respective return values. Unlike with <code>receive</code>,
-you cannot apply further customizations using a block or the fluent
-interface.</p>
+<p>Shorthand syntax used to setup message(s), and their return value(s), that you expect or allow an object to receive. The method takes a hash of messages and their respective return values. Unlike with <code>receive</code>, you cannot apply further customizations using a block or the fluent interface.</p>
   </div>
 </div>
 <div class="tags">
@@ -1539,9 +1545,7 @@ interface.</p>
       <span class="overload">#<strong>spy</strong>(name, stubs)  &#x21d2; <tt><span class='object_link'><a href="Double.html" title="RSpec::Mocks::Double (class)">Double</a></span></tt> </span>
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Constructs a test double that is optimized for use with
-<code>have_received</code>. With a normal double one has to stub methods in order
-to be able to spy them. A spy automatically spies on all methods.</p>
+<p>Constructs a test double that is optimized for use with <code>have_received</code>. With a normal double one has to stub methods in order to be able to spy them. A spy automatically spies on all methods.</p>
   </div>
 </div>
 <div class="tags">
@@ -1560,7 +1564,8 @@ to be able to spy them. A spy automatically spies on all methods.</p>
         <span class='name'>name</span>
         <span class='type'>(<tt>String/Symbol</tt>)</span>
         &mdash;
-        <div class='inline'><p>name or description to be used in failure messages</p>
+        <div class='inline'>
+<p>name or description to be used in failure messages</p>
 </div>
     </li>
 </ul>
@@ -1579,7 +1584,8 @@ to be able to spy them. A spy automatically spies on all methods.</p>
         <span class='name'>stubs</span>
         <span class='type'>(<tt>Hash</tt>)</span>
         &mdash;
-        <div class='inline'><p>hash of message/return-value pairs</p>
+        <div class='inline'>
+<p>hash of message/return-value pairs</p>
 </div>
     </li>
 </ul>
@@ -1598,14 +1604,16 @@ to be able to spy them. A spy automatically spies on all methods.</p>
         <span class='name'>name</span>
         <span class='type'>(<tt>String/Symbol</tt>)</span>
         &mdash;
-        <div class='inline'><p>name or description to be used in failure messages</p>
+        <div class='inline'>
+<p>name or description to be used in failure messages</p>
 </div>
     </li>
     <li>
         <span class='name'>stubs</span>
         <span class='type'>(<tt>Hash</tt>)</span>
         &mdash;
-        <div class='inline'><p>hash of message/return-value pairs</p>
+        <div class='inline'>
+<p>hash of message/return-value pairs</p>
 </div>
     </li>
 </ul>
@@ -1640,10 +1648,7 @@ to be able to spy them. A spy automatically spies on all methods.</p>
     #<strong>stub_const</strong>(constant_name, value, options = {})  &#x21d2; <tt>Object</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Stubs the named constant with the given value.
-Like method stubs, the constant will be restored
-to its original value (or lack of one, if it was
-undefined) when the example completes.</p>
+<p>Stubs the named constant with the given value. Like method stubs, the constant will be restored to its original value (or lack of one, if it was undefined) when the example completes.</p>
   </div>
 </div>
 <div class="tags">
@@ -1674,16 +1679,16 @@ undefined) when the example completes.</p>
         <span class='name'>constant_name</span>
         <span class='type'>(<tt>String</tt>)</span>
         &mdash;
-        <div class='inline'><p>The fully qualified name of the constant. The current
-constant scoping at the point of call is not considered.</p>
+        <div class='inline'>
+<p>The fully qualified name of the constant. The current constant scoping at the point of call is not considered.</p>
 </div>
     </li>
     <li>
         <span class='name'>value</span>
         <span class='type'>(<tt>Object</tt>)</span>
         &mdash;
-        <div class='inline'><p>The value to make the constant refer to. When the
-example completes, the constant will be restored to its prior state.</p>
+        <div class='inline'>
+<p>The value to make the constant refer to. When the example completes, the constant will be restored to its prior state.</p>
 </div>
     </li>
     <li>
@@ -1691,7 +1696,8 @@ example completes, the constant will be restored to its prior state.</p>
         <span class='type'>(<tt>Hash</tt>)</span>
         <em class="default">(defaults to: <tt>{}</tt>)</em>
         &mdash;
-        <div class='inline'><p>Stubbing options.</p>
+        <div class='inline'>
+<p>Stubbing options.</p>
 </div>
     </li>
 </ul>
@@ -1702,10 +1708,8 @@ example completes, the constant will be restored to its prior state.</p>
           <span class="type">(<tt>Boolean</tt>, <tt>Array&lt;Symbol&gt;</tt>)</span>
           <span class="default">
           </span>
-            &mdash; <div class='inline'><p>Determines
-what nested constants, if any, will be transferred from the original value
-of the constant to the new value of the constant. This only works if both
-the original and new values are modules (or classes).</p>
+            &mdash; <div class='inline'>
+<p>Determines what nested constants, if any, will be transferred from the original value of the constant to the new value of the constant. This only works if both the original and new values are modules (or classes).</p>
 </div>
         </li>
     </ul>
@@ -1714,7 +1718,8 @@ the original and new values are modules (or classes).</p>
     <li>
         <span class='type'>(<tt>Object</tt>)</span>
         &mdash;
-        <div class='inline'><p>the stubbed value of the constant</p>
+        <div class='inline'>
+<p>the stubbed value of the constant</p>
 </div>
     </li>
 </ul>
@@ -1740,10 +1745,7 @@ the original and new values are modules (or classes).</p>
     #<strong>without_partial_double_verification</strong>  &#x21d2; <tt>Object</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Turns off the verifying of partial doubles for the duration of the
-block, this is useful in situations where methods are defined at run
-time and you wish to define stubs for them but not turn off partial
-doubles for the entire run suite. (e.g. view specs in rspec-rails).</p>
+<p>Turns off the verifying of partial doubles for the duration of the block, this is useful in situations where methods are defined at run time and you wish to define stubs for them but not turn off partial doubles for the entire run suite. (e.g. view specs in rspec-rails).</p>
   </div>
 </div>
 <div class="tags">
@@ -1775,18 +1777,10 @@ doubles for the entire run suite. (e.g. view specs in rspec-rails).</p>
   </div>
 </div>
       <div id="footer">
-  Generated on Fri Sep 14 00:02:10 2018 by
+  Generated on Tue Jul 28 15:14:02 2020 by
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.16 (ruby-2.5.1).
+  0.9.25 (ruby-2.7.1).
 </div>
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-  ga('create', 'UA-59095215-1', 'auto');
-  ga('send', 'pageview');
-</script>
     </div>
   </body>
 </html>
