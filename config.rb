@@ -1,12 +1,5 @@
 $LOAD_PATH << File.expand_path('../lib', __FILE__)
 
-# Bower specific setup
-after_configuration do
-  @bower_config = JSON.parse(IO.read("#{root}/.bowerrc"))
-  @bower_assets_path = File.join "#{root}", @bower_config["directory"]
-  sprockets.append_path @bower_assets_path
-end
-
 # dev mode addons
 activate :livereload if ENV['LIVERELOAD']
 
