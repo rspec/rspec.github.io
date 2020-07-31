@@ -1,5 +1,9 @@
 module RSpecInfo
   module Helpers
+    def source_dir
+      app.source_dir
+    end
+
     def current_blog
       blog(current_blog_name)
     end
