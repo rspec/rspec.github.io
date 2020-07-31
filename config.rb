@@ -1,6 +1,11 @@
 $LOAD_PATH << File.expand_path('../lib', __FILE__)
 require 'patches/uri'
 
+# Assets
+# Framework requires set themselves up
+require 'bourbon'
+require 'neat'
+
 # dev mode addons
 activate :livereload if ENV['LIVERELOAD']
 
