@@ -99,9 +99,9 @@ end
 require 'rspec_info/helpers'
 helpers RSpecInfo::Helpers
 
-RSpecInfo::Helpers.rspec_documentation_latest(source_dir).each do |gem_name, version|
-  Dir.glob(File.join(source_dir, "/documentation/#{version}/#{gem_name}/**/*")).select { |f| File.file? f }.each do |f|
-    relative_path = Pathname.new(f).relative_path_from(Pathname.new(source_dir))
+RSpecInfo::Helpers.rspec_documentation_latest(app.source_dir).each do |gem_name, version|
+  Dir.glob(File.join(app.source_dir, "/documentation/#{version}/#{gem_name}/**/*")).select { |f| File.file? f }.each do |f|
+    relative_path = Pathname.new(f).relative_path_from(Pathname.new(app.source_dir))
     proxy relative_path.to_s.gsub(version, 'latest'), "redirect-latest.html", locals: { url: '/' + relative_path.to_s }
   end
 end
