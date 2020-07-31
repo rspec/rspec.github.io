@@ -94,23 +94,6 @@ configure :build do
     }
 end
 
-def deploy_to target
-  activate :deploy do |deploy|
-    deploy.method = :git
-    deploy.build_before = true
-    deploy.branch = 'master'
-    deploy.remote = target
-  end
-end
-
-case ENV['TARGET'].to_s
-when /prod/i
-  deploy_to 'git@github.com:rspec/rspec.github.io.git'
-else
-  deploy_to 'git@github.com:RSpec-Staging/rspec-staging.github.io.git'
-  ignore 'CNAME'
-end
-
 require 'rspec_info/helpers'
 helpers RSpecInfo::Helpers
 

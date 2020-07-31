@@ -23,8 +23,17 @@ this environment here: https://hub.docker.com/r/2performantirina/middleman-and-i
 
 ## Deploying
 
-* `middleman deploy` (for http://rspec-staging.github.io/)
-* `TARGET=prod middleman deploy` (for http://rspec.info/)
+Change the directory to `build`, and commit the changes.
+
+To publish to the staging site (http://rspec-staging.github.io/), run:
+```
+git push staging master
+```
+
+To publish to the main documentation site (http://rspec.info/), run:
+```
+git push origin master
+```
 
 ## Credits
 
