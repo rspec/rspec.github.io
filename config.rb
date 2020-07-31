@@ -1,4 +1,5 @@
 $LOAD_PATH << File.expand_path('../lib', __FILE__)
+require 'patches/uri'
 
 # dev mode addons
 activate :livereload if ENV['LIVERELOAD']
