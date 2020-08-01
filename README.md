@@ -23,16 +23,20 @@ this environment here: https://hub.docker.com/r/2performantirina/middleman-and-i
 
 ## Deploying
 
-Change the directory to `build`, and commit the changes.
+Run `bundle exec middleman build`, which will compile the site to `docs`.
 
-To publish to the staging site (http://rspec-staging.github.io/), run:
+To deploy to staging you can create a PR against https://github.com/RSpec-Staging/rspec-staging.github.io/
+or you can push temporarily with:
+
 ```
-git push staging master
+git push staging <branch>:source --force
 ```
 
-To publish to the main documentation site (http://rspec.info/), run:
+To deploy to production you should create a PR against https://github.com/rspec/rspec.github.io/
+or run:
+
 ```
-git push origin master
+git push origin source
 ```
 
 ## Credits
