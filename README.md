@@ -29,7 +29,10 @@ To deploy to staging you can create a PR against https://github.com/RSpec-Stagin
 or you can push temporarily with:
 
 ```
+# Deploy your branch to source on staging
 git push staging <branch>:source --force
+# or if you have your branch checked out
+git push staging HEAD:source --force
 ```
 
 To deploy to production you should create a PR against https://github.com/rspec/rspec.github.io/
