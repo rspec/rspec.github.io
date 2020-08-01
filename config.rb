@@ -56,6 +56,7 @@ config[:ignored_sitemap_matchers][:partials] = ->(file) do
   file !~ %r{source/documentation/[0-9\.]+/}
 end
 
+set :build_dir,  'docs'
 set :css_dir,    'stylesheets'
 set :js_dir,     'javascripts'
 set :images_dir, 'images'

@@ -1,0 +1,1 @@
+<section><p>You should have been automatically forwarded to <a href="/documentation/3.9/rspec-expectations/js/jquery.js">/documentation/3.9/rspec-expectations/js/jquery.js</a>.</p></section>
