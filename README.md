@@ -35,12 +35,7 @@ git push staging <branch>:source --force
 git push staging HEAD:source --force
 ```
 
-To deploy to production you should create a PR against https://github.com/rspec/rspec.github.io/
-or run:
-
-```
-git push origin source
-```
+To deploy to production you should create a PR against https://github.com/rspec/rspec.github.io/.
 
 ## Credits
 
