@@ -56,6 +56,7 @@ config[:ignored_sitemap_matchers][:partials] = ->(file) do
   file !~ %r{source/documentation/[0-9\.]+/}
 end
 
+set :build_dir,  'docs'
 set :css_dir,    'stylesheets'
 set :js_dir,     'javascripts'
 set :images_dir, 'images'
@@ -92,23 +93,6 @@ configure :build do
         { icon: "mstile-310x310.png", size: "310x310" },
       ]
     }
-end
-
-def deploy_to target
-  activate :deploy do |deploy|
-    deploy.method = :git
-    deploy.build_before = true
-    deploy.branch = 'master'
-    deploy.remote = target
-  end
-end
-
-case ENV['TARGET'].to_s
-when /prod/i
-  deploy_to 'git@github.com:rspec/rspec.github.io.git'
-else
-  deploy_to 'git@github.com:RSpec-Staging/rspec-staging.github.io.git'
-  ignore 'CNAME'
 end
 
 require 'rspec_info/helpers'

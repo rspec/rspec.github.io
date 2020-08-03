@@ -4,7 +4,6 @@ gem "middleman", "~> 3.3.6"
 gem "middleman-syntax"
 gem "middleman-blog"
 gem "middleman-favicon-maker"
-gem "middleman-deploy"
 gem "middleman-livereload"
 
 group :development do

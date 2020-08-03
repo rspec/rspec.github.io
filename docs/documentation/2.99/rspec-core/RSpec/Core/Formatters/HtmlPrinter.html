@@ -1,0 +1,796 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: RSpec::Core::Formatters::HtmlPrinter
+    &mdash; Documentation by YARD 0.8.0
+</title>
+  <link rel="stylesheet" href="/stylesheets/docs/style.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="/stylesheets/docs/common.css" type="text/css" charset="utf-8" />
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '../../../';
+  framesUrl = "../../../frames.html#!" + escape(window.location.href);
+</script>
+  <script type="text/javascript" charset="utf-8" src="/javascripts/docs/jquery.js"></script>
+  <script type="text/javascript" charset="utf-8" src="/javascripts/docs/app.js"></script>
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+    <a href="../../../_index.html">Index (H)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../../../RSpec.html" title="RSpec (module)">RSpec</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../../Core.html" title="RSpec::Core (module)">Core</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../Formatters.html" title="RSpec::Core::Formatters (module)">Formatters</a></span></span>
+     &raquo; 
+    <span class="title">HtmlPrinter</span>
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+      <div id="search">
+    <a class="full_list_link" id="class_list_link"
+        href="../../../class_list.html">
+      Class List
+    </a>
+    <a class="full_list_link" id="method_list_link"
+        href="../../../method_list.html">
+      Method List
+    </a>
+    <a class="full_list_link" id="file_list_link"
+        href="../../../file_list.html">
+      File List
+    </a>
+</div>
+      <div class="clear"></div>
+    </div>
+    <iframe id="search_frame"></iframe>
+    <div id="content"><h1>Class: RSpec::Core::Formatters::HtmlPrinter
+</h1>
+<dl class="box">
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName">Object</span>
+        <ul class="fullTree">
+          <li>Object</li>
+            <li class="next">RSpec::Core::Formatters::HtmlPrinter</li>
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      </dd>
+      <dt class="r2">Includes:</dt>
+      <dd class="r2">ERB::Util</dd>
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">lib/rspec/core/formatters/html_printer.rb</dd>
+</dl>
+<div class="clear"></div>
+  <h2>Constant Summary</h2>
+    <dl class="constants">
+        <dt id="REPORT_HEADER-constant" class="">REPORT_HEADER =
+        </dt>
+        <dd><pre class="code"><span class='heredoc_beg'>&lt;&lt;-EOF</span>
+<span class='tstring_content'>&lt;div class=&quot;rspec-report&quot;&gt;
+&lt;div id=&quot;rspec-header&quot;&gt;
+  &lt;div id=&quot;label&quot;&gt;
+    &lt;h1&gt;RSpec Code Examples&lt;/h1&gt;
+  &lt;/div&gt;
+  &lt;div id=&quot;display-filters&quot;&gt;
+    &lt;input id=&quot;passed_checkbox&quot;  name=&quot;passed_checkbox&quot;  type=&quot;checkbox&quot; checked=&quot;checked&quot; onchange=&quot;apply_filters()&quot; value=&quot;1&quot; /&gt; &lt;label for=&quot;passed_checkbox&quot;&gt;Passed&lt;/label&gt;
+    &lt;input id=&quot;failed_checkbox&quot;  name=&quot;failed_checkbox&quot;  type=&quot;checkbox&quot; checked=&quot;checked&quot; onchange=&quot;apply_filters()&quot; value=&quot;2&quot; /&gt; &lt;label for=&quot;failed_checkbox&quot;&gt;Failed&lt;/label&gt;
+    &lt;input id=&quot;pending_checkbox&quot; name=&quot;pending_checkbox&quot; type=&quot;checkbox&quot; checked=&quot;checked&quot; onchange=&quot;apply_filters()&quot; value=&quot;3&quot; /&gt; &lt;label for=&quot;pending_checkbox&quot;&gt;Pending&lt;/label&gt;
+  &lt;/div&gt;
+  &lt;div id=&quot;summary&quot;&gt;
+    &lt;p id=&quot;totals&quot;&gt;&amp;#160;&lt;/p&gt;
+    &lt;p id=&quot;duration&quot;&gt;&amp;#160;&lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class=&quot;results&quot;&gt;
+</span><span class='heredoc_end'>EOF</span></pre></dd>
+        <dt id="GLOBAL_SCRIPTS-constant" class="">GLOBAL_SCRIPTS =
+        </dt>
+        <dd><pre class="code"><span class='heredoc_beg'>&lt;&lt;-EOF</span>
+<span class='tstring_content'>
+function addClass(element_id, classname) {
+  document.getElementById(element_id).className += (&quot; &quot; + classname);
+}
+function removeClass(element_id, classname) {
+  var elem = document.getElementById(element_id);
+  var classlist = elem.className.replace(classname,&#39;&#39;);
+  elem.className = classlist;
+}
+function moveProgressBar(percentDone) {
+  document.getElementById(&quot;rspec-header&quot;).style.width = percentDone +&quot;%&quot;;
+}
+function makeRed(element_id) {
+  removeClass(element_id, &#39;passed&#39;);
+  removeClass(element_id, &#39;not_implemented&#39;);
+  addClass(element_id,&#39;failed&#39;);
+}
+function makeYellow(element_id) {
+  var elem = document.getElementById(element_id);
+  if (elem.className.indexOf(&quot;failed&quot;) == -1) {  // class doesn&#39;t includes failed
+    if (elem.className.indexOf(&quot;not_implemented&quot;) == -1) { // class doesn&#39;t include not_implemented
+      removeClass(element_id, &#39;passed&#39;);
+      addClass(element_id,&#39;not_implemented&#39;);
+    }
+  }
+}
+function apply_filters() {
+  var passed_filter = document.getElementById(&#39;passed_checkbox&#39;).checked;
+  var failed_filter = document.getElementById(&#39;failed_checkbox&#39;).checked;
+  var pending_filter = document.getElementById(&#39;pending_checkbox&#39;).checked;
+  assign_display_style(&quot;example passed&quot;, passed_filter);
+  assign_display_style(&quot;example failed&quot;, failed_filter);
+  assign_display_style(&quot;example not_implemented&quot;, pending_filter);
+  assign_display_style_for_group(&quot;example_group passed&quot;, passed_filter);
+  assign_display_style_for_group(&quot;example_group not_implemented&quot;, pending_filter, pending_filter || passed_filter);
+  assign_display_style_for_group(&quot;example_group failed&quot;, failed_filter, failed_filter || pending_filter || passed_filter);
+}
+function get_display_style(display_flag) {
+  var style_mode = &#39;none&#39;;
+  if (display_flag == true) {
+    style_mode = &#39;block&#39;;
+  }
+  return style_mode;
+}
+function assign_display_style(classname, display_flag) {
+  var style_mode = get_display_style(display_flag);
+  var elems = document.getElementsByClassName(classname)
+  for (var i=0; i&lt;elems.length;i++) {
+    elems[i].style.display = style_mode;
+  }
+}
+function assign_display_style_for_group(classname, display_flag, subgroup_flag) {
+  var display_style_mode = get_display_style(display_flag);
+  var subgroup_style_mode = get_display_style(subgroup_flag);
+  var elems = document.getElementsByClassName(classname)
+  for (var i=0; i&lt;elems.length;i++) {
+    var style_mode = display_style_mode;
+    if ((display_flag != subgroup_flag) &amp;&amp; (elems[i].getElementsByTagName(&#39;dt&#39;)[0].innerHTML.indexOf(&quot;, &quot;) != -1)) {
+      elems[i].style.display = subgroup_style_mode;
+    } else {
+      elems[i].style.display = display_style_mode;
+    }
+  }
+}
+</span><span class='heredoc_end'>EOF</span></pre></dd>
+        <dt id="GLOBAL_STYLES-constant" class="">GLOBAL_STYLES =
+        </dt>
+        <dd><pre class="code"><span class='heredoc_beg'>&lt;&lt;-EOF</span>
+<span class='tstring_content'>#rspec-header {
+  background: #65C400; color: #fff; height: 4em;
+}
+.rspec-report h1 {
+  margin: 0px 10px 0px 10px;
+  padding: 10px;
+  font-family: &quot;Lucida Grande&quot;, Helvetica, sans-serif;
+  font-size: 1.8em;
+  position: absolute;
+}
+#label {
+  float:left;
+}
+#display-filters {
+  float:left;
+  padding: 28px 0 0 40%;
+  font-family: &quot;Lucida Grande&quot;, Helvetica, sans-serif;
+}
+#summary {
+  float:right;
+  padding: 5px 10px;
+  font-family: &quot;Lucida Grande&quot;, Helvetica, sans-serif;
+  text-align: right;
+}
+#summary p {
+  margin: 0 0 0 2px;
+}
+#summary #totals {
+  font-size: 1.2em;
+}
+.example_group {
+  margin: 0 10px 5px;
+  background: #fff;
+}
+dl {
+  margin: 0; padding: 0 0 5px;
+  font: normal 11px &quot;Lucida Grande&quot;, Helvetica, sans-serif;
+}
+dt {
+  padding: 3px;
+  background: #65C400;
+  color: #fff;
+  font-weight: bold;
+}
+dd {
+  margin: 5px 0 5px 5px;
+  padding: 3px 3px 3px 18px;
+}
+dd .duration {
+  padding-left: 5px;
+  text-align: right;
+  right: 0px;
+  float:right;
+}
+dd.example.passed {
+  border-left: 5px solid #65C400;
+  border-bottom: 1px solid #65C400;
+  background: #DBFFB4; color: #3D7700;
+}
+dd.example.not_implemented {
+  border-left: 5px solid #FAF834;
+  border-bottom: 1px solid #FAF834;
+  background: #FCFB98; color: #131313;
+}
+dd.example.pending_fixed {
+  border-left: 5px solid #0000C2;
+  border-bottom: 1px solid #0000C2;
+  color: #0000C2; background: #D3FBFF;
+}
+dd.example.failed {
+  border-left: 5px solid #C20000;
+  border-bottom: 1px solid #C20000;
+  color: #C20000; background: #FFFBD3;
+}
+dt.not_implemented {
+  color: #000000; background: #FAF834;
+}
+dt.pending_fixed {
+  color: #FFFFFF; background: #C40D0D;
+}
+dt.failed {
+  color: #FFFFFF; background: #C40D0D;
+}
+#rspec-header.not_implemented {
+  color: #000000; background: #FAF834;
+}
+#rspec-header.pending_fixed {
+  color: #FFFFFF; background: #C40D0D;
+}
+#rspec-header.failed {
+  color: #FFFFFF; background: #C40D0D;
+}
+.backtrace {
+  color: #000;
+  font-size: 12px;
+}
+a {
+  color: #BE5C00;
+}
+/* Ruby code, style similar to vibrant ink */
+.ruby {
+  font-size: 12px;
+  font-family: monospace;
+  color: white;
+  background-color: black;
+  padding: 0.1em 0 0.2em 0;
+}
+.ruby .keyword { color: #FF6600; }
+.ruby .constant { color: #339999; }
+.ruby .attribute { color: white; }
+.ruby .global { color: white; }
+.ruby .module { color: white; }
+.ruby .class { color: white; }
+.ruby .string { color: #66FF00; }
+.ruby .ident { color: white; }
+.ruby .method { color: #FFCC00; }
+.ruby .number { color: white; }
+.ruby .char { color: white; }
+.ruby .comment { color: #9933CC; }
+.ruby .symbol { color: white; }
+.ruby .regex { color: #44B4CC; }
+.ruby .punct { color: white; }
+.ruby .escape { color: white; }
+.ruby .interp { color: white; }
+.ruby .expr { color: white; }
+.ruby .offending { background-color: gray; }
+.ruby .linenum {
+  width: 75px;
+  padding: 0.1em 1em 0.2em 0;
+  color: #000000;
+  background-color: #FFFBD3;
+}
+</span><span class='heredoc_end'>EOF</span></pre></dd>
+        <dt id="HTML_HEADER-constant" class="">HTML_HEADER =
+        </dt>
+        <dd><pre class="code"><span class='heredoc_beg'>&lt;&lt;-EOF</span>
+<span class='tstring_content'>&lt;!DOCTYPE html&gt;
+&lt;html lang=&#39;en&#39;&gt;
+&lt;head&gt;
+  &lt;title&gt;RSpec results&lt;/title&gt;
+  &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=utf-8&quot; /&gt;
+  &lt;meta http-equiv=&quot;Expires&quot; content=&quot;-1&quot; /&gt;
+  &lt;meta http-equiv=&quot;Pragma&quot; content=&quot;no-cache&quot; /&gt;
+  &lt;style type=&quot;text/css&quot;&gt;
+  body {
+    margin: 0;
+    padding: 0;
+    background: #fff;
+    font-size: 80%;
+  }
+  &lt;/style&gt;
+  &lt;script type=&quot;text/javascript&quot;&gt;
+    // &lt;![CDATA[
+</span><span class='embexpr_beg'>#{</span><span class='const'>GLOBAL_SCRIPTS</span><span class='embexpr_end'>}</span><span class='tstring_content'>
+    // ]]&gt;
+  &lt;/script&gt;
+  &lt;style type=&quot;text/css&quot;&gt;
+</span><span class='embexpr_beg'>#{</span><span class='const'>GLOBAL_STYLES</span><span class='embexpr_end'>}</span><span class='tstring_content'>
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+</span><span class='heredoc_end'>EOF</span></pre></dd>
+    </dl>
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+    <ul class="summary">
+        <li class="public ">
+  <span class="summary_signature">
+      <a href="#flush-instance_method" title="#flush (instance method)">- (Object) <strong>flush</strong> </a>
+  </span>
+    <span class="summary_desc"><div class='inline'></div></span>
+</li>
+        <li class="public ">
+  <span class="summary_signature">
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (HtmlPrinter) <strong>initialize</strong>(output) </a>
+  </span>
+    <span class="note title constructor">constructor</span>
+    <span class="summary_desc"><div class='inline'><p>A new instance of HtmlPrinter.</p>
+</div></span>
+</li>
+        <li class="public ">
+  <span class="summary_signature">
+      <a href="#make_example_group_header_red-instance_method" title="#make_example_group_header_red (instance method)">- (Object) <strong>make_example_group_header_red</strong>(group_id) </a>
+  </span>
+    <span class="summary_desc"><div class='inline'></div></span>
+</li>
+        <li class="public ">
+  <span class="summary_signature">
+      <a href="#make_example_group_header_yellow-instance_method" title="#make_example_group_header_yellow (instance method)">- (Object) <strong>make_example_group_header_yellow</strong>(group_id) </a>
+  </span>
+    <span class="summary_desc"><div class='inline'></div></span>
+</li>
+        <li class="public ">
+  <span class="summary_signature">
+      <a href="#make_header_red-instance_method" title="#make_header_red (instance method)">- (Object) <strong>make_header_red</strong> </a>
+  </span>
+    <span class="summary_desc"><div class='inline'></div></span>
+</li>
+        <li class="public ">
+  <span class="summary_signature">
+      <a href="#make_header_yellow-instance_method" title="#make_header_yellow (instance method)">- (Object) <strong>make_header_yellow</strong> </a>
+  </span>
+    <span class="summary_desc"><div class='inline'></div></span>
+</li>
+        <li class="public ">
+  <span class="summary_signature">
+      <a href="#move_progress-instance_method" title="#move_progress (instance method)">- (Object) <strong>move_progress</strong>(percent_done) </a>
+  </span>
+    <span class="summary_desc"><div class='inline'></div></span>
+</li>
+        <li class="public ">
+  <span class="summary_signature">
+      <a href="#print_example_failed-instance_method" title="#print_example_failed (instance method)">- (Object) <strong>print_example_failed</strong>(pending_fixed, description, run_time, failure_id, exception, extra_content, escape_backtrace = false) </a>
+  </span>
+    <span class="summary_desc"><div class='inline'></div></span>
+</li>
+        <li class="public ">
+  <span class="summary_signature">
+      <a href="#print_example_group_end-instance_method" title="#print_example_group_end (instance method)">- (Object) <strong>print_example_group_end</strong> </a>
+  </span>
+    <span class="summary_desc"><div class='inline'></div></span>
+</li>
+        <li class="public ">
+  <span class="summary_signature">
+      <a href="#print_example_group_start-instance_method" title="#print_example_group_start (instance method)">- (Object) <strong>print_example_group_start</strong>(group_id, description, number_of_parents) </a>
+  </span>
+    <span class="summary_desc"><div class='inline'></div></span>
+</li>
+        <li class="public ">
+  <span class="summary_signature">
+      <a href="#print_example_passed-instance_method" title="#print_example_passed (instance method)">- (Object) <strong>print_example_passed</strong>(description, run_time) </a>
+  </span>
+    <span class="summary_desc"><div class='inline'></div></span>
+</li>
+        <li class="public ">
+  <span class="summary_signature">
+      <a href="#print_example_pending-instance_method" title="#print_example_pending (instance method)">- (Object) <strong>print_example_pending</strong>(description, pending_message) </a>
+  </span>
+    <span class="summary_desc"><div class='inline'></div></span>
+</li>
+        <li class="public ">
+  <span class="summary_signature">
+      <a href="#print_html_start-instance_method" title="#print_html_start (instance method)">- (Object) <strong>print_html_start</strong> </a>
+  </span>
+    <span class="summary_desc"><div class='inline'></div></span>
+</li>
+        <li class="public ">
+  <span class="summary_signature">
+      <a href="#print_summary-instance_method" title="#print_summary (instance method)">- (Object) <strong>print_summary</strong>(was_dry_run, duration, example_count, failure_count, pending_count) </a>
+  </span>
+    <span class="summary_desc"><div class='inline'></div></span>
+</li>
+    </ul>
+  <div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+    <div class="method_details first">
+  <h3 class="signature first" id="initialize-instance_method">
+    - (<tt><span class='object_link'><a href="" title="RSpec::Core::Formatters::HtmlPrinter (class)">HtmlPrinter</a></span></tt>) <strong>initialize</strong>(output) 
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>A new instance of HtmlPrinter</p>
+  </div>
+</div>
+<div class="tags">
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+8
+9
+10</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/formatters/html_printer.rb', line 8</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_output'>output</span><span class='rparen'>)</span>
+  <span class='ivar'>@output</span> <span class='op'>=</span> <span class='id identifier rubyid_output'>output</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+</div>
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+      <div class="method_details first">
+  <h3 class="signature first" id="flush-instance_method">
+    - (<tt>Object</tt>) <strong>flush</strong> 
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+77
+78
+79</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/formatters/html_printer.rb', line 77</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_flush'>flush</span>
+  <span class='ivar'>@output</span><span class='period'>.</span><span class='id identifier rubyid_flush'>flush</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+      <div class="method_details ">
+  <h3 class="signature " id="make_example_group_header_red-instance_method">
+    - (<tt>Object</tt>) <strong>make_example_group_header_red</strong>(group_id) 
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+94
+95
+96
+97</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/formatters/html_printer.rb', line 94</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_make_example_group_header_red'>make_example_group_header_red</span><span class='lparen'>(</span><span class='id identifier rubyid_group_id'>group_id</span><span class='rparen'>)</span>
+  <span class='ivar'>@output</span><span class='period'>.</span><span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>    &lt;script type=\&quot;text/javascript\&quot;&gt;makeRed(&#39;div_group_</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_group_id'>group_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>&#39;);&lt;/script&gt;</span><span class='tstring_end'>&quot;</span></span>
+  <span class='ivar'>@output</span><span class='period'>.</span><span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>    &lt;script type=\&quot;text/javascript\&quot;&gt;makeRed(&#39;example_group_</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_group_id'>group_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>&#39;);&lt;/script&gt;</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+      <div class="method_details ">
+  <h3 class="signature " id="make_example_group_header_yellow-instance_method">
+    - (<tt>Object</tt>) <strong>make_example_group_header_yellow</strong>(group_id) 
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+99
+100
+101
+102</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/formatters/html_printer.rb', line 99</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_make_example_group_header_yellow'>make_example_group_header_yellow</span><span class='lparen'>(</span><span class='id identifier rubyid_group_id'>group_id</span><span class='rparen'>)</span>
+  <span class='ivar'>@output</span><span class='period'>.</span><span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>    &lt;script type=\&quot;text/javascript\&quot;&gt;makeYellow(&#39;div_group_</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_group_id'>group_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>&#39;);&lt;/script&gt;</span><span class='tstring_end'>&quot;</span></span>
+  <span class='ivar'>@output</span><span class='period'>.</span><span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>    &lt;script type=\&quot;text/javascript\&quot;&gt;makeYellow(&#39;example_group_</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_group_id'>group_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>&#39;);&lt;/script&gt;</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+      <div class="method_details ">
+  <h3 class="signature " id="make_header_red-instance_method">
+    - (<tt>Object</tt>) <strong>make_header_red</strong> 
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+86
+87
+88</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/formatters/html_printer.rb', line 86</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_make_header_red'>make_header_red</span>
+  <span class='ivar'>@output</span><span class='period'>.</span><span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>    &lt;script type=\&quot;text/javascript\&quot;&gt;makeRed(&#39;rspec-header&#39;);&lt;/script&gt;</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+      <div class="method_details ">
+  <h3 class="signature " id="make_header_yellow-instance_method">
+    - (<tt>Object</tt>) <strong>make_header_yellow</strong> 
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+90
+91
+92</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/formatters/html_printer.rb', line 90</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_make_header_yellow'>make_header_yellow</span>
+  <span class='ivar'>@output</span><span class='period'>.</span><span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>    &lt;script type=\&quot;text/javascript\&quot;&gt;makeYellow(&#39;rspec-header&#39;);&lt;/script&gt;</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+      <div class="method_details ">
+  <h3 class="signature " id="move_progress-instance_method">
+    - (<tt>Object</tt>) <strong>move_progress</strong>(percent_done) 
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+81
+82
+83
+84</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/formatters/html_printer.rb', line 81</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_move_progress'>move_progress</span><span class='lparen'>(</span> <span class='id identifier rubyid_percent_done'>percent_done</span> <span class='rparen'>)</span>
+  <span class='ivar'>@output</span><span class='period'>.</span><span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>    &lt;script type=\&quot;text/javascript\&quot;&gt;moveProgressBar(&#39;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_percent_done'>percent_done</span><span class='embexpr_end'>}</span><span class='tstring_content'>&#39;);&lt;/script&gt;</span><span class='tstring_end'>&quot;</span></span>
+  <span class='ivar'>@output</span><span class='period'>.</span><span class='id identifier rubyid_flush'>flush</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+      <div class="method_details ">
+  <h3 class="signature " id="print_example_failed-instance_method">
+    - (<tt>Object</tt>) <strong>print_example_failed</strong>(pending_fixed, description, run_time, failure_id, exception, extra_content, escape_backtrace = false) 
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/formatters/html_printer.rb', line 33</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_print_example_failed'>print_example_failed</span><span class='lparen'>(</span> <span class='id identifier rubyid_pending_fixed'>pending_fixed</span><span class='comma'>,</span> <span class='id identifier rubyid_description'>description</span><span class='comma'>,</span> <span class='id identifier rubyid_run_time'>run_time</span><span class='comma'>,</span> <span class='id identifier rubyid_failure_id'>failure_id</span><span class='comma'>,</span> <span class='id identifier rubyid_exception'>exception</span><span class='comma'>,</span> <span class='id identifier rubyid_extra_content'>extra_content</span><span class='comma'>,</span> <span class='id identifier rubyid_escape_backtrace'>escape_backtrace</span> <span class='op'>=</span> <span class='kw'>false</span> <span class='rparen'>)</span>
+  <span class='id identifier rubyid_formatted_run_time'>formatted_run_time</span> <span class='op'>=</span> <span class='id identifier rubyid_sprintf'>sprintf</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>%.5f</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_run_time'>run_time</span><span class='rparen'>)</span>
+  <span class='ivar'>@output</span><span class='period'>.</span><span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>    &lt;dd class=\&quot;example </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_pending_fixed'>pending_fixed</span> <span class='op'>?</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>pending_fixed</span><span class='tstring_end'>&#39;</span></span> <span class='op'>:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>failed</span><span class='tstring_end'>&#39;</span></span><span class='embexpr_end'>}</span><span class='tstring_content'>\&quot;&gt;</span><span class='tstring_end'>&quot;</span></span>
+  <span class='ivar'>@output</span><span class='period'>.</span><span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>      &lt;span class=\&quot;failed_spec_name\&quot;&gt;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_h'>h</span><span class='lparen'>(</span><span class='id identifier rubyid_description'>description</span><span class='rparen'>)</span><span class='embexpr_end'>}</span><span class='tstring_content'>&lt;/span&gt;</span><span class='tstring_end'>&quot;</span></span>
+  <span class='ivar'>@output</span><span class='period'>.</span><span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>      &lt;span class=\&quot;duration\&quot;&gt;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_formatted_run_time'>formatted_run_time</span><span class='embexpr_end'>}</span><span class='tstring_content'>s&lt;/span&gt;</span><span class='tstring_end'>&quot;</span></span>
+  <span class='ivar'>@output</span><span class='period'>.</span><span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>      &lt;div class=\&quot;failure\&quot; id=\&quot;failure_</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_failure_id'>failure_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>\&quot;&gt;</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>if</span> <span class='id identifier rubyid_exception'>exception</span>
+    <span class='ivar'>@output</span><span class='period'>.</span><span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>        &lt;div class=\&quot;message\&quot;&gt;&lt;pre&gt;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_h'>h</span><span class='lparen'>(</span><span class='id identifier rubyid_exception'>exception</span><span class='lbracket'>[</span><span class='symbol'>:message</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='embexpr_end'>}</span><span class='tstring_content'>&lt;/pre&gt;&lt;/div&gt;</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>if</span> <span class='id identifier rubyid_escape_backtrace'>escape_backtrace</span>
+      <span class='ivar'>@output</span><span class='period'>.</span><span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>        &lt;div class=\&quot;backtrace\&quot;&gt;&lt;pre&gt;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_h'>h</span> <span class='id identifier rubyid_exception'>exception</span><span class='lbracket'>[</span><span class='symbol'>:backtrace</span><span class='rbracket'>]</span><span class='embexpr_end'>}</span><span class='tstring_content'>&lt;/pre&gt;&lt;/div&gt;</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>else</span>
+      <span class='ivar'>@output</span><span class='period'>.</span><span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>        &lt;div class=\&quot;backtrace\&quot;&gt;&lt;pre&gt;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_exception'>exception</span><span class='lbracket'>[</span><span class='symbol'>:backtrace</span><span class='rbracket'>]</span><span class='embexpr_end'>}</span><span class='tstring_content'>&lt;/pre&gt;&lt;/div&gt;</span><span class='tstring_end'>&quot;</span></span>
+    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+  <span class='ivar'>@output</span><span class='period'>.</span><span class='id identifier rubyid_puts'>puts</span> <span class='id identifier rubyid_extra_content'>extra_content</span> <span class='kw'>if</span> <span class='id identifier rubyid_extra_content'>extra_content</span>
+  <span class='ivar'>@output</span><span class='period'>.</span><span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>      &lt;/div&gt;</span><span class='tstring_end'>&quot;</span></span>
+  <span class='ivar'>@output</span><span class='period'>.</span><span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>    &lt;/dd&gt;</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+      <div class="method_details ">
+  <h3 class="signature " id="print_example_group_end-instance_method">
+    - (<tt>Object</tt>) <strong>print_example_group_end</strong> 
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+17
+18
+19
+20</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/formatters/html_printer.rb', line 17</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_print_example_group_end'>print_example_group_end</span>
+  <span class='ivar'>@output</span><span class='period'>.</span><span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>  &lt;/dl&gt;</span><span class='tstring_end'>&quot;</span></span>
+  <span class='ivar'>@output</span><span class='period'>.</span><span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;/div&gt;</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+      <div class="method_details ">
+  <h3 class="signature " id="print_example_group_start-instance_method">
+    - (<tt>Object</tt>) <strong>print_example_group_start</strong>(group_id, description, number_of_parents) 
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+22
+23
+24
+25
+26</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/formatters/html_printer.rb', line 22</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_print_example_group_start'>print_example_group_start</span><span class='lparen'>(</span> <span class='id identifier rubyid_group_id'>group_id</span><span class='comma'>,</span> <span class='id identifier rubyid_description'>description</span><span class='comma'>,</span> <span class='id identifier rubyid_number_of_parents'>number_of_parents</span>  <span class='rparen'>)</span>
+  <span class='ivar'>@output</span><span class='period'>.</span><span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;div id=\&quot;div_group_</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_group_id'>group_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>\&quot; class=\&quot;example_group passed\&quot;&gt;</span><span class='tstring_end'>&quot;</span></span>
+  <span class='ivar'>@output</span><span class='period'>.</span><span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>  &lt;dl </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_indentation_style'>indentation_style</span><span class='lparen'>(</span><span class='id identifier rubyid_number_of_parents'>number_of_parents</span><span class='rparen'>)</span><span class='embexpr_end'>}</span><span class='tstring_content'>&gt;</span><span class='tstring_end'>&quot;</span></span>
+  <span class='ivar'>@output</span><span class='period'>.</span><span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>  &lt;dt id=\&quot;example_group_</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_group_id'>group_id</span><span class='embexpr_end'>}</span><span class='tstring_content'>\&quot; class=\&quot;passed\&quot;&gt;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_h'>h</span><span class='lparen'>(</span><span class='id identifier rubyid_description'>description</span><span class='rparen'>)</span><span class='embexpr_end'>}</span><span class='tstring_content'>&lt;/dt&gt;</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+      <div class="method_details ">
+  <h3 class="signature " id="print_example_passed-instance_method">
+    - (<tt>Object</tt>) <strong>print_example_passed</strong>(description, run_time) 
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+28
+29
+30
+31</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/formatters/html_printer.rb', line 28</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_print_example_passed'>print_example_passed</span><span class='lparen'>(</span> <span class='id identifier rubyid_description'>description</span><span class='comma'>,</span> <span class='id identifier rubyid_run_time'>run_time</span> <span class='rparen'>)</span>
+  <span class='id identifier rubyid_formatted_run_time'>formatted_run_time</span> <span class='op'>=</span> <span class='id identifier rubyid_sprintf'>sprintf</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>%.5f</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_run_time'>run_time</span><span class='rparen'>)</span>
+  <span class='ivar'>@output</span><span class='period'>.</span><span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>    &lt;dd class=\&quot;example passed\&quot;&gt;&lt;span class=\&quot;passed_spec_name\&quot;&gt;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_h'>h</span><span class='lparen'>(</span><span class='id identifier rubyid_description'>description</span><span class='rparen'>)</span><span class='embexpr_end'>}</span><span class='tstring_content'>&lt;/span&gt;&lt;span class=&#39;duration&#39;&gt;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_formatted_run_time'>formatted_run_time</span><span class='embexpr_end'>}</span><span class='tstring_content'>s&lt;/span&gt;&lt;/dd&gt;</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+      <div class="method_details ">
+  <h3 class="signature " id="print_example_pending-instance_method">
+    - (<tt>Object</tt>) <strong>print_example_pending</strong>(description, pending_message) 
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+53
+54
+55</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/formatters/html_printer.rb', line 53</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_print_example_pending'>print_example_pending</span><span class='lparen'>(</span> <span class='id identifier rubyid_description'>description</span><span class='comma'>,</span> <span class='id identifier rubyid_pending_message'>pending_message</span> <span class='rparen'>)</span>
+  <span class='ivar'>@output</span><span class='period'>.</span><span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>    &lt;dd class=\&quot;example not_implemented\&quot;&gt;&lt;span class=\&quot;not_implemented_spec_name\&quot;&gt;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_h'>h</span><span class='lparen'>(</span><span class='id identifier rubyid_description'>description</span><span class='rparen'>)</span><span class='embexpr_end'>}</span><span class='tstring_content'> (PENDING: </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_h'>h</span><span class='lparen'>(</span><span class='id identifier rubyid_pending_message'>pending_message</span><span class='rparen'>)</span><span class='embexpr_end'>}</span><span class='tstring_content'>)&lt;/span&gt;&lt;/dd&gt;</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+      <div class="method_details ">
+  <h3 class="signature " id="print_html_start-instance_method">
+    - (<tt>Object</tt>) <strong>print_html_start</strong> 
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+12
+13
+14
+15</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/formatters/html_printer.rb', line 12</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_print_html_start'>print_html_start</span>
+  <span class='ivar'>@output</span><span class='period'>.</span><span class='id identifier rubyid_puts'>puts</span> <span class='const'>HTML_HEADER</span>
+  <span class='ivar'>@output</span><span class='period'>.</span><span class='id identifier rubyid_puts'>puts</span> <span class='const'>REPORT_HEADER</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+      <div class="method_details ">
+  <h3 class="signature " id="print_summary-instance_method">
+    - (<tt>Object</tt>) <strong>print_summary</strong>(was_dry_run, duration, example_count, failure_count, pending_count) 
+</h3><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/formatters/html_printer.rb', line 57</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_print_summary'>print_summary</span><span class='lparen'>(</span> <span class='id identifier rubyid_was_dry_run'>was_dry_run</span><span class='comma'>,</span> <span class='id identifier rubyid_duration'>duration</span><span class='comma'>,</span> <span class='id identifier rubyid_example_count'>example_count</span><span class='comma'>,</span> <span class='id identifier rubyid_failure_count'>failure_count</span><span class='comma'>,</span> <span class='id identifier rubyid_pending_count'>pending_count</span> <span class='rparen'>)</span>
+  <span class='comment'># TODO - kill dry_run?
+</span>  <span class='kw'>if</span> <span class='id identifier rubyid_was_dry_run'>was_dry_run</span>
+    <span class='id identifier rubyid_totals'>totals</span> <span class='op'>=</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>This was a dry-run</span><span class='tstring_end'>&quot;</span></span>
+  <span class='kw'>else</span>
+    <span class='id identifier rubyid_totals'>totals</span> <span class='op'>=</span>  <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_example_count'>example_count</span><span class='embexpr_end'>}</span><span class='tstring_content'> example</span><span class='embexpr_beg'>#{</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>s</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_example_count'>example_count</span> <span class='op'>==</span> <span class='int'>1</span><span class='embexpr_end'>}</span><span class='tstring_content'>, </span><span class='tstring_end'>&quot;</span></span>
+    <span class='id identifier rubyid_totals'>totals</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_failure_count'>failure_count</span><span class='embexpr_end'>}</span><span class='tstring_content'> failure</span><span class='embexpr_beg'>#{</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>s</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>unless</span> <span class='id identifier rubyid_failure_count'>failure_count</span> <span class='op'>==</span> <span class='int'>1</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
+    <span class='id identifier rubyid_totals'>totals</span> <span class='op'>&lt;&lt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>, </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_pending_count'>pending_count</span><span class='embexpr_end'>}</span><span class='tstring_content'> pending</span><span class='tstring_end'>&quot;</span></span> <span class='kw'>if</span> <span class='id identifier rubyid_pending_count'>pending_count</span> <span class='op'>&gt;</span> <span class='int'>0</span>
+  <span class='kw'>end</span>
+  <span class='id identifier rubyid_formatted_duration'>formatted_duration</span> <span class='op'>=</span> <span class='id identifier rubyid_sprintf'>sprintf</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>%.5f</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_duration'>duration</span><span class='rparen'>)</span>
+  <span class='ivar'>@output</span><span class='period'>.</span><span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;script type=\&quot;text/javascript\&quot;&gt;document.getElementById(&#39;duration&#39;).innerHTML = \&quot;Finished in &lt;strong&gt;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_formatted_duration'>formatted_duration</span><span class='embexpr_end'>}</span><span class='tstring_content'> seconds&lt;/strong&gt;\&quot;;&lt;/script&gt;</span><span class='tstring_end'>&quot;</span></span>
+  <span class='ivar'>@output</span><span class='period'>.</span><span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;script type=\&quot;text/javascript\&quot;&gt;document.getElementById(&#39;totals&#39;).innerHTML = \&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_totals'>totals</span><span class='embexpr_end'>}</span><span class='tstring_content'>\&quot;;&lt;/script&gt;</span><span class='tstring_end'>&quot;</span></span>
+  <span class='ivar'>@output</span><span class='period'>.</span><span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;/div&gt;</span><span class='tstring_end'>&quot;</span></span>
+  <span class='ivar'>@output</span><span class='period'>.</span><span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;/div&gt;</span><span class='tstring_end'>&quot;</span></span>
+  <span class='ivar'>@output</span><span class='period'>.</span><span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;/body&gt;</span><span class='tstring_end'>&quot;</span></span>
+  <span class='ivar'>@output</span><span class='period'>.</span><span class='id identifier rubyid_puts'>puts</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>&lt;/html&gt;</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  </div>
+</div>
+    <div id="footer">
+  Generated on Thu Jan 29 14:01:19 2015 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.0 (ruby-2.1.5).
+</div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-59095215-1', 'auto');
+  ga('send', 'pageview');
+</script>
+  </body>
+</html>

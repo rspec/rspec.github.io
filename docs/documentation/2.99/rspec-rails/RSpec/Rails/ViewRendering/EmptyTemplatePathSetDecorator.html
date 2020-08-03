@@ -1,0 +1,230 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: RSpec::Rails::ViewRendering::EmptyTemplatePathSetDecorator
+    &mdash; Documentation by YARD 0.8.7.3
+</title>
+  <link rel="stylesheet" href="/stylesheets/docs/style.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="/stylesheets/docs/common.css" type="text/css" charset="utf-8" />
+  <link rel="stylesheet" href="/stylesheets/docs/rspec.css" type="text/css" charset="utf-8" />
+<script type="text/javascript" charset="utf-8">
+  hasFrames = window.top.frames.main ? true : false;
+  relpath = '../../../';
+  framesUrl = "../../../frames.html#!" + escape(window.location.href);
+</script>
+  <script type="text/javascript" charset="utf-8" src="/javascripts/docs/jquery.js"></script>
+  <script type="text/javascript" charset="utf-8" src="/javascripts/docs/app.js"></script>
+  </head>
+  <body>
+    <div id="header">
+      <div id="menu">
+    <a href="../../../_index.html">Index (E)</a> &raquo;
+    <span class='title'><span class='object_link'><a href="../../../RSpec.html" title="RSpec (module)">RSpec</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../../Rails.html" title="RSpec::Rails (module)">Rails</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../ViewRendering.html" title="RSpec::Rails::ViewRendering (module)">ViewRendering</a></span></span>
+     &raquo; 
+    <span class="title">EmptyTemplatePathSetDecorator</span>
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+      <div id="search">
+    <a class="full_list_link" id="class_list_link"
+        href="../../../class_list.html">
+      Class List
+    </a>
+    <a class="full_list_link" id="method_list_link"
+        href="../../../method_list.html">
+      Method List
+    </a>
+    <a class="full_list_link" id="file_list_link"
+        href="../../../file_list.html">
+      File List
+    </a>
+</div>
+      <div class="clear"></div>
+    </div>
+    <iframe id="search_frame"></iframe>
+    <div id="content"><h1>Class: RSpec::Rails::ViewRendering::EmptyTemplatePathSetDecorator
+</h1>
+<dl class="box">
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName">ActionView::Resolver</span>
+        <ul class="fullTree">
+          <li>Object</li>
+            <li class="next">ActionView::Resolver</li>
+            <li class="next">RSpec::Rails::ViewRendering::EmptyTemplatePathSetDecorator</li>
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      </dd>
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/rspec/rails/view_rendering.rb</dd>
+</dl>
+<div class="clear"></div>
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <p>Delegates find_all to the submitted path set and then returns templates
+with modified source</p>
+  </div>
+</div>
+<div class="tags">
+</div>
+  <h2>Instance Attribute Summary <small>(<a href="#" class="summary_toggle">collapse</a>)</small></h2>
+  <ul class="summary">
+      <li class="public ">
+  <span class="summary_signature">
+      <a href="#original_path_set-instance_method" title="#original_path_set (instance method)">- (Object) <strong>original_path_set</strong> </a>
+  </span>
+      <span class="note title readonly">readonly</span>
+    <span class="summary_desc"><div class='inline'><p>Returns the value of attribute original_path_set.</p>
+</div></span>
+</li>
+  </ul>
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+    <ul class="summary">
+        <li class="public ">
+  <span class="summary_signature">
+      <a href="#find_all-instance_method" title="#find_all (instance method)">- (Object) <strong>find_all</strong>(*args) </a>
+  </span>
+  <span class="private note title">private</span>
+    <span class="summary_desc"><div class='inline'></div></span>
+</li>
+        <li class="public ">
+  <span class="summary_signature">
+      <a href="#initialize-instance_method" title="#initialize (instance method)">- (EmptyTemplatePathSetDecorator) <strong>initialize</strong>(original_path_set) </a>
+  </span>
+    <span class="note title constructor">constructor</span>
+    <span class="summary_desc"><div class='inline'><p>A new instance of EmptyTemplatePathSetDecorator.</p>
+</div></span>
+</li>
+    </ul>
+  <div id="constructor_details" class="method_details_list">
+  <h2>Constructor Details</h2>
+    <div class="method_details first">
+  <h3 class="signature first" id="initialize-instance_method">
+    - (<tt><span class='object_link'><a href="" title="RSpec::Rails::ViewRendering::EmptyTemplatePathSetDecorator (class)">EmptyTemplatePathSetDecorator</a></span></tt>) <strong>initialize</strong>(original_path_set) 
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns a new instance of EmptyTemplatePathSetDecorator</p>
+  </div>
+</div>
+<div class="tags">
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+66
+67
+68</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/rails/view_rendering.rb', line 66</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='id identifier rubyid_original_path_set'>original_path_set</span><span class='rparen'>)</span>
+  <span class='ivar'>@original_path_set</span> <span class='op'>=</span> <span class='id identifier rubyid_original_path_set'>original_path_set</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+</div>
+  <div id="instance_attr_details" class="attr_details">
+    <h2>Instance Attribute Details</h2>
+      <span id=""></span>
+      <div class="method_details first">
+  <h3 class="signature first" id="original_path_set-instance_method">
+    - (<tt>Object</tt>) <strong>original_path_set</strong>  <span class="extras">(readonly)</span>
+</h3><div class="docstring">
+  <div class="discussion">
+    <p>Returns the value of attribute original_path_set</p>
+  </div>
+</div>
+<div class="tags">
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+64
+65
+66</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/rails/view_rendering.rb', line 64</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_original_path_set'>original_path_set</span>
+  <span class='ivar'>@original_path_set</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  </div>
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+      <div class="method_details first">
+  <h3 class="signature first" id="find_all-instance_method">
+    - (<tt>Object</tt>) <strong>find_all</strong>(*args) 
+</h3><div class="docstring">
+  <div class="discussion">
+    <p class="note private">
+  <strong>This method is part of a private API.</strong>
+  You should avoid using this method if possible, as it may be removed or be changed in the future.
+</p>
+  </div>
+</div>
+<div class="tags">
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/rspec/rails/view_rendering.rb', line 71</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_find_all'>find_all</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span>
+  <span class='id identifier rubyid_original_path_set'>original_path_set</span><span class='period'>.</span><span class='id identifier rubyid_find_all'>find_all</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_args'>args</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_collect'>collect</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_template'>template</span><span class='op'>|</span>
+    <span class='op'>::</span><span class='const'>ActionView</span><span class='op'>::</span><span class='const'>Template</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span>
+      <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span>
+      <span class='id identifier rubyid_template'>template</span><span class='period'>.</span><span class='id identifier rubyid_identifier'>identifier</span><span class='comma'>,</span>
+      <span class='const'>EmptyTemplateHandler</span><span class='comma'>,</span>
+      <span class='lbrace'>{</span>
+        <span class='symbol'>:virtual_path</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_template'>template</span><span class='period'>.</span><span class='id identifier rubyid_virtual_path'>virtual_path</span><span class='comma'>,</span>
+        <span class='symbol'>:format</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_template'>template</span><span class='period'>.</span><span class='id identifier rubyid_formats'>formats</span>
+      <span class='rbrace'>}</span>
+    <span class='rparen'>)</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span></pre>
+    </td>
+  </tr>
+</table>
+</div>
+  </div>
+</div>
+    <div id="footer">
+  Generated on Thu Jan 29 14:01:34 2015 by
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.8.7.3 (ruby-2.1.5).
+</div>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-59095215-1', 'auto');
+  ga('send', 'pageview');
+</script>
+  </body>
+</html>

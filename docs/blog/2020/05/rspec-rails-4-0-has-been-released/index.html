@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"><![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]<!--><html class="no-js" lang="en"><!--<![endif]--><head><meta charset="UTF-8" /><meta content="width=device-width, initial-scale=1" name="viewport" /><meta content="RSpec Rails 4.0 has been released!" property="og:title" /><meta content="https://rspec.info/blog/2020/05/rspec-rails-4-0-has-been-released/" property="og:url" /><meta content="https://rspec.info/images/logo_ogp.png" property="og:image" /><meta content="summary" name="twitter:card" /><meta content="@rspec" name="twitter:site" /><title>RSpec Rails 4.0 has been released!</title><link href="/stylesheets/pages/blog.css" rel="stylesheet" type="text/css" /><link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" /><link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" type="text/css" /><link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" type="text/css" /><link href="/blog/feed.xml" rel="alternate" type="application/atom+xml" /></head><body class="blog"><header><nav><h1><img alt="Logo" src="/images/logo.png" /><a href="/">RSpec</a></h1><input class="hamburger-toggle" type="checkbox" /><div class="hamburger-icon"><div class="bar"></div><div class="bar"></div><div class="bar"></div></div><ul class="menu"><li><a href="/about">About</a></li><li><a href="/documentation">Documentation</a></li><li><a href="/blog">Blog</a></li><li><a href="/upgrading-from-rspec-2">Upgrade</a></li><li><a href="/help">Get Help</a></li><li><a href="/contributing">Contributing</a></li></ul></nav></header><section><article class="blog_post"><h1>RSpec Rails 4.0 has been released!</h1><h3 class="author">Benoit Tigeot, Jon Rowe and Phil Pirozhkov</h3><small class="date">May 27, 2020</small><p>RSpec Rails 4.0 has been released! Given our commitment to
+<a href="http://semver.org/">semantic versioning</a>, this is a major release and as such
+contains breaking changes. The major change is that we've dropped support for
+Rails below 5, with only soft support for Rails 4.2.</p>
+
+<p>As usual, if you notice any newly introduced bugs, please let us know,
+and we'll release a fix for it ASAP.</p>
+
+<p>RSpec continues to be a community-driven project with contributors
+from all over the world. This release includes 258 commits and 56
+merged pull requests from 27 different contributors!</p>
+
+<p>Thank you to everyone who helped make this release happen!</p>
+
+<h2 id="notable-changes">Notable Changes</h2>
+
+<p>Support for Rails 6, including support for testing ActionCable, ActiveMailbox.</p>
+
+<h3 id="breaking-changes">Breaking changes</h3>
+
+<p>RSpec Rails 4 only supports Rails 5 and 6. This is in line with our
+new versioning policy which keeps major versions of RSpec Rails in
+lockstep with supported versions of Rails.</p>
+
+<p>This means that we no longer support versions of Ruby below 2.2
+in line with the versions of Ruby supported by Rails 5.</p>
+
+<p>We have restricted the version of Rails for this version to 4.2 to
+allows a "soft support" for Rails 4.2 during this interim
+period but we strongly urge you to upgrade Rails to use 4.0.0.</p>
+
+<h3 id="removed-version-lock-with-rspec-gems">Removed version lock with RSpec gems</h3>
+
+<p>The <code>rspec-rails</code> gem is no longer locked with the versioning of the other
+RSpec gems, we will now be releasing <code>rspec-rails</code> with each new Rails
+release, keeping in lockstep with their supported major versions.</p>
+
+<h3 id="improved-jruby-support">Improved JRuby support</h3>
+
+<p>We have improved JRuby support and RSpec Rails 4 fully supports JRuby on Rails 5 and 6.</p>
+
+<h3 id="support-for-action-cable">Support for Action Cable</h3>
+
+<p>We now support <a href="https://relishapp.com/rspec/rspec-rails/v/4-0/docs/channel-specs">channel specs</a> in order to easily test your Action Cable channels.
+A <code>channel spec</code> pulls in <code>ActionCable::Channel::TestCase</code>, including all of the
+behavior and assertions that it provides, in addition to RSpec's own behavior and
+expectations.</p>
+
+<h3 id="support-for-action-mailbox">Support for Action Mailbox</h3>
+
+<p>Rails 6 adds <a href="https://guides.rubyonrails.org/action_mailbox_basics.html">Action Mailbox</a> for dealing with inbound emails.
+RSpec Rails 4 adds support for <a href="https://relishapp.com/rspec/rspec-rails/docs/mailbox-specs/action-mailbox-spec">mailbox specs</a> using the Rails
+test helpers for mailboxes.</p>
+
+<p>For example using the Rails test helper, <code>process</code> and the <code>have_been_delivered</code> matcher:</p>
+
+<div class="highlight"><pre class="highlight ruby"><code><span class="no">RSpec</span><span class="p">.</span><span class="nf">describe</span> <span class="no">InboxMailbox</span><span class="p">,</span> <span class="ss">type: :mailbox</span> <span class="k">do</span>
+  <span class="n">it</span> <span class="s2">"marks email as delivered when number tag in subject is valid"</span> <span class="k">do</span>
+    <span class="n">mail</span> <span class="o">=</span> <span class="no">Mail</span><span class="p">.</span><span class="nf">new</span><span class="p">(</span>
+      <span class="ss">from: </span><span class="s2">"replies@example.com"</span><span class="p">,</span>
+      <span class="ss">subject: </span><span class="s2">"[141982763] support ticket"</span>
+    <span class="p">)</span>
+    <span class="n">mail_processed</span> <span class="o">=</span> <span class="n">process</span><span class="p">(</span><span class="n">mail</span><span class="p">)</span>
+
+    <span class="n">expect</span><span class="p">(</span><span class="n">mail_processed</span><span class="p">).</span><span class="nf">to</span> <span class="n">have_been_delivered</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div>
+<h3 id="improvements-to-generators">Improvements to generators</h3>
+
+<p>If you use generators, there are some improvements:
+- The default hash syntax is now the Ruby 1.9 style in generated files to match Rails conventions
+- Request specs are generated instead of controller specs by default
+- New <a href="https://relishapp.com/rspec/rspec-rails/v/4-0/docs/generators">generators</a> available (channel, generator, mailbox…)</p>
+
+<h3 id="allow-configuring-active-job-queueadapter-in-system-specs">Allow configuring Active Job <code>queue_adapter</code> in system specs</h3>
+
+<p>Some people want to run Active Job with a specific queue adapter. In system
+specs you can now choose your desired queue adapter:</p>
+
+<div class="highlight"><pre class="highlight ruby"><code><span class="n">before</span> <span class="k">do</span>
+  <span class="no">ActiveJob</span><span class="o">::</span><span class="no">Base</span><span class="p">.</span><span class="nf">queue_adapter</span> <span class="o">=</span> <span class="ss">:inline</span>
+<span class="k">end</span>
+</code></pre></div>
+<h3 id="silence-log-output-with-puma">Silence log output with Puma</h3>
+
+<p>By default, Puma will no longer print logs when running system specs.</p>
+
+<h3 id="ability-to-manually-turn-off-active-record-support">Ability to manually turn off Active Record support</h3>
+
+<p>When using Rails without ActiveRecord or using an alternative ORM
+or a database of choice, e.g. Sequel, ROM, Mongoid etc. We can
+mistakenly detect ActiveRecord as being used due to other gems
+autoloading the constants, we now support manually turning off
+Active Record support when not configured with:
+<code>config.use_active_record = false</code></p>
+
+<h2 id="stats">Stats:</h2>
+
+<ul>
+  <li><strong>Total Commits</strong>: 285</li>
+  <li><strong>Merged pull requests</strong>: 63</li>
+  <li><strong>31 contributors</strong>: Andrew White, Anton Rieder, Benoit Tigeot, Jon Rowe,
+David Revelo, Giovanni Kock Bonetti, Ignatius Reza, James Dabbs, Joel AZEMAR,
+John Hawthorn, Jonathan Rochkind, Kieran O'Grady, Marc-André Lafortune,
+Moshe Kamensky, OKURA Masafumi, Olle Jonsson, Pedro Paiva, Penelope Phippen,
+Phil Pirozhkov, Piotr W, Seb Jacobs, Tanbir Hasan, Viacheslav Bobrov,
+Vladimir Dementyev, Xavier Shay, alpaca-tc, pavel, ta1kt0me, yalab</li>
+</ul>
+
+<h2 id="docs">Docs</h2>
+
+<h3 id="api-docs">API Docs</h3>
+
+<ul>
+  <li><a href="/documentation/4.0/rspec-rails/">rspec-rails</a></li>
+</ul>
+
+<h3 id="cucumber-features">Cucumber Features</h3>
+
+<ul>
+  <li><a href="https://relishapp.com/rspec/rspec-rails/v/4-0/">rspec-rails</a></li>
+</ul>
+
+<h2 id="release-notes">Release Notes</h2>
+
+<h3 id="section">4.0.1 / 2020-05-16</h3>
+<p><a href="https://github.com/rspec/rspec-rails/compare/v4.0.0...v4.0.1">Full Changelog</a></p>
+
+<p>Bug Fixes:</p>
+
+<ul>
+  <li>Remove warning when calling <code>driven_by</code> in system specs. (Aubin Lorieux, #2302)</li>
+  <li>Fix comparison of times for <code>#at</code> in job matchers. (Jon Rowe, Markus Doits, #2304)</li>
+  <li>Allow <code>have_enqueued_mail</code> to match when a sub class of <code>ActionMailer::DeliveryJob</code>
+is set using <code>&lt;Class&gt;.delivery_job=</code>. (Atsushi Yoshida #2305)</li>
+  <li>Restore Ruby 2.2.x compatibility. (Jon Rowe, #2332)</li>
+  <li>Add <code>required_ruby_version</code> to gem spec. (Marc-André Lafortune, #2319, #2338)</li>
+</ul>
+
+<h3 id="section-1">4.0.0 / 2020-03-24</h3>
+<p><a href="https://github.com/rspec/rspec-rails/compare/v3.9.1...v4.0.0">Full Changelog</a></p>
+
+<p>Enhancements:</p>
+
+<ul>
+  <li>Adds support for Rails 6. (Penelope Phippen, Benoit Tigeot, Jon Rowe, #2071)</li>
+  <li>Adds support for JRuby on Rails 5.2 and 6</li>
+  <li>Add support for parameterised mailers (Ignatius Reza, #2125)</li>
+  <li>Add ActionMailbox spec helpers and test type (James Dabbs, #2119)</li>
+  <li>Add ActionCable spec helpers and test type (Vladimir Dementyev, #2113)</li>
+  <li>Add support for partial args when using <code>have_enqueued_mail</code>
+(Ignatius Reza, #2118, #2125)</li>
+  <li>Add support for time arguments for <code>have_enqueued_job</code> (@alpaca-tc, #2157)</li>
+  <li>Improve path parsing in view specs render options. (John Hawthorn, #2115)</li>
+  <li>Add routing spec template as an option for generating controller specs.
+(David Revelo, #2134)</li>
+  <li>Add argument matcher support to <code>have_enqueued_*</code> matchers. (Phil Pirozhkov, #2206)</li>
+  <li>Switch generated templates to use ruby 1.9 hash keys. (Tanbir Hasan, #2224)</li>
+  <li>Add <code>have_been_performed</code>/<code>have_performed_job</code>/<code>perform_job</code> ActiveJob
+matchers (Isaac Seymour, #1785)</li>
+  <li>Default to generating request specs rather than controller specs when
+generating a controller (Luka Lüdicke, #2222)</li>
+  <li>Allow <code>ActiveJob</code> matchers <code>#on_queue</code> modifier to take symbolic queue names. (Nils Sommer, #2283)</li>
+  <li>The scaffold generator now generates request specs in preference to controller specs.
+(Luka Lüdicke, #2288)</li>
+  <li>Add configuration option to disable ActiveRecord. (Jon Rowe, Phil Pirozhkov, Hermann Mayer, #2266)</li>
+  <li>Set <code>ActionDispatch::SystemTesting::Server.silence_puma = true</code> when running system specs.
+  (ta1kt0me, Benoit Tigeot, #2289)</li>
+</ul>
+
+<p>Bug Fixes:</p>
+
+<ul>
+  <li><code>EmptyTemplateHandler.call</code> now needs to support an additional argument in
+Rails 6. (Pavel Rosický, #2089)</li>
+  <li>Suppress warning from <code>SQLite3Adapter.represent_boolean_as_integer</code> which is
+deprecated. (Pavel Rosický, #2092)</li>
+  <li><code>ActionView::Template#formats</code> has been deprecated and replaced by
+<code>ActionView::Template#format</code>(Seb Jacobs, #2100)</li>
+  <li>Replace <code>before_teardown</code> as well as <code>after_teardown</code> to ensure screenshots
+are generated correctly. (Jon Rowe, #2164)</li>
+  <li><code>ActionView::FixtureResolver#hash</code> has been renamed to <code>ActionView::FixtureResolver#data</code>.
+(Penelope Phippen, #2076)</li>
+  <li>Prevent <code>driven_by(:selenium)</code> being called due to hook precedence.
+(Takumi Shotoku, #2188)</li>
+  <li>Prevent a <code>WrongScopeError</code> being thrown during loading fixtures on Rails
+6.1 development version. (Edouard Chin, #2215)</li>
+  <li>Fix Mocha mocking support with <code>should</code>. (Phil Pirozhkov, #2256)</li>
+  <li>Restore previous conditional check for setting <code>default_url_options</code> in feature
+specs, prevents a <code>NoMethodError</code> in some scenarios. (Eugene Kenny, #2277)</li>
+  <li>Allow changing <code>ActiveJob::Base.queue_adapter</code> inside a system spec.
+(Jonathan Rochkind, #2242)</li>
+  <li><code>rails generate generator</code> command now creates related spec file (Joel Azemar, #2217)</li>
+  <li>Relax upper <code>capybara</code> version constraint to allow for Capybara 3.x (Phil Pirozhkov, #2281)</li>
+  <li>Clear ActionMailer test mailbox after each example (Benoit Tigeot, #2293)</li>
+</ul>
+
+<p>Breaking Changes:</p>
+
+<ul>
+  <li>Drops support for Rails below 5.0</li>
+  <li>Drops support for Ruby below 2.2</li>
+</ul>
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+  var disqus_shortname  = 'rspec';
+  var disqus_identifier = '/blog/2020/05/rspec-rails-4-0-has-been-released/';
+  var disqus_title      = 'RSpec Rails 4.0 has been released!';
+  var disqus_url        = 'http://rspec.info/blog/2020/05/rspec-rails-4-0-has-been-released/';
+
+  /* * * DON'T EDIT BELOW THIS LINE * * */
+  (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</article></section><footer><div>Created with the assistance of Ninefold<img alt="Brutus" src="/images/brutus-half.png" /></div><br /><a href="https://dnsimple.link/resolving-rspec" target="_blank">Resolving with<br /><img alt="DNSimple" style="width:100px;" src="https://cdn.dnsimple.com/assets/resolving-with-us/logo-dark.png" /></a></footer><script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-59095215-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script>
+  var SeedAndDewConfig = {};
+  (function() {
+    SeedAndDewConfig['adClass'] = "snd-ad";
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    SeedAndDewConfig['projectId'] = 'ef35b4ec-231e-4950-bd93-4c06fe3b2543';
+    SeedAndDewConfig['loadStartTime'] = performance.now();
+    SeedAndDewConfig['apiVersion'] = '2018-05-28'
+    SeedAndDewConfig['sessionId'] = Math.random().toString(36).substring(2, 15);
+    var snd = document.createElement('script');
+    snd.type = 'text/javascript';
+    snd.async = true;
+    snd.src = 'https://www.seedanddew.com/static/embed.min.js';
+    (document.getElementsByTagName('head')[0] ||
+    document.getElementsByTagName('body')[0]).appendChild(snd);
+  })();
+</script>
+</body><script src="/javascripts/asciinema-player.js"></script></html>

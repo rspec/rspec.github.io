@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"><![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]<!--><html class="no-js" lang="en"><!--<![endif]--><head><meta charset="UTF-8" /><meta content="width=device-width, initial-scale=1" name="viewport" /><meta content="RSpec 3.3 has been released!" property="og:title" /><meta content="https://rspec.info/blog/2015/06/rspec-3-3-has-been-released/" property="og:url" /><meta content="https://rspec.info/images/logo_ogp.png" property="og:image" /><meta content="summary" name="twitter:card" /><meta content="@rspec" name="twitter:site" /><title>RSpec 3.3 has been released!</title><link href="/stylesheets/pages/blog.css" rel="stylesheet" type="text/css" /><link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" /><link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" type="text/css" /><link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" type="text/css" /><link href="/blog/feed.xml" rel="alternate" type="application/atom+xml" /></head><body class="blog"><header><nav><h1><img alt="Logo" src="/images/logo.png" /><a href="/">RSpec</a></h1><input class="hamburger-toggle" type="checkbox" /><div class="hamburger-icon"><div class="bar"></div><div class="bar"></div><div class="bar"></div></div><ul class="menu"><li><a href="/about">About</a></li><li><a href="/documentation">Documentation</a></li><li><a href="/blog">Blog</a></li><li><a href="/upgrading-from-rspec-2">Upgrade</a></li><li><a href="/help">Get Help</a></li><li><a href="/contributing">Contributing</a></li></ul></nav></header><section><article class="blog_post"><h1>RSpec 3.3 has been released!</h1><h3 class="author">Myron Marston</h3><small class="date">Jun 12, 2015</small><p>RSpec 3.3 has just been released! Given our commitment to
+<a href="http://semver.org/">semantic versioning</a>, this should be a trivial
+upgrade for anyone already using RSpec 3.0, 3.1 or 3.2, but if we did introduce
+any regressions, please let us know, and we'll get a patch release
+out with a fix ASAP.</p>
+
+<p>RSpec continues to be a community-driven project with contributors
+from all over the world. This release includes 769 commits and 200
+merged pull requests from nearly 50 different contributors!</p>
+
+<p>Thank you to everyone who helped make this release happen!</p>
+
+<h2 id="notable-changes">Notable Changes</h2>
+
+<h3 id="core-unique-ids-for-every-example-and-example-group">Core: Unique IDs for every Example and Example Group</h3>
+
+<p>Historically, RSpec examples have been identified primarily by <em>file
+location</em>. For example, this command:</p>
+
+<div class="highlight"><pre class="highlight plaintext"><code>$ rspec spec/unit/baseball_spec.rb:23
+</code></pre></div>
+<p>…would run an example or example group defined on line 23 of
+<code>spec/unit/baseball_spec.rb</code>. Location-based identification generally
+works well, but does not always uniquely identity a particular example.
+For example, if you use shared examples, your spec suite may
+have multiple copies of the example defined at
+<code>spec/support/shared_examples.rb:47</code>.</p>
+
+<p>RSpec 3.3 introduces a new way to identify examples and example groups:
+unique IDs. The IDs are scoped to a particular file and are based on the
+index of the example or group. For example, this command:</p>
+
+<div class="highlight"><pre class="highlight plaintext"><code>$ rspec spec/unit/baseball_spec.rb[1:2,1:4]
+</code></pre></div>
+<p>…would run the 2nd and 4th example or group defined under the 1st
+top-level group defined in <code>spec/unit/baseball_spec.rb</code>.</p>
+
+<p>For the most part, the new example IDs are primarily used internally by
+RSpec to support some of the new 3.3 features, but you're free to use
+them from the command line. The re-run command printed by RSpec for
+each failure will use them if the file location does not uniquely
+identify the failed example. Copying and pasting the re-run command
+for a particular failed example will always run just that example now!</p>
+
+<h3 id="core-new---only-failures-option">Core: New <code>--only-failures</code> option</h3>
+
+<p>Now that RSpec has a robust way to uniquely identify every example, we've
+added new filtering capabilities to allow you to run only the failures. To
+enable this feature, you first have to configure RSpec so it knows where
+to persist the status of each example:</p>
+
+<div class="highlight"><pre class="highlight ruby"><code><span class="no">RSpec</span><span class="p">.</span><span class="nf">configure</span> <span class="k">do</span> <span class="o">|</span><span class="n">c</span><span class="o">|</span>
+  <span class="n">c</span><span class="p">.</span><span class="nf">example_status_persistence_file_path</span> <span class="o">=</span> <span class="s2">"./spec/examples.txt"</span>
+<span class="k">end</span>
+</code></pre></div>
+<p>Once you've configured that, RSpec will begin persisting the status of each
+example after every run of your suite. You'll probably want to add this file
+to <code>.gitignore</code> (or whatever the equivalent for your source control system is),
+as it's not intended to be kept under source control. With that configuration
+in place, you can use the new CLI option:</p>
+
+<div class="highlight"><pre class="highlight plaintext"><code>$ rspec --only-failures
+# or apply it to a specific file or directory:
+$ rspec spec/unit --only-failures
+</code></pre></div>
+<p>It's worth noting that this option filters to the examples that failed
+the last time they ran, not just to the failures from the last run of
+<code>rspec</code>. That means, for example, that if there's a slow acceptance spec
+that you don't generally run locally (leaving it to your CI server to
+run it), and it failed the last time it ran locally, even if it was weeks ago,
+it'll be included when you run <code>rspec --only-failures</code>.</p>
+
+<p>See our <a href="https://relishapp.com/rspec/rspec-core/v/3-3/docs/command-line/only-failures">relish
+docs</a>
+for an end-to-end example of this feature.</p>
+
+<h3 id="core-new---next-failure-option">Core: New <code>--next-failure</code> option</h3>
+
+<p>When making a change that causes many failures across my spec suite—such
+as renaming a commonly used method—I've often used a specific work flow:</p>
+
+<ol>
+  <li>Run the entire suite to get the failure list.</li>
+  <li>Run each failure individually in sequence using the re-run command
+that RSpec printed, fixing each example before moving on to the next failure.</li>
+</ol>
+
+<p>This allows me to systematically work through all of the failures,
+without paying the cost of repeatedly running the entire suite. RSpec
+3.3 includes a new option that vastly simplifies this work flow:</p>
+
+<div class="highlight"><pre class="highlight plaintext"><code>$ rspec --next-failure
+# or apply it to a specific file or directory:
+$ rspec spec/unit --next-failure
+</code></pre></div>
+<p>This option is the equivalent of <code>--only-failures --fail-fast --order defined</code>.
+It filters to only failures, and will abort as soon as one fails. It
+applies <code>--order defined</code> in order to ensure that you keep getting the same
+failing example when you run it multiple times in a row without fixing
+the example.</p>
+
+<h3 id="core-stable-random-ordering">Core: Stable Random Ordering</h3>
+
+<p>RSpec's random ordering has always allowed you to pass a particular
+<code>--seed</code> to run the suite in the same order as a prior run. However,
+this only worked if you ran the same set of examples as the original
+run. If you apply the seed to a subset of examples, their ordering
+wouldn't necessarily be consistent relative to each other. This is
+a consequence of how <code>Array#shuffle</code> works: <code>%w[ a b c d ].shuffle</code> may
+order <code>c</code> before <code>b</code>, but <code>%w[ b c d ].shuffle</code> may order <code>c</code> <em>after</em>
+<code>b</code> even if you use the same random seed.</p>
+
+<p>This may not seem like a big deal, but it makes <code>--seed</code> far less
+useful. When you are trying to track down the source of an ordering
+dependency, you have to keep running the entire suite to reproduce
+the failure.</p>
+
+<p>RSpec 3.3 addresses this. We no longer use <code>shuffle</code> for random
+ordering. Instead, we combine the <code>--seed</code> value with the id of each
+example, hash it, and sort by the produced values. This ensures that
+if a particular seed orders example <code>c</code> before example <code>b</code>, <code>c</code> will
+always come before <code>b</code> when you re-use that seed no matter what subset
+of the suite you are running.</p>
+
+<p>While stable random ordering is useful in its own right, the big win
+here is a new feature that it enables: bisect.</p>
+
+<h3 id="core-bisect">Core: Bisect</h3>
+
+<p>RSpec has supported random ordering (with a <code>--seed</code> option to reproduce
+a particular ordering) since RSpec 2.8. These features help surface
+ordering dependencies between specs, which you'll want to quickly
+isolate and fix.</p>
+
+<p>Unfortunately, RSpec provided little to help with isolating
+an ordering dependency. That's changing in RSpec 3.3. We now provide
+a <code>--bisect</code> option that narrows an ordering dependency down to a
+minimal reproduction case. The new bisect flag repeatedly runs subsets
+of your suite in order to isolate the minimal set of examples that
+reproduce the same failures when you run your whole suite.</p>
+
+<p>Stable random ordering makes it possible for you to run various subsets
+of the suite to try to narrow an ordering dependency down to a minimal 
+reproduction case.</p>
+
+<p>See our <a href="https://relishapp.com/rspec/rspec-core/v/3-3/docs/command-line/bisect">relish
+docs</a>
+for an end-to-end example of this feature.</p>
+
+<h3 id="core-thread-safe-let-and-subject">Core: Thread Safe <code>let</code> and <code>subject</code></h3>
+
+<p>Historically, <code>let</code> and <code>subject</code> have <a href="http://rspec.info/documentation/3.2/rspec-core/RSpec/Core/MemoizedHelpers/ClassMethods.html#let-instance_method">never been
+thread safe</a>.
+That's changing in RSpec 3.3, thanks to the <a href="https://github.com/rspec/rspec-core/pull/1858">great
+work</a> of Josh Cheek.</p>
+
+<p>Note that the thread safety synchronization does add a bit of overhead,
+as you'd expect. If you're not spinning up any threads in your examples
+and want to avoid that overhead, you can configure RSpec to
+<a href="http://rspec.info/documentation/3.3/rspec-core/RSpec/Core/Configuration.html#threadsafe-instance_method">disable</a> the thread safety.</p>
+
+<h3 id="expectations-new-aggregatefailures-api">Expectations: New <code>aggregate_failures</code> API</h3>
+
+<p>When you've got multiple independent expectations to make about a
+particular result, there's generally two routes you can take. One way is
+to define a separate example for each expectation:</p>
+
+<div class="highlight"><pre class="highlight ruby"><code><span class="no">RSpec</span><span class="p">.</span><span class="nf">describe</span> <span class="no">Client</span> <span class="k">do</span>
+  <span class="n">let</span><span class="p">(</span><span class="ss">:response</span><span class="p">)</span> <span class="p">{</span> <span class="no">Client</span><span class="p">.</span><span class="nf">make_request</span> <span class="p">}</span>
+
+  <span class="n">it</span> <span class="s2">"returns a 200 response"</span> <span class="k">do</span>
+    <span class="n">expect</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="nf">status</span><span class="p">).</span><span class="nf">to</span> <span class="n">eq</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
+  <span class="k">end</span>
+
+  <span class="n">it</span> <span class="s2">"indicates the response body is JSON"</span> <span class="k">do</span>
+    <span class="n">expect</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="nf">headers</span><span class="p">).</span><span class="nf">to</span> <span class="kp">include</span><span class="p">(</span><span class="s2">"Content-Type"</span> <span class="o">=&gt;</span> <span class="s2">"application/json"</span><span class="p">)</span>
+  <span class="k">end</span>
+
+  <span class="n">it</span> <span class="s2">"returns a success message"</span> <span class="k">do</span>
+    <span class="n">expect</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="nf">body</span><span class="p">).</span><span class="nf">to</span> <span class="n">eq</span><span class="p">(</span><span class="s1">'{"message":"Success"}'</span><span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div>
+<p>This follows the "one expectation per example" guideline that encourages
+you to keep each spec focused on a single facet of behavior. Alternately,
+you can put all the expectations in a single example:</p>
+
+<div class="highlight"><pre class="highlight ruby"><code><span class="no">RSpec</span><span class="p">.</span><span class="nf">describe</span> <span class="no">Client</span> <span class="k">do</span>
+  <span class="n">it</span> <span class="s2">"returns a successful JSON response"</span> <span class="k">do</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="no">Client</span><span class="p">.</span><span class="nf">make_request</span>
+
+    <span class="n">expect</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="nf">status</span><span class="p">).</span><span class="nf">to</span> <span class="n">eq</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
+    <span class="n">expect</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="nf">headers</span><span class="p">).</span><span class="nf">to</span> <span class="kp">include</span><span class="p">(</span><span class="s2">"Content-Type"</span> <span class="o">=&gt;</span> <span class="s2">"application/json"</span><span class="p">)</span>
+    <span class="n">expect</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="nf">body</span><span class="p">).</span><span class="nf">to</span> <span class="n">eq</span><span class="p">(</span><span class="s1">'{"message":"Success"}'</span><span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div>
+<p>This latter approach is going to be faster, as the request is only made once
+rather than three times. However, if the status code is not a 200, the example
+will abort on the first expectation and you won't be able to see whether or not
+the latter two expectations passed or not.</p>
+
+<p>RSpec 3.3 has a new feature that helps when, for speed or other reasons, you
+want to put multiple expectations in a single example. Simply wrap your
+expectations in an <code>aggregate_failures</code> block:</p>
+
+<div class="highlight"><pre class="highlight ruby"><code><span class="no">RSpec</span><span class="p">.</span><span class="nf">describe</span> <span class="no">Client</span> <span class="k">do</span>
+  <span class="n">it</span> <span class="s2">"returns a successful JSON response"</span> <span class="k">do</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="no">Client</span><span class="p">.</span><span class="nf">make_request</span>
+
+    <span class="n">aggregate_failures</span> <span class="s2">"testing response"</span> <span class="k">do</span>
+      <span class="n">expect</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="nf">status</span><span class="p">).</span><span class="nf">to</span> <span class="n">eq</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
+      <span class="n">expect</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="nf">headers</span><span class="p">).</span><span class="nf">to</span> <span class="kp">include</span><span class="p">(</span><span class="s2">"Content-Type"</span> <span class="o">=&gt;</span> <span class="s2">"application/json"</span><span class="p">)</span>
+      <span class="n">expect</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="nf">body</span><span class="p">).</span><span class="nf">to</span> <span class="n">eq</span><span class="p">(</span><span class="s1">'{"message":"Success"}'</span><span class="p">)</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div>
+<p>Within the <code>aggregate_failures</code> block, expectations failures do not cause the
+example to abort. Instead, a single <em>aggregate</em> exception will be
+raised at the end containing multiple sub-failures which RSpec will
+format nicely for you:</p>
+
+<div class="highlight"><pre class="highlight plaintext"><code>1) Client returns a successful response
+   Got 3 failures from failure aggregation block "testing reponse".
+   # ./spec/client_spec.rb:5
+
+   1.1) Failure/Error: expect(response.status).to eq(200)
+
+          expected: 200
+               got: 404
+
+          (compared using ==)
+        # ./spec/client_spec.rb:6
+
+   1.2) Failure/Error: expect(response.headers).to include("Content-Type" =&gt; "application/json")
+          expected {"Content-Type" =&gt; "text/plain"} to include {"Content-Type" =&gt; "application/json"}
+          Diff:
+          @@ -1,2 +1,2 @@
+          -[{"Content-Type"=&gt;"application/json"}]
+          +"Content-Type" =&gt; "text/plain",
+        # ./spec/client_spec.rb:7
+
+   1.3) Failure/Error: expect(response.body).to eq('{"message":"Success"}')
+
+          expected: "{\"message\":\"Success\"}"
+               got: "Not Found"
+
+          (compared using ==)
+        # ./spec/client_spec.rb:8
+</code></pre></div>
+<p><code>RSpec::Core</code> provides improved support for this feature through the use of
+metadata. Instead of wrapping the expectations with <code>aggregate_failures</code>,
+simply tag the example or group with <code>:aggregate_failures</code>:</p>
+
+<div class="highlight"><pre class="highlight ruby"><code><span class="no">RSpec</span><span class="p">.</span><span class="nf">describe</span> <span class="no">Client</span><span class="p">,</span> <span class="ss">:aggregate_failures</span> <span class="k">do</span>
+  <span class="n">it</span> <span class="s2">"returns a successful JSON response"</span> <span class="k">do</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="no">Client</span><span class="p">.</span><span class="nf">make_request</span>
+
+    <span class="n">expect</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="nf">status</span><span class="p">).</span><span class="nf">to</span> <span class="n">eq</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
+    <span class="n">expect</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="nf">headers</span><span class="p">).</span><span class="nf">to</span> <span class="kp">include</span><span class="p">(</span><span class="s2">"Content-Type"</span> <span class="o">=&gt;</span> <span class="s2">"application/json"</span><span class="p">)</span>
+    <span class="n">expect</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="nf">body</span><span class="p">).</span><span class="nf">to</span> <span class="n">eq</span><span class="p">(</span><span class="s1">'{"message":"Success"}'</span><span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div>
+<p>If you want to enable this feature everywhere, you can use <a href="http://rspec.info/documentation/3.3/rspec-core/RSpec/Core/Configuration.html#define_derived_metadata-instance_method"><code>define_derived_metadata</code></a>:</p>
+
+<div class="highlight"><pre class="highlight ruby"><code><span class="no">RSpec</span><span class="p">.</span><span class="nf">configure</span> <span class="k">do</span> <span class="o">|</span><span class="n">c</span><span class="o">|</span>
+  <span class="n">c</span><span class="p">.</span><span class="nf">define_derived_metadata</span> <span class="k">do</span> <span class="o">|</span><span class="n">meta</span><span class="o">|</span>
+    <span class="n">meta</span><span class="p">[</span><span class="ss">:aggregate_failures</span><span class="p">]</span> <span class="o">=</span> <span class="kp">true</span> <span class="k">unless</span> <span class="n">meta</span><span class="p">.</span><span class="nf">key?</span><span class="p">(</span><span class="ss">:aggregate_failures</span><span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div>
+<p>Of course, you may not want this enabled by default everywhere.  The
+<code>unless meta.key?(:aggregate_failures)</code> bit allows you to opt out individual
+examples or groups by tagging them with <code>aggregate_failures: false</code>.  When
+you've got <em>dependent</em> expectations (e.g. where an expectation only makes
+sense if the prior expectation passed), or if you're using expectations to
+express a pre-condition, you'll probably want the example to immediately abort
+when the expectation fails.</p>
+
+<h3 id="expectations-improved-failure-output">Expectations: Improved Failure Output</h3>
+
+<p>RSpec 3.3 includes improved failure messages across the board for all matchers.
+Test doubles now look prettier in our failure messages:</p>
+
+<div class="highlight"><pre class="highlight plaintext"><code>Failure/Error: expect([foo]).to include(bar)
+  expected [#&lt;Double "Foo"&gt;] to include #&lt;Double "Bar"&gt;
+  Diff:
+  @@ -1,2 +1,2 @@
+  -[#&lt;Double "Bar"&gt;]
+  +[#&lt;Double "Foo"&gt;]
+</code></pre></div>
+<p>In addition, RSpec's improved formatting for <code>Time</code> and other objects will
+now be used wherever those objects are inspected, regardless of which
+built-in matcher you used. So, for example, where you used to get this:</p>
+
+<div class="highlight"><pre class="highlight plaintext"><code>Failure/Error: expect([Time.now]).to include(Time.now)
+  expected [2015-06-09 07:48:06 -0700] to include 2015-06-09 07:48:06 -0700
+</code></pre></div>
+<p>…you'll now get this instead:</p>
+
+<div class="highlight"><pre class="highlight plaintext"><code>Failure/Error: expect([Time.now]).to include(Time.now)
+  expected [2015-06-09 07:49:16.610635000 -0700] to include 2015-06-09 07:49:16.610644000 -0700
+  Diff:
+  @@ -1,2 +1,2 @@
+  -[2015-06-09 07:49:16.610644000 -0700]
+  +[2015-06-09 07:49:16.610635000 -0700]
+</code></pre></div>
+<p>…which makes it much clearer that the time objects differ at the subsecond level.</p>
+
+<p>Thanks to Gavin Miller, Nicholas Chmielewski and Siva Gollapalli for contributing to
+these improvements!</p>
+
+<h3 id="mocks-improved-failure-output">Mocks: Improved Failure Output</h3>
+
+<p>RSpec::Mocks has also received some nice improvements to its failure output. RSpec's
+improved formatting for <code>Time</code> and other objects is now applied to mock expectation
+failures as well:</p>
+
+<div class="highlight"><pre class="highlight plaintext"><code>Failure/Error: dbl.foo(Time.now)
+  #&lt;Double (anonymous)&gt; received :foo with unexpected arguments
+    expected: (2015-06-09 08:33:36.865827000 -0700)
+         got: (2015-06-09 08:33:36.874197000 -0700)
+  Diff:
+  @@ -1,2 +1,2 @@
+  -[2015-06-09 08:33:36.865827000 -0700]
+  +[2015-06-09 08:33:36.874197000 -0700]
+</code></pre></div>
+<p>In addition, the failure output for <code>have_received</code> has been much improved so that when
+the expected args do not match, it lists each set of actual args, and the number of
+times the message was received with those args:</p>
+
+<div class="highlight"><pre class="highlight plaintext"><code>Failure/Error: expect(dbl).to have_received(:foo).with(3)
+  #&lt;Double (anonymous)&gt; received :foo with unexpected arguments
+    expected: (3)
+         got: (1) (2 times)
+              (2) (1 time)
+</code></pre></div>
+<p>Thanks to John Ceh for implementing the latter improvement!</p>
+
+<h3 id="mocks-stubbing-myclassnew-verifies-against-myclassinitialize">Mocks: Stubbing <code>MyClass.new</code> Verifies Against <code>MyClass#initialize</code></h3>
+
+<p>RSpec's <a href="https://relishapp.com/rspec/rspec-mocks/v/3-3/docs/verifying-doubles">verifying doubles</a>
+use the metadata that Ruby's reflection capabilities provide to verify,
+among other things, that passed arguments are valid according to the
+original method's signature. However, when a method is defined using
+just an arg splat:</p>
+
+<div class="highlight"><pre class="highlight ruby"><code><span class="k">def</span> <span class="nf">method_1</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span>
+  <span class="n">method_2</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">)</span>
+<span class="k">end</span>
+
+<span class="k">def</span> <span class="nf">method_2</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<span class="k">end</span>
+</code></pre></div>
+<p>…then the verifying double is going to allow <em>any</em> arguments, even
+if the method simply delegates to <em>another</em> method that does have a
+strong signature. Unfortunately, <code>Class#new</code> is one of these methods.
+It's defined by Ruby to delegate to <code>#initialize</code>, and will only accept
+arguments that the signature of <code>initialize</code> can handle, but the metadata
+provided by <code>MyClass.method(:new).parameters</code> indicates it can handle any
+arguments, even if it can't.</p>
+
+<p>In RSpec 3.3, we've improved verifying doubles so that when you stub
+<code>new</code> on a class, it uses the method signature of <code>#initialize</code> to
+verify arguments, unless you've redefined <code>new</code> to do something
+different. This allows verifying doubles to give you an error when
+you pass arguments to a stubbed <code>MyClass#new</code> method that the real
+class would not allow.</p>
+
+<h3 id="rails-generated-scaffold-routing-specs-now-include-patch-spec">Rails: Generated scaffold routing specs now include PATCH spec</h3>
+
+<p>Rails 4 added support for <code>PATCH</code> as the primary HTTP method for
+updates. The routing matchers in rspec-rails have likewise supported
+<code>PATCH</code> since 2.14, but the generated scaffold spec were not updated
+to match. This has been
+<a href="https://github.com/rspec/rspec-rails/pull/1336">addressed</a> in
+rspec-rails 3.3.</p>
+
+<p>Thanks to Igor Zubkov for this improvement!</p>
+
+<h3 id="rails-new-job-spec-type">Rails: New <code>:job</code> spec type</h3>
+
+<p>Now that <code>ActiveJob</code> is part of Rails, rspec-rails has a new <code>:job</code> spec
+type that you can opt into by either tagging your example group with
+<code>:type =&gt; :job</code> or putting the spec file in <code>spec/jobs</code> if you've
+enabled <code>infer_spec_type_from_file_location!</code>.</p>
+
+<p>Thanks to Gabe Martin-Dempesy for this improvement!</p>
+
+<h2 id="stats">Stats</h2>
+
+<h3 id="combined">Combined:</h3>
+
+<ul>
+  <li><strong>Total Commits</strong>: 769</li>
+  <li><strong>Merged pull requests</strong>: 200</li>
+  <li><strong>49 contributors</strong>: Aaron Kromer, Alex Kwiatkowski, Andrey Botalov, Anton Davydov, Ben Axnick, Benjamin Fleischer, Bradley Schaefer, ChrisArcand, David Daniell, Denis Laliberté, Eugene Kenny, Fabian Wiesel, Fabien Schurter, Fabio Napoleoni, Gabe Martin-Dempesy, Gavin Miller, Igor Zubkov, Jared Beck, Jean van der Walt, Joe Grossberg, Johannes Gorset, John Ceh, Jon Rowe, Josh Cheek, Leo Arnold, Lucas Mazza, Mark Swinson, Mauricio Linhares, Melissa Xie, Myron Marston, Nicholas Chmielewski, Nicholas Henry, Orien Madgwick, Pavel Shpak, Raymond Sanchez, Ryan Mulligan, Ryan Ong, Sam Phippen, Samnang Chhun, Samuel Esposito, Siva Gollapalli, Tim Wade, Tony Ta, Vít Ondruch, Yule, charlierudolph, machty, raymond sanchez, takiy33</li>
+</ul>
+
+<h3 id="rspec-core">rspec-core:</h3>
+
+<ul>
+  <li><strong>Total Commits</strong>: 323</li>
+  <li><strong>Merged pull requests</strong>: 65</li>
+  <li><strong>19 contributors</strong>: Alex Kwiatkowski, Ben Axnick, Benjamin Fleischer, Denis Laliberté, Eugene Kenny, Fabien Schurter, Fabio Napoleoni, Jon Rowe, Josh Cheek, Leo Arnold, Mark Swinson, Melissa Xie, Myron Marston, Raymond Sanchez, Ryan Ong, Samuel Esposito, Yule, raymond sanchez, takiy33</li>
+</ul>
+
+<h3 id="rspec-expectations">rspec-expectations:</h3>
+
+<ul>
+  <li><strong>Total Commits</strong>: 148</li>
+  <li><strong>Merged pull requests</strong>: 40</li>
+  <li><strong>12 contributors</strong>: Andrey Botalov, ChrisArcand, Fabien Schurter, Gavin Miller, Jared Beck, Jon Rowe, Myron Marston, Ryan Mulligan, Tim Wade, charlierudolph, machty, takiy33</li>
+</ul>
+
+<h3 id="rspec-mocks">rspec-mocks:</h3>
+
+<ul>
+  <li><strong>Total Commits</strong>: 132</li>
+  <li><strong>Merged pull requests</strong>: 39</li>
+  <li><strong>13 contributors</strong>: Bradley Schaefer, Fabien Schurter, John Ceh, Jon Rowe, Mauricio Linhares, Myron Marston, Nicholas Henry, Pavel Shpak, Sam Phippen, Samnang Chhun, Siva Gollapalli, Tim Wade, takiy33</li>
+</ul>
+
+<h3 id="rspec-rails">rspec-rails:</h3>
+
+<ul>
+  <li><strong>Total Commits</strong>: 83</li>
+  <li><strong>Merged pull requests</strong>: 24</li>
+  <li><strong>15 contributors</strong>: Aaron Kromer, Anton Davydov, David Daniell, Gabe Martin-Dempesy, Igor Zubkov, Jean van der Walt, Joe Grossberg, Johannes Gorset, Jon Rowe, Lucas Mazza, Myron Marston, Orien Madgwick, Tony Ta, Vít Ondruch, takiy33</li>
+</ul>
+
+<h3 id="rspec-support">rspec-support:</h3>
+
+<ul>
+  <li><strong>Total Commits</strong>: 83</li>
+  <li><strong>Merged pull requests</strong>: 32</li>
+  <li><strong>8 contributors</strong>: Benjamin Fleischer, Fabian Wiesel, Gavin Miller, Jon Rowe, Myron Marston, Nicholas Chmielewski, Siva Gollapalli, takiy33</li>
+</ul>
+
+<h2 id="docs">Docs</h2>
+
+<h3 id="api-docs">API Docs</h3>
+
+<ul>
+  <li><a href="/documentation/3.2/rspec-core/">rspec-core</a></li>
+  <li><a href="/documentation/3.2/rspec-expectations/">rspec-expectations</a></li>
+  <li><a href="/documentation/3.2/rspec-mocks/">rspec-mocks</a></li>
+  <li><a href="/documentation/3.2/rspec-rails/">rspec-rails</a></li>
+</ul>
+
+<h3 id="cucumber-features">Cucumber Features</h3>
+
+<ul>
+  <li><a href="http://relishapp.com/rspec/rspec-core">rspec-core</a></li>
+  <li><a href="http://relishapp.com/rspec/rspec-expectations">rspec-expectations</a></li>
+  <li><a href="http://relishapp.com/rspec/rspec-mocks">rspec-mocks</a></li>
+  <li><a href="http://relishapp.com/rspec/rspec-rails">rspec-rails</a></li>
+</ul>
+
+<h2 id="release-notes">Release Notes</h2>
+
+<h3 id="rspec-core-330">rspec-core-3.3.0</h3>
+<p><a href="http://github.com/rspec/rspec-core/compare/v3.2.3...v3.3.0">Full Changelog</a></p>
+
+<p>Enhancements:</p>
+
+<ul>
+  <li>Expose the reporter used to run examples via <code>RSpec::Core::Example#reporter</code>.
+(Jon Rowe, #1866)</li>
+  <li>Make <code>RSpec::Core::Reporter#message</code> a public supported API. (Jon Rowe, #1866)</li>
+  <li>Allow custom formatter events to be published via
+<code>RSpec::Core::Reporter#publish(event_name, hash_of_attributes)</code>. (Jon Rowe, #1869)</li>
+  <li>Remove dependency on the standard library <code>Set</code> and replace with <code>RSpec::Core::Set</code>.
+(Jon Rowe, #1870)</li>
+  <li>Assign a unique id to each example and group so that they can be
+uniquely identified, even for shared examples (and similar situations)
+where the location isn't unique. (Myron Marston, #1884)</li>
+  <li>Use the example id in the rerun command printed for failed examples
+when the location is not unique. (Myron Marston, #1884)</li>
+  <li>Add <code>config.example_status_persistence_file_path</code> option, which is
+used to persist the last run status of each example. (Myron Marston, #1888)</li>
+  <li>Add <code>:last_run_status</code> metadata to each example, which indicates what
+happened the last time an example ran. (Myron Marston, #1888)</li>
+  <li>Add <code>--only-failures</code> CLI option which filters to only the examples
+that failed the last time they ran. (Myron Marston, #1888)</li>
+  <li>Add <code>--next-failure</code> CLI option which allows you to repeatedly focus
+on just one of the currently failing examples, then move on to the
+next failure, etc. (Myron Marston, #1888)</li>
+  <li>Make <code>--order random</code> ordering stable, so that when you rerun a
+subset with a given seed, the examples will be order consistently
+relative to each other. (Myron Marston, #1908)</li>
+  <li>Set example group constant earlier so errors when evaluating the context
+include the example group name (Myron Marson, #1911)</li>
+  <li>Make <code>let</code> and <code>subject</code> threadsafe. (Josh Cheek, #1858)</li>
+  <li>Add version information into the JSON formatter. (Mark Swinson, #1883)</li>
+  <li>Add <code>--bisect</code> CLI option, which will repeatedly run your suite in
+order to isolate the failures to the smallest reproducible case.
+(Myron Marston, #1917)</li>
+  <li>For <code>config.include</code>, <code>config.extend</code> and <code>config.prepend</code>, apply the
+module to previously defined matching example groups. (Eugene Kenny, #1935)</li>
+  <li>When invalid options are parsed, notify users where they came from
+(e.g. <code>.rspec</code> or <code>~/.rspec</code> or <code>ENV['SPEC_OPTS']</code>) so they can
+easily find the source of the problem. (Myron Marston, #1940)</li>
+  <li>Add pending message contents to the json formatter output. (Jon Rowe, #1949)</li>
+  <li>Add shared group backtrace to the output displayed by the built-in
+formatters for pending examples that have been fixed. (Myron Marston, #1946)</li>
+  <li>Add support for <code>:aggregate_failures</code> metadata. Tag an example or
+group with this metadata and it'll use rspec-expectations'
+<code>aggregate_failures</code> feature to allow multiple failures in an example
+and list them all, rather than aborting on the first failure. (Myron
+Marston, #1946)</li>
+  <li>When no formatter implements #message add a fallback to prevent those
+messages being lost. (Jon Rowe, #1980)</li>
+  <li>Profiling examples now takes into account time spent in <code>before(:context)</code>
+hooks. (Denis Laliberté, Jon Rowe, #1971)</li>
+  <li>Improve failure output when an example has multiple exceptions, such
+as one from an <code>it</code> block and one from an <code>after</code> block. (Myron Marston, #1985)</li>
+</ul>
+
+<p>Bug Fixes:</p>
+
+<ul>
+  <li>Handle invalid UTF-8 strings within exception methods. (Benjamin Fleischer, #1760)</li>
+  <li>Fix Rake Task quoting of file names with quotes to work properly on
+Windows. (Myron Marston, #1887)</li>
+  <li>Fix <code>RSpec::Core::RakeTask#failure_message</code> so that it gets printed
+when the task failed. (Myron Marston, #1905)</li>
+  <li>Make <code>let</code> work properly when defined in a shared context that is applied
+to an individual example via metadata. (Myron Marston, #1912)</li>
+  <li>Ensure <code>rspec/autorun</code> respects configuration defaults. (Jon Rowe, #1933)</li>
+  <li>Prevent modules overriding example group defined methods when included,
+prepended or extended by config defined after an example group. (Eugene Kenny, #1935)</li>
+  <li>Fix regression which caused shared examples to be mistakenly run when specs
+where filtered to a particular location.  (Ben Axnick, #1963)</li>
+  <li>Fix time formatting logic so that it displays 70 seconds as "1 minute,
+10 seconds" rather than "1 minute, 1 second". (Paul Brennan, #1984)</li>
+  <li>Fix regression where the formatter loader would allow duplicate formatters.
+(Jon Rowe, #1990)</li>
+</ul>
+
+<h3 id="rspec-expectations-330">rspec-expectations-3.3.0</h3>
+<p><a href="http://github.com/rspec/rspec-expectations/compare/v3.2.1...v3.3.0">Full Changelog</a></p>
+
+<p>Enhancements:</p>
+
+<ul>
+  <li>Expose <code>RSpec::Matchers::EnglishPhrasing</code> to make it easier to write
+nice failure messages in custom matchers. (Jared Beck, #736)</li>
+  <li>Add <code>RSpec::Matchers::FailMatchers</code>, a mixin which provides
+<code>fail</code>, <code>fail_with</code> and <code>fail_including</code> matchers for use in
+specifying that an expectation fails for use by
+extension/plugin authors. (Charlie Rudolph, #729)</li>
+  <li>Avoid loading <code>tempfile</code> (and its dependencies) unless
+it is absolutely needed. (Myron Marston, #735)</li>
+  <li>Improve failure output when attempting to use <code>be_true</code> or <code>be_false</code>.
+(Tim Wade, #744)</li>
+  <li>Define <code>RSpec::Matchers#respond_to_missing?</code> so that
+<code>RSpec::Matchers#respond_to?</code> and <code>RSpec::Matchers#method</code> handle
+dynamic predicate matchers. (Andrei Botalov, #751)</li>
+  <li>Use custom Time/DateTime/BigDecimal formatting for all matchers
+so they are consistently represented in failure messages.
+(Gavin Miller, #740)</li>
+  <li>Add configuration to turn off warnings about matcher combinations that
+may cause false positives. (Jon Rowe, #768)</li>
+  <li>Warn when using a bare <code>raise_error</code> matcher that you may be subject to
+false positives. (Jon Rowe, #768)</li>
+  <li>Warn rather than raise when using the<code>raise_error</code> matcher in negative
+expectations that may be subject to false positives. (Jon Rowe, #775)</li>
+  <li>Improve failure message for <code>include(a, b, c)</code> so that if <code>a</code> and <code>b</code>
+are included the failure message only mentions <code>c</code>. (Chris Arcand, #780)</li>
+  <li>Allow <code>satisfy</code> matcher to take an optional description argument
+that will be used in the <code>description</code>, <code>failure_message</code> and
+<code>failure_message_when_negated</code> in place of the undescriptive
+"sastify block". (Chris Arcand, #783)</li>
+  <li>Add new <code>aggregate_failures</code> API that allows multiple independent
+expectations to all fail and be listed in the failure output, rather
+than the example aborting on the first failure. (Myron Marston, #776)</li>
+  <li>Improve <code>raise_error</code> matcher so that it can accept a matcher as a single argument
+that matches the message. (Time Wade, #782)</li>
+</ul>
+
+<p>Bug Fixes:</p>
+
+<ul>
+  <li>Make <code>contain_exactly</code> / <code>match_array</code> work with strict test doubles
+that have not defined <code>&lt;=&gt;</code>. (Myron Marston, #758)</li>
+  <li>Fix <code>include</code> matcher so that it omits the diff when it would
+confusingly highlight items that are actually included but are not
+an exact match in a line-by-line diff. (Tim Wade, #763)</li>
+  <li>Fix <code>match</code> matcher so that it does not blow up when matching a string
+or regex against another matcher (rather than a string or regex).
+(Myron Marston, #772)</li>
+  <li>Silence whitespace-only diffs. (Myron Marston, #801)</li>
+</ul>
+
+<h3 id="rspec-mocks-330">rspec-mocks-3.3.0</h3>
+<p><a href="http://github.com/rspec/rspec-mocks/compare/v3.2.1...v3.3.0">Full Changelog</a></p>
+
+<p>Enhancements:</p>
+
+<ul>
+  <li>When stubbing <code>new</code> on <code>MyClass</code> or <code>class_double(MyClass)</code>, use the
+method signature from <code>MyClass#initialize</code> to verify arguments.
+(Myron Marston, #886)</li>
+  <li>Use matcher descriptions when generating description of received arguments
+for mock expectation failures. (Tim Wade, #891)</li>
+  <li>Avoid loading <code>stringio</code> unnecessarily. (Myron Marston, #894)</li>
+  <li>Verifying doubles failure messages now distinguish between class and instance
+level methods. (Tim Wade, #896, #908)</li>
+  <li>Improve mock expectation failure messages so that it combines both
+number of times and the received arguments in the output. (John Ceh, #918)</li>
+  <li>Improve how test doubles are represented in failure messages.
+(Siva Gollapalli, Myron Marston, #932)</li>
+  <li>Rename <code>RSpec::Mocks::Configuration#when_declaring_verifying_double</code> to
+<code>RSpec::Mocks::Configuration#before_verifying_doubles</code> and utilise when
+verifying partial doubles. (Jon Rowe, #940)</li>
+  <li>Use rspec-support's <code>ObjectFormatter</code> for improved formatting of
+arguments in failure messages so that, for example, full time
+precisions is displayed for time objects. (Gavin Miller, Myron Marston, #955)</li>
+</ul>
+
+<p>Bug Fixes:</p>
+
+<ul>
+  <li>Ensure expectations that raise eagerly also raise during RSpec verification.
+This means that if exceptions are caught inside test execution the test will
+still fail. (Sam Phippen, #884)</li>
+  <li>Fix <code>have_received(msg).with(args).exactly(n).times</code> and
+<code>receive(msg).with(args).exactly(n).times</code> failure messages
+for when the message was received the wrong number of times with
+the specified args, and also received additional times with other
+arguments. Previously it confusingly listed the arguments as being
+mis-matched (even when the double was allowed to receive with any
+args) rather than listing the count. (John Ceh, #918)</li>
+  <li>Fix <code>any_args</code>/<code>anything</code> support so that we avoid calling <code>obj == anything</code>
+on user objects that may have improperly implemented <code>==</code> in a way that
+raises errors. (Myron Marston, #924)</li>
+  <li>Fix edge case involving stubbing the same method on a class and a subclass
+which previously hit a <code>NoMethodError</code> internally in RSpec. (Myron Marston #954)</li>
+  <li>Fix edge case where the message received count would be incremented multiple
+times for one failure. (Myron Marston, #957)</li>
+  <li>Fix failure messages for when spies received the expected message with
+different arguments and also received another message. (Maurício Linhares, #960)</li>
+  <li>Silence whitespace-only diffs. (Myron Marston, #969)</li>
+</ul>
+
+<h3 id="rspec-rails-330">rspec-rails-3.3.0</h3>
+<p><a href="http://github.com/rspec/rspec-rails/compare/v3.2.3...v3.3.0">Full Changelog</a></p>
+
+<p>Enhancements:</p>
+
+<ul>
+  <li>Add support for PATCH to route specs created via scaffold. (Igor Zubkov, #1336)</li>
+  <li>Improve controller and routing spec calls to <code>routes</code> by using <code>yield</code>
+instead of <code>call</code>. (Anton Davydov, #1308)</li>
+  <li>Add support for <code>ActiveJob</code> specs as standard <code>RSpec::Rails::RailsExampleGoup</code>s
+via both <code>:type =&gt; :job</code> and inferring type from spec directory <code>spec/jobs</code>.
+(Gabe Martin-Dempesy, #1361)</li>
+  <li>Include <code>RSpec::Rails::FixtureSupport</code> into example groups using metadata
+<code>:use_fixtures =&gt; true</code>. (Aaron Kromer, #1372)</li>
+  <li>Include <code>rspec:request</code> generator for generating request specs; this is an
+alias of <code>rspec:integration</code> (Aaron Kromer, #1378)</li>
+  <li>Update <code>rails_helper</code> generator with a default check to abort the spec run
+when the Rails environment is production. (Aaron Kromer, #1383)</li>
+</ul>
+
+<h3 id="rspec-support-330">rspec-support-3.3.0</h3>
+<p><a href="http://github.com/rspec/rspec-support/compare/v3.2.2...v3.3.0">Full Changelog</a></p>
+
+<p>Enhancements:</p>
+
+<ul>
+  <li>Improve formatting of arrays and hashes in failure messages so they
+use our custom formatting of matchers, time objects, etc.
+(Myron Marston, Nicholas Chmielewski, #205)</li>
+  <li>Use improved formatting for diffs as well. (Nicholas Chmielewski, #205)</li>
+</ul>
+
+<p>Bug Fixes:</p>
+
+<ul>
+  <li>Fix <code>FuzzyMatcher</code> so that it checks <code>expected == actual</code> rather than
+<code>actual == expected</code>, which avoids errors in situations where the
+<code>actual</code> object's <code>==</code> is improperly implemented to assume that only
+objects of the same type will be given. This allows rspec-mocks'
+<code>anything</code> to match against objects with buggy <code>==</code> definitions.
+(Myron Marston, #193)</li>
+</ul>
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+  var disqus_shortname  = 'rspec';
+  var disqus_identifier = '/blog/2015/06/rspec-3-3-has-been-released/';
+  var disqus_title      = 'RSpec 3.3 has been released!';
+  var disqus_url        = 'http://rspec.info/blog/2015/06/rspec-3-3-has-been-released/';
+
+  /* * * DON'T EDIT BELOW THIS LINE * * */
+  (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</article></section><footer><div>Created with the assistance of Ninefold<img alt="Brutus" src="/images/brutus-half.png" /></div><br /><a href="https://dnsimple.link/resolving-rspec" target="_blank">Resolving with<br /><img alt="DNSimple" style="width:100px;" src="https://cdn.dnsimple.com/assets/resolving-with-us/logo-dark.png" /></a></footer><script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-59095215-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<script>
+  var SeedAndDewConfig = {};
+  (function() {
+    SeedAndDewConfig['adClass'] = "snd-ad";
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    SeedAndDewConfig['projectId'] = 'ef35b4ec-231e-4950-bd93-4c06fe3b2543';
+    SeedAndDewConfig['loadStartTime'] = performance.now();
+    SeedAndDewConfig['apiVersion'] = '2018-05-28'
+    SeedAndDewConfig['sessionId'] = Math.random().toString(36).substring(2, 15);
+    var snd = document.createElement('script');
+    snd.type = 'text/javascript';
+    snd.async = true;
+    snd.src = 'https://www.seedanddew.com/static/embed.min.js';
+    (document.getElementsByTagName('head')[0] ||
+    document.getElementsByTagName('body')[0]).appendChild(snd);
+  })();
+</script>
+</body><script src="/javascripts/asciinema-player.js"></script></html>
