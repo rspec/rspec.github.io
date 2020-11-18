@@ -227,7 +227,7 @@ users plenty of time to get acquianted with it.
 
 Let us know what you think!
 
-[^foot_1]: As [Mislav reports](http://mislav.uniqpath.com/2011/06/ruby-verbose-mode/), when warnings are turned on, you can get a "Useless use of == in void context" warning.
+[^foot_1]: As [Mislav reports](https://mislav.net/2011/06/ruby-verbose-mode/), when warnings are turned on, you can get a "Useless use of == in void context" warning.
 
 [^foot_2]: On ruby 1.8, `x.should != y` is syntactic sugar for `!(x.should == y)` and RSpec has no way to distinguish `should ==` from `should !=`. On 1.9, we can distinguish between them (since `!=` can now be defined as a separate method), but it would be confusing to support it on 1.9 but not on 1.8, so we [decided to just raise an error instead](https://github.com/rspec/rspec-expectations/issues/33).
 
