@@ -1,7 +1,7 @@
-@import "./../application";
+@import "../application.css.scss";
 
 section {
-  @include outer-container;
+  // @include outer-container;
   padding-top: 3em;
 
   h2 {
@@ -10,8 +10,8 @@ section {
   }
 
   article {
-    @include span-columns(10);
-    @include shift(1);
+    // @include span-columns(10);
+    // @include shift(1);
 
     p {
       font-size: 1.1em;
@@ -56,12 +56,12 @@ div.people {
     display: inline-block;
     text-align: center;
     width: 1023px;
-    @include clearfix;
-    @include outer-container;
+    // @include clearfix;
+    // @include outer-container;
 
     .box {
-      @include border-top-radius(5px);
-      @include border-bottom-radius(5px);
+      border-top-radius: 5px;
+      border-bottom-radius: 5px;
       background-color: #fff;
       margin: 7px;
 
@@ -74,7 +74,7 @@ div.people {
       }
 
       a img {
-        @include size(25px);
+        // @include size(25px);
         opacity: 0.4;
         margin: 5px;
       }
@@ -83,14 +83,14 @@ div.people {
 
   .team-list {
     .box {
-      @include span-columns(3);
+      // @include span-columns(3);
 
       &:nth-of-type(1) {
-        @include shift(1.5);
+        // @include shift(1.5);
       }
 
       &:nth-of-type(3n+1) {
-        @include shift(1.5);
+        // @include shift(1.5);
         clear: left;
       }
 
@@ -105,11 +105,11 @@ div.people {
 
   .alumni-list {
     .box {
-      @include span-columns(2);
+      // @include span-columns(2);
 
       &:nth-of-type(1),
       &:nth-of-type(5n+1) {
-        @include shift(1);
+        // @include shift(1);
       }
     }
   }

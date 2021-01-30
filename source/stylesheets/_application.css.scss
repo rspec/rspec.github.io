@@ -1,14 +1,23 @@
 //= normalize
 
-@import "normalize";
-@import "asciinema-player";
-@import "bourbon";
+@import "normalize.css.scss";
+@import "asciinema-player.css.scss";
 @import "partials/variables";
 @import "bitters/bitters";
-@import "neat";
+// @import "neat/neat";
 @import "partials/header";
 @import "partials/footer";
 @import "partials/code";
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+::before,
+::after {
+  box-sizing: inherit;
+}
 
 hr {
   margin: 77px auto;

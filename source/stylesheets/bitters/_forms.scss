@@ -35,9 +35,9 @@ label {
   }
 }
 
-textarea,
-#{$all-text-inputs} {
-  @include transition(border-color);
+textarea {
+// #{$all-text-inputs} {
+  transition: border-color;
   background-color: white;
   border-radius: $form-border-radius;
   border: 1px solid $form-border-color;
@@ -62,7 +62,7 @@ textarea,
 }
 
 input[type="search"] {
-  @include appearance(none);
+  appearance: none;
 }
 
 input[type="checkbox"],
@@ -83,7 +83,7 @@ select {
 button,
 input[type="submit"] {
   @extend %button;
-  @include appearance(none);
+  appearance: none;
   cursor: pointer;
   user-select: none;
   vertical-align: middle;
