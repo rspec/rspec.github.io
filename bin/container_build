@@ -1,0 +1,7 @@
+#!/bin/bash
+# Internal command to build the Docker container before every command that needs
+# the Docker container.
+
+set -eu
+
+docker build -t rspec-middleman:latest .

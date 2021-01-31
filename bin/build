@@ -1,0 +1,7 @@
+#!/bin/bash
+# Build the middleman site in the Docker container.
+
+set -eu
+
+bin/container_build
+docker run -it --rm --volume "$(pwd):/app" rspec-middleman:latest /container_build.sh

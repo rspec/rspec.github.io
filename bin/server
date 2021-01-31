@@ -1,0 +1,8 @@
+#!/bin/bash
+# Start the middleman server in the Docker container.
+# Access the server at http://localhost:4567
+
+set -eu
+
+bin/container_build
+docker run -it --rm --volume "$(pwd):/app" --publish 4567:4567 rspec-middleman:latest

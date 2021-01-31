@@ -17,9 +17,21 @@ Run `LIVERELOAD=true middleman server`
 
 ## Docker Setup + Development
 
-If you don't have a local Ruby environment suitable to making changes to rspec.info,
-or prefer containerised development; you can find a 3rd party Docker image setup for
-this environment here: https://hub.docker.com/r/2performantirina/middleman-and-imagemagick
+If you don't have a local Ruby environment suitable to making changes to
+rspec.info, or prefer containerised development; use the following scripts to
+build the included Docker image and build the site in the containerised
+environment instead.
+
+```
+# Start the middleman server. Access site at http://localhost:4567
+bin/server
+
+# Build the site in the `docs/` directory. Replacement for `middleman build`.
+bin/build
+
+# Start a console inside the docker container. Useful for debugging or running commands locally.
+bin/console
+```
 
 ## Deploying
 
