@@ -1,7 +1,7 @@
 @import "../application.css.scss";
 
 section {
-  // @include outer-container;
+  @include outer-container;
   padding-top: 3em;
 
   h2 {
@@ -10,8 +10,8 @@ section {
   }
 
   article {
-    // @include span-columns(10);
-    // @include shift(1);
+    @include span-columns(10);
+    @include shift(1);
 
     p {
       font-size: 1.1em;
@@ -57,7 +57,7 @@ div.people {
     text-align: center;
     width: 1023px;
     @include clearfix;
-    // @include outer-container;
+    @include outer-container;
 
     .box {
       border-top-radius: 5px;
@@ -84,14 +84,14 @@ div.people {
 
   .team-list {
     .box {
-      // @include span-columns(3);
+      @include span-columns(3);
 
       &:nth-of-type(1) {
-        // @include shift(1.5);
+        @include shift(1.5);
       }
 
       &:nth-of-type(3n+1) {
-        // @include shift(1.5);
+        @include shift(1.5);
         clear: left;
       }
 
@@ -106,11 +106,11 @@ div.people {
 
   .alumni-list {
     .box {
-      // @include span-columns(2);
+      @include span-columns(2);
 
       &:nth-of-type(1),
       &:nth-of-type(5n+1) {
-        // @include shift(1);
+        @include shift(1);
       }
     }
   }

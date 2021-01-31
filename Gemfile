@@ -10,8 +10,8 @@ gem 'bigdecimal', '1.3.5'
 
 group :development do
   gem "bundler", "~> 1.17.3" # Middleman depend in bundler 1.x
-  gem "bourbon"
-  gem "neat"
+  gem "bourbon", "4.2.2"
+  gem "neat", "1.7.2"
   gem "slim"
   gem "builder", "~> 3.0" # For feed.xml.builder
 
