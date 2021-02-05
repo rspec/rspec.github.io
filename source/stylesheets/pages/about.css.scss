@@ -1,4 +1,4 @@
-@import "application";
+@import "../application.css.scss";
 
 section {
   @include outer-container;
@@ -60,8 +60,8 @@ div.people {
     @include outer-container;
 
     .box {
-      @include border-top-radius(5px);
-      @include border-bottom-radius(5px);
+      border-top-radius: 5px;
+      border-bottom-radius: 5px;
       background-color: #fff;
       margin: 7px;
 
@@ -74,7 +74,8 @@ div.people {
       }
 
       a img {
-        @include size(25px);
+        width: 25px;
+        height: 25px;
         opacity: 0.4;
         margin: 5px;
       }

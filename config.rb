@@ -1,6 +1,11 @@
 $LOAD_PATH << File.expand_path('../lib', __FILE__)
 require 'patches/uri'
 
+# Assets
+# Framework requires set themselves up
+require 'bourbon'
+require 'neat'
+
 # dev mode addons
 activate :livereload if ENV['LIVERELOAD']
 
@@ -46,14 +51,24 @@ set :markdown_engine, :kramdown
 activate :directory_indexes
 
 page "documentation/**/*.html", directory_index: false
-config[:ignored_sitemap_matchers][:partials] = ->(file) do
+config[:ignored_sitemap_matchers][:partials] = ->(source_file, _) do
   # Only files with 1 (but not two) underscores at the start
   # of the file name are candidates for being considered a partial.
-  return false unless file =~ %r{/_[^_]}
+  ignored = false
+  source_file[:relative_path].ascend do |f|
+    if /^_[^_]/.match?(f.basename.to_s)
+      ignored = true
+      break
+    end
+  end
 
   # ...but not our generated docs -- YARD generates `_index.html` files
   # which are not partials.
-  file !~ %r{source/documentation/[0-9\.]+/}
+  if source_file[:full_path].to_s =~ %r{source/documentation/[0-9\.]+/}
+    ignored = false
+  end
+
+  ignored
 end
 
 set :build_dir,  'docs'
@@ -98,10 +113,10 @@ end
 require 'rspec_info/helpers'
 helpers RSpecInfo::Helpers
 
-RSpecInfo::Helpers.rspec_documentation_latest(source_dir).each do |gem_name, version|
-  Dir.glob(File.join(source_dir, "/documentation/#{version}/#{gem_name}/**/*")).select { |f| File.file? f }.each do |f|
-    relative_path = Pathname.new(f).relative_path_from(Pathname.new(source_dir))
-    proxy relative_path.to_s.gsub(version, 'latest'), "redirect-latest.html", locals: { url: '/' + relative_path.to_s }
+RSpecInfo::Helpers.rspec_documentation_latest(app.source_dir).each do |gem_name, version|
+  Dir.glob(File.join(app.source_dir, "/documentation/#{version}/#{gem_name}/**/*.html")).select { |f| File.file? f }.each do |f|
+    relative_path = Pathname.new(f).relative_path_from(Pathname.new(app.source_dir))
+    proxy "/#{relative_path.to_s.gsub(version, 'latest')}", "/redirect-latest.html", locals: { url: '/' + relative_path.to_s }
   end
 end
 
