@@ -2,7 +2,7 @@
 <!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"><![endif]-->
 <!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
 <!--[if IE 8]><html class="no-js lt-ie9" lang="en"><![endif]-->
-<!--[if gt IE 8]<!--><html class="no-js" lang="en"><!--<![endif]--><head><meta charset="UTF-8" /><meta content="width=device-width, initial-scale=1" name="viewport" /><meta content="RSpec's New Expectation Syntax" property="og:title" /><meta content="https://rspec.info/blog/2012/06/rspecs-new-expectation-syntax/" property="og:url" /><meta content="https://rspec.info/images/logo_ogp.png" property="og:image" /><meta content="summary" name="twitter:card" /><meta content="@rspec" name="twitter:site" /><title>RSpec's New Expectation Syntax</title><link href="/stylesheets/pages/blog.css" rel="stylesheet" type="text/css" /><link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" /><link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" type="text/css" /><link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" type="text/css" /><link href="/blog/feed.xml" rel="alternate" type="application/atom+xml" /></head><body class="blog"><header><nav><h1><img alt="Logo" src="/images/logo.png" /><a href="/">RSpec</a></h1><input class="hamburger-toggle" type="checkbox" /><div class="hamburger-icon"><div class="bar"></div><div class="bar"></div><div class="bar"></div></div><ul class="menu"><li><a href="/about">About</a></li><li><a href="/documentation">Documentation</a></li><li><a href="/blog">Blog</a></li><li><a href="/upgrading-from-rspec-2">Upgrade</a></li><li><a href="/help">Get Help</a></li><li><a href="/contributing">Contributing</a></li></ul></nav></header><section><article class="blog_post"><h1>RSpec's New Expectation Syntax</h1><h3 class="author">Myron Marston</h3><small class="date">Jun 15, 2012</small><p>RSpec has featured a readable english-like syntax for setting
+<!--[if gt IE 8]<!--><html class="no-js" lang="en"><!--<![endif]--><head><meta charset="UTF-8" /><meta content="width=device-width, initial-scale=1" name="viewport" /><meta content="RSpec's New Expectation Syntax" property="og:title" /><meta content="https://rspec.info/blog/2012/06/rspecs-new-expectation-syntax/" property="og:url" /><meta content="https://rspec.info/images/logo_ogp.png" property="og:image" /><meta content="summary" name="twitter:card" /><meta content="@rspec" name="twitter:site" /><title>RSpec's New Expectation Syntax</title><link href="/stylesheets/pages/blog.css" rel="stylesheet" /><link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" /><link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" type="text/css" /><link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" type="text/css" /><link href="/blog/feed.xml" rel="alternate" type="application/atom+xml" /></head><body class="blog"><header><nav><h1><img src="/images/logo.png" alt="Logo" /><a href="/">RSpec</a></h1><input class="hamburger-toggle" type="checkbox" /><div class="hamburger-icon"><div class="bar"></div><div class="bar"></div><div class="bar"></div></div><ul class="menu"><li><a href="/about">About</a></li><li><a href="/documentation">Documentation</a></li><li><a href="/blog">Blog</a></li><li><a href="/upgrading-from-rspec-2">Upgrade</a></li><li><a href="/help">Get Help</a></li><li><a href="/contributing">Contributing</a></li></ul></nav></header><section><article class="blog_post"><h1>RSpec's New Expectation Syntax</h1><h3 class="author">Myron Marston</h3><small class="date">Jun 15, 2012</small><p>RSpec has featured a readable english-like syntax for setting
 expectations for a long time:</p>
 
 <div class="highlight"><pre class="highlight ruby"><code><span class="n">foo</span><span class="p">.</span><span class="nf">should</span> <span class="n">eq</span><span class="p">(</span><span class="n">bar</span><span class="p">)</span>
@@ -121,8 +121,8 @@ matchers.</p>
 <p>While operator matchers are intuitive to use, they require
 special handling in RSpec for them to work right, due to Ruby's
 precedence rules. Furthermore, <code>should ==</code> generates a ruby
-warning<sup id="fnref:foot_1"><a href="#fn:foot_1" class="footnote">1</a></sup>, and people have been occasionally surprised by
-the fact that <code>should !=</code> does not work as they might expect<sup id="fnref:foot_2"><a href="#fn:foot_2" class="footnote">2</a></sup>.</p>
+warning<sup id="fnref:foot_1" role="doc-noteref"><a href="#fn:foot_1" class="footnote">1</a></sup>, and people have been occasionally surprised by
+the fact that <code>should !=</code> does not work as they might expect<sup id="fnref:foot_2" role="doc-noteref"><a href="#fn:foot_2" class="footnote">2</a></sup>.</p>
 
 <p>The new syntax affords us the chance to make a clean
 break from the inconsistencies of the operator matchers
@@ -158,7 +158,7 @@ both reads better and continues to work:</p>
 <h2 id="unification-of-block-vs-value-syntaxes">Unification of Block vs. Value Syntaxes</h2>
 
 <p><code>expect</code> has actually been available in RSpec for a long
-time<sup id="fnref:foot_3"><a href="#fn:foot_3" class="footnote">3</a></sup> in a limited form, as a more-readable alternative
+time<sup id="fnref:foot_3" role="doc-noteref"><a href="#fn:foot_3" class="footnote">3</a></sup> in a limited form, as a more-readable alternative
 for block expectations:</p>
 
 <div class="highlight"><pre class="highlight ruby"><code><span class="c1"># rather than:</span>
@@ -204,16 +204,16 @@ users plenty of time to get acquianted with it.</p>
 
 <p>Let us know what you think!</p>
 
-<div class="footnotes">
+<div class="footnotes" role="doc-endnotes">
   <ol>
-    <li id="fn:foot_1">
-      <p>As <a href="http://mislav.uniqpath.com/2011/06/ruby-verbose-mode/">Mislav reports</a>, when warnings are turned on, you can get a "Useless use of == in void context" warning. <a href="#fnref:foot_1" class="reversefootnote">&#8617;</a></p>
+    <li id="fn:foot_1" role="doc-endnote">
+      <p>As <a href="https://mislav.net/2011/06/ruby-verbose-mode/">Mislav reports</a>, when warnings are turned on, you can get a "Useless use of == in void context" warning. <a href="#fnref:foot_1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
-    <li id="fn:foot_2">
-      <p>On ruby 1.8, <code>x.should != y</code> is syntactic sugar for <code>!(x.should == y)</code> and RSpec has no way to distinguish <code>should ==</code> from <code>should !=</code>. On 1.9, we can distinguish between them (since <code>!=</code> can now be defined as a separate method), but it would be confusing to support it on 1.9 but not on 1.8, so we <a href="https://github.com/rspec/rspec-expectations/issues/33">decided to just raise an error instead</a>. <a href="#fnref:foot_2" class="reversefootnote">&#8617;</a></p>
+    <li id="fn:foot_2" role="doc-endnote">
+      <p>On ruby 1.8, <code>x.should != y</code> is syntactic sugar for <code>!(x.should == y)</code> and RSpec has no way to distinguish <code>should ==</code> from <code>should !=</code>. On 1.9, we can distinguish between them (since <code>!=</code> can now be defined as a separate method), but it would be confusing to support it on 1.9 but not on 1.8, so we <a href="https://github.com/rspec/rspec-expectations/issues/33">decided to just raise an error instead</a>. <a href="#fnref:foot_2" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
-    <li id="fn:foot_3">
-      <p>It was originally added <a href="https://github.com/dchelimsky/rspec/commit/7e4f872b4becbd41588da95c0e5d954a6e770293">over 3 years ago!</a> <a href="#fnref:foot_3" class="reversefootnote">&#8617;</a></p>
+    <li id="fn:foot_3" role="doc-endnote">
+      <p>It was originally added <a href="https://github.com/dchelimsky/rspec/commit/7e4f872b4becbd41588da95c0e5d954a6e770293">over 3 years ago!</a> <a href="#fnref:foot_3" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
     </li>
   </ol>
 </div>
@@ -233,7 +233,7 @@ users plenty of time to get acquianted with it.</p>
   })();
 </script>
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-</article></section><footer><div>Created with the assistance of Ninefold<img alt="Brutus" src="/images/brutus-half.png" /></div><br /><a href="https://dnsimple.link/resolving-rspec" target="_blank">Resolving with<br /><img alt="DNSimple" style="width:100px;" src="https://cdn.dnsimple.com/assets/resolving-with-us/logo-dark.png" /></a></footer><script>
+</article></section><footer><div>Created with the assistance of Ninefold<img src="/images/brutus-half.png" alt="Brutus" /></div><br /><a href="https://dnsimple.link/resolving-rspec" target="_blank">Resolving with<br /><img src="https://cdn.dnsimple.com/assets/resolving-with-us/logo-dark.png" alt="DNSimple" style="width:100px;" /></a></footer><script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)

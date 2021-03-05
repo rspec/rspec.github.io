@@ -1,1 +1,0 @@
-<section><p>You should have been automatically forwarded to <a href="/documentation/4.0/rspec-rails/js/app.js">/documentation/4.0/rspec-rails/js/app.js</a>.</p></section>
