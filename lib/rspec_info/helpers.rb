@@ -66,7 +66,21 @@ module RSpecInfo
     end
 
     def documentation_links_for(gem_name)
-      versions = rspec_documentation.fetch(gem_name) { [] }.sort.reverse
+      versions =
+        rspec_documentation
+          .fetch(gem_name) { [] }
+          .sort do |a, b|
+            (a_major, a_minor) = a.split('.').map(&:to_i)
+            (b_major, b_minor) = b.split('.').map(&:to_i)
+
+            major_compare = b_major <=> a_major
+            if major_compare == 0
+              b_minor <=> a_minor
+            else
+              major_compare
+            end
+          end
+
       unless versions.empty?
         content_tag :div, 'class' => 'version-dropdown' do
           list = content_tag :ul do
