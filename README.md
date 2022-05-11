@@ -3,7 +3,7 @@ rspec.github.io
 
 Source for https://rspec.info
 
-Requires a recent version of Ruby (tested on 2.5.3), bundler and imagemagick (to generate favicons).
+Requires a recent version of Ruby (tested on 2.7.5, Ruby 3.x is not yet working), bundler and imagemagick (to generate favicons).
 
 ## Local Setup
 
@@ -35,11 +35,12 @@ bin/console
 
 ## Deploying
 
-Run `bundle exec middleman build`, which will compile the site to `docs`.
+Run `bundle exec middleman build`, which will compile the site to `./docs`. This folder is directly
+served from the `source` branch via the config settings for github pages so in order to deploy you
+only need to run the command locally and push up a PR to your target of choice, which are:
 
-To deploy to staging you can create a PR against https://github.com/RSpec-Staging/rspec-staging.github.io/.
-
-To deploy to production you should create a PR against https://github.com/rspec/rspec.github.io/.
+- To update [https://rspec-staging.gihub.io](https://rspec-staging.gihub.io) use repository https://github.com/RSpec-Staging/rspec-staging.github.io/.
+- To update [https://rspec.info](https://rspec.info) use repository https://github.com/rspec/rspec.github.io/
 
 ## Credits
 
