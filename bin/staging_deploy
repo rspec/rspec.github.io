@@ -1,0 +1,20 @@
+#!/bin/bash
+# Deploy to staging
+
+set -eu
+
+CURRENT_BRANCH="$(git rev-parse --abbrev-ref HEAD)"
+BRANCH_NAME="staging-source-$(ruby -e "puts Time.now.strftime('%Y%m%d%H%M%S')")"
+STAGING_ORIGIN="$(ruby -e "puts %x[git remote -v].split(\"\n\").find { |line| line =~ /rspec-staging.github.io.git/i }.gsub(/\s.*/,'')")"
+
+git co -b $BRANCH_NAME
+
+git rm docs/CNAME
+git commit -m "Remove CNAME"
+
+echo "git push ${STAGING_ORIGIN} ${BRANCH_NAME}:source --force"
+git push ${STAGING_ORIGIN} ${BRANCH_NAME}:source --force
+
+git co ${CURRENT_BRANCH}
+
+git branch -D ${BRANCH_NAME}

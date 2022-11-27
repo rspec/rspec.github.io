@@ -42,6 +42,9 @@ only need to run the command locally and push up a PR to your target of choice, 
 - To update [https://rspec-staging.gihub.io](https://rspec-staging.gihub.io) use repository https://github.com/RSpec-Staging/rspec-staging.github.io/.
 - To update [https://rspec.info](https://rspec.info) use repository https://github.com/rspec/rspec.github.io/
 
+When deploying to the staging repository you should delete `docs/CNAME`, this can be done for you via `bin/staging_deploy`
+
+
 ## Credits
 
 [Andrew Harvey](https://mootpointer.com) - for his incredible effort of making this repository as it is now
