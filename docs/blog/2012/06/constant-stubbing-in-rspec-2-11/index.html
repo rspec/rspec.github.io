@@ -3,16 +3,15 @@
 <!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
 <!--[if IE 8]><html class="no-js lt-ie9" lang="en"><![endif]-->
 <!--[if gt IE 8]<!--><html class="no-js" lang="en"><!--<![endif]--><head><meta charset="UTF-8" /><meta content="width=device-width, initial-scale=1" name="viewport" /><meta content="Constant Stubbing in RSpec 2.11" property="og:title" /><meta content="https://rspec.info/blog/2012/06/constant-stubbing-in-rspec-2-11/" property="og:url" /><meta content="https://rspec.info/images/logo_ogp.png" property="og:image" /><meta content="summary" name="twitter:card" /><meta content="@rspec" name="twitter:site" /><title>Constant Stubbing in RSpec 2.11</title><link href="/stylesheets/pages/blog.css" rel="stylesheet" /><link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" /><link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" type="text/css" /><link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" type="text/css" /><link href="/blog/feed.xml" rel="alternate" type="application/atom+xml" /></head><body class="blog"><header><nav><h1><img src="/images/logo.png" alt="Logo" /><a href="/">RSpec</a></h1><input class="hamburger-toggle" type="checkbox" /><div class="hamburger-icon"><div class="bar"></div><div class="bar"></div><div class="bar"></div></div><ul class="menu"><li><a href="/about">About</a></li><li><a href="/documentation">Documentation</a></li><li><a href="/blog">Blog</a></li><li><a href="/upgrading-from-rspec-2">Upgrade</a></li><li><a href="/help">Get Help</a></li><li><a href="/contributing">Contributing</a></li></ul></nav></header><section><article class="blog_post"><h1>Constant Stubbing in RSpec 2.11</h1><h3 class="author">Myron Marston</h3><small class="date">Jun 29, 2012</small><p>In the 2.11 release, rspec-mocks is gaining a significant new
-capability that, as far as I know, isn't provided by any other
-ruby mocking library: constant stubbing<sup id="fnref:foot_1" role="doc-noteref"><a href="#fn:foot_1" class="footnote" rel="footnote">1</a></sup>.</p>
+capability that, as far as I know, isn&rsquo;t provided by any other
+ruby mocking library: constant stubbing[^foot_1].</p>
 
-<p>Let's look at the API, and then talk a bit about some of
+<p>Let&rsquo;s look at the API, and then talk a bit about some of
 the use cases for it.</p>
 
-<h2 id="the-api">The API</h2>
+<h2>The API</h2>
 
 <p>The main API is <code>stub_const</code>:</p>
-
 <div class="highlight"><pre class="highlight ruby"><code><span class="n">describe</span> <span class="s2">"stub_const"</span> <span class="k">do</span>
   <span class="n">it</span> <span class="s2">"changes the constant value for the duration of the example"</span> <span class="k">do</span>
     <span class="n">stub_const</span><span class="p">(</span><span class="s2">"Foo::SIZE"</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
@@ -29,7 +28,6 @@ to their original values.</p>
 
 <p>Note that constant names must be fully qualified; the current
 module nesting is not considered:</p>
-
 <div class="highlight"><pre class="highlight ruby"><code><span class="k">module</span> <span class="nn">MyGem</span>
   <span class="k">class</span> <span class="nc">SomeClass</span><span class="p">;</span> <span class="k">end</span>
 <span class="k">end</span>
@@ -52,18 +50,16 @@ module nesting is not considered:</p>
 </code></pre></div>
 <p><code>stub_const</code> also supports a <code>:transfer_nested_constants</code> option.
 Consider a case where you have nested constants:</p>
-
 <div class="highlight"><pre class="highlight ruby"><code><span class="k">class</span> <span class="nc">CardDeck</span>
   <span class="no">SUITS</span> <span class="o">=</span> <span class="p">[</span><span class="ss">:spades</span><span class="p">,</span> <span class="ss">:diamonds</span><span class="p">,</span> <span class="ss">:clubs</span><span class="p">,</span> <span class="ss">:hearts</span><span class="p">]</span>
   <span class="no">NUM_CARDS</span> <span class="o">=</span> <span class="mi">52</span>
 <span class="k">end</span>
 </code></pre></div>
-<p><code>stub_const("CardDeck", fake_class)</code> cuts off access to the
+<p><code>stub_const(&quot;CardDeck&quot;, fake_class)</code> cuts off access to the
 nested constants (<code>CardDeck::SUITS</code> and <code>CardDeck::NUM_CARDS</code>),
 unless you manually assign <code>fake_class::SUITS</code> and
 <code>fake_class::NUM_CARDS</code>. The <code>:transfer_nested_constants</code>
 option is provided to take care of this for you:</p>
-
 <div class="highlight"><pre class="highlight ruby"><code><span class="c1"># Default behavior:</span>
 <span class="n">fake_class</span> <span class="o">=</span> <span class="no">Class</span><span class="p">.</span><span class="nf">new</span>
 <span class="n">stub_const</span><span class="p">(</span><span class="s2">"CardDeck"</span><span class="p">,</span> <span class="n">fake_class</span><span class="p">)</span>
@@ -81,38 +77,32 @@ option is provided to take care of this for you:</p>
 <span class="no">CardDeck</span><span class="o">::</span><span class="no">SUITS</span> <span class="c1"># =&gt; [:spades, :diamonds, :clubs, :hearts]</span>
 <span class="no">CardDeck</span><span class="o">::</span><span class="no">NUM_CARDS</span> <span class="c1"># =&gt; raises uninitialized constant error</span>
 </code></pre></div>
-<h2 id="use-cases">Use Cases</h2>
+<h2>Use Cases</h2>
 
-<p>I've found this useful in a few different situations:</p>
+<p>I&rsquo;ve found this useful in a few different situations:</p>
 
 <ul>
-  <li>It provides a simple way to change a class setting expressed as
-a constant for one test. In the past, I've often defined static
+<li>It provides a simple way to change a class setting expressed as
+a constant for one test. In the past, I&rsquo;ve often defined static
 class methods just so they could be stubbed, even though it
 made more sense to use a constant. Now you can just use a constant!</li>
-  <li>It makes dependency injection easy when the class-under-test
-depends on a collaborator's class method (e.g. when the collaborator
-is stateless). You can easily stub the collaborator's class constant
+<li>It makes dependency injection easy when the class-under-test
+depends on a collaborator&rsquo;s class method (e.g. when the collaborator
+is stateless). You can easily stub the collaborator&rsquo;s class constant
 with a test double.</li>
-  <li>It makes stubbing unloaded dependencies dead-simple. Gary
+<li>It makes stubbing unloaded dependencies dead-simple. Gary
 Bernhardt discussed this situation at length in <a href="https://www.destroyallsoftware.com/screencasts/catalog/stubbing-unloaded-dependencies">Destroy all
 Software #46</a>.
 He mentioned mutating constants as a possible way of stubbing unloaded
 dependencies, but recommended against it because of the complexity
-of safely managing this. Now that rspec-mocks can do it for you, it's
+of safely managing this. Now that rspec-mocks can do it for you, it&rsquo;s
 far less complex, and much, much safer.</li>
 </ul>
 
-<p>If you're curious how it all works, check out the <a href="https://github.com/rspec/rspec-mocks/blob/2-11-maintenance/lib/rspec/mocks/stub_const.rb">source on
+<p>If you&rsquo;re curious how it all works, check out the <a href="https://github.com/rspec/rspec-mocks/blob/2-11-maintenance/lib/rspec/mocks/stub_const.rb">source on
 github</a>.</p>
 
-<div class="footnotes" role="doc-endnotes">
-  <ol>
-    <li id="fn:foot_1" role="doc-endnote">
-      <p>Actually, this has been available in <a href="https://github.com/xaviershay/rspec-fire">rspec-fire</a> for a good four months or so. But it's not really a full mocking library…it builds on top of rspec-mocks, and now this functionality has been ported over to rspec-mocks. <a href="#fnref:foot_1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
-    </li>
-  </ol>
-</div>
+<p>[^foot_1]: Actually, this has been available in <a href="https://github.com/xaviershay/rspec-fire">rspec-fire</a> for a good four months or so. But it&rsquo;s not really a full mocking library&hellip;it builds on top of rspec-mocks, and now this functionality has been ported over to rspec-mocks.</p>
 <div id="disqus_thread"></div>
 <script type="text/javascript">
   /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */

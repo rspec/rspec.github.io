@@ -47,7 +47,8 @@ page "/**/feed.xml", layout: false
 
 # for build
 activate :syntax
-set :markdown_engine, :kramdown
+set :markdown_engine, :redcarpet
+set :markdown, :fenced_code_blocks => true, :smartypants => true
 activate :directory_indexes
 
 page "documentation/**/*.html", directory_index: false
