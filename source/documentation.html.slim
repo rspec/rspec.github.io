@@ -41,16 +41,22 @@ section
             | #{gem.description}&nbsp;Versions:&nbsp;#{documentation_links_for(gem.name)}
 
   article.relish
-    h2 Relish
+    h2 Relish / Gherkin
 
     p
-      | RSpec is also documented through executable examples on Relish. The examples
-        are written in an "end-to-end" style demonstrating the use of various RSpec
-        features in the context of executable spec files. It's a good resource for
-        getting a survey of what RSpec is capable of and seeing how the pieces can
-        be used together, but for detailed documentation about a particular API or
-        feature, we recommend the API docs. The relish examples are executed via
-        Cucumber to ensure they are always up-to-date with the current code base.
+      | RSpec is also documented through executable examples written in Gherkin.
+        The examples are written in an "end-to-end" style demonstrating the use of
+        various RSpec features in the context of executable spec files. They are
+        a good resource for getting a survey of what RSpec is capable of and seeing
+        how the pieces can be used together, but for detailed documentation about a
+        particular API or feature, we recommend the API docs.
 
-    ul
-      li= link_to 'http://relishapp.com/rspec', 'http://relishapp.com/rspec'
+    p
+      | Previously these gherkin examples could be read on
+        #{ link_to 'RelishApp', 'http://relishapp.com/rspec' } but currently
+        this service is unavailable, you can find the raw files in our Github
+        repositories whilst we work on a replacement.
+
+    p
+      | These feature files are executed via Cucumber in our CI process to ensure they
+        are always up-to-date with the current code base.
