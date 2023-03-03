@@ -1,0 +1,6 @@
+= wrap_layout :layout do
+  = partial "layouts/feature_top_bar"
+  section
+    nav = partial "layouts/feature_nav", locals: feature_menu_data(current_page)
+    article
+      = yield

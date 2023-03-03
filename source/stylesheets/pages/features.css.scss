@@ -1,0 +1,194 @@
+@import "../application.css.scss";
+
+body.features {
+  nav.top-nav-bar {
+    padding: 1em 2em;
+
+    ul {
+      float: right;
+
+      li {
+        display: inline-block;
+        padding-right: 1em;
+        position: relative;
+
+        a.title {
+          background: white;
+          color: $base-font-color;
+          padding: .7em .5em .7em .7em;
+          border-radius: .3em;
+          border: 1px solid $base-border-color;
+          &::after {
+            content: "▼";
+            padding-left: 2em;
+          }
+        }
+
+        &:hover, &:focus-within {
+          ul {
+            display: block;
+          }
+        }
+
+        ul {
+          position: absolute;
+          background: white;
+          border: 1px solid $base-border-color;
+          border-radius: .5em;
+          padding: .7em;
+          box-shadow: 0 8px 24px rgba(140,149,159,0.2);
+          top: 0em;
+          margin: 1.8em 0 0 0;
+          display: none;
+
+          li {
+            display: list-item;
+            white-space: nowrap;
+            &:hover, &:focus-within {
+              background: #EEE;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  section {
+    padding: 1em 2em;
+    margin: 0 auto;
+
+    @media (max-width: 767px) {
+      padding: 1em 12px;
+    }
+
+    // Keep the two columns next to each other and aligned
+    nav, article {
+      display: inline-block;
+      vertical-align: top;
+    }
+
+    // Navbar is a sidebar with a lower width
+    nav {
+      width: 20%;
+
+      ul {
+        list-style-type: none;
+
+        li {
+          ul {
+            display: none;
+
+            &.open {
+              display: block;
+              padding-left: 1.5em;
+              list-style-type: disc;
+            }
+          }
+        }
+      }
+    }
+
+    // Article takes up the main width and we need to format
+    article {
+      width: 80%;
+      padding-left: 1em;
+
+      h1, h2, h3 {
+        padding: 0 0 0.5em 0;
+        text-align: left;
+        color: $header-text-color;
+
+        em {
+          padding: 0 0.2em;
+        }
+      }
+
+      h1 {
+        text-decoration: capitalize;
+      }
+
+      h2 {
+        font-size: 2em;
+        padding: 1em 0 0 0;
+      }
+
+      p {
+        font-size: 1em;
+      }
+
+      ul {
+        list-style-type: initial;
+        list-style-type: " - ";
+        padding: 0 0 1em 1em;
+      }
+
+      ol {
+        list-style-type: decimal;
+      }
+
+      // <code> blocks wrap back tick (`style`) text
+      // we want to change the font size in headers to make these less imposing
+      h1, h2, h3 {
+        code {
+          color: darken($header-color, 80%);
+        }
+      }
+
+      h1 code, h2 code {
+        font-size: 0.7em;
+      }
+
+      h3 code {
+        font-size: 0.8em;
+      }
+
+      // Different font colour means we want different code colour
+      p code {
+        color: darken($header-text-color, 80%);
+      }
+
+      // This makes scenario headers padded
+      h2+p {
+        padding: 1em 0 0 0;
+      }
+
+      // markdown gets a bit enthusiatic about filenames, rather than edit the markdown
+      // this converts the italics back into normal
+      em:not(:first-child) {
+        font-style: normal;
+        &::before, &::after {
+          content: "_";
+        }
+      }
+
+      // markdown requires headers but we often don't have any, hide empty ones
+      thead:empty, thead tr:empty, thead tr th:empty {
+        display: none;
+      }
+
+      // This replicates the relish indent for scenarios, which
+      // I think helps break it up, the ~ operator here means once a
+      // h2 has appeared in the page, they will all be indented, which
+      // is fine given how the markdown is generated
+      h2 ~ .highlight, h2 ~ table {
+        margin: 0 0 1em 1em;
+      }
+
+      // Produces relish style highlight blocks
+      div.highlight {
+        background: none;
+      }
+
+      pre {
+        width: 100%;
+        background: #f7f7f7;
+        border: 1px dotted #CCC;
+        overflow-x: auto;
+      }
+    }
+  }
+
+  footer {
+    clear: both;
+  }
+}

@@ -1,0 +1,4 @@
+h3 Topics
+ul
+  - menu.each do |sub_menu_item|
+      li= feature_link_to version, library, sub_menu_item[:heading], [topic, sub_menu_item[:path]].join("/")

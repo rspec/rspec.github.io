@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"><![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]<!--><html class="no-js" lang="en"><!--<![endif]--><head><meta charset="UTF-8" /><meta content="width=device-width, initial-scale=1" name="viewport" /><meta property="og:title" /><meta content="https://rspec.info/features/6-0/rspec-rails/controller-specs/anonymous-controller/" property="og:url" /><meta content="https://rspec.info/images/logo_ogp.png" property="og:image" /><meta content="summary" name="twitter:card" /><meta content="@rspec" name="twitter:site" /><title></title><link href="/stylesheets/pages/features.css" rel="stylesheet" /><link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" /><link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" type="text/css" /><link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" type="text/css" /><link href="/blog/feed.xml" rel="alternate" type="application/atom+xml" /></head><body class="features"><header><nav><h1><img src="/images/logo.png" alt="Logo" /><a href="/">RSpec</a></h1><input class="hamburger-toggle" type="checkbox" /><div class="hamburger-icon"><div class="bar"></div><div class="bar"></div><div class="bar"></div></div><ul class="menu"><li><a href="/about">About</a></li><li><a href="/documentation">Documentation</a></li><li><a href="/blog">Blog</a></li><li><a href="/upgrading-from-rspec-2">Upgrade</a></li><li><a href="/help">Get Help</a></li><li><a href="/contributing">Contributing</a></li></ul></nav></header><nav class="top-nav-bar" role="navigation"><ul><li>Library:</li><li><a class="title">RSpec Rails</a><ul aria-haspopup="true" aria-label="submenu"><li><a href="/features/3-12/rspec-core">RSpec Core</a></li><li><a href="/features/3-12/rspec-expectations">RSpec Expectations</a></li><li><a href="/features/3-12/rspec-mocks">RSpec Mocks</a></li><li class="current"><a href="/features/6-0/rspec-rails">RSpec Rails</a></li></ul></li><li>Version:</li><li><a class="title">6.0</a><ul aria-haspopup="true" aria-label="submenu"><li class="current"><a href="/features/6-0/rspec-rails">6.0</a></li></ul></li></ul></nav><section><nav><ul><li><a href="/features/6-0/rspec-rails/Transactions">Transactions</a></li><li><a href="/features/6-0/rspec-rails/directory-structure">Directory structure</a></li><li><a href="/features/6-0/rspec-rails/backtrace-filtering">Backtrace filtering</a></li><li><a href="/features/6-0/rspec-rails/model-specs">Model specs</a><ul><li><a href="/features/6-0/rspec-rails/model-specs/transactional-examples"> Transactional examples</a></li><li><a href="/features/6-0/rspec-rails/model-specs/verified-doubles"> Using verified doubles</a></li></ul></li><li><a href="/features/6-0/rspec-rails/controller-specs">Controller specs</a><ul class="open"><li><a href="/features/6-0/rspec-rails/controller-specs/cookies"> Cookies</a></li><li><a href="/features/6-0/rspec-rails/controller-specs/controller-spec"> Controller specs</a></li><li><a href="/features/6-0/rspec-rails/controller-specs/isolation-from-views"> Views are stubbed by default</a></li><li><a href="/features/6-0/rspec-rails/controller-specs/render-views"> Using `render_views`</a></li><li><a href="/features/6-0/rspec-rails/controller-specs/anonymous-controller"> Using an anonymous controller</a></li><li><a href="/features/6-0/rspec-rails/controller-specs/bypass-rescue"> Using `bypass_rescue`</a></li><li><a href="/features/6-0/rspec-rails/controller-specs/engine-routes"> Engine routes for controllers</a></li><li><a href="/features/6-0/rspec-rails/controller-specs/setting-request-headers"> Setting request headers</a></li></ul></li><li><a href="/features/6-0/rspec-rails/matchers">Matchers</a><ul><li><a href="/features/6-0/rspec-rails/matchers/new-record-matcher"> `be_a_new` matcher</a></li><li><a href="/features/6-0/rspec-rails/matchers/render-template-matcher"> `render_template` matcher</a></li><li><a href="/features/6-0/rspec-rails/matchers/redirect-to-matcher"> `redirect_to` matcher</a></li><li><a href="/features/6-0/rspec-rails/matchers/have-performed-job-matcher"> `have_performed_job` matcher</a></li><li><a href="/features/6-0/rspec-rails/matchers/have-been-performed-matcher"> `have_been_performed` matcher</a></li><li><a href="/features/6-0/rspec-rails/matchers/have-broadcasted-matcher"> `have_broadcasted_to` matcher</a></li><li><a href="/features/6-0/rspec-rails/matchers/have-enqueued-job-matcher"> `have_enqueued_job` matcher</a></li><li><a href="/features/6-0/rspec-rails/matchers/have-stream-from-matcher"> `have_stream_from` matcher</a></li><li><a href="/features/6-0/rspec-rails/matchers/have-enqueued-mail-matcher"> `have_enqueued_mail` matcher</a></li><li><a href="/features/6-0/rspec-rails/matchers/have-http-status-matcher"> `have_http_status` matcher</a></li><li><a href="/features/6-0/rspec-rails/matchers/relation-match-array"> ActiveRecord::Relation match array</a></li><li><a href="/features/6-0/rspec-rails/matchers/have-been-enqueued-matcher"> `have_been_enqueued` matcher</a></li></ul></li><li><a href="/features/6-0/rspec-rails/request-specs">Request specs</a><ul><li><a href="/features/6-0/rspec-rails/request-specs/request-spec"> Request specs</a></li></ul></li><li><a href="/features/6-0/rspec-rails/feature-specs">Feature specs</a><ul><li><a href="/features/6-0/rspec-rails/feature-specs/feature-spec"> Feature specs</a></li></ul></li><li><a href="/features/6-0/rspec-rails/view-specs">View specs</a><ul><li><a href="/features/6-0/rspec-rails/view-specs/view-spec"> View specs</a></li><li><a href="/features/6-0/rspec-rails/view-specs/stub-template"> Using `stub_template`</a></li><li><a href="/features/6-0/rspec-rails/view-specs/inferred-controller-path"> View specs infer controller&#39;s path and action</a></li></ul></li><li><a href="/features/6-0/rspec-rails/helper-specs">Helper specs</a><ul><li><a href="/features/6-0/rspec-rails/helper-specs/helper-spec"> Helper specs</a></li></ul></li><li><a href="/features/6-0/rspec-rails/mailer-specs">Mailer specs</a><ul><li><a href="/features/6-0/rspec-rails/mailer-specs/url-helpers"> URL helpers in mailer examples</a></li><li><a href="/features/6-0/rspec-rails/mailer-specs/mailer-spec"> Mailer specs</a></li></ul></li><li><a href="/features/6-0/rspec-rails/routing-specs">Routing specs</a><ul><li><a href="/features/6-0/rspec-rails/routing-specs/route-to-matcher"> `route_to` matcher</a></li><li><a href="/features/6-0/rspec-rails/routing-specs/be-routable-matcher"> `be_routable` matcher</a></li><li><a href="/features/6-0/rspec-rails/routing-specs/named-routes"> Using named routes</a></li><li><a href="/features/6-0/rspec-rails/routing-specs/engine-routes"> Using engine routes</a></li></ul></li><li><a href="/features/6-0/rspec-rails/upgrade">Upgrade</a></li><li><a href="/features/6-0/rspec-rails/generator-specs">Generator specs</a><ul><li><a href="/features/6-0/rspec-rails/generator-specs/mailer-specs"> Mailer generator spec</a></li><li><a href="/features/6-0/rspec-rails/generator-specs/channel-specs"> Channel generator spec</a></li><li><a href="/features/6-0/rspec-rails/generator-specs/system-specs"> System generator spec</a></li><li><a href="/features/6-0/rspec-rails/generator-specs/controller-specs"> Controller generator spec</a></li><li><a href="/features/6-0/rspec-rails/generator-specs/view-specs"> View generator spec</a></li><li><a href="/features/6-0/rspec-rails/generator-specs/helper-specs"> Helper generator spec</a></li><li><a href="/features/6-0/rspec-rails/generator-specs/mailbox-specs"> Mailbox generator spec</a></li><li><a href="/features/6-0/rspec-rails/generator-specs/integration-specs"> Integration generator spec</a></li><li><a href="/features/6-0/rspec-rails/generator-specs/generator-specs"> Generator spec</a></li><li><a href="/features/6-0/rspec-rails/generator-specs/request-specs"> Request generator spec</a></li><li><a href="/features/6-0/rspec-rails/generator-specs/job-specs"> Job generator spec</a></li><li><a href="/features/6-0/rspec-rails/generator-specs/feature-specs"> Feature generator spec</a></li></ul></li><li><a href="/features/6-0/rspec-rails/GettingStarted">Gettingstarted</a></li><li><a href="/features/6-0/rspec-rails/channel-specs">Channel specs</a><ul><li><a href="/features/6-0/rspec-rails/channel-specs/channel-spec"> Channel specs</a></li></ul></li><li><a href="/features/6-0/rspec-rails/file-fixture">File fixture</a></li><li><a href="/features/6-0/rspec-rails/mailbox-specs">Mailbox specs</a><ul><li><a href="/features/6-0/rspec-rails/mailbox-specs/mailbox-spec"> Action mailbox specs</a></li></ul></li><li><a href="/features/6-0/rspec-rails/system-specs">System specs</a><ul><li><a href="/features/6-0/rspec-rails/system-specs/system-specs"> System specs</a></li></ul></li><li><a href="/features/6-0/rspec-rails/Generators">Generators</a></li><li><a href="/features/6-0/rspec-rails/job-specs">Job specs</a><ul><li><a href="/features/6-0/rspec-rails/job-specs/job-spec"> Job specs</a></li></ul></li></ul></nav><article><h1>Using an anonymous controller</h1>
+
+<p>Use the <code>controller</code> method to define an anonymous controller that will
+  inherit from the described class. This is useful for specifying behavior like
+  global error handling.</p>
+
+<p>To specify a different base class you can pass the class explicitly to the
+  controller method:</p>
+<div class="highlight"><pre class="highlight ruby"><code>  <span class="n">controller</span><span class="p">(</span><span class="no">BaseController</span><span class="p">)</span>
+</code></pre></div>
+<p>You can also disable base type inference, in which case anonymous controllers
+  will inherit from <code>ApplicationController</code> instead of the described class by
+  default:</p>
+<div class="highlight"><pre class="highlight ruby"><code>  <span class="no">RSpec</span><span class="p">.</span><span class="nf">configure</span> <span class="k">do</span> <span class="o">|</span><span class="n">c</span><span class="o">|</span>
+    <span class="n">c</span><span class="p">.</span><span class="nf">infer_base_class_for_anonymous_controllers</span> <span class="o">=</span> <span class="kp">false</span>
+  <span class="k">end</span>
+
+  <span class="no">RSpec</span><span class="p">.</span><span class="nf">describe</span> <span class="no">BaseController</span><span class="p">,</span> <span class="ss">type: :controller</span> <span class="k">do</span>
+    <span class="n">controller</span> <span class="k">do</span>
+      <span class="k">def</span> <span class="nf">index</span><span class="p">;</span> <span class="k">end</span>
+
+      <span class="err">​</span><span class="c1"># this normally creates an anonymous `BaseController` subclass,</span>
+      <span class="err">​</span><span class="c1"># however since `infer_base_class_for_anonymous_controllers` is</span>
+      <span class="err">​</span><span class="c1"># disabled, it creates a subclass of `ApplicationController`</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+</code></pre></div>
+<h2>Specify error handling in <code>ApplicationController</code> with redirect</h2>
+
+<p><em>Given</em> a file named &ldquo;spec/controllers/application<em>controller</em>spec.rb&rdquo; with:</p>
+<div class="highlight"><pre class="highlight ruby"><code><span class="nb">require</span> <span class="s2">"rails_helper"</span>
+
+<span class="k">class</span> <span class="nc">ApplicationController</span> <span class="o">&lt;</span> <span class="no">ActionController</span><span class="o">::</span><span class="no">Base</span>
+  <span class="k">class</span> <span class="nc">AccessDenied</span> <span class="o">&lt;</span> <span class="no">StandardError</span><span class="p">;</span> <span class="k">end</span>
+
+  <span class="n">rescue_from</span> <span class="no">AccessDenied</span><span class="p">,</span> <span class="ss">:with</span> <span class="o">=&gt;</span> <span class="ss">:access_denied</span>
+
+<span class="kp">private</span>
+
+  <span class="k">def</span> <span class="nf">access_denied</span>
+    <span class="n">redirect_to</span> <span class="s2">"/401.html"</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="no">RSpec</span><span class="p">.</span><span class="nf">describe</span> <span class="no">ApplicationController</span><span class="p">,</span> <span class="ss">type: :controller</span> <span class="k">do</span>
+  <span class="n">controller</span> <span class="k">do</span>
+    <span class="k">def</span> <span class="nf">index</span>
+      <span class="k">raise</span> <span class="no">ApplicationController</span><span class="o">::</span><span class="no">AccessDenied</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+
+  <span class="n">describe</span> <span class="s2">"handling AccessDenied exceptions"</span> <span class="k">do</span>
+    <span class="n">it</span> <span class="s2">"redirects to the /401.html page"</span> <span class="k">do</span>
+      <span class="n">get</span> <span class="ss">:index</span>
+      <span class="n">expect</span><span class="p">(</span><span class="n">response</span><span class="p">).</span><span class="nf">to</span> <span class="n">redirect_to</span><span class="p">(</span><span class="s2">"/401.html"</span><span class="p">)</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div>
+<p><em>When</em> I run <code>rspec spec</code></p>
+
+<p><em>Then</em> the examples should all pass.</p>
+
+<h2>Specify error handling in <code>ApplicationController</code> with render</h2>
+
+<p><em>Given</em> a file named &ldquo;spec/controllers/application<em>controller</em>spec.rb&rdquo; with:</p>
+<div class="highlight"><pre class="highlight ruby"><code><span class="nb">require</span> <span class="s2">"rails_helper"</span>
+
+<span class="k">class</span> <span class="nc">ApplicationController</span> <span class="o">&lt;</span> <span class="no">ActionController</span><span class="o">::</span><span class="no">Base</span>
+  <span class="k">class</span> <span class="nc">AccessDenied</span> <span class="o">&lt;</span> <span class="no">StandardError</span><span class="p">;</span> <span class="k">end</span>
+
+  <span class="n">rescue_from</span> <span class="no">AccessDenied</span><span class="p">,</span> <span class="ss">:with</span> <span class="o">=&gt;</span> <span class="ss">:access_denied</span>
+
+<span class="kp">private</span>
+
+  <span class="k">def</span> <span class="nf">access_denied</span>
+    <span class="n">render</span> <span class="s2">"errors/401"</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="no">RSpec</span><span class="p">.</span><span class="nf">describe</span> <span class="no">ApplicationController</span><span class="p">,</span> <span class="ss">type: :controller</span> <span class="k">do</span>
+  <span class="n">controller</span> <span class="k">do</span>
+    <span class="k">def</span> <span class="nf">index</span>
+      <span class="k">raise</span> <span class="no">ApplicationController</span><span class="o">::</span><span class="no">AccessDenied</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+
+  <span class="n">describe</span> <span class="s2">"handling AccessDenied exceptions"</span> <span class="k">do</span>
+    <span class="n">it</span> <span class="s2">"renders the errors/401 template"</span> <span class="k">do</span>
+      <span class="n">get</span> <span class="ss">:index</span>
+      <span class="n">expect</span><span class="p">(</span><span class="n">response</span><span class="p">).</span><span class="nf">to</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">"errors/401"</span><span class="p">)</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div>
+<p><em>When</em> I run <code>rspec spec</code></p>
+
+<p><em>Then</em> the examples should all pass.</p>
+
+<h2>Specify error handling in a subclass</h2>
+
+<p><em>Given</em> a file named &ldquo;spec/controllers/application<em>controller</em>subclass_spec.rb&rdquo; with:</p>
+<div class="highlight"><pre class="highlight ruby"><code><span class="nb">require</span> <span class="s2">"rails_helper"</span>
+
+<span class="k">class</span> <span class="nc">ApplicationController</span> <span class="o">&lt;</span> <span class="no">ActionController</span><span class="o">::</span><span class="no">Base</span>
+  <span class="k">class</span> <span class="nc">AccessDenied</span> <span class="o">&lt;</span> <span class="no">StandardError</span><span class="p">;</span> <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">FoosController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span>
+
+  <span class="n">rescue_from</span> <span class="no">ApplicationController</span><span class="o">::</span><span class="no">AccessDenied</span><span class="p">,</span>
+              <span class="ss">:with</span> <span class="o">=&gt;</span> <span class="ss">:access_denied</span>
+
+<span class="kp">private</span>
+
+  <span class="k">def</span> <span class="nf">access_denied</span>
+    <span class="n">redirect_to</span> <span class="s2">"/401.html"</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="no">RSpec</span><span class="p">.</span><span class="nf">describe</span> <span class="no">FoosController</span><span class="p">,</span> <span class="ss">type: :controller</span> <span class="k">do</span>
+  <span class="n">controller</span><span class="p">(</span><span class="no">FoosController</span><span class="p">)</span> <span class="k">do</span>
+    <span class="k">def</span> <span class="nf">index</span>
+      <span class="k">raise</span> <span class="no">ApplicationController</span><span class="o">::</span><span class="no">AccessDenied</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+
+  <span class="n">describe</span> <span class="s2">"handling AccessDenied exceptions"</span> <span class="k">do</span>
+    <span class="n">it</span> <span class="s2">"redirects to the /401.html page"</span> <span class="k">do</span>
+      <span class="n">get</span> <span class="ss">:index</span>
+      <span class="n">expect</span><span class="p">(</span><span class="n">response</span><span class="p">).</span><span class="nf">to</span> <span class="n">redirect_to</span><span class="p">(</span><span class="s2">"/401.html"</span><span class="p">)</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div>
+<p><em>When</em> I run <code>rspec spec</code></p>
+
+<p><em>Then</em> the examples should all pass.</p>
+
+<h2>Infer base class from the described class</h2>
+
+<p><em>Given</em> a file named &ldquo;spec/controllers/base<em>class</em>can<em>be</em>inferred_spec.rb&rdquo; with:</p>
+<div class="highlight"><pre class="highlight ruby"><code><span class="nb">require</span> <span class="s2">"rails_helper"</span>
+
+<span class="k">class</span> <span class="nc">ApplicationController</span> <span class="o">&lt;</span> <span class="no">ActionController</span><span class="o">::</span><span class="no">Base</span><span class="p">;</span> <span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">FoosController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span><span class="p">;</span> <span class="k">end</span>
+
+<span class="no">RSpec</span><span class="p">.</span><span class="nf">describe</span> <span class="no">FoosController</span><span class="p">,</span> <span class="ss">type: :controller</span> <span class="k">do</span>
+  <span class="n">controller</span> <span class="k">do</span>
+    <span class="k">def</span> <span class="nf">index</span>
+      <span class="n">render</span> <span class="ss">:plain</span> <span class="o">=&gt;</span> <span class="s2">"Hello World"</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+
+  <span class="n">it</span> <span class="s2">"creates anonymous controller derived from FoosController"</span> <span class="k">do</span>
+    <span class="n">expect</span><span class="p">(</span><span class="n">controller</span><span class="p">).</span><span class="nf">to</span> <span class="n">be_a_kind_of</span><span class="p">(</span><span class="no">FoosController</span><span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div>
+<p><em>When</em> I run <code>rspec spec</code></p>
+
+<p><em>Then</em> the examples should all pass.</p>
+
+<h2>Use <code>name</code> and <code>controller_name</code> from the described class</h2>
+
+<p><em>Given</em> a file named &ldquo;spec/controllers/get<em>name</em>and<em>controller</em>name<em>from</em>described<em>class</em>spec.rb&rdquo; with:</p>
+<div class="highlight"><pre class="highlight ruby"><code><span class="nb">require</span> <span class="s2">"rails_helper"</span>
+
+<span class="k">class</span> <span class="nc">ApplicationController</span> <span class="o">&lt;</span> <span class="no">ActionController</span><span class="o">::</span><span class="no">Base</span><span class="p">;</span> <span class="k">end</span>
+<span class="k">class</span> <span class="nc">FoosController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span><span class="p">;</span> <span class="k">end</span>
+
+<span class="no">RSpec</span><span class="p">.</span><span class="nf">describe</span> <span class="s2">"Access controller names"</span><span class="p">,</span> <span class="ss">type: :controller</span> <span class="k">do</span>
+  <span class="n">controller</span> <span class="no">FoosController</span> <span class="k">do</span>
+    <span class="k">def</span> <span class="nf">index</span>
+      <span class="vi">@name</span> <span class="o">=</span> <span class="nb">self</span><span class="p">.</span><span class="nf">class</span><span class="p">.</span><span class="nf">name</span>
+      <span class="vi">@controller_name</span> <span class="o">=</span> <span class="n">controller_name</span>
+      <span class="n">render</span> <span class="ss">:plain</span> <span class="o">=&gt;</span> <span class="s2">"Hello World"</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+
+  <span class="n">before</span> <span class="k">do</span>
+    <span class="n">get</span> <span class="ss">:index</span>
+  <span class="k">end</span>
+
+  <span class="n">it</span> <span class="s2">"gets the class name as described"</span> <span class="k">do</span>
+    <span class="n">expect</span><span class="p">(</span><span class="n">assigns</span><span class="p">[</span><span class="ss">:name</span><span class="p">]).</span><span class="nf">to</span> <span class="n">eq</span><span class="p">(</span><span class="s1">'FoosController'</span><span class="p">)</span>
+  <span class="k">end</span>
+
+  <span class="n">it</span> <span class="s2">"gets the controller_name as described"</span> <span class="k">do</span>
+    <span class="n">expect</span><span class="p">(</span><span class="n">assigns</span><span class="p">[</span><span class="ss">:controller_name</span><span class="p">]).</span><span class="nf">to</span> <span class="n">eq</span><span class="p">(</span><span class="s1">'foos'</span><span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div>
+<p><em>When</em> I run <code>rspec spec</code></p>
+
+<p><em>Then</em> the examples should all pass.</p>
+
+<h2>Invoke <code>around_filter</code> and <code>around_action</code> in base class</h2>
+
+<p><em>Given</em> a file named &ldquo;spec/controllers/application<em>controller</em>around<em>filter</em>spec.rb&rdquo; with:</p>
+<div class="highlight"><pre class="highlight ruby"><code><span class="nb">require</span> <span class="s2">"rails_helper"</span>
+
+<span class="k">class</span> <span class="nc">ApplicationController</span> <span class="o">&lt;</span> <span class="no">ActionController</span><span class="o">::</span><span class="no">Base</span>
+  <span class="n">around_action</span> <span class="ss">:an_around_filter</span>
+
+  <span class="k">def</span> <span class="nf">an_around_filter</span>
+    <span class="vi">@callback_invoked</span> <span class="o">=</span> <span class="kp">true</span>
+    <span class="k">yield</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="no">RSpec</span><span class="p">.</span><span class="nf">describe</span> <span class="no">ApplicationController</span><span class="p">,</span> <span class="ss">type: :controller</span> <span class="k">do</span>
+  <span class="n">controller</span> <span class="k">do</span>
+    <span class="k">def</span> <span class="nf">index</span>
+      <span class="n">render</span> <span class="ss">:plain</span> <span class="o">=&gt;</span> <span class="s2">""</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+
+  <span class="n">it</span> <span class="s2">"invokes the callback"</span> <span class="k">do</span>
+    <span class="n">get</span> <span class="ss">:index</span>
+
+    <span class="n">expect</span><span class="p">(</span><span class="n">assigns</span><span class="p">[</span><span class="ss">:callback_invoked</span><span class="p">]).</span><span class="nf">to</span> <span class="n">be_truthy</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div>
+<p><em>When</em> I run <code>rspec spec</code></p>
+
+<p><em>Then</em> the examples should all pass.</p>
+
+<h2>Anonymous controllers only create resource routes</h2>
+
+<p><em>Given</em> a file named &ldquo;spec/controllers/application<em>controller</em>spec.rb&rdquo; with:</p>
+<div class="highlight"><pre class="highlight ruby"><code><span class="nb">require</span> <span class="s2">"rails_helper"</span>
+
+<span class="k">if</span> <span class="k">defined?</span><span class="p">(</span><span class="no">ActionController</span><span class="o">::</span><span class="no">UrlGenerationError</span><span class="p">)</span>
+  <span class="no">ExpectedRoutingError</span> <span class="o">=</span> <span class="no">ActionController</span><span class="o">::</span><span class="no">UrlGenerationError</span>
+<span class="k">else</span>
+  <span class="no">ExpectedRoutingError</span> <span class="o">=</span> <span class="no">ActionController</span><span class="o">::</span><span class="no">RoutingError</span>
+<span class="k">end</span>
+
+<span class="no">RSpec</span><span class="p">.</span><span class="nf">describe</span> <span class="no">ApplicationController</span><span class="p">,</span> <span class="ss">type: :controller</span> <span class="k">do</span>
+  <span class="n">controller</span> <span class="k">do</span>
+    <span class="k">def</span> <span class="nf">index</span>
+      <span class="n">render</span> <span class="ss">:plain</span> <span class="o">=&gt;</span> <span class="s2">"index called"</span>
+    <span class="k">end</span>
+
+    <span class="k">def</span> <span class="nf">create</span>
+      <span class="n">render</span> <span class="ss">:plain</span> <span class="o">=&gt;</span> <span class="s2">"create called"</span>
+    <span class="k">end</span>
+
+    <span class="k">def</span> <span class="nf">new</span>
+      <span class="n">render</span> <span class="ss">:plain</span> <span class="o">=&gt;</span> <span class="s2">"new called"</span>
+    <span class="k">end</span>
+
+    <span class="k">def</span> <span class="nf">show</span>
+      <span class="n">render</span> <span class="ss">:plain</span> <span class="o">=&gt;</span> <span class="s2">"show called"</span>
+    <span class="k">end</span>
+
+    <span class="k">def</span> <span class="nf">edit</span>
+      <span class="n">render</span> <span class="ss">:plain</span> <span class="o">=&gt;</span> <span class="s2">"edit called"</span>
+    <span class="k">end</span>
+
+    <span class="k">def</span> <span class="nf">update</span>
+      <span class="n">render</span> <span class="ss">:plain</span> <span class="o">=&gt;</span> <span class="s2">"update called"</span>
+    <span class="k">end</span>
+
+    <span class="k">def</span> <span class="nf">destroy</span>
+      <span class="n">render</span> <span class="ss">:plain</span> <span class="o">=&gt;</span> <span class="s2">"destroy called"</span>
+    <span class="k">end</span>
+
+    <span class="k">def</span> <span class="nf">willerror</span>
+      <span class="n">render</span> <span class="ss">:plain</span> <span class="o">=&gt;</span> <span class="s2">"will not render"</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+
+  <span class="n">describe</span> <span class="s2">"#index"</span> <span class="k">do</span>
+    <span class="n">it</span> <span class="s2">"responds to GET"</span> <span class="k">do</span>
+      <span class="n">get</span> <span class="ss">:index</span>
+      <span class="n">expect</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="nf">body</span><span class="p">).</span><span class="nf">to</span> <span class="n">eq</span> <span class="s2">"index called"</span>
+    <span class="k">end</span>
+
+    <span class="n">it</span> <span class="s2">"also responds to POST"</span> <span class="k">do</span>
+      <span class="n">post</span> <span class="ss">:index</span>
+      <span class="n">expect</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="nf">body</span><span class="p">).</span><span class="nf">to</span> <span class="n">eq</span> <span class="s2">"index called"</span>
+    <span class="k">end</span>
+
+    <span class="n">it</span> <span class="s2">"also responds to PUT"</span> <span class="k">do</span>
+      <span class="n">put</span> <span class="ss">:index</span>
+      <span class="n">expect</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="nf">body</span><span class="p">).</span><span class="nf">to</span> <span class="n">eq</span> <span class="s2">"index called"</span>
+    <span class="k">end</span>
+
+    <span class="n">it</span> <span class="s2">"also responds to DELETE"</span> <span class="k">do</span>
+      <span class="n">delete</span> <span class="ss">:index</span>
+      <span class="n">expect</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="nf">body</span><span class="p">).</span><span class="nf">to</span> <span class="n">eq</span> <span class="s2">"index called"</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+
+  <span class="n">describe</span> <span class="s2">"#create"</span> <span class="k">do</span>
+    <span class="n">it</span> <span class="s2">"responds to POST"</span> <span class="k">do</span>
+      <span class="n">post</span> <span class="ss">:create</span>
+      <span class="n">expect</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="nf">body</span><span class="p">).</span><span class="nf">to</span> <span class="n">eq</span> <span class="s2">"create called"</span>
+    <span class="k">end</span>
+
+    <span class="c1"># And the rest...</span>
+    <span class="sx">%w{get post put delete}</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">calltype</span><span class="o">|</span>
+      <span class="n">it</span> <span class="s2">"responds to </span><span class="si">#{</span><span class="n">calltype</span><span class="si">}</span><span class="s2">"</span> <span class="k">do</span>
+        <span class="nb">send</span><span class="p">(</span><span class="n">calltype</span><span class="p">,</span> <span class="ss">:create</span><span class="p">)</span>
+        <span class="n">expect</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="nf">body</span><span class="p">).</span><span class="nf">to</span> <span class="n">eq</span> <span class="s2">"create called"</span>
+      <span class="k">end</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+
+  <span class="n">describe</span> <span class="s2">"#new"</span> <span class="k">do</span>
+    <span class="n">it</span> <span class="s2">"responds to GET"</span> <span class="k">do</span>
+      <span class="n">get</span> <span class="ss">:new</span>
+      <span class="n">expect</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="nf">body</span><span class="p">).</span><span class="nf">to</span> <span class="n">eq</span> <span class="s2">"new called"</span>
+    <span class="k">end</span>
+
+    <span class="c1"># And the rest...</span>
+    <span class="sx">%w{get post put delete}</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">calltype</span><span class="o">|</span>
+      <span class="n">it</span> <span class="s2">"responds to </span><span class="si">#{</span><span class="n">calltype</span><span class="si">}</span><span class="s2">"</span> <span class="k">do</span>
+        <span class="nb">send</span><span class="p">(</span><span class="n">calltype</span><span class="p">,</span> <span class="ss">:new</span><span class="p">)</span>
+        <span class="n">expect</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="nf">body</span><span class="p">).</span><span class="nf">to</span> <span class="n">eq</span> <span class="s2">"new called"</span>
+      <span class="k">end</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+
+  <span class="n">describe</span> <span class="s2">"#edit"</span> <span class="k">do</span>
+    <span class="n">it</span> <span class="s2">"responds to GET"</span> <span class="k">do</span>
+      <span class="n">get</span> <span class="ss">:edit</span><span class="p">,</span> <span class="ss">:params</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="ss">:id</span> <span class="o">=&gt;</span> <span class="s2">"anyid"</span> <span class="p">}</span>
+      <span class="n">expect</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="nf">body</span><span class="p">).</span><span class="nf">to</span> <span class="n">eq</span> <span class="s2">"edit called"</span>
+    <span class="k">end</span>
+
+    <span class="n">it</span> <span class="s2">"requires the :id parameter"</span> <span class="k">do</span>
+      <span class="n">expect</span> <span class="p">{</span> <span class="n">get</span> <span class="ss">:edit</span> <span class="p">}.</span><span class="nf">to</span> <span class="n">raise_error</span><span class="p">(</span><span class="no">ExpectedRoutingError</span><span class="p">)</span>
+    <span class="k">end</span>
+
+    <span class="c1"># And the rest...</span>
+    <span class="sx">%w{get post put delete}</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">calltype</span><span class="o">|</span>
+      <span class="n">it</span> <span class="s2">"responds to </span><span class="si">#{</span><span class="n">calltype</span><span class="si">}</span><span class="s2">"</span> <span class="k">do</span>
+        <span class="nb">send</span><span class="p">(</span><span class="n">calltype</span><span class="p">,</span> <span class="ss">:edit</span><span class="p">,</span> <span class="ss">:params</span> <span class="o">=&gt;</span> <span class="p">{</span><span class="ss">:id</span> <span class="o">=&gt;</span> <span class="s2">"anyid"</span><span class="p">})</span>
+        <span class="n">expect</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="nf">body</span><span class="p">).</span><span class="nf">to</span> <span class="n">eq</span> <span class="s2">"edit called"</span>
+      <span class="k">end</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+
+  <span class="n">describe</span> <span class="s2">"#show"</span> <span class="k">do</span>
+    <span class="n">it</span> <span class="s2">"responds to GET"</span> <span class="k">do</span>
+      <span class="n">get</span> <span class="ss">:show</span><span class="p">,</span> <span class="ss">:params</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="ss">:id</span> <span class="o">=&gt;</span> <span class="s2">"anyid"</span> <span class="p">}</span>
+      <span class="n">expect</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="nf">body</span><span class="p">).</span><span class="nf">to</span> <span class="n">eq</span> <span class="s2">"show called"</span>
+    <span class="k">end</span>
+
+    <span class="n">it</span> <span class="s2">"requires the :id parameter"</span> <span class="k">do</span>
+      <span class="n">expect</span> <span class="p">{</span> <span class="n">get</span> <span class="ss">:show</span> <span class="p">}.</span><span class="nf">to</span> <span class="n">raise_error</span><span class="p">(</span><span class="no">ExpectedRoutingError</span><span class="p">)</span>
+    <span class="k">end</span>
+
+    <span class="c1"># And the rest...</span>
+    <span class="sx">%w{get post put delete}</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">calltype</span><span class="o">|</span>
+      <span class="n">it</span> <span class="s2">"responds to </span><span class="si">#{</span><span class="n">calltype</span><span class="si">}</span><span class="s2">"</span> <span class="k">do</span>
+        <span class="nb">send</span><span class="p">(</span><span class="n">calltype</span><span class="p">,</span> <span class="ss">:show</span><span class="p">,</span> <span class="ss">:params</span> <span class="o">=&gt;</span> <span class="p">{</span><span class="ss">:id</span> <span class="o">=&gt;</span> <span class="s2">"anyid"</span><span class="p">})</span>
+        <span class="n">expect</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="nf">body</span><span class="p">).</span><span class="nf">to</span> <span class="n">eq</span> <span class="s2">"show called"</span>
+      <span class="k">end</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+
+  <span class="n">describe</span> <span class="s2">"#update"</span> <span class="k">do</span>
+    <span class="n">it</span> <span class="s2">"responds to PUT"</span> <span class="k">do</span>
+      <span class="n">put</span> <span class="ss">:update</span><span class="p">,</span> <span class="ss">:params</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="ss">:id</span> <span class="o">=&gt;</span> <span class="s2">"anyid"</span> <span class="p">}</span>
+      <span class="n">expect</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="nf">body</span><span class="p">).</span><span class="nf">to</span> <span class="n">eq</span> <span class="s2">"update called"</span>
+    <span class="k">end</span>
+
+    <span class="n">it</span> <span class="s2">"requires the :id parameter"</span> <span class="k">do</span>
+      <span class="n">expect</span> <span class="p">{</span> <span class="n">put</span> <span class="ss">:update</span> <span class="p">}.</span><span class="nf">to</span> <span class="n">raise_error</span><span class="p">(</span><span class="no">ExpectedRoutingError</span><span class="p">)</span>
+    <span class="k">end</span>
+
+    <span class="c1"># And the rest...</span>
+    <span class="sx">%w{get post put delete}</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">calltype</span><span class="o">|</span>
+      <span class="n">it</span> <span class="s2">"responds to </span><span class="si">#{</span><span class="n">calltype</span><span class="si">}</span><span class="s2">"</span> <span class="k">do</span>
+        <span class="nb">send</span><span class="p">(</span><span class="n">calltype</span><span class="p">,</span> <span class="ss">:update</span><span class="p">,</span> <span class="ss">:params</span> <span class="o">=&gt;</span>  <span class="p">{</span><span class="ss">:id</span> <span class="o">=&gt;</span> <span class="s2">"anyid"</span><span class="p">})</span>
+        <span class="n">expect</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="nf">body</span><span class="p">).</span><span class="nf">to</span> <span class="n">eq</span> <span class="s2">"update called"</span>
+      <span class="k">end</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+
+  <span class="n">describe</span> <span class="s2">"#destroy"</span> <span class="k">do</span>
+    <span class="n">it</span> <span class="s2">"responds to DELETE"</span> <span class="k">do</span>
+      <span class="n">delete</span> <span class="ss">:destroy</span><span class="p">,</span> <span class="ss">:params</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="ss">:id</span> <span class="o">=&gt;</span> <span class="s2">"anyid"</span> <span class="p">}</span>
+      <span class="n">expect</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="nf">body</span><span class="p">).</span><span class="nf">to</span> <span class="n">eq</span> <span class="s2">"destroy called"</span>
+    <span class="k">end</span>
+
+    <span class="n">it</span> <span class="s2">"requires the :id parameter"</span> <span class="k">do</span>
+      <span class="n">expect</span> <span class="p">{</span> <span class="n">delete</span> <span class="ss">:destroy</span> <span class="p">}.</span><span class="nf">to</span> <span class="n">raise_error</span><span class="p">(</span><span class="no">ExpectedRoutingError</span><span class="p">)</span>
+    <span class="k">end</span>
+
+    <span class="c1"># And the rest...</span>
+    <span class="sx">%w{get post put delete}</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">calltype</span><span class="o">|</span>
+      <span class="n">it</span> <span class="s2">"responds to </span><span class="si">#{</span><span class="n">calltype</span><span class="si">}</span><span class="s2">"</span> <span class="k">do</span>
+        <span class="nb">send</span><span class="p">(</span><span class="n">calltype</span><span class="p">,</span> <span class="ss">:destroy</span><span class="p">,</span> <span class="ss">:params</span> <span class="o">=&gt;</span> <span class="p">{</span><span class="ss">:id</span> <span class="o">=&gt;</span> <span class="s2">"anyid"</span><span class="p">})</span>
+        <span class="n">expect</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="nf">body</span><span class="p">).</span><span class="nf">to</span> <span class="n">eq</span> <span class="s2">"destroy called"</span>
+      <span class="k">end</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+
+  <span class="n">describe</span> <span class="s2">"#willerror"</span> <span class="k">do</span>
+    <span class="n">it</span> <span class="s2">"cannot be called"</span> <span class="k">do</span>
+      <span class="n">expect</span> <span class="p">{</span> <span class="n">get</span> <span class="ss">:willerror</span> <span class="p">}.</span><span class="nf">to</span> <span class="n">raise_error</span><span class="p">(</span><span class="no">ExpectedRoutingError</span><span class="p">)</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div>
+<p><em>When</em> I run <code>rspec spec</code></p>
+
+<p><em>Then</em> the examples should all pass.</p>
+
+<h2>Draw custom routes for anonymous controllers</h2>
+
+<p><em>Given</em> a file named &ldquo;spec/controllers/application<em>controller</em>spec.rb&rdquo; with:</p>
+<div class="highlight"><pre class="highlight ruby"><code><span class="nb">require</span> <span class="s2">"rails_helper"</span>
+
+<span class="no">RSpec</span><span class="p">.</span><span class="nf">describe</span> <span class="no">ApplicationController</span><span class="p">,</span> <span class="ss">type: :controller</span> <span class="k">do</span>
+  <span class="n">controller</span> <span class="k">do</span>
+    <span class="k">def</span> <span class="nf">custom</span>
+      <span class="n">render</span> <span class="ss">:plain</span> <span class="o">=&gt;</span> <span class="s2">"custom called"</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+
+  <span class="n">specify</span> <span class="s2">"manually draw the route to request a custom action"</span> <span class="k">do</span>
+    <span class="n">routes</span><span class="p">.</span><span class="nf">draw</span> <span class="p">{</span> <span class="n">get</span> <span class="s2">"custom"</span> <span class="o">=&gt;</span> <span class="s2">"anonymous#custom"</span> <span class="p">}</span>
+
+    <span class="n">get</span> <span class="ss">:custom</span>
+    <span class="n">expect</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="nf">body</span><span class="p">).</span><span class="nf">to</span> <span class="n">eq</span> <span class="s2">"custom called"</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div>
+<p><em>When</em> I run <code>rspec spec</code></p>
+
+<p><em>Then</em> the examples should all pass.</p>
+
+<h2>Draw custom routes for anonymous controllers which don&rsquo;t inherit from application controller</h2>
+
+<p><em>Given</em> a file named &ldquo;spec/controllers/other<em>controller</em>spec.rb&rdquo; with:</p>
+<div class="highlight"><pre class="highlight ruby"><code><span class="nb">require</span> <span class="s2">"rails_helper"</span>
+<span class="k">class</span> <span class="nc">OtherController</span> <span class="o">&lt;</span> <span class="no">ActionController</span><span class="o">::</span><span class="no">Base</span>
+<span class="k">end</span>
+
+<span class="no">RSpec</span><span class="p">.</span><span class="nf">describe</span> <span class="no">OtherController</span><span class="p">,</span> <span class="ss">type: :controller</span> <span class="k">do</span>
+  <span class="n">controller</span> <span class="k">do</span>
+    <span class="k">def</span> <span class="nf">custom</span>
+      <span class="n">render</span> <span class="ss">:plain</span> <span class="o">=&gt;</span> <span class="s2">"custom called"</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+
+  <span class="n">specify</span> <span class="s2">"manually draw the route to request a custom action"</span> <span class="k">do</span>
+    <span class="n">routes</span><span class="p">.</span><span class="nf">draw</span> <span class="p">{</span> <span class="n">get</span> <span class="s2">"custom"</span> <span class="o">=&gt;</span> <span class="s2">"other#custom"</span> <span class="p">}</span>
+
+    <span class="n">get</span> <span class="ss">:custom</span>
+    <span class="n">expect</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="nf">body</span><span class="p">).</span><span class="nf">to</span> <span class="n">eq</span> <span class="s2">"custom called"</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div>
+<p><em>When</em> I run <code>rspec spec</code></p>
+
+<p><em>Then</em> the examples should all pass.</p>
+
+<h2>Draw custom routes for defined controllers</h2>
+
+<p><em>Given</em> a file named &ldquo;spec/controllers/application<em>controller</em>spec.rb&rdquo; with:</p>
+<div class="highlight"><pre class="highlight ruby"><code><span class="nb">require</span> <span class="s2">"rails_helper"</span>
+
+<span class="k">class</span> <span class="nc">FoosController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span><span class="p">;</span> <span class="k">end</span>
+
+<span class="no">RSpec</span><span class="p">.</span><span class="nf">describe</span> <span class="no">ApplicationController</span><span class="p">,</span> <span class="ss">type: :controller</span> <span class="k">do</span>
+  <span class="n">controller</span> <span class="no">FoosController</span> <span class="k">do</span>
+    <span class="k">def</span> <span class="nf">custom</span>
+      <span class="n">render</span> <span class="ss">:plain</span> <span class="o">=&gt;</span> <span class="s2">"custom called"</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+
+  <span class="n">specify</span> <span class="s2">"manually draw the route to request a custom action"</span> <span class="k">do</span>
+    <span class="n">routes</span><span class="p">.</span><span class="nf">draw</span> <span class="p">{</span> <span class="n">get</span> <span class="s2">"custom"</span> <span class="o">=&gt;</span> <span class="s2">"foos#custom"</span> <span class="p">}</span>
+
+    <span class="n">get</span> <span class="ss">:custom</span>
+    <span class="n">expect</span><span class="p">(</span><span class="n">response</span><span class="p">.</span><span class="nf">body</span><span class="p">).</span><span class="nf">to</span> <span class="n">eq</span> <span class="s2">"custom called"</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div>
+<p><em>When</em> I run <code>rspec spec</code></p>
+
+<p><em>Then</em> the examples should all pass.</p>
+
+<h2>Works with namespaced controllers</h2>
+
+<p><em>Given</em> a file named &ldquo;spec/controllers/namespaced<em>controller</em>spec.rb&rdquo; with:</p>
+<div class="highlight"><pre class="highlight ruby"><code><span class="nb">require</span> <span class="s2">"rails_helper"</span>
+
+<span class="k">class</span> <span class="nc">ApplicationController</span> <span class="o">&lt;</span> <span class="no">ActionController</span><span class="o">::</span><span class="no">Base</span><span class="p">;</span> <span class="k">end</span>
+
+<span class="k">module</span> <span class="nn">Outer</span>
+  <span class="k">module</span> <span class="nn">Inner</span>
+    <span class="k">class</span> <span class="nc">FoosController</span> <span class="o">&lt;</span> <span class="no">ApplicationController</span><span class="p">;</span> <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="no">RSpec</span><span class="p">.</span><span class="nf">describe</span> <span class="no">Outer</span><span class="o">::</span><span class="no">Inner</span><span class="o">::</span><span class="no">FoosController</span><span class="p">,</span> <span class="ss">type: :controller</span> <span class="k">do</span>
+  <span class="n">controller</span> <span class="k">do</span>
+    <span class="k">def</span> <span class="nf">index</span>
+      <span class="vi">@name</span> <span class="o">=</span> <span class="nb">self</span><span class="p">.</span><span class="nf">class</span><span class="p">.</span><span class="nf">name</span>
+      <span class="vi">@controller_name</span> <span class="o">=</span> <span class="n">controller_name</span>
+      <span class="n">render</span> <span class="ss">:plain</span> <span class="o">=&gt;</span> <span class="s2">"Hello World"</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+
+  <span class="n">it</span> <span class="s2">"creates anonymous controller derived from the namespace"</span> <span class="k">do</span>
+    <span class="n">expect</span><span class="p">(</span><span class="n">controller</span><span class="p">).</span><span class="nf">to</span> <span class="n">be_a_kind_of</span><span class="p">(</span><span class="no">Outer</span><span class="o">::</span><span class="no">Inner</span><span class="o">::</span><span class="no">FoosController</span><span class="p">)</span>
+  <span class="k">end</span>
+
+  <span class="n">it</span> <span class="s2">"gets the class name as described"</span> <span class="k">do</span>
+    <span class="n">expect</span><span class="p">{</span> <span class="n">get</span> <span class="ss">:index</span> <span class="p">}.</span><span class="nf">to</span> <span class="n">change</span><span class="p">{</span>
+      <span class="n">assigns</span><span class="p">[</span><span class="ss">:name</span><span class="p">]</span>
+    <span class="p">}.</span><span class="nf">to</span> <span class="n">eq</span><span class="p">(</span><span class="s1">'Outer::Inner::FoosController'</span><span class="p">)</span>
+  <span class="k">end</span>
+
+  <span class="n">it</span> <span class="s2">"gets the controller_name as described"</span> <span class="k">do</span>
+    <span class="n">expect</span><span class="p">{</span> <span class="n">get</span> <span class="ss">:index</span> <span class="p">}.</span><span class="nf">to</span> <span class="n">change</span><span class="p">{</span>
+      <span class="n">assigns</span><span class="p">[</span><span class="ss">:controller_name</span><span class="p">]</span>
+    <span class="p">}.</span><span class="nf">to</span> <span class="n">eq</span><span class="p">(</span><span class="s1">'foos'</span><span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div>
+<p><em>When</em> I run <code>rspec spec</code></p>
+
+<p><em>Then</em> the examples should all pass.</p>
+
+<h2>Refer to application routes in the controller under test</h2>
+
+<p><em>Given</em> a file named &ldquo;spec/controllers/application<em>controller</em>spec.rb&rdquo; with:</p>
+<div class="highlight"><pre class="highlight ruby"><code><span class="nb">require</span> <span class="s2">"rails_helper"</span>
+
+<span class="no">Rails</span><span class="p">.</span><span class="nf">application</span><span class="p">.</span><span class="nf">routes</span><span class="p">.</span><span class="nf">draw</span> <span class="k">do</span>
+  <span class="n">match</span> <span class="s2">"/login"</span> <span class="o">=&gt;</span> <span class="s2">"sessions#new"</span><span class="p">,</span> <span class="ss">:as</span> <span class="o">=&gt;</span> <span class="s2">"login"</span><span class="p">,</span> <span class="ss">:via</span> <span class="o">=&gt;</span> <span class="s2">"get"</span>
+<span class="k">end</span>
+
+<span class="no">RSpec</span><span class="p">.</span><span class="nf">describe</span> <span class="no">ApplicationController</span><span class="p">,</span> <span class="ss">type: :controller</span> <span class="k">do</span>
+  <span class="n">controller</span> <span class="k">do</span>
+    <span class="k">def</span> <span class="nf">index</span>
+      <span class="n">redirect_to</span> <span class="n">login_url</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+
+  <span class="n">it</span> <span class="s2">"redirects to the login page"</span> <span class="k">do</span>
+    <span class="n">get</span> <span class="ss">:index</span>
+    <span class="n">expect</span><span class="p">(</span><span class="n">response</span><span class="p">).</span><span class="nf">to</span> <span class="n">redirect_to</span><span class="p">(</span><span class="s2">"/login"</span><span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div>
+<p><em>When</em> I run <code>rspec spec</code></p>
+
+<p><em>Then</em> the examples should all pass.</p>
+</article></section><footer><div>Created with the assistance of Ninefold<img src="/images/brutus-half.png" alt="Brutus" /></div><br /><a href="https://dnsimple.link/resolving-rspec" target="_blank">Resolving with<br /><img src="https://cdn.dnsimple.com/assets/resolving-with-us/logo-dark.png" alt="DNSimple" style="width:100px;" /></a></footer></body><script src="/javascripts/asciinema-player.js"></script></html>

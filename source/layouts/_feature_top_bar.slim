@@ -1,0 +1,6 @@
+nav role='navigation' class='top-nav-bar'
+  ul
+    li Library:
+    li= partial "layouts/selector", locals: feature_library_options(current_page)
+    li Version:
+    li= partial "layouts/selector", locals: feature_version_options(current_page)

@@ -1,0 +1,6 @@
+a.title= options.find { |_, (_title, active)| active }[1][0]
+ul aria-label="submenu" aria-haspopup='true'
+  - options.each do |link, (title, active)|
+    li class=(active ? 'current' : '')
+      a href=link
+        = title

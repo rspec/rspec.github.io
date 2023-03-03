@@ -1,0 +1,11 @@
+= wrap_layout :layout do
+  = partial "layouts/feature_top_bar"
+  section
+    nav = partial "layouts/feature_nav", locals: feature_menu_data(current_page)
+    article
+      - contents = yield
+      - if contents.empty?
+        h1= feature_topic(current_page)
+      - else
+        = contents
+      = partial "layouts/feature_subtopic_list", locals: feature_topic_list(current_page)
