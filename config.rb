@@ -120,4 +120,6 @@ RSpecInfo::Helpers.rspec_documentation_latest(app.source_dir).each do |gem_name,
   end
 end
 
+proxy '/features/index.html', '/redirect-latest.html', locals: { url: '/documentation' }
+
 ignore '/redirect-latest.html'
