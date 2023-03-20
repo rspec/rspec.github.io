@@ -1,3 +1,6 @@
+require_relative './versions'
+require_relative './features'
+
 module RSpecInfo
   module Helpers
     def source_dir
@@ -14,6 +17,74 @@ module RSpecInfo
 
     def current_lang
       current_resource.respond_to?(:lang) ? current_resource.lang : :en
+    end
+
+    def feature_library_options(current_page)
+      library = current_page.path.split("/")[2]
+
+      version =
+        if library == "rspec-rails"
+          Versions.max(Versions.rspec_feature_versions)
+        else
+          current_page.path.split("/")[1]
+        end
+
+      rails_version =
+        if library == "rspec-rails"
+          current_page.path.split("/")[1]
+        else
+          Versions.max(Versions.rails_feature_versions)
+        end
+
+      {
+        options: {
+          "/features/#{version}/rspec-core" => ["RSpec Core", library == "rspec-core"],
+          "/features/#{version}/rspec-expectations" => ["RSpec Expectations", library == "rspec-expectations"],
+          "/features/#{version}/rspec-mocks" => ["RSpec Mocks", library == "rspec-mocks"],
+          "/features/#{rails_version}/rspec-rails" => ["RSpec Rails", library == "rspec-rails"],
+        }
+      }
+    end
+
+    def feature_link_to(version, library, page_name, page)
+      link_to page_name, ["/features", version, library, page].join("/")
+    end
+
+    def feature_menu_data(current_page)
+      (_features, version, library, *path) = current_page.path.split("/")
+      {menu: Features.menu(library, version), library: library, path: path, version: version}
+    end
+
+    def feature_topic(current_page)
+      (_features, version, library, *path) = current_page.path.split("/")
+      return "Unknown, please report this page." if path.empty?
+      path.first.gsub('-','_').humanize
+    end
+
+    def feature_topic_list(current_page)
+      (_features, version, library, *path) = current_page.path.split("/")
+      return if path.empty?
+      {menu: Features.sub_menu(library, version, path.first), library: library, topic: path.first, path: path, version: version}
+    end
+
+    def feature_version_options(current_page)
+      version = current_page.path.split("/")[1]
+      library = current_page.path.split("/")[2]
+
+      versions =
+        if library == "rspec-rails"
+          Versions.rails_feature_versions
+        else
+          Versions.rspec_feature_versions
+        end
+
+      {
+        :options =>
+          versions.reduce({}) do |hash, (listed_version, _libs)|
+            hash["/features/#{listed_version}/#{library}"] = [listed_version.gsub("-","."), version == listed_version]
+            hash
+          end
+      }
     end
 
     def other_localized_resources
@@ -77,7 +148,7 @@ module RSpecInfo
       end
     end
 
-    def documentation_links_for(gem_name)
+    def documentation_options_for(gem_name)
       versions =
         rspec_documentation
           .fetch(gem_name) { [] }
@@ -85,19 +156,30 @@ module RSpecInfo
             compare_version(a, b)
           end
 
-      unless versions.empty?
-        content_tag :div, 'class' => 'version-dropdown' do
-          list = content_tag :ul do
-            versions.map do |version|
-              content_tag :li do
-                link_to version, "/documentation/#{version}/#{gem_name}/"
-              end
-            end.join('')
+      {
+        :options =>
+          versions.reduce({}) do |hash, version|
+            hash["/documentation/#{version}/#{gem_name}/"] = [version, version == versions.first]
+            hash
           end
+      }
+    end
 
-          link_to(versions.first, '#') + list
+    def feature_version_options_for(library)
+      versions =
+        if library == "rspec-rails"
+          Versions.rails_feature_versions
+        else
+          Versions.rspec_feature_versions
         end
-      end
+
+      {
+        :options =>
+          versions.reduce({}) do |hash, (listed_version, _libs)|
+            hash["/features/#{listed_version}/#{library}"] = [listed_version.gsub("-","."), listed_version == versions.first]
+            hash
+          end
+      }
     end
 
     POSTS_IMPORTED_FROM_MYRONS_BLOG  = %w[

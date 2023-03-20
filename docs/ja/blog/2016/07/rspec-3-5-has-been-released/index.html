@@ -13,9 +13,9 @@
 
 <p>このリリースに向けて力になってくれたみなさん、ありがとう！</p>
 
-<h2 id="section">主要な変更</h2>
+<h2>主要な変更</h2>
 
-<h3 id="core-configwhenfirstmatchingexampledefined">Core: <code>config.when_first_matching_example_defined</code></h3>
+<h3>Core: <code>config.when_first_matching_example_defined</code></h3>
 
 <p>私たちは基本的に、
 一部の spec でしか使わないセットアップロジックは <code>spec_helper.rb</code> には書かないようにすることをおすすめしています。
@@ -23,7 +23,6 @@
 そういったセットアップロジックは <code>spec/support</code> ディレクトリに入れると良いでしょう。
 そしてそれを必要とする spec ファイルで、まずサポートファイルを require し、example group にタグをつけることで、
 関連付けられたフックやモジュールを include することができます。</p>
-
 <div class="highlight"><pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'support/db'</span>
 
 <span class="no">RSpec</span><span class="p">.</span><span class="nf">describe</span> <span class="no">SomeClassThatUsesTheDB</span><span class="p">,</span> <span class="ss">:db</span> <span class="k">do</span>
@@ -32,7 +31,7 @@
 </code></pre></div>
 <p>この方法は上手くいきます。しかし、require と <code>:db</code> タグの両方が必要になるのは最適な方法ではないかもしれません。
 その DB を利用するすべての spec において、毎回重複が発生してしまうからです。
-また、もしその DB を使う spec に <code>require 'support/db'</code> を書き忘れてしまった場合、
+また、もしその DB を使う spec に <code>require &#39;support/db&#39;</code> を書き忘れてしまった場合、
 その spec ファイル単体で実行すると失敗するけれども、
 すべての spec を実行した場合にはパスする、
 というような状況が起こりえます（他の spec ファイルがサポートファイルを読み込むので）。</p>
@@ -40,7 +39,6 @@
 <p>RSpec 3.5 では、こういった状況で上手く使える新しいフックを導入しました。
 <code>support/db</code> を必要とするすべての spec ファイルでそれを require する代わりに、
 <code>:db</code> タグがついた example が定義されたタイミングでそれを自動的に読み込むように設定できます。</p>
-
 <div class="highlight"><pre class="highlight ruby"><code><span class="no">RSpec</span><span class="p">.</span><span class="nf">configure</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
   <span class="n">config</span><span class="p">.</span><span class="nf">when_first_matching_example_defined</span><span class="p">(</span><span class="ss">:db</span><span class="p">)</span> <span class="k">do</span>
     <span class="nb">require</span> <span class="s1">'support/db'</span>
@@ -53,11 +51,10 @@
 もちろん、この仕組みは他にもいろいろな使い道があると思いますが、
 これが私たちの想定している主なユースケースの一つです。</p>
 
-<h3 id="core-configfilterrunwhenmatching">Core: <code>config.filter_run_when_matching</code></h3>
+<h3>Core: <code>config.filter_run_when_matching</code></h3>
 
 <p>RSpec のメタデータの一般的な使い方の一つとして、focus フィルタがあります。
 RSpec 3.5 以前では、このように focus フィルタを設定していたでしょう。</p>
-
 <div class="highlight"><pre class="highlight ruby"><code><span class="no">RSpec</span><span class="p">.</span><span class="nf">configure</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
   <span class="n">config</span><span class="p">.</span><span class="nf">filter_run</span> <span class="ss">:focus</span>
   <span class="n">config</span><span class="p">.</span><span class="nf">run_all_when_everything_filtered</span> <span class="o">=</span> <span class="kp">true</span>
@@ -72,7 +69,6 @@ RSpec 3.5 以前では、このように focus フィルタを設定していた
 （例えば<a href="https://github.com/rspec/rspec-core/issues/1920">この issue</a>）。
 この問題に関して、私たちは <code>:focus</code> を <em>条件付きの</em> フィルタとしてセットアップできれば上手くいくと考え、
 RSpec 3.5 では以下のように設定できるようにしました。</p>
-
 <div class="highlight"><pre class="highlight ruby"><code><span class="no">RSpec</span><span class="p">.</span><span class="nf">configure</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
   <span class="n">config</span><span class="p">.</span><span class="nf">filter_run_when_matching</span> <span class="ss">:focus</span>
 <span class="k">end</span>
@@ -80,25 +76,23 @@ RSpec 3.5 では以下のように設定できるようにしました。</p>
 <p>この設定を使うと、<code>:focus</code> タグのついた example か example group が一つ以上存在する場合にのみ、
 <code>:focus</code> フィルタが有効になります。また、以前より短く、シンプルな設定になります！</p>
 
-<h3 id="core--spec-">Core: コマンドラインで指定された順番で spec ファイルを読み込むように</h3>
+<h3>Core: コマンドラインで指定された順番で spec ファイルを読み込むように</h3>
 
 <p>RSpec 3.5 では、コマンドライン引数で渡された順番で spec ファイルやディレクトリを読み込むようになりました。
 これによって、その場で簡単に順序を指定することができるようになります。
 例えばその場で一度だけ、高速なユニット spec を、時間のかかる受け入れ spec の前に実行したいという場合、
 このように RSpec を実行します。</p>
-
 <div class="highlight"><pre class="highlight plaintext"><code>$ rspec spec/unit spec/acceptance --order defined
 </code></pre></div>
 <p>この <code>--order defined</code> オプションは、
 あなたのプロジェクトでデフォルトの実行順序をランダムに設定（推奨）している場合にのみ必要になります。</p>
 
-<h3 id="core-shared-example-group--include-">Core: Shared example group の include 方式の変更</h3>
+<h3>Core: Shared example group の include 方式の変更</h3>
 
 <p>これまで RSpec は shared context という概念
 （任意のコンテキスト用のヘルパーメソッドやフックを共通化するための shared example group）
 をサポートしてきました。
 Shared context はこんな風に定義します。</p>
-
 <div class="highlight"><pre class="highlight ruby"><code><span class="no">RSpec</span><span class="p">.</span><span class="nf">shared_context</span> <span class="s2">"DB support"</span> <span class="k">do</span>
   <span class="n">let</span><span class="p">(</span><span class="ss">:db</span><span class="p">)</span> <span class="p">{</span> <span class="no">MyORM</span><span class="p">.</span><span class="nf">database</span> <span class="p">}</span>
 
@@ -118,13 +112,11 @@ Shared context はこんな風に定義します。</p>
 <span class="k">end</span>
 </code></pre></div>
 <p>この shared context を使うには、任意の example group で <code>include_context</code> を使って include します。</p>
-
 <div class="highlight"><pre class="highlight ruby"><code><span class="no">RSpec</span><span class="p">.</span><span class="nf">describe</span> <span class="no">MyModel</span> <span class="k">do</span>
   <span class="n">include_context</span> <span class="s2">"DB support"</span>
 <span class="k">end</span>
 </code></pre></div>
 <p>また、 メタデータによって <em>暗黙的に</em> shared context を include する方法もあります。</p>
-
 <div class="highlight"><pre class="highlight ruby"><code><span class="no">RSpec</span><span class="p">.</span><span class="nf">shared_context</span> <span class="s2">"DB support"</span><span class="p">,</span> <span class="ss">:db</span> <span class="k">do</span>
   <span class="c1"># ...</span>
 <span class="k">end</span>
@@ -138,22 +130,21 @@ Shared context はこんな風に定義します。</p>
 <p>この方法はまあまあ上手くいきます。しかし、いくつかの問題がありました。</p>
 
 <ul>
-  <li><code>shared_context</code> の第一引数（<code>"DB support"</code>）は、そのグループが何のためのものかというラベルでしかない（コメントと大差ない）。</li>
-  <li>メタデータが shared example group の場合だけ特別に扱われ、通常の example group のように単純にそのグループに適用されない、
+<li><code>shared_context</code> の第一引数（<code>&quot;DB support&quot;</code>）は、そのグループが何のためのものかというラベルでしかない（コメントと大差ない）。</li>
+<li>メタデータが shared example group の場合だけ特別に扱われ、通常の example group のように単純にそのグループに適用されない、
 という挙動に対して、予想外だという意見がこれまで挙がってきていた。</li>
-  <li>Shared example group を include した側の example group に対して自動的に適用されるようなメタデータを付与することが不可能だった。
+<li>Shared example group を include した側の example group に対して自動的に適用されるようなメタデータを付与することが不可能だった。
 例えば、一時的に <code>:skip</code> や <code>:focus</code> メタデータを、include した側の example group に自動的に適用する、ということができない。</li>
-  <li>Shared example group を、すべての example group に自動的に include する明確な方法がなかった
+<li>Shared example group を、すべての example group に自動的に include する明確な方法がなかった
 （例えば、グローバルな <code>before</code> フックや <code>let</code> をあらゆる場所で利用可能にするなど）。</li>
-  <li>モジュールの include 方式と一貫性がなかった（例: <code>config.include DBSupport, :db</code>）。</li>
+<li>モジュールの include 方式と一貫性がなかった（例: <code>config.include DBSupport, :db</code>）。</li>
 </ul>
 
 <p>RSpec 3.5 では、いくつかの変更によってこれらの問題に対処しました。</p>
 
-<h4 id="api-configincludecontext">新しい API: <code>config.include_context</code></h4>
+<h4>新しい API: <code>config.include_context</code></h4>
 
 <p><code>RSpec.configure</code> ブロック内で、shared context の include 定義ができるようになりました。</p>
-
 <div class="highlight"><pre class="highlight ruby"><code><span class="no">RSpec</span><span class="p">.</span><span class="nf">configure</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
   <span class="n">config</span><span class="p">.</span><span class="nf">include_context</span> <span class="s2">"DB support"</span><span class="p">,</span> <span class="ss">:db</span>
 <span class="k">end</span>
@@ -162,10 +153,9 @@ Shared context はこんな風に定義します。</p>
 メタデータを基に shared context を include するためのわかりやすい方法を提供します。
 さらに、shared context をすべての example group に include することもできます（メタデータ引数を省略すれば良いだけ）。</p>
 
-<h4 id="configsharedcontextmetadatabehavior">新しい設定: <code>config.shared_context_metadata_behavior</code></h4>
+<h4>新しい設定: <code>config.shared_context_metadata_behavior</code></h4>
 
 <p>Shared context のメタデータの挙動を変更するための設定も追加されました。</p>
-
 <div class="highlight"><pre class="highlight ruby"><code><span class="no">RSpec</span><span class="p">.</span><span class="nf">configure</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
   <span class="n">config</span><span class="p">.</span><span class="nf">shared_context_metadata_behavior</span> <span class="o">=</span> <span class="ss">:trigger_inclusion</span>
   <span class="c1"># または</span>
@@ -183,12 +173,11 @@ RSpec 3.4 までと同様
 include した側の example group に適用されるようになります。
 例えば DB shared context に <code>:focus</code> タグをつけることによって、
 それに依存するすべての example group のみを実行することができます。</p>
-
 <div class="highlight"><pre class="highlight ruby"><code><span class="no">RSpec</span><span class="p">.</span><span class="nf">shared_context</span> <span class="s2">"DB support"</span><span class="p">,</span> <span class="ss">:focus</span> <span class="k">do</span>
   <span class="c1"># ...</span>
 <span class="k">end</span>
 </code></pre></div>
-<h3 id="expectations-respondto-">Expectations: <code>respond_to</code> マッチャのキーワード引数サポート</h3>
+<h3>Expectations: <code>respond_to</code> マッチャのキーワード引数サポート</h3>
 
 <p>キーワード引数が Ruby の安定した言語機能となってしばらく経ちましたが、
 これまで RSpec の多くのマッチャにおいて、キーワード引数に対するエクスペクテーションを設定することができませんでした。</p>
@@ -196,31 +185,28 @@ include した側の example group に適用されるようになります。
 <p>rspec-expectations 3.5 では、
 オブジェクトが任意のメソッドに応答するかどうかを、キーワード引数を使って検証できるようになりました。
 メソッドが任意のキーワード引数を受け取るかどうかや、通常引数のカウントを検証することができます。</p>
-
 <div class="highlight"><pre class="highlight ruby"><code><span class="n">expect</span><span class="p">(</span><span class="n">my_object</span><span class="p">).</span><span class="nf">to</span> <span class="n">respond_to</span><span class="p">(</span><span class="ss">:find</span><span class="p">).</span><span class="nf">with_keywords</span><span class="p">(</span><span class="ss">:limit</span><span class="p">,</span> <span class="ss">:offset</span><span class="p">)</span>
 <span class="n">expect</span><span class="p">(</span><span class="n">my_object</span><span class="p">).</span><span class="nf">to</span> <span class="n">respond_to</span><span class="p">(</span><span class="ss">:find</span><span class="p">).</span><span class="nf">with</span><span class="p">(</span><span class="mi">1</span><span class="p">).</span><span class="nf">argument</span><span class="p">.</span><span class="nf">and_keywords</span><span class="p">(</span><span class="ss">:limit</span><span class="p">,</span> <span class="ss">:offset</span><span class="p">)</span>
 </code></pre></div>
 <p>さらに、幅のある引数カウントや、無限に引数を受け取れるかどうかも検証できます。</p>
-
 <div class="highlight"><pre class="highlight ruby"><code><span class="n">expect</span><span class="p">(</span><span class="n">my_object</span><span class="p">).</span><span class="nf">to</span> <span class="n">respond_to</span><span class="p">(</span><span class="ss">:build</span><span class="p">).</span><span class="nf">with</span><span class="p">(</span><span class="mi">2</span><span class="o">..</span><span class="mi">3</span><span class="p">).</span><span class="nf">arguments</span>
 <span class="n">expect</span><span class="p">(</span><span class="n">my_object</span><span class="p">).</span><span class="nf">to</span> <span class="n">respond_to</span><span class="p">(</span><span class="ss">:build</span><span class="p">).</span><span class="nf">with_unlimited_arguments</span>
 </code></pre></div>
 <p>これを実装してくれた Rob Smith、ありがとう。</p>
 
-<h3 id="expectations-minitest-56-">Expectations: Minitest 5.6+ のサポート</h3>
+<h3>Expectations: Minitest 5.6+ のサポート</h3>
 
 <p>rspec-expectations は通常、rspec-core と一緒に使われますが、
 他のテストフレームワークで使うことも簡単にできます。
 Minitest とのインテグレーションも提供しており、
 Minitest 自身を読み込んだ後に rspec-expectations の Minitest サポートを読み込むことで利用できます。</p>
-
 <div class="highlight"><pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'rspec/expectations/minitest_integration'</span>
 </code></pre></div>
 <p>しかし Minitest は、バージョン 5.6 においてそれ自身の <code>expect</code> メソッドを導入したため、
 RSpec の <code>expect</code> と衝突し、このインテグレーションが壊れてしまいました。
 rspec-expectations 3.5 にはこのための修正が含まれています。</p>
 
-<h3 id="mocks-minitest-">Mocks: Minitest インテグレーションの追加</h3>
+<h3>Mocks: Minitest インテグレーションの追加</h3>
 
 <p>私たちは以前から rspec-expectations の Minitest インテグレーションを提供していましたが、
 rspec-mocks に関しては同レベルの簡単なインテグレーションを提供してきませんでした。
@@ -228,10 +214,9 @@ rspec-mocks に関しては同レベルの簡単なインテグレーション�
 これは Minitest 5.6 で前述の <code>expect</code> メソッドが追加され、それによって動作が壊れるまでは問題なく動いていました。
 rspec-mock 3.5 では、ファーストクラスの Minitest サポートを提供します。
 これを利用するには、ただインテグレーションファイルを require するだけです。</p>
-
 <div class="highlight"><pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'rspec/mocks/minitest_integration'</span>
 </code></pre></div>
-<h3 id="rails-rails-5-">Rails: Rails 5 のサポート</h3>
+<h3>Rails: Rails 5 のサポート</h3>
 
 <p>今回の重大ニュースは、RSpec 3.5.0 が Rails 5 をサポートしたという点です。
 私たちは、Rails 5 のベータや RC がリリースされると共に、並行して RSpec 3.5.0 のベータをリリースしてきました。
@@ -259,7 +244,7 @@ Request spec は一つのコントローラーアクションにフォーカス�
 controller spec とは違い、ルーターやミドルウェアスタック、Rack リクエストやレスポンスも関与します。
 これによって、より現実に近い環境でテストを実行し、controller spec で発生しがちな多くの問題を避けることができます。
 Rails 5 では、request spec が Rails 4までの request spec や controller spec よりもかなり高速になっています。
-これは Rails チームの <a href="https://twitter.com/eileencodes">Eileen Uchitelle</a><sup id="fnref:foot_1" role="doc-noteref"><a href="#fn:foot_1" class="footnote" rel="footnote">1</a></sup> のおかげです。</p>
+これは Rails チームの <a href="https://twitter.com/eileencodes">Eileen Uchitelle</a>[^foot_1] のおかげです。</p>
 
 <p>他の Rails 5 の重要な機能としては ActionCable があります。
 残念ながら、RSpec は今のところ ActionCable をちゃんとテストするための方法を提供できていません。
@@ -271,14 +256,14 @@ Rails 側では、Rails 5.1 でリリース予定の ActionCable のための新
 また私たちも Rails コアチームに大きく助けられました。
 このリリースに向けて力になってくれたみなさんに感謝します。</p>
 
-<h2 id="stats">Stats</h2>
+<h2>Stats</h2>
 
-<h3 id="combined">Combined:</h3>
+<h3>Combined:</h3>
 
 <ul>
-  <li><strong>Total Commits</strong>: 625</li>
-  <li><strong>Merged pull requests</strong>: 192</li>
-  <li><strong>62 contributors</strong>: Aaron Stone, Ahmed AbouElhamayed, Al Snow, Alex Altair,
+<li><strong>Total Commits</strong>: 625</li>
+<li><strong>Merged pull requests</strong>: 192</li>
+<li><strong>62 contributors</strong>: Aaron Stone, Ahmed AbouElhamayed, Al Snow, Alex Altair,
 Alexander Skiba, Alireza Bashiri, Andrew Kozin (aka nepalez), Andrew White,
 Anton Rieder, Ben Saunders, Benjamin Quorning, Bradley Schaefer, Bruno Bonamin,
 DarthSim, David Rodríguez, Diogo Benicá, Eliot Sykes, Fernando Seror, Gautam
@@ -292,44 +277,44 @@ William Jeffries, Wojciech Wnętrzak, Xavier Shay, Yoshihiro Ashida, Yuji
 Nakayama, Zshawn Syed, chrisarcand, liam-m, mrageh, sleepingkingstudios, yui-knk</li>
 </ul>
 
-<h3 id="rspec-core">rspec-core:</h3>
+<h3>rspec-core:</h3>
 
 <ul>
-  <li><strong>Total Commits</strong>: 194</li>
-  <li><strong>Merged pull requests</strong>: 66</li>
-  <li><strong>18 contributors</strong>: Alexander Skiba, Alireza Bashiri, Benjamin Quorning,
+<li><strong>Total Commits</strong>: 194</li>
+<li><strong>Merged pull requests</strong>: 66</li>
+<li><strong>18 contributors</strong>: Alexander Skiba, Alireza Bashiri, Benjamin Quorning,
 Bradley Schaefer, Jon Moss, Jon Rowe, Matt Jones, Michele Piccirillo, Myron
 Marston, Patrik Wenger, Perry Smith, Sam Phippen, Simon Coffey, Thomas Hart II,
 Travis Grathwell, Yuji Nakayama, mrageh, yui-knk</li>
 </ul>
 
-<h3 id="rspec-expectations">rspec-expectations:</h3>
+<h3>rspec-expectations:</h3>
 
 <ul>
-  <li><strong>Total Commits</strong>: 83</li>
-  <li><strong>Merged pull requests</strong>: 25</li>
-  <li><strong>14 contributors</strong>: Alex Altair, Ben Saunders, Benjamin Quorning, Bradley
+<li><strong>Total Commits</strong>: 83</li>
+<li><strong>Merged pull requests</strong>: 25</li>
+<li><strong>14 contributors</strong>: Alex Altair, Ben Saunders, Benjamin Quorning, Bradley
 Schaefer, James Coleman, Jon Rowe, Myron Marston, Rob Smith, Sam Phippen,
 William Jeffries, Yuji Nakayama, Zshawn Syed, chrisarcand, sleepingkingstudios</li>
 </ul>
 
-<h3 id="rspec-mocks">rspec-mocks:</h3>
+<h3>rspec-mocks:</h3>
 
 <ul>
-  <li><strong>Total Commits</strong>: 82</li>
-  <li><strong>Merged pull requests</strong>: 28</li>
-  <li><strong>17 contributors</strong>: Andrew Kozin (aka nepalez), Benjamin Quorning, Bradley
+<li><strong>Total Commits</strong>: 82</li>
+<li><strong>Merged pull requests</strong>: 28</li>
+<li><strong>17 contributors</strong>: Andrew Kozin (aka nepalez), Benjamin Quorning, Bradley
 Schaefer, Bruno Bonamin, David Rodríguez, Isaac Betesh, Joe Rafaniello, Jon
 Rowe, Kilian Cirera Sant, Marc Ignacio, Martin Emde, Myron Marston, Patrik
 Wenger, Ryan Beckman, Sam Phippen, Tobias Bühlmann, Yuji Nakayama</li>
 </ul>
 
-<h3 id="rspec-rails">rspec-rails:</h3>
+<h3>rspec-rails:</h3>
 
 <ul>
-  <li><strong>Total Commits</strong>: 185</li>
-  <li><strong>Merged pull requests</strong>: 47</li>
-  <li><strong>31 contributors</strong>: Ahmed AbouElhamayed, Al Snow, Andrew White, Anton Rieder,
+<li><strong>Total Commits</strong>: 185</li>
+<li><strong>Merged pull requests</strong>: 47</li>
+<li><strong>31 contributors</strong>: Ahmed AbouElhamayed, Al Snow, Andrew White, Anton Rieder,
 Benjamin Quorning, Bradley Schaefer, DarthSim, David Rodríguez, Diogo Benicá,
 Eliot Sykes, Fernando Seror, Gautam Sawhney, John Schroeder, Jon Rowe, Jun
 Aruga, Koen Punt, Liss McCabe, Miklos Fazekas, Myron Marston, Peter Swan, Prem
@@ -337,76 +322,78 @@ Sichanugrist, Rob, Ryan Clark, Sam Phippen, Scott Bronson, Sergey Pchelintsev,
 Timo Schilling, Wojciech Wnętrzak, Xavier Shay, Yoshihiro Ashida, Yuji Nakayama</li>
 </ul>
 
-<h3 id="rspec-support">rspec-support:</h3>
+<h3>rspec-support:</h3>
 
 <ul>
-  <li><strong>Total Commits</strong>: 81</li>
-  <li><strong>Merged pull requests</strong>: 26</li>
-  <li><strong>8 contributors</strong>: Aaron Stone, Bradley Schaefer, Jon Rowe, Myron Marston,
+<li><strong>Total Commits</strong>: 81</li>
+<li><strong>Merged pull requests</strong>: 26</li>
+<li><strong>8 contributors</strong>: Aaron Stone, Bradley Schaefer, Jon Rowe, Myron Marston,
 Sam Phippen, Yuji Nakayama, liam-m, sleepingkingstudios</li>
 </ul>
 
-<h2 id="docs">Docs</h2>
+<h2>Docs</h2>
 
-<h3 id="api-docs">API Docs</h3>
-
-<ul>
-  <li><a href="/documentation/3.5/rspec-core/">rspec-core</a></li>
-  <li><a href="/documentation/3.5/rspec-expectations/">rspec-expectations</a></li>
-  <li><a href="/documentation/3.5/rspec-mocks/">rspec-mocks</a></li>
-  <li><a href="/documentation/3.5/rspec-rails/">rspec-rails</a></li>
-</ul>
-
-<h3 id="cucumber-features">Cucumber Features</h3>
+<h3>API Docs</h3>
 
 <ul>
-  <li><a href="http://relishapp.com/rspec/rspec-core">rspec-core</a></li>
-  <li><a href="http://relishapp.com/rspec/rspec-expectations">rspec-expectations</a></li>
-  <li><a href="http://relishapp.com/rspec/rspec-mocks">rspec-mocks</a></li>
-  <li><a href="http://relishapp.com/rspec/rspec-rails">rspec-rails</a></li>
+<li><a href="/documentation/3.5/rspec-core/">rspec-core</a></li>
+<li><a href="/documentation/3.5/rspec-expectations/">rspec-expectations</a></li>
+<li><a href="/documentation/3.5/rspec-mocks/">rspec-mocks</a></li>
+<li><a href="/documentation/3.5/rspec-rails/">rspec-rails</a></li>
 </ul>
 
-<h2 id="release-notes">Release Notes</h2>
+<h3>Cucumber Features</h3>
 
-<h3 id="rspec-core-combining-all-betas-of-rspec-350">RSpec Core (combining all betas of RSpec 3.5.0)</h3>
+<ul>
+<li><a href="http://relishapp.com/rspec/rspec-core">rspec-core</a></li>
+<li><a href="http://relishapp.com/rspec/rspec-expectations">rspec-expectations</a></li>
+<li><a href="http://relishapp.com/rspec/rspec-mocks">rspec-mocks</a></li>
+<li><a href="http://relishapp.com/rspec/rspec-rails">rspec-rails</a></li>
+</ul>
 
-<h4 id="section-1">3.5.0 / 2016-07-01</h4>
+<h2>Release Notes</h2>
+
+<h3>RSpec Core (combining all betas of RSpec 3.5.0)</h3>
+
+<h4>3.5.0 / 2016-07-01</h4>
+
 <p><a href="http://github.com/rspec/rspec-core/compare/v3.5.0.beta4...v3.5.0">Full Changelog</a></p>
 
 <p>Enhancements:</p>
 
 <ul>
-  <li>Include any <code>SPEC_OPTS</code> in reproduction command printed at the end of
+<li>Include any <code>SPEC_OPTS</code> in reproduction command printed at the end of
 a bisect run. (Simon Coffey, #2274)</li>
 </ul>
 
 <p>Bug Fixes:</p>
 
 <ul>
-  <li>Handle <code>--bisect</code> in <code>SPEC_OPTS</code> environment variable correctly so as
+<li>Handle <code>--bisect</code> in <code>SPEC_OPTS</code> environment variable correctly so as
 to avoid infinite recursion. (Simon Coffey, #2271)</li>
 </ul>
 
-<h4 id="beta4--2016-06-05">3.5.0.beta4 / 2016-06-05</h4>
+<h4>3.5.0.beta4 / 2016-06-05</h4>
+
 <p><a href="http://github.com/rspec/rspec-core/compare/v3.5.0.beta3...v3.5.0.beta4">Full Changelog</a></p>
 
 <p>Enhancements:</p>
 
 <ul>
-  <li>Filter out bundler stackframes from backtraces by default, since
+<li>Filter out bundler stackframes from backtraces by default, since
 Bundler 1.12 now includes its own frames in stack traces produced
 by using <code>bundle exec</code>. (Myron Marston, #2240)</li>
-  <li>HTML Formatter uses exception presenter to get failure message
+<li>HTML Formatter uses exception presenter to get failure message
 for consistency with other formatters. (@mrageh, #2222)</li>
-  <li>Load spec files in the order of the directories or files passed
+<li>Load spec files in the order of the directories or files passed
 at the command line, making it easy to make some specs run before
 others in a one-off manner.  For example, <code>rspec spec/unit
 spec/acceptance --order defined</code> will run unit specs before acceptance
 specs. (Myron Marston, #2253)</li>
-  <li>Add new <code>config.include_context</code> API for configuring global or
+<li>Add new <code>config.include_context</code> API for configuring global or
 filtered inclusion of shared contexts in example groups.
 (Myron Marston, #2256)</li>
-  <li>Add new <code>config.shared_context_metadata_behavior = :apply_to_host_groups</code>
+<li>Add new <code>config.shared_context_metadata_behavior = :apply_to_host_groups</code>
 option, which causes shared context metadata to be inherited by the
 metadata hash of all host groups and examples instead of configuring
 implicit auto-inclusion based on the passed metadata. (Myron Marston, #2256)</li>
@@ -415,21 +402,22 @@ implicit auto-inclusion based on the passed metadata. (Myron Marston, #2256)</li
 <p>Bug Fixes:</p>
 
 <ul>
-  <li>Fix <code>--bisect</code> so it works on large spec suites that were previously triggering
-"Argument list too long errors" due to all the spec locations being passed as
+<li>Fix <code>--bisect</code> so it works on large spec suites that were previously triggering
+&ldquo;Argument list too long errors&rdquo; due to all the spec locations being passed as
 CLI args. (Matt Jones, #2223).</li>
-  <li>Fix deprecated <code>:example_group</code>-based filtering so that it properly
+<li>Fix deprecated <code>:example_group</code>-based filtering so that it properly
 applies to matching example groups. (Myron Marston, #2234)</li>
-  <li>Fix <code>NoMethodError</code> caused by Java backtraces on JRuby. (Michele Piccirillo, #2244)</li>
+<li>Fix <code>NoMethodError</code> caused by Java backtraces on JRuby. (Michele Piccirillo, #2244)</li>
 </ul>
 
-<h4 id="beta3--2016-04-02">3.5.0.beta3 / 2016-04-02</h4>
+<h4>3.5.0.beta3 / 2016-04-02</h4>
+
 <p><a href="http://github.com/rspec/rspec-core/compare/v3.5.0.beta2...v3.5.0.beta3">Full Changelog</a></p>
 
 <p>Enhancements:</p>
 
 <ul>
-  <li>Add new <code>config.filter_run_when_matching</code> API, intended to replace
+<li>Add new <code>config.filter_run_when_matching</code> API, intended to replace
 the combination of <code>config.filter_run</code> and
 <code>config.run_all_when_everything_filtered</code> (Myron Marston, #2206)</li>
 </ul>
@@ -437,85 +425,91 @@ the combination of <code>config.filter_run</code> and
 <p>Bug Fixes:</p>
 
 <ul>
-  <li>Use the encoded string logic for source extraction. (Jon Rowe, #2183)</li>
-  <li>Fix rounding issue in duration formatting helper. (Fabersky, Jon Rowe, #2208)</li>
-  <li>Fix failure snippet extraction so that <code>def-end</code> snippets
+<li>Use the encoded string logic for source extraction. (Jon Rowe, #2183)</li>
+<li>Fix rounding issue in duration formatting helper. (Fabersky, Jon Rowe, #2208)</li>
+<li>Fix failure snippet extraction so that <code>def-end</code> snippets
 ending with <code>end</code>-only line can be extracted properly.
 (Yuji Nakayama, #2215)</li>
 </ul>
 
-<h4 id="beta2--2016-03-10">3.5.0.beta2 / 2016-03-10</h4>
+<h4>3.5.0.beta2 / 2016-03-10</h4>
+
 <p><a href="http://github.com/rspec/rspec-core/compare/v3.5.0.beta1...v3.5.0.beta2">Full Changelog</a></p>
 
 <p>Enhancements:</p>
 
 <ul>
-  <li>Remove unneeded <code>:execution_result</code> example group metadata, saving a
+<li>Remove unneeded <code>:execution_result</code> example group metadata, saving a
 bit of memory. (Myron Marston, #2172)</li>
-  <li>Apply hooks registered with <code>config</code> to previously defined groups.
+<li>Apply hooks registered with <code>config</code> to previously defined groups.
 (Myron Marston, #2189)</li>
-  <li><code>RSpec::Core::Configuration#reporter</code> is now public API under SemVer.
+<li><code>RSpec::Core::Configuration#reporter</code> is now public API under SemVer.
 (Jon Rowe, #2193)</li>
-  <li>Add new <code>config.when_first_matching_example_defined</code> hook. (Myron
+<li>Add new <code>config.when_first_matching_example_defined</code> hook. (Myron
 Marston, #2175)</li>
 </ul>
 
-<h4 id="beta1--2016-02-06">3.5.0.beta1 / 2016-02-06</h4>
+<h4>3.5.0.beta1 / 2016-02-06</h4>
+
 <p><a href="http://github.com/rspec/rspec-core/compare/v3.4.4...v3.5.0.beta1">Full Changelog</a></p>
 
 <p>Enhancements:</p>
 
 <ul>
-  <li>Add <code>RSpec::Core::ExampleGroup.currently_executing_a_context_hook?</code>,
+<li>Add <code>RSpec::Core::ExampleGroup.currently_executing_a_context_hook?</code>,
 primarily for use by rspec-rails. (Sam Phippen, #2131)</li>
 </ul>
 
 <p>Bug Fixes:</p>
 
 <ul>
-  <li>Ensure <code>MultipleExceptionError</code> does not contain a recursive reference
+<li>Ensure <code>MultipleExceptionError</code> does not contain a recursive reference
 to itself. (Sam Phippen, #2133)</li>
 </ul>
 
-<h3 id="rspec-expectations-including-all-betas-of-rspec-350">RSpec Expectations (including all betas of RSpec 3.5.0)</h3>
+<h3>RSpec Expectations (including all betas of RSpec 3.5.0)</h3>
 
-<h4 id="section-2">3.5.0 / 2016-07-01</h4>
+<h4>3.5.0 / 2016-07-01</h4>
+
 <p><a href="http://github.com/rspec/rspec-expectations/compare/v3.5.0.beta4...v3.5.0">Full Changelog</a></p>
 
 <p><strong>No user facing changes since beta4</strong></p>
 
-<h4 id="beta4--2016-06-05-1">3.5.0.beta4 / 2016-06-05</h4>
+<h4>3.5.0.beta4 / 2016-06-05</h4>
+
 <p><a href="http://github.com/rspec/rspec-expectations/compare/v3.5.0.beta3...v3.5.0.beta4">Full Changelog</a></p>
 
 <p>Bug Fixes:</p>
 
 <ul>
-  <li>Fix <code>include</code> matcher so that it provides a valid diff for hashes. (Yuji Nakayama, #916)</li>
+<li>Fix <code>include</code> matcher so that it provides a valid diff for hashes. (Yuji Nakayama, #916)</li>
 </ul>
 
-<h4 id="beta3--2016-04-02-1">3.5.0.beta3 / 2016-04-02</h4>
+<h4>3.5.0.beta3 / 2016-04-02</h4>
+
 <p><a href="http://github.com/rspec/rspec-expectations/compare/v3.5.0.beta2...v3.5.0.beta3">Full Changelog</a></p>
 
 <p>Enhancements:</p>
 
 <ul>
-  <li>Make <code>rspec/expectations/minitest_integration</code> work on Minitest::Spec
+<li>Make <code>rspec/expectations/minitest_integration</code> work on Minitest::Spec
 5.6+. (Myron Marston, #904)</li>
-  <li>Add an alias <code>having_attributes</code> for <code>have_attributes</code> matcher.
+<li>Add an alias <code>having_attributes</code> for <code>have_attributes</code> matcher.
 (Yuji Nakayama, #905)</li>
-  <li>Improve <code>change</code> matcher error message when block is mis-used.
+<li>Improve <code>change</code> matcher error message when block is mis-used.
 (Alex Altair, #908)</li>
 </ul>
 
-<h4 id="beta2--2016-03-10-1">3.5.0.beta2 / 2016-03-10</h4>
+<h4>3.5.0.beta2 / 2016-03-10</h4>
+
 <p><a href="http://github.com/rspec/rspec-expectations/compare/v3.5.0.beta1...v3.5.0.beta2">Full Changelog</a></p>
 
 <p>Enhancements:</p>
 
 <ul>
-  <li>Add the ability to raise an error on encountering false positives via
+<li>Add the ability to raise an error on encountering false positives via
 <code>RSpec::Configuration#on_potential_false_positives = :raise</code>. (Jon Rowe, #900)</li>
-  <li>When using the custom matcher DSL, support new
+<li>When using the custom matcher DSL, support new
 <code>notify_expectation_failures: true</code> option for the <code>match</code> method to
 allow expectation failures to be raised as normal instead of being
 converted into a <code>false</code> return value for <code>matches?</code>. (Jon Rowe, #892)</li>
@@ -524,139 +518,144 @@ converted into a <code>false</code> return value for <code>matches?</code>. (Jon
 <p>Bug Fixes:</p>
 
 <ul>
-  <li>Allow <code>should</code> deprecation check to work on <code>BasicObject</code>s. (James Coleman, #898)</li>
+<li>Allow <code>should</code> deprecation check to work on <code>BasicObject</code>s. (James Coleman, #898)</li>
 </ul>
 
-<h4 id="beta1--2016-02-06-1">3.5.0.beta1 / 2016-02-06</h4>
+<h4>3.5.0.beta1 / 2016-02-06</h4>
+
 <p><a href="http://github.com/rspec/rspec-expectations/compare/v3.4.0...v3.5.0.beta1">Full Changelog</a></p>
 
 <p>Enhancements:</p>
 
 <ul>
-  <li>Make <code>match_when_negated</code> in custom matcher DSL support use of
+<li>Make <code>match_when_negated</code> in custom matcher DSL support use of
 expectations within the match logic. (Chris Arcand, #789)</li>
 </ul>
 
 <p>Bug Fixes:</p>
 
 <ul>
-  <li>Return <code>true</code> as expected from passing negated expectations
-(such as <code>expect("foo").not_to eq "bar"</code>), so they work
+<li>Return <code>true</code> as expected from passing negated expectations
+(such as <code>expect(&quot;foo&quot;).not_to eq &quot;bar&quot;</code>), so they work
 properly when used within a <code>match</code> or <code>match_when_negated</code>
 block. (Chris Arcand, #789)</li>
 </ul>
 
-<h3 id="rspec-mocks-including-all-betas-of-rspec-350">RSpec Mocks (including all betas of RSpec 3.5.0)</h3>
+<h3>RSpec Mocks (including all betas of RSpec 3.5.0)</h3>
 
-<h4 id="section-3">3.5.0 / 2016-07-01</h4>
+<h4>3.5.0 / 2016-07-01</h4>
+
 <p><a href="http://github.com/rspec/rspec-mocks/compare/v3.5.0.beta4...v3.5.0">Full Changelog</a></p>
 
 <p>Enhancements:</p>
 
 <ul>
-  <li>Provides a nice string representation of
+<li>Provides a nice string representation of
 <code>RSpec::Mocks::MessageExpectation</code> (Myron Marston, #1095)</li>
 </ul>
 
-<h4 id="beta4--2016-06-05-2">3.5.0.beta4 / 2016-06-05</h4>
+<h4>3.5.0.beta4 / 2016-06-05</h4>
+
 <p><a href="http://github.com/rspec/rspec-mocks/compare/v3.5.0.beta3...v3.5.0.beta4">Full Changelog</a></p>
 
 <p>Enhancements:</p>
 
 <ul>
-  <li>Add <code>and_throw</code> to any instance handling. (Tobias Bühlmann, #1068)</li>
+<li>Add <code>and_throw</code> to any instance handling. (Tobias Bühlmann, #1068)</li>
 </ul>
 
-<h4 id="beta3--2016-04-02-2">3.5.0.beta3 / 2016-04-02</h4>
+<h4>3.5.0.beta3 / 2016-04-02</h4>
+
 <p><a href="http://github.com/rspec/rspec-mocks/compare/v3.5.0.beta2...v3.5.0.beta3">Full Changelog</a></p>
 
 <p>Enhancements:</p>
 
 <ul>
-  <li>Issue warning when attempting to use unsupported
+<li>Issue warning when attempting to use unsupported
 <code>allow(...).to receive(...).ordered</code>. (Jon Rowe, #1000)</li>
-  <li>Add <code>rspec/mocks/minitest_integration</code>, to properly integrate rspec-mocks
+<li>Add <code>rspec/mocks/minitest_integration</code>, to properly integrate rspec-mocks
 with minitest. (Myron Marston, #1065)</li>
 </ul>
 
-<h4 id="beta2--2016-03-10-2">3.5.0.beta2 / 2016-03-10</h4>
+<h4>3.5.0.beta2 / 2016-03-10</h4>
+
 <p><a href="http://github.com/rspec/rspec-mocks/compare/v3.5.0.beta1...v3.5.0.beta2">Full Changelog</a></p>
 
 <p>Enhancements:</p>
 
 <ul>
-  <li>Improve error message displayed when using <code>and_wrap_original</code> on pure test
+<li>Improve error message displayed when using <code>and_wrap_original</code> on pure test
 doubles. (betesh, #1063)</li>
 </ul>
 
 <p>Bug Fixes:</p>
 
 <ul>
-  <li>Fix issue that prevented <code>receive_message_chain(...).with(...)</code> working
-correctly on "any instance" mocks. (Jon Rowe, #1061)</li>
+<li>Fix issue that prevented <code>receive_message_chain(...).with(...)</code> working
+correctly on &ldquo;any instance&rdquo; mocks. (Jon Rowe, #1061)</li>
 </ul>
 
-<h4 id="beta1--2016-02-06-2">3.5.0.beta1 / 2016-02-06</h4>
+<h4>3.5.0.beta1 / 2016-02-06</h4>
+
 <p><a href="http://github.com/rspec/rspec-mocks/compare/v3.4.1...v3.5.0.beta1">Full Changelog</a></p>
 
 <p>Bug Fixes:</p>
 
 <ul>
-  <li>Allow <code>any_instance_of(...).to receive(...)</code> to use <code>and_yield</code> multiple
+<li>Allow <code>any_instance_of(...).to receive(...)</code> to use <code>and_yield</code> multiple
 times. (Kilian Cirera Sant, #1054)</li>
-  <li>Allow matchers which inherit from <code>rspec-mocks</code> matchers to be used for
+<li>Allow matchers which inherit from <code>rspec-mocks</code> matchers to be used for
 <code>allow</code>. (Andrew Kozin, #1056)</li>
-  <li>Prevent stubbing <code>respond_to?</code> on partial doubles from causing infinite
+<li>Prevent stubbing <code>respond_to?</code> on partial doubles from causing infinite
 recursion. (Jon Rowe, #1013)</li>
-  <li>Prevent aliased methods from disapearing after being mocked with
+<li>Prevent aliased methods from disapearing after being mocked with
 <code>any_instance</code> (regression from #1043). (Joe Rafaniello, #1060)</li>
 </ul>
 
-<h3 id="rspec-support-including-all-betas-of-rspec-350">RSpec Support (including all betas of RSpec 3.5.0)</h3>
+<h3>RSpec Support (including all betas of RSpec 3.5.0)</h3>
 
-<h4 id="section-4">3.5.0 / 2016-07-01</h4>
+<h4>3.5.0 / 2016-07-01</h4>
+
 <p><a href="http://github.com/rspec/rspec-support/compare/v3.5.0.beta4...v3.5.0">Full Changelog</a></p>
 
 <p><strong>No user facing changes since beat4</strong></p>
 
-<h4 id="beta4--2016-06-05-3">3.5.0.beta4 / 2016-06-05</h4>
+<h4>3.5.0.beta4 / 2016-06-05</h4>
+
 <p><a href="http://github.com/rspec/rspec-support/compare/v3.5.0.beta3...v3.5.0.beta4">Full Changelog</a></p>
 
 <p>Enhancements:
 * Improve <code>MethodSignature</code> to better support keyword arguments. (#250, Rob Smith).</p>
 
-<h4 id="beta3--2016-04-02-3">3.5.0.beta3 / 2016-04-02</h4>
+<h4>3.5.0.beta3 / 2016-04-02</h4>
+
 <p><a href="http://github.com/rspec/rspec-support/compare/v3.5.0.beta2...v3.5.0.beta3">Full Changelog</a></p>
 
 <p>Bug Fixes:</p>
 
 <ul>
-  <li>Fix <code>EncodedString</code> to properly handle the behavior of <code>String#split</code>
+<li>Fix <code>EncodedString</code> to properly handle the behavior of <code>String#split</code>
 on JRuby when the string contains invalid bytes. (Jon Rowe, #268)</li>
-  <li>Fix <code>ObjectFormatter</code> so that formatting objects that don't respond to
+<li>Fix <code>ObjectFormatter</code> so that formatting objects that don&rsquo;t respond to
 <code>#inspect</code> (such as <code>BasicObject</code>) does not cause <code>NoMethodError</code>.
 (Yuji Nakayama, #269)</li>
-  <li>Fix <code>ObjectFormatter</code> so that formatting recursive array or hash does not
+<li>Fix <code>ObjectFormatter</code> so that formatting recursive array or hash does not
 cause <code>SystemStackError</code>. (Yuji Nakayama, #270, #272)</li>
 </ul>
 
-<h4 id="beta2--2016-03-10-3">3.5.0.beta2 / 2016-03-10</h4>
+<h4>3.5.0.beta2 / 2016-03-10</h4>
+
 <p><a href="http://github.com/rspec/rspec-support/compare/v3.5.0.beta1...v3.5.0.beta2">Full Changelog</a></p>
 
 <p>No user-facing changes.</p>
 
-<h4 id="beta1--2016-02-06-3">3.5.0.beta1 / 2016-02-06</h4>
+<h4>3.5.0.beta1 / 2016-02-06</h4>
+
 <p><a href="http://github.com/rspec/rspec-support/compare/v3.4.1...v3.5.0.beta1">Full Changelog</a></p>
 
-<h2 id="footnotes">Footnotes</h2>
+<h2>Footnotes</h2>
 
-<div class="footnotes" role="doc-endnotes">
-  <ol>
-    <li id="fn:foot_1" role="doc-endnote">
-      <p>See also Eileen's <a href="https://www.youtube.com/watch?v=oT74HLvDo_A">talk about request spec performance</a> <a href="#fnref:foot_1" class="reversefootnote" role="doc-backlink">&#8617;</a></p>
-    </li>
-  </ol>
-</div>
+<p>[^foot_1]: See also Eileen&rsquo;s <a href="https://www.youtube.com/watch?v=oT74HLvDo_A">talk about request spec performance</a></p>
 <div id="disqus_thread"></div>
 <script type="text/javascript">
   /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */

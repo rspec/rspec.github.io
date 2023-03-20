@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"><![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]<!--><html class="no-js" lang="en"><!--<![endif]--><head><meta charset="UTF-8" /><meta content="width=device-width, initial-scale=1" name="viewport" /><meta property="og:title" /><meta content="https://rspec.info/features/3-12/rspec-mocks/basics/spies/" property="og:url" /><meta content="https://rspec.info/images/logo_ogp.png" property="og:image" /><meta content="summary" name="twitter:card" /><meta content="@rspec" name="twitter:site" /><title></title><link href="/stylesheets/pages/features.css" rel="stylesheet" /><link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" /><link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" type="text/css" /><link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" type="text/css" /><link href="/blog/feed.xml" rel="alternate" type="application/atom+xml" /></head><body class="features"><header><nav><h1><img src="/images/logo.png" alt="Logo" /><a href="/">RSpec</a></h1><input class="hamburger-toggle" type="checkbox" /><div class="hamburger-icon"><div class="bar"></div><div class="bar"></div><div class="bar"></div></div><ul class="menu"><li><a href="/about">About</a></li><li><a href="/documentation">Documentation</a></li><li><a href="/blog">Blog</a></li><li><a href="/upgrading-from-rspec-2">Upgrade</a></li><li><a href="/help">Get Help</a></li><li><a href="/contributing">Contributing</a></li></ul></nav></header><nav class="top-nav-bar" role="navigation"><ul><li>Library:</li><li><a class="title">RSpec Mocks</a><ul aria-haspopup="true" aria-label="submenu"><li><a href="/features/3-12/rspec-core">RSpec Core</a></li><li><a href="/features/3-12/rspec-expectations">RSpec Expectations</a></li><li class="current"><a href="/features/3-12/rspec-mocks">RSpec Mocks</a></li><li><a href="/features/6-0/rspec-rails">RSpec Rails</a></li></ul></li><li>Version:</li><li><a class="title">3.12</a><ul aria-haspopup="true" aria-label="submenu"><li class="current"><a href="/features/3-12/rspec-mocks">3.12</a></li></ul></li></ul></nav><section><nav><ul><li><a href="/features/3-12/rspec-mocks/basics">Basics</a><ul class="open"><li><a href="/features/3-12/rspec-mocks/basics/test-doubles"> Test Doubles</a></li><li><a href="/features/3-12/rspec-mocks/basics/allowing-messages"> Allowing messages</a></li><li><a href="/features/3-12/rspec-mocks/basics/expecting-messages"> Expecting messages</a></li><li><a href="/features/3-12/rspec-mocks/basics/partial-test-doubles"> Partial test doubles</a></li><li><a href="/features/3-12/rspec-mocks/basics/null-object-doubles"> Null object doubles</a></li><li><a href="/features/3-12/rspec-mocks/basics/spies"> Spies</a></li><li><a href="/features/3-12/rspec-mocks/basics/scope"> Scope</a></li></ul></li><li><a href="/features/3-12/rspec-mocks/verifying-doubles">Verifying doubles</a><ul><li><a href="/features/3-12/rspec-mocks/verifying-doubles/instance-doubles"> Using an instance double</a></li><li><a href="/features/3-12/rspec-mocks/verifying-doubles/class-doubles"> Using a class double</a></li><li><a href="/features/3-12/rspec-mocks/verifying-doubles/object-doubles"> Using an object double</a></li><li><a href="/features/3-12/rspec-mocks/verifying-doubles/dynamic-classes"> Dynamic classes</a></li><li><a href="/features/3-12/rspec-mocks/verifying-doubles/partial-doubles"> Partial doubles</a></li></ul></li><li><a href="/features/3-12/rspec-mocks/configuring-responses">Configuring responses</a><ul><li><a href="/features/3-12/rspec-mocks/configuring-responses/returning-a-value"> Returning a value</a></li><li><a href="/features/3-12/rspec-mocks/configuring-responses/raising-an-error"> Raising an error</a></li><li><a href="/features/3-12/rspec-mocks/configuring-responses/throwing"> Throwing</a></li><li><a href="/features/3-12/rspec-mocks/configuring-responses/yielding"> Yielding</a></li><li><a href="/features/3-12/rspec-mocks/configuring-responses/calling-the-original-implementation"> Calling the original implementation</a></li><li><a href="/features/3-12/rspec-mocks/configuring-responses/wrapping-the-original-implementation"> Wrapping the original implementation</a></li><li><a href="/features/3-12/rspec-mocks/configuring-responses/block-implementation"> Block implementation</a></li><li><a href="/features/3-12/rspec-mocks/configuring-responses/mixed-responses"> Mixed responses</a></li></ul></li><li><a href="/features/3-12/rspec-mocks/setting-constraints">Setting constraints</a><ul><li><a href="/features/3-12/rspec-mocks/setting-constraints/matching-arguments"> Matching arguments</a></li><li><a href="/features/3-12/rspec-mocks/setting-constraints/receive-counts"> Receive Counts</a></li><li><a href="/features/3-12/rspec-mocks/setting-constraints/message-order"> Message Order</a></li></ul></li><li><a href="/features/3-12/rspec-mocks/mutating-constants">Mutating constants</a><ul><li><a href="/features/3-12/rspec-mocks/mutating-constants/stub-defined-constant"> Stub Defined Constant</a></li><li><a href="/features/3-12/rspec-mocks/mutating-constants/stub-undefined-constant"> Stub Undefined Constant</a></li><li><a href="/features/3-12/rspec-mocks/mutating-constants/hide-defined-constant"> Hide Defined Constant</a></li><li><a href="/features/3-12/rspec-mocks/mutating-constants/hide-undefined-constant"> Hide Undefined Constant</a></li></ul></li><li><a href="/features/3-12/rspec-mocks/working-with-legacy-code">Working with legacy code</a><ul><li><a href="/features/3-12/rspec-mocks/working-with-legacy-code/any-instance"> Any Instance</a></li><li><a href="/features/3-12/rspec-mocks/working-with-legacy-code/message-chains"> Message Chains</a></li></ul></li><li><a href="/features/3-12/rspec-mocks/old-syntax">Old syntax</a><ul><li><a href="/features/3-12/rspec-mocks/old-syntax/stub"> `stub`</a></li><li><a href="/features/3-12/rspec-mocks/old-syntax/should-receive"> `should_receive`</a></li><li><a href="/features/3-12/rspec-mocks/old-syntax/any-instance"> `any_instance`</a></li><li><a href="/features/3-12/rspec-mocks/old-syntax/stub-chain"> `stub_chain`</a></li><li><a href="/features/3-12/rspec-mocks/old-syntax/unstub"> Using `unstub`</a></li></ul></li><li><a href="/features/3-12/rspec-mocks/outside-rspec">Outside rspec</a><ul><li><a href="/features/3-12/rspec-mocks/outside-rspec/minitest"> Integrating with Minitest</a></li><li><a href="/features/3-12/rspec-mocks/outside-rspec/any-test-framework"> Integrating with any test framework</a></li><li><a href="/features/3-12/rspec-mocks/outside-rspec/standalone"> Using `rspec-mocks` on its own outside of RSpec (standalone mode)</a></li></ul></li></ul></nav><article><h1>Spies</h1>
+
+<p><a href="./expecting-messages">Message expectations</a> put an example&rsquo;s expectation at the start, before you&rsquo;ve invoked the
+  code-under-test. Many developers prefer using an arrange-act-assert (or given-when-then)
+  pattern for structuring tests. Spies are an alternate type of test double that support this
+  pattern by allowing you to expect that a message has been received after the fact, using
+  <code>have_received</code>.</p>
+
+<p>You can use any test double (or partial double) as a spy, but the double must be setup to
+  spy on the messages you care about. Spies automatically spy on all messages,
+  or you can <a href="./allowing-messages">allow a message</a> to spy on it.</p>
+
+<p><code>have_received</code> supports the same fluent interface for <a href="../setting-constraints">setting constraints</a> that normal message expectations do.</p>
+
+<p>Note: The <code>have_received</code> API shown here will only work if you are using rspec-expectations.
+  Note: <code>have_received(...).with(...)</code> is unable to work properly when passed arguments are mutated after the spy records the received message.</p>
+
+<h2>Using a spy</h2>
+
+<p><em>Given</em> a file named &ldquo;spy_spec.rb&rdquo; with:</p>
+<div class="highlight"><pre class="highlight ruby"><code><span class="no">RSpec</span><span class="p">.</span><span class="nf">describe</span> <span class="s2">"have_received"</span> <span class="k">do</span>
+  <span class="n">it</span> <span class="s2">"passes when the message has been received"</span> <span class="k">do</span>
+    <span class="n">invitation</span> <span class="o">=</span> <span class="n">spy</span><span class="p">(</span><span class="s1">'invitation'</span><span class="p">)</span>
+    <span class="n">invitation</span><span class="p">.</span><span class="nf">deliver</span>
+    <span class="n">expect</span><span class="p">(</span><span class="n">invitation</span><span class="p">).</span><span class="nf">to</span> <span class="n">have_received</span><span class="p">(</span><span class="ss">:deliver</span><span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div>
+<p><em>When</em> I run <code>rspec spy_spec.rb</code></p>
+
+<p><em>Then</em> the examples should all pass.</p>
+
+<h2>Spy on a method on a partial double</h2>
+
+<p><em>Given</em> a file named &ldquo;partial<em>double</em>spy_spec.rb&rdquo; with:</p>
+<div class="highlight"><pre class="highlight ruby"><code><span class="k">class</span> <span class="nc">Invitation</span>
+  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">deliver</span><span class="p">;</span> <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="no">RSpec</span><span class="p">.</span><span class="nf">describe</span> <span class="s2">"have_received"</span> <span class="k">do</span>
+  <span class="n">it</span> <span class="s2">"passes when the expectation is met"</span> <span class="k">do</span>
+    <span class="n">allow</span><span class="p">(</span><span class="no">Invitation</span><span class="p">).</span><span class="nf">to</span> <span class="n">receive</span><span class="p">(</span><span class="ss">:deliver</span><span class="p">)</span>
+    <span class="no">Invitation</span><span class="p">.</span><span class="nf">deliver</span>
+    <span class="n">expect</span><span class="p">(</span><span class="no">Invitation</span><span class="p">).</span><span class="nf">to</span> <span class="n">have_received</span><span class="p">(</span><span class="ss">:deliver</span><span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div>
+<p><em>When</em> I run <code>rspec partial_double_spy_spec.rb</code></p>
+
+<p><em>Then</em> the examples should all pass.</p>
+
+<h2>Failure when the message has not been received</h2>
+
+<p><em>Given</em> a file named &ldquo;failure_spec.rb&rdquo; with:</p>
+<div class="highlight"><pre class="highlight ruby"><code><span class="k">class</span> <span class="nc">Invitation</span>
+  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">deliver</span><span class="p">;</span> <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="no">RSpec</span><span class="p">.</span><span class="nf">describe</span> <span class="s2">"failure when the message has not been received"</span> <span class="k">do</span>
+  <span class="n">example</span> <span class="s2">"for a spy"</span> <span class="k">do</span>
+    <span class="n">invitation</span> <span class="o">=</span> <span class="n">spy</span><span class="p">(</span><span class="s1">'invitation'</span><span class="p">)</span>
+    <span class="n">expect</span><span class="p">(</span><span class="n">invitation</span><span class="p">).</span><span class="nf">to</span> <span class="n">have_received</span><span class="p">(</span><span class="ss">:deliver</span><span class="p">)</span>
+  <span class="k">end</span>
+
+  <span class="n">example</span> <span class="s2">"for a partial double"</span> <span class="k">do</span>
+    <span class="n">allow</span><span class="p">(</span><span class="no">Invitation</span><span class="p">).</span><span class="nf">to</span> <span class="n">receive</span><span class="p">(</span><span class="ss">:deliver</span><span class="p">)</span>
+    <span class="n">expect</span><span class="p">(</span><span class="no">Invitation</span><span class="p">).</span><span class="nf">to</span> <span class="n">have_received</span><span class="p">(</span><span class="ss">:deliver</span><span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div>
+<p><em>When</em> I run <code>rspec failure_spec.rb --order defined</code></p>
+
+<p><em>Then</em> it should fail with:</p>
+<div class="highlight"><pre class="highlight plaintext"><code>  1) failure when the message has not been received for a spy
+     Failure/Error: expect(invitation).to have_received(:deliver)
+
+       (Double "invitation").deliver(*(any args))
+           expected: 1 time with any arguments
+           received: 0 times with any arguments
+</code></pre></div>
+<p><em>And</em> it should fail with:</p>
+<div class="highlight"><pre class="highlight plaintext"><code>  2) failure when the message has not been received for a partial double
+     Failure/Error: expect(Invitation).to have_received(:deliver)
+
+       (Invitation (class)).deliver(*(any args))
+           expected: 1 time with any arguments
+           received: 0 times with any arguments
+</code></pre></div>
+<h2>Set constraints using the fluent interface</h2>
+
+<p><em>Given</em> a file named &ldquo;setting<em>constraints</em>spec.rb&rdquo; with:</p>
+<div class="highlight"><pre class="highlight ruby"><code><span class="no">RSpec</span><span class="p">.</span><span class="nf">describe</span> <span class="s2">"An invitation"</span> <span class="k">do</span>
+  <span class="n">let</span><span class="p">(</span><span class="ss">:invitation</span><span class="p">)</span> <span class="p">{</span> <span class="n">spy</span><span class="p">(</span><span class="s2">"invitation"</span><span class="p">)</span> <span class="p">}</span>
+
+  <span class="n">before</span> <span class="k">do</span>
+    <span class="n">invitation</span><span class="p">.</span><span class="nf">deliver</span><span class="p">(</span><span class="s2">"foo@example.com"</span><span class="p">)</span>
+    <span class="n">invitation</span><span class="p">.</span><span class="nf">deliver</span><span class="p">(</span><span class="s2">"bar@example.com"</span><span class="p">)</span>
+  <span class="k">end</span>
+
+  <span class="n">it</span> <span class="s2">"passes when a count constraint is satisfied"</span> <span class="k">do</span>
+    <span class="n">expect</span><span class="p">(</span><span class="n">invitation</span><span class="p">).</span><span class="nf">to</span> <span class="n">have_received</span><span class="p">(</span><span class="ss">:deliver</span><span class="p">).</span><span class="nf">twice</span>
+  <span class="k">end</span>
+
+  <span class="n">it</span> <span class="s2">"passes when an order constraint is satisfied"</span> <span class="k">do</span>
+    <span class="n">expect</span><span class="p">(</span><span class="n">invitation</span><span class="p">).</span><span class="nf">to</span> <span class="n">have_received</span><span class="p">(</span><span class="ss">:deliver</span><span class="p">).</span><span class="nf">with</span><span class="p">(</span><span class="s2">"foo@example.com"</span><span class="p">).</span><span class="nf">ordered</span>
+    <span class="n">expect</span><span class="p">(</span><span class="n">invitation</span><span class="p">).</span><span class="nf">to</span> <span class="n">have_received</span><span class="p">(</span><span class="ss">:deliver</span><span class="p">).</span><span class="nf">with</span><span class="p">(</span><span class="s2">"bar@example.com"</span><span class="p">).</span><span class="nf">ordered</span>
+  <span class="k">end</span>
+
+  <span class="n">it</span> <span class="s2">"fails when a count constraint is not satisfied"</span> <span class="k">do</span>
+    <span class="n">expect</span><span class="p">(</span><span class="n">invitation</span><span class="p">).</span><span class="nf">to</span> <span class="n">have_received</span><span class="p">(</span><span class="ss">:deliver</span><span class="p">).</span><span class="nf">at_least</span><span class="p">(</span><span class="mi">3</span><span class="p">).</span><span class="nf">times</span>
+  <span class="k">end</span>
+
+  <span class="n">it</span> <span class="s2">"fails when an order constraint is not satisfied"</span> <span class="k">do</span>
+    <span class="n">expect</span><span class="p">(</span><span class="n">invitation</span><span class="p">).</span><span class="nf">to</span> <span class="n">have_received</span><span class="p">(</span><span class="ss">:deliver</span><span class="p">).</span><span class="nf">with</span><span class="p">(</span><span class="s2">"bar@example.com"</span><span class="p">).</span><span class="nf">ordered</span>
+    <span class="n">expect</span><span class="p">(</span><span class="n">invitation</span><span class="p">).</span><span class="nf">to</span> <span class="n">have_received</span><span class="p">(</span><span class="ss">:deliver</span><span class="p">).</span><span class="nf">with</span><span class="p">(</span><span class="s2">"foo@example.com"</span><span class="p">).</span><span class="nf">ordered</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div>
+<p><em>When</em> I run <code>rspec setting_constraints_spec.rb --order defined</code></p>
+
+<p><em>Then</em> it should fail with the following output:</p>
+
+<table><thead>
+<tr>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>4 examples, 2 failures</td>
+</tr>
+<tr>
+<td></td>
+</tr>
+<tr>
+<td>1) An invitation fails when a count constraint is not satisfied</td>
+</tr>
+<tr>
+<td>Failure/Error: expect(invitation).to have<em>received(:deliver).at</em>least(3).times</td>
+</tr>
+<tr>
+<td>(Double &ldquo;invitation&rdquo;).deliver(*(any args))</td>
+</tr>
+<tr>
+<td>expected: at least 3 times with any arguments</td>
+</tr>
+<tr>
+<td>received: 2 times with any arguments</td>
+</tr>
+<tr>
+<td></td>
+</tr>
+<tr>
+<td>2) An invitation fails when an order constraint is not satisfied</td>
+</tr>
+<tr>
+<td>Failure/Error: expect(invitation).to have_received(:deliver).with(&ldquo;foo@example.com&rdquo;).ordered</td>
+</tr>
+<tr>
+<td>#<Double "invitation"> received :deliver out of order</td>
+</tr>
+</tbody></table>
+</article></section><footer><div>Created with the assistance of Ninefold<img src="/images/brutus-half.png" alt="Brutus" /></div><br /><a href="https://dnsimple.link/resolving-rspec" target="_blank">Resolving with<br /><img src="https://cdn.dnsimple.com/assets/resolving-with-us/logo-dark.png" alt="DNSimple" style="width:100px;" /></a></footer></body><script src="/javascripts/asciinema-player.js"></script></html>

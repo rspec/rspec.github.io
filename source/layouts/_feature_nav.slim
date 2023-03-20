@@ -1,0 +1,8 @@
+ul
+  - menu.each do |item, details|
+    li
+      = feature_link_to version, library, item, details[:path]
+      - unless details[:sub_menu].empty?
+        ul class=( details[:path] == path.first ? "open" : "")
+          - details[:sub_menu].each do |sub_menu_item|
+            li= feature_link_to version, library, sub_menu_item[:heading], [details[:path], sub_menu_item[:path]].join("/")

@@ -6,16 +6,16 @@
 (2.0):</p>
 
 <ul>
-  <li>rspec-core: The test runner and main DSL (<code>describe</code>, <code>it</code>, <code>before</code>,
+<li>rspec-core: The test runner and main DSL (<code>describe</code>, <code>it</code>, <code>before</code>,
 <code>after</code>, <code>let</code>, <code>shared_examples</code>, etc).</li>
-  <li>rspec-expectations: Provides a readable syntax for specifying the
+<li>rspec-expectations: Provides a readable syntax for specifying the
 expected outcomes of your tests using matchers.</li>
-  <li>rspec-mocks: RSpec's test-double framework.</li>
+<li>rspec-mocks: RSpec&rsquo;s test-double framework.</li>
 </ul>
 
 <p>One of the cool things about this is that it allows you to mix and
 match parts of RSpec with other testing libraries. Unfortunately, even
-though RSpec 2 has been out for over 18 months, there's not a lot of
+though RSpec 2 has been out for over 18 months, there&rsquo;s not a lot of
 good information out there about how to do that.</p>
 
 <p>I want to correct that by showing a few examples of the possibilities.</p>
@@ -29,13 +29,12 @@ project</a> with
 all these examples, so check that out if you want some code you can
 play with.</p>
 
-<h2 id="using-rspec-core-with-another-assertion-library">Using rspec-core with another assertion library</h2>
+<h2>Using rspec-core with another assertion library</h2>
 
-<p>If you like RSpec's test runner, but don't like the syntax and
+<p>If you like RSpec&rsquo;s test runner, but don&rsquo;t like the syntax and
 failure output provided by rspec-expectations, you can use the
 assertions from the standard library provided by
 <a href="http://ruby-doc.org/stdlib-1.9.3/libdoc/minitest/unit/rdoc/MiniTest/Assertions.html">MiniTest</a>:</p>
-
 <div class="highlight"><pre class="highlight ruby"><code><span class="c1"># rspec_and_minitest_assertions.rb</span>
 <span class="nb">require</span> <span class="s1">'set'</span>
 
@@ -58,7 +57,6 @@ assertions from the standard library provided by
 <span class="k">end</span>
 </code></pre></div>
 <p>The output:</p>
-
 <div class="highlight"><pre class="highlight plaintext"><code>$ rspec rspec_and_minitest_assertions.rb 
 .F
 
@@ -80,7 +78,6 @@ rspec ./rspec_and_minitest_assertions.rb:14 # Set a failing example
 <p><a href="https://github.com/sconover/wrong/">Wrong</a> is an interesting
 alternative that uses a single method (<code>assert</code> with a block) to
 provide detailed failure output:</p>
-
 <div class="highlight"><pre class="highlight ruby"><code><span class="c1"># rspec_and_wrong.rb</span>
 <span class="nb">require</span> <span class="s1">'set'</span>
 <span class="nb">require</span> <span class="s1">'wrong'</span>
@@ -104,7 +101,6 @@ provide detailed failure output:</p>
 <span class="k">end</span>
 </code></pre></div>
 <p>The output:</p>
-
 <div class="highlight"><pre class="highlight plaintext"><code>$ rspec rspec_and_wrong.rb
 .F
 
@@ -129,12 +125,11 @@ use an alternate library. You can specify <code>:stdlib</code>, <code>:rspec</co
 explicit about using rspec-expectations) or any module; the module will
 be mixed in to the example context.</p>
 
-<h2 id="using-minitest-and-rspec-expectations">Using minitest and rspec-expectations</h2>
+<h2>Using minitest and rspec-expectations</h2>
 
 <p>If you like running your tests with MiniTest but prefer
 the syntax and failure output of rspec-expectations, you
 can combine them:</p>
-
 <div class="highlight"><pre class="highlight ruby"><code><span class="c1"># minitest_and_rspec_expectations.rb</span>
 <span class="nb">require</span> <span class="s1">'minitest/autorun'</span>
 <span class="nb">require</span> <span class="s1">'rspec/expectations'</span>
@@ -174,7 +169,6 @@ can combine them:</p>
 <span class="k">end</span>
 </code></pre></div>
 <p>The output:</p>
-
 <div class="highlight"><pre class="highlight plaintext"><code>$ ruby minitest_and_rspec_expectations.rb
 Run options: --seed 12759
 
@@ -191,38 +185,37 @@ expected #&lt;Set: {3, 4}&gt; to include 5
 
 2 tests, 2 assertions, 1 failures, 0 errors, 0 skips
 </code></pre></div>
-<p>Let's take the integration code bit-by-bit:</p>
+<p>Let&rsquo;s take the integration code bit-by-bit:</p>
 
 <ul>
-  <li><code>RSpec::Matchers.configuration.syntax = :expect</code> configures the
+<li><code>RSpec::Matchers.configuration.syntax = :expect</code> configures the
 desired rspec-expectations syntax to just the <a href="/blog/2012/06/rspecs-new-expectation-syntax">new expect
 syntax</a>. By
 default, both the old <code>should</code> and the new <code>expect</code> syntaxes
 are available.</li>
-  <li>MiniTest treats <code>MiniTest::Assertion</code> exceptions differently
+<li>MiniTest treats <code>MiniTest::Assertion</code> exceptions differently
 from other errors, counting them as test failures rather
 than errors in the output. We re-assign the constant to
 <code>RSpec::Expectations::ExpectationNotMetError</code> in order to
 have our expectation failures counted as failures, not errors.</li>
-  <li>MiniTest's output includes a count of the total number of assertions and
+<li>MiniTest&rsquo;s output includes a count of the total number of assertions and
 the number of assertions per second. We add a call to <code>assert(true)</code>
 every time <code>expect</code> is called so the counts are correct.</li>
-  <li>Finally, we include <code>RSpec::Matchers</code> into the test context
+<li>Finally, we include <code>RSpec::Matchers</code> into the test context
 to make <code>expect</code> and the matchers available.</li>
 </ul>
 
 <p>For other test runners, you could probably get by with just
-mixing <code>RSpec::Matchers</code> into your test context–most of the
+mixing <code>RSpec::Matchers</code> into your test context&ndash;most of the
 rest of this is MiniTest-specific.</p>
 
-<h2 id="using-minitest-and-rspec-mocks">Using minitest and rspec-mocks</h2>
+<h2>Using minitest and rspec-mocks</h2>
 
 <p>MiniTest features a mock object framework, that, in <a href="https://github.com/seattlerb/minitest/blob/master/lib/minitest/mock.rb">the words of the
 README</a>,
-"is a beautifully tiny mock (and stub) object framework". It is indeed
+&ldquo;is a beautifully tiny mock (and stub) object framework&rdquo;. It is indeed
 beautiful and tiny. However, rspec-mocks has many more features, and
 if you like those features, you can easily use it with MiniTest:</p>
-
 <div class="highlight"><pre class="highlight ruby"><code><span class="c1"># minitest_and_rspec_mocks.rb</span>
 <span class="nb">require</span> <span class="s1">'minitest/autorun'</span>
 <span class="nb">require</span> <span class="s1">'rspec/mocks'</span>
@@ -258,7 +251,6 @@ if you like those features, you can easily use it with MiniTest:</p>
 <span class="k">end</span>
 </code></pre></div>
 <p>The output:</p>
-
 <div class="highlight"><pre class="highlight plaintext"><code>$ ruby minitest_and_rspec_mocks.rb 
 Run options: --seed 27480
 
@@ -293,27 +285,26 @@ RSpec::Mocks::MockExpectationError: (Mock).bar(any args)
 
 3 tests, 1 assertions, 0 failures, 1 errors, 0 skips
 </code></pre></div>
-<p>The integration here is a little more manual, but it's not bad:</p>
+<p>The integration here is a little more manual, but it&rsquo;s not bad:</p>
 
 <ul>
-  <li>Call <code>RSpec::Mocks.setup(test)</code> before each test or example to ensure
+<li>Call <code>RSpec::Mocks.setup(test)</code> before each test or example to ensure
 things are setup properly.</li>
-  <li>Call <code>RSpec::Mocks.verify</code> after each test or example so that mock
+<li>Call <code>RSpec::Mocks.verify</code> after each test or example so that mock
 expectations are checked.</li>
-  <li>Call <code>RSpec::Mocks.teardown</code> at the very end to ensure that any
+<li>Call <code>RSpec::Mocks.teardown</code> at the very end to ensure that any
 modifications to real objects (for a stub, for example) are cleaned
 up. Note: this <em>must</em> be called after every test (even failing ones)
-to prevent stubs from "leaking" outside of a given test. That's why
+to prevent stubs from &ldquo;leaking&rdquo; outside of a given test. That&rsquo;s why
 I put this in the <code>ensure</code> clause above.</li>
 </ul>
 
-<h2 id="using-rspec-core-with-another-mocking-library">Using rspec-core with another mocking library</h2>
+<h2>Using rspec-core with another mocking library</h2>
 
 <p>RSpec can easily be used with an alternate mocking library.
 In fact, many RSpec users prefer
 <a href="http://gofreerange.com/mocha/docs/">Mocha</a> to rspec-mocks,
 and the two can integrate just fine:</p>
-
 <div class="highlight"><pre class="highlight ruby"><code><span class="c1"># rspec_and_mocha.rb</span>
 <span class="no">RSpec</span><span class="p">.</span><span class="nf">configure</span> <span class="k">do</span> <span class="o">|</span><span class="n">rspec</span><span class="o">|</span>
   <span class="n">rspec</span><span class="p">.</span><span class="nf">mock_with</span> <span class="ss">:mocha</span>
@@ -339,7 +330,6 @@ and the two can integrate just fine:</p>
 <span class="k">end</span>
 </code></pre></div>
 <p>The output:</p>
-
 <div class="highlight"><pre class="highlight plaintext"><code>rspec rspec_and_mocha.rb 
 .F.
 
@@ -361,20 +351,19 @@ Failed examples:
 rspec ./rspec_and_mocha.rb:12 # RSpec and Mocha a failing mock
 </code></pre></div>
 <p>You can similarly configure <code>mock_with :flexmock</code> or
-<code>mock_with :rr</code> to use one of those mocking libraries.  I didn't
-include those examples here because they're configured in the
+<code>mock_with :rr</code> to use one of those mocking libraries.  I didn&rsquo;t
+include those examples here because they&rsquo;re configured in the
 exact same way, but <a href="https://github.com/myronmarston/mix_and_match_rspec">the github
 repo</a> containing
 all the examples in this blog post has examples for them, too.</p>
 
-<h2 id="conclusion">Conclusion</h2>
+<h2>Conclusion</h2>
 
-<p>It takes some extra leg work, but most of ruby's testing tools
-can integrate with each other without any problems, so don't
+<p>It takes some extra leg work, but most of ruby&rsquo;s testing tools
+can integrate with each other without any problems, so don&rsquo;t
 feel constrained to use all of MiniTest or all of RSpec if
-there's parts you love and parts you dislike. Use a testing
+there&rsquo;s parts you love and parts you dislike. Use a testing
 stack that best meets your needs.</p>
-
 <div id="disqus_thread"></div>
 <script type="text/javascript">
   /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */

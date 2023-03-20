@@ -13,5 +13,10 @@ gem "bourbon", "4.2.2"
 gem "neat", "1.7.2"
 gem "slim"
 gem "builder", "~> 3.0" # For feed.xml.builder
+gem "redcarpet"
 
 gem "rack-contrib" # For try_static
+
+# For testing purposes
+gem "nokogiri"
+gem "httparty"

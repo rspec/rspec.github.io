@@ -47,8 +47,11 @@ page "/**/feed.xml", layout: false
 
 # for build
 activate :syntax
-set :markdown_engine, :kramdown
+set :markdown_engine, :redcarpet
+set :markdown, fenced_code_blocks: true, tables: true, smartypants: true
 activate :directory_indexes
+
+page "features/**/*", directory_index: true, layout: "features"
 
 page "documentation/**/*.html", directory_index: false
 config[:ignored_sitemap_matchers][:partials] = ->(source_file, _) do

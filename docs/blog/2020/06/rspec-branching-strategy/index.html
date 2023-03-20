@@ -2,7 +2,7 @@
 <!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"><![endif]-->
 <!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
 <!--[if IE 8]><html class="no-js lt-ie9" lang="en"><![endif]-->
-<!--[if gt IE 8]<!--><html class="no-js" lang="en"><!--<![endif]--><head><meta charset="UTF-8" /><meta content="width=device-width, initial-scale=1" name="viewport" /><meta content="RSpec Branching Strategy" property="og:title" /><meta content="https://rspec.info/blog/2020/06/rspec-branching-strategy/" property="og:url" /><meta content="https://rspec.info/images/logo_ogp.png" property="og:image" /><meta content="summary" name="twitter:card" /><meta content="@rspec" name="twitter:site" /><title>RSpec Branching Strategy</title><link href="/stylesheets/pages/blog.css" rel="stylesheet" /><link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" /><link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" type="text/css" /><link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" type="text/css" /><link href="/blog/feed.xml" rel="alternate" type="application/atom+xml" /></head><body class="blog"><header><nav><h1><img src="/images/logo.png" alt="Logo" /><a href="/">RSpec</a></h1><input class="hamburger-toggle" type="checkbox" /><div class="hamburger-icon"><div class="bar"></div><div class="bar"></div><div class="bar"></div></div><ul class="menu"><li><a href="/about">About</a></li><li><a href="/documentation">Documentation</a></li><li><a href="/blog">Blog</a></li><li><a href="/upgrading-from-rspec-2">Upgrade</a></li><li><a href="/help">Get Help</a></li><li><a href="/contributing">Contributing</a></li></ul></nav></header><section><article class="blog_post"><h1>RSpec Branching Strategy</h1><h3 class="author">Jon Rowe</h3><small class="date">Jun 22, 2020</small><h1 id="the-short-version">The short version</h1>
+<!--[if gt IE 8]<!--><html class="no-js" lang="en"><!--<![endif]--><head><meta charset="UTF-8" /><meta content="width=device-width, initial-scale=1" name="viewport" /><meta content="RSpec Branching Strategy" property="og:title" /><meta content="https://rspec.info/blog/2020/06/rspec-branching-strategy/" property="og:url" /><meta content="https://rspec.info/images/logo_ogp.png" property="og:image" /><meta content="summary" name="twitter:card" /><meta content="@rspec" name="twitter:site" /><title>RSpec Branching Strategy</title><link href="/stylesheets/pages/blog.css" rel="stylesheet" /><link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" /><link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" type="text/css" /><link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" type="text/css" /><link href="/blog/feed.xml" rel="alternate" type="application/atom+xml" /></head><body class="blog"><header><nav><h1><img src="/images/logo.png" alt="Logo" /><a href="/">RSpec</a></h1><input class="hamburger-toggle" type="checkbox" /><div class="hamburger-icon"><div class="bar"></div><div class="bar"></div><div class="bar"></div></div><ul class="menu"><li><a href="/about">About</a></li><li><a href="/documentation">Documentation</a></li><li><a href="/blog">Blog</a></li><li><a href="/upgrading-from-rspec-2">Upgrade</a></li><li><a href="/help">Get Help</a></li><li><a href="/contributing">Contributing</a></li></ul></nav></header><section><article class="blog_post"><h1>RSpec Branching Strategy</h1><h3 class="author">Jon Rowe</h3><small class="date">Jun 22, 2020</small><h1>The short version</h1>
 
 <p>RSpec repositories will deprecate the use of <code>master</code> for the default branch
 name. We will wait for a consensus on the new name for the default branch,
@@ -13,9 +13,9 @@ renamed <code>main</code>. At that point all development effort will be based of
 the new branch name, and use of <code>master</code> will illicit a warning on install
 / usage. All open PRs will be rebased.</p>
 
-<h1 id="the-long-version">The long version</h1>
+<h1>The long version</h1>
 
-<p>RSpec's source code is hosted on Github. By default git, and thus Github has
+<p>RSpec&rsquo;s source code is hosted on Github. By default git, and thus Github has
 historically used <code>master</code> as the name of the default, or main branch. This
 term has sat uneasily on the minds of the team and with the recent community
 led moves to eliminate this terminology from our technology stacks, we are going
@@ -36,7 +36,7 @@ lots of things, but the term has its origins in the dominance of one person
 over another, in particular in slavery and this change is about being
 inclusive to all people.</p>
 
-<h2 id="implications">Implications</h2>
+<h2>Implications</h2>
 
 <p>We have always encouraged the use of our main branch for getting pre-release
 features before we release them as a group of gems, this means there are likely
@@ -46,13 +46,13 @@ people using the <code>master</code> branch via their Gemfiles. We will deprecat
 become stale and not be updated further. Additionally we will look at
 using branch protection rules preventing PRs against <code>master</code> from that date.</p>
 
-<h2 id="steps-we-intend-to-take">Steps we intend to take</h2>
+<h2>Steps we intend to take</h2>
 
 <ol>
-  <li>Push <code>master</code> to <code>main</code> (or other new branch name).</li>
-  <li>Rebase all open PRs and update our builds.</li>
-  <li>Set the default to <code>main</code> (etc) for all RSpec repositories.</li>
-  <li>Push change deprecating <code>master</code> to <code>master</code>.</li>
-  <li>In the future (possibly when releasing RSpec 4) remove <code>master</code>.</li>
+<li>Push <code>master</code> to <code>main</code> (or other new branch name).</li>
+<li>Rebase all open PRs and update our builds.</li>
+<li>Set the default to <code>main</code> (etc) for all RSpec repositories.</li>
+<li>Push change deprecating <code>master</code> to <code>master</code>.</li>
+<li>In the future (possibly when releasing RSpec 4) remove <code>master</code>.</li>
 </ol>
 </article></section><footer><div>Created with the assistance of Ninefold<img src="/images/brutus-half.png" alt="Brutus" /></div><br /><a href="https://dnsimple.link/resolving-rspec" target="_blank">Resolving with<br /><img src="https://cdn.dnsimple.com/assets/resolving-with-us/logo-dark.png" alt="DNSimple" style="width:100px;" /></a></footer></body><script src="/javascripts/asciinema-player.js"></script></html>

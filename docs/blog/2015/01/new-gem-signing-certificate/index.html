@@ -2,16 +2,16 @@
 <!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"><![endif]-->
 <!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
 <!--[if IE 8]><html class="no-js lt-ie9" lang="en"><![endif]-->
-<!--[if gt IE 8]<!--><html class="no-js" lang="en"><!--<![endif]--><head><meta charset="UTF-8" /><meta content="width=device-width, initial-scale=1" name="viewport" /><meta content="New RSpec Gem signing certificate" property="og:title" /><meta content="https://rspec.info/blog/2015/01/new-gem-signing-certificate/" property="og:url" /><meta content="https://rspec.info/images/logo_ogp.png" property="og:image" /><meta content="summary" name="twitter:card" /><meta content="@rspec" name="twitter:site" /><title>New RSpec Gem signing certificate</title><link href="/stylesheets/pages/blog.css" rel="stylesheet" /><link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" /><link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" type="text/css" /><link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" type="text/css" /><link href="/blog/feed.xml" rel="alternate" type="application/atom+xml" /></head><body class="blog"><header><nav><h1><img src="/images/logo.png" alt="Logo" /><a href="/">RSpec</a></h1><input class="hamburger-toggle" type="checkbox" /><div class="hamburger-icon"><div class="bar"></div><div class="bar"></div><div class="bar"></div></div><ul class="menu"><li><a href="/about">About</a></li><li><a href="/documentation">Documentation</a></li><li><a href="/blog">Blog</a></li><li><a href="/upgrading-from-rspec-2">Upgrade</a></li><li><a href="/help">Get Help</a></li><li><a href="/contributing">Contributing</a></li></ul></nav></header><section><article class="blog_post"><h1>New RSpec Gem signing certificate</h1><h3 class="author">Sam Phippen</h3><small class="date">Jan 30, 2015</small><p><strong>TL;DR If you rely on our signing of RSpec releases you'll have to get a new cert from us</strong></p>
+<!--[if gt IE 8]<!--><html class="no-js" lang="en"><!--<![endif]--><head><meta charset="UTF-8" /><meta content="width=device-width, initial-scale=1" name="viewport" /><meta content="New RSpec Gem signing certificate" property="og:title" /><meta content="https://rspec.info/blog/2015/01/new-gem-signing-certificate/" property="og:url" /><meta content="https://rspec.info/images/logo_ogp.png" property="og:image" /><meta content="summary" name="twitter:card" /><meta content="@rspec" name="twitter:site" /><title>New RSpec Gem signing certificate</title><link href="/stylesheets/pages/blog.css" rel="stylesheet" /><link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" /><link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" type="text/css" /><link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" type="text/css" /><link href="/blog/feed.xml" rel="alternate" type="application/atom+xml" /></head><body class="blog"><header><nav><h1><img src="/images/logo.png" alt="Logo" /><a href="/">RSpec</a></h1><input class="hamburger-toggle" type="checkbox" /><div class="hamburger-icon"><div class="bar"></div><div class="bar"></div><div class="bar"></div></div><ul class="menu"><li><a href="/about">About</a></li><li><a href="/documentation">Documentation</a></li><li><a href="/blog">Blog</a></li><li><a href="/upgrading-from-rspec-2">Upgrade</a></li><li><a href="/help">Get Help</a></li><li><a href="/contributing">Contributing</a></li></ul></nav></header><section><article class="blog_post"><h1>New RSpec Gem signing certificate</h1><h3 class="author">Sam Phippen</h3><small class="date">Jan 30, 2015</small><p><strong>TL;DR If you rely on our signing of RSpec releases you&rsquo;ll have to get a new cert from us</strong></p>
 
-<p>For the upcoming release of RSpec 3.2 we've created a new signing certificate
+<p>For the upcoming release of RSpec 3.2 we&rsquo;ve created a new signing certificate
 for the RSpec gems. The reason for this change is that
 <a href="https://github.com/rspec/rspec/blob/6af4995482ade2d49ad361ee003dee29f713ab17/certs/rspec.pem">our old certificate</a>
 expired. Rubygems certificates have a 1 year expiry by default. The new certificate can be found
 <a href="https://github.com/rspec/rspec/blob/858e0c2ac849d941bfd5b3a5c5e04a4f596fe666/certs/rspec.pem">on GitHub</a>
 and has a 10 year expiry, so you can expect it to be used to verify all of the
-RSpec gems for a while. The expiry of our old certificate means there won't be
-any more RSpec 3.0.x or 3.1.x releases as we don't want to sign them with
+RSpec gems for a while. The expiry of our old certificate means there won&rsquo;t be
+any more RSpec 3.0.x or 3.1.x releases as we don&rsquo;t want to sign them with
 conflicting certificates.</p>
 
 <p>With the new certificate comes a new way of our end users ensuring that the
@@ -20,17 +20,17 @@ will be adding <a href="https://www.gnupg.org/gph/en/manual.html#AEN161">detatch
 the core RSpec gem repository. This way, if you meet one of them in real life, you can
 validate that the certificate that you have is the same one we hosted. The first signature,
 <a href="https://github.com/rspec/rspec/blob/858e0c2ac849d941bfd5b3a5c5e04a4f596fe666/certs/samphippen.asc">mine</a>, is
-available on GitHub now. If I meet you at any conference, I'll be happy to do a key signing
-with you so that you can ensure that you've got the real certificate.</p>
+available on GitHub now. If I meet you at any conference, I&rsquo;ll be happy to do a key signing
+with you so that you can ensure that you&rsquo;ve got the real certificate.</p>
 
-<p>Over the next few months, we'll be adding more signatures from other members of
+<p>Over the next few months, we&rsquo;ll be adding more signatures from other members of
 the core team so that it is easier for you to validate the certificate.</p>
 
-<h2 id="how-does-this-affect-me">How does this affect me?</h2>
+<h2>How does this affect me?</h2>
 
 <p>This only affects people that already use the Rubygems signing security feature
-for RSpec. If you've never checked the certificate you don't need to do anything.
-If you are using the old RSpec certificate you'll need to move to the new one.</p>
+for RSpec. If you&rsquo;ve never checked the certificate you don&rsquo;t need to do anything.
+If you are using the old RSpec certificate you&rsquo;ll need to move to the new one.</p>
 <div id="disqus_thread"></div>
 <script type="text/javascript">
   /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */

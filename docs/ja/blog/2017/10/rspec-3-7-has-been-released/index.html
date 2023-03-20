@@ -16,9 +16,9 @@ RSpec プロジェクトは <a href="http://semver.org/">Semantic Versioning</a>
 
 <p>このリリースに向けて力になってくれたみなさん、ありがとう！</p>
 
-<h2 id="section">主な変更</h2>
+<h2>主な変更</h2>
 
-<h3 id="rails-actiondispatchsystemtest--system-spec">Rails: <code>ActionDispatch::SystemTest</code> との統合 (System Spec)</h3>
+<h3>Rails: <code>ActionDispatch::SystemTest</code> との統合 (System Spec)</h3>
 
 <p>Rails 5.1 では、System Test と呼ばれる新しいタイプのテストが追加されました。
 これは Capybara を利用し、フロントエンドの JavaScript からサーバーサイドのデータベースまでフルスタックのテストを可能にするものです。</p>
@@ -27,14 +27,14 @@ RSpec プロジェクトは <a href="http://semver.org/">Semantic Versioning</a>
 しかし、Feature Spec と今回追加された System Spec（System Test の RSpec 版）には以下のような違いがあります。</p>
 
 <ol>
-  <li>Feature Spec では、JavaScript が有効な Capybara ドライバー（Selenium や Poltergeist）を使った場合、
+<li>Feature Spec では、JavaScript が有効な Capybara ドライバー（Selenium や Poltergeist）を使った場合、
 テストは Rails とは<strong>別のプロセス</strong>で実行されます。
 その結果、テストプロセスと Rails プロセス間でデータベースのトランザクションが共有されないため、
 RSpec 標準のデータベースロールバック機構を利用できず、
 代わりに <a href="https://github.com/DatabaseCleaner/database_cleaner">Database Cleaner</a> のような gem を使う必要がありました。
 Rails 開発チームは System Test でこのような問題が発生しないように実装をしました。
 そのおかげで、System Spec では別の gem を利用することなく RSpec のロールバック機構を利用できます。</li>
-  <li>RSpec の Feature Spec はデフォルトの Capybara ドライバーとして <code>Rack::Test</code> を利用します。
+<li>RSpec の Feature Spec はデフォルトの Capybara ドライバーとして <code>Rack::Test</code> を利用します。
 もし Selenium のような JavaScript が有効なドライバーを使いたい場合は、
 ユーザーが自身で Capybara の設定をする必要がありますが、この設定はかなり高度で難しいものでした。
 System Spec でデフォルトで Selenium 経由で Chrome を利用しますが、
@@ -45,162 +45,167 @@ System Spec でデフォルトで Selenium 経由で Chrome を利用します�
 フルスタックの統合テストとしては Feature Spec よりも System Spec を書くことをおすすめします。
 Rails プロジェクトで System Test の実装を主導した <a href="https://twitter.com/eileencodes">Eileen Uchitelle</a> には深く感謝します。</p>
 
-<h2 id="stats">Stats:</h2>
+<h2>Stats:</h2>
 
-<h3 id="combined">Combined:</h3>
-
-<ul>
-  <li><strong>Total Commits</strong>: 127</li>
-  <li><strong>Merged pull requests</strong>: 31</li>
-  <li><strong>27 contributors</strong>: Aaron Rosenberg, Alex Shi, Alyssa Ross, Britni Alexander, Dave Woodall, Devon Estes, Hisashi Kamezawa, Ian Ker-Seymer, James Adam, Jim Kingdon, Jon Rowe, Levi Robertson, Myron Marston, Pat Allan, RustyNail, Ryan Lue, Sam Phippen, Samuel Cochran, Sergei Trofimovich, Takeshi Arabiki, Thomas Hart, Tobias Pfeiffer, Wojciech Wnętrzak, Xavier Shay, Yuji Nakayama, Zhong Zheng, oh_rusty_nail</li>
-</ul>
-
-<h3 id="rspec-core">rspec-core:</h3>
+<h3>Combined:</h3>
 
 <ul>
-  <li><strong>Total Commits</strong>: 40</li>
-  <li><strong>Merged pull requests</strong>: 10</li>
-  <li><strong>11 contributors</strong>: Devon Estes, Ian Ker-Seymer, Jon Rowe, Levi Robertson, Myron Marston, Pat Allan, Sam Phippen, Takeshi Arabiki, Thomas Hart, Tobias Pfeiffer, Yuji Nakayama</li>
+<li><strong>Total Commits</strong>: 127</li>
+<li><strong>Merged pull requests</strong>: 31</li>
+<li><strong>27 contributors</strong>: Aaron Rosenberg, Alex Shi, Alyssa Ross, Britni Alexander, Dave Woodall, Devon Estes, Hisashi Kamezawa, Ian Ker-Seymer, James Adam, Jim Kingdon, Jon Rowe, Levi Robertson, Myron Marston, Pat Allan, RustyNail, Ryan Lue, Sam Phippen, Samuel Cochran, Sergei Trofimovich, Takeshi Arabiki, Thomas Hart, Tobias Pfeiffer, Wojciech Wnętrzak, Xavier Shay, Yuji Nakayama, Zhong Zheng, oh<em>rusty</em>nail</li>
 </ul>
 
-<h3 id="rspec-expectations">rspec-expectations:</h3>
+<h3>rspec-core:</h3>
 
 <ul>
-  <li><strong>Total Commits</strong>: 13</li>
-  <li><strong>Merged pull requests</strong>: 2</li>
-  <li><strong>5 contributors</strong>: Jim Kingdon, Myron Marston, Pat Allan, Sam Phippen, Yuji Nakayama</li>
+<li><strong>Total Commits</strong>: 40</li>
+<li><strong>Merged pull requests</strong>: 10</li>
+<li><strong>11 contributors</strong>: Devon Estes, Ian Ker-Seymer, Jon Rowe, Levi Robertson, Myron Marston, Pat Allan, Sam Phippen, Takeshi Arabiki, Thomas Hart, Tobias Pfeiffer, Yuji Nakayama</li>
 </ul>
 
-<h3 id="rspec-mocks">rspec-mocks:</h3>
+<h3>rspec-expectations:</h3>
 
 <ul>
-  <li><strong>Total Commits</strong>: 14</li>
-  <li><strong>Merged pull requests</strong>: 2</li>
-  <li><strong>6 contributors</strong>: Aaron Rosenberg, Myron Marston, Pat Allan, Sam Phippen, Yuji Nakayama, Zhong Zheng</li>
+<li><strong>Total Commits</strong>: 13</li>
+<li><strong>Merged pull requests</strong>: 2</li>
+<li><strong>5 contributors</strong>: Jim Kingdon, Myron Marston, Pat Allan, Sam Phippen, Yuji Nakayama</li>
 </ul>
 
-<h3 id="rspec-rails">rspec-rails:</h3>
+<h3>rspec-mocks:</h3>
 
 <ul>
-  <li><strong>Total Commits</strong>: 38</li>
-  <li><strong>Merged pull requests</strong>: 9</li>
-  <li><strong>16 contributors</strong>: Alex Shi, Alyssa Ross, Britni Alexander, Dave Woodall, Hisashi Kamezawa, James Adam, Jon Rowe, Myron Marston, RustyNail, Ryan Lue, Sam Phippen, Samuel Cochran, Wojciech Wnętrzak, Xavier Shay, Yuji Nakayama, oh_rusty_nail</li>
+<li><strong>Total Commits</strong>: 14</li>
+<li><strong>Merged pull requests</strong>: 2</li>
+<li><strong>6 contributors</strong>: Aaron Rosenberg, Myron Marston, Pat Allan, Sam Phippen, Yuji Nakayama, Zhong Zheng</li>
 </ul>
 
-<h3 id="rspec-support">rspec-support:</h3>
+<h3>rspec-rails:</h3>
 
 <ul>
-  <li><strong>Total Commits</strong>: 22</li>
-  <li><strong>Merged pull requests</strong>: 8</li>
-  <li><strong>6 contributors</strong>: Jon Rowe, Myron Marston, Pat Allan, Sam Phippen, Sergei Trofimovich, Yuji Nakayama</li>
+<li><strong>Total Commits</strong>: 38</li>
+<li><strong>Merged pull requests</strong>: 9</li>
+<li><strong>16 contributors</strong>: Alex Shi, Alyssa Ross, Britni Alexander, Dave Woodall, Hisashi Kamezawa, James Adam, Jon Rowe, Myron Marston, RustyNail, Ryan Lue, Sam Phippen, Samuel Cochran, Wojciech Wnętrzak, Xavier Shay, Yuji Nakayama, oh<em>rusty</em>nail</li>
 </ul>
 
-<h2 id="docs">Docs</h2>
-
-<h3 id="api-docs">API Docs</h3>
+<h3>rspec-support:</h3>
 
 <ul>
-  <li><a href="/documentation/3.7/rspec-core/">rspec-core</a></li>
-  <li><a href="/documentation/3.7/rspec-expectations/">rspec-expectations</a></li>
-  <li><a href="/documentation/3.7/rspec-mocks/">rspec-mocks</a></li>
-  <li><a href="/documentation/3.7/rspec-rails/">rspec-rails</a></li>
+<li><strong>Total Commits</strong>: 22</li>
+<li><strong>Merged pull requests</strong>: 8</li>
+<li><strong>6 contributors</strong>: Jon Rowe, Myron Marston, Pat Allan, Sam Phippen, Sergei Trofimovich, Yuji Nakayama</li>
 </ul>
 
-<h3 id="cucumber-features">Cucumber Features</h3>
+<h2>Docs</h2>
+
+<h3>API Docs</h3>
 
 <ul>
-  <li><a href="http://relishapp.com/rspec/rspec-core">rspec-core</a></li>
-  <li><a href="http://relishapp.com/rspec/rspec-expectations">rspec-expectations</a></li>
-  <li><a href="http://relishapp.com/rspec/rspec-mocks">rspec-mocks</a></li>
-  <li><a href="http://relishapp.com/rspec/rspec-rails">rspec-rails</a></li>
+<li><a href="/documentation/3.7/rspec-core/">rspec-core</a></li>
+<li><a href="/documentation/3.7/rspec-expectations/">rspec-expectations</a></li>
+<li><a href="/documentation/3.7/rspec-mocks/">rspec-mocks</a></li>
+<li><a href="/documentation/3.7/rspec-rails/">rspec-rails</a></li>
 </ul>
 
-<h2 id="release-notes">Release notes:</h2>
+<h3>Cucumber Features</h3>
 
-<h3 id="rspec-core-1">RSpec Core</h3>
+<ul>
+<li><a href="http://relishapp.com/rspec/rspec-core">rspec-core</a></li>
+<li><a href="http://relishapp.com/rspec/rspec-expectations">rspec-expectations</a></li>
+<li><a href="http://relishapp.com/rspec/rspec-mocks">rspec-mocks</a></li>
+<li><a href="http://relishapp.com/rspec/rspec-rails">rspec-rails</a></li>
+</ul>
+
+<h2>Release notes:</h2>
+
+<h3>RSpec Core</h3>
+
 <p><a href="http://github.com/rspec/rspec-core/compare/v3.6.0...v3.7.0">Full Changelog</a></p>
 
 <p>Enhancements:</p>
 
 <ul>
-  <li>Add <code>-n</code> alias for <code>--next-failure</code>. (Ian Ker-Seymer, #2434)</li>
-  <li>Improve compatibility with <code>--enable-frozen-string-literal</code> option
+<li>Add <code>-n</code> alias for <code>--next-failure</code>. (Ian Ker-Seymer, #2434)</li>
+<li>Improve compatibility with <code>--enable-frozen-string-literal</code> option
 on Ruby 2.3+. (Pat Allan, #2425, #2427, #2437)</li>
-  <li>Do not run <code>:context</code> hooks for example groups that have been skipped.
+<li>Do not run <code>:context</code> hooks for example groups that have been skipped.
 (Devon Estes, #2442)</li>
-  <li>Add <code>errors_outside_of_examples_count</code> to the JSON formatter.
+<li>Add <code>errors_outside_of_examples_count</code> to the JSON formatter.
 (Takeshi Arabiki, #2448)</li>
 </ul>
 
 <p>Bug Fixes:</p>
 
 <ul>
-  <li>Improve compatibility with frozen string literal flag. (#2425, Pat Allan)</li>
+<li>Improve compatibility with frozen string literal flag. (#2425, Pat Allan)</li>
 </ul>
 
-<h3 id="rspec-expectations-1">RSpec Expectations</h3>
+<h3>RSpec Expectations</h3>
+
 <p><a href="http://github.com/rspec/rspec-expectations/compare/v3.6.0...v3.7.0">Full Changelog</a></p>
 
 <p>Enhancements:</p>
 
 <ul>
-  <li>Improve compatibility with <code>--enable-frozen-string-literal</code> option
+<li>Improve compatibility with <code>--enable-frozen-string-literal</code> option
 on Ruby 2.3+. (Pat Allan, #997)</li>
 </ul>
 
-<h2 id="rspec-mocks-1">RSpec Mocks</h2>
+<h2>RSpec Mocks</h2>
+
 <p><a href="http://github.com/rspec/rspec-mocks/compare/v3.6.0...v3.7.0">Full Changelog</a></p>
 
 <p>Enhancements:</p>
 
 <ul>
-  <li>Improve compatibility with <code>--enable-frozen-string-literal</code> option
+<li>Improve compatibility with <code>--enable-frozen-string-literal</code> option
 on Ruby 2.3+. (Pat Allan, #1165)</li>
 </ul>
 
 <p>Bug Fixes:</p>
 
 <ul>
-  <li>Fix <code>hash_including</code> and <code>hash_excluding</code> so that they work against
+<li>Fix <code>hash_including</code> and <code>hash_excluding</code> so that they work against
 subclasses of <code>Hash</code>. (Aaron Rosenberg, #1167)</li>
 </ul>
 
-<h2 id="rspec-rails-1">RSpec Rails</h2>
+<h2>RSpec Rails</h2>
+
 <p><a href="http://github.com/rspec/rspec-rails/compare/v3.6.0...v3.7.0">Full Changelog</a></p>
 
 <p>Bug Fixes:</p>
 
 <ul>
-  <li>Prevent "template not rendered" log message from erroring in threaded
+<li>Prevent &ldquo;template not rendered&rdquo; log message from erroring in threaded
 environments. (Samuel Cochran, #1831)</li>
-  <li>Correctly generate job name in error message. (Wojciech Wnętrzak, #1814)</li>
+<li>Correctly generate job name in error message. (Wojciech Wnętrzak, #1814)</li>
 </ul>
 
 <p>Enhancements:</p>
 
 <ul>
-  <li>Allow <code>be_a_new(...).with(...)</code> matcher to accept matchers for
+<li>Allow <code>be_a_new(...).with(...)</code> matcher to accept matchers for
 attribute values. (Britni Alexander, #1811)</li>
-  <li>Only configure RSpec Mocks if it is fully loaded. (James Adam, #1856)</li>
-  <li>Integrate with <code>ActionDispatch::SystemTestCase</code>. (Sam Phippen, #1813)</li>
+<li>Only configure RSpec Mocks if it is fully loaded. (James Adam, #1856)</li>
+<li>Integrate with <code>ActionDispatch::SystemTestCase</code>. (Sam Phippen, #1813)</li>
 </ul>
 
-<h2 id="rspec-support-1">RSpec Support</h2>
+<h2>RSpec Support</h2>
+
 <p><a href="http://github.com/rspec/rspec-support/compare/v3.6.0...v3.7.0">Full Changelog</a></p>
 
 <p>Enhancements:</p>
 
 <ul>
-  <li>Improve compatibility with <code>--enable-frozen-string-literal</code> option
+<li>Improve compatibility with <code>--enable-frozen-string-literal</code> option
 on Ruby 2.3+. (Pat Allan, #320)</li>
-  <li>Add <code>Support.class_of</code> for extracting class of any object.
+<li>Add <code>Support.class_of</code> for extracting class of any object.
 (Yuji Nakayama, #325)</li>
 </ul>
 
 <p>Bug Fixes:</p>
 
 <ul>
-  <li>Fix recursive const support to not blow up when given buggy classes
+<li>Fix recursive const support to not blow up when given buggy classes
 that raise odd errors from <code>#to_str</code>. (Myron Marston, #317)</li>
 </ul>
 <div id="disqus_thread"></div>
