@@ -40,6 +40,9 @@ GEM
       concurrent-ruby (~> 1.0)
     hashie (3.6.0)
     http_parser.rb (0.8.0)
+    httparty (0.21.0)
+      mini_mime (>= 1.0.0)
+      multi_xml (>= 0.5.2)
     i18n (1.6.0)
       concurrent-ruby (~> 1.0)
     kramdown (2.4.0)
@@ -95,10 +98,16 @@ GEM
     middleman-syntax (3.2.0)
       middleman-core (>= 3.2)
       rouge (~> 3.2)
+    mini_mime (1.1.2)
+    mini_portile2 (2.8.1)
     minitest (5.18.0)
+    multi_xml (0.6.0)
     neat (1.7.2)
       bourbon (>= 4.0)
       sass (>= 3.3)
+    nokogiri (1.14.2)
+      mini_portile2 (~> 2.8.0)
+      racc (~> 1.4)
     padrino-helpers (0.15.1)
       i18n (>= 0.6.7, < 2)
       padrino-support (= 0.15.1)
@@ -107,6 +116,7 @@ GEM
     parallel (1.22.1)
     parslet (2.0.0)
     public_suffix (4.0.7)
+    racc (1.6.2)
     rack (2.2.6.4)
     rack-contrib (2.3.0)
       rack (~> 2.0)
@@ -147,12 +157,14 @@ PLATFORMS
 DEPENDENCIES
   bourbon (= 4.2.2)
   builder (~> 3.0)
+  httparty
   middleman (~> 4.3)
   middleman-blog
   middleman-favicon-maker
   middleman-livereload
   middleman-syntax
   neat (= 1.7.2)
+  nokogiri
   rack-contrib
   redcarpet
   slim

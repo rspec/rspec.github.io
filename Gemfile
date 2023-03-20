@@ -16,3 +16,7 @@ gem "builder", "~> 3.0" # For feed.xml.builder
 gem "redcarpet"
 
 gem "rack-contrib" # For try_static
+
+# For testing purposes
+gem "nokogiri"
+gem "httparty"

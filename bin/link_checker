@@ -1,0 +1,144 @@
+#!/usr/bin/env ruby
+
+url = ARGV[0]
+
+usage_message = <<-USAGE
+This tool is designed to check links on cucumber documentation, usage:
+#{__FILE__} http://<url>:port/features/<Version>/<Library>
+USAGE
+
+abort usage_message if url.nil? || url == ""
+
+require 'uri'
+uri = URI.parse(url)
+
+abort usage_message unless uri.path =~ %r[^/features/\d+-\d+/rspec-\w+/?$]
+
+begin
+  require 'bundler/setup'
+  require 'nokogiri'
+  require 'httparty'
+rescue LoadError
+  abort "Could not load one of bundler / nokogiri / httparty, check your bundle and try again."
+end
+
+def check(library, version, host, port, source, page, state)
+  next_pages = {}
+
+  page.css('a').each do |a|
+    href = a.attr('href')
+    next if href.nil? || href == ""
+    to_parse = URI.parse(href)
+
+    to_parse.scheme = "http" unless to_parse.scheme
+    to_parse.port = port unless to_parse.host
+    to_parse.host = host unless to_parse.host
+
+    if to_parse.path =~ /^\.\//
+      sections = to_parse.path.to_s.split("/")
+
+      abort <<-ERROR unless "." == sections.shift
+      Tried to shift a '.' off #{to_parse.path} but failed
+      ERROR
+
+      root = source.path.split("/")
+      root.pop if root.pop == ""
+
+      to_parse.path = (root + sections).join("/")
+    elsif to_parse.path =~ /\.\./
+      sections = to_parse.path.to_s.split("/")
+
+      continue = true
+      count = 1
+
+      while !sections.empty? && continue do
+        section = sections.shift
+        if section == ".."
+          count += 1
+        else
+          sections.unshift section
+          continue = false
+        end
+      end
+
+      root = source.path.split("/")
+
+      abort <<-EMPTY if sections.empty?
+      Unable to hydrate url #{to_parse.path} on #{source.to_s}
+      EMPTY
+
+      to_parse.path = "#{root[0..(-1-count)].join("/")}/#{sections.join("/")}"
+    end
+
+
+    next if state[to_parse.to_s]
+
+    $stdout.write "\r#{' ' * 200}\rHandling link... #{to_parse}"
+
+    if to_parse.host != host
+      next if ENV['SKIP_EXTERNAL']
+      $stdout.write "\r#{' ' * 200}\rRequesting external link... #{to_parse}"
+      begin
+        response = HTTParty.get(to_parse)
+        state[to_parse.to_s] = {code: response.code, type: :external}
+      rescue Exception => error
+        state[to_parse.to_s] = {error: error, source: source, type: :external}
+      end
+      next
+    end
+
+    unless to_parse.path =~ %r[/features/#{version}/#{library}]
+      $stdout.write "\r#{' ' * 200}\rRequesting internal link... #{to_parse}"
+      response = HTTParty.get(to_parse)
+      state[to_parse.to_s] = {code: response.code, source: source, type: :internal_non_crawled}
+      next
+    end
+
+    response = HTTParty.get(to_parse)
+
+    state[to_parse.to_s] = {code: response.code, source: source, type: :internal_crawled}
+
+    if response.code == 200
+      $stdout.write "\r#{' ' * 200}\rParsing link... #{to_parse}"
+      result = Nokogiri.parse(response.body)
+      state[to_parse.to_s][:links] = result.css('a').length
+      next_pages[to_parse] = result
+    end
+  end
+
+  next_pages.reduce(state) do |current_state, (source, page)|
+    check(library, version, host, port, source, page, current_state)
+  end
+  state
+end
+
+(_slash, features, version, library,) = uri.path.split("/")
+
+abort <<-WARNING unless features == "features"
+Something went wrong parsing the url #{uri.path} as #{features.inspect} was not "features" and so we cant detect library: #{library.inspect}
+WARNING
+
+$stdout.write "Checking..."
+$stdout.write "\r#{' ' * 200}\rParsing... #{uri}"
+
+response = HTTParty.get(uri)
+
+abort <<-ROOT_ERROR unless response.code == 200
+The source page #{uri} could not be loaded succesfully, got #{response.code}.
+ROOT_ERROR
+
+urls_checked = {}
+page = Nokogiri.parse(response.body)
+
+check(library, version, uri.host, uri.port, uri, page, urls_checked)
+
+$stdout.write "\r#{' ' * 200}\rDone!\n"
+
+urls_checked.each do |url, result|
+  if result[:code] != 200
+    puts "Warning! #{result[:code]} from #{url} via #{result[:source].to_s} please manually check."
+    puts "debug: #{result.inspect}" if ENV['DEBUG'] || ENV['VERBOSE']
+  else
+    puts "verbose: #{result.inspect}" if ENV['VERBOSE']
+  end
+end
