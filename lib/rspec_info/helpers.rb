@@ -148,7 +148,7 @@ module RSpecInfo
       end
     end
 
-    def documentation_links_for(gem_name)
+    def documentation_options_for(gem_name)
       versions =
         rspec_documentation
           .fetch(gem_name) { [] }
@@ -156,19 +156,30 @@ module RSpecInfo
             compare_version(a, b)
           end
 
-      unless versions.empty?
-        content_tag :div, 'class' => 'version-dropdown' do
-          list = content_tag :ul do
-            versions.map do |version|
-              content_tag :li do
-                link_to version, "/documentation/#{version}/#{gem_name}/"
-              end
-            end.join('')
+      {
+        :options =>
+          versions.reduce({}) do |hash, version|
+            hash["/documentation/#{version}/#{gem_name}/"] = [version, version == versions.first]
+            hash
           end
+      }
+    end
 
-          link_to(versions.first, '#') + list
+    def feature_version_options_for(library)
+      versions =
+        if library == "rspec-rails"
+          Versions.rails_feature_versions
+        else
+          Versions.rspec_feature_versions
         end
-      end
+
+      {
+        :options =>
+          versions.reduce({}) do |hash, (listed_version, _libs)|
+            hash["/features/#{listed_version}/#{library}"] = [listed_version.gsub("-","."), listed_version == versions.first]
+            hash
+          end
+      }
     end
 
     POSTS_IMPORTED_FROM_MYRONS_BLOG  = %w[
