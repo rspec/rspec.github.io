@@ -1,4 +1,5 @@
 @import "../application.css.scss";
+@import "../partials/dropdown";
 
 body.features {
   nav.top-nav-bar {
@@ -8,46 +9,13 @@ body.features {
       float: right;
 
       li {
+        @include dropdown;
+
         display: inline-block;
         padding-right: 1em;
-        position: relative;
-
-        a.title {
-          background: white;
-          color: $base-font-color;
-          padding: .7em .5em .7em .7em;
-          border-radius: .3em;
-          border: 1px solid $base-border-color;
-          &::after {
-            content: "▼";
-            padding-left: 2em;
-          }
-        }
-
-        &:hover, &:focus-within {
-          ul {
-            display: block;
-          }
-        }
 
         ul {
-          position: absolute;
-          background: white;
-          border: 1px solid $base-border-color;
-          border-radius: .5em;
-          padding: .7em;
-          box-shadow: 0 8px 24px rgba(140,149,159,0.2);
-          top: 0em;
           margin: 1.8em 0 0 0;
-          display: none;
-
-          li {
-            display: list-item;
-            white-space: nowrap;
-            &:hover, &:focus-within {
-              background: #EEE;
-            }
-          }
         }
       }
     }
