@@ -1,0 +1,43 @@
+@mixin dropdown {
+  position: relative;
+
+  a.title {
+    background: white;
+    color: $base-font-color;
+    padding: .7em .5em .7em .7em;
+    border-radius: .3em;
+    border: 1px solid $base-border-color;
+    &::after {
+      content: "▼";
+      padding-left: 2em;
+    }
+  }
+
+  &:hover, &:focus-within {
+    ul {
+      display: block;
+    }
+  }
+
+  ul {
+    display: none;
+    position: absolute;
+
+    background: white;
+    border: 1px solid $base-border-color;
+    border-radius: .5em;
+    box-shadow: 0 8px 24px rgba(140,149,159,0.2);
+
+    top: 0em;
+    padding: .7em;
+    z-index: 100;
+
+    li {
+      display: list-item;
+      white-space: nowrap;
+      &:hover, &:focus-within {
+        background: #EEE;
+      }
+    }
+  }
+}

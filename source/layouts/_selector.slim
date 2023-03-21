@@ -1,5 +1,6 @@
 - unless options.empty?
-  a.title= options.find { |_, (_title, active)| active }[1][0]
+  - (href, (text, _active)) = (options.find { |_, (_title, active)| active } || options.first)
+  a[href=(href) class="title"]= text
   ul aria-label="submenu" aria-haspopup='true'
     - options.each do |link, (title, active)|
       li class=(active ? 'current' : '')
