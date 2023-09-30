@@ -28,22 +28,22 @@ specify expected outcomes such as:</p>
 <li><p>rails-specific matchers:</p>
 
 <ul>
-<li><a href="./matchers/render-template-matcher"><code>render_template</code></a></li>
+<li><a href="../matchers/render-template-matcher"><code>render_template</code></a></li>
 </ul>
 <div class="highlight"><pre class="highlight ruby"><code><span class="n">expect</span><span class="p">(</span><span class="n">response</span><span class="p">).</span><span class="nf">to</span> <span class="n">render_template</span><span class="p">(</span><span class="ss">:new</span><span class="p">)</span>   <span class="c1"># wraps assert_template</span>
 </code></pre></div>
 <ul>
-<li><a href="./matchers/redirect-to-matcher"><code>redirect_to</code></a></li>
+<li><a href="../matchers/redirect-to-matcher"><code>redirect_to</code></a></li>
 </ul>
 <div class="highlight"><pre class="highlight ruby"><code><span class="n">expect</span><span class="p">(</span><span class="n">response</span><span class="p">).</span><span class="nf">to</span> <span class="n">redirect_to</span><span class="p">(</span><span class="n">location</span><span class="p">)</span>   <span class="c1"># wraps assert_redirected_to</span>
 </code></pre></div>
 <ul>
-<li><a href="./matchers/have-http-status-matcher"><code>have_http_status</code></a></li>
+<li><a href="../matchers/have-http-status-matcher"><code>have_http_status</code></a></li>
 </ul>
 <div class="highlight"><pre class="highlight ruby"><code><span class="n">expect</span><span class="p">(</span><span class="n">response</span><span class="p">).</span><span class="nf">to</span> <span class="n">have_http_status</span><span class="p">(</span><span class="ss">:created</span><span class="p">)</span>
 </code></pre></div>
 <ul>
-<li><a href="./matchers/new-record-matcher"><code>be_a_new</code></a></li>
+<li><a href="../matchers/new-record-matcher"><code>be_a_new</code></a></li>
 </ul>
 <div class="highlight"><pre class="highlight ruby"><code><span class="n">expect</span><span class="p">(</span><span class="n">assigns</span><span class="p">(</span><span class="ss">:widget</span><span class="p">)).</span><span class="nf">to</span> <span class="n">be_a_new</span><span class="p">(</span><span class="no">Widget</span><span class="p">)</span>
 </code></pre></div></li>
@@ -69,13 +69,13 @@ end
 
 <ul>
 <li>by default, views are not rendered. See
-<a href="./controller-specs/isolation-from-views">views are stubbed by default</a> and
-<a href="./controller-specs/render-views">render_views</a> for details.</li>
+<a href="../controller-specs/isolation-from-views">views are stubbed by default</a> and
+<a href="../controller-specs/render-views">render_views</a> for details.</li>
 </ul>
 
 <h2>Headers</h2>
 
-<p>We encourage you to use <a href="./request-specs/request-spec">request specs</a> if you want to set headers in your call. If you still want to use controller specs with custom http headers you can use <code>request.headers</code>:</p>
+<p>We encourage you to use <a href="../request-specs/request-spec">request specs</a> if you want to set headers in your call. If you still want to use controller specs with custom http headers you can use <code>request.headers</code>:</p>
 <div class="highlight"><pre class="highlight plaintext"><code>require "rails_helper"
 
 RSpec.describe TeamsController, type: :controller do
