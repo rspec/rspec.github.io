@@ -3,4 +3,4 @@
   section
     nav = partial "layouts/feature_nav", locals: feature_menu_data(current_page)
     article
-      = yield
+      = full_path_from_root(yield, current_page)

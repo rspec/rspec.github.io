@@ -1,8 +1,28 @@
+require 'pathname'
 require_relative './versions'
 require_relative './features'
 
 module RSpecInfo
   module Helpers
+    def full_path_from_root(content, current_page)
+      # E.g.)
+      # current_page:  features/3-12/rspec-mocks/configuring-responses/index.html
+      # current_path: /features/3-12/rspec-mocks/configuring-responses
+      current_path = Pathname("/" + current_page.path) + "../"
+      content.gsub(/href="(\.[^"]+)"/) do
+        link = $1
+        resolved_path =
+          # Resolve from current dir if the link looks up parent dir or just a sibling in current dir
+          if link.start_with?("../") || link.count("/") == 1
+            current_path + link
+          # Otherwise, resolve from parent dir
+          else
+            current_path + "../" + link
+          end
+        "href=\"#{resolved_path.to_s}\""
+      end
+    end
+
     def source_dir
       app.source_dir
     end

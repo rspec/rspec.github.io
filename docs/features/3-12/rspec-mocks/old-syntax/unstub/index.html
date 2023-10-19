@@ -8,9 +8,9 @@
   stub early, rather than waiting for the cleanup that runs at the end
   of the example. The newer non-monkey-patching syntax does not have a direct
   equivalent but in most situations you can achieve the same behavior using
-  <a href="../configuring-responses/calling-the-original-implementation"><code>and_call_original</code></a>. The difference is that <code>obj.unstub(:foo)</code> completely cleans up the <code>foo</code>
+  <a href="/features/3-12/rspec-mocks/configuring-responses/calling-the-original-implementation"><code>and_call_original</code></a>. The difference is that <code>obj.unstub(:foo)</code> completely cleans up the <code>foo</code>
   method stub, whereas <code>allow(obj).to receive(:foo).and_call_original</code> continues to
-  observe calls to the method (important when you are using <a href="../basics/spies">spies</a>), which could affect the
+  observe calls to the method (important when you are using <a href="/features/3-12/rspec-mocks/basics/spies">spies</a>), which could affect the
   method&rsquo;s behavior if it does anything with <code>caller</code> as it will include additional rspec stack
   frames.</p>
 

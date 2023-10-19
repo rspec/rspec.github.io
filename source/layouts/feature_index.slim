@@ -3,7 +3,7 @@
   section
     nav = partial "layouts/feature_nav", locals: feature_menu_data(current_page)
     article
-      - contents = yield
+      - contents = full_path_from_root(yield, current_page)
       - if contents.empty?
         h1= feature_topic(current_page)
       - else

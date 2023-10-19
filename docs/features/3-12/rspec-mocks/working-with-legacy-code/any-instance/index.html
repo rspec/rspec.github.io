@@ -6,13 +6,13 @@
 
 <p>rspec-mocks provides two methods, <code>allow_any_instance_of</code> and
   <code>expect_any_instance_of</code>, that will allow you to stub or mock any instance of a class. They
-  are used in place of <a href="../basics/allowing-messages"><code>allow</code></a> or <a href="../basics/expecting-messages"><code>expect</code></a>:</p>
+  are used in place of <a href="/features/3-12/rspec-mocks/basics/allowing-messages"><code>allow</code></a> or <a href="/features/3-12/rspec-mocks/basics/expecting-messages"><code>expect</code></a>:</p>
 <div class="highlight"><pre class="highlight ruby"><code>  <span class="n">allow_any_instance_of</span><span class="p">(</span><span class="no">Widget</span><span class="p">).</span><span class="nf">to</span> <span class="n">receive</span><span class="p">(</span><span class="ss">:name</span><span class="p">).</span><span class="nf">and_return</span><span class="p">(</span><span class="s2">"Wibble"</span><span class="p">)</span>
   <span class="n">expect_any_instance_of</span><span class="p">(</span><span class="no">Widget</span><span class="p">).</span><span class="nf">to</span> <span class="n">receive</span><span class="p">(</span><span class="ss">:name</span><span class="p">).</span><span class="nf">and_return</span><span class="p">(</span><span class="s2">"Wobble"</span><span class="p">)</span>
 </code></pre></div>
 <p>These methods add the appropriate stub or expectation to all instances of <code>Widget</code>.</p>
 
-<p>You can also <a href="../configuring-responses">configure the responses</a> in the same manner.</p>
+<p>You can also <a href="/features/3-12/rspec-mocks/configuring-responses">configure the responses</a> in the same manner.</p>
 
 <p>This feature is sometimes useful when working with legacy code, though in general we
   discourage its use for a number of reasons:</p>
