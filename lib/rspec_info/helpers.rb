@@ -19,7 +19,8 @@ module RSpecInfo
           else
             current_path + "../" + link
           end
-        "href=\"#{resolved_path.to_s}\""
+        # Add trailing slash to avoid inconsistent handling of directory index on local and GitHub Pages
+        "href=\"#{resolved_path.to_s + "/"}\""
       end
     end
 
@@ -67,7 +68,8 @@ module RSpecInfo
     end
 
     def feature_link_to(version, library, page_name, page)
-      link_to page_name, ["/features", version, library, page].join("/")
+      # Add trailing slash to avoid inconsistent handling of directory index on local and GitHub Pages
+      link_to page_name, ["/features", version, library, page].join("/") + "/"
     end
 
     def feature_menu_data(current_page)
