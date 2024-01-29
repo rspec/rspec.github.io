@@ -8,6 +8,7 @@ Requires a recent version of Ruby (tested on 2.7.5, Ruby 3.x is not yet working)
 ## Local Setup
 
 * `brew install imagemagick` (or your package manager of choice).
+* `brew install nodejs` (or your javascript runtime of choice for [execjs](https://github.com/rails/execjs)).
 * `bundle install`
 * `middleman build`
 
