@@ -31,7 +31,7 @@ module RSpecInfo
     end
 
     def directories(folder)
-      Dir[File.join(folder, '*')].select { |dir| Dir.exists?(dir) }
+      Dir[File.join(folder, '*')].select { |dir| Dir.exist?(dir) }
     end
   end
 end

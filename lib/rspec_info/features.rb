@@ -44,7 +44,7 @@ module RSpecInfo
         if Hash === yaml_section
           yaml_section.each do |heading, contents|
             yaml_path = File.join(FEATURES_DIR, version, library, heading)
-            if Dir.exists?(yaml_path)
+            if Dir.exist?(yaml_path)
 
               # Add missing directory contents
               Dir[File.join(yaml_path, '*')].each do |filename|
