@@ -3,11 +3,11 @@
 Use the `start_with` matcher to specify that a string or array starts with the expected
   characters or elements.
 
-    ```ruby
+  ```ruby
     expect("this string").to start_with("this")
     expect("this string").not_to start_with("that")
     expect([0,1,2]).to start_with(0, 1)
-    ```
+  ```
 
 ## With a string
 

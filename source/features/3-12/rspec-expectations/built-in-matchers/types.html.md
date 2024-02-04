@@ -10,12 +10,12 @@ rspec-expectations includes two matchers to specify types of objects:
 
   Both of these matchers have aliases:
 
-    ```ruby
+  ```ruby
     expect(obj).to be_a_kind_of(type)      # same as expect(obj).to be_kind_of(type)
     expect(obj).to be_a(type)              # same as expect(obj).to be_kind_of(type)
     expect(obj).to be_an(type)             # same as expect(obj).to be_kind_of(type)
     expect(obj).to be_an_instance_of(type) # same as expect(obj).to be_instance_of(type)
-    ```
+  ```
 
 ## With `be_(a_)kind_of` matcher
 

@@ -2,9 +2,9 @@
 
 The `exist` matcher is used to specify that something exists (as indicated by `#exist?` or `#exists?`):
 
-    ```ruby
+  ```ruby
     expect(obj).to exist # passes if obj.exist? or obj.exists?
-    ```
+  ```
 
 ## Basic usage
 

@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
   File: README
-    &mdash; Documentation by YARD 0.9.28
+    &mdash; Documentation by YARD 0.9.34
 </title>
   <link rel="stylesheet" href="/documentation/3.12/rspec-core/css/style.css" type="text/css" />
   <link rel="stylesheet" href="/documentation/3.12/rspec-core/css/common.css" type="text/css" />
@@ -126,6 +126,10 @@ hooks, <code>let</code> declarations, and nested groups/contexts.</p>
 pretty much the same as <code>shared_examples</code> and <code>include_examples</code>, providing
 more accurate naming when you share hooks, <code>let</code> declarations, helper methods,
 etc, but no examples.</p>
+<p>If you want to reuse shared examples or contexts across your RSpec suite you can
+define them in a stand alone <em>*.rb</em> files (<em>spec/support/shared_examples/definition.rb</em>
+for example). But you will have to manually <code>require</code> them (there is no autoloading of
+<em>spec/support/</em> directory unless you set it up yourself).</p>
 <h2 id="metadata">Metadata</h2>
 <p>rspec-core stores a metadata hash with every example and group, which
 contains their descriptions, the locations at which they were
@@ -276,11 +280,11 @@ Failures:
        expected: 3
             got: nil
        (compared using ==)
-     # ./spec/calcalator_spec.rb:6:in `block (3 levels) in &lt;top (required)&gt;&#39;
+     # ./spec/calculator_spec.rb:6:in `block (3 levels) in &lt;top (required)&gt;&#39;
 Finished in 0.00131 seconds (files took 0.10968 seconds to load)
 1 example, 1 failure
 Failed examples:
-rspec ./spec/calcalator_spec.rb:5 # Calculator#add returns the sum of its arguments
+rspec ./spec/calculator_spec.rb:5 # Calculator#add returns the sum of its arguments
 </code></pre>
 <p>Implement the simplest solution, by changing the definition of <code>Calculator#add</code> to:</p>
 <pre class="code ruby"><code class="ruby"><span class='kw'>def</span> <span class='id identifier rubyid_add'>add</span><span class='lparen'>(</span><span class='id identifier rubyid_a'>a</span><span class='comma'>,</span> <span class='id identifier rubyid_b'>b</span><span class='rparen'>)</span>
@@ -322,9 +326,9 @@ can treat each RSpec repo as an independent project.</p>
 </ul>
 </div></div>
       <div id="footer">
-  Generated on Wed Oct 26 21:46:37 2022 by
+  Generated on Sun Feb  4 20:29:08 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.28 (ruby-3.1.0).
+  0.9.34 (ruby-3.2.2).
 </div>
     </div>
   </body>

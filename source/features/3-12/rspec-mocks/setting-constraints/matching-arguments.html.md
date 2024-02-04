@@ -159,6 +159,43 @@ _Then_ it should fail with the following output:
 | expected: (a collection containing exactly 1 and 2)           |
 | got: ([1, 3])                                                 |
 
+## Using satisfy for complex custom expecations
+
+_Given_ a file named "rspec_satisfy_spec.rb" with:
+
+```ruby
+RSpec.describe "Using satisfy for complex custom expecations" do
+  let(:dbl) { double }
+
+  def a_b_c_equals_5
+    satisfy { |data| data[:a][:b][:c] == 5 }
+  end
+
+  it "passes when the expectation is true" do
+    expect(dbl).to receive(:foo).with(a_b_c_equals_5)
+    dbl.foo({ :a => { :b => { :c => 5 } } })
+  end
+
+  it "fails when the expectation is false" do
+    expect(dbl).to receive(:foo).with(a_b_c_equals_5)
+    dbl.foo({ :a => { :b => { :c => 3 } } })
+  end
+end
+```
+
+_When_ I run `rspec rspec_satisfy_spec.rb`
+
+_Then_ it should fail with the following output:
+
+|                                                               |
+|---------------------------------------------------------------|
+| 2 examples, 1 failure                                         |
+|                                                               |
+| Failure/Error: dbl.foo({ :a => { :b => { :c => 3 } } })       |
+| #<Double (anonymous)> received :foo with unexpected arguments |
+| expected: (satisfy expression `data[:a][:b][:c] == 5`)        |
+| got: ({:a=>{:b=>{:c=>3}}})                                    |
+
 ## Using a custom matcher
 
 _Given_ a file named "custom_matcher_spec.rb" with:

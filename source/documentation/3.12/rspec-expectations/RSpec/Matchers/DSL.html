@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
   Module: RSpec::Matchers::DSL
-    &mdash; Documentation by YARD 0.9.28
+    &mdash; Documentation by YARD 0.9.34
 </title>
   <link rel="stylesheet" href="/documentation/3.12/rspec-expectations/css/style.css" type="text/css" />
   <link rel="stylesheet" href="/documentation/3.12/rspec-expectations/css/common.css" type="text/css" />
@@ -99,7 +99,7 @@
     #<strong>alias_matcher</strong>(new_name, old_name, options = {}) {|String| ... } &#x21d2; <tt>Object</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Defines a matcher alias. The returned matcher&#39;s <code>description</code> will be overriden
+    <p>Defines a matcher alias. The returned matcher&#39;s <code>description</code> will be overridden
 to reflect the phrasing of the new name, which will be used in failure messages
 when passed as an argument to another matcher in a composed matcher expression.</p>
   </div>
@@ -157,7 +157,7 @@ when passed as an argument to another matcher in a composed matcher expression.<
     <li>
         <span class='type'>(<tt>String</tt>)</span>
         &mdash;
-        <div class='inline'><p>optional block that, when given, is used to define the overriden
+        <div class='inline'><p>optional block that, when given, is used to define the overridden
 logic. The yielded arg is the original description or failure message. If no
 block is provided, a default override is used based on the old and new names.</p>
 </div>
@@ -182,7 +182,8 @@ block is provided, a default override is used based on the old and new names.</p
 40
 41
 42
-43</pre>
+43
+44</pre>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/rspec/matchers/dsl.rb', line 32</span>
@@ -196,6 +197,7 @@ block is provided, a default override is used based on the old and new names.</p
     <span class='id identifier rubyid_matcher'>matcher</span><span class='period'>.</span><span class='id identifier rubyid_matcher_name'>matcher_name</span> <span class='op'>=</span> <span class='id identifier rubyid_new_name'>new_name</span> <span class='kw'>if</span> <span class='id identifier rubyid_matcher'>matcher</span><span class='period'>.</span><span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:matcher_name=</span><span class='rparen'>)</span>
     <span class='id identifier rubyid_klass'>klass</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_matcher'>matcher</span><span class='comma'>,</span> <span class='id identifier rubyid_description_override'>description_override</span><span class='rparen'>)</span>
   <span class='kw'>end</span>
+  <span class='id identifier rubyid_ruby2_keywords'>ruby2_keywords</span> <span class='id identifier rubyid_new_name'>new_name</span> <span class='kw'>if</span> <span class='id identifier rubyid_respond_to?'>respond_to?</span><span class='lparen'>(</span><span class='symbol'>:ruby2_keywords</span><span class='comma'>,</span> <span class='kw'>true</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
     </td>
   </tr>
@@ -243,15 +245,15 @@ usually representing the expected value(s).</p>
   <tr>
     <td>
       <pre class="lines">
-72
 73
 74
 75
 76
-77</pre>
+77
+78</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/matchers/dsl.rb', line 72</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/matchers/dsl.rb', line 73</span>
 <span class='kw'>def</span> <span class='id identifier rubyid_define'>define</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_declarations'>declarations</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_warn_about_block_args'>warn_about_block_args</span><span class='lparen'>(</span><span class='id identifier rubyid_name'>name</span><span class='comma'>,</span> <span class='id identifier rubyid_declarations'>declarations</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_define_method'>define_method</span> <span class='id identifier rubyid_name'>name</span> <span class='kw'>do</span> <span class='op'>|</span><span class='op'>*</span><span class='id identifier rubyid_expected'>expected</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block_arg'>block_arg</span><span class='op'>|</span>
@@ -268,7 +270,7 @@ usually representing the expected value(s).</p>
 </h3><div class="docstring">
   <div class="discussion">
     <p>Defines a negated matcher. The returned matcher&#39;s <code>description</code> and <code>failure_message</code>
-will be overriden to reflect the phrasing of the new name, and the match logic will
+will be overridden to reflect the phrasing of the new name, and the match logic will
 be based on the original matcher but negated.</p>
   </div>
 </div>
@@ -301,7 +303,7 @@ be based on the original matcher but negated.</p>
     <li>
         <span class='type'>(<tt>String</tt>)</span>
         &mdash;
-        <div class='inline'><p>optional block that, when given, is used to define the overriden
+        <div class='inline'><p>optional block that, when given, is used to define the overridden
 logic. The yielded arg is the original description or failure message. If no
 block is provided, a default override is used based on the old and new names.</p>
 </div>
@@ -315,12 +317,12 @@ block is provided, a default override is used based on the old and new names.</p
   <tr>
     <td>
       <pre class="lines">
-60
 61
-62</pre>
+62
+63</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/matchers/dsl.rb', line 60</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/matchers/dsl.rb', line 61</span>
 <span class='kw'>def</span> <span class='id identifier rubyid_define_negated_matcher'>define_negated_matcher</span><span class='lparen'>(</span><span class='id identifier rubyid_negated_name'>negated_name</span><span class='comma'>,</span> <span class='id identifier rubyid_base_name'>base_name</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_description_override'>description_override</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_alias_matcher'>alias_matcher</span><span class='lparen'>(</span><span class='id identifier rubyid_negated_name'>negated_name</span><span class='comma'>,</span> <span class='id identifier rubyid_base_name'>base_name</span><span class='comma'>,</span> <span class='symbol'>:klass</span> <span class='op'>=&gt;</span> <span class='const'>AliasedNegatedMatcher</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_description_override'>description_override</span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
@@ -331,9 +333,9 @@ block is provided, a default override is used based on the old and new names.</p
   </div>
 </div>
       <div id="footer">
-  Generated on Wed Oct 26 21:46:45 2022 by
+  Generated on Sun Feb  4 20:29:34 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.28 (ruby-3.1.0).
+  0.9.34 (ruby-3.2.2).
 </div>
     </div>
   </body>

@@ -475,7 +475,7 @@ Make sure your matcher returns either `true` or `false`. Take care to handle exc
 
     You should handle each `StandardError` with care! Do not handle them all in one.
 
-    ```ruby
+  ```ruby
     match do |actual|
       begin
         '[...] Some code'
@@ -483,7 +483,7 @@ Make sure your matcher returns either `true` or `false`. Take care to handle exc
         false
       end
     end
-    ```
+  ```
 
 _Given_ a file named "error_handling_spec.rb" with:
 

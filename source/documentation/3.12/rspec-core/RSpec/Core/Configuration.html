@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
   Class: RSpec::Core::Configuration
-    &mdash; Documentation by YARD 0.9.28
+    &mdash; Documentation by YARD 0.9.34
 </title>
   <link rel="stylesheet" href="/documentation/3.12/rspec-core/css/style.css" type="text/css" />
   <link rel="stylesheet" href="/documentation/3.12/rspec-core/css/common.css" type="text/css" />
@@ -260,7 +260,7 @@ rely on the fact that TTYs will display color by default, or set
   <span class="summary_signature">
       <a href="#max_displayed_failure_line_count-instance_method" title="#max_displayed_failure_line_count (instance method)">#<strong>max_displayed_failure_line_count</strong>  &#x21d2; void </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Maximum count of failed source lines to display in the failure reports.</p>
+    <span class="summary_desc"><div class='inline'><p>Maximum count of failed source lines to display in the failure reports (defaults to <code>10</code>).</p>
 </div></span>
 </li>
       <li class="public ">
@@ -1617,8 +1617,8 @@ command line option.</p>
     #<strong>max_displayed_failure_line_count</strong>  &#x21d2; <tt>void</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Maximum count of failed source lines to display in the failure reports.
-(default <code>10</code>).
+    <p>Maximum count of failed source lines to display in the failure reports
+(defaults to <code>10</code>).
 return [Integer]</p>
   </div>
 </div>
@@ -2602,7 +2602,7 @@ installs) by default.</p>
         <span class='name'>patterns</span>
         <span class='type'>(<tt>Array&lt;Regexp&gt;</tt>)</span>
         &mdash;
-        <div class='inline'><p>set backtrace_formatter exlusion_patterns</p>
+        <div class='inline'><p>set backtrace_formatter exclusion_patterns</p>
 </div>
     </li>
 </ul>
@@ -3020,7 +3020,7 @@ by not setting <code>mock_with</code> or <code>expect_with</code> to anything el
   <div class="note notetag">
     <strong>Note:</strong>
     <div class='inline'><p>If the user uses this options with <code>mock_with :mocha</code>
-(or similiar) they will still have monkey patching active
+(or similar) they will still have monkey patching active
 in their test environment from mocha.</p>
 </div>
   </div>
@@ -4965,9 +4965,9 @@ but avoided otherwise.</p>
   </div>
 </div>
       <div id="footer">
-  Generated on Wed Oct 26 21:46:38 2022 by
+  Generated on Sun Feb  4 20:29:08 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.28 (ruby-3.1.0).
+  0.9.34 (ruby-3.2.2).
 </div>
     </div>
   </body>

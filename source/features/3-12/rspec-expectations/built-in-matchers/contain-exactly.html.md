@@ -4,19 +4,19 @@ The `contain_exactly` matcher provides a way to test arrays against each other i
   that disregards differences in the ordering between the actual and expected array.
   For example:
 
-    ```ruby
+  ```ruby
     expect([1, 2, 3]).to    contain_exactly(2, 3, 1) # pass
     expect([:a, :c, :b]).to contain_exactly(:a, :c ) # fail
-    ```
+  ```
 
   This matcher is also available as `match_array`, which expects the expected array to be
   given as a single array argument rather than as individual splatted elements. The above
   could also be written as:
 
-    ```ruby
+  ```ruby
     expect([1, 2, 3]).to    match_array [2, 3, 1] # pass
     expect([:a, :c, :b]).to match_array [:a, :c]  # fail
-    ```
+  ```
 
 ## Array is expected to contain every value
 

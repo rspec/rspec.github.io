@@ -307,7 +307,7 @@ _Then_ the output should contain:
 
 _Given_ a file named "context_specific_examples_spec.rb" with:
 
-```Ruby
+```ruby
 RSpec.describe "shared examples" do
   context "per context" do
 
@@ -332,7 +332,7 @@ _Then_ the output should contain:
 
 _Given_ a file named "context_specific_examples_spec.rb" with:
 
-```Ruby
+```ruby
 RSpec.describe "shared examples" do
   shared_examples "shared examples are nestable" do
     specify { expect(true).to eq true }
@@ -362,7 +362,7 @@ Accessing shared_examples defined across contexts is deprecated
 
 _Given_ a file named "isolated_shared_examples_spec.rb" with:
 
-```Ruby
+```ruby
 RSpec.describe "shared examples" do
   context do
     shared_examples "shared examples are isolated" do
