@@ -155,19 +155,7 @@ module RSpecInfo
     end
 
     def rspec_documentation_latest(directory = source_dir)
-      rspec_documentation(directory).each_with_object({}) { |(k,v), a| a[k] = v.sort { |a, b| compare_version(a, b) }.first }
-    end
-
-    def compare_version(a, b)
-      (a_major, a_minor) = a.split('.').map(&:to_i)
-      (b_major, b_minor) = b.split('.').map(&:to_i)
-
-      major_compare = b_major <=> a_major
-      if major_compare == 0
-        b_minor <=> a_minor
-      else
-        major_compare
-      end
+      rspec_documentation(directory).each_with_object({}) { |(k,v), a| a[k] = v.sort { |a, b| Versions.compare(a, b) }.first }
     end
 
     def documentation_options_for(gem_name)
@@ -175,7 +163,7 @@ module RSpecInfo
         rspec_documentation
           .fetch(gem_name) { [] }
           .sort do |a, b|
-            compare_version(a, b)
+            Versions.compare(a, b)
           end
 
       {
@@ -295,6 +283,6 @@ module RSpecInfo
       string.gsub(JS_ESCAPE_PATTERN) { |match| '\\' + JS_ESCAPES[match] }
     end
 
-    module_function :rspec_documentation, :rspec_documentation_latest, :compare_version
+    module_function :rspec_documentation, :rspec_documentation_latest
   end
 end

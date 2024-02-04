@@ -4,6 +4,18 @@ module RSpecInfo
 
     module_function
 
+    def compare(a, b)
+      (a_major, a_minor) = a.split('.').map(&:to_i)
+      (b_major, b_minor) = b.split('.').map(&:to_i)
+
+      major_compare = b_major <=> a_major
+      if major_compare == 0
+        b_minor <=> a_minor
+      else
+        major_compare
+      end
+    end
+
     def max(versions)
       versions.max_by { |version| version.gsub('-','.').to_f }
     end
@@ -27,7 +39,7 @@ module RSpecInfo
       feature_versions.reduce([]) do |versions, (version, dirs)|
         versions << version if dirs.find { |lib_dir| lib_dir == library }
         versions
-      end.sort
+      end.sort { |a, b| Versions.compare(a.gsub('-', '.'), b.gsub('-', '.')) }
     end
 
     def directories(folder)
