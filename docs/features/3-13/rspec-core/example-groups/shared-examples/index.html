@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"><![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]<!--><html class="no-js" lang="en"><!--<![endif]--><head><meta charset="UTF-8" /><meta content="width=device-width, initial-scale=1" name="viewport" /><meta property="og:title" /><meta content="https://rspec.info/features/3-13/rspec-core/example-groups/shared-examples/" property="og:url" /><meta content="https://rspec.info/images/logo_ogp.png" property="og:image" /><meta content="summary" name="twitter:card" /><meta content="@rspec" name="twitter:site" /><title></title><link href="/stylesheets/pages/features.css" rel="stylesheet" /><link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" /><link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" type="text/css" /><link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" type="text/css" /><link href="/blog/feed.xml" rel="alternate" type="application/atom+xml" /></head><body class="features"><header><nav><h1><img src="/images/logo.png" alt="Logo" /><a href="/">RSpec</a></h1><input class="hamburger-toggle" type="checkbox" /><div class="hamburger-icon"><div class="bar"></div><div class="bar"></div><div class="bar"></div></div><ul class="menu"><li><a href="/about">About</a></li><li><a href="/documentation">Documentation</a></li><li><a href="/blog">Blog</a></li><li><a href="/upgrading-from-rspec-2">Upgrade</a></li><li><a href="/help">Get Help</a></li><li><a href="/contributing">Contributing</a></li></ul></nav></header><nav class="top-nav-bar" role="navigation"><ul><li>Library:</li><li><a class="title" href="/features/3-13/rspec-core">RSpec Core</a><ul aria-haspopup="true" aria-label="submenu"><li class="current"><a href="/features/3-13/rspec-core">RSpec Core</a></li><li><a href="/features/3-13/rspec-expectations">RSpec Expectations</a></li><li><a href="/features/3-13/rspec-mocks">RSpec Mocks</a></li><li><a href="/features/6-1/rspec-rails">RSpec Rails</a></li></ul></li><li>Version:</li><li><a class="title" href="/features/3-13/rspec-core">3.13</a><ul aria-haspopup="true" aria-label="submenu"><li><a href="/features/3-12/rspec-core">3.12</a></li><li class="current"><a href="/features/3-13/rspec-core">3.13</a></li></ul></li></ul></nav><section><nav><ul><li><a href="/features/3-13/rspec-core/example-groups/">Example groups</a><ul class="open"><li><a href="/features/3-13/rspec-core/example-groups/basic-structure/"> The basic structure (`describe`/`it`)</a></li><li><a href="/features/3-13/rspec-core/example-groups/shared-examples/"> Using shared examples</a></li><li><a href="/features/3-13/rspec-core/example-groups/shared-context/"> Using `shared_context`</a></li><li><a href="/features/3-13/rspec-core/example-groups/aliasing/"> Aliasing</a></li></ul></li><li><a href="/features/3-13/rspec-core/command-line/">Command line</a><ul><li><a href="/features/3-13/rspec-core/command-line/example-name-option/"> `--example` option</a></li><li><a href="/features/3-13/rspec-core/command-line/format-option/"> `--format` option</a></li><li><a href="/features/3-13/rspec-core/command-line/tag/"> `--tag` option</a></li><li><a href="/features/3-13/rspec-core/command-line/line-number-appended-to-path/"> `&lt;file&gt;:&lt;line_number&gt;` (line number appended to file path)</a></li><li><a href="/features/3-13/rspec-core/command-line/exit-status/"> `--failure-exit-code` option (exit status)</a></li><li><a href="/features/3-13/rspec-core/command-line/order/">`--order` option</a></li><li><a href="/features/3-13/rspec-core/command-line/rake-task/"> Creating a rake task</a></li><li><a href="/features/3-13/rspec-core/command-line/order/"> Using the `--order` option</a></li><li><a href="/features/3-13/rspec-core/command-line/ruby/"> Run with `ruby` command</a></li><li><a href="/features/3-13/rspec-core/command-line/warnings-option/"> `--warnings` option (run with warnings enabled)</a></li><li><a href="/features/3-13/rspec-core/command-line/init/"> `--init` option</a></li><li><a href="/features/3-13/rspec-core/command-line/example-matches-name-option/"> `--example-matches` option</a></li><li><a href="/features/3-13/rspec-core/command-line/bisect/"> Bisect</a></li><li><a href="/features/3-13/rspec-core/command-line/only-failures/"> Using the `--only-failures` option</a></li><li><a href="/features/3-13/rspec-core/command-line/fail-fast/"> `--fail-fast` option</a></li><li><a href="/features/3-13/rspec-core/command-line/dry-run/"> `--dry-run` option</a></li><li><a href="/features/3-13/rspec-core/command-line/randomization/"> Randomization can be reproduced across test runs</a></li><li><a href="/features/3-13/rspec-core/command-line/pattern-option/"> `--pattern` option</a></li><li><a href="/features/3-13/rspec-core/command-line/require-option/"> `--require` option</a></li></ul></li><li><a href="/features/3-13/rspec-core/pending-and-skipped-examples/">Pending and skipped examples</a><ul><li><a href="/features/3-13/rspec-core/pending-and-skipped-examples/pending-examples/"> Using `pending` with examples</a></li><li><a href="/features/3-13/rspec-core/pending-and-skipped-examples/skipped-examples/"> Using `skip` with examples</a></li></ul></li><li><a href="/features/3-13/rspec-core/hooks/">Hooks</a><ul><li><a href="/features/3-13/rspec-core/hooks/before-and-after-hooks/"> `before` and `after` hooks</a></li><li><a href="/features/3-13/rspec-core/hooks/around-hooks/"> `around` hooks</a></li><li><a href="/features/3-13/rspec-core/hooks/filtering/"> Filtering</a></li><li><a href="/features/3-13/rspec-core/hooks/when-first-matching-example-defined/"> Using `when_first_matching_example_defined` hook</a></li></ul></li><li><a href="/features/3-13/rspec-core/subject/">Subject</a><ul><li><a href="/features/3-13/rspec-core/subject/implicit-subject/"> Implicitly defined subject</a></li><li><a href="/features/3-13/rspec-core/subject/explicit-subject/"> Explicit Subject</a></li><li><a href="/features/3-13/rspec-core/subject/one-liner-syntax/"> One-liner syntax</a></li></ul></li><li><a href="/features/3-13/rspec-core/helper-methods/">Helper methods</a><ul><li><a href="/features/3-13/rspec-core/helper-methods/let/"> `let` and `let!`</a></li><li><a href="/features/3-13/rspec-core/helper-methods/arbitrary-methods/"> Defining arbitrary helper methods</a></li><li><a href="/features/3-13/rspec-core/helper-methods/modules/"> Define helper methods in a module</a></li></ul></li><li><a href="/features/3-13/rspec-core/metadata/">Metadata</a><ul><li><a href="/features/3-13/rspec-core/metadata/current-example/"> Using the current example</a></li><li><a href="/features/3-13/rspec-core/metadata/described-class/"> Using `described_class`</a></li><li><a href="/features/3-13/rspec-core/metadata/user-defined/"> User-defined metadata</a></li><li><a href="/features/3-13/rspec-core/metadata/current-scope/"> `RSpec` provides the current scope as `RSpec.current_scope`</a></li></ul></li><li><a href="/features/3-13/rspec-core/filtering/">Filtering</a><ul><li><a href="/features/3-13/rspec-core/filtering/inclusion-filters/"> Inclusion filters</a></li><li><a href="/features/3-13/rspec-core/filtering/exclusion-filters/"> Exclusion filters</a></li><li><a href="/features/3-13/rspec-core/filtering/if-and-unless/"> Conditional Filters</a></li><li><a href="/features/3-13/rspec-core/filtering/filter-run-when-matching/"> Using `filter_run_when_matching`</a></li></ul></li><li><a href="/features/3-13/rspec-core/configuration/">Configuration</a><ul><li><a href="/features/3-13/rspec-core/configuration/read-options-from-file/"> Reading command line configuration options from files</a></li><li><a href="/features/3-13/rspec-core/configuration/color/"> Windows may require additional solutions to display color</a></li><li><a href="/features/3-13/rspec-core/configuration/fail-fast/"> Setting the `fail_fast` option</a></li><li><a href="/features/3-13/rspec-core/configuration/fail-if-no-examples/"> Setting the `fail_if_no_examples` option</a></li><li><a href="/features/3-13/rspec-core/configuration/custom-settings/"> Custom settings</a></li><li><a href="/features/3-13/rspec-core/configuration/alias-example-to/"> Create example aliases</a></li><li><a href="/features/3-13/rspec-core/configuration/default-path/"> Setting the default spec path</a></li><li><a href="/features/3-13/rspec-core/configuration/pattern/"> Using the `--pattern` option</a></li><li><a href="/features/3-13/rspec-core/configuration/run-all-when-everything-filtered/"> Using `run_all_when_everything_filtered`</a></li><li><a href="/features/3-13/rspec-core/configuration/overriding-global-ordering/"> Overriding global ordering</a></li><li><a href="/features/3-13/rspec-core/configuration/profile/"> Profiling examples (`--profile`)</a></li><li><a href="/features/3-13/rspec-core/configuration/error-exit-code/"> Setting an error exit code</a></li><li><a href="/features/3-13/rspec-core/configuration/failure-exit-code/"> Setting a failure exit code</a></li><li><a href="/features/3-13/rspec-core/configuration/order-and-seed/"> Setting the `--order` and/or `--seed`</a></li><li><a href="/features/3-13/rspec-core/configuration/exclude-pattern/"> Using the `--exclude_pattern` option</a></li><li><a href="/features/3-13/rspec-core/configuration/enable-global-dsl/"> Global namespace DSL</a></li><li><a href="/features/3-13/rspec-core/configuration/deprecation-stream/"> Custom deprecation stream</a></li><li><a href="/features/3-13/rspec-core/configuration/output-stream/"> Custom output stream</a></li><li><a href="/features/3-13/rspec-core/configuration/pending-failure-output/"> Configuring pending failure output</a></li><li><a href="/features/3-13/rspec-core/configuration/backtrace-exclusion-patterns/"> Excluding lines from the backtrace</a></li><li><a href="/features/3-13/rspec-core/configuration/zero-monkey-patching-mode/"> Zero monkey patching mode</a></li></ul></li><li><a href="/features/3-13/rspec-core/expectation-framework-integration/">Expectation framework integration</a><ul><li><a href="/features/3-13/rspec-core/expectation-framework-integration/configure-expectation-framework/"> Configuring an expectation framework</a></li><li><a href="/features/3-13/rspec-core/expectation-framework-integration/aggregating-failures/"> Aggregating Failures</a></li></ul></li><li><a href="/features/3-13/rspec-core/mock-framework-integration/">Mock framework integration</a><ul><li><a href="/features/3-13/rspec-core/mock-framework-integration/use-rspec/"> Mocking with `rspec`</a></li><li><a href="/features/3-13/rspec-core/mock-framework-integration/use-flexmock/"> Mocking with `flexmock`</a></li><li><a href="/features/3-13/rspec-core/mock-framework-integration/use-mocha/"> Mocking with `mocha`</a></li><li><a href="/features/3-13/rspec-core/mock-framework-integration/use-rr/"> Mocking with `rr`</a></li><li><a href="/features/3-13/rspec-core/mock-framework-integration/use-any-framework/"> Mocking with an alternative framework</a></li></ul></li><li><a href="/features/3-13/rspec-core/formatters/">Formatters</a><ul><li><a href="/features/3-13/rspec-core/formatters/configurable-colors/"> Configurable colors</a></li><li><a href="/features/3-13/rspec-core/formatters/json-formatter/"> The JSON formatter</a></li><li><a href="/features/3-13/rspec-core/formatters/custom-formatter/"> Custom formatters</a></li></ul></li><li><a href="/features/3-13/rspec-core/spec-files/">Spec files</a><ul><li><a href="/features/3-13/rspec-core/spec-files/arbitrary-file-suffix/"> Using an arbitrary file suffix</a></li></ul></li><li><a href="/features/3-13/rspec-core/core-standalone/">Core standalone</a></li><li><a href="/features/3-13/rspec-core/clear-examples/">Clear examples</a></li></ul></nav><article><h1>Using shared examples</h1>
+
+<p>Shared examples let you describe behaviour of classes or modules. When declared,
+  a shared group&rsquo;s content is stored. It is only realized in the context of
+  another example group, which provides any context the shared group needs to
+  run.</p>
+
+<p>A shared group is included in another group using any of:</p>
+<div class="highlight"><pre class="highlight ruby"><code>  <span class="n">include_examples</span> <span class="s2">"name"</span>      <span class="c1"># include the examples in the current context</span>
+  <span class="n">it_behaves_like</span> <span class="s2">"name"</span>       <span class="c1"># include the examples in a nested context</span>
+  <span class="n">it_should_behave_like</span> <span class="s2">"name"</span> <span class="c1"># include the examples in a nested context</span>
+  <span class="n">matching</span> <span class="n">metadata</span>            <span class="c1"># include the examples in the current context</span>
+</code></pre></div>
+<p><strong>WARNING:</strong> Files containing shared groups must be loaded before the files that
+  use them.  While there are conventions to handle this, RSpec does <em>not</em> do
+  anything special (like autoload). Doing so would require a strict naming
+  convention for files that would break existing suites.</p>
+
+<p><strong>WARNING:</strong> When you include parameterized examples in the current context multiple
+  times, you may override previous method definitions and last declaration wins.
+  So if you have this kind of shared example (or shared context)</p>
+<div class="highlight"><pre class="highlight ruby"><code>  <span class="no">RSpec</span><span class="p">.</span><span class="nf">shared_examples</span> <span class="s2">"some example"</span> <span class="k">do</span> <span class="o">|</span><span class="n">parameter</span><span class="o">|</span>
+    <span class="p">\</span><span class="c1"># Same behavior is triggered also with either `def something; 'some value'; end`</span>
+    <span class="p">\</span><span class="c1"># or `define_method(:something) { 'some value' }`</span>
+    <span class="n">let</span><span class="p">(</span><span class="ss">:something</span><span class="p">)</span> <span class="p">{</span> <span class="n">parameter</span> <span class="p">}</span>
+    <span class="n">it</span> <span class="s2">"uses the given parameter"</span> <span class="k">do</span>
+      <span class="n">expect</span><span class="p">(</span><span class="n">something</span><span class="p">).</span><span class="nf">to</span> <span class="n">eq</span><span class="p">(</span><span class="n">parameter</span><span class="p">)</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+
+  <span class="no">RSpec</span><span class="p">.</span><span class="nf">describe</span> <span class="no">SomeClass</span> <span class="k">do</span>
+    <span class="n">include_examples</span> <span class="s2">"some example"</span><span class="p">,</span> <span class="s2">"parameter1"</span>
+    <span class="n">include_examples</span> <span class="s2">"some example"</span><span class="p">,</span> <span class="s2">"parameter2"</span>
+  <span class="k">end</span>
+</code></pre></div>
+<p>You&rsquo;re actually doing this (notice that first example will fail):</p>
+<div class="highlight"><pre class="highlight ruby"><code>  <span class="no">RSpec</span><span class="p">.</span><span class="nf">describe</span> <span class="no">SomeClass</span> <span class="k">do</span>
+    <span class="p">\</span><span class="c1"># Reordered code for better understanding of what is happening</span>
+    <span class="n">let</span><span class="p">(</span><span class="ss">:something</span><span class="p">)</span> <span class="p">{</span> <span class="s2">"parameter1"</span> <span class="p">}</span>
+    <span class="n">let</span><span class="p">(</span><span class="ss">:something</span><span class="p">)</span> <span class="p">{</span> <span class="s2">"parameter2"</span> <span class="p">}</span>
+
+    <span class="n">it</span> <span class="s2">"uses the given parameter"</span> <span class="k">do</span>
+      <span class="p">\</span><span class="c1"># This example will fail because last let "wins"</span>
+      <span class="n">expect</span><span class="p">(</span><span class="n">something</span><span class="p">).</span><span class="nf">to</span> <span class="n">eq</span><span class="p">(</span><span class="s2">"parameter1"</span><span class="p">)</span>
+    <span class="k">end</span>
+
+    <span class="n">it</span> <span class="s2">"uses the given parameter"</span> <span class="k">do</span>
+      <span class="n">expect</span><span class="p">(</span><span class="n">something</span><span class="p">).</span><span class="nf">to</span> <span class="n">eq</span><span class="p">(</span><span class="s2">"parameter2"</span><span class="p">)</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+</code></pre></div>
+<p>To prevent this kind of subtle error a warning is emitted if you declare multiple
+  methods with the same name in the same context. Should you get this warning
+  the simplest solution is to replace <code>include_examples</code> with <code>it_behaves_like</code>, in this
+  way method overriding is avoided because of the nested context created by <code>it_behaves_like</code></p>
+
+<p>Conventions:</p>
+
+<hr>
+
+<ol>
+<li><p>The simplest approach is to require files with shared examples explicitly
+  from the files that use them. Keep in mind that RSpec adds the <code>spec</code>
+  directory to the <code>LOAD_PATH</code>, so you can say <code>require
+  &#39;shared_examples_for_widgets&#39;</code> to require a file at
+  <code>#{PROJECT_ROOT}/spec/shared_examples_for_widgets.rb</code>.</p></li>
+<li><p>One convention is to put files containing shared examples in <code>spec/support/</code>
+  and require files in that directory from <code>spec/spec_helper.rb</code>:</p>
+<div class="highlight"><pre class="highlight ruby"><code>  <span class="no">Dir</span><span class="p">[</span><span class="s2">"./spec/support/**/*.rb"</span><span class="p">].</span><span class="nf">sort</span><span class="p">.</span><span class="nf">each</span> <span class="p">{</span> <span class="o">|</span><span class="n">f</span><span class="o">|</span> <span class="nb">require</span> <span class="n">f</span> <span class="p">}</span>
+</code></pre></div>
+<p>Historically, this was included in the generated <code>spec/spec_helper.rb</code> file in
+  <code>rspec-rails</code>. However, in order to keep your test suite boot time down,
+  it&rsquo;s a good idea to not autorequire all files in a directory like this.
+  When running only one spec file, loading unneeded dependencies or performing
+  unneeded setup can have a significant, noticeable effect on how long it takes
+  before the first example runs.</p></li>
+<li><p>When all of the groups that include the shared group reside in the same file,
+ just declare the shared group in that file.</p></li>
+</ol>
+
+<h2>Shared examples group included in two groups in one file</h2>
+
+<p><em>Given</em> a file named &ldquo;collection_spec.rb&rdquo; with:</p>
+<div class="highlight"><pre class="highlight ruby"><code><span class="nb">require</span> <span class="s2">"set"</span>
+
+<span class="no">RSpec</span><span class="p">.</span><span class="nf">shared_examples</span> <span class="s2">"a collection"</span> <span class="k">do</span>
+  <span class="n">let</span><span class="p">(</span><span class="ss">:collection</span><span class="p">)</span> <span class="p">{</span> <span class="n">described_class</span><span class="p">.</span><span class="nf">new</span><span class="p">([</span><span class="mi">7</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span> <span class="p">}</span>
+
+  <span class="n">context</span> <span class="s2">"initialized with 3 items"</span> <span class="k">do</span>
+    <span class="n">it</span> <span class="s2">"says it has three items"</span> <span class="k">do</span>
+      <span class="n">expect</span><span class="p">(</span><span class="n">collection</span><span class="p">.</span><span class="nf">size</span><span class="p">).</span><span class="nf">to</span> <span class="n">eq</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+
+  <span class="n">describe</span> <span class="s2">"#include?"</span> <span class="k">do</span>
+    <span class="n">context</span> <span class="s2">"with an item that is in the collection"</span> <span class="k">do</span>
+      <span class="n">it</span> <span class="s2">"returns true"</span> <span class="k">do</span>
+        <span class="n">expect</span><span class="p">(</span><span class="n">collection</span><span class="p">.</span><span class="nf">include?</span><span class="p">(</span><span class="mi">7</span><span class="p">)).</span><span class="nf">to</span> <span class="n">be</span><span class="p">(</span><span class="kp">true</span><span class="p">)</span>
+      <span class="k">end</span>
+    <span class="k">end</span>
+
+    <span class="n">context</span> <span class="s2">"with an item that is not in the collection"</span> <span class="k">do</span>
+      <span class="n">it</span> <span class="s2">"returns false"</span> <span class="k">do</span>
+        <span class="n">expect</span><span class="p">(</span><span class="n">collection</span><span class="p">.</span><span class="nf">include?</span><span class="p">(</span><span class="mi">9</span><span class="p">)).</span><span class="nf">to</span> <span class="n">be</span><span class="p">(</span><span class="kp">false</span><span class="p">)</span>
+      <span class="k">end</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="no">RSpec</span><span class="p">.</span><span class="nf">describe</span> <span class="no">Array</span> <span class="k">do</span>
+  <span class="n">it_behaves_like</span> <span class="s2">"a collection"</span>
+<span class="k">end</span>
+
+<span class="no">RSpec</span><span class="p">.</span><span class="nf">describe</span> <span class="no">Set</span> <span class="k">do</span>
+  <span class="n">it_behaves_like</span> <span class="s2">"a collection"</span>
+<span class="k">end</span>
+</code></pre></div>
+<p><em>When</em> I run <code>rspec collection_spec.rb --format documentation</code></p>
+
+<p><em>Then</em> the examples should all pass</p>
+
+<p><em>And</em> the output should contain:</p>
+<div class="highlight"><pre class="highlight plaintext"><code>Array
+  behaves like a collection
+    initialized with 3 items
+      says it has three items
+    #include?
+      with an item that is in the collection
+        returns true
+      with an item that is not in the collection
+        returns false
+
+Set
+  behaves like a collection
+    initialized with 3 items
+      says it has three items
+    #include?
+      with an item that is in the collection
+        returns true
+      with an item that is not in the collection
+        returns false
+</code></pre></div>
+<h2>Providing context to a shared group using a block</h2>
+
+<p><em>Given</em> a file named &ldquo;shared<em>example</em>group_spec.rb&rdquo; with:</p>
+<div class="highlight"><pre class="highlight ruby"><code><span class="nb">require</span> <span class="s2">"set"</span>
+
+<span class="no">RSpec</span><span class="p">.</span><span class="nf">shared_examples</span> <span class="s2">"a collection object"</span> <span class="k">do</span>
+  <span class="n">describe</span> <span class="s2">"&lt;&lt;"</span> <span class="k">do</span>
+    <span class="n">it</span> <span class="s2">"adds objects to the end of the collection"</span> <span class="k">do</span>
+      <span class="n">collection</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span>
+      <span class="n">collection</span> <span class="o">&lt;&lt;</span> <span class="mi">2</span>
+      <span class="n">expect</span><span class="p">(</span><span class="n">collection</span><span class="p">.</span><span class="nf">to_a</span><span class="p">).</span><span class="nf">to</span> <span class="n">match_array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="no">RSpec</span><span class="p">.</span><span class="nf">describe</span> <span class="no">Array</span> <span class="k">do</span>
+  <span class="n">it_behaves_like</span> <span class="s2">"a collection object"</span> <span class="k">do</span>
+    <span class="n">let</span><span class="p">(</span><span class="ss">:collection</span><span class="p">)</span> <span class="p">{</span> <span class="no">Array</span><span class="p">.</span><span class="nf">new</span> <span class="p">}</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="no">RSpec</span><span class="p">.</span><span class="nf">describe</span> <span class="no">Set</span> <span class="k">do</span>
+  <span class="n">it_behaves_like</span> <span class="s2">"a collection object"</span> <span class="k">do</span>
+    <span class="n">let</span><span class="p">(</span><span class="ss">:collection</span><span class="p">)</span> <span class="p">{</span> <span class="no">Set</span><span class="p">.</span><span class="nf">new</span> <span class="p">}</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div>
+<p><em>When</em> I run <code>rspec shared_example_group_spec.rb --format documentation</code></p>
+
+<p><em>Then</em> the examples should all pass</p>
+
+<p><em>And</em> the output should contain:</p>
+<div class="highlight"><pre class="highlight plaintext"><code>Array
+  behaves like a collection object
+    &lt;&lt;
+      adds objects to the end of the collection
+
+Set
+  behaves like a collection object
+    &lt;&lt;
+      adds objects to the end of the collection
+</code></pre></div>
+<h2>Passing parameters to a shared example group</h2>
+
+<p><em>Given</em> a file named &ldquo;shared<em>example</em>group<em>params</em>spec.rb&rdquo; with:</p>
+<div class="highlight"><pre class="highlight ruby"><code><span class="no">RSpec</span><span class="p">.</span><span class="nf">shared_examples</span> <span class="s2">"a measurable object"</span> <span class="k">do</span> <span class="o">|</span><span class="n">measurement</span><span class="p">,</span> <span class="n">measurement_methods</span><span class="o">|</span>
+  <span class="n">measurement_methods</span><span class="p">.</span><span class="nf">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">measurement_method</span><span class="o">|</span>
+    <span class="n">it</span> <span class="s2">"should return </span><span class="si">#{</span><span class="n">measurement</span><span class="si">}</span><span class="s2"> from #</span><span class="si">#{</span><span class="n">measurement_method</span><span class="si">}</span><span class="s2">"</span> <span class="k">do</span>
+      <span class="n">expect</span><span class="p">(</span><span class="n">subject</span><span class="p">.</span><span class="nf">send</span><span class="p">(</span><span class="n">measurement_method</span><span class="p">)).</span><span class="nf">to</span> <span class="n">eq</span><span class="p">(</span><span class="n">measurement</span><span class="p">)</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="no">RSpec</span><span class="p">.</span><span class="nf">describe</span> <span class="no">Array</span><span class="p">,</span> <span class="s2">"with 3 items"</span> <span class="k">do</span>
+  <span class="n">subject</span> <span class="p">{</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="p">}</span>
+  <span class="n">it_should_behave_like</span> <span class="s2">"a measurable object"</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="p">[</span><span class="ss">:size</span><span class="p">,</span> <span class="ss">:length</span><span class="p">]</span>
+<span class="k">end</span>
+
+<span class="no">RSpec</span><span class="p">.</span><span class="nf">describe</span> <span class="no">String</span><span class="p">,</span> <span class="s2">"of 6 characters"</span> <span class="k">do</span>
+  <span class="n">subject</span> <span class="p">{</span> <span class="s2">"FooBar"</span> <span class="p">}</span>
+  <span class="n">it_should_behave_like</span> <span class="s2">"a measurable object"</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="p">[</span><span class="ss">:size</span><span class="p">,</span> <span class="ss">:length</span><span class="p">]</span>
+<span class="k">end</span>
+</code></pre></div>
+<p><em>When</em> I run <code>rspec shared_example_group_params_spec.rb --format documentation</code></p>
+
+<p><em>Then</em> the examples should all pass</p>
+
+<p><em>And</em> the output should contain:</p>
+<div class="highlight"><pre class="highlight plaintext"><code>Array with 3 items
+  it should behave like a measurable object
+    should return 3 from #size
+    should return 3 from #length
+
+String of 6 characters
+  it should behave like a measurable object
+    should return 6 from #size
+    should return 6 from #length
+</code></pre></div>
+<h2>Aliasing <code>it_should_behave_like</code> to <code>it_has_behavior</code></h2>
+
+<p><em>Given</em> a file named &ldquo;shared<em>example</em>group_spec.rb&rdquo; with:</p>
+<div class="highlight"><pre class="highlight ruby"><code><span class="no">RSpec</span><span class="p">.</span><span class="nf">configure</span> <span class="k">do</span> <span class="o">|</span><span class="n">c</span><span class="o">|</span>
+  <span class="n">c</span><span class="p">.</span><span class="nf">alias_it_should_behave_like_to</span> <span class="ss">:it_has_behavior</span><span class="p">,</span> <span class="s1">'has behavior:'</span>
+<span class="k">end</span>
+
+<span class="no">RSpec</span><span class="p">.</span><span class="nf">shared_examples</span> <span class="s1">'sortability'</span> <span class="k">do</span>
+  <span class="n">it</span> <span class="s1">'responds to &lt;=&gt;'</span> <span class="k">do</span>
+    <span class="n">expect</span><span class="p">(</span><span class="n">sortable</span><span class="p">).</span><span class="nf">to</span> <span class="n">respond_to</span><span class="p">(</span><span class="ss">:&lt;=&gt;</span><span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="no">RSpec</span><span class="p">.</span><span class="nf">describe</span> <span class="no">String</span> <span class="k">do</span>
+  <span class="n">it_has_behavior</span> <span class="s1">'sortability'</span> <span class="k">do</span>
+    <span class="n">let</span><span class="p">(</span><span class="ss">:sortable</span><span class="p">)</span> <span class="p">{</span> <span class="s1">'sample string'</span> <span class="p">}</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div>
+<p><em>When</em> I run <code>rspec shared_example_group_spec.rb --format documentation</code></p>
+
+<p><em>Then</em> the examples should all pass</p>
+
+<p><em>And</em> the output should contain:</p>
+<div class="highlight"><pre class="highlight plaintext"><code>String
+  has behavior: sortability
+    responds to &lt;=&gt;
+</code></pre></div>
+<h2>Sharing metadata automatically includes shared example groups</h2>
+
+<p><em>Given</em> a file named &ldquo;shared<em>example</em>metadata_spec.rb&rdquo; with:</p>
+<div class="highlight"><pre class="highlight ruby"><code><span class="no">RSpec</span><span class="p">.</span><span class="nf">shared_examples</span> <span class="s2">"shared stuff"</span><span class="p">,</span> <span class="ss">:a</span> <span class="o">=&gt;</span> <span class="ss">:b</span> <span class="k">do</span>
+  <span class="n">it</span> <span class="s1">'runs wherever the metadata is shared'</span> <span class="k">do</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="no">RSpec</span><span class="p">.</span><span class="nf">describe</span> <span class="no">String</span><span class="p">,</span> <span class="ss">:a</span> <span class="o">=&gt;</span> <span class="ss">:b</span> <span class="k">do</span>
+<span class="k">end</span>
+</code></pre></div>
+<p><em>When</em> I run <code>rspec shared_example_metadata_spec.rb</code></p>
+
+<p><em>Then</em> the output should contain:</p>
+<div class="highlight"><pre class="highlight plaintext"><code>1 example, 0 failures
+</code></pre></div>
+<h2>Shared examples are nestable by context</h2>
+
+<p><em>Given</em> a file named &ldquo;context<em>specific</em>examples_spec.rb&rdquo; with:</p>
+<div class="highlight"><pre class="highlight ruby"><code><span class="no">RSpec</span><span class="p">.</span><span class="nf">describe</span> <span class="s2">"shared examples"</span> <span class="k">do</span>
+  <span class="n">context</span> <span class="s2">"per context"</span> <span class="k">do</span>
+
+    <span class="n">shared_examples</span> <span class="s2">"shared examples are nestable"</span> <span class="k">do</span>
+      <span class="n">specify</span> <span class="p">{</span> <span class="n">expect</span><span class="p">(</span><span class="kp">true</span><span class="p">).</span><span class="nf">to</span> <span class="n">eq</span> <span class="kp">true</span> <span class="p">}</span>
+    <span class="k">end</span>
+
+    <span class="n">it_behaves_like</span> <span class="s2">"shared examples are nestable"</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div>
+<p><em>When</em> I run <code>rspec context_specific_examples_spec.rb</code></p>
+
+<p><em>Then</em> the output should contain:</p>
+<div class="highlight"><pre class="highlight plaintext"><code>1 example, 0 failures
+</code></pre></div>
+<h2>Shared examples are accessible from offspring contexts</h2>
+
+<p><em>Given</em> a file named &ldquo;context<em>specific</em>examples_spec.rb&rdquo; with:</p>
+<div class="highlight"><pre class="highlight ruby"><code><span class="no">RSpec</span><span class="p">.</span><span class="nf">describe</span> <span class="s2">"shared examples"</span> <span class="k">do</span>
+  <span class="n">shared_examples</span> <span class="s2">"shared examples are nestable"</span> <span class="k">do</span>
+    <span class="n">specify</span> <span class="p">{</span> <span class="n">expect</span><span class="p">(</span><span class="kp">true</span><span class="p">).</span><span class="nf">to</span> <span class="n">eq</span> <span class="kp">true</span> <span class="p">}</span>
+  <span class="k">end</span>
+
+  <span class="n">context</span> <span class="s2">"per context"</span> <span class="k">do</span>
+    <span class="n">it_behaves_like</span> <span class="s2">"shared examples are nestable"</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div>
+<p><em>When</em> I run <code>rspec context_specific_examples_spec.rb</code></p>
+
+<p><em>Then</em> the output should contain:</p>
+<div class="highlight"><pre class="highlight plaintext"><code>1 example, 0 failures
+</code></pre></div>
+<p><em>And</em> the output should not contain:</p>
+<div class="highlight"><pre class="highlight plaintext"><code>Accessing shared_examples defined across contexts is deprecated
+</code></pre></div>
+<h2>Shared examples are isolated per context</h2>
+
+<p><em>Given</em> a file named &ldquo;isolated<em>shared</em>examples_spec.rb&rdquo; with:</p>
+<div class="highlight"><pre class="highlight ruby"><code><span class="no">RSpec</span><span class="p">.</span><span class="nf">describe</span> <span class="s2">"shared examples"</span> <span class="k">do</span>
+  <span class="n">context</span> <span class="k">do</span>
+    <span class="n">shared_examples</span> <span class="s2">"shared examples are isolated"</span> <span class="k">do</span>
+      <span class="n">specify</span> <span class="p">{</span> <span class="n">expect</span><span class="p">(</span><span class="kp">true</span><span class="p">).</span><span class="nf">to</span> <span class="n">eq</span> <span class="kp">true</span> <span class="p">}</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+
+  <span class="n">context</span> <span class="k">do</span>
+    <span class="n">it_behaves_like</span> <span class="s2">"shared examples are isolated"</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div>
+<p><em>When</em> I run <code>rspec isolated_shared_examples_spec.rb</code></p>
+
+<p><em>Then</em> the output should contain:</p>
+<div class="highlight"><pre class="highlight plaintext"><code>Could not find shared examples \"shared examples are isolated\"
+</code></pre></div></article></section><footer><div>Created with the assistance of Ninefold<img src="/images/brutus-half.png" alt="Brutus" /></div><br /><a href="https://dnsimple.link/resolving-rspec" target="_blank">Resolving with<br /><img src="https://cdn.dnsimple.com/assets/resolving-with-us/logo-dark.png" alt="DNSimple" style="width:100px;" /></a></footer></body><script src="/javascripts/asciinema-player.js"></script></html>

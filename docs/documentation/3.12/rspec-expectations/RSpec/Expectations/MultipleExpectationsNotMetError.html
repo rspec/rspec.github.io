@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
   Exception: RSpec::Expectations::MultipleExpectationsNotMetError
-    &mdash; Documentation by YARD 0.9.28
+    &mdash; Documentation by YARD 0.9.34
 </title>
   <link rel="stylesheet" href="/documentation/3.12/rspec-expectations/css/style.css" type="text/css" />
   <link rel="stylesheet" href="/documentation/3.12/rspec-expectations/css/common.css" type="text/css" />
@@ -162,12 +162,12 @@
   <tr>
     <td>
       <pre class="lines">
-108
-109
-110</pre>
+125
+126
+127</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/expectations/failure_aggregator.rb', line 108</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/expectations/failure_aggregator.rb', line 125</span>
 <span class='kw'>def</span> <span class='id identifier rubyid_all_exceptions'>all_exceptions</span>
   <span class='ivar'>@all_exceptions</span>
 <span class='kw'>end</span></pre>
@@ -200,12 +200,12 @@
   <tr>
     <td>
       <pre class="lines">
-111
-112
-113</pre>
+128
+129
+130</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/expectations/failure_aggregator.rb', line 111</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/expectations/failure_aggregator.rb', line 128</span>
 <span class='kw'>def</span> <span class='id identifier rubyid_aggregation_block_label'>aggregation_block_label</span>
   <span class='ivar'>@failure_aggregator</span><span class='period'>.</span><span class='id identifier rubyid_block_label'>block_label</span>
 <span class='kw'>end</span></pre>
@@ -235,12 +235,12 @@
   <tr>
     <td>
       <pre class="lines">
-116
-117
-118</pre>
+133
+134
+135</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/expectations/failure_aggregator.rb', line 116</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/expectations/failure_aggregator.rb', line 133</span>
 <span class='kw'>def</span> <span class='id identifier rubyid_aggregation_metadata'>aggregation_metadata</span>
   <span class='ivar'>@failure_aggregator</span><span class='period'>.</span><span class='id identifier rubyid_metadata'>metadata</span>
 <span class='kw'>end</span></pre>
@@ -261,15 +261,15 @@
   <tr>
     <td>
       <pre class="lines">
-127
-128
-129
-130
-131
-132</pre>
+144
+145
+146
+147
+148
+149</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/expectations/failure_aggregator.rb', line 127</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/expectations/failure_aggregator.rb', line 144</span>
 <span class='kw'>def</span> <span class='id identifier rubyid_exception_count_description'>exception_count_description</span>
   <span class='id identifier rubyid_failure_count'>failure_count</span> <span class='op'>=</span> <span class='id identifier rubyid_pluralize'>pluralize</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>failure</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='id identifier rubyid_failures'>failures</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span><span class='rparen'>)</span>
   <span class='kw'>return</span> <span class='id identifier rubyid_failure_count'>failure_count</span> <span class='kw'>if</span> <span class='id identifier rubyid_other_errors'>other_errors</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
@@ -302,12 +302,12 @@
   <tr>
     <td>
       <pre class="lines">
-98
-99
-100</pre>
+115
+116
+117</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/expectations/failure_aggregator.rb', line 98</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/expectations/failure_aggregator.rb', line 115</span>
 <span class='kw'>def</span> <span class='id identifier rubyid_failures'>failures</span>
   <span class='ivar'>@failure_aggregator</span><span class='period'>.</span><span class='id identifier rubyid_failures'>failures</span>
 <span class='kw'>end</span></pre>
@@ -337,12 +337,12 @@
   <tr>
     <td>
       <pre class="lines">
-93
-94
-95</pre>
+110
+111
+112</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/expectations/failure_aggregator.rb', line 93</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/expectations/failure_aggregator.rb', line 110</span>
 <span class='kw'>def</span> <span class='id identifier rubyid_message'>message</span>
   <span class='ivar'>@message</span> <span class='op'>||=</span> <span class='lparen'>(</span><span class='lbracket'>[</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_summary'>summary</span><span class='embexpr_end'>}</span><span class='tstring_content'>:</span><span class='tstring_end'>&quot;</span></span><span class='rbracket'>]</span> <span class='op'>+</span> <span class='id identifier rubyid_enumerated_failures'>enumerated_failures</span> <span class='op'>+</span> <span class='id identifier rubyid_enumerated_errors'>enumerated_errors</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n\n</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
@@ -372,12 +372,12 @@
   <tr>
     <td>
       <pre class="lines">
-103
-104
-105</pre>
+120
+121
+122</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/expectations/failure_aggregator.rb', line 103</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/expectations/failure_aggregator.rb', line 120</span>
 <span class='kw'>def</span> <span class='id identifier rubyid_other_errors'>other_errors</span>
   <span class='ivar'>@failure_aggregator</span><span class='period'>.</span><span class='id identifier rubyid_other_errors'>other_errors</span>
 <span class='kw'>end</span></pre>
@@ -407,13 +407,13 @@
   <tr>
     <td>
       <pre class="lines">
-121
-122
-123
-124</pre>
+138
+139
+140
+141</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/expectations/failure_aggregator.rb', line 121</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/expectations/failure_aggregator.rb', line 138</span>
 <span class='kw'>def</span> <span class='id identifier rubyid_summary'>summary</span>
   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Got </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_exception_count_description'>exception_count_description</span><span class='embexpr_end'>}</span><span class='tstring_content'> from failure aggregation </span><span class='tstring_end'>&quot;</span></span> \
   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>block</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_block_description'>block_description</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
@@ -425,9 +425,9 @@
   </div>
 </div>
       <div id="footer">
-  Generated on Wed Oct 26 21:46:45 2022 by
+  Generated on Sun Feb  4 20:29:34 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.28 (ruby-3.1.0).
+  0.9.34 (ruby-3.2.2).
 </div>
     </div>
   </body>

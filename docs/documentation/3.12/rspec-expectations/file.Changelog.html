@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
   File: Changelog
-    &mdash; Documentation by YARD 0.9.28
+    &mdash; Documentation by YARD 0.9.34
 </title>
   <link rel="stylesheet" href="/documentation/3.12/rspec-expectations/css/style.css" type="text/css" />
   <link rel="stylesheet" href="/documentation/3.12/rspec-expectations/css/common.css" type="text/css" />
@@ -40,7 +40,37 @@
         <div class="clear"></div>
       </div>
       <div id="content"><div id='filecontents'><h3 id="development">Development</h3>
-<p><a href="http://github.com/rspec/rspec-expectations/compare/v3.12.0...3-12-maintenance">Full Changelog</a></p>
+<p><a href="http://github.com/rspec/rspec-expectations/compare/v3.12.4...3-12-maintenance">Full Changelog</a></p>
+<h3 id="3-12-4-2024-02-04">3.12.4 / 2024-02-04</h3>
+<p><a href="http://github.com/rspec/rspec-expectations/compare/v3.12.3...v3.12.4">Full Changelog</a></p>
+<p>Bug Fixes:</p>
+<ul>
+<li>Fix the diff for redefined <code>actual</code> and reassigned <code>@actual</code> in compound
+expectations failure messages. (Phil Pirozhkov, #1440)</li>
+</ul>
+<h3 id="3-12-3-2023-04-20">3.12.3 / 2023-04-20</h3>
+<p><a href="http://github.com/rspec/rspec-expectations/compare/v3.12.2...v3.12.3">Full Changelog</a></p>
+<p>Bug Fixes:</p>
+<ul>
+<li>Fix <code>include</code> matcher when fuzzy matching on keys with a hash-like actual which
+has a non standard <code>key?</code> method which may raise.
+(Jon Rowe, #1416)</li>
+</ul>
+<h3 id="3-12-2-2023-01-07">3.12.2 / 2023-01-07</h3>
+<p><a href="http://github.com/rspec/rspec-expectations/compare/v3.12.1...v3.12.2">Full Changelog</a></p>
+<p>Bug Fixes:</p>
+<ul>
+<li>Prevent deprecation warning when using the <code>exist</code> matcher with <code>Dir</code>.
+(Steve Dierker, #1398)</li>
+</ul>
+<h3 id="3-12-1-2022-12-16">3.12.1 / 2022-12-16</h3>
+<p><a href="http://github.com/rspec/rspec-expectations/compare/v3.12.0...v3.12.1">Full Changelog</a></p>
+<p>Bug Fixes:</p>
+<ul>
+<li>Pass keyword arguments through to aliased (and thus negated) matchers. (Jon Rowe, #1394)</li>
+<li>When handling failures in an aggregated_failures block (or example) prevent
+the failure list leaking out. (Maciek Rząsa, #1392)</li>
+</ul>
 <h3 id="3-12-0-2022-10-26">3.12.0 / 2022-10-26</h3>
 <p><a href="http://github.com/rspec/rspec-expectations/compare/v3.11.1...v3.12.0">Full Changelog</a></p>
 <p>Enhancements:</p>
@@ -325,10 +355,8 @@ already been included in a subclass on MRI 1.9, since that situation
 can cause uses of <code>super</code> to trigger infinite recursion. (Myron Marston, #816)</li>
 <li>Stop rescuing <code>NoMemoryError</code>, <code>SignalExcepetion</code>, <code>Interrupt</code> and
 <code>SystemExit</code>. It is dangerous to interfere with these. (Myron Marston, #845)</li>
-<li>Add <code>#with_captures</code> to the
-<a href="https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers/match-matcher">match matcher</a>
-which allows a user to specify expected captures when matching a regex
-against a string. (Sam Phippen, #848)</li>
+<li>Add <code>#with_captures</code> to the match matcher which allows a user to specify expected
+captures when matching a regex against a string. (Sam Phippen, #848)</li>
 <li>Always print compound failure messages in the multi-line form. Trying
 to print it all on a single line didn&#39;t read very well. (Myron Marston, #859)</li>
 </ul>
@@ -1240,9 +1268,9 @@ defined (Josep M Bach)</li>
     * <code>should[_not]</code> change now handles boolean values correctly</p>
 </div></div>
       <div id="footer">
-  Generated on Wed Oct 26 21:46:44 2022 by
+  Generated on Sun Feb  4 20:29:34 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.28 (ruby-3.1.0).
+  0.9.34 (ruby-3.2.2).
 </div>
     </div>
   </body>

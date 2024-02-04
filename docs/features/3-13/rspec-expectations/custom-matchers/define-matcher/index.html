@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"><![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en"><![endif]-->
+<!--[if gt IE 8]<!--><html class="no-js" lang="en"><!--<![endif]--><head><meta charset="UTF-8" /><meta content="width=device-width, initial-scale=1" name="viewport" /><meta property="og:title" /><meta content="https://rspec.info/features/3-13/rspec-expectations/custom-matchers/define-matcher/" property="og:url" /><meta content="https://rspec.info/images/logo_ogp.png" property="og:image" /><meta content="summary" name="twitter:card" /><meta content="@rspec" name="twitter:site" /><title></title><link href="/stylesheets/pages/features.css" rel="stylesheet" /><link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" /><link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet" type="text/css" /><link href="https://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" type="text/css" /><link href="/blog/feed.xml" rel="alternate" type="application/atom+xml" /></head><body class="features"><header><nav><h1><img src="/images/logo.png" alt="Logo" /><a href="/">RSpec</a></h1><input class="hamburger-toggle" type="checkbox" /><div class="hamburger-icon"><div class="bar"></div><div class="bar"></div><div class="bar"></div></div><ul class="menu"><li><a href="/about">About</a></li><li><a href="/documentation">Documentation</a></li><li><a href="/blog">Blog</a></li><li><a href="/upgrading-from-rspec-2">Upgrade</a></li><li><a href="/help">Get Help</a></li><li><a href="/contributing">Contributing</a></li></ul></nav></header><nav class="top-nav-bar" role="navigation"><ul><li>Library:</li><li><a class="title" href="/features/3-13/rspec-expectations">RSpec Expectations</a><ul aria-haspopup="true" aria-label="submenu"><li><a href="/features/3-13/rspec-core">RSpec Core</a></li><li class="current"><a href="/features/3-13/rspec-expectations">RSpec Expectations</a></li><li><a href="/features/3-13/rspec-mocks">RSpec Mocks</a></li><li><a href="/features/6-1/rspec-rails">RSpec Rails</a></li></ul></li><li>Version:</li><li><a class="title" href="/features/3-13/rspec-expectations">3.13</a><ul aria-haspopup="true" aria-label="submenu"><li><a href="/features/3-12/rspec-expectations">3.12</a></li><li class="current"><a href="/features/3-13/rspec-expectations">3.13</a></li></ul></li></ul></nav><section><nav><ul><li><a href="/features/3-13/rspec-expectations/built-in-matchers/">Built in matchers</a><ul><li><a href="/features/3-13/rspec-expectations/built-in-matchers/equality/"> Equality matchers</a></li><li><a href="/features/3-13/rspec-expectations/built-in-matchers/comparisons/"> Comparison matchers</a></li><li><a href="/features/3-13/rspec-expectations/built-in-matchers/predicates/"> Predicate matchers</a></li><li><a href="/features/3-13/rspec-expectations/built-in-matchers/types/"> Type matchers</a></li><li><a href="/features/3-13/rspec-expectations/built-in-matchers/all/"> `all` matcher</a></li><li><a href="/features/3-13/rspec-expectations/built-in-matchers/be/"> `be` matchers</a></li><li><a href="/features/3-13/rspec-expectations/built-in-matchers/be-within/"> `be_within` matcher</a></li><li><a href="/features/3-13/rspec-expectations/built-in-matchers/exist/"> `exist` matcher</a></li><li><a href="/features/3-13/rspec-expectations/built-in-matchers/change/"> `change` matcher</a></li><li><a href="/features/3-13/rspec-expectations/built-in-matchers/contain-exactly/"> `contain_exactly` matcher</a></li><li><a href="/features/3-13/rspec-expectations/built-in-matchers/cover/"> `cover` matcher</a></li><li><a href="/features/3-13/rspec-expectations/built-in-matchers/end-with/"> `end_with` matcher</a></li><li><a href="/features/3-13/rspec-expectations/built-in-matchers/exist/"> `exist` matcher</a></li><li><a href="/features/3-13/rspec-expectations/built-in-matchers/have-attributes/"> `have_attributes` matcher</a></li><li><a href="/features/3-13/rspec-expectations/built-in-matchers/include/"> `include` matcher</a></li><li><a href="/features/3-13/rspec-expectations/built-in-matchers/match/"> `match` matcher</a></li><li><a href="/features/3-13/rspec-expectations/built-in-matchers/raise-error/"> `raise_error` matcher</a></li><li><a href="/features/3-13/rspec-expectations/built-in-matchers/respond-to/"> `respond_to` matcher</a></li><li><a href="/features/3-13/rspec-expectations/built-in-matchers/satisfy/"> `satisfy` matcher</a></li><li><a href="/features/3-13/rspec-expectations/built-in-matchers/start-with/"> `start_with` matcher</a></li><li><a href="/features/3-13/rspec-expectations/built-in-matchers/throw-symbol/"> `throw_symbol` matcher</a></li><li><a href="/features/3-13/rspec-expectations/built-in-matchers/yield/"> `yield` matchers</a></li><li><a href="/features/3-13/rspec-expectations/built-in-matchers/output/"> `output` matcher</a></li></ul></li><li><a href="/features/3-13/rspec-expectations/custom-matchers/">Custom matchers</a><ul class="open"><li><a href="/features/3-13/rspec-expectations/custom-matchers/define-matcher/"> Defining a custom matcher</a></li><li><a href="/features/3-13/rspec-expectations/custom-matchers/define-diffable-matcher/"> Defining a diffable matcher</a></li><li><a href="/features/3-13/rspec-expectations/custom-matchers/define-matcher-with-fluent-interface/"> Defining a matcher with fluent interface</a></li><li><a href="/features/3-13/rspec-expectations/custom-matchers/access-running-example/"> Access the running example</a></li><li><a href="/features/3-13/rspec-expectations/custom-matchers/define-matcher-outside-rspec/"> Defining a matcher outside rspec</a></li><li><a href="/features/3-13/rspec-expectations/custom-matchers/define-block-matcher/"> Defining a matcher supporting block expectations</a></li></ul></li><li><a href="/features/3-13/rspec-expectations/aggregating-failures/">Aggregating failures</a></li><li><a href="/features/3-13/rspec-expectations/composing-matchers/">Composing matchers</a></li><li><a href="/features/3-13/rspec-expectations/compound-expectations/">Compound expectations</a></li><li><a href="/features/3-13/rspec-expectations/define-negated-matcher/">Define negated matcher</a></li><li><a href="/features/3-13/rspec-expectations/customized-message/">Customized message</a></li><li><a href="/features/3-13/rspec-expectations/diffing/">Diffing</a></li><li><a href="/features/3-13/rspec-expectations/implicit-docstrings/">Implicit docstrings</a></li><li><a href="/features/3-13/rspec-expectations/syntax-configuration/">Syntax configuration</a></li><li><a href="/features/3-13/rspec-expectations/test-frameworks/">Test frameworks</a><ul><li><a href="/features/3-13/rspec-expectations/test-frameworks/minitest/"> Minitest integration</a></li></ul></li></ul></nav><article><h1>Defining a custom matcher</h1>
+
+<p>rspec-expectations provides a DSL for defining custom matchers. These are often useful for expressing expectations in the domain of your application.</p>
+
+<p>Behind the scenes <code>RSpec::Matchers.define</code> evaluates the <code>define</code> block in the context of a singleton class. If you need to write a more complex matcher and would like to use the <code>Class</code>-approach yourself, please head over to our <code>API</code>-documentation and read <a href="http://rspec.info/documentation/latest/rspec-expectations/RSpec/Matchers/MatcherProtocol.html">the docs</a> about the <code>MatcherProtocol</code>.</p>
+
+<h2>Define a matcher with default messages</h2>
+
+<p><em>Given</em> a file named &ldquo;matcher<em>with</em>default<em>message</em>spec.rb&rdquo; with:</p>
+<div class="highlight"><pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'rspec/expectations'</span>
+
+<span class="no">RSpec</span><span class="o">::</span><span class="no">Matchers</span><span class="p">.</span><span class="nf">define</span> <span class="ss">:be_a_multiple_of</span> <span class="k">do</span> <span class="o">|</span><span class="n">expected</span><span class="o">|</span>
+  <span class="n">match</span> <span class="k">do</span> <span class="o">|</span><span class="n">actual</span><span class="o">|</span>
+    <span class="n">actual</span> <span class="o">%</span> <span class="n">expected</span> <span class="o">==</span> <span class="mi">0</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="no">RSpec</span><span class="p">.</span><span class="nf">describe</span> <span class="mi">9</span> <span class="k">do</span>
+  <span class="n">it</span> <span class="p">{</span> <span class="n">is_expected</span><span class="p">.</span><span class="nf">to</span> <span class="n">be_a_multiple_of</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="p">}</span>
+<span class="k">end</span>
+
+<span class="no">RSpec</span><span class="p">.</span><span class="nf">describe</span> <span class="mi">9</span> <span class="k">do</span>
+  <span class="n">it</span> <span class="p">{</span> <span class="n">is_expected</span><span class="p">.</span><span class="nf">not_to</span> <span class="n">be_a_multiple_of</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="p">}</span>
+<span class="k">end</span>
+
+<span class="c1"># fail intentionally to generate expected output</span>
+<span class="no">RSpec</span><span class="p">.</span><span class="nf">describe</span> <span class="mi">9</span> <span class="k">do</span>
+  <span class="n">it</span> <span class="p">{</span> <span class="n">is_expected</span><span class="p">.</span><span class="nf">to</span> <span class="n">be_a_multiple_of</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="p">}</span>
+<span class="k">end</span>
+
+<span class="c1"># fail intentionally to generate expected output</span>
+<span class="no">RSpec</span><span class="p">.</span><span class="nf">describe</span> <span class="mi">9</span> <span class="k">do</span>
+  <span class="n">it</span> <span class="p">{</span> <span class="n">is_expected</span><span class="p">.</span><span class="nf">not_to</span> <span class="n">be_a_multiple_of</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="p">}</span>
+<span class="k">end</span>
+</code></pre></div>
+<p><em>When</em> I run <code>rspec ./matcher_with_default_message_spec.rb --format documentation</code></p>
+
+<p><em>Then</em> the exit status should not be 0</p>
+
+<p><em>And</em> the output should contain &ldquo;is expected to be a multiple of 3&rdquo;</p>
+
+<p><em>And</em> the output should contain &ldquo;is expected not to be a multiple of 4&rdquo;</p>
+
+<p><em>And</em> the output should contain &ldquo;Failure/Error: it { is<em>expected.to be</em>a<em>multiple</em>of(4) }&rdquo;</p>
+
+<p><em>And</em> the output should contain &ldquo;Failure/Error: it { is<em>expected.not</em>to be<em>a</em>multiple_of(3) }&rdquo;</p>
+
+<p><em>And</em> the output should contain &ldquo;4 examples, 2 failures&rdquo;</p>
+
+<p><em>And</em> the output should contain &ldquo;expected 9 to be a multiple of 4&rdquo;</p>
+
+<p><em>And</em> the output should contain &ldquo;expected 9 not to be a multiple of 3&rdquo;.</p>
+
+<h2>Overriding the failure_message</h2>
+
+<p><em>Given</em> a file named &ldquo;matcher<em>with</em>failure<em>message</em>spec.rb&rdquo; with:</p>
+<div class="highlight"><pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'rspec/expectations'</span>
+
+<span class="no">RSpec</span><span class="o">::</span><span class="no">Matchers</span><span class="p">.</span><span class="nf">define</span> <span class="ss">:be_a_multiple_of</span> <span class="k">do</span> <span class="o">|</span><span class="n">expected</span><span class="o">|</span>
+  <span class="n">match</span> <span class="k">do</span> <span class="o">|</span><span class="n">actual</span><span class="o">|</span>
+    <span class="n">actual</span> <span class="o">%</span> <span class="n">expected</span> <span class="o">==</span> <span class="mi">0</span>
+  <span class="k">end</span>
+  <span class="n">failure_message</span> <span class="k">do</span> <span class="o">|</span><span class="n">actual</span><span class="o">|</span>
+    <span class="s2">"expected that </span><span class="si">#{</span><span class="n">actual</span><span class="si">}</span><span class="s2"> would be a multiple of </span><span class="si">#{</span><span class="n">expected</span><span class="si">}</span><span class="s2">"</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="c1"># fail intentionally to generate expected output</span>
+<span class="no">RSpec</span><span class="p">.</span><span class="nf">describe</span> <span class="mi">9</span> <span class="k">do</span>
+  <span class="n">it</span> <span class="p">{</span> <span class="n">is_expected</span><span class="p">.</span><span class="nf">to</span> <span class="n">be_a_multiple_of</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="p">}</span>
+<span class="k">end</span>
+</code></pre></div>
+<p><em>When</em> I run <code>rspec ./matcher_with_failure_message_spec.rb</code></p>
+
+<p><em>Then</em> the exit status should not be 0</p>
+
+<p><em>And</em> the stdout should contain &ldquo;1 example, 1 failure&rdquo;</p>
+
+<p><em>And</em> the stdout should contain &ldquo;expected that 9 would be a multiple of 4&rdquo;.</p>
+
+<h2>Overriding the failure<em>message</em>when_negated</h2>
+
+<p><em>Given</em> a file named &ldquo;matcher<em>with</em>failure<em>for</em>message_spec.rb&rdquo; with:</p>
+<div class="highlight"><pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'rspec/expectations'</span>
+
+<span class="no">RSpec</span><span class="o">::</span><span class="no">Matchers</span><span class="p">.</span><span class="nf">define</span> <span class="ss">:be_a_multiple_of</span> <span class="k">do</span> <span class="o">|</span><span class="n">expected</span><span class="o">|</span>
+  <span class="n">match</span> <span class="k">do</span> <span class="o">|</span><span class="n">actual</span><span class="o">|</span>
+    <span class="n">actual</span> <span class="o">%</span> <span class="n">expected</span> <span class="o">==</span> <span class="mi">0</span>
+  <span class="k">end</span>
+  <span class="n">failure_message_when_negated</span> <span class="k">do</span> <span class="o">|</span><span class="n">actual</span><span class="o">|</span>
+    <span class="s2">"expected that </span><span class="si">#{</span><span class="n">actual</span><span class="si">}</span><span class="s2"> would not be a multiple of </span><span class="si">#{</span><span class="n">expected</span><span class="si">}</span><span class="s2">"</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="c1"># fail intentionally to generate expected output</span>
+<span class="no">RSpec</span><span class="p">.</span><span class="nf">describe</span> <span class="mi">9</span> <span class="k">do</span>
+  <span class="n">it</span> <span class="p">{</span> <span class="n">is_expected</span><span class="p">.</span><span class="nf">not_to</span> <span class="n">be_a_multiple_of</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="p">}</span>
+<span class="k">end</span>
+</code></pre></div>
+<p><em>When</em> I run <code>rspec ./matcher_with_failure_for_message_spec.rb</code></p>
+
+<p><em>Then</em> the exit status should not be 0</p>
+
+<p><em>And</em> the stdout should contain &ldquo;1 example, 1 failure&rdquo;</p>
+
+<p><em>And</em> the stdout should contain &ldquo;expected that 9 would not be a multiple of 3&rdquo;.</p>
+
+<h2>Overriding the description</h2>
+
+<p><em>Given</em> a file named &ldquo;matcher<em>overriding</em>description_spec.rb&rdquo; with:</p>
+<div class="highlight"><pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'rspec/expectations'</span>
+
+<span class="no">RSpec</span><span class="o">::</span><span class="no">Matchers</span><span class="p">.</span><span class="nf">define</span> <span class="ss">:be_a_multiple_of</span> <span class="k">do</span> <span class="o">|</span><span class="n">expected</span><span class="o">|</span>
+  <span class="n">match</span> <span class="k">do</span> <span class="o">|</span><span class="n">actual</span><span class="o">|</span>
+    <span class="n">actual</span> <span class="o">%</span> <span class="n">expected</span> <span class="o">==</span> <span class="mi">0</span>
+  <span class="k">end</span>
+  <span class="n">description</span> <span class="k">do</span>
+    <span class="s2">"be multiple of </span><span class="si">#{</span><span class="n">expected</span><span class="si">}</span><span class="s2">"</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="no">RSpec</span><span class="p">.</span><span class="nf">describe</span> <span class="mi">9</span> <span class="k">do</span>
+  <span class="n">it</span> <span class="p">{</span> <span class="n">is_expected</span><span class="p">.</span><span class="nf">to</span> <span class="n">be_a_multiple_of</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="p">}</span>
+<span class="k">end</span>
+
+<span class="no">RSpec</span><span class="p">.</span><span class="nf">describe</span> <span class="mi">9</span> <span class="k">do</span>
+  <span class="n">it</span> <span class="p">{</span> <span class="n">is_expected</span><span class="p">.</span><span class="nf">not_to</span> <span class="n">be_a_multiple_of</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="p">}</span>
+<span class="k">end</span>
+</code></pre></div>
+<p><em>When</em> I run <code>rspec ./matcher_overriding_description_spec.rb --format documentation</code></p>
+
+<p><em>Then</em> the exit status should be 0</p>
+
+<p><em>And</em> the stdout should contain &ldquo;2 examples, 0 failures&rdquo;</p>
+
+<p><em>And</em> the stdout should contain &ldquo;is expected to be multiple of 3&rdquo;</p>
+
+<p><em>And</em> the stdout should contain &ldquo;is expected not to be multiple of 4&rdquo;.</p>
+
+<h2>With no args</h2>
+
+<p><em>Given</em> a file named &ldquo;matcher<em>with</em>no<em>args</em>spec.rb&rdquo; with:</p>
+<div class="highlight"><pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'rspec/expectations'</span>
+
+<span class="no">RSpec</span><span class="o">::</span><span class="no">Matchers</span><span class="p">.</span><span class="nf">define</span> <span class="ss">:have_7_fingers</span> <span class="k">do</span>
+  <span class="n">match</span> <span class="k">do</span> <span class="o">|</span><span class="n">thing</span><span class="o">|</span>
+    <span class="n">thing</span><span class="p">.</span><span class="nf">fingers</span><span class="p">.</span><span class="nf">length</span> <span class="o">==</span> <span class="mi">7</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="k">class</span> <span class="nc">Thing</span>
+  <span class="k">def</span> <span class="nf">fingers</span><span class="p">;</span> <span class="p">(</span><span class="mi">1</span><span class="o">..</span><span class="mi">7</span><span class="p">).</span><span class="nf">collect</span> <span class="p">{</span><span class="s2">"finger"</span><span class="p">};</span> <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="no">RSpec</span><span class="p">.</span><span class="nf">describe</span> <span class="no">Thing</span> <span class="k">do</span>
+  <span class="n">it</span> <span class="p">{</span> <span class="n">is_expected</span><span class="p">.</span><span class="nf">to</span> <span class="n">have_7_fingers</span> <span class="p">}</span>
+<span class="k">end</span>
+</code></pre></div>
+<p><em>When</em> I run <code>rspec ./matcher_with_no_args_spec.rb --format documentation</code></p>
+
+<p><em>Then</em> the exit status should be 0</p>
+
+<p><em>And</em> the stdout should contain &ldquo;1 example, 0 failures&rdquo;</p>
+
+<p><em>And</em> the stdout should contain &ldquo;is expected to have 7 fingers&rdquo;.</p>
+
+<h2>With multiple args</h2>
+
+<p><em>Given</em> a file named &ldquo;matcher<em>with</em>multiple<em>args</em>spec.rb&rdquo; with:</p>
+<div class="highlight"><pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'rspec/expectations'</span>
+
+<span class="no">RSpec</span><span class="o">::</span><span class="no">Matchers</span><span class="p">.</span><span class="nf">define</span> <span class="ss">:be_the_sum_of</span> <span class="k">do</span> <span class="o">|</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span><span class="p">,</span><span class="n">d</span><span class="o">|</span>
+  <span class="n">match</span> <span class="k">do</span> <span class="o">|</span><span class="n">sum</span><span class="o">|</span>
+    <span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">+</span> <span class="n">c</span> <span class="o">+</span> <span class="n">d</span> <span class="o">==</span> <span class="n">sum</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="no">RSpec</span><span class="p">.</span><span class="nf">describe</span> <span class="mi">10</span> <span class="k">do</span>
+  <span class="n">it</span> <span class="p">{</span> <span class="n">is_expected</span><span class="p">.</span><span class="nf">to</span> <span class="n">be_the_sum_of</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span> <span class="p">}</span>
+<span class="k">end</span>
+</code></pre></div>
+<p><em>When</em> I run <code>rspec ./matcher_with_multiple_args_spec.rb --format documentation</code></p>
+
+<p><em>Then</em> the exit status should be 0</p>
+
+<p><em>And</em> the stdout should contain &ldquo;1 example, 0 failures&rdquo;</p>
+
+<p><em>And</em> the stdout should contain &ldquo;is expected to be the sum of 1, 2, 3, and 4&rdquo;.</p>
+
+<h2>With a block arg</h2>
+
+<p><em>Given</em> a file named &ldquo;matcher<em>with</em>block<em>arg</em>spec.rb&rdquo; with:</p>
+<div class="highlight"><pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'rspec/expectations'</span>
+
+<span class="no">RSpec</span><span class="o">::</span><span class="no">Matchers</span><span class="p">.</span><span class="nf">define</span> <span class="ss">:be_lazily_equal_to</span> <span class="k">do</span>
+  <span class="n">match</span> <span class="k">do</span> <span class="o">|</span><span class="n">obj</span><span class="o">|</span>
+    <span class="n">obj</span> <span class="o">==</span> <span class="n">block_arg</span><span class="p">.</span><span class="nf">call</span>
+  <span class="k">end</span>
+
+  <span class="n">description</span> <span class="p">{</span> <span class="s2">"be lazily equal to </span><span class="si">#{</span><span class="n">block_arg</span><span class="p">.</span><span class="nf">call</span><span class="si">}</span><span class="s2">"</span> <span class="p">}</span>
+<span class="k">end</span>
+
+<span class="no">RSpec</span><span class="p">.</span><span class="nf">describe</span> <span class="mi">10</span> <span class="k">do</span>
+  <span class="n">it</span> <span class="p">{</span> <span class="n">is_expected</span><span class="p">.</span><span class="nf">to</span> <span class="n">be_lazily_equal_to</span> <span class="p">{</span> <span class="mi">10</span> <span class="p">}</span> <span class="p">}</span>
+<span class="k">end</span>
+</code></pre></div>
+<p><em>When</em> I run <code>rspec ./matcher_with_block_arg_spec.rb --format documentation</code></p>
+
+<p><em>Then</em> the exit status should be 0</p>
+
+<p><em>And</em> the stdout should contain &ldquo;1 example, 0 failures&rdquo;</p>
+
+<p><em>And</em> the stdout should contain &ldquo;is expected to be lazily equal to 10&rdquo;.</p>
+
+<h2>With helper methods</h2>
+
+<p><em>Given</em> a file named &ldquo;matcher<em>with</em>internal<em>helper</em>spec.rb&rdquo; with:</p>
+<div class="highlight"><pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'rspec/expectations'</span>
+
+<span class="no">RSpec</span><span class="o">::</span><span class="no">Matchers</span><span class="p">.</span><span class="nf">define</span> <span class="ss">:have_same_elements_as</span> <span class="k">do</span> <span class="o">|</span><span class="n">sample</span><span class="o">|</span>
+  <span class="n">match</span> <span class="k">do</span> <span class="o">|</span><span class="n">actual</span><span class="o">|</span>
+    <span class="n">similar?</span><span class="p">(</span><span class="n">sample</span><span class="p">,</span> <span class="n">actual</span><span class="p">)</span>
+  <span class="k">end</span>
+
+  <span class="k">def</span> <span class="nf">similar?</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+    <span class="n">a</span><span class="p">.</span><span class="nf">sort</span> <span class="o">==</span> <span class="n">b</span><span class="p">.</span><span class="nf">sort</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="no">RSpec</span><span class="p">.</span><span class="nf">describe</span> <span class="s2">"these two arrays"</span> <span class="k">do</span>
+  <span class="n">specify</span> <span class="s2">"should be similar"</span> <span class="k">do</span>
+    <span class="n">expect</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]).</span><span class="nf">to</span> <span class="n">have_same_elements_as</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div>
+<p><em>When</em> I run <code>rspec ./matcher_with_internal_helper_spec.rb</code></p>
+
+<p><em>Then</em> the exit status should be 0</p>
+
+<p><em>And</em> the stdout should contain &ldquo;1 example, 0 failures&rdquo;.</p>
+
+<h2>Scoped in a module</h2>
+
+<p><em>Given</em> a file named &ldquo;scoped<em>matcher</em>spec.rb&rdquo; with:</p>
+<div class="highlight"><pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'rspec/expectations'</span>
+
+<span class="k">module</span> <span class="nn">MyHelpers</span>
+  <span class="kp">extend</span> <span class="no">RSpec</span><span class="o">::</span><span class="no">Matchers</span><span class="o">::</span><span class="no">DSL</span>
+
+  <span class="n">matcher</span> <span class="ss">:be_just_like</span> <span class="k">do</span> <span class="o">|</span><span class="n">expected</span><span class="o">|</span>
+    <span class="n">match</span> <span class="p">{</span><span class="o">|</span><span class="n">actual</span><span class="o">|</span> <span class="n">actual</span> <span class="o">==</span> <span class="n">expected</span><span class="p">}</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="no">RSpec</span><span class="p">.</span><span class="nf">describe</span> <span class="s2">"group with MyHelpers"</span> <span class="k">do</span>
+  <span class="kp">include</span> <span class="no">MyHelpers</span>
+  <span class="n">it</span> <span class="s2">"has access to the defined matcher"</span> <span class="k">do</span>
+    <span class="n">expect</span><span class="p">(</span><span class="mi">5</span><span class="p">).</span><span class="nf">to</span> <span class="n">be_just_like</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="no">RSpec</span><span class="p">.</span><span class="nf">describe</span> <span class="s2">"group without MyHelpers"</span> <span class="k">do</span>
+  <span class="n">it</span> <span class="s2">"does not have access to the defined matcher"</span> <span class="k">do</span>
+    <span class="n">expect</span> <span class="k">do</span>
+      <span class="n">expect</span><span class="p">(</span><span class="mi">5</span><span class="p">).</span><span class="nf">to</span> <span class="n">be_just_like</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+    <span class="k">end</span><span class="p">.</span><span class="nf">to</span> <span class="n">raise_exception</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div>
+<p><em>When</em> I run <code>rspec ./scoped_matcher_spec.rb</code></p>
+
+<p><em>Then</em> the stdout should contain &ldquo;2 examples, 0 failures&rdquo;.</p>
+
+<h2>Scoped in an example group</h2>
+
+<p><em>Given</em> a file named &ldquo;scoped<em>matcher</em>spec.rb&rdquo; with:</p>
+<div class="highlight"><pre class="highlight ruby"><code><span class="nb">require</span> <span class="s1">'rspec/expectations'</span>
+
+<span class="no">RSpec</span><span class="p">.</span><span class="nf">describe</span> <span class="s2">"group with matcher"</span> <span class="k">do</span>
+  <span class="n">matcher</span> <span class="ss">:be_just_like</span> <span class="k">do</span> <span class="o">|</span><span class="n">expected</span><span class="o">|</span>
+    <span class="n">match</span> <span class="p">{</span><span class="o">|</span><span class="n">actual</span><span class="o">|</span> <span class="n">actual</span> <span class="o">==</span> <span class="n">expected</span><span class="p">}</span>
+  <span class="k">end</span>
+
+  <span class="n">it</span> <span class="s2">"has access to the defined matcher"</span> <span class="k">do</span>
+    <span class="n">expect</span><span class="p">(</span><span class="mi">5</span><span class="p">).</span><span class="nf">to</span> <span class="n">be_just_like</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+  <span class="k">end</span>
+
+  <span class="n">describe</span> <span class="s2">"nested group"</span> <span class="k">do</span>
+    <span class="n">it</span> <span class="s2">"has access to the defined matcher"</span> <span class="k">do</span>
+      <span class="n">expect</span><span class="p">(</span><span class="mi">5</span><span class="p">).</span><span class="nf">to</span> <span class="n">be_just_like</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="no">RSpec</span><span class="p">.</span><span class="nf">describe</span> <span class="s2">"group without matcher"</span> <span class="k">do</span>
+  <span class="n">it</span> <span class="s2">"does not have access to the defined matcher"</span> <span class="k">do</span>
+    <span class="n">expect</span> <span class="k">do</span>
+      <span class="n">expect</span><span class="p">(</span><span class="mi">5</span><span class="p">).</span><span class="nf">to</span> <span class="n">be_just_like</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+    <span class="k">end</span><span class="p">.</span><span class="nf">to</span> <span class="n">raise_exception</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div>
+<p><em>When</em> I run <code>rspec scoped_matcher_spec.rb</code></p>
+
+<p><em>Then</em> the output should contain &ldquo;3 examples, 0 failures&rdquo;.</p>
+
+<h2>Matcher with separate logic for expect().to and expect().not_to</h2>
+
+<p><em>Given</em> a file named &ldquo;matcher<em>with</em>separate<em>should</em>not<em>logic</em>spec.rb&rdquo; with:</p>
+<div class="highlight"><pre class="highlight ruby"><code><span class="no">RSpec</span><span class="o">::</span><span class="no">Matchers</span><span class="p">.</span><span class="nf">define</span> <span class="ss">:contain</span> <span class="k">do</span> <span class="o">|*</span><span class="n">expected</span><span class="o">|</span>
+  <span class="n">match</span> <span class="k">do</span> <span class="o">|</span><span class="n">actual</span><span class="o">|</span>
+    <span class="n">expected</span><span class="p">.</span><span class="nf">all?</span> <span class="p">{</span> <span class="o">|</span><span class="n">e</span><span class="o">|</span> <span class="n">actual</span><span class="p">.</span><span class="nf">include?</span><span class="p">(</span><span class="n">e</span><span class="p">)</span> <span class="p">}</span>
+  <span class="k">end</span>
+
+  <span class="n">match_when_negated</span> <span class="k">do</span> <span class="o">|</span><span class="n">actual</span><span class="o">|</span>
+    <span class="n">expected</span><span class="p">.</span><span class="nf">none?</span> <span class="p">{</span> <span class="o">|</span><span class="n">e</span><span class="o">|</span> <span class="n">actual</span><span class="p">.</span><span class="nf">include?</span><span class="p">(</span><span class="n">e</span><span class="p">)</span> <span class="p">}</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="no">RSpec</span><span class="p">.</span><span class="nf">describe</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="k">do</span>
+  <span class="n">it</span> <span class="p">{</span> <span class="n">is_expected</span><span class="p">.</span><span class="nf">to</span> <span class="n">contain</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="p">}</span>
+  <span class="n">it</span> <span class="p">{</span> <span class="n">is_expected</span><span class="p">.</span><span class="nf">not_to</span> <span class="n">contain</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span> <span class="p">}</span>
+
+  <span class="c1"># deliberate failures</span>
+  <span class="n">it</span> <span class="p">{</span> <span class="n">is_expected</span><span class="p">.</span><span class="nf">to</span> <span class="n">contain</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="p">}</span>
+  <span class="n">it</span> <span class="p">{</span> <span class="n">is_expected</span><span class="p">.</span><span class="nf">not_to</span> <span class="n">contain</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="p">}</span>
+<span class="k">end</span>
+</code></pre></div>
+<p><em>When</em> I run <code>rspec matcher_with_separate_should_not_logic_spec.rb</code></p>
+
+<p><em>Then</em> the output should contain all of these:</p>
+
+<table><thead>
+<tr>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>4 examples, 2 failures</td>
+</tr>
+<tr>
+<td>expected [1, 2, 3] to contain 1 and 4</td>
+</tr>
+<tr>
+<td>expected [1, 2, 3] not to contain 1 and 4</td>
+</tr>
+</tbody></table>
+
+<h2>Use define_method to create a helper method with access to matcher params</h2>
+
+<p><em>Given</em> a file named &ldquo;define<em>method</em>spec.rb&rdquo; with:</p>
+<div class="highlight"><pre class="highlight ruby"><code><span class="no">RSpec</span><span class="o">::</span><span class="no">Matchers</span><span class="p">.</span><span class="nf">define</span> <span class="ss">:be_a_multiple_of</span> <span class="k">do</span> <span class="o">|</span><span class="n">expected</span><span class="o">|</span>
+  <span class="n">define_method</span> <span class="ss">:is_multiple?</span> <span class="k">do</span> <span class="o">|</span><span class="n">actual</span><span class="o">|</span>
+    <span class="n">actual</span> <span class="o">%</span> <span class="n">expected</span> <span class="o">==</span> <span class="mi">0</span>
+  <span class="k">end</span>
+  <span class="n">match</span> <span class="p">{</span> <span class="o">|</span><span class="n">actual</span><span class="o">|</span> <span class="n">is_multiple?</span><span class="p">(</span><span class="n">actual</span><span class="p">)</span> <span class="p">}</span>
+<span class="k">end</span>
+
+<span class="no">RSpec</span><span class="p">.</span><span class="nf">describe</span> <span class="mi">9</span> <span class="k">do</span>
+  <span class="n">it</span> <span class="p">{</span> <span class="n">is_expected</span><span class="p">.</span><span class="nf">to</span> <span class="n">be_a_multiple_of</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="p">}</span>
+  <span class="n">it</span> <span class="p">{</span> <span class="n">is_expected</span><span class="p">.</span><span class="nf">not_to</span> <span class="n">be_a_multiple_of</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="p">}</span>
+
+  <span class="c1"># deliberate failures</span>
+  <span class="n">it</span> <span class="p">{</span> <span class="n">is_expected</span><span class="p">.</span><span class="nf">to</span> <span class="n">be_a_multiple_of</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="p">}</span>
+  <span class="n">it</span> <span class="p">{</span> <span class="n">is_expected</span><span class="p">.</span><span class="nf">not_to</span> <span class="n">be_a_multiple_of</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="p">}</span>
+<span class="k">end</span>
+</code></pre></div>
+<p><em>When</em> I run <code>rspec define_method_spec.rb</code></p>
+
+<p><em>Then</em> the output should contain all of these:</p>
+
+<table><thead>
+<tr>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>4 examples, 2 failures</td>
+</tr>
+<tr>
+<td>expected 9 to be a multiple of 2</td>
+</tr>
+<tr>
+<td>expected 9 not to be a multiple of 3</td>
+</tr>
+</tbody></table>
+
+<h2>Include a module with helper methods in the matcher</h2>
+
+<p><em>Given</em> a file named &ldquo;include<em>module</em>spec.rb&rdquo; with:</p>
+<div class="highlight"><pre class="highlight ruby"><code><span class="k">module</span> <span class="nn">MatcherHelpers</span>
+  <span class="k">def</span> <span class="nf">is_multiple?</span><span class="p">(</span><span class="n">actual</span><span class="p">,</span> <span class="n">expected</span><span class="p">)</span>
+    <span class="n">actual</span> <span class="o">%</span> <span class="n">expected</span> <span class="o">==</span> <span class="mi">0</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="no">RSpec</span><span class="o">::</span><span class="no">Matchers</span><span class="p">.</span><span class="nf">define</span> <span class="ss">:be_a_multiple_of</span> <span class="k">do</span> <span class="o">|</span><span class="n">expected</span><span class="o">|</span>
+  <span class="kp">include</span> <span class="no">MatcherHelpers</span>
+  <span class="n">match</span> <span class="p">{</span> <span class="o">|</span><span class="n">actual</span><span class="o">|</span> <span class="n">is_multiple?</span><span class="p">(</span><span class="n">actual</span><span class="p">,</span> <span class="n">expected</span><span class="p">)</span> <span class="p">}</span>
+<span class="k">end</span>
+
+<span class="no">RSpec</span><span class="p">.</span><span class="nf">describe</span> <span class="mi">9</span> <span class="k">do</span>
+  <span class="n">it</span> <span class="p">{</span> <span class="n">is_expected</span><span class="p">.</span><span class="nf">to</span> <span class="n">be_a_multiple_of</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="p">}</span>
+  <span class="n">it</span> <span class="p">{</span> <span class="n">is_expected</span><span class="p">.</span><span class="nf">not_to</span> <span class="n">be_a_multiple_of</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span> <span class="p">}</span>
+
+  <span class="c1"># deliberate failures</span>
+  <span class="n">it</span> <span class="p">{</span> <span class="n">is_expected</span><span class="p">.</span><span class="nf">to</span> <span class="n">be_a_multiple_of</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="p">}</span>
+  <span class="n">it</span> <span class="p">{</span> <span class="n">is_expected</span><span class="p">.</span><span class="nf">not_to</span> <span class="n">be_a_multiple_of</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="p">}</span>
+<span class="k">end</span>
+</code></pre></div>
+<p><em>When</em> I run <code>rspec include_module_spec.rb</code></p>
+
+<p><em>Then</em> the output should contain all of these:</p>
+
+<table><thead>
+<tr>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>4 examples, 2 failures</td>
+</tr>
+<tr>
+<td>expected 9 to be a multiple of 2</td>
+</tr>
+<tr>
+<td>expected 9 not to be a multiple of 3</td>
+</tr>
+</tbody></table>
+
+<h2>Using values_match? to compare values and/or compound matchers.</h2>
+
+<p><em>Given</em> a file named &ldquo;compare<em>values</em>spec.rb&rdquo; with:</p>
+<div class="highlight"><pre class="highlight ruby"><code><span class="no">RSpec</span><span class="o">::</span><span class="no">Matchers</span><span class="p">.</span><span class="nf">define</span> <span class="ss">:have_content</span> <span class="k">do</span> <span class="o">|</span><span class="n">expected</span><span class="o">|</span>
+  <span class="n">match</span> <span class="k">do</span> <span class="o">|</span><span class="n">actual</span><span class="o">|</span>
+    <span class="c1"># The order of arguments is important for `values_match?`, e.g.</span>
+    <span class="c1"># especially if your matcher should handle `Regexp`-objects</span>
+    <span class="c1"># (`/regex/`): First comes the `expected` value, second the `actual`</span>
+    <span class="c1"># one.</span>
+    <span class="n">values_match?</span> <span class="n">expected</span><span class="p">,</span> <span class="n">actual</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="no">RSpec</span><span class="p">.</span><span class="nf">describe</span> <span class="s1">'a'</span> <span class="k">do</span>
+  <span class="n">it</span> <span class="p">{</span> <span class="n">is_expected</span><span class="p">.</span><span class="nf">to</span> <span class="n">have_content</span> <span class="s1">'a'</span> <span class="p">}</span>
+<span class="k">end</span>
+
+<span class="no">RSpec</span><span class="p">.</span><span class="nf">describe</span> <span class="s1">'a'</span> <span class="k">do</span>
+  <span class="n">it</span> <span class="p">{</span> <span class="n">is_expected</span><span class="p">.</span><span class="nf">to</span> <span class="n">have_content</span> <span class="sr">/a/</span> <span class="p">}</span>
+<span class="k">end</span>
+
+<span class="no">RSpec</span><span class="p">.</span><span class="nf">describe</span> <span class="s1">'a'</span> <span class="k">do</span>
+  <span class="n">it</span> <span class="p">{</span> <span class="n">is_expected</span><span class="p">.</span><span class="nf">to</span> <span class="n">have_content</span> <span class="n">a_string_starting_with</span><span class="p">(</span><span class="s1">'a'</span><span class="p">)</span> <span class="p">}</span>
+<span class="k">end</span>
+</code></pre></div>
+<p><em>When</em> I run <code>rspec ./compare_values_spec.rb --format documentation</code></p>
+
+<p><em>Then</em> the exit status should be 0.</p>
+
+<h2>Error handling</h2>
+
+<p>Make sure your matcher returns either <code>true</code> or <code>false</code>. Take care to handle exceptions appropriately in your matcher, e.g. most cases you might want your matcher to return <code>false</code> if an exception - e.g. ArgumentError - occurs, but there might be edge cases where you want to pass the exception to the user.</p>
+<div class="highlight"><pre class="highlight plaintext"><code>You should handle each `StandardError` with care! Do not handle them all in one.
+</code></pre></div><div class="highlight"><pre class="highlight ruby"><code>    <span class="n">match</span> <span class="k">do</span> <span class="o">|</span><span class="n">actual</span><span class="o">|</span>
+      <span class="k">begin</span>
+        <span class="s1">'[...] Some code'</span>
+      <span class="k">rescue</span> <span class="no">ArgumentError</span>
+        <span class="kp">false</span>
+      <span class="k">end</span>
+    <span class="k">end</span>
+</code></pre></div>
+<p><em>Given</em> a file named &ldquo;error<em>handling</em>spec.rb&rdquo; with:</p>
+<div class="highlight"><pre class="highlight ruby"><code><span class="k">class</span> <span class="nc">CustomClass</span><span class="p">;</span> <span class="k">end</span>
+
+<span class="no">RSpec</span><span class="o">::</span><span class="no">Matchers</span><span class="p">.</span><span class="nf">define</span> <span class="ss">:is_lower_than</span> <span class="k">do</span> <span class="o">|</span><span class="n">expected</span><span class="o">|</span>
+  <span class="n">match</span> <span class="k">do</span> <span class="o">|</span><span class="n">actual</span><span class="o">|</span>
+    <span class="k">begin</span>
+      <span class="n">actual</span> <span class="o">&lt;</span> <span class="n">expected</span>
+    <span class="k">rescue</span> <span class="no">ArgumentError</span>
+      <span class="kp">false</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="no">RSpec</span><span class="p">.</span><span class="nf">describe</span> <span class="mi">1</span> <span class="k">do</span>
+  <span class="n">it</span> <span class="p">{</span> <span class="n">is_expected</span><span class="p">.</span><span class="nf">to</span> <span class="n">is_lower_than</span> <span class="mi">2</span> <span class="p">}</span>
+<span class="k">end</span>
+
+<span class="no">RSpec</span><span class="p">.</span><span class="nf">describe</span> <span class="mi">1</span> <span class="k">do</span>
+  <span class="n">it</span> <span class="p">{</span> <span class="n">is_expected</span><span class="p">.</span><span class="nf">not_to</span> <span class="n">is_lower_than</span> <span class="s1">'a'</span> <span class="p">}</span>
+<span class="k">end</span>
+
+<span class="no">RSpec</span><span class="p">.</span><span class="nf">describe</span> <span class="no">CustomClass</span> <span class="k">do</span>
+  <span class="n">it</span> <span class="p">{</span> <span class="n">expect</span> <span class="p">{</span> <span class="n">is_expected</span><span class="p">.</span><span class="nf">not_to</span> <span class="n">is_lower_than</span> <span class="mi">2</span> <span class="p">}.</span><span class="nf">to</span> <span class="n">raise_error</span> <span class="no">NoMethodError</span> <span class="p">}</span>
+<span class="k">end</span>
+
+</code></pre></div>
+<p><em>When</em> I run <code>rspec ./error_handling_spec.rb --format documentation</code></p>
+
+<p><em>Then</em> the exit status should be 0.</p>
+
+<h2>Define aliases for your matcher</h2>
+
+<p>If you want your matcher to be readable in different contexts, you can use the <code>.alias_matcher</code>-method to provide an alias for your matcher.</p>
+
+<p><em>Given</em> a file named &ldquo;alias_spec.rb&rdquo; with:</p>
+<div class="highlight"><pre class="highlight ruby"><code><span class="no">RSpec</span><span class="o">::</span><span class="no">Matchers</span><span class="p">.</span><span class="nf">define</span> <span class="ss">:be_a_multiple_of</span> <span class="k">do</span> <span class="o">|</span><span class="n">expected</span><span class="o">|</span>
+  <span class="n">match</span> <span class="k">do</span> <span class="o">|</span><span class="n">actual</span><span class="o">|</span>
+    <span class="n">actual</span> <span class="o">%</span> <span class="n">expected</span> <span class="o">==</span> <span class="mi">0</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="no">RSpec</span><span class="o">::</span><span class="no">Matchers</span><span class="p">.</span><span class="nf">alias_matcher</span> <span class="ss">:be_n_of</span> <span class="p">,</span> <span class="ss">:be_a_multiple_of</span>
+
+<span class="no">RSpec</span><span class="p">.</span><span class="nf">describe</span> <span class="mi">9</span> <span class="k">do</span>
+  <span class="n">it</span> <span class="p">{</span> <span class="n">is_expected</span><span class="p">.</span><span class="nf">to</span> <span class="n">be_n_of</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="p">}</span>
+<span class="k">end</span>
+</code></pre></div>
+<p><em>When</em> I run <code>rspec ./alias_spec.rb --format documentation</code></p>
+
+<p><em>Then</em> the exit status should be 0.</p>
+
+<h2>With expectation errors that bubble up</h2>
+
+<p>By default the match block will swallow expectation errors (e.g. caused by using an expectation such as <code>expect(1).to eq 2</code>), if you wish to allow these to bubble up, pass in the option <code>:notify_expectation_failures =&gt; true</code>.</p>
+
+<p><em>Given</em> a file named &ldquo;bubbling<em>expectation</em>errors_spec.rb&rdquo; with:</p>
+<div class="highlight"><pre class="highlight ruby"><code><span class="no">RSpec</span><span class="o">::</span><span class="no">Matchers</span><span class="p">.</span><span class="nf">define</span> <span class="ss">:be_a_palindrome</span> <span class="k">do</span>
+  <span class="n">match</span><span class="p">(</span><span class="ss">:notify_expectation_failures</span> <span class="o">=&gt;</span> <span class="kp">true</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">actual</span><span class="o">|</span>
+    <span class="n">expect</span><span class="p">(</span><span class="n">actual</span><span class="p">).</span><span class="nf">to</span> <span class="n">be_a</span><span class="p">(</span><span class="no">String</span><span class="p">)</span>
+    <span class="n">expect</span><span class="p">(</span><span class="n">actual</span><span class="p">.</span><span class="nf">reverse</span><span class="p">).</span><span class="nf">to</span> <span class="n">eq</span><span class="p">(</span><span class="n">actual</span><span class="p">)</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+
+<span class="no">RSpec</span><span class="p">.</span><span class="nf">describe</span> <span class="s2">"a custom matcher that bubbles up expectation errors"</span> <span class="k">do</span>
+  <span class="n">it</span> <span class="s2">"bubbles expectation errors"</span> <span class="k">do</span>
+    <span class="n">expect</span><span class="p">(</span><span class="s2">"carriage"</span><span class="p">).</span><span class="nf">to</span> <span class="n">be_a_palindrome</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div>
+<p><em>When</em> I run <code>rspec bubbling_expectation_errors_spec.rb</code></p>
+
+<p><em>Then</em> the output should contain all of these:</p>
+
+<table><thead>
+<tr>
+<th></th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Failures:</td>
+</tr>
+<tr>
+<td>1) a custom matcher that bubbles up expectation errors bubbles expectation errors</td>
+</tr>
+<tr>
+<td>Failure/Error: expect(actual.reverse).to eq(actual)</td>
+</tr>
+<tr>
+<td>expected: &ldquo;carriage&rdquo;</td>
+</tr>
+<tr>
+<td>got: &ldquo;egairrac&rdquo;</td>
+</tr>
+<tr>
+<td>(compared using ==)</td>
+</tr>
+<tr>
+<td># ./bubbling<em>expectation</em>errors_spec.rb:4</td>
+</tr>
+<tr>
+<td># ./bubbling<em>expectation</em>errors_spec.rb:10</td>
+</tr>
+</tbody></table>
+</article></section><footer><div>Created with the assistance of Ninefold<img src="/images/brutus-half.png" alt="Brutus" /></div><br /><a href="https://dnsimple.link/resolving-rspec" target="_blank">Resolving with<br /><img src="https://cdn.dnsimple.com/assets/resolving-with-us/logo-dark.png" alt="DNSimple" style="width:100px;" /></a></footer></body><script src="/javascripts/asciinema-player.js"></script></html>
