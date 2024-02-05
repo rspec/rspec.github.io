@@ -33,11 +33,23 @@ jobs:
         uses: actions/checkout@v4
       - name: Setup Pages
         uses: actions/configure-pages@v4
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.3'
+      - name: Install dependencies
+        run: bundle install
+      - name: Build with Middleman
+        run: |
+          mkdir __source_build
+          BUILD_OUTPUT="__source_build" middleman build
+      - name: Set CNAME
+        run: echo "rspec.info" > CNAME
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           # Upload entire repository
-          path: '.'
+          path: '__source_build'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
