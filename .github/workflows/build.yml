@@ -40,10 +40,9 @@ jobs:
         run: |
           mkdir -p __build
           BUILD_OUTPUT="__build" bundle exec middleman build
-      - name: Generate HTML Preview
-        id: html_preview
-        uses: pavi2410/html-preview-action@v2
+      - name: Upload result
+        uses: actions/upload-artifact@v4
         with:
-          html_file: '__build/index.html'
-      - name: Access preview
-        run: echo "${{steps.html_preview.outputs.url}}"
+          name: build-${{ github.event.number }}
+          path: '__build/**/*'
+          retention-days: 30
