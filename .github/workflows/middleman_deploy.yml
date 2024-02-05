@@ -51,7 +51,7 @@ jobs:
         run: bundle install
       - name: Build with Middleman
         run: |
-          mkdir __source_build
+          mkdir -p __source_build
           BUILD_OUTPUT="__source_build" middleman build
       - name: Set CNAME
         run: echo "rspec.info" > CNAME

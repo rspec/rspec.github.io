@@ -38,7 +38,7 @@ jobs:
           bundle install
       - name: Build with Middleman
         run: |
-          mkdir __build
+          mkdir -p __build
           BUILD_OUTPUT="__build" bundle exec middleman build
       - name: Generate HTML Preview
         id: html_preview
