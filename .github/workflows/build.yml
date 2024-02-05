@@ -35,14 +35,19 @@ jobs:
       - name: Install dependencies
         run: |
           bundle config set --local path '.bundle/gems'
-          bundle install
       - name: Build with Middleman
         run: |
           mkdir -p __build
-          BUILD_OUTPUT="__build" bundle exec middleman build
-      - name: Upload result
-        uses: actions/upload-artifact@v4
-        with:
-          name: build-${{ github.event.number }}
-          path: '__build/**/*'
-          retention-days: 30
+      - name: Setup preview
+        env:
+          www_path: 'pr-${{ github.event.number }}'
+        run: |
+          mkdir -p __preview
+          git clone https://github.com/rspec/preview --depth 1 --branch main __preview
+          mkdir -p '__preview/${{ env.www_path }}'
+          cp -R __build/ '__preview/${{ env.www_path }}'
+          cd __preview/
+          git add '${{ env.www_path }}/*'
+          git config user.name "RSpec Bot 9000"
+          git commit -m 'PR build ${{ github.event.number }} - ${{ github.job }}'
+          git push origin main
