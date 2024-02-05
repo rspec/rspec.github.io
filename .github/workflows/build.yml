@@ -28,8 +28,10 @@ jobs:
         run: |
           mkdir __build
           BUILD_OUTPUT="__build" middleman build
-      - name: HTML Preview
+      - name: Generate HTML Preview
         id: html_preview
         uses: pavi2410/html-preview-action@v2
         with:
           html_file: '__build/index.html'
+      - name: Access preview
+        run: echo "${{steps.html_preview.outputs.url}}"
