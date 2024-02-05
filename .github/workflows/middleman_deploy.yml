@@ -37,6 +37,16 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.3'
+      - name: Setup bundler cache
+        uses: actions/cache@v3
+        with:
+          key: ${{ runner.os }}-bundler-${{ hashFiles('Gemfile.lock') }}
+          path: .bundle/gems
+      - name: Setup build cache
+        uses: actions/cache@v3
+        with:
+          key: ${{ runner.os }}-source-build
+          path: __source_build
       - name: Install dependencies
         run: bundle install
       - name: Build with Middleman
