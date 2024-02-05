@@ -74,7 +74,7 @@ config[:ignored_sitemap_matchers][:partials] = ->(source_file, _) do
   ignored
 end
 
-set :build_dir,  'docs'
+set :build_dir,  ENV.fetch('BUILD_OUTPUT', 'docs')
 set :css_dir,    'stylesheets'
 set :js_dir,     'javascripts'
 set :images_dir, 'images'
