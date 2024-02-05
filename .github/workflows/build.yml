@@ -18,16 +18,28 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Setup bundler cache
+        uses: actions/cache@v3
+        with:
+          key: ${{ runner.os }}-bundler-${{ hashFiles('Gemfile.lock') }}
+          path: .bundle/gems
+      - name: Setup build cache
+        uses: actions/cache@v3
+        with:
+          key: ${{ runner.os }}-build
+          path: __build
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.3'
       - name: Install dependencies
-        run: bundle install
+        run: |
+          bundle config set --local path '.bundle/gems'
+          bundle install
       - name: Build with Middleman
         run: |
-          mkdir __build
-          BUILD_OUTPUT="__build" middleman build
+          mkdir -p __build
+          BUILD_OUTPUT="__build" bundle exec middleman build
       - name: Generate HTML Preview
         id: html_preview
         uses: pavi2410/html-preview-action@v2
