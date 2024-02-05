@@ -36,15 +36,12 @@ bin/console
 
 ## Deploying
 
-Run `bundle exec middleman build`, which will compile the site to `./docs`. This folder is directly
-served from the `source` branch via the config settings for github pages so in order to deploy you
-only need to run the command locally and push up a PR to your target of choice, which are:
+We now use the Github action in `.github/workflows/middleman_deploy.yml` to automatically build
+and deploy, builds are run on PR to ensure they "work" but you should check the artifacts locally
+/ in the build before merging.
 
 - To update [https://rspec-staging.github.io](https://rspec-staging.github.io) use repository https://github.com/RSpec-Staging/rspec-staging.github.io/.
 - To update [https://rspec.info](https://rspec.info) use repository https://github.com/rspec/rspec.github.io/
-
-When deploying to the staging repository you should delete `docs/CNAME`, this can be done for you via `bin/staging_deploy`
-
 
 ## Credits
 
