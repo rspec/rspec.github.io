@@ -4,10 +4,10 @@ RSpec provides a number of matchers that are based on Ruby's built-in operators.
   can be used for generalized comparison of values. E.g.
 
   ```ruby
-    expect(9).to be > 6
-    expect(3).to be <= 3
-    expect(1).to be < 6
-    expect('a').to be < 'b'
+  expect(9).to be > 6
+  expect(3).to be <= 3
+  expect(1).to be < 6
+  expect('a').to be < 'b'
   ```
 
 ## Numeric operator matchers

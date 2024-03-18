@@ -17,7 +17,6 @@ RSpec::Matchers.define :be_a_multiple_of do |expected|
 end
 
 class TestMultiples < Minitest::Test
-
   def test_9_should_be_a_multiple_of_3
     expect(9).to be_a_multiple_of(3)
   end
@@ -25,7 +24,6 @@ class TestMultiples < Minitest::Test
   def test_9_should_be_a_multiple_of_4
     expect(9).to be_a_multiple_of(4)
   end
-
 end
 ```
 

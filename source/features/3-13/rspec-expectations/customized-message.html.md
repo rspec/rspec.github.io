@@ -18,7 +18,6 @@ RSpec.describe Array do
     end
   end
 end
-
 ```
 
 _When_ I run `rspec example_spec.rb --format documentation`
@@ -39,7 +38,6 @@ RSpec.describe Array do
     end
   end
 end
-
 ```
 
 _When_ I run `rspec example_spec.rb --format documentation`

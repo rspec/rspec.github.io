@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
   File: README
-    &mdash; Documentation by YARD 0.9.34
+    &mdash; Documentation by YARD 0.9.36
 </title>
   <link rel="stylesheet" href="/documentation/3.13/rspec-expectations/css/style.css" type="text/css" />
   <link rel="stylesheet" href="/documentation/3.13/rspec-expectations/css/common.css" type="text/css" />
@@ -48,7 +48,7 @@ example.</p>
 <p>If you want to use rspec-expectations with rspec, just install the rspec gem
 and RubyGems will also install rspec-expectations for you (along with
 rspec-core and rspec-mocks):</p>
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_gem'>gem</span> <span class='id identifier rubyid_install'>install</span> <span class='id identifier rubyid_rspec'>rspec</span>
+<pre class="code shell"><code class="shell">gem install rspec
 </code></pre>
 <p>Want to run against the <code>main</code> branch? You&#39;ll need to include the dependent
 RSpec repos as well. Add the following to your <code>Gemfile</code>:</p>
@@ -58,7 +58,7 @@ RSpec repos as well. Add the following to your <code>Gemfile</code>:</p>
 </code></pre>
 <p>If you want to use rspec-expectations with another tool, like Test::Unit,
 Minitest, or Cucumber, you can install it directly:</p>
-<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_gem'>gem</span> <span class='id identifier rubyid_install'>install</span> <span class='id identifier rubyid_rspec'>rspec</span><span class='op'>-</span><span class='id identifier rubyid_expectations'>expectations</span>
+<pre class="code shell"><code class="shell">gem install rspec-expectations
 </code></pre>
 <h2 id="contributing">Contributing</h2>
 <p>Once you&#39;ve set up the environment, you&#39;ll need to cd into the working
@@ -91,8 +91,8 @@ can treat each RSpec repo as an independent project.</p>
 <p>The <code>describe</code> and <code>it</code> methods come from rspec-core.  The <code>Order</code>, <code>LineItem</code>, <code>Item</code> and <code>Money</code> classes would be from <em>your</em> code. The last line of the example
 expresses an expected outcome. If <code>order.total == Money.new(5.55, :USD)</code>, then
 the example passes. If not, it fails with a message like:</p>
-<pre class="code ruby"><code class="ruby">expected: #&lt;Money @value=5.55 @currency=:USD&gt;
-     got: #&lt;Money @value=1.11 @currency=:USD&gt;
+<pre class="code ruby"><code class="ruby">  expected: #&lt;Money @value=5.55 @currency=:USD&gt;
+       got: #&lt;Money @value=1.11 @currency=:USD&gt;
 </code></pre>
 <h2 id="built-in-matchers">Built-in matchers</h2>
 <h3 id="equivalence">Equivalence</h3>
@@ -268,9 +268,9 @@ phrasing for when they are used as arguments to another matcher.</p>
 </ul>
 </div></div>
       <div id="footer">
-  Generated on Sun Feb  4 20:34:09 2024 by
+  Generated on Mon Mar 18 23:04:05 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.34 (ruby-3.2.2).
+  0.9.36 (ruby-3.2.2).
 </div>
     </div>
   </body>
