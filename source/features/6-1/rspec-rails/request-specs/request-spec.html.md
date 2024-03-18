@@ -17,8 +17,10 @@ Request specs provide a thin wrapper around Rails' integration tests, and are
 
   RSpec provides two matchers that delegate to Rails assertions:
 
-      render_template # delegates to assert_template
-      redirect_to     # delegates to assert_redirected_to
+  ```ruby
+  render_template # delegates to assert_template
+  redirect_to     # delegates to assert_redirected_to
+  ```
 
   Check the Rails docs for details on these methods as well.
 

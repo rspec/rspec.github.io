@@ -17,10 +17,10 @@ _Then_ the output should contain:
       create    app/views/posts_mailer/show.text.erb
       create    app/views/posts_mailer/show.html.erb
       invoke  rspec
-      create    spec/mailers/posts_spec.rb
+      create    spec/mailers/posts_mailer_spec.rb
       create    spec/fixtures/posts/index
       create    spec/fixtures/posts/show
-      create    spec/mailers/previews/posts_preview.rb
+      create    spec/mailers/previews/posts_mailer_preview.rb
 ```
 
 ## Mailer generator with customized `default-path`
@@ -46,8 +46,8 @@ _Then_ the output should contain:
       create    app/views/posts_mailer/show.text.erb
       create    app/views/posts_mailer/show.html.erb
       invoke  rspec
-      create    behaviour/mailers/posts_spec.rb
+      create    behaviour/mailers/posts_mailer_spec.rb
       create    behaviour/fixtures/posts/index
       create    behaviour/fixtures/posts/show
-      create    behaviour/mailers/previews/posts_preview.rb
+      create    behaviour/mailers/previews/posts_mailer_preview.rb
 ```

@@ -113,7 +113,7 @@ Specs are usually placed in a canonical directory structure that describes
       lib
       ├── country_map.rb
       ├── development_mail_interceptor.rb
-      ├── enviroment_mail_interceptor.rb
+      ├── environment_mail_interceptor.rb
       └── tasks
           └── irc.rake
       spec

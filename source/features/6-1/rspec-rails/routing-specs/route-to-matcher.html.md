@@ -4,11 +4,14 @@ The `route_to` matcher specifies that a request (verb + path) is routable.
   It is most valuable when specifying routes other than standard RESTful
   routes.
 
-      expect(get("/")).to route_to("welcome#index") # new in 2.6.0
+  ```ruby
+  expect(get("/")).to route_to("welcome#index") # new in 2.6.0
+  ```
+  or
 
-      or
-
-      expect(:get => "/").to route_to(:controller => "welcome")
+  ```ruby
+  expect(:get => "/").to route_to(:controller => "welcome")
+  ```
 
 ## Passing route spec with shortcut syntax
 

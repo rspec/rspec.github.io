@@ -16,7 +16,7 @@ _Then_ the output should contain:
       create  lib/generators/my_generator/USAGE
       create  lib/generators/my_generator/templates
       invoke  rspec
-      create    spec/generator/my_generators_generator_spec.rb
+      create    spec/generator/my_generator_generator_spec.rb
 ```
 
 ## Use custom generator with customized `default-path`
@@ -39,5 +39,5 @@ _Then_ the output should contain:
       create  lib/generators/my_generator/USAGE
       create  lib/generators/my_generator/templates
       invoke  rspec
-      create    behaviour/generator/my_generators_generator_spec.rb
+      create    behaviour/generator/my_generator_generator_spec.rb
 ```
