@@ -35,15 +35,19 @@ jobs:
       - name: Install dependencies
         run: |
           bundle config set --local path '.bundle/gems'
-          bundle install
       - name: Build with Middleman
         run: |
           mkdir -p __build
-          BUILD_OUTPUT="__build" bundle exec middleman build
-      - name: Generate HTML Preview
-        id: html_preview
-        uses: pavi2410/html-preview-action@v2
-        with:
-          html_file: '__build/index.html'
-      - name: Access preview
-        run: echo "${{steps.html_preview.outputs.url}}"
+      - name: Setup preview
+        env:
+          www_path: 'pr-${{ github.event.number }}'
+        run: |
+          mkdir -p __preview
+          git clone https://github.com/rspec/preview --depth 1 --branch main __preview
+          mkdir -p '__preview/${{ env.www_path }}'
+          cp -R __build/ '__preview/${{ env.www_path }}'
+          cd __preview/
+          git add '${{ env.www_path }}/*'
+          git config user.name "RSpec Bot 9000"
+          git commit -m 'PR build ${{ github.event.number }} - ${{ github.job }}'
+          git push origin main
