@@ -27,6 +27,9 @@ Use the `raise_error` matcher to specify that a block of code raises an error. T
   expect { raise "oops" }.to raise_error(RuntimeError, "oops")
   expect { raise "oops" }.to raise_error(RuntimeError, /op/)
   expect { raise "oops" }.to raise_error(an_instance_of(RuntimeError).and having_attributes(message: "oops"))
+  expect { raise "oops" }.to raise_error(MyError) do |exception|
+    expect(exception.whatever).to match(/op/)
+  end
   ```
 
 ## Expecting any error
