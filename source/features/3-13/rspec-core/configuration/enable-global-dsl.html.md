@@ -69,7 +69,7 @@ end
 
 _When_ I run `rspec`
 
-_Then_ the output should contain "undefined method `describe'".
+_Then_ the output should contain %R{undefined method (`|')describe'}.
 
 ## Regardless of setting
 

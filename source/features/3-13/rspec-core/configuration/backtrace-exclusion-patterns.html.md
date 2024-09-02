@@ -148,7 +148,7 @@ _When_ I run `rspec --backtrace`
 
 _Then_ the output should contain "1 example, 1 failure"
 
-_And_ the output should contain "spec/support/custom_helper.rb:2:in `assert_baz'"
+_And_ the output should contain %R{spec/support/custom_helper.rb:2:in ('Object#|`)assert_baz'}
 
 _And_ the output should contain "lib/rspec/expectations"
 
@@ -188,6 +188,6 @@ RSpec.configure do |config|
 end
 ```
 
-_Then_ the output from `rspec` should contain "vendor/my_gem-1.2.3/lib/my_gem.rb:4:in `do_amazing_things!'"
+_Then_ the output from `rspec` should contain %R{vendor/my_gem-1.2.3/lib/my_gem.rb:4:in (`|'MyGem\.)do_amazing_things!'}
 
-_But_ the output from `rspec --require spec_helper` should not contain "vendor/my_gem-1.2.3/lib/my_gem.rb:4:in `do_amazing_things!'".
+_But_ the output from `rspec --require spec_helper` should not contain %R{vendor/my_gem-1.2.3/lib/my_gem.rb:4:in (`|'MyGem\.)do_amazing_things!'}.
