@@ -41,7 +41,31 @@
         <div class="clear"></div>
       </div>
       <div id="content"><div id='filecontents'><h3 id="development">Development</h3>
-<p><a href="https://github.com/rspec/rspec-rails/compare/v6.1.1...6-1-maintenance">Full Changelog</a></p>
+<p><a href="https://github.com/rspec/rspec-rails/compare/v6.1.5...6-1-maintenance">Full Changelog</a></p>
+<h3 id="6-1-5-2024-09-02">6.1.5 / 2024-09-02</h3>
+<p><a href="https://github.com/rspec/rspec-rails/compare/v6.1.4...v6.1.5">Full Changelog</a></p>
+<p>Bug Fixes:</p>
+<ul>
+<li>Restore old order of requiring support files. (Franz Liedke, #2785)</li>
+<li>Prevent running <code>rake spec:statsetup</code> on Rails main / 8.0.0. (Petrik de Heus, #2781)</li>
+</ul>
+<h3 id="6-1-4-2024-08-15">6.1.4 / 2024-08-15</h3>
+<p><a href="https://github.com/rspec/rspec-rails/compare/v6.1.3...v6.1.4">Full Changelog</a></p>
+<p>Bug Fixes:</p>
+<ul>
+<li>Prevent <code>have_http_status</code> matcher raising an error when encountering a raw <code>Rack::MockResponse</code>.
+(Christophe Bliard, #2771)</li>
+<li>Move Rails version conditional from index scaffold generated file to template. (Matt Jankowski, #2777)</li>
+</ul>
+<h3 id="6-1-3-2024-06-19">6.1.3 / 2024-06-19</h3>
+<p><a href="https://github.com/rspec/rspec-rails/compare/v6.1.2...v6.1.3">Full Changelog</a></p>
+<p>Bug Fixes:</p>
+<ul>
+<li>Reset <code>ActiveSupport::CurrentAttributes</code> between examples. (Javier Julio, #2752)</li>
+<li>Fix a broken link in generated mailer previews. (Chiara Núñez, #2764)</li>
+<li>Fix <code>have_status_code</code> behaviour with deprecated status names by delegating
+to <code>Rack::Utils.status_code/1</code> to set the expected status code. (Darren Boyd, #2765)</li>
+</ul>
 <h3 id="6-1-2-2024-03-19">6.1.2 / 2024-03-19</h3>
 <p><a href="https://github.com/rspec/rspec-rails/compare/v6.1.1...v6.1.2">Full Changelog</a></p>
 <p>Bug Fixes:</p>
@@ -1275,7 +1299,7 @@ any stubs submitted each time it is called.</li>
 </ul>
 </div></div>
       <div id="footer">
-  Generated on Mon Mar 18 21:42:19 2024 by
+  Generated on Mon Sep  2 14:12:49 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.36 (ruby-3.2.2).
 </div>

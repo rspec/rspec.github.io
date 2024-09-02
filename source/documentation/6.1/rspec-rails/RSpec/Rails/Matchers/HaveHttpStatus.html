@@ -166,7 +166,7 @@
     <td>
       <pre class="code"><span class="info file"># File 'lib/rspec/rails/matchers/have_http_status.rb', line 35</span>
 <span class='kw'>def</span> <span class='id identifier rubyid_as_test_response'>as_test_response</span><span class='lparen'>(</span><span class='id identifier rubyid_obj'>obj</span><span class='rparen'>)</span>
-  <span class='kw'>if</span> <span class='op'>::</span><span class='const'>ActionDispatch</span><span class='op'>::</span><span class='const'>Response</span> <span class='op'>===</span> <span class='id identifier rubyid_obj'>obj</span>
+  <span class='kw'>if</span> <span class='op'>::</span><span class='const'>ActionDispatch</span><span class='op'>::</span><span class='const'>Response</span> <span class='op'>===</span> <span class='id identifier rubyid_obj'>obj</span> <span class='op'>||</span> <span class='op'>::</span><span class='const'>Rack</span><span class='op'>::</span><span class='const'>MockResponse</span> <span class='op'>===</span> <span class='id identifier rubyid_obj'>obj</span>
     <span class='op'>::</span><span class='const'>ActionDispatch</span><span class='op'>::</span><span class='const'>TestResponse</span><span class='period'>.</span><span class='id identifier rubyid_from_response'>from_response</span><span class='lparen'>(</span><span class='id identifier rubyid_obj'>obj</span><span class='rparen'>)</span>
   <span class='kw'>elsif</span> <span class='op'>::</span><span class='const'>ActionDispatch</span><span class='op'>::</span><span class='const'>TestResponse</span> <span class='op'>===</span> <span class='id identifier rubyid_obj'>obj</span>
     <span class='id identifier rubyid_obj'>obj</span>
@@ -303,7 +303,7 @@
   </div>
 </div>
       <div id="footer">
-  Generated on Mon Mar 18 21:42:19 2024 by
+  Generated on Mon Sep  2 14:12:49 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.9.36 (ruby-3.2.2).
 </div>
