@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>
+  File: README
+    &mdash; Documentation by YARD 0.9.36
+</title>
+  <link rel="stylesheet" href="/documentation/7.0/rspec-rails/css/style.css" type="text/css" />
+  <link rel="stylesheet" href="/documentation/7.0/rspec-rails/css/common.css" type="text/css" />
+  <link rel="stylesheet" href="/documentation/7.0/rspec-rails/css/rspec.css" type="text/css" />
+<script type="text/javascript">
+  pathId = "README";
+  relpath = '';
+</script>
+  <script type="text/javascript" charset="utf-8" src="/documentation/7.0/rspec-rails/js/jquery.js"></script>
+  <script type="text/javascript" charset="utf-8" src="/documentation/7.0/rspec-rails/js/app.js"></script>
+  </head>
+  <body>
+    <div class="nav_wrap">
+      <iframe id="nav" src="file_list.html?1"></iframe>
+      <div id="resizer"></div>
+    </div>
+    <div id="main" tabindex="-1">
+      <div id="header">
+        <div id="menu">
+    <a href="_index.html">Index</a> &raquo; 
+    <span class="title">File: README</span>
+</div>
+        <div id="search">
+    <a class="full_list_link" id="class_list_link"
+        href="class_list.html">
+        <svg width="24" height="24">
+          <rect x="0" y="4" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="12" width="24" height="4" rx="1" ry="1"></rect>
+          <rect x="0" y="20" width="24" height="4" rx="1" ry="1"></rect>
+        </svg>
+    </a>
+</div>
+        <div class="clear"></div>
+      </div>
+      <div id="content"><div id='filecontents'><h1 id="rspec-rails">rspec-rails <a href="https://codeclimate.com/github/rspec/rspec-rails"><img src="https://codeclimate.com/github/rspec/rspec-rails.svg" alt="Code Climate"></a> <a href="https://badge.fury.io/rb/rspec-rails"><img src="https://badge.fury.io/rb/rspec-rails.svg" alt="Gem Version"></a></h1>
+<p><code>rspec-rails</code> brings the <a href="https://rspec.info/">RSpec</a> testing framework to <a href="https://rubyonrails.org/">Ruby on Rails</a>
+as a drop-in alternative to its default testing framework, Minitest.</p>
+<p>In RSpec, tests are not just scripts that verify your application code.
+They’re also specifications (or <em>specs,</em> for short):
+detailed explanations of how the application is supposed to behave,
+expressed in plain English.</p>
+<p>According to <a href="https://github.com/rspec/rspec-rails/blob/main/rfcs/versioning-strategy.md">RSpec Rails new versioning strategy</a> use:</p>
+<ul>
+<li><strong><a href="https://github.com/rspec/rspec-rails/tree/7-0-maintenance"><code>rspec-rails</code> 7.x</a></strong> for Rails 7.x.</li>
+<li><strong><a href="https://github.com/rspec/rspec-rails/tree/6-1-maintenance"><code>rspec-rails</code> 6.x</a></strong> for Rails 6.1.</li>
+<li><strong><a href="https://github.com/rspec/rspec-rails/tree/5-1-maintenance"><code>rspec-rails</code> 5.x</a></strong> for Rails 5.2 or 6.x.</li>
+<li><strong><a href="https://github.com/rspec/rspec-rails/tree/4-1-maintenance"><code>rspec-rails</code> 4.x</a></strong> for Rails from 5.x or 6.x.</li>
+<li><strong><a href="https://github.com/rspec/rspec-rails/tree/3-9-maintenance"><code>rspec-rails</code> 3.x</a></strong> for Rails earlier than 5.0.</li>
+<li><strong><a href="https://github.com/dchelimsky/rspec-rails"><code>rspec-rails</code> 1.x</a></strong> for Rails 2.x.</li>
+</ul>
+<h2 id="installation">Installation</h2>
+<p><strong>IMPORTANT</strong> This README / branch refers to the 7.0.x stable release series, only bugfixes from this series will
+be added here. See the <a href="https://github.com/rspec/rspec-rails/tree/main"><code>main</code> branch on Github</a> if you want or
+require the latest unstable features.</p>
+<ol>
+<li>Add <code>rspec-rails</code> to <strong>both</strong> the <code>:development</code> and <code>:test</code> groups
+of your app’s <code>Gemfile</code>:</li>
+</ol>
+<pre class="code ruby"><code class="ruby">   <span class='comment'># Run against this stable release
+</span>   <span class='id identifier rubyid_group'>group</span> <span class='symbol'>:development</span><span class='comma'>,</span> <span class='symbol'>:test</span> <span class='kw'>do</span>
+     <span class='id identifier rubyid_gem'>gem</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>rspec-rails</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>~&gt; 7.0.0</span><span class='tstring_end'>&#39;</span></span>
+   <span class='kw'>end</span>
+   <span class='comment'># Or, run against the main branch
+</span>   <span class='comment'># (requires main-branch versions of all related RSpec libraries)
+</span>   <span class='id identifier rubyid_group'>group</span> <span class='symbol'>:development</span><span class='comma'>,</span> <span class='symbol'>:test</span> <span class='kw'>do</span>
+     <span class='qwords_beg'>%w[</span><span class='tstring_content'>rspec-core</span><span class='words_sep'> </span><span class='tstring_content'>rspec-expectations</span><span class='words_sep'> </span><span class='tstring_content'>rspec-mocks</span><span class='words_sep'> </span><span class='tstring_content'>rspec-rails</span><span class='words_sep'> </span><span class='tstring_content'>rspec-support</span><span class='tstring_end'>]</span></span><span class='period'>.</span><span class='id identifier rubyid_each'>each</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_lib'>lib</span><span class='op'>|</span>
+       <span class='id identifier rubyid_gem'>gem</span> <span class='id identifier rubyid_lib'>lib</span><span class='comma'>,</span> <span class='label'>git:</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>https://github.com/rspec/</span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_lib'>lib</span><span class='embexpr_end'>}</span><span class='tstring_content'>.git</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>branch:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>main</span><span class='tstring_end'>&#39;</span></span>
+     <span class='kw'>end</span>
+   <span class='kw'>end</span>
+</code></pre>
+<p>(Adding it to the <code>:development</code> group is not strictly necessary,
+   but without it, generators and rake tasks must be preceded by <code>RAILS_ENV=test</code>.)</p>
+<ol>
+<li>Then, in your project directory:</li>
+</ol>
+<pre class="code sh"><code class="sh">   # Download and install
+   $ bundle install
+   # Generate boilerplate configuration files
+   # (check the comments in each generated file for more information)
+   $ rails generate rspec:install
+         create  .rspec
+         create  spec
+         create  spec/spec_helper.rb
+         create  spec/rails_helper.rb
+</code></pre>
+<h2 id="upgrading">Upgrading</h2>
+<p>If your project is already using an older version of <code>rspec-rails</code>,
+upgrade to the latest version with:</p>
+<pre class="code sh"><code class="sh">$ bundle update rspec-rails
+</code></pre>
+<p>RSpec follows <a href="https://semver.org/">semantic versioning</a>,
+which means that “major version” upgrades (<em>e.g.,</em> 2.x → 3.x)
+come with <strong>breaking changes</strong>.
+If you’re upgrading from version 2.x or below,
+read the <a href="https://rspec.info/features/7-0/rspec-rails/upgrade"><code>rspec-rails</code> upgrade notes</a> to find out what to watch out for.</p>
+<p>Be sure to check the general <a href="https://rspec.info/upgrading-from-rspec-2/">RSpec upgrade notes</a> as well.</p>
+<h2 id="usage">Usage</h2>
+<h3 id="creating-boilerplate-specs-with-rails-generate">Creating boilerplate specs with <code>rails generate</code></h3>
+<pre class="code sh"><code class="sh"># RSpec hooks into built-in generators
+$ rails generate model user
+      invoke  active_record
+      create    db/migrate/20181017040312_create_users.rb
+      create    app/models/user.rb
+      invoke    rspec
+      create      spec/models/user_spec.rb
+# RSpec also provides its own spec file generators
+$ rails generate rspec:model user
+      create  spec/models/user_spec.rb
+# List all RSpec generators
+$ rails generate --help | grep rspec
+</code></pre>
+<h3 id="running-specs">Running specs</h3>
+<pre class="code sh"><code class="sh"># Default: Run all spec files (i.e., those matching spec/**/*_spec.rb)
+$ bundle exec rspec
+# Run all spec files in a single directory (recursively)
+$ bundle exec rspec spec/models
+# Run a single spec file
+$ bundle exec rspec spec/controllers/accounts_controller_spec.rb
+# Run a single example from a spec file (by line number)
+$ bundle exec rspec spec/controllers/accounts_controller_spec.rb:8
+# See all options for running specs
+$ bundle exec rspec --help
+</code></pre>
+<p><strong>Optional:</strong> If <code>bundle exec rspec</code> is too verbose for you,
+you can generate a binstub at <code>bin/rspec</code> and use that instead:</p>
+<pre class="code sh"><code class="sh"> $ bundle binstubs rspec-core
+</code></pre>
+<h2 id="rspec-dsl-basics-or-how-do-i-write-a-spec">RSpec DSL Basics (or, how do I write a spec?)</h2>
+<p>In RSpec, application behavior is described
+<strong>first in (almost) plain English, then again in test code</strong>, like so:</p>
+<pre class="code ruby"><code class="ruby"><span class='const'><span class='object_link'><a href="RSpec.html" title="RSpec (module)">RSpec</a></span></span><span class='period'>.</span><span class='id identifier rubyid_describe'>describe</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Post</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>do</span>           <span class='comment'>#
+</span>  <span class='id identifier rubyid_context'>context</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>before publication</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>do</span>  <span class='comment'># (almost) plain English
+</span>    <span class='id identifier rubyid_it'>it</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>cannot have comments</span><span class='tstring_end'>&#39;</span></span> <span class='kw'>do</span>   <span class='comment'>#
+</span>      <span class='id identifier rubyid_expect'>expect</span> <span class='lbrace'>{</span> <span class='const'>Post</span><span class='period'>.</span><span class='id identifier rubyid_create'>create</span><span class='period'>.</span><span class='id identifier rubyid_comments'>comments</span><span class='period'>.</span><span class='id identifier rubyid_create!'>create!</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_raise_error'>raise_error</span><span class='lparen'>(</span><span class='const'>ActiveRecord</span><span class='op'>::</span><span class='const'>RecordInvalid</span><span class='rparen'>)</span>  <span class='comment'># test code
+</span>    <span class='kw'>end</span>
+  <span class='kw'>end</span>
+<span class='kw'>end</span>
+</code></pre>
+<p>Running <code>rspec</code> will execute this test code,
+and then use the plain-English descriptions
+to generate a report of where the application
+conforms to (or fails to meet) the spec:</p>
+<pre class="code ruby"><code class="ruby">$ rspec --format documentation spec/models/post_spec.rb
+Post
+  before publication
+    cannot have comments
+Failures:
+  1) Post before publication cannot have comments
+     Failure/Error: expect { Post.create.comments.create! }.to raise_error(ActiveRecord::RecordInvalid)
+       expected ActiveRecord::RecordInvalid but nothing was raised
+     # ./spec/models/post.rb:4:in `block (3 levels) in &lt;top (required)&gt;&#39;
+Finished in 0.00527 seconds (files took 0.29657 seconds to load)
+1 example, 1 failure
+Failed examples:
+rspec ./spec/models/post_spec.rb:3 # Post before publication cannot have comments
+</code></pre>
+<p>For an in-depth look at the RSpec DSL, including lots of examples,
+read the official Cucumber documentation for <a href="https://rspec.info/features/3-12/rspec-core">RSpec Core</a>.</p>
+<h3 id="helpful-rails-matchers">Helpful Rails Matchers</h3>
+<p>In RSpec, assertions are called <em>expectations,</em>
+and every expectation is built around a <em>matcher.</em>
+When you <code>expect(a).to eq(b)</code>, you’re using the <code>eq</code> matcher.</p>
+<p>In addition to <a href="https://rspec.info/features/3-12/rspec-expectations/built-in-matchers">the matchers that come standard in RSpec</a>,
+here are some extras that make it easier
+to test the various parts of a Rails system:</p>
+<table><thead>
+<tr>
+<th>RSpec matcher</th>
+<th>Delegates to</th>
+<th>Available in</th>
+<th>Notes</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="https://rspec.info/features/7-0/rspec-rails/matchers/new-record-matcher"><code>be_a_new</code></a></td>
+<td></td>
+<td>all</td>
+<td>primarily intended for controller specs</td>
+</tr>
+<tr>
+<td><a href="https://rspec.info/features/7-0/rspec-rails/matchers/render-template-matcher"><code>render_template</code></a></td>
+<td><code>assert_template</code></td>
+<td>request / controller / view</td>
+<td>use with <code>expect(response).to</code></td>
+</tr>
+<tr>
+<td><a href="https://rspec.info/features/7-0/rspec-rails/matchers/redirect-to-matcher"><code>redirect_to</code></a></td>
+<td><code>assert_redirect</code></td>
+<td>request / controller</td>
+<td>use with <code>expect(response).to</code></td>
+</tr>
+<tr>
+<td><a href="https://rspec.info/features/7-0/rspec-rails/routing-specs/route-to-matcher"><code>route_to</code></a></td>
+<td><code>assert_recognizes</code></td>
+<td>routing / controller</td>
+<td>use with <code>expect(...).to route_to</code></td>
+</tr>
+<tr>
+<td><a href="https://rspec.info/features/7-0/rspec-rails/routing-specs/be-routable-matcher"><code>be_routable</code></a></td>
+<td></td>
+<td>routing / controller</td>
+<td>use with <code>expect(...).not_to be_routable</code></td>
+</tr>
+<tr>
+<td><a href="https://rspec.info/features/7-0/rspec-rails/matchers/have-http-status-matcher"><code>have_http_status</code></a></td>
+<td></td>
+<td>request / controller / feature</td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://rspec.info/features/7-0/rspec-rails/matchers/relation-match-array"><code>match_array</code></a></td>
+<td></td>
+<td>all</td>
+<td>for comparing arrays of ActiveRecord objects</td>
+</tr>
+<tr>
+<td><a href="https://rspec.info/features/7-0/rspec-rails/matchers/have-been-enqueued-matcher"><code>have_been_enqueued</code></a></td>
+<td></td>
+<td>all</td>
+<td>requires config: <code>ActiveJob::Base.queue_adapter = :test</code></td>
+</tr>
+<tr>
+<td><a href="https://rspec.info/features/7-0/rspec-rails/matchers/have-enqueued-job-matcher"><code>have_enqueued_job</code></a></td>
+<td></td>
+<td>all</td>
+<td>requires config: <code>ActiveJob::Base.queue_adapter = :test</code></td>
+</tr>
+</tbody></table>
+<p>Follow the links above for examples of how each matcher is used.</p>
+<h3 id="what-else-does-rspec-rails-add">What else does RSpec Rails add?</h3>
+<p>For a comprehensive look at RSpec Rails’ features,
+read the <a href="https://rspec.info/features/7-0/rspec-rails">official Cucumber documentation</a>.</p>
+<h2 id="what-tests-should-i-write">What tests should I write?</h2>
+<p>RSpec Rails defines ten different <em>types</em> of specs
+for testing different parts of a typical Rails application.
+Each one inherits from one of Rails’ built-in <code>TestCase</code> classes,
+meaning the helper methods provided by default in Rails tests
+are available in RSpec, as well.</p>
+<table><thead>
+<tr>
+<th>Spec type</th>
+<th>Corresponding Rails test class</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><a href="https://rspec.info/features/7-0/rspec-rails/model-specs">model</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://rspec.info/features/7-0/rspec-rails/controller-specs">controller</a></td>
+<td><a href="https://api.rubyonrails.org/classes/ActionController/TestCase.html"><code>ActionController::TestCase</code></a></td>
+</tr>
+<tr>
+<td><a href="https://rspec.info/features/7-0/rspec-rails/mailer-specs">mailer</a></td>
+<td><code>ActionMailer::TestCase</code></td>
+</tr>
+<tr>
+<td><a href="https://rspec.info/features/7-0/rspec-rails/job-specs/job-spec">job</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://rspec.info/features/7-0/rspec-rails/view-specs/view-spec">view</a></td>
+<td><code>ActionView::TestCase</code></td>
+</tr>
+<tr>
+<td><a href="https://rspec.info/features/7-0/rspec-rails/routing-specs">routing</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://rspec.info/features/7-0/rspec-rails/helper-specs/helper-spec">helper</a></td>
+<td><code>ActionView::TestCase</code></td>
+</tr>
+<tr>
+<td><a href="https://rspec.info/features/7-0/rspec-rails/request-specs/request-spec">request</a></td>
+<td><a href="https://api.rubyonrails.org/classes/ActionDispatch/IntegrationTest.html"><code>ActionDispatch::IntegrationTest</code></a></td>
+</tr>
+<tr>
+<td><a href="https://rspec.info/features/7-0/rspec-rails/feature-specs/feature-spec">feature</a></td>
+<td></td>
+</tr>
+<tr>
+<td><a href="https://rspec.info/features/7-0/rspec-rails/system-specs/system-specs">system</a></td>
+<td><a href="https://api.rubyonrails.org/classes/ActionDispatch/SystemTestCase.html"><code>ActionDispatch::SystemTestCase</code></a></td>
+</tr>
+</tbody></table>
+<p>Follow the links above to see examples of each spec type,
+or for official Rails API documentation on the given <code>TestCase</code> class.</p>
+<blockquote>
+<p><strong>Note: This is not a checklist.</strong></p>
+<p>Ask a hundred developers how to test an application,
+and you’ll get a hundred different answers.</p>
+<p>RSpec Rails provides thoughtfully selected features
+to encourage good testing practices, but there’s no “right” way to do it.
+Ultimately, it’s up to you to decide how your test suite will be composed.</p>
+</blockquote>
+<p>When creating a spec file,
+assign it a type in the top-level <code>describe</code> block, like so:</p>
+<pre class="code ruby"><code class="ruby"># spec/models/user_spec.rb
+RSpec.describe User, type: :model do
+...
+</code></pre>
+<h3 id="system-specs-feature-specs-request-specs-what-s-the-difference">System specs, feature specs, request specs–what’s the difference?</h3>
+<p>RSpec Rails provides some end-to-end (entire application) testing capability
+to specify the interaction with the client.</p>
+<h4 id="system-specs">System specs</h4>
+<p>Also called <strong>acceptance tests</strong>, <strong>browser tests</strong>, or <strong>end-to-end tests</strong>,
+system specs test the application from the perspective of a <em>human client.</em>
+The test code walks through a user’s browser interactions,</p>
+<ul>
+<li><code>visit &#39;/login&#39;</code></li>
+<li><code>fill_in &#39;Name&#39;, with: &#39;jdoe&#39;</code></li>
+</ul>
+<p>and the expectations revolve around page content.</p>
+<ul>
+<li><code>expect(page).to have_text(&#39;Welcome&#39;)</code></li>
+</ul>
+<p>Because system specs are a wrapper around Rails’ built-in <code>SystemTestCase</code>,
+they’re only available on Rails 5.1+.
+(Feature specs serve the same purpose, but without this dependency.)</p>
+<h4 id="feature-specs">Feature specs</h4>
+<p>Before Rails introduced system testing facilities,
+feature specs were the only spec type for end-to-end testing.
+While the RSpec team now <a href="https://rspec.info/blog/2017/10/rspec-3-7-has-been-released/#rails-actiondispatchsystemtest-integration-system-specs">officially recommends system specs</a> instead,
+feature specs are still fully supported, look basically identical,
+and work on older versions of Rails.</p>
+<p>On the other hand, feature specs require non-trivial configuration
+to get some important features working,
+like JavaScript testing or making sure each test runs with a fresh DB state.
+With system specs, this configuration is provided out-of-the-box.</p>
+<p>Like system specs, feature specs require the <a href="https://github.com/teamcapybara/capybara">Capybara</a> gem.
+Rails 5.1+ includes it by default as part of system tests,
+but if you don’t have the luxury of upgrading,
+be sure to add it to the <code>:test</code> group of your <code>Gemfile</code> first:</p>
+<pre class="code ruby"><code class="ruby"><span class='id identifier rubyid_group'>group</span> <span class='symbol'>:test</span> <span class='kw'>do</span>
+  <span class='id identifier rubyid_gem'>gem</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>capybara</span><span class='tstring_end'>&quot;</span></span>
+<span class='kw'>end</span>
+</code></pre>
+<h4 id="request-specs">Request specs</h4>
+<p>Request specs are for testing the application
+from the perspective of a <em>machine client.</em>
+They begin with an HTTP request and end with the HTTP response,
+so they’re faster than feature specs,
+but do not examine your app’s UI or JavaScript.</p>
+<p>Request specs provide a high-level alternative to controller specs.
+In fact, as of RSpec 3.5, both the Rails and RSpec teams
+<a href="https://rspec.info/blog/2016/07/rspec-3-5-has-been-released/#rails-support-for-rails-5">discourage directly testing controllers</a>
+in favor of functional tests like request specs.</p>
+<p>When writing them, try to answer the question,
+“For a given HTTP request (verb + path + parameters),
+what HTTP response should the application return?”</p>
+<h2 id="contributing">Contributing</h2>
+<ul>
+<li><a href="BUILD_DETAIL.md">Build details</a></li>
+<li><a href="CODE_OF_CONDUCT.md">Code of Conduct</a></li>
+<li><a href="CONTRIBUTING.md">Detailed contributing guide</a></li>
+</ul>
+<p>Once you’ve cloned the repo and <a href="DEVELOPMENT.md">set up the environment</a>,
+you can run the specs and Cucumber features, or submit a pull request.</p>
+<h2 id="see-also">See Also</h2>
+<h3 id="rspec-base-libraries">RSpec base libraries</h3>
+<ul>
+<li><a href="https://github.com/rspec/rspec">https://github.com/rspec/rspec</a></li>
+<li><a href="https://github.com/rspec/rspec-core">https://github.com/rspec/rspec-core</a></li>
+<li><a href="https://github.com/rspec/rspec-expectations">https://github.com/rspec/rspec-expectations</a></li>
+<li><a href="https://github.com/rspec/rspec-mocks">https://github.com/rspec/rspec-mocks</a></li>
+</ul>
+<h3 id="recommended-third-party-extensions">Recommended third-party extensions</h3>
+<ul>
+<li><a href="https://github.com/thoughtbot/factory_bot">FactoryBot</a></li>
+<li><a href="https://github.com/teamcapybara/capybara">Capybara</a>
+(Included by default in Rails 5.1+.
+Note that <a href="https://rubydoc.info/gems/rspec-rails/file/Capybara.md">additional configuration is required</a> to use the Capybara DSL
+anywhere other than system specs and feature specs.)</li>
+</ul>
+</div></div>
+      <div id="footer">
+  Generated on Tue Sep  3 13:12:40 2024 by
+  <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.9.36 (ruby-3.2.2).
+</div>
+    </div>
+  </body>
+</html>
