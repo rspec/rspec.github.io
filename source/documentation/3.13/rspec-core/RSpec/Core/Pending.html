@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
   Module: RSpec::Core::Pending
-    &mdash; Documentation by YARD 0.9.34
+    &mdash; Documentation by YARD 0.9.36
 </title>
   <link rel="stylesheet" href="/documentation/3.13/rspec-core/css/style.css" type="text/css" />
   <link rel="stylesheet" href="/documentation/3.13/rspec-core/css/common.css" type="text/css" />
@@ -71,7 +71,7 @@ to be called from within any example or hook.</p>
     <ul class="summary">
         <li class="public ">
   <span class="summary_signature">
-      <a href="#pending-instance_method" title="#pending (instance method)">#<strong>pending</strong>(message = nil)  &#x21d2; void </a>
+      <a href="#pending-instance_method" title="#pending (instance method)">#<strong>pending</strong>(message = nil, &amp;_block)  &#x21d2; void </a>
   </span>
     <span class="summary_desc"><div class='inline'><p>Marks an example as pending.</p>
 </div></span>
@@ -170,7 +170,7 @@ pending can be removed.</p>
     </td>
     <td>
       <pre class="code"><span class="info file"># File 'lib/rspec/core/pending.rb', line 62</span>
-<span class='kw'>def</span> <span class='id identifier rubyid_pending'>pending</span><span class='lparen'>(</span><span class='id identifier rubyid_message'>message</span><span class='op'>=</span><span class='kw'>nil</span><span class='rparen'>)</span>
+<span class='kw'>def</span> <span class='id identifier rubyid_pending'>pending</span><span class='lparen'>(</span><span class='id identifier rubyid_message'>message</span><span class='op'>=</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid__block'>_block</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_current_example'>current_example</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="../../RSpec.html" title="RSpec (module)">RSpec</a></span></span><span class='period'>.</span><span class='id identifier rubyid_current_example'><span class='object_link'><a href="../../RSpec.html#current_example-class_method" title="RSpec.current_example (method)">current_example</a></span></span>
   <span class='kw'>if</span> <span class='id identifier rubyid_block_given?'>block_given?</span>
     <span class='id identifier rubyid_raise'>raise</span> <span class='const'>ArgumentError</span><span class='comma'>,</span> <span class='heredoc_beg'>&lt;&lt;-EOS</span><span class='period'>.</span><span class='id identifier rubyid_gsub'>gsub</span><span class='lparen'>(</span><span class='tstring'><span class='regexp_beg'>/</span><span class='tstring_content'>^\s+\|</span><span class='regexp_end'>/</span></span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
@@ -267,9 +267,9 @@ pending can be removed.</p>
   </div>
 </div>
       <div id="footer">
-  Generated on Sun Feb  4 20:33:47 2024 by
+  Generated on Tue Sep  3 11:00:22 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.34 (ruby-3.2.2).
+  0.9.36 (ruby-3.2.2).
 </div>
     </div>
   </body>

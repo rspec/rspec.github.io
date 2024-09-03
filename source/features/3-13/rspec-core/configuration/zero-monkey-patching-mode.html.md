@@ -93,16 +93,13 @@ end
 
 _When_ I run `rspec spec/example_should_spec.rb`
 
-_Then_ the output should contain all of these:
+_Then_ the output should contain %R{undefined method (`|')should'}
 
-|                           |
-|---------------------------|
-| undefined method `should' |
-| unexpected message :stub  |
+_And_ the output should contain "unexpected message :stub"
 
 _When_ I run `rspec spec/example_describe_spec.rb`
 
-_Then_ the output should contain "undefined method `describe'".
+_Then_ the output should contain %R{undefined method (`|')describe'}.
 
 ## `allow` and `expect` syntax works with monkey patching
 

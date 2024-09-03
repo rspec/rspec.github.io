@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
   Class: RSpec::Core::Configuration
-    &mdash; Documentation by YARD 0.9.34
+    &mdash; Documentation by YARD 0.9.36
 </title>
   <link rel="stylesheet" href="/documentation/3.13/rspec-core/css/style.css" type="text/css" />
   <link rel="stylesheet" href="/documentation/3.13/rspec-core/css/common.css" type="text/css" />
@@ -750,7 +750,7 @@ filters that you want to be ignored if none match.</p>
   <span class="summary_signature">
       <a href="#raise_on_warning=-instance_method" title="#raise_on_warning= (instance method)">#<strong>raise_on_warning=</strong>(value)  &#x21d2; void </a>
   </span>
-    <span class="summary_desc"><div class='inline'><p>Turns warnings into errors.</p>
+    <span class="summary_desc"><div class='inline'><p>Turns RSpec warnings into errors.</p>
 </div></span>
 </li>
         <li class="public ">
@@ -2266,7 +2266,6 @@ with <code>:suite</code> are effectively ignored.</p>
   <tr>
     <td>
       <pre class="lines">
-2025
 2026
 2027
 2028
@@ -2279,10 +2278,11 @@ with <code>:suite</code> are effectively ignored.</p>
 2035
 2036
 2037
-2038</pre>
+2038
+2039</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/core/configuration.rb', line 2025</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/configuration.rb', line 2026</span>
 <span class='kw'>def</span> <span class='id identifier rubyid_after'>after</span><span class='lparen'>(</span><span class='id identifier rubyid_scope'>scope</span><span class='op'>=</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_meta'>meta</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_handle_suite_hook'>handle_suite_hook</span><span class='lparen'>(</span><span class='id identifier rubyid_scope'>scope</span><span class='comma'>,</span> <span class='id identifier rubyid_meta'>meta</span><span class='rparen'>)</span> <span class='kw'>do</span>
     <span class='ivar'>@after_suite_hooks</span><span class='period'>.</span><span class='id identifier rubyid_unshift'>unshift</span> <span class='const'><span class='object_link'><a href="Hooks.html" title="RSpec::Core::Hooks (module)">Hooks</a></span></span><span class='op'>::</span><span class='const'>AfterHook</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_block'>block</span><span class='comma'>,</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
@@ -2520,7 +2520,6 @@ with <code>:suite</code> are effectively ignored.</p>
   <tr>
     <td>
       <pre class="lines">
-2055
 2056
 2057
 2058
@@ -2533,10 +2532,11 @@ with <code>:suite</code> are effectively ignored.</p>
 2065
 2066
 2067
-2068</pre>
+2068
+2069</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/core/configuration.rb', line 2055</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/configuration.rb', line 2056</span>
 <span class='kw'>def</span> <span class='id identifier rubyid_append_after'>append_after</span><span class='lparen'>(</span><span class='id identifier rubyid_scope'>scope</span><span class='op'>=</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_meta'>meta</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_handle_suite_hook'>handle_suite_hook</span><span class='lparen'>(</span><span class='id identifier rubyid_scope'>scope</span><span class='comma'>,</span> <span class='id identifier rubyid_meta'>meta</span><span class='rparen'>)</span> <span class='kw'>do</span>
     <span class='ivar'>@after_suite_hooks</span> <span class='op'>&lt;&lt;</span> <span class='const'><span class='object_link'><a href="Hooks.html" title="RSpec::Core::Hooks (module)">Hooks</a></span></span><span class='op'>::</span><span class='const'>AfterHook</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_block'>block</span><span class='comma'>,</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
@@ -2568,7 +2568,6 @@ with <code>:suite</code> are effectively ignored.</p>
   <tr>
     <td>
       <pre class="lines">
-2073
 2074
 2075
 2076
@@ -2577,10 +2576,11 @@ with <code>:suite</code> are effectively ignored.</p>
 2079
 2080
 2081
-2082</pre>
+2082
+2083</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/core/configuration.rb', line 2073</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/configuration.rb', line 2074</span>
 <span class='kw'>def</span> <span class='id identifier rubyid_around'>around</span><span class='lparen'>(</span><span class='id identifier rubyid_scope'>scope</span><span class='op'>=</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_meta'>meta</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
   <span class='comment'># defeat Ruby 2.5 lazy proc allocation to ensure
 </span>  <span class='comment'># the methods below are passed the same proc instances
@@ -2757,7 +2757,6 @@ with <code>:suite</code> are effectively ignored.</p>
   <tr>
     <td>
       <pre class="lines">
-1970
 1971
 1972
 1973
@@ -2770,10 +2769,11 @@ with <code>:suite</code> are effectively ignored.</p>
 1980
 1981
 1982
-1983</pre>
+1983
+1984</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/core/configuration.rb', line 1970</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/configuration.rb', line 1971</span>
 <span class='kw'>def</span> <span class='id identifier rubyid_before'>before</span><span class='lparen'>(</span><span class='id identifier rubyid_scope'>scope</span><span class='op'>=</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_meta'>meta</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_handle_suite_hook'>handle_suite_hook</span><span class='lparen'>(</span><span class='id identifier rubyid_scope'>scope</span><span class='comma'>,</span> <span class='id identifier rubyid_meta'>meta</span><span class='rparen'>)</span> <span class='kw'>do</span>
     <span class='ivar'>@before_suite_hooks</span> <span class='op'>&lt;&lt;</span> <span class='const'><span class='object_link'><a href="Hooks.html" title="RSpec::Core::Hooks (module)">Hooks</a></span></span><span class='op'>::</span><span class='const'>BeforeHook</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_block'>block</span><span class='comma'>,</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
@@ -2952,13 +2952,13 @@ group. Mutate this in your block as needed.</p>
   <tr>
     <td>
       <pre class="lines">
-1894
 1895
 1896
-1897</pre>
+1897
+1898</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/core/configuration.rb', line 1894</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/configuration.rb', line 1895</span>
 <span class='kw'>def</span> <span class='id identifier rubyid_define_derived_metadata'>define_derived_metadata</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_filters'>filters</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_meta'>meta</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Metadata.html" title="RSpec::Core::Metadata (module)">Metadata</a></span></span><span class='period'>.</span><span class='id identifier rubyid_build_hash_from'>build_hash_from</span><span class='lparen'>(</span><span class='id identifier rubyid_filters'>filters</span><span class='comma'>,</span> <span class='symbol'>:warn_about_example_group_filtering</span><span class='rparen'>)</span>
   <span class='ivar'>@derived_metadata_blocks</span><span class='period'>.</span><span class='id identifier rubyid_append'>append</span><span class='lparen'>(</span><span class='id identifier rubyid_block'>block</span><span class='comma'>,</span> <span class='id identifier rubyid_meta'>meta</span><span class='rparen'>)</span>
@@ -3103,15 +3103,15 @@ the user is using.</p>
   <tr>
     <td>
       <pre class="lines">
-1867
 1868
 1869
 1870
 1871
-1872</pre>
+1872
+1873</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/core/configuration.rb', line 1867</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/configuration.rb', line 1868</span>
 <span class='kw'>def</span> <span class='id identifier rubyid_disable_monkey_patching!'>disable_monkey_patching!</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_expose_dsl_globally'>expose_dsl_globally</span> <span class='op'>=</span> <span class='kw'>false</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_disable_monkey_patching'>disable_monkey_patching</span> <span class='op'>=</span> <span class='kw'>true</span>
@@ -3404,17 +3404,17 @@ can be used to maintain compatibility.</p>
   <tr>
     <td>
       <pre class="lines">
-1805
 1806
 1807
 1808
 1809
 1810
 1811
-1812</pre>
+1812
+1813</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/core/configuration.rb', line 1805</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/configuration.rb', line 1806</span>
 <span class='kw'>def</span> <span class='id identifier rubyid_expose_current_running_example_as'>expose_current_running_example_as</span><span class='lparen'>(</span><span class='id identifier rubyid_method_name'>method_name</span><span class='rparen'>)</span>
   <span class='const'>ExposeCurrentExample</span><span class='period'>.</span><span class='id identifier rubyid_module_exec'>module_exec</span> <span class='kw'>do</span>
     <span class='id identifier rubyid_extend'>extend</span> <span class='const'><span class='object_link'><a href="../../RSpec.html" title="RSpec (module)">RSpec</a></span></span><span class='op'>::</span><span class='const'>SharedContext</span>
@@ -4374,12 +4374,12 @@ block, it will yield the configuration object to the block e.g.</p>
   <tr>
     <td>
       <pre class="lines">
-2108
 2109
-2110</pre>
+2110
+2111</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/core/configuration.rb', line 2108</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/configuration.rb', line 2109</span>
 <span class='kw'>def</span> <span class='id identifier rubyid_on_example_group_definition'>on_example_group_definition</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_on_example_group_definition_callbacks'>on_example_group_definition_callbacks</span> <span class='op'>&lt;&lt;</span> <span class='id identifier rubyid_block'>block</span>
 <span class='kw'>end</span></pre>
@@ -4404,12 +4404,12 @@ block, it will yield the configuration object to the block e.g.</p>
   <tr>
     <td>
       <pre class="lines">
-2114
 2115
-2116</pre>
+2116
+2117</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/core/configuration.rb', line 2114</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/configuration.rb', line 2115</span>
 <span class='kw'>def</span> <span class='id identifier rubyid_on_example_group_definition_callbacks'>on_example_group_definition_callbacks</span>
   <span class='ivar'>@on_example_group_definition_callbacks</span> <span class='op'>||=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
 <span class='kw'>end</span></pre>
@@ -4533,7 +4533,6 @@ with <code>:suite</code> are effectively ignored.</p>
   <tr>
     <td>
       <pre class="lines">
-2000
 2001
 2002
 2003
@@ -4546,10 +4545,11 @@ with <code>:suite</code> are effectively ignored.</p>
 2010
 2011
 2012
-2013</pre>
+2013
+2014</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/core/configuration.rb', line 2000</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/configuration.rb', line 2001</span>
 <span class='kw'>def</span> <span class='id identifier rubyid_prepend_before'>prepend_before</span><span class='lparen'>(</span><span class='id identifier rubyid_scope'>scope</span><span class='op'>=</span><span class='kw'>nil</span><span class='comma'>,</span> <span class='op'>*</span><span class='id identifier rubyid_meta'>meta</span><span class='comma'>,</span> <span class='op'>&amp;</span><span class='id identifier rubyid_block'>block</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_handle_suite_hook'>handle_suite_hook</span><span class='lparen'>(</span><span class='id identifier rubyid_scope'>scope</span><span class='comma'>,</span> <span class='id identifier rubyid_meta'>meta</span><span class='rparen'>)</span> <span class='kw'>do</span>
     <span class='ivar'>@before_suite_hooks</span><span class='period'>.</span><span class='id identifier rubyid_unshift'>unshift</span> <span class='const'><span class='object_link'><a href="Hooks.html" title="RSpec::Core::Hooks (module)">Hooks</a></span></span><span class='op'>::</span><span class='const'>BeforeHook</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_block'>block</span><span class='comma'>,</span> <span class='lbrace'>{</span><span class='rbrace'>}</span><span class='rparen'>)</span>
@@ -4590,12 +4590,12 @@ single-line call site normally provided.</p>
   <tr>
     <td>
       <pre class="lines">
-1827
 1828
-1829</pre>
+1829
+1830</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/core/configuration.rb', line 1827</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/configuration.rb', line 1828</span>
 <span class='kw'>def</span> <span class='id identifier rubyid_raise_errors_for_deprecations!'>raise_errors_for_deprecations!</span>
   <span class='kw'>self</span><span class='period'>.</span><span class='id identifier rubyid_deprecation_stream'>deprecation_stream</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Formatters.html" title="RSpec::Core::Formatters (module)">Formatters</a></span></span><span class='op'>::</span><span class='const'>DeprecationFormatter</span><span class='op'>::</span><span class='const'>RaiseErrorStream</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
 <span class='kw'>end</span></pre>
@@ -4608,8 +4608,9 @@ single-line call site normally provided.</p>
     #<strong>raise_on_warning=</strong>(value)  &#x21d2; <tt>void</tt> 
 </h3><div class="docstring">
   <div class="discussion">
-    <p>Turns warnings into errors. This can be useful when
-you want RSpec to run in a &#39;strict&#39; no warning situation.</p>
+    <p>Turns RSpec warnings into errors. This can be useful when
+you want RSpec to run in a &#39;strict&#39; no warning situation.
+(Note this does not capture or raise on Ruby warnings).</p>
   </div>
 </div>
 <div class="tags">
@@ -4624,16 +4625,16 @@ you want RSpec to run in a &#39;strict&#39; no warning situation.</p>
   <tr>
     <td>
       <pre class="lines">
-1775
 1776
 1777
 1778
 1779
 1780
-1781</pre>
+1781
+1782</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/core/configuration.rb', line 1775</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/configuration.rb', line 1776</span>
 <span class='kw'>def</span> <span class='id identifier rubyid_raise_on_warning='>raise_on_warning=</span><span class='lparen'>(</span><span class='id identifier rubyid_value'>value</span><span class='rparen'>)</span>
   <span class='kw'>if</span> <span class='id identifier rubyid_value'>value</span>
     <span class='const'><span class='object_link'><a href="../../RSpec.html" title="RSpec (module)">RSpec</a></span></span><span class='op'>::</span><span class='const'>Support</span><span class='period'>.</span><span class='id identifier rubyid_warning_notifier'>warning_notifier</span> <span class='op'>=</span> <span class='const'>RAISE_ERROR_WARNING_NOTIFIER</span>
@@ -4973,7 +4974,6 @@ but avoided otherwise.</p>
   <tr>
     <td>
       <pre class="lines">
-1917
 1918
 1919
 1920
@@ -4988,10 +4988,11 @@ but avoided otherwise.</p>
 1929
 1930
 1931
-1932</pre>
+1932
+1933</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/core/configuration.rb', line 1917</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/configuration.rb', line 1918</span>
 <span class='kw'>def</span> <span class='id identifier rubyid_when_first_matching_example_defined'>when_first_matching_example_defined</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_filters'>filters</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_specified_meta'>specified_meta</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Metadata.html" title="RSpec::Core::Metadata (module)">Metadata</a></span></span><span class='period'>.</span><span class='id identifier rubyid_build_hash_from'>build_hash_from</span><span class='lparen'>(</span><span class='id identifier rubyid_filters'>filters</span><span class='comma'>,</span> <span class='symbol'>:warn_about_example_group_filtering</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_callback'>callback</span> <span class='op'>=</span> <span class='id identifier rubyid_lambda'>lambda</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_example_or_group_meta'>example_or_group_meta</span><span class='op'>|</span>
@@ -5011,9 +5012,9 @@ but avoided otherwise.</p>
   </div>
 </div>
       <div id="footer">
-  Generated on Sun Feb  4 20:33:48 2024 by
+  Generated on Tue Sep  3 11:00:23 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.34 (ruby-3.2.2).
+  0.9.36 (ruby-3.2.2).
 </div>
     </div>
   </body>

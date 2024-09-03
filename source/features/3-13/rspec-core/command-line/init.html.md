@@ -12,11 +12,7 @@ Use the `--init` option on the command line to generate conventional files for
 
 _When_ I run `rspec --init`
 
-_Then_ the following files should exist:
-
-|        |
-|--------|
-| .rspec |
+_Then_ the file `.rspec` should exist
 
 _And_ the output should contain "create   .rspec".
 
