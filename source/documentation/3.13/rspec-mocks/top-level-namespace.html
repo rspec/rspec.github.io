@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
   Top Level Namespace
-    &mdash; Documentation by YARD 0.9.34
+    &mdash; Documentation by YARD 0.9.37
 </title>
   <link rel="stylesheet" href="/documentation/3.13/rspec-mocks/css/style.css" type="text/css" />
   <link rel="stylesheet" href="/documentation/3.13/rspec-mocks/css/common.css" type="text/css" />
@@ -212,7 +212,7 @@ the end of the example.</p>
 </div>
 <div class="tags">
   <div class="examples">
-    <p class="tag_title">Examples:</p>
+    <h4 class="tag_title">Examples:</h4>
       <pre class="example code"><code><span class='id identifier rubyid_logger'>logger</span> <span class='op'>=</span> <span class='id identifier rubyid_double'><span class='object_link'><a href="RSpec/Mocks/ExampleMethods.html#double-instance_method" title="RSpec::Mocks::ExampleMethods#double (method)">double</a></span></span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>logger</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span>
 <span class='id identifier rubyid_thing_that_logs'>thing_that_logs</span> <span class='op'>=</span> <span class='const'>ThingThatLogs</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span><span class='lparen'>(</span><span class='id identifier rubyid_logger'>logger</span><span class='rparen'>)</span>
 <span class='id identifier rubyid_logger'>logger</span><span class='period'>.</span><span class='id identifier rubyid_should_receive'>should_receive</span><span class='lparen'>(</span><span class='symbol'>:log</span><span class='rparen'>)</span>
@@ -250,7 +250,7 @@ the end of the example.</p>
 </div>
 <div class="tags">
   <div class="examples">
-    <p class="tag_title">Examples:</p>
+    <h4 class="tag_title">Examples:</h4>
       <pre class="example code"><code><span class='id identifier rubyid_counter'>counter</span><span class='period'>.</span><span class='id identifier rubyid_stub'>stub</span><span class='lparen'>(</span><span class='symbol'>:count</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_and_return'>and_return</span><span class='lparen'>(</span><span class='int'>37</span><span class='rparen'>)</span>
 <span class='id identifier rubyid_counter'>counter</span><span class='period'>.</span><span class='id identifier rubyid_stub'>stub</span><span class='lparen'>(</span><span class='symbol'>:count</span> <span class='op'>=&gt;</span> <span class='int'>37</span><span class='rparen'>)</span>
 <span class='id identifier rubyid_counter'>counter</span><span class='period'>.</span><span class='id identifier rubyid_stub'>stub</span><span class='lparen'>(</span><span class='symbol'>:count</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='int'>37</span> <span class='rbrace'>}</span></code></pre>
@@ -297,7 +297,7 @@ implementation calls <code>foo.baz.bar</code>, the stub will not work.</p>
 </div>
 <div class="tags">
   <div class="examples">
-    <p class="tag_title">Examples:</p>
+    <h4 class="tag_title">Examples:</h4>
       <pre class="example code"><code><span class='id identifier rubyid_double'><span class='object_link'><a href="RSpec/Mocks/ExampleMethods.html#double-instance_method" title="RSpec::Mocks::ExampleMethods#double (method)">double</a></span></span><span class='period'>.</span><span class='id identifier rubyid_stub_chain'>stub_chain</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>foo.bar</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='symbol'>:baz</span> <span class='rbrace'>}</span>
 <span class='id identifier rubyid_double'><span class='object_link'><a href="RSpec/Mocks/ExampleMethods.html#double-instance_method" title="RSpec::Mocks::ExampleMethods#double (method)">double</a></span></span><span class='period'>.</span><span class='id identifier rubyid_stub_chain'>stub_chain</span><span class='lparen'>(</span><span class='symbol'>:foo</span><span class='comma'>,</span> <span class='symbol'>:bar</span> <span class='op'>=&gt;</span> <span class='symbol'>:baz</span><span class='rparen'>)</span>
 <span class='id identifier rubyid_double'><span class='object_link'><a href="RSpec/Mocks/ExampleMethods.html#double-instance_method" title="RSpec::Mocks::ExampleMethods#double (method)">double</a></span></span><span class='period'>.</span><span class='id identifier rubyid_stub_chain'>stub_chain</span><span class='lparen'>(</span><span class='symbol'>:foo</span><span class='comma'>,</span> <span class='symbol'>:bar</span><span class='rparen'>)</span> <span class='lbrace'>{</span> <span class='symbol'>:baz</span> <span class='rbrace'>}</span>
@@ -359,9 +359,9 @@ for a special case.</p>
   </div>
 </div>
       <div id="footer">
-  Generated on Sun Feb  4 20:34:25 2024 by
+  Generated on Wed Sep  4 15:23:12 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.34 (ruby-3.2.2).
+  0.9.37 (ruby-3.2.2).
 </div>
     </div>
   </body>

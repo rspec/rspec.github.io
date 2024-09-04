@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
   Module: RSpec::Mocks::ArgumentMatchers
-    &mdash; Documentation by YARD 0.9.34
+    &mdash; Documentation by YARD 0.9.37
 </title>
   <link rel="stylesheet" href="/documentation/3.13/rspec-mocks/css/style.css" type="text/css" />
   <link rel="stylesheet" href="/documentation/3.13/rspec-mocks/css/common.css" type="text/css" />
@@ -166,7 +166,7 @@ the arg in same position in the argument list.</p>
 </div>
 <div class="tags">
   <div class="examples">
-    <p class="tag_title">Examples:</p>
+    <h4 class="tag_title">Examples:</h4>
       <pre class="example code"><code><span class='id identifier rubyid_expect'><span class='object_link'><a href="ExampleMethods.html#expect-instance_method" title="RSpec::Mocks::ExampleMethods#expect (method)">expect</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_object'>object</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_receive'><span class='object_link'><a href="ExampleMethods.html#receive-instance_method" title="RSpec::Mocks::ExampleMethods#receive (method)">receive</a></span></span><span class='lparen'>(</span><span class='symbol'>:message</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_with'>with</span><span class='lparen'>(</span><span class='int'>1</span><span class='comma'>,</span> <span class='int'>2</span><span class='comma'>,</span> <span class='id identifier rubyid_any_args'>any_args</span><span class='rparen'>)</span>
 <span class='comment'># matches any of these:
 </span><span class='id identifier rubyid_object'>object</span><span class='period'>.</span><span class='id identifier rubyid_message'>message</span><span class='lparen'>(</span><span class='int'>1</span><span class='comma'>,</span> <span class='int'>2</span><span class='rparen'>)</span>
@@ -200,7 +200,7 @@ the arg in same position in the argument list.</p>
 </div>
 <div class="tags">
   <div class="examples">
-    <p class="tag_title">Examples:</p>
+    <h4 class="tag_title">Examples:</h4>
       <pre class="example code"><code><span class='id identifier rubyid_expect'><span class='object_link'><a href="ExampleMethods.html#expect-instance_method" title="RSpec::Mocks::ExampleMethods#expect (method)">expect</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_object'>object</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_receive'><span class='object_link'><a href="ExampleMethods.html#receive-instance_method" title="RSpec::Mocks::ExampleMethods#receive (method)">receive</a></span></span><span class='lparen'>(</span><span class='symbol'>:message</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_with'>with</span><span class='lparen'>(</span><span class='id identifier rubyid_anything'>anything</span><span class='rparen'>)</span></code></pre>
   </div>
 </div><table class="source_code">
@@ -230,7 +230,7 @@ the arg in same position in the argument list.</p>
 </div>
 <div class="tags">
   <div class="examples">
-    <p class="tag_title">Examples:</p>
+    <h4 class="tag_title">Examples:</h4>
       <pre class="example code"><code><span class='id identifier rubyid_expect'><span class='object_link'><a href="ExampleMethods.html#expect-instance_method" title="RSpec::Mocks::ExampleMethods#expect (method)">expect</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_object'>object</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_receive'><span class='object_link'><a href="ExampleMethods.html#receive-instance_method" title="RSpec::Mocks::ExampleMethods#receive (method)">receive</a></span></span><span class='lparen'>(</span><span class='symbol'>:message</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_with'>with</span><span class='lparen'>(</span><span class='id identifier rubyid_array_excluding'>array_excluding</span><span class='lparen'>(</span><span class='int'>1</span><span class='comma'>,</span><span class='int'>2</span><span class='comma'>,</span><span class='int'>3</span><span class='rparen'>)</span><span class='rparen'>)</span>
 <span class='id identifier rubyid_expect'><span class='object_link'><a href="ExampleMethods.html#expect-instance_method" title="RSpec::Mocks::ExampleMethods#expect (method)">expect</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_object'>object</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_receive'><span class='object_link'><a href="ExampleMethods.html#receive-instance_method" title="RSpec::Mocks::ExampleMethods#receive (method)">receive</a></span></span><span class='lparen'>(</span><span class='symbol'>:message</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_with'>with</span><span class='lparen'>(</span><span class='id identifier rubyid_array_excluding'>array_excluding</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='int'>1</span><span class='comma'>,</span><span class='int'>2</span><span class='comma'>,</span><span class='int'>3</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='rparen'>)</span></code></pre>
   </div>
@@ -264,7 +264,7 @@ Ignores duplicates and additional values</p>
 </div>
 <div class="tags">
   <div class="examples">
-    <p class="tag_title">Examples:</p>
+    <h4 class="tag_title">Examples:</h4>
       <pre class="example code"><code><span class='id identifier rubyid_expect'><span class='object_link'><a href="ExampleMethods.html#expect-instance_method" title="RSpec::Mocks::ExampleMethods#expect (method)">expect</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_object'>object</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_receive'><span class='object_link'><a href="ExampleMethods.html#receive-instance_method" title="RSpec::Mocks::ExampleMethods#receive (method)">receive</a></span></span><span class='lparen'>(</span><span class='symbol'>:message</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_with'>with</span><span class='lparen'>(</span><span class='id identifier rubyid_array_including'>array_including</span><span class='lparen'>(</span><span class='int'>1</span><span class='comma'>,</span><span class='int'>2</span><span class='comma'>,</span><span class='int'>3</span><span class='rparen'>)</span><span class='rparen'>)</span>
 <span class='id identifier rubyid_expect'><span class='object_link'><a href="ExampleMethods.html#expect-instance_method" title="RSpec::Mocks::ExampleMethods#expect (method)">expect</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_object'>object</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_receive'><span class='object_link'><a href="ExampleMethods.html#receive-instance_method" title="RSpec::Mocks::ExampleMethods#receive (method)">receive</a></span></span><span class='lparen'>(</span><span class='symbol'>:message</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_with'>with</span><span class='lparen'>(</span><span class='id identifier rubyid_array_including'>array_including</span><span class='lparen'>(</span><span class='lbracket'>[</span><span class='int'>1</span><span class='comma'>,</span><span class='int'>2</span><span class='comma'>,</span><span class='int'>3</span><span class='rbracket'>]</span><span class='rparen'>)</span><span class='rparen'>)</span></code></pre>
   </div>
@@ -297,7 +297,7 @@ Ignores duplicates and additional values</p>
 </div>
 <div class="tags">
   <div class="examples">
-    <p class="tag_title">Examples:</p>
+    <h4 class="tag_title">Examples:</h4>
       <pre class="example code"><code><span class='id identifier rubyid_expect'><span class='object_link'><a href="ExampleMethods.html#expect-instance_method" title="RSpec::Mocks::ExampleMethods#expect (method)">expect</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_object'>object</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_receive'><span class='object_link'><a href="ExampleMethods.html#receive-instance_method" title="RSpec::Mocks::ExampleMethods#receive (method)">receive</a></span></span><span class='lparen'>(</span><span class='symbol'>:message</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_with'>with</span><span class='lparen'>(</span><span class='id identifier rubyid_boolean'>boolean</span><span class='lparen'>(</span><span class='rparen'>)</span><span class='rparen'>)</span></code></pre>
   </div>
 </div><table class="source_code">
@@ -327,7 +327,7 @@ Ignores duplicates and additional values</p>
 </div>
 <div class="tags">
   <div class="examples">
-    <p class="tag_title">Examples:</p>
+    <h4 class="tag_title">Examples:</h4>
       <pre class="example code"><code><span class='id identifier rubyid_expect'><span class='object_link'><a href="ExampleMethods.html#expect-instance_method" title="RSpec::Mocks::ExampleMethods#expect (method)">expect</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_object'>object</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_receive'><span class='object_link'><a href="ExampleMethods.html#receive-instance_method" title="RSpec::Mocks::ExampleMethods#receive (method)">receive</a></span></span><span class='lparen'>(</span><span class='symbol'>:message</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_with'>with</span><span class='lparen'>(</span><span class='id identifier rubyid_duck_type'>duck_type</span><span class='lparen'>(</span><span class='symbol'>:hello</span><span class='rparen'>)</span><span class='rparen'>)</span>
 <span class='id identifier rubyid_expect'><span class='object_link'><a href="ExampleMethods.html#expect-instance_method" title="RSpec::Mocks::ExampleMethods#expect (method)">expect</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_object'>object</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_receive'><span class='object_link'><a href="ExampleMethods.html#receive-instance_method" title="RSpec::Mocks::ExampleMethods#receive (method)">receive</a></span></span><span class='lparen'>(</span><span class='symbol'>:message</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_with'>with</span><span class='lparen'>(</span><span class='id identifier rubyid_duck_type'>duck_type</span><span class='lparen'>(</span><span class='symbol'>:hello</span><span class='comma'>,</span> <span class='symbol'>:goodbye</span><span class='rparen'>)</span><span class='rparen'>)</span></code></pre>
   </div>
@@ -361,7 +361,7 @@ Ignores duplicates and additional values</p>
 </div>
 <div class="tags">
   <div class="examples">
-    <p class="tag_title">Examples:</p>
+    <h4 class="tag_title">Examples:</h4>
       <pre class="example code"><code><span class='id identifier rubyid_expect'><span class='object_link'><a href="ExampleMethods.html#expect-instance_method" title="RSpec::Mocks::ExampleMethods#expect (method)">expect</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_object'>object</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_receive'><span class='object_link'><a href="ExampleMethods.html#receive-instance_method" title="RSpec::Mocks::ExampleMethods#receive (method)">receive</a></span></span><span class='lparen'>(</span><span class='symbol'>:message</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_with'>with</span><span class='lparen'>(</span><span class='id identifier rubyid_hash_excluding'>hash_excluding</span><span class='lparen'>(</span><span class='symbol'>:key</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_val'>val</span><span class='rparen'>)</span><span class='rparen'>)</span>
 <span class='id identifier rubyid_expect'><span class='object_link'><a href="ExampleMethods.html#expect-instance_method" title="RSpec::Mocks::ExampleMethods#expect (method)">expect</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_object'>object</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_receive'><span class='object_link'><a href="ExampleMethods.html#receive-instance_method" title="RSpec::Mocks::ExampleMethods#receive (method)">receive</a></span></span><span class='lparen'>(</span><span class='symbol'>:message</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_with'>with</span><span class='lparen'>(</span><span class='id identifier rubyid_hash_excluding'>hash_excluding</span><span class='lparen'>(</span><span class='symbol'>:key</span><span class='rparen'>)</span><span class='rparen'>)</span>
 <span class='id identifier rubyid_expect'><span class='object_link'><a href="ExampleMethods.html#expect-instance_method" title="RSpec::Mocks::ExampleMethods#expect (method)">expect</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_object'>object</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_receive'><span class='object_link'><a href="ExampleMethods.html#receive-instance_method" title="RSpec::Mocks::ExampleMethods#receive (method)">receive</a></span></span><span class='lparen'>(</span><span class='symbol'>:message</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_with'>with</span><span class='lparen'>(</span><span class='id identifier rubyid_hash_excluding'>hash_excluding</span><span class='lparen'>(</span><span class='symbol'>:key</span><span class='comma'>,</span> <span class='symbol'>:key2</span> <span class='op'>=&gt;</span> <span class='symbol'>:val2</span><span class='rparen'>)</span><span class='rparen'>)</span></code></pre>
@@ -394,7 +394,7 @@ Ignores any additional keys.</p>
 </div>
 <div class="tags">
   <div class="examples">
-    <p class="tag_title">Examples:</p>
+    <h4 class="tag_title">Examples:</h4>
       <pre class="example code"><code><span class='id identifier rubyid_expect'><span class='object_link'><a href="ExampleMethods.html#expect-instance_method" title="RSpec::Mocks::ExampleMethods#expect (method)">expect</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_object'>object</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_receive'><span class='object_link'><a href="ExampleMethods.html#receive-instance_method" title="RSpec::Mocks::ExampleMethods#receive (method)">receive</a></span></span><span class='lparen'>(</span><span class='symbol'>:message</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_with'>with</span><span class='lparen'>(</span><span class='id identifier rubyid_hash_including'>hash_including</span><span class='lparen'>(</span><span class='symbol'>:key</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_val'>val</span><span class='rparen'>)</span><span class='rparen'>)</span>
 <span class='id identifier rubyid_expect'><span class='object_link'><a href="ExampleMethods.html#expect-instance_method" title="RSpec::Mocks::ExampleMethods#expect (method)">expect</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_object'>object</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_receive'><span class='object_link'><a href="ExampleMethods.html#receive-instance_method" title="RSpec::Mocks::ExampleMethods#receive (method)">receive</a></span></span><span class='lparen'>(</span><span class='symbol'>:message</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_with'>with</span><span class='lparen'>(</span><span class='id identifier rubyid_hash_including'>hash_including</span><span class='lparen'>(</span><span class='symbol'>:key</span><span class='rparen'>)</span><span class='rparen'>)</span>
 <span class='id identifier rubyid_expect'><span class='object_link'><a href="ExampleMethods.html#expect-instance_method" title="RSpec::Mocks::ExampleMethods#expect (method)">expect</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_object'>object</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_receive'><span class='object_link'><a href="ExampleMethods.html#receive-instance_method" title="RSpec::Mocks::ExampleMethods#receive (method)">receive</a></span></span><span class='lparen'>(</span><span class='symbol'>:message</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_with'>with</span><span class='lparen'>(</span><span class='id identifier rubyid_hash_including'>hash_including</span><span class='lparen'>(</span><span class='symbol'>:key</span><span class='comma'>,</span> <span class='symbol'>:key2</span> <span class='op'>=&gt;</span> <span class='id identifier rubyid_val2'>val2</span><span class='rparen'>)</span><span class='rparen'>)</span></code></pre>
@@ -429,7 +429,7 @@ Ignores any additional keys.</p>
 </div>
 <div class="tags">
   <div class="examples">
-    <p class="tag_title">Examples:</p>
+    <h4 class="tag_title">Examples:</h4>
       <pre class="example code"><code><span class='id identifier rubyid_expect'><span class='object_link'><a href="ExampleMethods.html#expect-instance_method" title="RSpec::Mocks::ExampleMethods#expect (method)">expect</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_object'>object</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_receive'><span class='object_link'><a href="ExampleMethods.html#receive-instance_method" title="RSpec::Mocks::ExampleMethods#receive (method)">receive</a></span></span><span class='lparen'>(</span><span class='symbol'>:message</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_with'>with</span><span class='lparen'>(</span><span class='id identifier rubyid_instance_of'>instance_of</span><span class='lparen'>(</span><span class='const'>Thing</span><span class='rparen'>)</span><span class='rparen'>)</span></code></pre>
   </div>
 </div><table class="source_code">
@@ -462,7 +462,7 @@ Ignores any additional keys.</p>
 </div>
 <div class="tags">
   <div class="examples">
-    <p class="tag_title">Examples:</p>
+    <h4 class="tag_title">Examples:</h4>
       <pre class="example code"><code><span class='id identifier rubyid_expect'><span class='object_link'><a href="ExampleMethods.html#expect-instance_method" title="RSpec::Mocks::ExampleMethods#expect (method)">expect</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_object'>object</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_receive'><span class='object_link'><a href="ExampleMethods.html#receive-instance_method" title="RSpec::Mocks::ExampleMethods#receive (method)">receive</a></span></span><span class='lparen'>(</span><span class='symbol'>:message</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_with'>with</span><span class='lparen'>(</span><span class='id identifier rubyid_kind_of'>kind_of</span><span class='lparen'>(</span><span class='const'>Thing</span><span class='rparen'>)</span><span class='rparen'>)</span></code></pre>
   </div>
 </div><table class="source_code">
@@ -492,7 +492,7 @@ Ignores any additional keys.</p>
 </div>
 <div class="tags">
   <div class="examples">
-    <p class="tag_title">Examples:</p>
+    <h4 class="tag_title">Examples:</h4>
       <pre class="example code"><code><span class='id identifier rubyid_expect'><span class='object_link'><a href="ExampleMethods.html#expect-instance_method" title="RSpec::Mocks::ExampleMethods#expect (method)">expect</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_object'>object</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_receive'><span class='object_link'><a href="ExampleMethods.html#receive-instance_method" title="RSpec::Mocks::ExampleMethods#receive (method)">receive</a></span></span><span class='lparen'>(</span><span class='symbol'>:message</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_with'>with</span><span class='lparen'>(</span><span class='id identifier rubyid_no_args'>no_args</span><span class='rparen'>)</span></code></pre>
   </div>
 </div><table class="source_code">
@@ -515,9 +515,9 @@ Ignores any additional keys.</p>
   </div>
 </div>
       <div id="footer">
-  Generated on Sun Feb  4 20:34:25 2024 by
+  Generated on Wed Sep  4 15:23:12 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.34 (ruby-3.2.2).
+  0.9.37 (ruby-3.2.2).
 </div>
     </div>
   </body>
