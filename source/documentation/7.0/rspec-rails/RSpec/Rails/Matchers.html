@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
   Module: RSpec::Rails::Matchers
-    &mdash; Documentation by YARD 0.9.36
+    &mdash; Documentation by YARD 0.9.37
 </title>
   <link rel="stylesheet" href="/documentation/7.0/rspec-rails/css/style.css" type="text/css" />
   <link rel="stylesheet" href="/documentation/7.0/rspec-rails/css/common.css" type="text/css" />
@@ -173,7 +173,7 @@ new record.</p>
 </div>
 <div class="tags">
   <div class="examples">
-    <p class="tag_title">Examples:</p>
+    <h4 class="tag_title">Examples:</h4>
       <pre class="example code"><code><span class='id identifier rubyid_get'>get</span> <span class='symbol'>:new</span>
 <span class='id identifier rubyid_assigns'>assigns</span><span class='lparen'>(</span><span class='symbol'>:thing</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_should'>should</span> <span class='id identifier rubyid_be_a_new'>be_a_new</span><span class='lparen'>(</span><span class='const'>Thing</span><span class='rparen'>)</span>
 <span class='id identifier rubyid_post'>post</span> <span class='symbol'>:create</span><span class='comma'>,</span> <span class='symbol'>:thing</span> <span class='op'>=&gt;</span> <span class='lbrace'>{</span> <span class='symbol'>:name</span> <span class='op'>=&gt;</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Illegal Value</span><span class='tstring_end'>&quot;</span></span> <span class='rbrace'>}</span>
@@ -206,7 +206,7 @@ new record.</p>
 </div>
 <div class="tags">
   <div class="examples">
-    <p class="tag_title">Examples:</p>
+    <h4 class="tag_title">Examples:</h4>
       <pre class="example code"><code><span class='id identifier rubyid_get'>get</span> <span class='symbol'>:new</span>
 <span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_assigns'>assigns</span><span class='lparen'>(</span><span class='symbol'>:thing</span><span class='rparen'>)</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_be_new_record'>be_new_record</span></code></pre>
   </div>
@@ -239,7 +239,7 @@ message is not given, a default message is shown listing each error.</p>
 </div>
 <div class="tags">
   <div class="examples">
-    <p class="tag_title">Examples:</p>
+    <h4 class="tag_title">Examples:</h4>
       <pre class="example code"><code><span class='id identifier rubyid_thing'>thing</span> <span class='op'>=</span> <span class='const'>Thing</span><span class='period'>.</span><span class='id identifier rubyid_new'>new</span>
 <span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_thing'>thing</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_be_valid'>be_valid</span></code></pre>
   </div>
@@ -270,7 +270,7 @@ message is not given, a default message is shown listing each error.</p>
 </div>
 <div class="tags">
   <div class="examples">
-    <p class="tag_title">Examples:</p>
+    <h4 class="tag_title">Examples:</h4>
       <pre class="example code"><code><span class='id identifier rubyid_before'>before</span> <span class='lbrace'>{</span> <span class='const'><span class='object_link'><a href="Matchers/ActiveJob.html" title="RSpec::Rails::Matchers::ActiveJob (module)">ActiveJob</a></span></span><span class='op'>::</span><span class='const'>Base</span><span class='period'>.</span><span class='id identifier rubyid_queue_adapter'>queue_adapter</span><span class='period'>.</span><span class='id identifier rubyid_enqueued_jobs'>enqueued_jobs</span><span class='period'>.</span><span class='id identifier rubyid_clear'>clear</span> <span class='rbrace'>}</span>
 <span class='const'>HeavyLiftingJob</span><span class='period'>.</span><span class='id identifier rubyid_perform_later'>perform_later</span>
 <span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='const'>HeavyLiftingJob</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_have_been_enqueued'>have_been_enqueued</span>
@@ -319,7 +319,7 @@ message is not given, a default message is shown listing each error.</p>
 </div>
 <div class="tags">
   <div class="examples">
-    <p class="tag_title">Examples:</p>
+    <h4 class="tag_title">Examples:</h4>
       <pre class="example code"><code><span class='id identifier rubyid_before'>before</span> <span class='kw'>do</span>
   <span class='const'><span class='object_link'><a href="Matchers/ActiveJob.html" title="RSpec::Rails::Matchers::ActiveJob (module)">ActiveJob</a></span></span><span class='op'>::</span><span class='const'>Base</span><span class='period'>.</span><span class='id identifier rubyid_queue_adapter'>queue_adapter</span><span class='period'>.</span><span class='id identifier rubyid_performed_jobs'>performed_jobs</span><span class='period'>.</span><span class='id identifier rubyid_clear'>clear</span>
   <span class='const'><span class='object_link'><a href="Matchers/ActiveJob.html" title="RSpec::Rails::Matchers::ActiveJob (module)">ActiveJob</a></span></span><span class='op'>::</span><span class='const'>Base</span><span class='period'>.</span><span class='id identifier rubyid_queue_adapter'>queue_adapter</span><span class='period'>.</span><span class='id identifier rubyid_perform_enqueued_jobs'>perform_enqueued_jobs</span> <span class='op'>=</span> <span class='kw'>true</span>
@@ -373,7 +373,7 @@ To specify channel from which message has been broadcasted to object use <code>f
 </div>
 <div class="tags">
   <div class="examples">
-    <p class="tag_title">Examples:</p>
+    <h4 class="tag_title">Examples:</h4>
       <pre class="example code"><code><span class='id identifier rubyid_expect'>expect</span> <span class='lbrace'>{</span>
   <span class='const'><span class='object_link'><a href="Matchers/ActionCable.html" title="RSpec::Rails::Matchers::ActionCable (module)">ActionCable</a></span></span><span class='period'>.</span><span class='id identifier rubyid_server'>server</span><span class='period'>.</span><span class='id identifier rubyid_broadcast'>broadcast</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>messages</span><span class='tstring_end'>&quot;</span></span><span class='comma'>,</span> <span class='label'>text:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Hi!</span><span class='tstring_end'>&#39;</span></span>
 <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_have_broadcasted_to'>have_broadcasted_to</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>messages</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
@@ -431,7 +431,7 @@ To specify channel from which message has been broadcasted to object use <code>f
 </div>
 <div class="tags">
   <div class="examples">
-    <p class="tag_title">Examples:</p>
+    <h4 class="tag_title">Examples:</h4>
       <pre class="example code"><code><span class='id identifier rubyid_expect'>expect</span> <span class='lbrace'>{</span>
   <span class='const'>HeavyLiftingJob</span><span class='period'>.</span><span class='id identifier rubyid_perform_later'>perform_later</span>
 <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_have_enqueued_job'>have_enqueued_job</span>
@@ -502,7 +502,7 @@ May chain on_queue to specify a queue.</p>
 </div>
 <div class="tags">
   <div class="examples">
-    <p class="tag_title">Examples:</p>
+    <h4 class="tag_title">Examples:</h4>
       <pre class="example code"><code><span class='id identifier rubyid_expect'>expect</span> <span class='lbrace'>{</span>
   <span class='const'>MyMailer</span><span class='period'>.</span><span class='id identifier rubyid_welcome'>welcome</span><span class='lparen'>(</span><span class='id identifier rubyid_user'>user</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_deliver_later'>deliver_later</span>
 <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_have_enqueued_mail'>have_enqueued_mail</span>
@@ -571,17 +571,17 @@ May chain on_queue to specify a queue.</p>
 </div>
 <div class="tags">
   <div class="examples">
-    <p class="tag_title">Examples:</p>
-        <p class="example_title"><div class='inline'><p>Accepts numeric and symbol statuses</p>
-</div></p>
+    <h4 class="tag_title">Examples:</h4>
+        <h5 class="example_title"><div class='inline'><p>Accepts numeric and symbol statuses</p>
+</div></h5>
       <pre class="example code"><code><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_have_http_status'>have_http_status</span><span class='lparen'>(</span><span class='int'>404</span><span class='rparen'>)</span>
 <span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_have_http_status'>have_http_status</span><span class='lparen'>(</span><span class='symbol'>:created</span><span class='rparen'>)</span>
 <span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_have_http_status'>have_http_status</span><span class='lparen'>(</span><span class='symbol'>:success</span><span class='rparen'>)</span>
 <span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_have_http_status'>have_http_status</span><span class='lparen'>(</span><span class='symbol'>:error</span><span class='rparen'>)</span>
 <span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_have_http_status'>have_http_status</span><span class='lparen'>(</span><span class='symbol'>:missing</span><span class='rparen'>)</span>
 <span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_have_http_status'>have_http_status</span><span class='lparen'>(</span><span class='symbol'>:redirect</span><span class='rparen'>)</span></code></pre>
-        <p class="example_title"><div class='inline'><p>Works with standard <code>response</code> objects and Capybara&#39;s <code>page</code></p>
-</div></p>
+        <h5 class="example_title"><div class='inline'><p>Works with standard <code>response</code> objects and Capybara&#39;s <code>page</code></p>
+</div></h5>
       <pre class="example code"><code><span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_response'>response</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_have_http_status'>have_http_status</span><span class='lparen'>(</span><span class='int'>404</span><span class='rparen'>)</span>
 <span class='id identifier rubyid_expect'>expect</span><span class='lparen'>(</span><span class='id identifier rubyid_page'>page</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span>     <span class='id identifier rubyid_have_http_status'>have_http_status</span><span class='lparen'>(</span><span class='symbol'>:created</span><span class='rparen'>)</span></code></pre>
   </div>
@@ -629,7 +629,7 @@ May chain on_queue to specify a queue.</p>
 </div>
 <div class="tags">
   <div class="examples">
-    <p class="tag_title">Examples:</p>
+    <h4 class="tag_title">Examples:</h4>
       <pre class="example code"><code><span class='id identifier rubyid_expect'>expect</span> <span class='lbrace'>{</span>
   <span class='id identifier rubyid_perform_enqueued_jobs'>perform_enqueued_jobs</span> <span class='lbrace'>{</span> <span class='const'>HeavyLiftingJob</span><span class='period'>.</span><span class='id identifier rubyid_perform_later'>perform_later</span> <span class='rbrace'>}</span>
 <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_have_performed_job'>have_performed_job</span>
@@ -723,15 +723,15 @@ attributes used to build one</p>
 </div>
 <div class="tags">
   <div class="examples">
-    <p class="tag_title">Examples:</p>
-        <p class="example_title"><div class='inline'><p>Positive expectation</p>
-</div></p>
+    <h4 class="tag_title">Examples:</h4>
+        <h5 class="example_title"><div class='inline'><p>Positive expectation</p>
+</div></h5>
       <pre class="example code"><code><span class='id identifier rubyid_expect'>expect</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_action'>action</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_send_email'>send_email</span></code></pre>
-        <p class="example_title"><div class='inline'><p>Negative expectations</p>
-</div></p>
+        <h5 class="example_title"><div class='inline'><p>Negative expectations</p>
+</div></h5>
       <pre class="example code"><code><span class='id identifier rubyid_expect'>expect</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_action'>action</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_not_to'>not_to</span> <span class='id identifier rubyid_send_email'>send_email</span></code></pre>
-        <p class="example_title"><div class='inline'><p>More precise expectation with attributes to match</p>
-</div></p>
+        <h5 class="example_title"><div class='inline'><p>More precise expectation with attributes to match</p>
+</div></h5>
       <pre class="example code"><code><span class='id identifier rubyid_expect'>expect</span> <span class='lbrace'>{</span> <span class='id identifier rubyid_action'>action</span> <span class='rbrace'>}</span><span class='period'>.</span><span class='id identifier rubyid_to'>to</span> <span class='id identifier rubyid_send_email'>send_email</span><span class='lparen'>(</span><span class='label'>to:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>test@example.com</span><span class='tstring_end'>&#39;</span></span><span class='comma'>,</span> <span class='label'>subject:</span> <span class='tstring'><span class='tstring_beg'>&#39;</span><span class='tstring_content'>Confirm email</span><span class='tstring_end'>&#39;</span></span><span class='rparen'>)</span></code></pre>
   </div>
 </div><table class="source_code">
@@ -754,9 +754,9 @@ attributes used to build one</p>
   </div>
 </div>
       <div id="footer">
-  Generated on Tue Sep  3 13:12:40 2024 by
+  Generated on Wed Sep  4 12:48:49 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.36 (ruby-3.2.2).
+  0.9.37 (ruby-3.2.2).
 </div>
     </div>
   </body>
