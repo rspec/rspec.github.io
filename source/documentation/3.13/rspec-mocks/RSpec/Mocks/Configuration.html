@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
   Class: RSpec::Mocks::Configuration
-    &mdash; Documentation by YARD 0.9.34
+    &mdash; Documentation by YARD 0.9.37
 </title>
   <link rel="stylesheet" href="/documentation/3.13/rspec-mocks/css/style.css" type="text/css" />
   <link rel="stylesheet" href="/documentation/3.13/rspec-mocks/css/common.css" type="text/css" />
@@ -273,7 +273,7 @@ When set to <code>false</code>, it will raise an error.</p>
 </div>
 <div class="tags">
   <div class="examples">
-    <p class="tag_title">Examples:</p>
+    <h4 class="tag_title">Examples:</h4>
       <pre class="example code"><code><span class='const'><span class='object_link'><a href="../../RSpec.html" title="RSpec (module)">RSpec</a></span></span><span class='period'>.</span><span class='id identifier rubyid_configure'>configure</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_config'>config</span><span class='op'>|</span>
   <span class='id identifier rubyid_config'>config</span><span class='period'>.</span><span class='id identifier rubyid_mock_with'>mock_with</span> <span class='symbol'>:rspec</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_mocks'>mocks</span><span class='op'>|</span>
     <span class='id identifier rubyid_mocks'>mocks</span><span class='period'>.</span><span class='id identifier rubyid_allow_message_expectations_on_nil'>allow_message_expectations_on_nil</span> <span class='op'>=</span> <span class='kw'>false</span>
@@ -399,7 +399,7 @@ Defaults to <code>true</code>.</p>
 </div>
 <div class="tags">
   <div class="examples">
-    <p class="tag_title">Examples:</p>
+    <h4 class="tag_title">Examples:</h4>
       <pre class="example code"><code><span class='const'><span class='object_link'><a href="../../RSpec.html" title="RSpec (module)">RSpec</a></span></span><span class='period'>.</span><span class='id identifier rubyid_configure'>configure</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_rspec'>rspec</span><span class='op'>|</span>
   <span class='id identifier rubyid_rspec'>rspec</span><span class='period'>.</span><span class='id identifier rubyid_mock_with'>mock_with</span> <span class='symbol'>:rspec</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_mocks'>mocks</span><span class='op'>|</span>
     <span class='id identifier rubyid_mocks'>mocks</span><span class='period'>.</span><span class='id identifier rubyid_yield_receiver_to_any_instance_implementation_blocks'>yield_receiver_to_any_instance_implementation_blocks</span> <span class='op'>=</span> <span class='kw'>false</span>
@@ -441,7 +441,7 @@ the process.</p>
 </div>
 <div class="tags">
   <div class="examples">
-    <p class="tag_title">Examples:</p>
+    <h4 class="tag_title">Examples:</h4>
       <pre class="example code"><code><span class='const'><span class='object_link'><a href="../../RSpec.html" title="RSpec (module)">RSpec</a></span></span><span class='period'>.</span><span class='id identifier rubyid_configure'>configure</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_rspec'>rspec</span><span class='op'>|</span>
   <span class='id identifier rubyid_rspec'>rspec</span><span class='period'>.</span><span class='id identifier rubyid_mock_with'>mock_with</span> <span class='symbol'>:rspec</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_mocks'>mocks</span><span class='op'>|</span>
     <span class='id identifier rubyid_mocks'>mocks</span><span class='period'>.</span><span class='id identifier rubyid_add_stub_and_should_receive_to'>add_stub_and_should_receive_to</span> <span class='const'>Delegator</span>
@@ -482,7 +482,7 @@ the process.</p>
 </div>
 <div class="tags">
   <div class="examples">
-    <p class="tag_title">Examples:</p>
+    <h4 class="tag_title">Examples:</h4>
       <pre class="example code"><code><span class='const'><span class='object_link'><a href="../../RSpec.html" title="RSpec (module)">RSpec</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Mocks.html" title="RSpec::Mocks (module)">Mocks</a></span></span><span class='period'>.</span><span class='id identifier rubyid_configuration'><span class='object_link'><a href="../Mocks.html#configuration-class_method" title="RSpec::Mocks.configuration (method)">configuration</a></span></span><span class='period'>.</span><span class='id identifier rubyid_before_verifying_doubles'>before_verifying_doubles</span> <span class='kw'>do</span> <span class='op'>|</span><span class='id identifier rubyid_ref'>ref</span><span class='op'>|</span>
   <span class='id identifier rubyid_ref'>ref</span><span class='period'>.</span><span class='id identifier rubyid_some_method!'>some_method!</span>
 <span class='kw'>end</span></code></pre>
@@ -620,7 +620,7 @@ that are enabled.</p>
 </div>
 <div class="tags">
   <div class="examples">
-    <p class="tag_title">Examples:</p>
+    <h4 class="tag_title">Examples:</h4>
       <pre class="example code"><code><span class='kw'>unless</span> <span class='const'><span class='object_link'><a href="../../RSpec.html" title="RSpec (module)">RSpec</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="../Mocks.html" title="RSpec::Mocks (module)">Mocks</a></span></span><span class='period'>.</span><span class='id identifier rubyid_configuration'><span class='object_link'><a href="../Mocks.html#configuration-class_method" title="RSpec::Mocks.configuration (method)">configuration</a></span></span><span class='period'>.</span><span class='id identifier rubyid_syntax'>syntax</span><span class='period'>.</span><span class='id identifier rubyid_include?'>include?</span><span class='lparen'>(</span><span class='symbol'>:expect</span><span class='rparen'>)</span>
   <span class='id identifier rubyid_raise'>raise</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>this RSpec extension gem requires the rspec-mocks `:expect` syntax</span><span class='tstring_end'>&quot;</span></span>
 <span class='kw'>end</span></code></pre>
@@ -663,7 +663,7 @@ disable <code>expect</code> syntax.</p>
 </div>
 <div class="tags">
   <div class="examples">
-    <p class="tag_title">Examples:</p>
+    <h4 class="tag_title">Examples:</h4>
       <pre class="example code"><code>RSpec.configure do |rspec|
   rspec.mock_with :rspec do |mocks|
     mocks.syntax = [:expect, :should]
@@ -892,9 +892,9 @@ method, and methods that do not exist cannot be stubbed.</p>
   </div>
 </div>
       <div id="footer">
-  Generated on Sun Feb  4 20:34:25 2024 by
+  Generated on Wed Sep  4 15:23:12 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.34 (ruby-3.2.2).
+  0.9.37 (ruby-3.2.2).
 </div>
     </div>
   </body>
