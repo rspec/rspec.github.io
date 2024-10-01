@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>
   Exception: RSpec::Core::MultipleExceptionError
-    &mdash; Documentation by YARD 0.9.36
+    &mdash; Documentation by YARD 0.9.37
 </title>
   <link rel="stylesheet" href="/documentation/3.13/rspec-core/css/style.css" type="text/css" />
   <link rel="stylesheet" href="/documentation/3.13/rspec-core/css/common.css" type="text/css" />
@@ -174,20 +174,20 @@ and one in an <code>after</code> block.</p>
   <tr>
     <td>
       <pre class="lines">
-513
-514
-515
-516
-517
-518
 519
 520
 521
 522
-523</pre>
+523
+524
+525
+526
+527
+528
+529</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/core/formatters/exception_presenter.rb', line 513</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/formatters/exception_presenter.rb', line 519</span>
 <span class='kw'>def</span> <span class='id identifier rubyid_initialize'>initialize</span><span class='lparen'>(</span><span class='op'>*</span><span class='id identifier rubyid_exceptions'>exceptions</span><span class='rparen'>)</span>
   <span class='kw'>super</span><span class='lparen'>(</span><span class='rparen'>)</span>
   <span class='ivar'>@failures</span>                <span class='op'>=</span> <span class='lbracket'>[</span><span class='rbracket'>]</span>
@@ -229,12 +229,12 @@ and one in an <code>after</code> block.</p>
   <tr>
     <td>
       <pre class="lines">
-510
-511
-512</pre>
+516
+517
+518</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/core/formatters/exception_presenter.rb', line 510</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/formatters/exception_presenter.rb', line 516</span>
 <span class='kw'>def</span> <span class='id identifier rubyid_aggregation_block_label'>aggregation_block_label</span>
   <span class='ivar'>@aggregation_block_label</span>
 <span class='kw'>end</span></pre>
@@ -265,12 +265,12 @@ and one in an <code>after</code> block.</p>
   <tr>
     <td>
       <pre class="lines">
-506
-507
-508</pre>
+512
+513
+514</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/core/formatters/exception_presenter.rb', line 506</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/formatters/exception_presenter.rb', line 512</span>
 <span class='kw'>def</span> <span class='id identifier rubyid_aggregation_metadata'>aggregation_metadata</span>
   <span class='ivar'>@aggregation_metadata</span>
 <span class='kw'>end</span></pre>
@@ -301,12 +301,12 @@ and one in an <code>after</code> block.</p>
   <tr>
     <td>
       <pre class="lines">
-503
-504
-505</pre>
+509
+510
+511</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/core/formatters/exception_presenter.rb', line 503</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/formatters/exception_presenter.rb', line 509</span>
 <span class='kw'>def</span> <span class='id identifier rubyid_all_exceptions'>all_exceptions</span>
   <span class='ivar'>@all_exceptions</span>
 <span class='kw'>end</span></pre>
@@ -337,12 +337,12 @@ and one in an <code>after</code> block.</p>
   <tr>
     <td>
       <pre class="lines">
-497
-498
-499</pre>
+503
+504
+505</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/core/formatters/exception_presenter.rb', line 497</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/formatters/exception_presenter.rb', line 503</span>
 <span class='kw'>def</span> <span class='id identifier rubyid_failures'>failures</span>
   <span class='ivar'>@failures</span>
 <span class='kw'>end</span></pre>
@@ -373,12 +373,12 @@ and one in an <code>after</code> block.</p>
   <tr>
     <td>
       <pre class="lines">
-500
-501
-502</pre>
+506
+507
+508</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/core/formatters/exception_presenter.rb', line 500</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/formatters/exception_presenter.rb', line 506</span>
 <span class='kw'>def</span> <span class='id identifier rubyid_other_errors'>other_errors</span>
   <span class='ivar'>@other_errors</span>
 <span class='kw'>end</span></pre>
@@ -402,15 +402,15 @@ and one in an <code>after</code> block.</p>
   <tr>
     <td>
       <pre class="lines">
-538
-539
-540
-541
-542
-543</pre>
+544
+545
+546
+547
+548
+549</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/core/formatters/exception_presenter.rb', line 538</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/formatters/exception_presenter.rb', line 544</span>
 <span class='kw'>def</span> <span class='id identifier rubyid_exception_count_description'>exception_count_description</span>
   <span class='id identifier rubyid_failure_count'>failure_count</span> <span class='op'>=</span> <span class='const'><span class='object_link'><a href="Formatters.html" title="RSpec::Core::Formatters (module)">Formatters</a></span></span><span class='op'>::</span><span class='const'><span class='object_link'><a href="Formatters/Helpers.html" title="RSpec::Core::Formatters::Helpers (module)">Helpers</a></span></span><span class='period'>.</span><span class='id identifier rubyid_pluralize'><span class='object_link'><a href="Formatters/Helpers.html#pluralize-class_method" title="RSpec::Core::Formatters::Helpers.pluralize (method)">pluralize</a></span></span><span class='lparen'>(</span><span class='id identifier rubyid_failures'>failures</span><span class='period'>.</span><span class='id identifier rubyid_size'>size</span><span class='comma'>,</span> <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>failure</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
   <span class='kw'>return</span> <span class='id identifier rubyid_failure_count'>failure_count</span> <span class='kw'>if</span> <span class='id identifier rubyid_other_errors'>other_errors</span><span class='period'>.</span><span class='id identifier rubyid_empty?'>empty?</span>
@@ -449,12 +449,12 @@ individually.</p>
   <tr>
     <td>
       <pre class="lines">
-528
-529
-530</pre>
+534
+535
+536</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/core/formatters/exception_presenter.rb', line 528</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/formatters/exception_presenter.rb', line 534</span>
 <span class='kw'>def</span> <span class='id identifier rubyid_message'>message</span>
   <span class='id identifier rubyid_all_exceptions'>all_exceptions</span><span class='period'>.</span><span class='id identifier rubyid_map'>map</span><span class='lparen'>(</span><span class='op'>&amp;</span><span class='symbol'>:message</span><span class='rparen'>)</span><span class='period'>.</span><span class='id identifier rubyid_join'>join</span><span class='lparen'>(</span><span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>\n\n</span><span class='tstring_end'>&quot;</span></span><span class='rparen'>)</span>
 <span class='kw'>end</span></pre>
@@ -484,12 +484,12 @@ individually.</p>
   <tr>
     <td>
       <pre class="lines">
-533
-534
-535</pre>
+539
+540
+541</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'lib/rspec/core/formatters/exception_presenter.rb', line 533</span>
+      <pre class="code"><span class="info file"># File 'lib/rspec/core/formatters/exception_presenter.rb', line 539</span>
 <span class='kw'>def</span> <span class='id identifier rubyid_summary'>summary</span>
   <span class='tstring'><span class='tstring_beg'>&quot;</span><span class='tstring_content'>Got </span><span class='embexpr_beg'>#{</span><span class='id identifier rubyid_exception_count_description'>exception_count_description</span><span class='embexpr_end'>}</span><span class='tstring_end'>&quot;</span></span>
 <span class='kw'>end</span></pre>
@@ -500,9 +500,9 @@ individually.</p>
   </div>
 </div>
       <div id="footer">
-  Generated on Tue Sep  3 11:00:23 2024 by
+  Generated on Tue Oct  1 21:13:25 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.36 (ruby-3.2.2).
+  0.9.37 (ruby-3.3.5).
 </div>
     </div>
   </body>
