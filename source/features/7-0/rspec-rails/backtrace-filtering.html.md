@@ -44,7 +44,7 @@ _When_ I run `rspec`
 
 _Then_ the output should contain "1 example, 1 failure"
 
-_And_ the output should not contain "activesupport".
+_And_ the output should not contain "actionpack".
 
 ## Using `rspec --backtrace`
 
@@ -52,4 +52,4 @@ _When_ I run `rspec --backtrace`
 
 _Then_ the output should contain "1 example, 1 failure"
 
-_And_ the output should contain "activesupport".
+_And_ the output should contain "actionpack".
