@@ -42,6 +42,11 @@
       </div>
       <div id="content"><div id='filecontents'><h3 id="development">Development</h3>
 <p><a href="https://github.com/rspec/rspec-rails/compare/v7.0.1...7-0-maintenance">Full Changelog</a></p>
+<p>Bug Fixes:</p>
+<ul>
+<li>Fix issue with <code>have_enqueued_mail</code> when jobs were incorrectly matched due
+to refactoring in #2780. (David Runger, #2793)</li>
+</ul>
 <h3 id="7-0-1-2024-09-03">7.0.1 / 2024-09-03</h3>
 <p><a href="https://github.com/rspec/rspec-rails/compare/v7.0.0...v7.0.1">Full Changelog</a></p>
 <p>Bug Fixes:</p>
@@ -58,7 +63,7 @@
 <li>Change default driver for system specs on Rails 7.2 to match its default.
 (Steve Polito, #2746)</li>
 <li>Verify ActiveJob arguments by comparing to the method signature. (Oli Peate, #2745)</li>
-<li>Add suggestion to rails_helper.rb to skip when not in test most. (Glauco Custódio, #2751)</li>
+<li>Add suggestion to rails_helper.rb to skip when not in test mode. (Glauco Custódio, #2751)</li>
 <li>Add <code>at_priority</code> qualifier to <code>have_enqueued_job</code> set of matchers. (mbajur, #2759)</li>
 <li>Add spec directories to <code>rails stats</code> on Rails main / 8.0.0. (Petrik de Heus, #2781)</li>
 </ul>
@@ -1319,9 +1324,9 @@ any stubs submitted each time it is called.</li>
 </ul>
 </div></div>
       <div id="footer">
-  Generated on Wed Sep  4 12:48:49 2024 by
+  Generated on Wed Oct  9 21:42:10 2024 by
   <a href="https://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
-  0.9.37 (ruby-3.2.2).
+  0.9.37 (ruby-3.3.5).
 </div>
     </div>
   </body>
