@@ -39,11 +39,11 @@ But somehow it was never the right time, so finally, we're just jumping in and d
 
 So from this week, RSpec is now a monorepo for all future development.
 
-## Step we intend to take
+## Steps we intend to take
 
 1. Make the `rspec` repo public, its been private as a work in progress but now we're ready for help.
 2. Transfer any open issues from the various repositories to the monorepo, then prevent new ones from
-   being opened, and update the repo's READMEs.
+   being opened, and update the repos' READMEs.
 3. Work on bringing the build for `3-13-maintenance` across so patches can be issued from the monorepo,
    but if we fail at this we will publish and backport any patches required across to the old repositories.
 4. Bring across the remaining rspec-dev tooling, for example documentation generation, into the monorepo.
