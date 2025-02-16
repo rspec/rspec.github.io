@@ -20,3 +20,11 @@ gem "rack-contrib" # For try_static
 # For testing purposes
 gem "nokogiri"
 gem "httparty"
+#
+# pin for logger issue
+gem 'concurrent-ruby', '1.3.4'
+
+# gems for Ruby 3.4 support
+gem 'base64'
+gem 'bigdecimal'
+gem 'mutex_m'
