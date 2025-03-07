@@ -34,6 +34,7 @@ jobs:
           ruby-version: '3.3'
       - name: Install dependencies
         run: |
+          sudo apt-get install imagemagick
           bundle config set --local path '.bundle/gems'
           bundle install
       - name: Build with Middleman
