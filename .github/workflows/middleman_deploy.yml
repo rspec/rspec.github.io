@@ -48,7 +48,10 @@ jobs:
           key: ${{ runner.os }}-source-build
           path: __source_build
       - name: Install dependencies
-        run: bundle install
+        run: |
+          sudo apt-get install imagemagick
+          bundle config set --local path '.bundle/gems'
+          bundle install
       - name: Build with Middleman
         run: |
           mkdir -p __source_build

@@ -20,3 +20,6 @@ gem "rack-contrib" # For try_static
 # For testing purposes
 gem "nokogiri"
 gem "httparty"
+
+# For Ruby > 3.4.x
+gem "csv"
