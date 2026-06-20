@@ -1,0 +1,184 @@
+# RSpec
+
+RSpec is a Behaviour Driven Development (BDD) testing framework for Ruby. It makes test-driven development productive and expressive, providing a rich DSL for writing human-readable examples that describe expected behaviour.
+
+## What is RSpec?
+
+RSpec is a widely-used Ruby testing framework built around the philosophy of describing behaviour in plain language rather than writing traditional unit tests. It encourages developers to think in terms of specifications: "describe what this object does" rather than "test that this method returns X". This maps naturally onto TDD/BDD workflows where examples are written first and drive implementation.
+
+RSpec is composed of four modular libraries that can be used together or independently alongside other testing tools such as Cucumber or Minitest:
+
+- **rspec-core**: The spec runner. Provides the `describe`/`it` DSL, command-line interface, hooks, metadata, filtering, formatters, and configuration.
+- **rspec-expectations**: Readable matcher-based API for asserting expected outcomes (`expect(x).to eq(y)`).
+- **rspec-mocks**: Test double framework supporting stubs, message expectations, spies, verifying doubles, and constant stubbing.
+- **rspec-rails**: Integrates RSpec with Ruby on Rails, adding spec types for models, controllers, requests, views, helpers, mailers, routing, jobs, channels, and mailboxes.
+
+## rspec-core
+
+`rspec-core` is the foundation of RSpec. It provides the DSL, the runner, and all test organisation primitives.
+
+**Example structure.** Tests are organised into example groups using `RSpec.describe` (or `describe` in monkey-patched mode). Within a group, individual examples are declared with `it` or `specify`. `context` is an alias for `describe` used to express different conditions. Groups and examples form a nested tree whose descriptions read as natural English when concatenated:
+
+```ruby
+RSpec.describe "an Account" do
+  context "when first opened" do
+    it "has a balance of zero" do
+      expect(Account.new.balance).to eq(0)
+    end
+  end
+end
+```
+
+Under the hood, each example group is a Ruby class. The block passed to `describe`/`context` is evaluated in the context of that class; the block passed to `it` is evaluated in the context of an instance of that class.
+
+**`let` and `let!`.** `let` defines a memoized helper method that is lazily evaluated — it is only called the first time it is referenced within an example, and the result is cached for the duration of that example (but not across examples). `let!` is the eager variant: it forces invocation before each example via a `before` hook.
+
+**Hooks.** `before(:each)` / `after(:each)` (aliases: `before(:example)`) run setup and teardown around every example. `before(:all)` / `after(:all)` run once for the entire example group. `around(:each)` wraps each example, giving full control over execution via `example.run`. Hooks can be scoped to matching examples using metadata filters.
+
+**Subject.** Every example group has a `subject` — by default, an instance of the class passed to the outermost `describe`. You can override it explicitly with `subject { ... }`. One-liner syntax such as `it { is_expected.to be_valid }` uses the subject implicitly.
+
+**Shared examples and contexts.** `shared_examples` define reusable example groups that can be included anywhere with `include_examples` or `it_behaves_like`. `shared_context` defines reusable setup (let, before hooks, helpers) included with `include_context`.
+
+**Metadata and filtering.** Every example and group carries a metadata hash. You can attach arbitrary key/value pairs (e.g. `it "is fast", speed: :fast do`) and then filter which examples run using `--tag` on the command line or inclusion/exclusion filter rules in configuration. `described_class` is a built-in metadata helper that returns the class being described.
+
+**Command-line interface.** The `rspec` binary accepts options for filtering by file, line number (`rspec spec/foo_spec.rb:42`), example name (`--example`), tag (`--tag`), output format (`--format`), execution order (`--order random`, reproducible via `--seed`), and more. `--only-failures` re-runs only the examples that failed in the previous run. `--bisect` automatically isolates the minimal set of examples needed to reproduce an ordering-dependent failure.
+
+**Configuration.** RSpec is configured via `RSpec.configure` blocks, typically placed in `spec/spec_helper.rb` or `spec/rails_helper.rb`. Key options include `disable_monkey_patching!` (zero monkey-patching mode — stops RSpec from adding `describe`, `should`, `stub`, etc. to global scope and to all objects), `fail_fast`, `order`, `filter_run_when_matching`, custom formatters, custom output streams, and pluggable expectation/mock frameworks.
+
+**Formatters.** The default progress formatter prints dots, F, and * for passing, failing, and pending examples. The documentation formatter (`-f doc`) prints the full nested description tree. A JSON formatter is also built in. Custom formatters can be registered via the API.
+
+## rspec-expectations
+
+`rspec-expectations` provides the matcher API used inside examples to express expected outcomes.
+
+**Basic syntax.** The primary syntax is `expect(actual).to matcher` and `expect(actual).not_to matcher`. The legacy `should`/`should_not` syntax (which monkey-patches every Ruby object) is still supported but disabled in zero-monkey-patching mode.
+
+**Built-in matchers** include:
+
+- Equality: `eq`, `eql`, `equal` (object identity), `be ==`
+- Comparisons: `be >`, `be <=`, `be_between`, `be_within(delta).of`
+- Truthiness / existence: `be_truthy`, `be_falsey`, `be_nil`, `exist`
+- Type checks: `be_a`, `be_an_instance_of`, `be_kind_of`
+- Predicate matchers: any `be_*` or `have_*` method delegates to a corresponding `?` method on the actual object (e.g. `expect(array).to be_empty` calls `array.empty?`)
+- Collections: `include`, `contain_exactly` (order-independent), `match_array`, `start_with`, `end_with`, `cover`, `all`
+- Change observation: `change { expr }.by(n)`, `.from(a).to(b)`, `.by_at_least(n)`
+- Errors and throws: `raise_error`, `throw_symbol`
+- Output: `output("text").to_stdout`, `output(/regex/).to_stderr`
+- Object shape: `have_attributes(name: "Alice")`, `respond_to(:method_name)`
+- String/regex: `match(/pattern/)`, `start_with`, `end_with`
+- Yield: `yield_control`, `yield_with_args`, `yield_successive_args`
+
+**Composing matchers.** Matchers can be composed using `and`, `or`, and passed as arguments to other matchers. For example: `expect(result).to include(a_string_matching(/foo/)).and include(a_value_within(0.1).of(3.14))`.
+
+**Compound expectations.** A single `expect` can chain multiple matchers with `.and` or `.or`.
+
+**Aggregating failures.** `aggregate_failures` (or the `:aggregate_failures` metadata flag) allows multiple expectations within one example to all run and report, rather than stopping at the first failure.
+
+**Custom matchers.** Defined with `RSpec::Matchers.define :matcher_name do |expected| ... end`. The DSL supports `match`, `match_when_negated`, `failure_message`, `failure_message_when_negated`, `description`, `diffable`, and chained methods for a fluent interface.
+
+**Diffing.** When an expectation fails, rspec-expectations generates a human-readable diff of the expected and actual values where applicable. Matchers can opt in to diffing via `diffable`.
+
+## rspec-mocks
+
+`rspec-mocks` provides test doubles — objects that stand in for real dependencies during examples — plus the ability to stub methods and set message expectations on any object.
+
+**Test doubles.** Created with `double("label")`. A plain double raises on any message it has not been explicitly configured to respond to. A null object double (`double("label").as_null_object`) returns itself for any unconfigured message.
+
+**Verifying doubles.** `instance_double(ClassName)`, `class_double(ClassName)`, and `object_double(real_object)` create doubles that are verified against the actual interface of the class or object. If the class is loaded, RSpec checks that stubbed methods exist and that argument counts are valid, preventing tests from silently passing against non-existent APIs. Verifying doubles can be used even when the real class is not loaded (e.g. in unit tests that avoid loading heavy dependencies), while still verifying against the real class when it is available.
+
+**Allowing messages (stubs).** `allow(obj).to receive(:method_name).and_return(value)` configures an object to return a known value. Variants include `and_raise`, `and_throw`, `and_yield`, `and_call_original`, `and_wrap_original`, and block implementations. Return values can be varied across successive calls with `and_return(v1, v2, v3)`.
+
+**Expecting messages.** `expect(obj).to receive(:method_name)` sets a message expectation — the example will fail if the object does not receive that message during execution. Constraints can be added for argument matching (`with`), receive counts (`once`, `twice`, `exactly(n).times`, `at_least`, `at_most`), and message ordering (`ordered`).
+
+**Spies.** When using `have_received` after the fact (`expect(obj).to have_received(:method_name)`), the object must first be set up with `allow` (or be a null object double). This pattern separates setup from verification and is generally preferred in the arrange-act-assert style.
+
+**Partial doubles.** `allow` and `expect(...).to receive` work on real objects too, selectively overriding specific methods while leaving all others intact. Stubs are automatically restored after each example.
+
+**Constant stubbing.** `stub_const("ClassName", fake_value)` temporarily replaces a constant for the duration of an example. `hide_const("ClassName")` makes it appear undefined.
+
+**Argument matchers.** `with` accepts exact values, or flexible matchers such as `anything`, `an_instance_of(Class)`, `hash_including(key: val)`, `array_including(val)`, and any rspec-expectations matcher.
+
+**Legacy syntax.** The older `obj.stub(:method)` and `obj.should_receive(:method)` syntax is still supported for compatibility but deprecated in zero-monkey-patching mode.
+
+## rspec-rails
+
+`rspec-rails` integrates RSpec with Ruby on Rails, wrapping Rails' own testing infrastructure and adding Rails-specific matchers, generator integration, and spec type inference based on file location.
+
+**Spec types.** rspec-rails provides dedicated spec types, each with relevant helpers pre-mixed in: model specs (`type: :model`), controller specs (`type: :controller`), request specs (`type: :request`), feature specs (`type: :feature`, using Capybara), view specs (`type: :view`), helper specs (`type: :helper`), mailer specs (`type: :mailer`), routing specs (`type: :routing`), job specs (`type: :job`), channel specs (`type: :channel`), mailbox specs (`type: :mailbox`), and system specs (`type: :system`, full browser via Capybara). The spec type is inferred automatically from the file path (e.g. `spec/models/` → `:model`) or set explicitly via metadata.
+
+**Rails-specific matchers** include `render_template`, `redirect_to`, `have_http_status`, `be_a_new`, `route_to`, `be_routable`, `have_enqueued_job`, `have_been_enqueued`, `have_performed_job`, `have_been_performed`, `have_enqueued_mail`, `send_email`, `have_broadcasted_to`, `have_stream_from`.
+
+**Installation.** Add `gem 'rspec-rails'` to the `:test` and `:development` groups in the Gemfile (the `:development` group is needed to expose generators and Rake tasks without `RAILS_ENV=test`), then run `bundle exec rails generate rspec:install`. This creates `spec/`, `.rspec`, `spec/spec_helper.rb`, and `spec/rails_helper.rb`.
+
+**Generators.** rspec-rails includes generators that create spec files alongside Rails generators: `rails generate model Foo` also creates `spec/models/foo_spec.rb`. Specs can also be generated standalone.
+
+**Version compatibility.** rspec-rails 8.0 supports Rails 7.x and 8.x. rspec-rails 7.x supported Rails 7.0–7.2. rspec-rails 6.x supported Rails 6.1. rspec-rails 5.x supported Rails 5.2 and 6.0. rspec-rails has been decoupled from the core gem release cycle since version 4.0 (released May 2020), tracking Rails versions independently.
+
+## Project Status and Roadmap
+
+RSpec is in active development as a monorepo at https://github.com/rspec/rspec. As of November 2024, all gems (rspec-core, rspec-expectations, rspec-mocks, rspec-support, and the rspec meta-gem) have been consolidated from separate repositories into a single monorepo. rspec-rails remains in its own repository at https://github.com/rspec/rspec-rails.
+
+RSpec 4 is in planning. Key planned changes include updating the Ruby version support policy from "support all Rubies ever" to "support Rubies that are not end-of-life at time of minor release." This means the current build support going back to Ruby 1.8.7 will end. Some RSpec 4 features that had previously been scoped may be deferred to later minor releases.
+
+## Main Pages
+
+- [Home](https://rspec.info/): Overview, quick-start guide, links to the book and screencast.
+- [About](https://rspec.info/about): History of RSpec (2005–present), current team members (Jon Rowe, Benoit Tigeot, Phil Pirozhkov, Xavier Shay, Yuji Nakayama), and alumni.
+- [Documentation](https://rspec.info/documentation): Index of versioned API docs (RDoc) and Gherkin feature examples for all four gems.
+- [Blog](https://rspec.info/blog): Release announcements and project updates (2011–2024).
+- [Upgrading from RSpec 2](https://rspec.info/upgrading-from-rspec-2): Step-by-step guide for migrating from RSpec 2 to 3, including use of the Transpec tool.
+- [Get Help](https://rspec.info/help): Support channels — mailing list, IRC (#rspec on freenode), and GitHub issue trackers per gem.
+- [Contributing](https://rspec.info/contributing): How to contribute via GitHub pull requests and issues; links to rspec-dev and individual gem repos.
+
+## Documentation (API RDoc) — Current Versions
+
+- [rspec-core 3.13](https://rspec.info/documentation/3.13/rspec-core/)
+- [rspec-expectations 3.13](https://rspec.info/documentation/3.13/rspec-expectations/)
+- [rspec-mocks 3.13](https://rspec.info/documentation/3.13/rspec-mocks/)
+- [rspec-rails 8.0](https://rspec.info/documentation/8.0/rspec-rails/)
+
+## Documentation (API RDoc) — Older Versions
+
+- [rspec-core](https://rspec.info/documentation): versions 2.14, 2.99, 3.0–3.12
+- [rspec-expectations](https://rspec.info/documentation): versions 2.14, 2.99, 3.0–3.12
+- [rspec-mocks](https://rspec.info/documentation): versions 2.14, 2.99, 3.0–3.12
+- [rspec-rails](https://rspec.info/documentation): versions 2.14, 2.99, 3.0–3.9, 4.0–4.1, 5.0, 6.0–6.1, 7.0–7.1
+
+## Gherkin Feature Examples — Current Versions
+
+- [rspec-core 3.13 features](https://rspec.info/features/3-13/rspec-core): Example groups, command-line options, hooks, subjects, `let`, metadata, filtering, configuration, formatters, and more.
+- [rspec-expectations 3.13 features](https://rspec.info/features/3-13/rspec-expectations): Built-in matchers, custom matchers, composing matchers, compound expectations, aggregating failures, diffing, syntax configuration.
+- [rspec-mocks 3.13 features](https://rspec.info/features/3-13/rspec-mocks): Test doubles, verifying doubles, configuring responses, setting constraints, mutating constants, legacy `any_instance` and stub chains.
+- [rspec-rails 8.0 features](https://rspec.info/features/8-0/rspec-rails): Model, controller, request, feature, view, helper, mailer, routing, job, channel, mailbox, and system specs; Rails-specific matchers; generators.
+
+## Gherkin Feature Examples — Previous Versions
+
+- [rspec-core 3.12](https://rspec.info/features/3-12/rspec-core)
+- [rspec-expectations 3.12](https://rspec.info/features/3-12/rspec-expectations)
+- [rspec-mocks 3.12](https://rspec.info/features/3-12/rspec-mocks)
+- [rspec-rails 7.1](https://rspec.info/features/7-1/rspec-rails)
+- [rspec-rails 7.0](https://rspec.info/features/7-0/rspec-rails)
+- [rspec-rails 6.1](https://rspec.info/features/6-1/rspec-rails)
+- [rspec-rails 6.0](https://rspec.info/features/6-0/rspec-rails)
+
+## Blog Posts (selected)
+
+- [Introducing the RSpec monorepo (Nov 2024)](https://rspec.info/blog/2024/11/introducing-the-monorepo/): All RSpec gems consolidated into the `rspec/rspec` GitHub repository. Plans for RSpec 4 and updated Ruby support policy.
+- [RSpec Rails 4.0 released (May 2020)](https://rspec.info/blog/2020/05/rspec-rails-4-0-has-been-released/): rspec-rails decoupled from the release cycle of core RSpec gems.
+- [RSpec 3.9 released (Oct 2019)](https://rspec.info/blog/2019/10/rspec-3-9-has-been-released/): Release notes and leadership changes (Penelope Phippen stepping down).
+- [Jon Rowe and Sam Phippen become RSpec leads (Sep 2018)](https://rspec.info/blog/2018/09/jon-rowe-and-sam-phippen-are-rspecs-new-leads/)
+- [RSpec 3.8 released (Aug 2018)](https://rspec.info/blog/2018/08/rspec-3-8-has-been-released/)
+- [Effective Testing with RSpec 3 book released (Sep 2017)](https://rspec.info/blog/2017/09/effective-testing-with-rspec-3-released/)
+- [RSpec 3.0 and 2.99.0 released (Jun 2014)](https://rspec.info/blog/2014/06/rspec-2-99-0-and-3-0-0-have-been-released/): Major release with breaking changes, verifying doubles, composable matchers, zero monkey-patching mode.
+- [The Plan for RSpec 3 (Jul 2013)](https://rspec.info/blog/2013/07/the-plan-for-rspec-3/)
+- [RSpec's new expectation syntax (Jun 2012)](https://rspec.info/blog/2012/06/rspecs-new-expectation-syntax/): Introduction of `expect` syntax as an alternative to `should`.
+- [Composable Matchers in RSpec 3 (Jan 2014)](https://rspec.info/blog/2014/01/new-in-rspec-3-composable-matchers/)
+
+## External Resources
+
+- GitHub monorepo: https://github.com/rspec/rspec
+- rspec-rails repo: https://github.com/rspec/rspec-rails
+- Mailing list / Google Group: https://groups.google.com/forum/#!forum/rspec
+- Book: *Effective Testing with RSpec 3* — https://pragprog.com/titles/rspec3/effective-testing-with-rspec-3/
+- Screencast: *Testing Ruby Applications with RSpec* — https://www.pluralsight.com/courses/rspec-ruby-application-testing
+- Transpec (RSpec 2→3 upgrade tool): http://yujinakayama.me/transpec/
