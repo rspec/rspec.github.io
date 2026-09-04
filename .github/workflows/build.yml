@@ -49,4 +49,6 @@ jobs:
         with:
           html_file: '__build/index.html'
       - name: Access preview
-        run: echo "${{steps.html_preview.outputs.url}}"
+        run: echo "${STEPS_HTML_PREVIEW_OUTPUTS_URL}"
+        env:
+          STEPS_HTML_PREVIEW_OUTPUTS_URL: ${{steps.html_preview.outputs.url}}
