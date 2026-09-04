@@ -17,19 +17,19 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - name: Setup bundler cache
-        uses: actions/cache@v3
+        uses: actions/cache@caa296126883cff596d87d8935842f9db880ef25 # v5.1.0
         with:
           key: ${{ runner.os }}-bundler-${{ hashFiles('Gemfile.lock') }}
           path: .bundle/gems
       - name: Setup build cache
-        uses: actions/cache@v3
+        uses: actions/cache@caa296126883cff596d87d8935842f9db880ef25 # v5.1.0
         with:
           key: ${{ runner.os }}-build
           path: __build
       - name: Setup Ruby
-        uses: ruby/setup-ruby@v1
+        uses: ruby/setup-ruby@95ef2b042f9d7a56d8268cba8559e2842e2ad01b # v1.321.0
         with:
           ruby-version: '3.3'
       - name: Install dependencies
@@ -43,7 +43,7 @@ jobs:
           BUILD_OUTPUT="__build" bundle exec middleman build
       - name: Generate HTML Preview
         id: html_preview
-        uses: pavi2410/html-preview-action@v2
+        uses: pavi2410/html-preview-action@b58683c238478d5f8b5dacf4fe5e3f403afb449a # v5
         with:
           html_file: '__build/index.html'
       - name: Access preview
